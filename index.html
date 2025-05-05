@@ -1,101 +1,124 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recarra Secure Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recarra - Sell Your Car Instantly</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background-color: #000;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
     }
 
-    nav {
-      background-color: #111;
-      color: #fff;
-      padding: 1rem 2rem;
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    nav .brand {
-      font-size: 1.5rem;
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #ff4d4d;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
       font-weight: bold;
     }
 
-    nav .menu {
-      font-size: 1rem;
+    .hero {
+      padding: 80px 20px;
     }
 
-    #login-section, #secure-content {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
     }
 
-    #login-section input {
-      padding: 0.5rem;
-      font-size: 1rem;
-      margin: 1rem 0;
+    .hero p {
+      font-size: 18px;
+      margin-top: 0;
+      color: #ddd;
     }
 
-    #login-section button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      background-color: red;
+    .cta-button {
+      background-color: #ff4d4d;
       color: white;
+      padding: 12px 25px;
       border: none;
+      border-radius: 5px;
+      font-size: 16px;
       cursor: pointer;
+      margin-top: 30px;
     }
 
-    #secure-content {
-      display: none;
-      text-align: center;
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 60px 20px;
     }
 
-    .hidden {
-      display: none;
+    .feature {
+      background-color: rgba(255, 255, 255, 0.1);
+      margin: 15px;
+      padding: 25px;
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00000066;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="brand">Recarra</div>
-    <div class="menu">Secure Access</div>
-  </nav>
+  <header>
+    <h1>Recarra</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">How it Works</a>
+      <a href="#">Get an Offer</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
 
-  <div id="login-section">
-    <h2>Enter Password</h2>
-    <input type="password" id="password-input" placeholder="Enter password"/>
-    <button onclick="checkPassword()">Enter</button>
-    <p id="error-msg" style="color: red;"></p>
-  </div>
+  <section class="hero">
+    <h2>Sell Your Junk Car Fast</h2>
+    <p>Instant offers. Free towing. Cash on the spot.</p>
+    <button class="cta-button">Get Your Offer Now</button>
+  </section>
 
-  <div id="secure-content">
-    <h1>Welcome to Recarra!</h1>
-    <p>This is the secure homepage content.</p>
-  </div>
+  <section class="features">
+    <div class="feature">
+      <h3>Instant Quotes</h3>
+      <p>Get a real cash offer within seconds using our smart pricing system.</p>
+    </div>
+    <div class="feature">
+      <h3>Same-Day Pickup</h3>
+      <p>We pick up your vehicle the same day you accept the offer.</p>
+    </div>
+    <div class="feature">
+      <h3>Cash Payment</h3>
+      <p>Get paid in cash or direct transfer instantly at pickup.</p>
+    </div>
+  </section>
 
-  <script>
-    function checkPassword() {
-      const input = document.getElementById('password-input').value;
-      const error = document.getElementById('error-msg');
-      if (input === 'recarra70707070707070707') {
-        document.getElementById('login-section').style.display = 'none';
-        document.getElementById('secure-content').style.display = 'flex';
-      } else {
-        error.textContent = 'Incorrect password. Please try again.';
-      }
-    }
-  </script>
+  <footer>
+    &copy; 2025 Recarra. All rights reserved.
+  </footer>
 </body>
 </html>
