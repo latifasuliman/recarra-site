@@ -2,79 +2,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to Recarra</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #000000, #4A0000);
+      background-color: #000;
+      color: #fff;
       font-family: 'Segoe UI', sans-serif;
-      color: white;
-      overflow: hidden;
-    }
-    .centered {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      animation: fadeIn 2s ease-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
     }
     h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      animation: floatText 4s ease-in-out infinite;
+      font-size: 2.5rem;
+      margin: 0;
     }
-    input[type="password"] {
-      padding: 12px;
-      width: 250px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      margin-bottom: 12px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      background-color: #FF0000;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #cc0000;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translate(-50%, -60%); }
-      100% { opacity: 1; transform: translate(-50%, -50%); }
-    }
-    @keyframes floatText {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    p {
+      font-size: 1.2rem;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="centered">
-    <h1>Welcome to Recarra</h1>
-    <input type="password" id="password" placeholder="Enter password" />
-    <br>
-    <button onclick="checkPassword()">Enter</button>
-  </div>
-  <script>
-    const correctPassword = "recarra70707070707070707";
-    function checkPassword() {
-      const entered = document.getElementById("password").value;
-      if (entered === correctPassword) {
-        window.location.href = "home.html";
-      } else {
-        alert("Incorrect password. Please try again.");
-      }
-    }
-  </script>
+  <h1>Welcome to Recarra!</h1>
+  <p>This is the secure homepage content.</p>
 </body>
 </html>
