@@ -2,74 +2,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recarra - Protected Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Recarra</title>
   <style>
     body {
-      background: #000;
-      color: white;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #000000, #4A0000);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      overflow: hidden;
     }
-    #authBox {
-      background: #111;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px red;
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
+      animation: fadeIn 2s ease-out;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: floatText 4s ease-in-out infinite;
     }
     input[type="password"] {
-      padding: 10px;
-      width: 200px;
+      padding: 12px;
+      width: 250px;
       border: none;
-      border-radius: 5px;
-      margin-top: 10px;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-bottom: 12px;
     }
     button {
-      margin-top: 10px;
       padding: 10px 20px;
+      font-size: 16px;
       border: none;
-      background: red;
+      background-color: #FF0000;
       color: white;
-      font-weight: bold;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
-    #error {
-      color: red;
-      margin-top: 10px;
+    button:hover {
+      background-color: #cc0000;
     }
-    #content {
-      display: none;
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translate(-50%, -60%); }
+      100% { opacity: 1; transform: translate(-50%, -50%); }
+    }
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
 <body>
-  <div id="authBox">
-    <h2>Enter Password to Access Recarra</h2>
-    <input type="password" id="password" placeholder="Enter password"/>
+  <div class="centered">
+    <h1>Welcome to Recarra</h1>
+    <input type="password" id="password" placeholder="Enter password" />
+    <br>
     <button onclick="checkPassword()">Enter</button>
-    <div id="error"></div>
   </div>
-
-  <div id="content">
-    <h1>Welcome to Recarra!</h1>
-    <p>This is the secure homepage content.</p>
-  </div>
-
   <script>
+    const correctPassword = "recarra70707070707070707";
     function checkPassword() {
-      var pw = document.getElementById("password").value;
-      if (pw === "recarra2025") {
-        document.getElementById("authBox").style.display = "none";
-        document.getElementById("content").style.display = "block";
+      const entered = document.getElementById("password").value;
+      if (entered === correctPassword) {
+        window.location.href = "home.html";
       } else {
-        document.getElementById("error").innerText = "Incorrect password. Try again.";
+        alert("Incorrect password. Please try again.");
       }
     }
   </script>
