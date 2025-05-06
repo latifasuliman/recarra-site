@@ -1,233 +1,139 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recarra | Instant Cash for Cars</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta charset="utf-8"/>
+<meta content="no-store" http-equiv="Cache-Control"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recarra | Instant Offer</title>
+<style>
     body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
       color: #fff;
+      margin: 0;
+      padding: 0;
     }
-    header {
-      background-color: #000;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
+    header, footer {
+      background-color: #111;
+      padding: 15px 25px;
+      text-align: center;
     }
     header h1 {
+      color: #ffcc00;
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.8em;
-      color: #ffcc00;
-    }
-    nav a {
-      color: #fff;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      padding: 80px 20px;
-      text-align: center;
-      background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
-    }
-    .hero h2 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      font-family: 'Orbitron', sans-serif;
-    }
-    .hero p {
-      font-size: 1.2em;
-      color: #f0f0f0;
-      max-width: 600px;
-      margin: auto;
-    }
-    .cta-button {
-      background: #ff4444;
-      color: white;
-      font-weight: bold;
-      font-size: 1em;
-      padding: 15px 30px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      margin-top: 30px;
-      box-shadow: 0 0 15px rgba(255,0,0,0.6);
-    }
-    .features, .how-it-works {
-      background: #111;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .features h3, .how-it-works h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.2em;
-      margin-bottom: 30px;
-      color: #ffcc00;
-    }
-    .feature-item, .how-step {
-      max-width: 800px;
-      margin: 20px auto;
-      background: #1f1f1f;
-      padding: 20px;
-      border-radius: 10px;
-      border-left: 5px solid #ffcc00;
-      font-size: 1.1em;
-      text-align: left;
     }
     .form-section {
-      background: #000;
-      padding: 60px 20px;
-      color: white;
-      text-align: center;
-    }
-    form {
+      padding: 30px 20px;
       max-width: 500px;
       margin: auto;
-      text-align: left;
     }
     label {
-      margin-top: 15px;
       display: block;
+      margin-top: 20px;
+      margin-bottom: 6px;
       font-weight: bold;
     }
     input, select {
-      width: 100%;
+      width: 100%; max-width: 313px; margin: auto;
       padding: 12px;
-      font-size: 1em;
-      margin-top: 5px;
-      border-radius: 8px;
+      border-radius: 6px;
       border: none;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      font-size: 1em;
     }
-    button.submit-btn {
-      width: 100%;
-      background: #ff4444;
+    button {
+      width: 100%; max-width: 313px; margin: auto;
+      padding: 14px;
+      background-color: #ff4444;
       color: white;
       font-weight: bold;
       font-size: 1.1em;
-      padding: 15px;
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      box-shadow: 0 0 12px rgba(255,0,0,0.6);
     }
-    footer {
-      background: #111;
-      color: #ccc;
-      padding: 30px 20px;
+    #offer-result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #ffcc00;
       text-align: center;
-    }
-    .floating-button {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #ffcc00;
-      color: black;
-      padding: 15px 25px;
-      border-radius: 30px;
-      font-size: 1em;
-      font-weight: bold;
-      box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
-      cursor: pointer;
-      z-index: 1000;
     }
   </style>
 </head>
-<body>
-
-<header>
-  <h1>Recarra</h1>
-  <nav>
-    <a href="#how">How It Works</a>
-    <a href="#form">Get Offer</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<body><header style="background:#000;padding:15px 25px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#ffcc00;font-family:'Orbitron',sans-serif;font-size:1.6em;">Recarra</div><nav><a href="#" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Home</a><a href="#how" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">How It Works</a><a href="#form" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Get Offer</a><a href="#contact" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Contact</a></nav></header><section id="hero" style="padding:80px 20px;text-align:center;background:linear-gradient(to right,#1a2a6c,#b21f1f,#fdbb2d);"><h2 style="font-size:2.8em;font-family:'Orbitron',sans-serif;color:white;">Sell Your Car Instantly</h2><p style="font-size:1.2em;color:#fff;margin-top:15px;">We pay top dollar for any car. Get your offer now — no obligations, no hidden fees!</p></section>
+<section id="how" style="padding:60px 20px;background:#111;color:white;text-align:center;"><h3 style="font-size:2em;font-family:'Orbitron',sans-serif;color:#ffcc00;">How It Works</h3><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">Fill in your car info using our smart form.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">See your instant cash offer right on the screen.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">Get paid and picked up same-day — free towing included.</div></section><section id="why" style="padding:60px 20px;background:#000;color:white;text-align:center;"><h3 style="font-size:2em;font-family:'Orbitron',sans-serif;color:#ffcc00;">Why Recarra?</h3><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Top Dollar Guaranteed — We consistently offer higher payouts than competitors — even for older or damaged vehicles.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Sell As-Is — No need to fix or clean your car. We buy it exactly how it is.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">No Paperwork Hassle — We handle the title transfer, DMV forms, and all required documents.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Same-Day Pickup — Submit your car details in the morning — get paid before sunset.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Trusted by Thousands — Hundreds of sellers in your city trust Recarra to pay fast and fair.</div></section><header>
+<h1>Recarra</h1>
 </header>
-
-<section class="hero">
-  <h2>Instant Cash for Your Car</h2>
-  <p>We buy any car — any condition. Get a fast quote and same-day pickup with cash in hand.</p>
-  <button class="cta-button" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'});">Get My Offer Now</button>
-</section>
-
-<section id="how" class="how-it-works">
-  <h3>How It Works</h3>
-  <div class="how-step"><strong>1.</strong> Fill out our instant quote form with your car details.</div>
-  <div class="how-step"><strong>2.</strong> Receive an instant cash offer on-screen.</div>
-  <div class="how-step"><strong>3.</strong> We pick up your car the same day — for free.</div>
-  <div class="how-step"><strong>4.</strong> You get paid instantly. No games, no waiting.</div>
-</section>
-
-<section class="features">
-  <h3>Why Recarra?</h3>
-  <div class="feature-item">Fast Offers — Instant cash value generated for your vehicle.</div>
-  <div class="feature-item">Free Towing — We come to you, anywhere.</div>
-  <div class="feature-item">Guaranteed Payment — No hidden fees, ever.</div>
-  <div class="feature-item">All Conditions Accepted — Running or wrecked, we’ll buy it.</div>
-</section>
-
-<section class="form-section" id="form">
-  <h3>Get Your Instant Offer</h3>
-  <form onsubmit="showOffer(event)">
-    <label for="year">Year</label>
-    <select id="year" required>
-      <option value="">Select</option>
-      <option>2024</option><option>2023</option><option>2022</option>
-      <option>2021</option><option>2020</option><option>2019</option>
-    </select>
-
-    <label for="make">Make</label>
-    <input type="text" id="make" required placeholder="e.g., Toyota">
-
-    <label for="model">Model</label>
-    <input type="text" id="model" required placeholder="e.g., Corolla">
-
-    <label for="mileage">Mileage</label>
-    <input type="number" id="mileage" required placeholder="e.g., 85000">
-
-    <label for="zip">ZIP Code</label>
-    <input type="text" id="zip" required placeholder="e.g., 77001">
-
-    <div id="offer-result" style="font-size: 1.4em; margin: 20px 0;"></div>
-
-    <button type="submit" class="submit-btn">Get My Offer</button>
-  </form>
-</section>
-
-<footer id="contact">
-  <p>&copy; 2025 Recarra.com — All Rights Reserved</p>
-  <p>Email: support@recarra.com | Phone: (346) 274-0071</p>
-</footer>
-
-<div class="floating-button" onclick="document.getElementById('form').scrollIntoView({behavior: 'smooth'});">
-  $$$ Get Paid Today!
+<div class="form-section">
+<h2 style="text-align:center;">Get Your Instant Offer</h2>
+<label for="lookup">VIN or License Plate Lookup</label>
+<input id="lookup" placeholder="Enter VIN or Plate (optional)" type="text"/>
+<label for="year">Year</label>
+<input id="year" list="years" placeholder="e.g., 2022"/>
+<datalist id="years">
+<option>2024</option><option>2023</option><option>2022</option>
+<option>2021</option><option>2020</option><option>2019</option>
+</datalist>
+<label for="make">Make</label>
+<input id="make" list="makes" placeholder="e.g., Toyota"/>
+<datalist id="makes">
+<option>Toyota</option><option>Honda</option><option>Ford</option><option>Chevrolet</option>
+<option>Nissan</option><option>Hyundai</option><option>BMW</option><option>Mercedes</option>
+</datalist>
+<label for="model">Model</label>
+<input id="model" list="models" placeholder="e.g., Corolla"/>
+<datalist id="models">
+<option>Corolla</option><option>Civic</option><option>Camry</option><option>Altima</option>
+<option>F-150</option><option>Silverado</option>
+</datalist>
+<label for="trim">Trim</label>
+<input id="trim" placeholder="e.g., LE, SE, XLT" type="text"/>
+<label for="color">Color</label>
+<input id="color" list="colors" placeholder="e.g., Black"/>
+<datalist id="colors">
+<option>Black</option><option>White</option><option>Gray</option><option>Blue</option>
+<option>Red</option><option>Silver</option>
+</datalist>
+<label for="mileage">Mileage</label>
+<input id="mileage" placeholder="e.g., 85000" type="number"/>
+<label for="zip">ZIP Code</label>
+<input id="zip" placeholder="e.g., 77001" type="text"/>
+<label for="condition">Condition</label>
+<select id="condition">
+<option value="">Select Condition</option>
+<option>Excellent</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+</select>
+<div id="offer-result"></div>
+<button onclick="showOffer()">See My Offer</button>
 </div>
-
+<footer id="contact" style="background:#111;color:#ccc;padding:30px 20px;text-align:center;"><p>© 2025 Recarra.com — All Rights Reserved</p><p>Email: <a href="mailto:support@recarra.com" style="color:#ffcc00;">support@recarra.com</a></p><p>Phone: <a href="tel:3462740071" style="color:#ffcc00;">(346) 274-0071</a></p></footer>
 <script>
-  function showOffer(event) {
-    event.preventDefault();
-    const year = parseInt(document.getElementById('year').value);
-    const mileage = parseInt(document.getElementById('mileage').value);
-    const base = 500;
-    const yearBonus = (new Date().getFullYear() - year) * 10;
-    const mileagePenalty = mileage > 100000 ? 150 : 0;
-    const offer = base + yearBonus - mileagePenalty;
-    document.getElementById('offer-result').innerText = "Your Offer: $" + offer + " + $100 Same-Day Bonus!";
-  }
-</script>
+function showOffer() {
+  const year = parseInt(document.getElementById('year').value);
+  const mileage = parseInt(document.getElementById('mileage').value);
+  const make = document.getElementById('make').value.toLowerCase();
+  const zip = document.getElementById('zip').value;
+  const condition = document.getElementById('condition').value;
 
+  let base = 400;
+  const age = new Date().getFullYear() - year;
+  base += (age <= 5) ? 200 : (age <= 10 ? 100 : 0);
+  if (mileage > 150000) base -= 150;
+  else if (mileage > 100000) base -= 100;
+  if (["toyota", "honda"].includes(make)) base += 100;
+  if (condition === "Poor") base -= 200;
+  else if (condition === "Fair") base -= 100;
+  if (zip.startsWith("77")) base += 50;
+
+  const offer = Math.max(base, 100);
+  document.getElementById("offer-result").innerText = "Your Instant Offer: $" + offer + " + $100 Same-Day Bonus!";
+}
+</script>
 </body>
 </html>
