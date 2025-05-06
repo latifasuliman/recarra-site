@@ -1,631 +1,463 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="no-store" http-equiv="Cache-Control"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Recarra | Instant Offer</title>
+<title>
+   Recarra | Instant Car Offers
+  </title>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
 <style>
-  .nav-item {
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 8px 12px;
-    border-radius: 6px;
-  }
-
-  .nav-item:hover {
-    background-color: #e60023;
-    color: #000;
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
-  }
-
-  .dropdown {
-    position: relative;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 36px;
-    right: 0;
-    background-color: #111;
-    min-width: 160px;
-    border: 1px solid #e60023;
-    border-radius: 6px;
-    z-index: 1000;
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
-  }
-
-  .dropdown-content div {
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-
-  .dropdown-content div:hover {
-    background-color: #e60023;
-    color: #000;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-
-  @keyframes fadeOut {
-    from { opacity: 1; }
-
-    to { opacity: 0; }
-
-  @keyframes logoDrop {
-    0% { transform: translateY(-100px); opacity: 0; }
-
-    100% { transform: translateY(0); opacity: 1; }
-
-
-  .recarra-btn {
-    margin: 5px;
-    padding: 12px 24px;
-    background-color: #111;
-    color: white;
-    border: 2px solid #e60023;
-    border-radius: 8px;
-    font-size: 1.05em;
-    font-family: 'Segoe UI', sans-serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 5px #000;
-  }
-
-  .recarra-btn:hover {
-    background-color: #e60023;
-    color: #000;
-    transform: scale(1.06);
-    box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
-  }
-
-  .recarra-btn span.icon {
-    display: inline-block;
-    margin-right: 10px;
-    animation: iconBounce 1.8s infinite ease-in-out;
-  }
-
-  @keyframes iconBounce {
-    0%, 100% { transform: translateY(0); }
-
-    50% { transform: translateY(-3px); }
-
-
-  /* Universal smooth fade-in */
-  body {
-    animation: fadeIn 1s ease-in;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-
-
-  /* Viewer buttons styling */
-  .recarra-btn {
-    margin: 5px;
-    padding: 10px 20px;
-    background-color: #222;
-    color: white;
-    border: 2px solid #e60023;
-    border-radius: 6px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-
-  /* Frame loading overlay */
-  #loadingOverlay {
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0; left: 0;
-    background: rgba(0,0,0,0.7);
-    color: #e60023;
-    font-size: 1.2em;
-    font-family: Orbitron, sans-serif;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    border-radius: 10px;
-  }
-
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0d0d0d;
-      color: #fff;
-      margin: 0;
-      padding: 0;
+   * {
+      box-sizing: border-box;
     }
-
-    header, footer {
-      background-color: #111;
-      padding: 15px 25px;
+    body {
+      margin: 0;
+      font-family: 'Urbanist', sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #ff4b2b;
+    }
+    nav a {
+      margin-left: 1.5rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #ff4b2b;
+    }
+    .hero {
+      background-color: #181818;
+      padding: 4rem 2rem;
       text-align: center;
     }
-
-    header h1 {
-      color: #e60023;
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #ff4b2b;
     }
-
-    .form-section {
-      padding: 30px 20px;
-      max-width: 500px;
-      margin: auto;
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: #ccc;
     }
-
-    label {
-      display: block;
-      margin-top: 20px;
-      margin-bottom: 6px;
-      font-weight: bold;
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
-
-    input, select {
-      width: 100%; max-width: 313px; margin: auto;
-      padding: 12px;
+    .cta-buttons a {
+      background-color: #ff4b2b;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
       border-radius: 6px;
-      border: none;
-      margin-bottom: 10px;
-      font-size: 1em;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
     }
-
+    .cta-buttons a:hover {
+      background-color: #e63e21;
+    }
+    section {
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    section h2 {
+      color: #ff4b2b;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    section p {
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      color: #bbb;
+    }
+    input, textarea, button {
+      width: 90%;
+      max-width: 400px;
+      padding: 1rem;
+      margin: 0.5rem auto;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      display: block;
+    }
+    input, textarea {
+      background-color: #1f1f1f;
+      color: white;
+    }
     button {
-      width: 100%; max-width: 313px; margin: auto;
-      padding: 14px;
-      background-color: #ff4444;
+      background-color: #ff4b2b;
       color: white;
       font-weight: bold;
-      font-size: 1.1em;
-      border: none;
-      border-radius: 6px;
       cursor: pointer;
+      transition: background 0.3s;
     }
-
-    #offer-result {
-      margin-top: 20px;
-      font-size: 1.2em;
-      color: #e60023;
+    button:hover {
+      background-color: #e63e21;
+    }
+    footer {
+      background-color: #000;
+      padding: 1.5rem;
       text-align: center;
+      font-size: 0.9rem;
+      color: #777;
     }
-
-  
-input, select, textarea, button {
-  width: 100%;
-  max-width: 313px;
-  margin: 10px auto;
-  display: block;
-  box-sizing: border-box;
-}</style>
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      nav a {
+        margin-left: 1rem;
+      }
+    }
+  </style>
 <style>
-  .form-section {
-    padding: 30px 20px;
-    max-width: 500px;
-    margin: auto;
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
-  }
-  label {
-    display: block;
-    margin-top: 20px;
-    margin-bottom: 6px;
-    font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  input, select {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: none;
-    font-size: 1em;
-    box-sizing: border-box;
-    background-color: #222;
+   #chatButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4b2b;
     color: white;
-  }
-  input::placeholder {
-    color: #bbb;
-  }
-  button {
-    width: 100%;
-    padding: 14px;
-    background-color: #e60023;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1em;
     border: none;
-    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     cursor: pointer;
-    transition: background 0.3s ease;
+    z-index: 999;
   }
-  button:hover {
-    background-color: #ff4444;
+  </style>
+<style>
+   .floating-actions {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 998;
   }
-  #offer-result {
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: #e60023;
+  .floating-actions a {
+    background-color: #ff4b2b;
+    color: white;
     text-align: center;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-size: 14px;
   }
-</style>
+  </style>
+<div class="floating-actions">
+<a href="#upload">
+    Upload
+   </a>
+<a href="#form">
+    Smart Form
+   </a>
+<a href="tel:3462740071">
+    Call
+   </a>
+</div>
 </head>
-<body>
-<!-- Smart Navigation Bar -->
-<nav style="background-color: #000; padding: 10px 20px; position: sticky; top: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; font-family: 'Segoe UI', sans-serif;">
-<div style="color: #e60023; font-size: 1.4em; font-weight: bold;">Recarra</div>
-<div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
-<div class="nav-item" onclick="playAndOpen('index.html', 'Home')">Home</div>
-<div class="nav-item" onclick="playAndOpen('drivers.html', 'Drivers Portal')">Drivers</div>
-<div class="nav-item" onclick="playAndOpen('admin.html', 'Recarra Auction')">Auction</div>
-<div class="nav-item" onclick="playAndOpen('partners.html', 'Partners')">Partners</div>
-<div class="nav-item" onclick="playAndOpen('submit.html', 'Recarra Jobs')">Jobs</div>
-<div class="dropdown">
-<div class="nav-item">More</div>
-<div class="dropdown-content">
-<div onclick="playAndOpen('faq.html', 'FAQs')">FAQs</div>
-<div onclick="playAndOpen('offers.html', 'My Offers')">My Offers</div>
-<div onclick="playAndOpen('chat.html', 'Live Chat')">Live Chat</div>
-</div>
-</div>
-</div>
+<body style="background-color:#111; color:#f2f2f2; font-family:'Urbanist', sans-serif;">
+<header>
+<div class="logo">
+    Recarra
+   </div>
+<nav>
+<a href="#upload">
+     Upload
+    </a>
+<a href="#form">
+     Form
+    </a>
+<a href="#call">
+     Call
+    </a>
 </nav>
-<header style="background:#000;padding:15px 25px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#e60023;font-family:'Orbitron',sans-serif;font-size:1.6em;">Recarra</div>
-</header><section id="hero" style="padding:80px 20px;text-align:center;background:linear-gradient(to right,#1a2a6c,#b21f1f,#fdbb2d);"><h2 style="font-size:2.8em;font-family:'Orbitron',sans-serif;color:white;"><span id="ad-rotator">Sell Your Car Instantly</span></h2><p style="font-size:1.2em;color:#fff;margin-top:15px;">We pay top dollar for any car. Get your offer now — no obligations, no hidden fees!</p></section>
-<section id="how" style="padding:60px 20px;background:#111;color:white;text-align:center;"><h3 style="font-size:2em;font-family:'Orbitron',sans-serif;color:#e60023;">How It Works</h3><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">Fill in your car info using our smart form.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">See your instant cash offer right on the screen.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">Get paid and picked up same-day — free towing included.</div></section><section id="why" style="padding:60px 20px;background:#000;color:white;text-align:center;"><h3 style="font-size:2em;font-family:'Orbitron',sans-serif;color:#e60023;">Why Recarra?</h3><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #e60023;text-align:left;">Top Dollar Guaranteed — We consistently offer higher payouts than competitors — even for older or damaged vehicles.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #e60023;text-align:left;">Sell As-Is — No need to fix or clean your car. We buy it exactly how it is.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #e60023;text-align:left;">No Paperwork Hassle — We handle the title transfer, DMV forms, and all required documents.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #e60023;text-align:left;">Same-Day Pickup — Recarra Jobs your car details in the morning — get paid before sunset.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #e60023;text-align:left;">Trusted by Thousands — Hundreds of sellers in your city trust Recarra to pay fast and fair.</div></section><header>
-<h1>Recarra</h1>
 </header>
-<div class="form-section" id="form-section"><img alt="Recarra Logo" src="https://recarra.com/logo.png" style="display: block; margin: 0 auto 20px auto; max-width: 180px;"/>
-<h2 style="text-align:center;">Get Your Instant Offer</h2>
-<label for="lookup">VIN or License Plate Lookup</label>
-<input id="lookup" placeholder="Enter VIN or Plate (optional)" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="text"/>
-<label for="year">Year</label>
-<input id="year" list="years" placeholder="e.g., 2022" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;"/>
-<datalist id="years">
-<option>2024</option><option>2023</option><option>2022</option>
-<option>2021</option><option>2020</option><option>2019</option>
-</datalist>
-<label for="make">Make</label>
-<input id="make" list="makes" placeholder="e.g., Toyota" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;"/>
-<datalist id="makes">
-<option>Toyota</option><option>Honda</option><option>Ford</option><option>Chevrolet</option>
-<option>Nissan</option><option>Hyundai</option><option>BMW</option><option>Mercedes</option>
-</datalist>
-<label for="model">Model</label>
-<input id="model" list="models" placeholder="e.g., Corolla" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;"/>
-<datalist id="models">
-<option>Corolla</option><option>Civic</option><option>Camry</option><option>Altima</option>
-<option>F-150</option><option>Silverado</option>
-</datalist>
-<label for="trim">Trim</label>
-<input id="trim" placeholder="e.g., LE, SE, XLT" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="text"/>
-<label for="color">Color</label>
-<input id="color" list="colors" placeholder="e.g., Black" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;"/>
-<datalist id="colors">
-<option>Black</option><option>White</option><option>Gray</option><option>Blue</option>
-<option>Red</option><option>Silver</option>
-</datalist>
-<label for="mileage">Mileage</label>
-<input id="mileage" placeholder="e.g., 85000" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="number"/>
-<label for="zip">ZIP Code</label>
-<input id="zip" placeholder="e.g., 77001" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="text"/>
-<label for="condition">Condition</label>
-<select id="condition" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;">
-<option value="">Select Condition</option>
-<option>Excellent</option>
-<option>Good</option>
-<option>Fair</option>
-<option>Poor</option>
-</select>
-<div id="offer-result"></div>
-<button onclick="showOffer()">See My Offer</button>
-</div>
-<footer id="contact" style="background-color: #000; color: white; text-align: center; padding: 30px 20px; font-size: 1em;"><p>© 2025 Recarra.com — All Rights Reserved</p><p>Email: <a href="mailto:support@recarra.com" style="color: white; font-weight: bold; text-decoration: none; margin-left: 20px;">support@recarra.com</a></p><p>Phone: <a href="tel:3462740071" style="color: white; font-weight: bold; text-decoration: none; margin-left: 20px;">(346) 274-0071</a></p>
-<!-- Enhanced Dynamic Page Viewer -->
-<section id="page-viewer" style="padding: 40px 20px; background-color: #1a1a1a; color: white; text-align: center;">
-<h3 style="font-size: 1.8em; font-family: 'Orbitron', sans-serif; color: #e60023; margin-bottom: 20px;">Explore Recarra Pages</h3>
-<div style="margin-bottom: 15px;">
-<button id="muteToggle" onclick="toggleMute()" style="background-color: #1f1f1f;color: white;padding: 10px 18px;border-radius: 6px;font-size: 0.9em;cursor: pointer;font-family: 'Segoe UI', sans-serif;display: flex;align-items: center;gap: 8px;border: none;">
-      Mute Sounds
-    </button>
-</div>
-<div style="margin-bottom: 20px;">
-<button class="recarra-btn" onclick="playAndOpen('drivers.html', 'Drivers Portal')">Drivers Portal</button><button class="recarra-btn" onclick="playAndOpen('partners.html', 'Partners')">Partners</button><button class="recarra-btn" onclick="playAndOpen('admin.html', 'Recarra Auction')">Recarra Auction</button><button class="recarra-btn" onclick="playAndOpen('submit.html', 'Recarra Jobs')">Recarra Jobs</button><button class="recarra-btn" onclick="playAndOpen('blog.html', 'Recarra Blog')">Recarra Blog</button></div>
-<div id="iframeWrapper" style="display:none; position: relative; margin: auto; max-width: 1000px;">
-<div id="iframeTitle" style="text-align: left; font-size: 1.2em; color: #e60023; margin-bottom: 8px;"></div>
-<button onclick="closeViewer()" style="position: absolute; right: -10px; top: -10px; background: #ff4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-weight: bold; cursor: pointer;">X</button>
-<div id="loadingOverlay">Loading...</div>
-<iframe id="recarraFrame" loading="lazy" onload="hideLoading()" src="" style="width: 100%; height: 600px; border: 2px solid #e60023; border-radius: 10px; box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);"></iframe>
+<section style="background:#1b1b1b; padding:1.5rem; text-align:center;">
+<p id="rotatingAd" style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;"></p>
+</section>
+<script>
+  const recarraAds = [
+    "Sell your car in 60 seconds.",
+    "AI-powered offers, no stress.",
+    "Get paid today. $100 bonus for speed.",
+    "Free pickup. Fast cash. No title? No problem.",
+    "Houston’s fastest junk car buyer.",
+    "Don’t waste time — sell smarter.",
+    "Cash in hand. No games.",
+    "We beat all real competitor offers.",
+    "Upload a photo. Get an instant offer.",
+    "Our AI knows your car’s true value.",
+    "We handle paperwork for you.",
+    "No pressure — just payouts.",
+    "Trusted by thousands across Texas.",
+    "Skip the junkyard. Get paid online.",
+    "We buy cars nobody else wants.",
+    "Even wrecked cars earn you money.",
+    "Your car is worth more than scrap.",
+    "Recarra = real car cash, instantly.",
+    "Click. Upload. Paid.",
+    "Don’t delay. Offers expire fast."
+  ];
+  let rIndex = 0;
+  function cycleAds() {
+    document.getElementById("rotatingAd").innerText = recarraAds[rIndex];
+    rIndex = (rIndex + 1) % recarraAds.length;
+  }
+  setInterval(cycleAds, 4000);
+  window.onload = cycleAds;
+</script>
+<section class="hero">
+<h1>
+    Sell Your Car Your Way
+   </h1>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">
+    No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.
+   </p>
+<div class="cta-buttons">
+<a href="#upload">Upload Photos</a>
+<a href="#form">Use Smart Form</a>
+<a href="#call">Call Now</a>
+<a href="#live">Go Live With Us</a>
+<a href="#textus">Text Us License Plate</a>
 </div>
 </section>
+<section style="text-align:center;background:#111;color:white;padding:2rem 1rem;">
+<h1 id="aiHeadline" style="font-size:1.6rem;line-height:2.2rem;color:#ff4b2b;"></h1>
+</section>
+<script>
+  const aiHeadlines = [
+    "Snap. Sell. Get Paid in Minutes.",
+    "No Form Needed. Just Upload a Photo.",
+    "$100 Bonus for Same-Day Pickup!",
+    "AI Calculates Your Offer Instantly.",
+    "Join Thousands Who Got Paid Instantly."
+  ];
+  let headlineIndex = 0;
+  function rotateHeadline() {
+    document.getElementById("aiHeadline").innerText = aiHeadlines[headlineIndex];
+    headlineIndex = (headlineIndex + 1) % aiHeadlines.length;
+  }
+  setInterval(rotateHeadline, 4000);
+  rotateHeadline();
+</script>
+<section id="upload">
+<h2>
+    Upload &amp; Get Paid
+   </h2>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">
+    Send us photos or a short video and receive a personalized cash offer in minutes.
+   </p>
+<input accept="image/*" multiple="" type="file"/>
+<input accept="video/*" type="file"/>
+<input placeholder="Phone Number" type="text"/>
+<input placeholder="ZIP Code" type="text"/>
+<textarea placeholder="Notes or Damage Description (optional)"></textarea>
+<button>
+    Submit to Recarra
+   </button>
+</section>
+<section id="form">
+<h2>
+    Smart Form Entry
+   </h2>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">
+    Want a detailed price estimate? Fill out our dynamic AI-powered form for the best value.
+   </p>
+<div style="color: #888;">
+    [Smart Form Coming Soon]
+   </div>
+</section>
+<section id="call">
+<h2>
+    Talk to a Real Person
+   </h2>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">
+    Our support team is ready. Speak to us directly and get your offer confirmed.
+   </p>
+<a href="tel:3462740071" style="font-weight: bold; color: #fff; font-size: 1.2rem;">
+    Call (346) 274-0071
+   </a>
+</section>
+<section style="padding: 3rem 1rem; background: #121212; color: white;">
+<h2 style="text-align: center; color: #ff4b2b;">Frequently Asked Questions</h2>
+<div style="max-width: 600px; margin: 2rem auto;">
+<details style="margin-bottom: 1rem;">
+<summary style="cursor: pointer; font-weight: bold;">What types of cars do you buy?</summary>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">We buy all types: junk, used, non-running, wrecked, or simply unwanted vehicles.</p>
+</details>
+<details style="margin-bottom: 1rem;">
+<summary style="cursor: pointer; font-weight: bold;">How do I get paid?</summary>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">You get paid on the same day of pickup via your preferred method: cash, Cash App, Zelle, or debit card.</p>
+</details>
+<details style="margin-bottom: 1rem;">
+<summary style="cursor: pointer; font-weight: bold;">Do I need a title to sell?</summary>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">No problem! We work with and without titles, depending on your state.</p>
+</details>
+<details style="margin-bottom: 1rem;">
+<summary style="cursor: pointer; font-weight: bold;">How fast can you pick up my vehicle?</summary>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">Most pickups happen within hours. Same-day service is available in many areas with a $100 bonus.</p>
+</details>
+</div>
+</section><p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">Same day in most cases! We dispatch a driver as soon as you accept your offer.</p>
+<details style="margin-bottom: 1rem;">
+<summary style="cursor: pointer; font-weight: bold;">Is your service free?</summary>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;">Yes — no fees, no hidden costs. Everything is included.</p>
+</details>
+<!-- Live Chat Integration Placeholder -->
+<script>
+  window.onload = function() {
+    let script = document.createElement("script");
+    script.src = 'https://embed.tawk.to/64cfc8d5cc26a871b02e5ec5/1h6v9g5g2';
+    script.async = true;
+    script.charset = 'UTF-8';
+    script.setAttribute('crossorigin', '*');
+    document.body.appendChild(script);
+  }
+</script>
+<footer style="background:#111; padding:2rem; text-align:center; color:white;">
+<div style="margin-bottom:1rem;">
+<a href="#about" style="color:#ff4b2b; margin: 0 1rem; text-decoration:none;">About Us</a>
+<a href="#auctions" style="color:#ff4b2b; margin: 0 1rem; text-decoration:none;">Auctions</a>
+<a href="#transport" style="color:#ff4b2b; margin: 0 1rem; text-decoration:none;">Transport</a>
+<a href="#partners" style="color:#ff4b2b; margin: 0 1rem; text-decoration:none;">VIP Partners</a>
+</div>
+<div style="font-size: 0.85rem; color: #aaa;">
+    © 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX
+  </div>
 </footer>
-
+<button id="chatButton" onclick="alert('Live chat coming soon!')">
+   Chat with Us
+  </button>
+<section style="text-align:center; background:#1a1a1a; padding:2rem;">
+<h3 style="color:#ff4b2b; font-size:1.5rem;">
+    Live Offers Generated Today:
+    <span id="offerCounter">
+     823
+    </span>
+</h3>
+</section>
+<script>
+   let counter = 823;
+  setInterval(() => {
+    counter++;
+    document.getElementById("offerCounter").innerText = counter;
+  }, 12000); // simulate an offer every 12 seconds
+  </script>
+<!-- AI Loading Overlay -->
 <style>
-      @keyframes fade {
-        0% {opacity: 0;}
-        50% {opacity: 1;}
-        100% {opacity: 0;}
-      }
-    </style>
-<script>
-    const messages = [
-      "We Pay More Than Anyone Else!", "Sell in Minutes. Get Paid in Hours.",
-      "Free Towing. No Paperwork Hassle.", "Your Junk Car = Instant Cash Today",
-      "Avoid Scams. We’re Legit.", "Licensed. Insured. Trusted.",
-      "Get Paid Before You Sleep.", "Pickup in Hours, Not Days.",
-      "Houston’s Most Trusted Buyer.", "We Buy Any Car. Any Condition.",
-      "Top Offers Guaranteed.", "We Do All the Paperwork for You.",
-      "Don’t Let It Rust – Turn It Into Cash!", "Zero Hassle. Zero Delay.",
-      "Final Offers. Real Cash.", "100% Free Towing and Pickup.",
-      "Fast. Fair. Recarra.", "Beat Any Quote You Got.", "No Title? We May Still Help.",
-      "Your Time = Cash. Don't Waste It.",
-      ...Array.from({length: 80}, (_, i) => `Customer #${i+21} just sold their car to Recarra.`)
-    ];
-    let idx = 0;
-    setInterval(() => {
-      document.getElementById("adMessage").textContent = messages[idx];
-      idx = (idx + 1) % messages.length;
-    }, 4000);
-    </script>
-<script>
-  const driverSound = new Audio('https://actions.google.com/sounds/v1/transportation/car_passing.ogg');
-  const partnerSound = new Audio('https://actions.google.com/sounds/v1/human_voices/crowd_cheer.ogg');
-  const auctionSound = new Audio('https://actions.google.com/sounds/v1/money/money_1.ogg');
-  const jobSound = new Audio('https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg');
-  const closeSound = new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
-  let isMuted = false;
-
-  document.addEventListener("DOMContentLoaded", function() {
-    if (localStorage.getItem("recarraMute") === "true") {
-      isMuted = true;
-      document.getElementById("muteToggle").innerText = "Unmute Sounds";
-    }
-    const lastPage = localStorage.getItem('recarraLastPage');
-    const lastTitle = localStorage.getItem('recarraLastTitle');
-    if (lastPage && lastTitle) {
-      openPage(lastPage, lastTitle, false);
-    }
-  });
-
-  function toggleMute() {
-    isMuted = !isMuted;
-    localStorage.setItem("recarraMute", isMuted);
-    document.getElementById("muteToggle").innerText = isMuted ? "Unmute Sounds" : "Mute Sounds";
+  #loadingOverlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    color: #fff;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    flex-direction: column;
+    font-size: 1.5rem;
   }
-
-  function playAndOpen(url, title, soundId) {
-    if (!isMuted) {
-      const sound = window[soundId];
-      if (sound) sound.play();
-    }
-    openPage(url, title);
-  }
-
-  function openPage(url, title, remember = true) {
-    const wrapper = document.getElementById('iframeWrapper');
-    const frame = document.getElementById('recarraFrame');
-    const titleBar = document.getElementById('iframeTitle');
-    const loader = document.getElementById('loadingOverlay');
-    frame.style.opacity = 0;
-    loader.style.display = 'flex';
-    frame.src = url;
-    titleBar.innerText = "📑 " + title + " Page";
-    wrapper.style.display = 'block';
-    if (remember) {
-      localStorage.setItem('recarraLastPage', url);
-      localStorage.setItem('recarraLastTitle', title);
-    }
-    window.location.hash = 'page-viewer';
-  }
-
-  function hideLoading() {
-    const frame = document.getElementById('recarraFrame');
-    const loader = document.getElementById('loadingOverlay');
-    setTimeout(() => {
-      frame.style.opacity = 1;
-      loader.style.display = 'none';
-    }, 400);
-  }
-
-  function closeViewer() {
-    const wrapper = document.getElementById('iframeWrapper');
-    const frame = document.getElementById('recarraFrame');
-    const titleBar = document.getElementById('iframeTitle');
-    const loader = document.getElementById('loadingOverlay');
-    frame.style.opacity = 0;
-    loader.style.display = 'flex';
-    setTimeout(() => {
-      wrapper.style.display = 'none';
-      frame.src = '';
-      titleBar.innerText = '';
-      loader.style.display = 'none';
-      localStorage.removeItem('recarraLastPage');
-      localStorage.removeItem('recarraLastTitle');
-    }, 400);
-    if (!isMuted) closeSound.play();
-  }
-</script>
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-      const intro = document.getElementById("introScreen");
-      if (intro) {
-        intro.style.animation = "fadeOut 1s ease forwards";
-        setTimeout(() => intro.remove(), 1000);
-      }
-    }, 3000);
-  });
-</script>
-<!-- Floating Live Chat Button -->
-<div id="chat-button" onclick="toggleChat()" style="position: fixed;bottom: 20px;right: 20px;background-color: #e60023;color: white;padding: 14px 20px;border-radius: 8px;font-weight: bold;font-size: 0.95em;font-family: 'Segoe UI', sans-serif;cursor: pointer;z-index: 10000;box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);transition: background 0.3s ease;">Live Chat Support</div>
-<!-- Chat Box -->
-<div id="chat-box" style="
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  max-height: 400px;
-  background-color: #1a1a1a;
-  color: white;
-  border: 2px solid #e60023;
-  border-radius: 10px;
-  z-index: 10000;
-  box-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
-  font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
-">
-<div style="background-color: #000; padding: 10px; font-weight: bold;">
-    Recarra Live Chat
-    <span onclick="toggleChat()" style="float:right; cursor:pointer;">❌</span>
-</div>
-<div id="chat-messages" style="padding: 10px; height: 260px; overflow-y: auto;">
-<div style="margin-bottom: 10px;">👋 Hello! How can we help you today?</div>
-</div>
-<div style="display: flex; border-top: 1px solid #444;">
-<input id="chat-input" placeholder="Type your message..." style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="text"/>
-<button onclick="sendMessage()" style="
-      background-color: #e60023;
-      color: black;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      font-weight: bold;
-    ">Send</button>
-</div>
+</style>
+<div id="loadingOverlay">
+<div>Analyzing your vehicle with AI...</div>
+<div style="margin-top: 1rem;">Generating your best offer. Please wait...</div>
 </div>
 <script>
-  const driverSound = new Audio('https://actions.google.com/sounds/v1/transportation/car_passing.ogg');
-  const partnerSound = new Audio('https://actions.google.com/sounds/v1/human_voices/crowd_cheer.ogg');
-  const auctionSound = new Audio('https://actions.google.com/sounds/v1/money/money_1.ogg');
-  const jobSound = new Audio('https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg');
-  const closeSound = new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
-  let isMuted = false;
-
-  document.addEventListener("DOMContentLoaded", function() {
-    if (localStorage.getItem("recarraMute") === "true") {
-      isMuted = true;
-      document.getElementById("muteToggle").innerText = "Unmute Sounds";
-    }
-    const lastPage = localStorage.getItem('recarraLastPage');
-    const lastTitle = localStorage.getItem('recarraLastTitle');
-    if (lastPage && lastTitle) {
-      openPage(lastPage, lastTitle, false);
-    }
-  });
-
-  function toggleMute() {
-    isMuted = !isMuted;
-    localStorage.setItem("recarraMute", isMuted);
-    document.getElementById("muteToggle").innerText = isMuted ? "Unmute Sounds" : "Mute Sounds";
-  }
-
-  function playAndOpen(url, title, soundId) {
-    if (!isMuted) {
-      const sound = window[soundId];
-      if (sound) sound.play();
-    }
-    openPage(url, title);
-  }
-
-  function openPage(url, title, remember = true) {
-    const wrapper = document.getElementById('iframeWrapper');
-    const frame = document.getElementById('recarraFrame');
-    const titleBar = document.getElementById('iframeTitle');
-    const loader = document.getElementById('loadingOverlay');
-    frame.style.opacity = 0;
-    loader.style.display = 'flex';
-    frame.src = url;
-    titleBar.innerText = "📑 " + title + " Page";
-    wrapper.style.display = 'block';
-    if (remember) {
-      localStorage.setItem('recarraLastPage', url);
-      localStorage.setItem('recarraLastTitle', title);
-    }
-    window.location.hash = 'page-viewer';
-  }
-
-  function hideLoading() {
-    const frame = document.getElementById('recarraFrame');
-    const loader = document.getElementById('loadingOverlay');
+  document.querySelector("button").addEventListener("click", function() {
+    document.getElementById("loadingOverlay").style.display = "flex";
     setTimeout(() => {
-      frame.style.opacity = 1;
-      loader.style.display = 'none';
-    }, 400);
-  }
-
-  function closeViewer() {
-    const wrapper = document.getElementById('iframeWrapper');
-    const frame = document.getElementById('recarraFrame');
-    const titleBar = document.getElementById('iframeTitle');
-    const loader = document.getElementById('loadingOverlay');
-    frame.style.opacity = 0;
-    loader.style.display = 'flex';
-    setTimeout(() => {
-      wrapper.style.display = 'none';
-      frame.src = '';
-      titleBar.innerText = '';
-      loader.style.display = 'none';
-      localStorage.removeItem('recarraLastPage');
-      localStorage.removeItem('recarraLastTitle');
-    }, 400);
-    if (!isMuted) closeSound.play();
-  }
-</script><script>
-  function toggleChat() {
-    const chatBox = document.getElementById("chat-box");
-    chatBox.style.display = chatBox.style.display === "none" ? "block" : "none";
-  }
-
-  function sendMessage() {
-    const input = document.getElementById("chat-input");
-    const message = input.value.trim();
-    if (!message) return;
-    const msgContainer = document.getElementById("chat-messages");
-    const newMsg = document.createElement("div");
-    newMsg.style.margin = "10px 0";
-    newMsg.innerHTML = "<strong>You:</strong> " + message;
-    msgContainer.appendChild(newMsg);
-    input.value = "";
-    msgContainer.scrollTop = msgContainer.scrollHeight;
-
-    // Simulated reply
-    setTimeout(() => {
-      const reply = document.createElement("div");
-      reply.innerHTML = "⏳ Please wait while we connect you to an agent...";
-      msgContainer.appendChild(reply);
-      msgContainer.scrollTop = msgContainer.scrollHeight;
-    }, 1000);
-  }
-</script><script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const adTexts = [
-      "Sell your car instantly — Get paid today.",
-      "We buy any car — any condition, any model.",
-      "Same-day pickup available across Houston.",
-      "Top dollar offers — No lowballs, no hassle.",
-      "Instant payments — Cash, Debit, or App transfer."
-    ];
-    const adElem = document.getElementById("ad-rotator");
-    if (!adElem) return;
-
-    let index = 0;
-    setInterval(() => {
-      adElem.textContent = adTexts[index];
-      index = (index + 1) % adTexts.length;
+      document.getElementById("loadingOverlay").style.display = "none";
+      alert("Offer ready! Our team will contact you shortly.");
     }, 4000);
   });
-</script></body>
+</script>
+<!-- Testimonials Section -->
+<section style="background:#121212;text-align:center;padding:2rem;">
+<h2 style="color:#ff4b2b;">What Our Sellers Say</h2>
+<div style="max-width:600px;margin:1rem auto;color:#bbb;">
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;"><em>"I uploaded two photos and got paid the same day! Easiest process ever." – Maria G., Houston</em></p>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;"><em>"Recarra offered me more than any junkyard. Highly recommended!" – Jamal A., Katy</em></p>
+<p style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;"><em>"The smart form was fast and accurate. Love the $100 bonus!" – Luis R., Sugar Land</em></p>
+</div>
+</section>
+<!-- Ad Rotator -->
+<section style="background:#1e1e1e;padding:2rem;text-align:center;">
+<h3 style="color:#ff4b2b;">Why Choose Recarra?</h3>
+<p id="adMessage" style="color:#ccc; font-size:1rem; line-height:1.6; text-align:left;"></p>
+</section>
+<script>
+  const adMessages = [
+    "Get paid up to $1,000 today for your junk car!",
+    "We beat competitor offers. Instant AI quotes.",
+    "Same-day pickup + $100 bonus for fast sellers!",
+    "No title? No problem. We can still buy your car.",
+    "Upload a photo. Get a real offer. Done."
+  ];
+  let adIndex = 0;
+  function rotateAd() {
+    document.getElementById("adMessage").innerText = adMessages[adIndex];
+    adIndex = (adIndex + 1) % adMessages.length;
+  }
+  setInterval(rotateAd, 4000);
+  rotateAd();
+</script>
+<!-- Fixed Phone Icon -->
+<!-- Vehicle Bought Album -->
+<section style="padding:3rem 1rem;background:#181818;text-align:center;">
+<h2 style="color:#ff4b2b;">Recently Purchased Vehicles</h2>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
+<img alt="car1" src="https://i.ibb.co/z6mHHKK/car1.jpg" style="width:150px;height:auto;border-radius:8px;"/>
+<img alt="car2" src="https://i.ibb.co/k21LbzF/car2.jpg" style="width:150px;height:auto;border-radius:8px;"/>
+<img alt="car3" src="https://i.ibb.co/Y2R0FJR/car3.jpg" style="width:150px;height:auto;border-radius:8px;"/>
+<img alt="car4" src="https://i.ibb.co/v4kysX6/car4.jpg" style="width:150px;height:auto;border-radius:8px;"/>
+</div>
+</section>
+<script>
+  window.onload = function() {
+    const chatBtn = document.createElement('div');
+    chatBtn.innerText = 'Live Chat';
+    chatBtn.style.position = 'fixed';
+    chatBtn.style.bottom = '100px';
+    chatBtn.style.right = '20px';
+    chatBtn.style.background = '#ff4b2b';
+    chatBtn.style.color = 'white';
+    chatBtn.style.padding = '12px 18px';
+    chatBtn.style.borderRadius = '30px';
+    chatBtn.style.boxShadow = '0 0 10px #ff4b2b';
+    chatBtn.style.cursor = 'pointer';
+    chatBtn.style.zIndex = '10000';
+    chatBtn.onclick = function() {
+      alert('Live chat coming soon...');
+    };
+    document.body.appendChild(chatBtn);
+  };
+</script>
+</body>
 </html>
