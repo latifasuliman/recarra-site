@@ -61,13 +61,21 @@
       color: #ffcc00;
       text-align: center;
     }
-  </style>
+  
+input, select, textarea, button {
+  width: 100%;
+  max-width: 313px;
+  margin: 10px auto;
+  display: block;
+  box-sizing: border-box;
+}
+</style>
 </head>
 <body><header style="background:#000;padding:15px 25px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#ffcc00;font-family:'Orbitron',sans-serif;font-size:1.6em;">Recarra</div><nav><a href="#" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Home</a><a href="#how" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">How It Works</a><a href="#form" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Get Offer</a><a href="#contact" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Contact</a></nav></header><section id="hero" style="padding:80px 20px;text-align:center;background:linear-gradient(to right,#1a2a6c,#b21f1f,#fdbb2d);"><h2 style="font-size:2.8em;font-family:'Orbitron',sans-serif;color:white;">Sell Your Car Instantly</h2><p style="font-size:1.2em;color:#fff;margin-top:15px;">We pay top dollar for any car. Get your offer now — no obligations, no hidden fees!</p></section>
 <section id="how" style="padding:60px 20px;background:#111;color:white;text-align:center;"><h3 style="font-size:2em;font-family:'Orbitron',sans-serif;color:#ffcc00;">How It Works</h3><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">Fill in your car info using our smart form.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">See your instant cash offer right on the screen.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">Get paid and picked up same-day — free towing included.</div></section><section id="why" style="padding:60px 20px;background:#000;color:white;text-align:center;"><h3 style="font-size:2em;font-family:'Orbitron',sans-serif;color:#ffcc00;">Why Recarra?</h3><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Top Dollar Guaranteed — We consistently offer higher payouts than competitors — even for older or damaged vehicles.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Sell As-Is — No need to fix or clean your car. We buy it exactly how it is.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">No Paperwork Hassle — We handle the title transfer, DMV forms, and all required documents.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Same-Day Pickup — Submit your car details in the morning — get paid before sunset.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Trusted by Thousands — Hundreds of sellers in your city trust Recarra to pay fast and fair.</div></section><header>
 <h1>Recarra</h1>
 </header>
-<div class="form-section">
+<div class="form-section" id="form-section"><img alt="Recarra Logo" src="https://recarra.com/logo.png" style="display: block; margin: 0 auto 20px auto; max-width: 180px;"/>
 <h2 style="text-align:center;">Get Your Instant Offer</h2>
 <label for="lookup">VIN or License Plate Lookup</label>
 <input id="lookup" placeholder="Enter VIN or Plate (optional)" type="text"/>
@@ -133,7 +141,37 @@ function showOffer() {
 
   const offer = Math.max(base, 100);
   document.getElementById("offer-result").innerText = "Your Instant Offer: $" + offer + " + $100 Same-Day Bonus!";
+  document.getElementById("form-section").style.display = "none";
+
+  const resultContainer = document.createElement("div");
+  resultContainer.style.fontSize = "1.6em";
+  resultContainer.style.textAlign = "center";
+  resultContainer.style.color = "#ffcc00";
+  resultContainer.style.margin = "40px auto";
+  resultContainer.innerText = "Your Instant Offer: $" + offer + " + $100 Same-Day Bonus!";
+  document.body.insertBefore(resultContainer, document.getElementById("contact"));
+
+  const restartBtn = document.createElement("button");
+  restartBtn.innerText = "Start Over";
+  restartBtn.style.display = "block";
+  restartBtn.style.margin = "20px auto";
+  restartBtn.style.padding = "12px 24px";
+  restartBtn.style.fontSize = "1em";
+  restartBtn.style.backgroundColor = "#ff4444";
+  restartBtn.style.color = "#fff";
+  restartBtn.style.border = "none";
+  restartBtn.style.borderRadius = "8px";
+  restartBtn.style.cursor = "pointer";
+  restartBtn.onclick = () => window.location.reload();
+  document.body.insertBefore(restartBtn, document.getElementById("contact"));
 }
+
+  const speakText = "Congratulations! Your instant offer is $" + offer + " plus a $100 same-day bonus.";
+  const utterance = new SpeechSynthesisUtterance(speakText);
+  utterance.lang = "en-US";
+  utterance.pitch = 1.1;
+  utterance.rate = 0.95;
+  speechSynthesis.speak(utterance);
 </script>
 </body>
 </html>
