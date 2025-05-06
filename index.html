@@ -290,39 +290,39 @@ input, select, textarea, button {
 <div class="form-section" id="form-section"><img alt="Recarra Logo" src="https://recarra.com/logo.png" style="display: block; margin: 0 auto 20px auto; max-width: 180px;"/>
 <h2 style="text-align:center;">Get Your Instant Offer</h2>
 <label for="lookup">VIN or License Plate Lookup</label>
-<input id="lookup" placeholder="Enter VIN or Plate (optional)" type="text"/>
+<input id="lookup" placeholder="Enter VIN or Plate (optional)" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="text"/>
 <label for="year">Year</label>
-<input id="year" list="years" placeholder="e.g., 2022"/>
+<input id="year" list="years" placeholder="e.g., 2022" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;"/>
 <datalist id="years">
 <option>2024</option><option>2023</option><option>2022</option>
 <option>2021</option><option>2020</option><option>2019</option>
 </datalist>
 <label for="make">Make</label>
-<input id="make" list="makes" placeholder="e.g., Toyota"/>
+<input id="make" list="makes" placeholder="e.g., Toyota" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;"/>
 <datalist id="makes">
 <option>Toyota</option><option>Honda</option><option>Ford</option><option>Chevrolet</option>
 <option>Nissan</option><option>Hyundai</option><option>BMW</option><option>Mercedes</option>
 </datalist>
 <label for="model">Model</label>
-<input id="model" list="models" placeholder="e.g., Corolla"/>
+<input id="model" list="models" placeholder="e.g., Corolla" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;"/>
 <datalist id="models">
 <option>Corolla</option><option>Civic</option><option>Camry</option><option>Altima</option>
 <option>F-150</option><option>Silverado</option>
 </datalist>
 <label for="trim">Trim</label>
-<input id="trim" placeholder="e.g., LE, SE, XLT" type="text"/>
+<input id="trim" placeholder="e.g., LE, SE, XLT" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="text"/>
 <label for="color">Color</label>
-<input id="color" list="colors" placeholder="e.g., Black"/>
+<input id="color" list="colors" placeholder="e.g., Black" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;"/>
 <datalist id="colors">
 <option>Black</option><option>White</option><option>Gray</option><option>Blue</option>
 <option>Red</option><option>Silver</option>
 </datalist>
 <label for="mileage">Mileage</label>
-<input id="mileage" placeholder="e.g., 85000" type="number"/>
+<input id="mileage" placeholder="e.g., 85000" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="number"/>
 <label for="zip">ZIP Code</label>
-<input id="zip" placeholder="e.g., 77001" type="text"/>
+<input id="zip" placeholder="e.g., 77001" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="text"/>
 <label for="condition">Condition</label>
-<select id="condition">
+<select id="condition" style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;">
 <option value="">Select Condition</option>
 <option>Excellent</option>
 <option>Good</option>
@@ -332,12 +332,12 @@ input, select, textarea, button {
 <div id="offer-result"></div>
 <button onclick="showOffer()">See My Offer</button>
 </div>
-<footer id="contact" style="background:#111;color:#ccc;padding:30px 20px;text-align:center;"><p>© 2025 Recarra.com — All Rights Reserved</p><p>Email: <a href="mailto:support@recarra.com" style="color:#e60023;">support@recarra.com</a></p><p>Phone: <a href="tel:3462740071" style="color:#e60023;">(346) 274-0071</a></p>
+<footer id="contact" style="background-color: #000; color: white; text-align: center; padding: 30px 20px; font-size: 1em;"><p>© 2025 Recarra.com — All Rights Reserved</p><p>Email: <a href="mailto:support@recarra.com" style="color: white; font-weight: bold; text-decoration: none; margin-left: 20px;">support@recarra.com</a></p><p>Phone: <a href="tel:3462740071" style="color: white; font-weight: bold; text-decoration: none; margin-left: 20px;">(346) 274-0071</a></p>
 <!-- Enhanced Dynamic Page Viewer -->
 <section id="page-viewer" style="padding: 40px 20px; background-color: #1a1a1a; color: white; text-align: center;">
 <h3 style="font-size: 1.8em; font-family: 'Orbitron', sans-serif; color: #e60023; margin-bottom: 20px;">Explore Recarra Pages</h3>
 <div style="margin-bottom: 15px;">
-<button id="muteToggle" onclick="toggleMute()" style="background-color: #222; color: #e60023; border: 1px solid #e60023; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; cursor: pointer;">
+<button id="muteToggle" onclick="toggleMute()" style="background-color: #1f1f1f;color: white;padding: 10px 18px;border-radius: 6px;font-size: 0.9em;cursor: pointer;font-family: 'Segoe UI', sans-serif;display: flex;align-items: center;gap: 8px;border: none;">
       Mute Sounds
     </button>
 </div>
@@ -351,6 +351,34 @@ input, select, textarea, button {
 </div>
 </section>
 </footer>
+
+<style>
+      @keyframes fade {
+        0% {opacity: 0;}
+        50% {opacity: 1;}
+        100% {opacity: 0;}
+      }
+    </style>
+<script>
+    const messages = [
+      "We Pay More Than Anyone Else!", "Sell in Minutes. Get Paid in Hours.",
+      "Free Towing. No Paperwork Hassle.", "Your Junk Car = Instant Cash Today",
+      "Avoid Scams. We’re Legit.", "Licensed. Insured. Trusted.",
+      "Get Paid Before You Sleep.", "Pickup in Hours, Not Days.",
+      "Houston’s Most Trusted Buyer.", "We Buy Any Car. Any Condition.",
+      "Top Offers Guaranteed.", "We Do All the Paperwork for You.",
+      "Don’t Let It Rust – Turn It Into Cash!", "Zero Hassle. Zero Delay.",
+      "Final Offers. Real Cash.", "100% Free Towing and Pickup.",
+      "Fast. Fair. Recarra.", "Beat Any Quote You Got.", "No Title? We May Still Help.",
+      "Your Time = Cash. Don't Waste It.",
+      ...Array.from({length: 80}, (_, i) => `Customer #${i+21} just sold their car to Recarra.`)
+    ];
+    let idx = 0;
+    setInterval(() => {
+      document.getElementById("adMessage").textContent = messages[idx];
+      idx = (idx + 1) % messages.length;
+    }, 4000);
+    </script>
 <script>
   const driverSound = new Audio('https://actions.google.com/sounds/v1/transportation/car_passing.ogg');
   const partnerSound = new Audio('https://actions.google.com/sounds/v1/human_voices/crowd_cheer.ogg');
@@ -467,13 +495,7 @@ input, select, textarea, button {
 <div style="margin-bottom: 10px;">👋 Hello! How can we help you today?</div>
 </div>
 <div style="display: flex; border-top: 1px solid #444;">
-<input id="chat-input" placeholder="Type your message..." style="
-      flex: 1;
-      padding: 10px;
-      border: none;
-      background: #222;
-      color: white;
-    " type="text"/>
+<input id="chat-input" placeholder="Type your message..." style="background-color: #fff; color: #000; padding: 12px; font-size: 1em; border-radius: 6px; border: none; width: 100%; margin: 10px 0;" type="text"/>
 <button onclick="sendMessage()" style="
       background-color: #e60023;
       color: black;
