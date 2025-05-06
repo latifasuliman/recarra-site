@@ -3,6 +3,75 @@
 
 <html lang="en">
 <head>
+
+<style>
+  /* Universal smooth fade-in */
+  body {
+    animation: fadeIn 1s ease-in;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Viewer buttons styling */
+  .recarra-btn {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+    border: 2px solid #ffcc00;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .recarra-btn:hover {
+    background-color: #ffcc00;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.6);
+  }
+
+  /* Frame loading overlay */
+  #loadingOverlay {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    background: rgba(0,0,0,0.7);
+    color: #ffcc00;
+    font-size: 1.2em;
+    font-family: Orbitron, sans-serif;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 10px;
+  }
+</style>
+
+
+<style>
+  .recarra-btn {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+    border: 2px solid #ffcc00;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .recarra-btn:hover {
+    background-color: #ffcc00;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+  }
+</style>
+
 <meta charset="utf-8"/>
 <meta content="no-store" http-equiv="Cache-Control"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -71,7 +140,16 @@ input, select, textarea, button {
 }
 </style>
 </head>
-<body><header style="background:#000;padding:15px 25px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#ffcc00;font-family:'Orbitron',sans-serif;font-size:1.6em;">Recarra</div><nav><a href="#" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Home</a><a href="#how" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">How It Works</a><a href="#form" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Get Offer</a><a href="#contact" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Contact</a></nav></header><section id="hero" style="padding:80px 20px;text-align:center;background:linear-gradient(to right,#1a2a6c,#b21f1f,#fdbb2d);"><h2 style="font-size:2.8em;font-family:'Orbitron',sans-serif;color:white;">Sell Your Car Instantly</h2><p style="font-size:1.2em;color:#fff;margin-top:15px;">We pay top dollar for any car. Get your offer now — no obligations, no hidden fees!</p></section>
+<body><header style="background:#000;padding:15px 25px;display:flex;justify-content:space-between;align-items:center;"><div style="color:#ffcc00;font-family:'Orbitron',sans-serif;font-size:1.6em;">Recarra</div>
+<nav>
+  <a href="#" onclick="loadPage('index.html')" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Home</a>
+  <a href="#" onclick="loadPage('drivers.html')" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Drivers</a>
+  <a href="#" onclick="loadPage('admin.html')" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Admin</a>
+  <a href="#" onclick="loadPage('partners.html')" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Partners</a>
+  <a href="#" onclick="loadPage('accountants.html')" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Accountants</a>
+  <a href="#" onclick="loadPage('submit.html')" style="color:#fff;margin-left:20px;text-decoration:none;font-weight:bold;">Submit</a>
+</nav>
+</header><section id="hero" style="padding:80px 20px;text-align:center;background:linear-gradient(to right,#1a2a6c,#b21f1f,#fdbb2d);"><h2 style="font-size:2.8em;font-family:'Orbitron',sans-serif;color:white;">Sell Your Car Instantly</h2><p style="font-size:1.2em;color:#fff;margin-top:15px;">We pay top dollar for any car. Get your offer now — no obligations, no hidden fees!</p></section>
 <section id="how" style="padding:60px 20px;background:#111;color:white;text-align:center;"><h3 style="font-size:2em;font-family:'Orbitron',sans-serif;color:#ffcc00;">How It Works</h3><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">Fill in your car info using our smart form.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">See your instant cash offer right on the screen.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:15px;border-radius:8px;">Get paid and picked up same-day — free towing included.</div></section><section id="why" style="padding:60px 20px;background:#000;color:white;text-align:center;"><h3 style="font-size:2em;font-family:'Orbitron',sans-serif;color:#ffcc00;">Why Recarra?</h3><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Top Dollar Guaranteed — We consistently offer higher payouts than competitors — even for older or damaged vehicles.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Sell As-Is — No need to fix or clean your car. We buy it exactly how it is.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">No Paperwork Hassle — We handle the title transfer, DMV forms, and all required documents.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Same-Day Pickup — Submit your car details in the morning — get paid before sunset.</div><div style="margin:15px auto;max-width:600px;background:#1f1f1f;padding:18px;border-radius:8px;border-left:5px solid #ffcc00;text-align:left;">Trusted by Thousands — Hundreds of sellers in your city trust Recarra to pay fast and fair.</div></section><header>
 <h1>Recarra</h1>
 </header>
@@ -120,96 +198,192 @@ input, select, textarea, button {
 <div id="offer-result"></div>
 <button onclick="showOffer()">See My Offer</button>
 </div>
+<footer id="contact" style="background:#111;color:#ccc;padding:30px 20px;text-align:center;"><p>© 2025 Recarra.com — All Rights Reserved</p><p>Email: <a href="mailto:support@recarra.com" style="color:#ffcc00;">support@recarra.com</a></p><p>Phone: <a href="tel:3462740071" style="color:#ffcc00;">(346) 274-0071</a></p>
 
-<footer style="background:#0d0d0d; color:#ccc; padding: 40px 20px; font-family: Arial, sans-serif;">
-  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
-    
-    <!-- Brand & Tagline -->
-    <div style="flex: 1 1 220px;">
-      <h2 style="color: #ffcc00; margin-bottom: 10px;">Recarra</h2>
-      <p style="line-height: 1.6em;">Instant Offer. Fast Pay.<br>Sell your car today and get paid instantly.</p>
-    </div>
-    
-    <!-- Quick Links -->
-    <div style="flex: 1 1 150px;">
-      <h4 style="color: #fff; margin-bottom: 10px;">Quick Links</h4>
-      <ul style="list-style:none; padding:0; line-height: 1.8em;">
-        <li><a href="#hero" style="color:#ccc; text-decoration:none;">Home</a></li>
-        <li><a href="#how" style="color:#ccc; text-decoration:none;">How It Works</a></li>
-        <li><a href="#form" style="color:#ccc; text-decoration:none;">Get Offer</a></li>
-        <li><a href="#contact" style="color:#ccc; text-decoration:none;">Contact</a></li>
-      </ul>
-    </div>
+<!-- Enhanced Dynamic Page Viewer -->
+<section id="page-viewer" style="padding: 40px 20px; background-color: #1a1a1a; color: white; text-align: center;">
+  <h3 style="font-size: 1.8em; font-family: 'Orbitron', sans-serif; color: #ffcc00; margin-bottom: 20px;">Explore Recarra Pages</h3>
 
-    <!-- Contact Info -->
-    <div style="flex: 1 1 200px;">
-      <h4 style="color: #fff; margin-bottom: 10px;">Contact Us</h4>
-      <p>Email: <a href="mailto:support@recarra.com" style="color:#ffcc00;">support@recarra.com</a></p>
-      <p>Phone: <a href="tel:3462740071" style="color:#ffcc00;">(346) 274-0071</a></p>
-    </div>
-
-    <!-- Call to Action -->
-    <div style="flex: 1 1 250px; text-align:center;">
-      <h4 style="color:#fff;">Get Your Instant Offer</h4>
-      <a href="#form" style="display:inline-block; background:#ff4444; color:#fff; padding:10px 20px; margin-top:10px; border-radius:6px; text-decoration:none; font-weight:bold;">Start Now</a>
-    </div>
+  
+  <div style="margin-bottom: 15px;">
+    <button id="muteToggle" onclick="toggleMute()" style="background-color: #222; color: #ffcc00; border: 1px solid #ffcc00; padding: 8px 16px; border-radius: 6px; font-size: 0.9em; cursor: pointer;">
+      Mute Sounds
+    </button>
   </div>
 
-  <hr style="border-top: 1px solid #444; margin: 30px auto;">
-  <p style="text-align: center; font-size: 0.9em;">© 2025 Recarra.com – All rights reserved.</p>
-</footer>
+  <div style="margin-bottom: 20px;">
+    <button class="recarra-btn" onclick="openPage('drivers.html', 'Drivers')" style="margin: 5px; padding: 10px 20px; background-color: #444; color: white; border: none; border-radius: 6px;">Drivers</button>
+    <button class="recarra-btn" onclick="openPage('admin.html', 'Admin')" style="margin: 5px; padding: 10px 20px; background-color: #444; color: white; border: none; border-radius: 6px;">Admin</button>
+    <button class="recarra-btn" onclick="openPage('partners.html', 'Partners')" style="margin: 5px; padding: 10px 20px; background-color: #444; color: white; border: none; border-radius: 6px;">Partners</button>
+    <button class="recarra-btn" onclick="openPage('accountants.html', 'Accountants')" style="margin: 5px; padding: 10px 20px; background-color: #444; color: white; border: none; border-radius: 6px;">Accountants</button>
+    <button class="recarra-btn" onclick="openPage('submit.html', 'Submit')" style="margin: 5px; padding: 10px 20px; background-color: #444; color: white; border: none; border-radius: 6px;">Submit</button>
+  </div>
+
+  <div id="iframeWrapper"
+    style="position: relative;" style="display:none; position: relative; margin: auto; max-width: 1000px;">
+    <div id="iframeTitle" style="text-align: left; font-size: 1.2em; color: #ffcc00; margin-bottom: 8px;"></div>
+    <button onclick="closeViewer()" style="position: absolute; right: -10px; top: -10px; background: #ff4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-weight: bold; cursor: pointer;">X</button>
+    <div id="loadingOverlay">Loading...</div>
+    <iframe id="recarraFrame" onload="hideLoading()" src="" style="width: 100%; height: 600px; border: 2px solid #ffcc00; border-radius: 10px; box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);"></iframe>
+  </div>
+</section>
+
+
+
+
 
 <script>
-function showOffer() {
-  const year = parseInt(document.getElementById('year').value);
-  const mileage = parseInt(document.getElementById('mileage').value);
-  const make = document.getElementById('make').value.toLowerCase();
-  const zip = document.getElementById('zip').value;
-  const condition = document.getElementById('condition').value;
+  const openSound = new Audio('https://actions.google.com/sounds/v1/cartoon/pop.ogg');
+  const closeSound = new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
+  let isMuted = false;
 
-  let base = 400;
-  const age = new Date().getFullYear() - year;
-  base += (age <= 5) ? 200 : (age <= 10 ? 100 : 0);
-  if (mileage > 150000) base -= 150;
-  else if (mileage > 100000) base -= 100;
-  if (["toyota", "honda"].includes(make)) base += 100;
-  if (condition === "Poor") base -= 200;
-  else if (condition === "Fair") base -= 100;
-  if (zip.startsWith("77")) base += 50;
+  document.addEventListener("DOMContentLoaded", function() {
+    const savedMute = localStorage.getItem("recarraMute");
+    if (savedMute === "true") {
+      isMuted = true;
+      document.getElementById("muteToggle").innerText = "Unmute Sounds";
+    }
+    const lastPage = localStorage.getItem('recarraLastPage');
+    const lastTitle = localStorage.getItem('recarraLastTitle');
+    if (lastPage && lastTitle) {
+      openPage(lastPage, lastTitle, false);
+    }
+  });
 
-  const offer = Math.max(base, 100);
-  document.getElementById("offer-result").innerText = "Your Instant Offer: $" + offer + " + $100 Same-Day Bonus!";
-  document.getElementById("form-section").style.display = "none";
+  function toggleMute() {
+    isMuted = !isMuted;
+    localStorage.setItem("recarraMute", isMuted);
+    document.getElementById("muteToggle").innerText = isMuted ? "Unmute Sounds" : "Mute Sounds";
+  }
 
-  const resultContainer = document.createElement("div");
-  resultContainer.style.fontSize = "1.6em";
-  resultContainer.style.textAlign = "center";
-  resultContainer.style.color = "#ffcc00";
-  resultContainer.style.margin = "40px auto";
-  resultContainer.innerText = "Your Instant Offer: $" + offer + " + $100 Same-Day Bonus!";
-  document.body.insertBefore(resultContainer, document.getElementById("contact"));
+  function openPage(url, title, remember = true) {
+    const wrapper = document.getElementById('iframeWrapper');
+    const frame = document.getElementById('recarraFrame');
+    const titleBar = document.getElementById('iframeTitle');
+    const loader = document.getElementById('loadingOverlay');
+    frame.style.opacity = 0;
+    loader.style.display = 'flex';
+    frame.src = url;
+    titleBar.innerText = "📄 " + title + " Page";
+    wrapper.style.display = 'block';
+    if (remember) {
+      localStorage.setItem('recarraLastPage', url);
+      localStorage.setItem('recarraLastTitle', title);
+    }
+    if (!isMuted) openSound.play();
+    window.location.hash = 'page-viewer';
+  }
 
-  const restartBtn = document.createElement("button");
-  restartBtn.innerText = "Start Over";
-  restartBtn.style.display = "block";
-  restartBtn.style.margin = "20px auto";
-  restartBtn.style.padding = "12px 24px";
-  restartBtn.style.fontSize = "1em";
-  restartBtn.style.backgroundColor = "#ff4444";
-  restartBtn.style.color = "#fff";
-  restartBtn.style.border = "none";
-  restartBtn.style.borderRadius = "8px";
-  restartBtn.style.cursor = "pointer";
-  restartBtn.onclick = () => window.location.reload();
-  document.body.insertBefore(restartBtn, document.getElementById("contact"));
-}
+  function hideLoading() {
+    const frame = document.getElementById('recarraFrame');
+    const loader = document.getElementById('loadingOverlay');
+    setTimeout(() => {
+      frame.style.opacity = 1;
+      loader.style.display = 'none';
+    }, 400);
+  }
 
-  const speakText = "Congratulations! Your instant offer is $" + offer + " plus a $100 same-day bonus.";
-  const utterance = new SpeechSynthesisUtterance(speakText);
-  utterance.lang = "en-US";
-  utterance.pitch = 1.1;
-  utterance.rate = 0.95;
-  speechSynthesis.speak(utterance);
+  function closeViewer() {
+    const wrapper = document.getElementById('iframeWrapper');
+    const frame = document.getElementById('recarraFrame');
+    const titleBar = document.getElementById('iframeTitle');
+    const loader = document.getElementById('loadingOverlay');
+    frame.style.opacity = 0;
+    loader.style.display = 'flex';
+    setTimeout(() => {
+      wrapper.style.display = 'none';
+      frame.src = '';
+      titleBar.innerText = '';
+      loader.style.display = 'none';
+      localStorage.removeItem('recarraLastPage');
+      localStorage.removeItem('recarraLastTitle');
+    }, 400);
+    if (!isMuted) closeSound.play();
+  }
 </script>
+
+
+
+
+
+
+</footer>
+
+
+
+
+<script>
+  const openSound = new Audio('https://actions.google.com/sounds/v1/cartoon/pop.ogg');
+  const closeSound = new Audio('https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg');
+  let isMuted = false;
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const savedMute = localStorage.getItem("recarraMute");
+    if (savedMute === "true") {
+      isMuted = true;
+      document.getElementById("muteToggle").innerText = "Unmute Sounds";
+    }
+    const lastPage = localStorage.getItem('recarraLastPage');
+    const lastTitle = localStorage.getItem('recarraLastTitle');
+    if (lastPage && lastTitle) {
+      openPage(lastPage, lastTitle, false);
+    }
+  });
+
+  function toggleMute() {
+    isMuted = !isMuted;
+    localStorage.setItem("recarraMute", isMuted);
+    document.getElementById("muteToggle").innerText = isMuted ? "Unmute Sounds" : "Mute Sounds";
+  }
+
+  function openPage(url, title, remember = true) {
+    const wrapper = document.getElementById('iframeWrapper');
+    const frame = document.getElementById('recarraFrame');
+    const titleBar = document.getElementById('iframeTitle');
+    const loader = document.getElementById('loadingOverlay');
+    frame.style.opacity = 0;
+    loader.style.display = 'flex';
+    frame.src = url;
+    titleBar.innerText = "📄 " + title + " Page";
+    wrapper.style.display = 'block';
+    if (remember) {
+      localStorage.setItem('recarraLastPage', url);
+      localStorage.setItem('recarraLastTitle', title);
+    }
+    if (!isMuted) openSound.play();
+    window.location.hash = 'page-viewer';
+  }
+
+  function hideLoading() {
+    const frame = document.getElementById('recarraFrame');
+    const loader = document.getElementById('loadingOverlay');
+    setTimeout(() => {
+      frame.style.opacity = 1;
+      loader.style.display = 'none';
+    }, 400);
+  }
+
+  function closeViewer() {
+    const wrapper = document.getElementById('iframeWrapper');
+    const frame = document.getElementById('recarraFrame');
+    const titleBar = document.getElementById('iframeTitle');
+    const loader = document.getElementById('loadingOverlay');
+    frame.style.opacity = 0;
+    loader.style.display = 'flex';
+    setTimeout(() => {
+      wrapper.style.display = 'none';
+      frame.src = '';
+      titleBar.innerText = '';
+      loader.style.display = 'none';
+      localStorage.removeItem('recarraLastPage');
+      localStorage.removeItem('recarraLastTitle');
+    }, 400);
+    if (!isMuted) closeSound.play();
+  }
+</script>
+
+
+
+
 </body>
 </html>
