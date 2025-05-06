@@ -120,7 +120,45 @@ input, select, textarea, button {
 <div id="offer-result"></div>
 <button onclick="showOffer()">See My Offer</button>
 </div>
-<footer id="contact" style="background:#111;color:#ccc;padding:30px 20px;text-align:center;"><p>© 2025 Recarra.com — All Rights Reserved</p><p>Email: <a href="mailto:support@recarra.com" style="color:#ffcc00;">support@recarra.com</a></p><p>Phone: <a href="tel:3462740071" style="color:#ffcc00;">(346) 274-0071</a></p></footer>
+
+<footer style="background:#0d0d0d; color:#ccc; padding: 40px 20px; font-family: Arial, sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+    
+    <!-- Brand & Tagline -->
+    <div style="flex: 1 1 220px;">
+      <h2 style="color: #ffcc00; margin-bottom: 10px;">Recarra</h2>
+      <p style="line-height: 1.6em;">Instant Offer. Fast Pay.<br>Sell your car today and get paid instantly.</p>
+    </div>
+    
+    <!-- Quick Links -->
+    <div style="flex: 1 1 150px;">
+      <h4 style="color: #fff; margin-bottom: 10px;">Quick Links</h4>
+      <ul style="list-style:none; padding:0; line-height: 1.8em;">
+        <li><a href="#hero" style="color:#ccc; text-decoration:none;">Home</a></li>
+        <li><a href="#how" style="color:#ccc; text-decoration:none;">How It Works</a></li>
+        <li><a href="#form" style="color:#ccc; text-decoration:none;">Get Offer</a></li>
+        <li><a href="#contact" style="color:#ccc; text-decoration:none;">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div style="flex: 1 1 200px;">
+      <h4 style="color: #fff; margin-bottom: 10px;">Contact Us</h4>
+      <p>Email: <a href="mailto:support@recarra.com" style="color:#ffcc00;">support@recarra.com</a></p>
+      <p>Phone: <a href="tel:3462740071" style="color:#ffcc00;">(346) 274-0071</a></p>
+    </div>
+
+    <!-- Call to Action -->
+    <div style="flex: 1 1 250px; text-align:center;">
+      <h4 style="color:#fff;">Get Your Instant Offer</h4>
+      <a href="#form" style="display:inline-block; background:#ff4444; color:#fff; padding:10px 20px; margin-top:10px; border-radius:6px; text-decoration:none; font-weight:bold;">Start Now</a>
+    </div>
+  </div>
+
+  <hr style="border-top: 1px solid #444; margin: 30px auto;">
+  <p style="text-align: center; font-size: 0.9em;">© 2025 Recarra.com – All rights reserved.</p>
+</footer>
+
 <script>
 function showOffer() {
   const year = parseInt(document.getElementById('year').value);
