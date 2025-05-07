@@ -1,51 +1,26 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
-<style>
-h2, h3, h4 {
-  transition: all 0.3s ease-in-out;
-}
-h2:hover, h3:hover, h4:hover {
-  color: #ff0000 !important;
-  border: 2px solid #ff0000;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #111;
-  cursor: pointer;
-  transform: scale(1.03);
-}
-</style>
-<style>
-input:focus, textarea:focus {
-  outline: none !important;
-  border: 2px solid #ff0000 !important;
-  box-shadow: none !important;
-}
-</style>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>
-   Recarra | Instant Car Offers
-  </title>
+<title>Recarra | Sell Your Car Instantly</title>
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
 <style>
-   * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: 'Urbanist', sans-serif;
-      background-color:#000;
-      color:#fff;
+      background-color: #000;
+      color: #fff;
       line-height: 1.6;
     }
     header {
-      background-color:#000;
+      background: #000;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -53,508 +28,405 @@ input:focus, textarea:focus {
     .logo {
       font-size: 1.8rem;
       font-weight: 800;
-      color:#fff;
+      color: #fff;
+    }
+    .logo small {
+      display: block;
+      font-size: 0.85rem;
+      color: red;
+      font-style: italic;
+      font-weight: bold;
     }
     nav a {
-      margin-left: 1.5rem;
-      color:#fff;
+      margin-left: 1rem;
+      padding: 10px 16px;
+      border-radius: 30px;
       text-decoration: none;
-      font-weight: 600;
-    }
-    nav a:hover {
-      color:#fff;
+      font-weight: bold;
+      font-size: 14px;
+      background-color: #ff0000;
+      color: white;
     }
     .hero {
-      background-color:#000;
       padding: 4rem 2rem;
       text-align: center;
     }
     .hero h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
-      color:#fff;
-    }
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      font-size: 1.1rem;
-      color:#fff;
     }
     .cta-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
+      margin-top: 2rem;
     }
     .cta-buttons a {
-      background-color:#000;
-      color:#fff;
+      background: #ff0000;
+      color: white;
       padding: 0.75rem 1.5rem;
-      border-radius: 6px;
+      border-radius: 30px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s;
-    }
-    .cta-buttons a:hover {
-      background-color:#000;
     }
     section {
       padding: 3rem 1.5rem;
       text-align: center;
     }
-    section h2 {
-      color:#fff;
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    footer {
+      background-color: #f6f1e7;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: white;
     }
-    section p {
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
-      color:#fff;
-    }
-    input, textarea, button {
-      width: 90%;
+    input, select, textarea, button {
+      width: 100%;
       max-width: 400px;
-      padding: 1rem;
       margin: 0.5rem auto;
+      padding: 1rem;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 1rem;
-      display: block;
     }
-    input, textarea {
-      background-color:#000;
+    input, select, textarea {
+      background-color: #fff; color: #222; border: 1px solid #ccc;
       color: white;
     }
     button {
-      background-color:#000;
+      background-color: #ff0000;
       color: white;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s;
     }
     button:hover {
-      background-color:#000;
+      background-color: #c40000;
     }
-    footer {
-      background-color:#000;
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color:#fff;
-    }
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-      nav a {
-        margin-left: 1rem;
-      }
-    }
-  </style>
-<style>
-   #chatButton {
-    position: fixed;
-    bottom: 120px;
-    right: 20px;
-    background-color:#000;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 30px;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    cursor: pointer;
-    z-index: 999;
-  }
-  </style>
-<style>
-   .floating-actions {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 998;
-  }
-  .floating-actions a {
-    background-color:#000;
-    color: white;
-    text-align: center;
-    padding: 10px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    font-size: 14px;
-  }
-  </style>
-<div class="floating-actions">
-<a href="#upload" style="color:#fff;">
-    Upload
-   </a>
-<a href="#form" style="color:#fff;">
-    Smart Form
-   </a>
-<a href="tel:3462740071" style="color:#fff;">
-    Call
-   </a>
-</div>
+  
+.step { display: none; opacity: 0; transition: opacity 0.5s ease; }
+.step.active { display: block; opacity: 1; }
+#progressBar {
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+#progressFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff0000, #c40000);
+  transition: width 0.4s ease-in-out;
+}
+</style>
 </head>
-<body style=" color:#fff; font-family:'Urbanist', sans-serif;">
+<body>
 <header>
-<style>
-h2, h3, h4 {
-  transition: all 0.3s ease-in-out;
-}
-h2:hover, h3:hover, h4:hover {
-  color: #ff0000 !important;
-  border: 2px solid #ff0000;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #111;
-  cursor: pointer;
-  transform: scale(1.03);
-}
-</style>
-<style>
-input:focus, textarea:focus {
-  outline: none !important;
-  border: 2px solid #ff0000 !important;
-  box-shadow: none !important;
-}
-</style>
-
-<div class="logo" style="text-align: center;">
-  Recarra
-  <div style="font-size: 0.85rem; color: red; font-weight: bold; font-style: italic; margin-top: 4px;">
-    The smart way to sell your car — fast, fair, and AI-powered.
-  </div>
+<div class="logo">
+      Recarra
+      <small>The smart way to sell your car — fast, fair, and AI-powered.</small>
 </div>
-
 <nav>
-<a href="#upload" style="color:#fff;">
-     Upload
-    </a>
-<a href="#form" style="color:#fff;">
-     Form
-    </a>
-<a href="#call" style="color:#fff;">
-     Call
-    </a>
+<a href="#upload">Upload Files</a>
+<a href="#form">Smart Offer Form</a>
+<a href="#call">Call Support</a>
 </nav>
 </header>
-<!-- Scrolling Ads -->
-<section style="background-color: black; color: white; font-size: 16px; padding: 10px 0; text-align:center;">
-<marquee behavior="scroll" direction="left" onmouseout="this.start();" onmouseover="this.stop();" scrollamount="4" style="color: white;">
-    Sell your junk car today | Instant cash offers | Free pickup | No title? No problem | $100 bonus for same-day pickup | Trusted by thousands | Snap. Upload. Paid. | Recarra makes it fast and easy | Sell any car, any condition | Recarra: Top dollar every time |
-  </marquee>
-</section>
-<section style="background-color:#000; padding:1.5rem; text-align:center;">
-<p id="rotatingAd" style="color:#fff;"></p>
-</section>
-<script>
-  const recarraAds = ['Instant cash for any car, any condition.', 'Same-day pickup and payout guaranteed.', 'We offer up to $1,000 for junk vehicles.', 'AI-powered offers in under 60 seconds.', 'No title? No problem. We can still buy it.', 'We come to you — free pickup included.', 'No obligations. Get a quote, then decide.', 'We handle all paperwork for free.', 'You choose how you want to get paid.', 'We pay cash, Zelle, Cash App, or debit.', 'Trusted by thousands across Texas.', 'We beat all verified competitor offers.', 'Snap a photo, get paid. It’s that easy.', 'Recarra means real cash, really fast.', 'Hassle-free service from start to finish.', 'We buy cars nobody else wants.', 'Running or not — we still pay top dollar.', 'Offer locked in seconds. Pickup same day.', 'Five-star rated by real car sellers.', 'Get a $100 bonus for fast pickup.', 'Recarra Advantage #21: Top speed, top payout, always.', 'Recarra Advantage #22: Top speed, top payout, always.', 'Recarra Advantage #23: Top speed, top payout, always.', 'Recarra Advantage #24: Top speed, top payout, always.', 'Recarra Advantage #25: Top speed, top payout, always.', 'Recarra Advantage #26: Top speed, top payout, always.', 'Recarra Advantage #27: Top speed, top payout, always.', 'Recarra Advantage #28: Top speed, top payout, always.', 'Recarra Advantage #29: Top speed, top payout, always.', 'Recarra Advantage #30: Top speed, top payout, always.', 'Recarra Advantage #31: Top speed, top payout, always.', 'Recarra Advantage #32: Top speed, top payout, always.', 'Recarra Advantage #33: Top speed, top payout, always.', 'Recarra Advantage #34: Top speed, top payout, always.', 'Recarra Advantage #35: Top speed, top payout, always.', 'Recarra Advantage #36: Top speed, top payout, always.', 'Recarra Advantage #37: Top speed, top payout, always.', 'Recarra Advantage #38: Top speed, top payout, always.', 'Recarra Advantage #39: Top speed, top payout, always.', 'Recarra Advantage #40: Top speed, top payout, always.', 'Recarra Advantage #41: Top speed, top payout, always.', 'Recarra Advantage #42: Top speed, top payout, always.', 'Recarra Advantage #43: Top speed, top payout, always.', 'Recarra Advantage #44: Top speed, top payout, always.', 'Recarra Advantage #45: Top speed, top payout, always.', 'Recarra Advantage #46: Top speed, top payout, always.', 'Recarra Advantage #47: Top speed, top payout, always.', 'Recarra Advantage #48: Top speed, top payout, always.', 'Recarra Advantage #49: Top speed, top payout, always.', 'Recarra Advantage #50: Top speed, top payout, always.', 'Recarra Advantage #51: Top speed, top payout, always.', 'Recarra Advantage #52: Top speed, top payout, always.', 'Recarra Advantage #53: Top speed, top payout, always.', 'Recarra Advantage #54: Top speed, top payout, always.', 'Recarra Advantage #55: Top speed, top payout, always.', 'Recarra Advantage #56: Top speed, top payout, always.', 'Recarra Advantage #57: Top speed, top payout, always.', 'Recarra Advantage #58: Top speed, top payout, always.', 'Recarra Advantage #59: Top speed, top payout, always.', 'Recarra Advantage #60: Top speed, top payout, always.', 'Recarra Advantage #61: Top speed, top payout, always.', 'Recarra Advantage #62: Top speed, top payout, always.', 'Recarra Advantage #63: Top speed, top payout, always.', 'Recarra Advantage #64: Top speed, top payout, always.', 'Recarra Advantage #65: Top speed, top payout, always.', 'Recarra Advantage #66: Top speed, top payout, always.', 'Recarra Advantage #67: Top speed, top payout, always.', 'Recarra Advantage #68: Top speed, top payout, always.', 'Recarra Advantage #69: Top speed, top payout, always.', 'Recarra Advantage #70: Top speed, top payout, always.', 'Recarra Advantage #71: Top speed, top payout, always.', 'Recarra Advantage #72: Top speed, top payout, always.', 'Recarra Advantage #73: Top speed, top payout, always.', 'Recarra Advantage #74: Top speed, top payout, always.', 'Recarra Advantage #75: Top speed, top payout, always.', 'Recarra Advantage #76: Top speed, top payout, always.', 'Recarra Advantage #77: Top speed, top payout, always.', 'Recarra Advantage #78: Top speed, top payout, always.', 'Recarra Advantage #79: Top speed, top payout, always.', 'Recarra Advantage #80: Top speed, top payout, always.', 'Recarra Advantage #81: Top speed, top payout, always.', 'Recarra Advantage #82: Top speed, top payout, always.', 'Recarra Advantage #83: Top speed, top payout, always.', 'Recarra Advantage #84: Top speed, top payout, always.', 'Recarra Advantage #85: Top speed, top payout, always.', 'Recarra Advantage #86: Top speed, top payout, always.', 'Recarra Advantage #87: Top speed, top payout, always.', 'Recarra Advantage #88: Top speed, top payout, always.', 'Recarra Advantage #89: Top speed, top payout, always.', 'Recarra Advantage #90: Top speed, top payout, always.', 'Recarra Advantage #91: Top speed, top payout, always.', 'Recarra Advantage #92: Top speed, top payout, always.', 'Recarra Advantage #93: Top speed, top payout, always.', 'Recarra Advantage #94: Top speed, top payout, always.', 'Recarra Advantage #95: Top speed, top payout, always.', 'Recarra Advantage #96: Top speed, top payout, always.', 'Recarra Advantage #97: Top speed, top payout, always.', 'Recarra Advantage #98: Top speed, top payout, always.', 'Recarra Advantage #99: Top speed, top payout, always.', 'Recarra Advantage #100: Top speed, top payout, always.'];
-  let rIndex = 0;
-  function cycleAds() {
-    document.getElementById("rotatingAd").innerText = recarraAds[rIndex];
-    rIndex = (rIndex + 1) % recarraAds.length;
-  }
-  setInterval(cycleAds, 4000);
-  window.onload = cycleAds;
-</script>
-<section class="hero">
-<h1 style="color:#fff;">
-    Sell Your Car Your Way
-   </h1>
-<p style="color:#fff;">
-    No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.
-   </p>
-<div class="cta-buttons">
-<a href="#upload" style="color:#fff;">Upload Photos</a>
-<a href="#form" style="color:#fff;">Use Smart Form</a>
-<a href="#call" style="color:#fff;">Call Now</a>
-<a href="#live" style="color:#fff;">Go Live With Us</a>
-<a href="#textus" style="color:#fff;">Text Us License Plate</a>
+<section class="hero" style="background-color:#f6f1e7; color:#222; padding:4rem 2rem; text-align:center;">
+<h1>Sell Your Car — Your Way</h1>
+<p>No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.</p>
+<div class="cta-buttons" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; max-width: 500px; margin: 2rem auto;">
+<a href="#upload">Upload Car Photos</a>
+<a href="#form">Use Smart Form</a>
+<a href="#call">Call Now</a>
+<a href="#live">Go Live With Us</a>
+<a href="#textus" style="grid-column: span 2; text-align: center;">Text Us License Plate</a>
 </div>
 </section>
-<!-- Sell Your Car Instantly Banner -->
-<section style="padding:2rem;text-align:center;background: linear-gradient(to right, #2c2c91, #e53935); color:#fff;">
-<h1 style="color:#fff;">Sell your car instantly — Get paid today.</h1>
-<p style="color:#fff;">We pay top dollar for any car. Get your offer now — no obligations, no hidden fees!</p>
-</section>
-<!-- Why Recarra Section -->
-<section style="background-color:#000; color:#fff; padding:2rem 1rem;">
-<h2 style="color:#fff;">Why Recarra?</h2>
-<div style="max-width:700px; margin:auto;">
-<div style="background-color:#000; border-left:4px solid red; padding:1rem; margin:1rem 0; border-radius:8px;">
-<strong>Top Dollar Guaranteed —</strong> We consistently offer higher payouts than competitors — even for older or damaged vehicles.
+<section style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem;">
+<h2>Why Recarra?</h2>
+<div style="max-width: 700px; margin: auto; text-align: left;">
+<div style="border-left: 4px solid red; padding-left: 1rem; margin-bottom: 1rem;">
+<strong>Top Dollar Guaranteed —</strong> We consistently pay more than other buyers, even for older or damaged vehicles.
     </div>
-<div style="background-color:#000; border-left:4px solid red; padding:1rem; margin:1rem 0; border-radius:8px;">
-<strong>Sell As-Is —</strong> No need to fix or clean your car. We buy it exactly how it is.
+<div style="border-left: 4px solid red; padding-left: 1rem; margin-bottom: 1rem;">
+<strong>Sell As-Is —</strong> No repairs needed. We buy your car exactly as it is.
     </div>
-<div style="background-color:#000; border-left:4px solid red; padding:1rem; margin:1rem 0; border-radius:8px;">
-<strong>No Paperwork Hassle —</strong> We handle the title transfer, DMV forms, and all required documents.
+<div style="border-left: 4px solid red; padding-left: 1rem; margin-bottom: 1rem;">
+<strong>No Paperwork Hassle —</strong> We handle titles, DMV forms, and all documentation.
     </div>
-<div style="background-color:#000; border-left:4px solid red; padding:1rem; margin:1rem 0; border-radius:8px;">
-<strong>Same-Day Pickup —</strong> Recarra jobs your car details in the morning — get paid before sunset.
+<div style="border-left: 4px solid red; padding-left: 1rem; margin-bottom: 1rem;">
+<strong>Same-Day Pickup —</strong> Accept your offer by morning, get paid before sunset.
     </div>
-<div style="background-color:#000; border-left:4px solid red; padding:1rem; margin:1rem 0; border-radius:8px;">
-<strong>Trusted by Thousands —</strong> Hundreds of sellers in your city trust Recarra to pay fast and fair.
+<div style="border-left: 4px solid red; padding-left: 1rem; margin-bottom: 1rem;">
+<strong>Trusted by Thousands —</strong> We’re the choice of sellers across Texas and beyond.
     </div>
 </div>
 </section>
-<!-- Live Chat Support Button -->
-<section style="text-align:center;background-color:#000;color:#fff;padding:2rem 1rem;">
-<h1 id="aiHeadline" style="color:#fff;"></h1>
-</section>
-<script>
-  const aiHeadlines = [
-    "Snap. Sell. Get Paid in Minutes.",
-    "No Form Needed. Just Upload a Photo.",
-    "$100 Bonus for Same-Day Pickup!",
-    "AI Calculates Your Offer Instantly.",
-    "Join Thousands Who Got Paid Instantly."
-  ];
-  let headlineIndex = 0;
-  function rotateHeadline() {
-    document.getElementById("aiHeadline").innerText = aiHeadlines[headlineIndex];
-    headlineIndex = (headlineIndex + 1) % aiHeadlines.length;
-  }
-  setInterval(rotateHeadline, 4000);
-  rotateHeadline();
-</script>
-<section id="upload">
-<h2 style="color:#fff;">Upload &amp; Get Paid</h2>
-<p style="color:#fff; font-size:1rem; line-height:1.6; text-align:left;">
-    Send us photos or a short video and receive a personalized cash offer in minutes.
-  </p>
-<label style="color: white;">Car Owner Name</label>
-<input accept="image/*" style="background-color:white; border:2px solid white; color:#000;" type="file"/>
-<label style="color: white;">Front End</label>
-<input accept="image/*" style="background-color:white; border:2px solid white; color:#000;" type="file"/>
-<label style="color: white;">Right Side</label>
-<input accept="image/*" style="background-color:white; border:2px solid white; color:#000;" type="file"/>
-<label style="color: white;">Back Side</label>
-<input accept="image/*" style="background-color:white; border:2px solid white; color:#000;" type="file"/>
-<label style="color: white;">Left Side</label>
-<input accept="image/*" style="background-color:white; border:2px solid white; color:#000;" type="file"/>
-<label style="color: white;">Under the Hood</label>
-<input accept="image/*" style="background-color:white; border:2px solid white; color:#000;" type="file"/>
-<input placeholder="Phone Number" style="background-color:white; border:2px solid white; color:#000;" type="text"/>
-<input placeholder="ZIP Code" style="background-color:white; border:2px solid white; color:#000;" type="text"/>
-<textarea placeholder="Notes or Damage Description (optional)" style="background-color:white; border:2px solid white; color:#000;"></textarea>
-<input placeholder="Customer Name" style="background-color:white; border:2px solid white; color:#000;" type="text"/>
-<input placeholder="Pickup Address" style="background-color:white; border:2px solid white; color:#000;" type="text"/>
-<button style="border:2px solid red; background-color:#000; color:white; padding:1rem 2rem; border-radius:8px; font-weight:bold; cursor:pointer;">Submit to Recarra AI</button>
-</section>
-
-<section id="form">
-<h2 style="color:#fff;">
-    Smart Form Entry
-   </h2>
-<p style="color:#fff;">
-    Want a detailed price estimate? Fill out our dynamic AI-powered form for the best value.
-   </p>
-<div style="color:#fff;">
-    [Smart Form Coming Soon]
-   </div>
-</section>
-<section id="live" style=" padding: 3rem 1rem; text-align: center; color: white;">
-<h2 style="color:#fff;">Go Live With Us</h2>
-<p style="color:#fff;">Want to talk right now? Let us know you're joining the live call room and we'll meet you there.</p>
-<form action="mailto:support@recarra.com" method="post" style="margin-bottom: 20px;">
-<input #fff;"="" 10px;="" 16px;="" 1px="" 250px;="" border:="" color:#fff;="" font-size:="" margin-right:="" name="name" padding:="" placeholder="Your Name" required="" solid="" style=" border: 2px solid #ff0000;" type="text" width:=""/>
-<input "padding:="" #fff;"="" 10px="" 16px;="" 1px="" 20px;="" 5px;="" border-radius:="" border:="" color:="" color:#fff;="" cursor:="" font-size:="" none;="" pointer;="" solid="" type="submit" value="I'm Going Live Now" white;=""/>
+<section id="form" style="background-color:#f6f1e7; color:#222; padding:3rem 1rem; text-align:center;">
+<h2>Recarra Smart AI Offer</h2>
+<div id="progressBar" style="height: 8px; width: 100%; background-color: #eee; margin-bottom: 20px;">
+<div id="progressFill" style="height: 100%; width: 0%; background-color: #ff0000;"></div>
+</div>
+<p>Fill out the step-by-step form and get your instant AI cash offer in seconds.</p>
+<form id="multiStepForm"><div class="step"> <input id="input_0" name="year" placeholder="Vehicle Year (e.g. 2014)" required="" type="text"/><button onclick="startVoiceInput('input_0')" style="margin-left: 0.5rem; background: transparent; font-size: 1.2rem; border: none; cursor: pointer;" type="button">🎤</button> </div>
+<div class="step"> <input id="input_1" name="mileage" placeholder="Mileage (e.g. 120000)" required="" type="text"/><button onclick="startVoiceInput('input_1')" style="margin-left: 0.5rem; background: transparent; font-size: 1.2rem; border: none; cursor: pointer;" type="button">🎤</button> </div>
+<div class="step"> <select name="condition" required="">
+<option value="">Condition</option>
+<option value="excellent">Excellent</option>
+<option value="good">Good</option>
+<option value="fair">Fair</option>
+<option value="poor">Poor</option>
+<option value="non-running">Non-Running</option>
+</select> </div>
+<div class="step"> <input id="input_3" name="location" placeholder="City (e.g. Houston)" required="" type="text"/><button onclick="startVoiceInput('input_3')" style="margin-left: 0.5rem; background: transparent; font-size: 1.2rem; border: none; cursor: pointer;" type="button">🎤</button> </div>
+<div class="step"> <select name="urgency" required="">
+<option value="">Pickup Urgency</option>
+<option value="same-day">Same Day</option>
+<option value="next-day">Next Day</option>
+<option value="flexible">Flexible</option>
+</select> </div>
+<div class="step"> <input id="input_5" name="phone" placeholder="Phone Number" required="" type="tel"/><button onclick="startVoiceInput('input_5')" style="margin-left: 0.5rem; background: transparent; font-size: 1.2rem; border: none; cursor: pointer;" type="button">🎤</button> </div>
+<div class="step"> <button type="submit">Submit to Recarra AI</button> </div>
 </form>
-<a class="go-live-btn" href="https://meet.jit.si/RecarraLiveHelp" style="color:#fff;" target="_blank">
-    Go Live With Us Now
-  </a>
-<p style="color:#fff;">*No sign-up needed. Just click and talk to us instantly.*</p>
+<div class="step active"></div><button id="nextBtn" onclick="nextStep()">Next</button>
+<h3 id="offerResult" style="color:red; margin-top:1rem;"></h3>
 </section>
-<section id="call">
-<h2 style="color:#fff;">
-    Talk to a Real Person
-   </h2>
-<p style="color:#fff;">
-    Our support team is ready. Speak to us directly and get your offer confirmed.
-   </p>
-<a href="tel:3462740071" style="color:#fff;">
-    Call (346) 274-0071
-   </a>
-</section>
-<section style="padding: 3rem 1rem; background-color:#000; color: white;">
-<h2 style="color:#fff;">Frequently Asked Questions</h2>
-<div style="max-width: 600px; margin: 2rem auto;">
-<details style="margin-bottom: 1rem;">
-<summary style="cursor: pointer; font-weight: bold;">What types of cars do you buy?</summary>
-<p style="color:#fff;">We buy all types: junk, used, non-running, wrecked, or simply unwanted vehicles.</p>
-</details>
-<details style="margin-bottom: 1rem;">
-<summary style="cursor: pointer; font-weight: bold;">How do I get paid?</summary>
-<p style="color:#fff;">You get paid on the same day of pickup via your preferred method: cash, Cash App, Zelle, or debit card.</p>
-</details>
-<details style="margin-bottom: 1rem;">
-<summary style="cursor: pointer; font-weight: bold;">Do I need a title to sell?</summary>
-<p style="color:#fff;">No problem! We work with and without titles, depending on your state.</p>
-</details>
-<details style="margin-bottom: 1rem;">
-<summary style="cursor: pointer; font-weight: bold;">How fast can you pick up my vehicle?</summary>
-<p style="color:#fff;">Most pickups happen within hours. Same-day service is available in many areas with a $100 bonus.</p>
-</details>
-</div>
-</section><p style="color:#fff;">Same day in most cases! We dispatch a driver as soon as you accept your offer.</p>
-<details style="margin-bottom: 1rem;">
-<summary style="cursor: pointer; font-weight: bold;">Is your service free?</summary>
-<p style="color:#fff;">Yes — no fees, no hidden costs. Everything is included.</p>
-</details>
-<!-- Live Chat Integration Placeholder -->
 <script>
-  window.onload = function() {
-    let script = document.createElement("script");
-    script.src = 'https://embed.tawk.to/64cfc8d5cc26a871b02e5ec5/1h6v9g5g2';
-    script.async = true;
-    script.charset = 'UTF-8';
-    script.setAttribute('crossorigin', '*');
-    document.body.appendChild(script);
+  let currentStep = 0;
+  const steps = document.querySelectorAll('.step');
+  const nextBtn = document.getElementById('nextBtn');
+  const form = document.getElementById('multiStepForm');
+  const progress = document.getElementById('progressFill');
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.classList.remove('active');
+      if (i === index) step.classList.add('active');
+    });
+    progress.style.width = ((index + 1) / steps.length) * 100 + '%';
+    if (index === steps.length - 1) {
+      nextBtn.style.display = 'none';
+    }
   }
-</script>
-<section style="text-align:center; background-color:#000; padding:2rem;">
-<h3 style="color:#fff;">
-    Live Offers Generated Today:
-    <span id="offerCounter">
-     823
-    </span>
-</h3>
-</section>
-<script>
-   let counter = 823;
-  setInterval(() => {
-    counter++;
-    document.getElementById("offerCounter").innerText = counter;
-  }, 12000); // simulate an offer every 12 seconds
-  </script>
-<!-- AI Loading Overlay -->
-<style>
-  #loadingOverlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
-    color:#fff;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    flex-direction: column;
-    font-size: 1.5rem;
+
+  function nextStep() {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
   }
-</style>
-<div id="loadingOverlay">
-<div>Analyzing your vehicle with AI...</div>
-<div style="margin-top: 1rem;">Generating your best offer. Please wait...</div>
-</div>
-<script>
-  document.querySelector("button").addEventListener("click", function() {
-    document.getElementById("loadingOverlay").style.display = "flex";
-    setTimeout(() => {
-      document.getElementById("loadingOverlay").style.display = "none";
-      alert("Offer ready! Our team will contact you shortly.");
-    }, 4000);
+
+  showStep(currentStep);
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const year = formData.get('year');
+    const mileage = formData.get('mileage');
+    const condition = formData.get('condition');
+    const location = formData.get('location');
+    const urgency = formData.get('urgency');
+    const phone = formData.get('phone');
+
+    // Simulate a quote result
+    let baseValue = 5000;
+    if (2025 - parseInt(year) > 10) baseValue -= 1500;
+    else if (2025 - parseInt(year) > 5) baseValue -= 1000;
+    else baseValue -= 500;
+
+    if (parseInt(mileage) > 150000) baseValue -= 1000;
+    else if (parseInt(mileage) > 100000) baseValue -= 500;
+
+    const conditionMap = {
+      "excellent": 500, "good": 0, "fair": -500, "poor": -1000, "non-running": -1500
+    };
+    baseValue += conditionMap[condition] || 0;
+
+    if (location.toLowerCase() === "houston") baseValue += 100;
+    if (urgency === "same-day") baseValue += 100;
+
+    const finalOffer = Math.max(100, baseValue);
+
+    // Show confirmation screen with summary
+    const confirmationHTML = `
+      <div style='padding:2rem; text-align:center; background:#f6f1e7; color:#222;'>
+        <h2>Thank You!</h2>
+        <p>Your information has been received.</p>
+        <div style='margin-top:1rem; border:1px solid #ccc; padding:1rem; max-width:400px; margin-left:auto; margin-right:auto; background:#fff; border-radius:8px;'>
+          <p><strong>Vehicle Year:</strong> ${year}</p>
+          <p><strong>Mileage:</strong> ${mileage}</p>
+          <p><strong>Condition:</strong> ${condition}</p>
+          <p><strong>Location:</strong> ${location}</p>
+          <p><strong>Urgency:</strong> ${urgency}</p>
+          <p><strong>Estimated Offer:</strong> <span style='color:red;'>$${finalOffer.toFixed(2)}</span></p>
+        </div>
+        <p style='margin-top:1.5rem;'>We'll contact you at <strong>${phone}</strong> shortly!</p>
+      </div>
+    `;
+    form.outerHTML = confirmationHTML;
+    nextBtn.remove();
+    progress.style.width = '100%';
+
+    // Simulated email POST (replace below with your backend email processor or API endpoint)
+    fetch('https://formspree.io/f/mwkgygwn', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
   });
 </script>
-<!-- Testimonials Section -->
-<section style="background-color:#000;text-align:center;padding:2rem;">
-<h2 style="color:#fff;">What Our Sellers Say</h2>
-<div style="max-width:600px;margin:1rem auto;color:#fff;">
-<p style="color:#fff;"><em>"I uploaded two photos and got paid the same day! Easiest process ever." – Maria G., Houston</em></p>
-<p style="color:#fff;"><em>"Recarra offered me more than any junkyard. Highly recommended!" – Jamal A., Katy</em></p>
-<p style="color:#fff;"><em>"The smart form was fast and accurate. Love the $100 bonus!" – Luis R., Sugar Land</em></p>
+<section id="live" style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<h2>Go Live With Us</h2>
+<p>Want to talk right now? Join a live video call — no login, no hassle.</p>
+<a href="https://meet.jit.si/RecarraLiveHelp" style="display:inline-block; margin-top:1rem; background:#ff0000; padding:12px 24px; color:#222; font-weight:bold; border-radius:30px; text-decoration:none;" target="_blank">
+    Go Live Now
+  </a>
+<p style="margin-top: 1rem; font-size: 0.9rem;">*No sign-up needed. Talk to our team face-to-face instantly.</p>
+</section>
+<section id="upload" style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<h2>Upload Photos of Your Vehicle</h2>
+<p>Snap and send a few photos — and get a cash offer in minutes.</p>
+<form enctype="multipart/form-data" style="margin-top: 2rem;">
+<input accept="image/*" multiple="" name="photos" required="" type="file"/>
+<input name="phone" placeholder="Your Phone Number" required="" type="text"/>
+<button type="submit">Send to Recarra AI</button>
+</form>
+<p style="margin-top: 1rem; font-size: 0.9rem;">We'll review your images instantly and contact you with a cash offer.</p>
+</section>
+<section style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<h2>Why Sellers Trust Recarra</h2>
+<p id="adMessage" style="font-size:1.1rem; font-weight:bold; margin: 1.5rem 0;"></p>
+<script>
+    const adMessages = [
+      "Get paid up to $1,000 today for your junk car!",
+      "Same-day pickup + $100 bonus for fast sellers!",
+      "AI-powered quotes. Instant cash. Zero hassle.",
+      "Upload a photo. Get a real offer. Done.",
+      "We beat verified competitor offers — every time."
+    ];
+    let adIndex = 0;
+    function rotateAd() {
+      document.getElementById("adMessage").innerText = adMessages[adIndex];
+      adIndex = (adIndex + 1) % adMessages.length;
+    }
+    setInterval(rotateAd, 4000);
+    rotateAd();
+  </script>
+<div style="margin-top:2rem; max-width:600px; margin-left:auto; margin-right:auto; text-align:left;">
+<p><em>"I uploaded two photos and got paid the same day! Easiest process ever." – Maria G., Houston</em></p>
+<p><em>"Recarra offered me more than any junkyard. Highly recommended!" – Jamal A., Katy</em></p>
+<p><em>"The smart form was fast and accurate. Love the $100 bonus!" – Luis R., Sugar Land</em></p>
 </div>
 </section>
-<!-- Ad Rotator -->
-<section style="background-color:#000;padding:2rem;text-align:center;">
-<h3 style="color:#fff;">Why Choose Recarra?</h3>
-<p id="adMessage" style="color:#fff;"></p>
+<section id="schedule" style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<h2>Schedule a Live Video Inspection</h2>
+<p>Book a video call with our team to verify your car and lock in your cash offer.</p>
+<form id="inspectionForm" style="margin-top: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+<input name="name" placeholder="Your Full Name" required="" type="text"/>
+<input name="phone" placeholder="Phone Number" required="" type="tel"/>
+<input name="vehicle" placeholder="Vehicle (Year, Make, Model)" required="" type="text"/>
+<input name="date" required="" type="date"/>
+<input name="time" required="" type="time"/>
+<button type="submit">Confirm Inspection</button>
+</form>
+<p id="inspectionMessage" style="margin-top: 1rem; font-weight: bold;"></p>
 </section>
 <script>
-  const adMessages = [
-    "Get paid up to $1,000 today for your junk car!",
-    "We beat competitor offers. Instant AI quotes.",
-    "Same-day pickup + $100 bonus for fast sellers!",
-    "No title? No problem. We can still buy your car.",
-    "Upload a photo. Get a real offer. Done."
-  ];
-  let adIndex = 0;
-  function rotateAd() {
-    document.getElementById("adMessage").innerText = adMessages[adIndex];
-    adIndex = (adIndex + 1) % adMessages.length;
-  }
-  setInterval(rotateAd, 4000);
-  rotateAd();
+  const inspectForm = document.getElementById('inspectionForm');
+  const messageBox = document.getElementById('inspectionMessage');
+
+  inspectForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(inspectForm);
+    const name = formData.get('name');
+    const vehicle = formData.get('vehicle');
+    const date = formData.get('date');
+    const time = formData.get('time');
+
+    messageBox.innerHTML = `Thank you, <strong>${name}</strong>!<br>
+    Your live video inspection for <strong>${vehicle}</strong> is confirmed on 
+    <strong>${date}</strong> at <strong>${time}</strong>. Our team will contact you via video call.`;
+
+    // Optional backend submission
+    fetch('https://formspree.io/f/mwkgygwn', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+    inspectForm.reset();
+  });
 </script>
-<!-- Fixed Phone Icon -->
-<!-- Vehicle Bought Album -->
-<section style="padding:3rem 1rem;background-color:#000;text-align:center;">
-<h2 style="color:#fff;">Recently Purchased Vehicles</h2>
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
-<img alt="car1" src="https://i.ibb.co/z6mHHKK/car1.jpg" style="width:150px;height:auto;border-radius:8px;"/>
-<img alt="car2" src="https://i.ibb.co/k21LbzF/car2.jpg" style="width:150px;height:auto;border-radius:8px;"/>
-<img alt="car3" src="https://i.ibb.co/Y2R0FJR/car3.jpg" style="width:150px;height:auto;border-radius:8px;"/>
-<img alt="car4" src="https://i.ibb.co/v4kysX6/car4.jpg" style="width:150px;height:auto;border-radius:8px;"/>
+<section id="dashboard" style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<h2>My Recarra Dashboard</h2>
+<p>Log in to manage your offers, pickups, and referral rewards.</p>
+<form id="loginForm" style="margin: 2rem auto; max-width: 400px;">
+<input name="email" placeholder="Email" required="" type="email"/>
+<input name="phone" placeholder="Phone Number" required="" type="tel"/>
+<button type="submit">Login / Register</button>
+</form>
+<div id="userDashboard" style="display:none; text-align: left; margin-top: 2rem; max-width: 600px; margin-left:auto; margin-right:auto;">
+<h3>Your Offers</h3>
+<div style="background:#fff; padding:1rem; border:1px solid #ccc; border-radius:8px; margin-bottom:1rem;">
+<p><strong>2014 Honda Accord</strong></p>
+<p>Status: <span style="color:green;">Pickup Scheduled</span></p>
+<p>Offer: <strong>$720.00</strong></p>
 </div>
+<h3>Referral Rewards</h3>
+<p>Share your link: <code>recarra.com/?ref=YOURCODE</code></p>
+<p>You’ve earned: <strong>$50.00</strong></p>
+<h3>Actions</h3>
+<button onclick="alert('Upload new vehicle feature coming soon.')">Upload Another Vehicle</button>
+</div>
+<p id="loginMsg" style="margin-top: 1rem; font-weight: bold;"></p>
 </section>
 <script>
-  window.onload = function() {
-    const chatBtn = document.createElement('div');
-    chatBtn.innerText = 'Live Chat';
-    chatBtn.style.position = 'fixed';
-    chatBtn.style.bottom = '100px';
-    chatBtn.style.right = '20px';
-    chatBtn.style.background = '#ff4b2b';
-    chatBtn.style.color = 'white';
-    chatBtn.style.padding = '12px 18px';
-    chatBtn.style.borderRadius = '30px';
-    chatBtn.style.boxShadow = '0 0 10px #ff4b2b';
-    chatBtn.style.cursor = 'pointer';
-    chatBtn.style.zIndex = '10000';
-    chatBtn.onclick = function() {
-      alert('Live chat coming soon...');
-    };
-    document.body.appendChild(chatBtn);
-  };
+  const loginForm = document.getElementById('loginForm');
+  const dashboard = document.getElementById('userDashboard');
+  const loginMsg = document.getElementById('loginMsg');
+
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    loginForm.style.display = 'none';
+    dashboard.style.display = 'block';
+    loginMsg.innerText = 'Welcome back! Dashboard loaded.';
+  });
 </script>
-<div style="height: 80px;"></div>
-<footer style="text-align: left; padding-left: 20px;">
-<div style="margin-top:2rem; margin-bottom:1rem;">
-<a href="#about" style="color:#fff;">About Us</a>
-<a href="#auctions" style="color:#fff;">Auctions</a>
-<a href="#transport" style="color:#fff;">Transport</a>
-</div>
-<div style="font-size: 0.9rem; color:#fff; margin-top: 1.5rem;">
-    © 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX
+<section id="live-deals" style="background-color:#f6f1e7; padding: 1rem 0; overflow: hidden; border-top: 2px solid #ccc; border-bottom: 2px solid #ccc;">
+<div style="white-space: nowrap; animation: scrollDeals 30s linear infinite; font-weight: bold; font-size: 1rem; color: #222;">
+    Jessica from Dallas sold her 2011 Ford Escape for $540 •
+    Mike in Austin received $720 for his 2008 Nissan Altima •
+    Latoya in Houston sold a 2007 Chevy Tahoe for $685 •
+    Ahmed from San Antonio received $810 for his Lexus RX •
+    Eric in El Paso sold a junk car for $400 in under 2 hours •
+    Hannah from Sugar Land accepted a $625 offer instantly •
   </div>
+</section>
+<style>
+@keyframes scrollDeals {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+<footer>
+<p>© 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX</p>
 </footer>
+
 <script>
-  window.onload = function() {
-    const chatBtn = document.createElement('div');
-    chatBtn.innerText = 'Live Chat';
-    chatBtn.style.position = 'fixed';
-    chatBtn.style.bottom = '25px';
-    chatBtn.style.left = '20px';
-    chatBtn.style.background = '#ff4b2b';
-    chatBtn.style.color = 'white';
-    chatBtn.style.padding = '12px 18px';
-    chatBtn.style.borderRadius = '30px';
-    chatBtn.style.boxShadow = '0 0 10px #ff4b2b';
-    chatBtn.style.cursor = 'pointer';
-    chatBtn.style.zIndex = '10000';
-    chatBtn.onclick = function() {
-      window.open('https://meet.jit.si/RecarraLiveSupport', '_blank');
-    };
-    document.body.appendChild(chatBtn);
+function startVoiceInput(inputId) {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice recognition not supported in this browser.");
+    return;
+  }
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.onresult = function(event) {
+    const result = event.results[0][0].transcript;
+    document.getElementById(inputId).value = result;
   };
+  recognition.start();
+}
 </script>
 </body>
 </html>
