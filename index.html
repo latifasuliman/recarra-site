@@ -525,8 +525,8 @@ nav a {
 <option value="3462740071"><option value="8320001111"><option value="7131234567">
 </option></option></option></datalist>
 </div>
-<div class="step"> <button type="submit">Submit to Recarra AI</button> </div>
-</form>
+<div class="step"> <button type="submit">Submit to Recarra AI</button> </div><div class="step"><label>Upload Photos (Front, Side, Dashboard):</label><input accept="image/*" multiple="True" name="photos" required="False" type="file"/></div>
+</form><div id="estimatedOfferPreview" style="margin-top:1rem; font-weight:bold; color:green; display:none;">Estimated Offer: $[placeholder]</div>
 <div class="step active"></div><button id="nextBtn" onclick="nextStep()">Next</button>
 <h3 id="offerResult" style="color:red; margin-top:1rem;"></h3>
 </section>
@@ -633,6 +633,13 @@ nav a {
 <input maxlength="17" name="vin" pattern="[A-HJ-NPR-Z0-9]{17}" placeholder="Enter VIN Manually (17 characters)" required="" type="text"/>
 <button style="margin-top:1rem;">Scan or Submit VIN</button>
 <p style="font-size:0.85rem; margin-top:1rem;">* VIN scanning functionality requires camera access. Manual entry works on all devices.</p>
+<p style="margin-top: 1rem;">To use your camera, click the button below and scan your VIN barcode.</p>
+<button onclick="startVinScan()" style="margin-top: 0.5rem;">Start VIN Scan</button>
+<script>
+    function startVinScan() {
+      alert("VIN scanner placeholder - camera access code goes here.");
+    }
+    </script>
 </section>
 <section style="background-color:#ffffff; color:#333; padding:3rem 1.5rem; text-align:center;">
 <h2>Why Sellers Trust Recarra</h2>
@@ -870,5 +877,63 @@ setInterval(() => {
   if (slogan) slogan.textContent = slogans[i % slogans.length];
   i++;
 }, 3000);
-</script><div id="stickyCTA" style="position:fixed; bottom:0; left:0; right:0; background:#0071e3; color:white; display:flex; justify-content:center; gap:1rem; padding:0.75rem; z-index:9999;"><a href="#" style="color:white; font-weight:bold; text-decoration:none;"> Get Offer</a><a href="#" style="color:white; font-weight:bold; text-decoration:none;"> Upload</a><a href="#" style="color:white; font-weight:bold; text-decoration:none;"> Call</a></div></body>
+</script><div id="stickyCTA" style="position:fixed; bottom:0; left:0; right:0; background:#0071e3; color:white; display:flex; justify-content:center; gap:1rem; padding:0.75rem; z-index:9999;"><a href="#" style="color:white; font-weight:bold; text-decoration:none;"> Get Offer</a><a href="#" style="color:white; font-weight:bold; text-decoration:none;"> Upload</a><a href="#" style="color:white; font-weight:bold; text-decoration:none;"> Call</a></div>
+<div id="chatbot" style="position: fixed; bottom: 20px; left: 20px; background: #fff; border: 1px solid #ccc; border-radius: 8px; width: 300px; height: 400px; box-shadow: 0 0 10px rgba(0,0,0,0.1); z-index: 9999;; display:none;">
+<div style="background:#0071e3; color:white; padding:10px; border-radius:8px 8px 0 0;">
+    Recarra Assistant
+  </div>
+<div style="padding:10px; font-size:0.9rem;">
+<p>Hi! Need help selling your car? I'm here to assist.</p>
+<p>[Chatbot backend coming soon]</p>
+</div>
+</div>
+<button onclick="document.getElementById('chatbot').style.display='block'; this.style.display='none';" style="position:fixed;bottom:20px;left:20px;z-index:9999;background:#0071e3;color:white;border:none;border-radius:50%;width:50px;height:50px;cursor:pointer;">Chat</button>
+<section id="vin-lookup" style="background:#fff; padding:3rem 1.5rem; text-align:center;">
+<h2>Get Vehicle History Report</h2>
+<p>Enter your VIN below to retrieve a detailed vehicle history report instantly.</p>
+<input id="vinLookupInput" maxlength="17" placeholder="Enter 17-character VIN" style="margin-top:1rem;" type="text"/>
+<button onclick="lookupVinReport()" style="margin-top:0.5rem;">Lookup Report</button>
+<div id="vinReportResult" style="margin-top:1rem; color:#444;"></div>
+<script>
+    function lookupVinReport() {
+      const vin = document.getElementById('vinLookupInput').value;
+      document.getElementById('vinReportResult').innerText = 'Fetching vehicle report for VIN: ' + vin + '... [API integration pending]';
+    }
+  </script>
+</section>
+<section id="map-schedule" style="background:#f8f8f8; padding:3rem 1.5rem; text-align:center;">
+<h2>Schedule Pickup on the Map</h2>
+<p>Drop a pin or enter your ZIP code to schedule an instant pickup.</p>
+<input placeholder="Enter ZIP Code (e.g. 77001)" style="margin-top:1rem;" type="text"/>
+<div id="pickupMap" style="width:100%;max-width:600px;height:300px;background:#ddd;margin:1rem auto;border-radius:10px;">
+<p style="line-height:300px;">[Live Map API Placeholder]</p>
+</div>
+</section>
+<section id="plate-recognition" style="background:#fff; padding:3rem 1.5rem; text-align:center;">
+<h2>Recognize Your Car by Plate</h2>
+<p>Upload a clear photo of your license plate to identify your vehicle.</p>
+<input accept="image/*" style="margin-top:1rem;" type="file"/>
+<button onclick="alert('License Plate AI recognition coming soon')" style="margin-top:0.5rem;">Submit Plate</button>
+</section>
+<section id="voice-ui" style="background:#f9f9f9; padding:3rem 1.5rem; text-align:center;">
+<h2>Talk to Recarra AI</h2>
+<p>Use your voice to ask questions or fill the form. Just click below and speak.</p>
+<button onclick="startVoiceAssistant()" style="margin-top:1rem;">Activate Voice Assistant</button>
+<p id="voiceResult" style="margin-top:1rem;"></p>
+<script>
+    function startVoiceAssistant() {
+      if (!('webkitSpeechRecognition' in window)) {
+        alert('Voice recognition not supported.');
+        return;
+      }
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.onresult = function(event) {
+        document.getElementById('voiceResult').innerText = 'You said: ' + event.results[0][0].transcript;
+      };
+      recognition.start();
+    }
+  </script>
+</section>
+</body>
 </html>
