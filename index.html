@@ -11,8 +11,8 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Urbanist', sans-serif;
-      background-color: #000;
-      color: #fff;
+      background-color: #f9f9f9;
+      color: #111;
       line-height: 1.6;
     }
     header {
@@ -28,7 +28,7 @@
     .logo {
       font-size: 1.8rem;
       font-weight: 800;
-      color: #fff;
+      color: #111;
     }
     .logo small {
       display: block;
@@ -44,8 +44,8 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 14px;
-      background-color: #ff0000;
-      color: white;
+      background-color: #0071e3;
+      color: #fff;
     }
     .hero {
       padding: 4rem 2rem;
@@ -64,7 +64,7 @@
     }
     .cta-buttons a {
       background: #ff0000;
-      color: white;
+      color: #fff;
       padding: 0.75rem 1.5rem;
       border-radius: 30px;
       text-decoration: none;
@@ -75,11 +75,11 @@
       text-align: center;
     }
     footer {
-      background-color: #f6f1e7;
+      background-color: #f6f1e7; color: #333;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: white;
+      color: #fff;
     }
     input, select, textarea, button {
       width: 100%;
@@ -91,12 +91,12 @@
       font-size: 1rem;
     }
     input, select, textarea {
-      background-color: #fff; color: #222; border: 1px solid #ccc;
-      color: white;
+      background-color: #fff; color: #333; border: 1px solid #ccc;
+      color: #fff;
     }
     button {
-      background-color: #ff0000;
-      color: white;
+      background-color: #0071e3;
+      color: #fff;
       font-weight: bold;
       cursor: pointer;
     }
@@ -119,6 +119,60 @@
   background: linear-gradient(90deg, #ff0000, #c40000);
   transition: width 0.4s ease-in-out;
 }
+
+input::placeholder, textarea::placeholder {
+  color: #888;
+  font-style: italic;
+}
+ {
+  width: 100%;
+  max-width: 400px;
+  margin: 0.5rem auto;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+ {
+  width: 100%;
+  max-width: 400px;
+  height: 54px;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  display: block;
+  box-sizing: border-box;
+}
+
+ {
+  width: 100%;
+  max-width: 400px;
+  margin: 0.5rem auto;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  display: block;
+  box-sizing: border-box;
+}
+
+input[type="date"], input[type="time"] {
+  width: 100%;
+  max-width: 400px;
+  margin: 0.5rem auto;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  display: block;
+  box-sizing: border-box;
+}
 </style>
 </head>
 <body>
@@ -133,7 +187,7 @@
 <a href="#call">Call Support</a>
 </nav>
 </header>
-<section class="hero" style="background-color:#f6f1e7; color:#222; padding:4rem 2rem; text-align:center;">
+<section class="hero" style="background-color:#ffffff; color:#333; padding:4rem 2rem; text-align:center;">
 <h1>Sell Your Car — Your Way</h1>
 <p>No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.</p>
 <div class="cta-buttons" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; max-width: 500px; margin: 2rem auto;">
@@ -144,7 +198,7 @@
 <a href="#textus" style="grid-column: span 2; text-align: center;">Text Us License Plate</a>
 </div>
 </section>
-<section style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem;">
+<section style="background-color:#ffffff; color:#333; padding:3rem 1.5rem;">
 <h2>Why Recarra?</h2>
 <div style="max-width: 700px; margin: auto; text-align: left;">
 <div style="border-left: 4px solid red; padding-left: 1rem; margin-bottom: 1rem;">
@@ -164,7 +218,7 @@
     </div>
 </div>
 </section>
-<section id="form" style="background-color:#f6f1e7; color:#222; padding:3rem 1rem; text-align:center;">
+<section id="form" style="background-color:#ffffff; color:#333; padding:3rem 1rem; text-align:center;">
 <h2>Recarra Smart AI Offer</h2>
 <div id="progressBar" style="height: 8px; width: 100%; background-color: #eee; margin-bottom: 20px;">
 <div id="progressFill" style="height: 100%; width: 0%; background-color: #ff0000;"></div>
@@ -277,15 +331,15 @@
     });
   });
 </script>
-<section id="live" style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<section id="live" style="background-color:#ffffff; color:#333; padding:3rem 1.5rem; text-align:center;">
 <h2>Go Live With Us</h2>
 <p>Want to talk right now? Join a live video call — no login, no hassle.</p>
-<a href="https://meet.jit.si/RecarraLiveHelp" style="display:inline-block; margin-top:1rem; background:#ff0000; padding:12px 24px; color:#222; font-weight:bold; border-radius:30px; text-decoration:none;" target="_blank">
+<a href="https://meet.jit.si/RecarraLiveHelp" style="display:inline-block; margin-top:1rem; background:#ff0000; padding:12px 24px; color:#333; font-weight:bold; border-radius:30px; text-decoration:none;" target="_blank">
     Go Live Now
   </a>
 <p style="margin-top: 1rem; font-size: 0.9rem;">*No sign-up needed. Talk to our team face-to-face instantly.</p>
 </section>
-<section id="upload" style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<section id="upload" style="background-color:#ffffff; color:#333; padding:3rem 1.5rem; text-align:center;">
 <h2>Upload Photos of Your Vehicle</h2>
 <p>Snap and send a few photos — and get a cash offer in minutes.</p>
 <form enctype="multipart/form-data" style="margin-top: 2rem;">
@@ -295,7 +349,7 @@
 </form>
 <p style="margin-top: 1rem; font-size: 0.9rem;">We'll review your images instantly and contact you with a cash offer.</p>
 </section>
-<section style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<section style="background-color:#ffffff; color:#333; padding:3rem 1.5rem; text-align:center;">
 <h2>Why Sellers Trust Recarra</h2>
 <p id="adMessage" style="font-size:1.1rem; font-weight:bold; margin: 1.5rem 0;"></p>
 <script>
@@ -320,15 +374,15 @@
 <p><em>"The smart form was fast and accurate. Love the $100 bonus!" – Luis R., Sugar Land</em></p>
 </div>
 </section>
-<section id="schedule" style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<section id="schedule" style="background-color:#ffffff; color:#333; padding:3rem 1.5rem; text-align:center;">
 <h2>Schedule a Live Video Inspection</h2>
 <p>Book a video call with our team to verify your car and lock in your cash offer.</p>
 <form id="inspectionForm" style="margin-top: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-<input name="name" placeholder="Your Full Name" required="" type="text"/>
-<input name="phone" placeholder="Phone Number" required="" type="tel"/>
-<input name="vehicle" placeholder="Vehicle (Year, Make, Model)" required="" type="text"/>
-<input name="date" required="" type="date"/>
-<input name="time" required="" type="time"/>
+<input name="name" placeholder="Your Full Name" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="text"/>
+<input name="phone" placeholder="Phone Number" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="tel"/>
+<input name="vehicle" placeholder="Vehicle (Year, Make, Model)" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="text"/>
+<input name="date" placeholder="Select Date" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="date"/>
+<input name="time" placeholder="Select Time" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="time"/>
 <button type="submit">Confirm Inspection</button>
 </form>
 <p id="inspectionMessage" style="margin-top: 1rem; font-weight: bold;"></p>
@@ -358,7 +412,7 @@
     inspectForm.reset();
   });
 </script>
-<section id="dashboard" style="background-color:#f6f1e7; color:#222; padding:3rem 1.5rem; text-align:center;">
+<section id="dashboard" style="background-color:#ffffff; color:#333; padding:3rem 1.5rem; text-align:center;">
 <h2>My Recarra Dashboard</h2>
 <p>Log in to manage your offers, pickups, and referral rewards.</p>
 <form id="loginForm" style="margin: 2rem auto; max-width: 400px;">
@@ -368,7 +422,7 @@
 </form>
 <div id="userDashboard" style="display:none; text-align: left; margin-top: 2rem; max-width: 600px; margin-left:auto; margin-right:auto;">
 <h3>Your Offers</h3>
-<div style="background:#fff; padding:1rem; border:1px solid #ccc; border-radius:8px; margin-bottom:1rem;">
+<div style="background:#ffffff; padding:1rem; border:1px solid #ccc; border-radius:8px; margin-bottom:1rem;">
 <p><strong>2014 Honda Accord</strong></p>
 <p>Status: <span style="color:green;">Pickup Scheduled</span></p>
 <p>Offer: <strong>$720.00</strong></p>
@@ -393,7 +447,7 @@
     loginMsg.innerText = 'Welcome back! Dashboard loaded.';
   });
 </script>
-<section id="live-deals" style="background-color:#f6f1e7; padding: 1rem 0; overflow: hidden; border-top: 2px solid #ccc; border-bottom: 2px solid #ccc;">
+<section id="live-deals" style="background-color:#ffffff; padding: 1rem 0; overflow: hidden; border-top: 2px solid #ccc; border-bottom: 2px solid #ccc;">
 <div style="white-space: nowrap; animation: scrollDeals 30s linear infinite; font-weight: bold; font-size: 1rem; color: #222;">
     Jessica from Dallas sold her 2011 Ford Escape for $540 •
     Mike in Austin received $720 for his 2008 Nissan Altima •
@@ -412,7 +466,6 @@
 <footer>
 <p>© 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX</p>
 </footer>
-
 <script>
 function startVoiceInput(inputId) {
   if (!('webkitSpeechRecognition' in window)) {
