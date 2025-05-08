@@ -4,12 +4,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 <title>
    Recarra | Sell Your Car Instantly
   </title>
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
-<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon">
 <meta content="Sell your car fast with Recarra. Instant cash offers, AI pricing, and same-day pickup with zero hassle." name="description"/>
 <style>
    @keyframes fadein {
@@ -57,7 +57,7 @@ section {
     color: #fff !important;
     border-color: #555 !important;
 }
-</style></head>
+</style></link></head>
 <body style=""><button onclick="toggleDarkMode()" style="position:fixed; top:20px; right:20px; z-index:9999;padding:0.5rem 1rem; background:#333; color:white; border:none; border-radius:5px; font-size:0.9rem;">Toggle Dark Mode</button>
 <section style="  text-align:left;  max-width: 900px; margin: 2rem auto;background-color: #ffffff; color: #111111;padding: 4rem 2rem; margin: 3rem auto;">
 <h1 style="font-size:3rem; font-weight:900; color:#111;">
@@ -70,54 +70,41 @@ section {
     Recarra is your direct path to instant car cash offers, same-day pickups, and no paperwork hassles — trusted by sellers across the nation.
    </p>
 </section>
-<header style="position:sticky; top:0; z-index:9999; background:#000; padding:1rem 2rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-<div style="flex:1; min-width:200px;">
-<h1 style="color: white; margin-bottom: 0; font-size: 1.5rem;">
-     Recarra
-    </h1>
+<header style="position:sticky; top:0; z-index:9999; background:#000; padding:1rem 2rem; display:flex; flex-direction:column;">
+<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+<div style="flex:1;">
+<h1 style="color: white; font-size: 1.5rem; margin: 0;">Recarra</h1>
 </div>
 <nav style="display:flex; gap:1rem; flex-wrap:wrap;">
-  <a href="#form" style="color:white; text-decoration:none; font-weight:bold;">Smart Offer</a>
-  <a href="#upload" style="color:white; text-decoration:none; font-weight:bold;">Upload</a>
-  <a href="#voice-ui" style="color:white; text-decoration:none; font-weight:bold;">Talk to AI</a>
-  <a href="#live" style="color:white; text-decoration:none; font-weight:bold;">Live Chat</a>
-<style>
-  header nav a:hover {
-    text-shadow: 0 0 8px #ffffff;
-    color: #f9d423;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+<a href="#form" style="color:white; text-decoration:none; font-weight:bold;">Offer</a>
+<a href="#upload" style="color:white; text-decoration:none; font-weight:bold;">Upload</a>
+<a href="#voice-ui" style="color:white; text-decoration:none; font-weight:bold;">AI Chat</a>
+<a href="#live" style="color:white; text-decoration:none; font-weight:bold;">Chat</a>
 </nav>
+</div>
+<div style="margin-top: 0.75rem; display:flex; justify-content:center; flex-wrap:wrap; gap:0.75rem;">
+<a href="#check-offer" style="color:#ccc; text-decoration:none; font-size:0.9rem;">Track</a>
+<a href="#scan-vin" style="color:#ccc; text-decoration:none; font-size:0.9rem;">Scan VIN</a>
+<a href="#schedule" style="color:#ccc; text-decoration:none; font-size:0.9rem;">Pickup</a>
+<a href="#history" style="color:#ccc; text-decoration:none; font-size:0.9rem;">History</a>
+<a href="#schedule" style="color:#ccc; text-decoration:none; font-size:0.9rem;">Video</a>
+<a href="#form" style="color:#ccc; text-decoration:none; font-size:0.9rem;">Submit</a>
+<a href="#plate-recognition" style="color:#ccc; text-decoration:none; font-size:0.9rem;">Text Plate</a>
+<a href="#live" style="color:#ccc; text-decoration:none; font-size:0.9rem;">Go Live</a>
+</div>
 </header>
 <section class="hero" style="   text-align: center; max-width: 900px; margin: 2rem auto;background-color: #f0f0f0; color: #111111;padding: 4rem 2rem; margin: 3rem auto;">
 <h1 style="color: white; margin-bottom: 0; font-size: 1.5rem;">
     Sell Your Car — Your Way
 </h1>
-</h1>
 <div style="display: flex; justify-content: center; gap: 1.5rem; margin: 1rem auto;">
-  <button onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e63946'; this.style.color='#fff';" onmouseout="this.style.background='#fff'; this.style.color='#000';">
-    <i class="fas fa-camera"></i> Upload Photo
-  </button>
-  <button onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e63946'; this.style.color='#fff';" onmouseout="this.style.background='#fff'; this.style.color='#000';">
-    <i class="fas fa-robot"></i> Fill AI Form
-  </button>
-  <button onclick="document.getElementById('voice-ui').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e63946'; this.style.color='#fff';" onmouseout="this.style.background='#fff'; this.style.color='#000';">
-    <i class="fas fa-microphone"></i> Talk to AI
-  </button>
+
+
+
 </div>
-  <button onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer;">
-    Upload Photo
-  </button>
-  <button onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer;">
-    Fill AI Form
-  </button>
-  <button onclick="document.getElementById('voice-ui').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer;">
-    Talk to AI
-  </button>
-</div>
+
+
+
 <p style="font-size:1.25rem; color:#333; max-width:650px; margin: 1rem auto;">
     No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.
    </p>
@@ -683,9 +670,9 @@ section {
    </button>
 <p id="voiceResult" style="margin-top:1rem;">
 <div id="chatBoxTrigger" style="margin-top:2rem; display:none;">
-  <div style="background:#fff; border:1px solid #ccc; border-radius:8px; padding:1rem;">
-    <h3>Start Chat Based on Your Voice</h3>
-    <p id="chatIntroText"></p>
+<div style="background:#fff; border:1px solid #ccc; border-radius:8px; padding:1rem;">
+<h3>Start Chat Based on Your Voice</h3>
+<p id="chatIntroText"></p>
 <p id="chatbotResponse" style="margin-top:10px;"></p>
 <script>
 function speakResponse(text) {
@@ -708,8 +695,8 @@ setTimeout(() => {
   simulateAIResponse("Hello! How can I help you today?");
 }, 2000);
 </script>
-    <button onclick="openChat()" style="background:#0071e3; color:white; padding:0.75rem 1.5rem; border:none; border-radius:6px;">Start Chat</button>
-  </div>
+<button onclick="openChat()" style="background:#0071e3; color:white; padding:0.75rem 1.5rem; border:none; border-radius:6px;">Start Chat</button>
+</div>
 </div>
 <script>
 function startVoiceAssistant() {
@@ -732,7 +719,6 @@ function openChat() {
   document.getElementById('chatIntroText').innerText = '';
 }
 </script>
-
 </p>
 <script>
     function startVoiceAssistant() {
