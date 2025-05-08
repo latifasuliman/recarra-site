@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <title>
    Recarra | Sell Your Car Instantly
   </title>
@@ -69,17 +70,54 @@ section {
     Recarra is your direct path to instant car cash offers, same-day pickups, and no paperwork hassles — trusted by sellers across the nation.
    </p>
 </section>
-<header style="background:#000; padding:1rem 2rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+<header style="position:sticky; top:0; z-index:9999; background:#000; padding:1rem 2rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
 <div style="flex:1; min-width:200px;">
-<h1 style="color: black; margin-bottom: 1rem;">
+<h1 style="color: white; margin-bottom: 0; font-size: 1.5rem;">
      Recarra
     </h1>
 </div>
+<nav style="display:flex; gap:1rem; flex-wrap:wrap;">
+  <a href="#form" style="color:white; text-decoration:none; font-weight:bold;">Smart Offer</a>
+  <a href="#upload" style="color:white; text-decoration:none; font-weight:bold;">Upload</a>
+  <a href="#voice-ui" style="color:white; text-decoration:none; font-weight:bold;">Talk to AI</a>
+  <a href="#live" style="color:white; text-decoration:none; font-weight:bold;">Live Chat</a>
+<style>
+  header nav a:hover {
+    text-shadow: 0 0 8px #ffffff;
+    color: #f9d423;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+</nav>
 </header>
 <section class="hero" style="   text-align: center; max-width: 900px; margin: 2rem auto;background-color: #f0f0f0; color: #111111;padding: 4rem 2rem; margin: 3rem auto;">
-<h1 style="color: black; margin-bottom: 1rem;">
+<h1 style="color: white; margin-bottom: 0; font-size: 1.5rem;">
     Sell Your Car — Your Way
-   </h1>
+</h1>
+</h1>
+<div style="display: flex; justify-content: center; gap: 1.5rem; margin: 1rem auto;">
+  <button onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e63946'; this.style.color='#fff';" onmouseout="this.style.background='#fff'; this.style.color='#000';">
+    <i class="fas fa-camera"></i> Upload Photo
+  </button>
+  <button onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e63946'; this.style.color='#fff';" onmouseout="this.style.background='#fff'; this.style.color='#000';">
+    <i class="fas fa-robot"></i> Fill AI Form
+  </button>
+  <button onclick="document.getElementById('voice-ui').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e63946'; this.style.color='#fff';" onmouseout="this.style.background='#fff'; this.style.color='#000';">
+    <i class="fas fa-microphone"></i> Talk to AI
+  </button>
+</div>
+  <button onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer;">
+    Upload Photo
+  </button>
+  <button onclick="document.getElementById('form').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer;">
+    Fill AI Form
+  </button>
+  <button onclick="document.getElementById('voice-ui').scrollIntoView({behavior:'smooth'})" style="background:#fff; border:2px solid #e63946; padding:0.75rem 1.25rem; border-radius:30px; font-weight:bold; cursor:pointer;">
+    Talk to AI
+  </button>
+</div>
 <p style="font-size:1.25rem; color:#333; max-width:650px; margin: 1rem auto;">
     No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.
    </p>
@@ -644,6 +682,57 @@ section {
     Activate Voice Assistant
    </button>
 <p id="voiceResult" style="margin-top:1rem;">
+<div id="chatBoxTrigger" style="margin-top:2rem; display:none;">
+  <div style="background:#fff; border:1px solid #ccc; border-radius:8px; padding:1rem;">
+    <h3>Start Chat Based on Your Voice</h3>
+    <p id="chatIntroText"></p>
+<p id="chatbotResponse" style="margin-top:10px;"></p>
+<script>
+function speakResponse(text) {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'en-US';
+    speechSynthesis.speak(utterance);
+  }
+}
+
+// Simulate AI reply (you can replace with actual backend logic)
+function simulateAIResponse(message) {
+  const reply = "Thanks for your message. We will assist you shortly.";
+  document.getElementById('chatbotResponse').innerText = reply;
+  speakResponse(reply);
+}
+
+// Trigger this after chat starts or message received
+setTimeout(() => {
+  simulateAIResponse("Hello! How can I help you today?");
+}, 2000);
+</script>
+    <button onclick="openChat()" style="background:#0071e3; color:white; padding:0.75rem 1.5rem; border:none; border-radius:6px;">Start Chat</button>
+  </div>
+</div>
+<script>
+function startVoiceAssistant() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert('Voice recognition not supported.');
+    return;
+  }
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = 'en-US';
+  recognition.onresult = function(event) {
+    const transcript = event.results[0][0].transcript;
+    document.getElementById('voiceResult').innerText = 'You said: ' + transcript;
+    document.getElementById('chatIntroText').innerText = "You said: '" + transcript + "'. Would you like to continue this in chat?";
+    document.getElementById('chatBoxTrigger').style.display = 'block';
+  };
+  recognition.start();
+}
+function openChat() {
+  document.getElementById('chatbot').style.display = 'block';
+  document.getElementById('chatIntroText').innerText = '';
+}
+</script>
+
 </p>
 <script>
     function startVoiceAssistant() {
@@ -852,6 +941,31 @@ setInterval(() => {
     Recarra Assistant
    </div>
 <div style="padding:10px; font-size:0.9rem;">
+<p>
+     You can continue the conversation here. Type, speak, or request a video call.
+    </p>
+<button onclick="startChatVoiceReply()" style="margin:10px 0; background:#0071e3; color:white; padding:0.5rem 1rem; border:none; border-radius:6px;">Speak to Recarra AI</button>
+<button onclick="startVideoCall()" style="background:#ff4e50; color:white; padding:0.5rem 1rem; border:none; border-radius:6px;">Start Video Call</button>
+<script>
+function startChatVoiceReply() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert('Voice recognition not supported.');
+    return;
+  }
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = 'en-US';
+  recognition.onresult = function(event) {
+    const voiceMsg = event.results[0][0].transcript;
+    document.getElementById('chatbotResponse').innerText = "You said: " + voiceMsg;
+  speakResponse("You said: " + voiceMsg + ". Thanks for reaching out. We'll assist you right away.");
+  };
+  recognition.start();
+}
+
+function startVideoCall() {
+  window.open("https://meet.jit.si/RecarraLiveHelp", "_blank");
+}
+</script>
 <p>
      Hi! Need help selling your car? I'm here to assist.
     </p>
