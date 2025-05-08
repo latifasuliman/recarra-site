@@ -429,10 +429,23 @@ nav a {
 }
 </style></head>
 <body>
-<section style="background-color:#dddddd; color:#000; text-align:left; padding:3rem 2rem;"><h1 style="font-size:3rem; font-weight:900; color:#111;">Recarra</h1><p style="font-size:1.5rem; font-style:italic; color:#e63946; margin-top:1rem;">Changing the way America sells cars — fast, fair, and AI-powered.</p><p style="font-size:1.1rem; color:#222; margin-top:1rem; max-width:600px;">Recarra is your direct path to instant car cash offers, same-day pickups, and no paperwork hassles — trusted by sellers across the nation.</p></section><header style="background:#000; padding:1rem 2rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+<section style="background-color:#dddddd; color:#000; text-align:left; padding:3rem 2rem;"><h1 style="font-size:3rem; font-weight:900; color:#111;">Recarra</h1><p style="font-size:1.5rem; font-style:italic; color:#e63946; margin-top:1rem;">Changing the way America sells cars — fast, fair, and AI-powered.</p><p style="font-size:1.1rem; color:#222; margin-top:1rem; max-width:600px;">Recarra is your direct path to instant car cash offers, same-day pickups, and no paperwork hassles — trusted by sellers across the nation.</p><div id="taglineCarousel" style="font-size:1.5rem; font-style:italic; color:#e63946; height:2em; overflow:hidden; position:relative;"><span id="carouselText" style="position:absolute; transition: opacity 0.5s ease;">Sell your car — fast, fair, and AI-powered.</span></div><script>
+const taglines = ['Get a real cash offer in minutes — only with Recarra.', 'Snap a photo. Get paid. It’s that simple.', 'Recarra pays more than junkyards — every time.', 'Don’t wait. Get a same-day pickup and cash.', 'Sell your car as-is. No repairs. No drama.', 'Our AI gives instant fair offers based on market data.', 'Smarter pricing. Faster deals. Only at Recarra.', 'You describe it — we price it. Recarra AI does the work.', 'The smartest way to sell your car, powered by Recarra.', "Tired of lowball offers? Let Recarra's AI win for you.", 'Trusted by thousands across Texas and beyond.', 'Recarra handles all paperwork — stress-free selling.', 'DMV, title, and pickup — we’ve got it covered.', 'Recarra is licensed, bonded, and ready to serve you.', 'Say goodbye to shady buyers. Say hello to Recarra.', 'Sell today. Get paid today. Only with Recarra.', 'Submit a form in 60 seconds. Get paid in hours.', 'Pick your time. We’ll come to you.', 'No dealerships. No middlemen. Just Recarra.', 'Sell from your phone — no visit required.', 'Turn your old car into new cash — fast.', 'Free up space. Fund your next move. Recarra makes it easy.', 'That car isn’t doing you any favors. Recarra will.', 'Don’t just sell your car — outsmart the market.', 'Keep your time. Let Recarra handle the hustle.', 'Get a $100 bonus when you sell same-day.', 'Beat competitor offers — guaranteed or we’ll match it.', 'Extra cash for clean titles — no towing fees.', 'Fastest pickups in the industry. Period.', 'Sell to Recarra and earn referral bonuses too.'];
+let i = 0;
+setInterval(() => {
+  const text = document.getElementById("carouselText");
+  if (text) {
+    text.style.opacity = 0;
+    setTimeout(() => {
+      i = (i + 1) % taglines.length;
+      text.textContent = taglines[i];
+      text.style.opacity = 1;
+    }, 400);
+  }
+}, 4000);
+</script></section><header style="background:#000; padding:1rem 2rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
 <div style="flex:1; min-width:200px;">
 <h1 style="color: black; margin-bottom: 1rem;">Recarra</h1>
-<p style="color:#e63946; font-style:italic; font-weight:600; font-size:0.95rem;">Sell your car — fast, fair, and AI-powered.</p>
 </div>
 </header>
 <section class="hero" style="background-color: #dddddd; color: #000; padding: 3rem 1.5rem; text-align: center;">
