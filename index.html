@@ -57,6 +57,10 @@ section {
     color: #111 !important;
     border-color: #555 !important;
 }
+</style><style>
+div:hover, section:hover {
+  border-color: #000 !important;
+}
 </style></head>
 <body style=""><button onclick="toggleDimMode()" style="position:fixed; top:20px; right:20px; z-index:9999;padding:0.5rem 1rem; background:#333; color:white; border:none; border-radius:5px; font-size:0.9rem;">Toggle Dim Mode</button>
 <section style="  text-align:left;  max-width: 900px; margin: 2rem auto;background-color: #ffffff; color: #111111;padding: 4rem 2rem; margin: 3rem auto;">
@@ -102,7 +106,7 @@ section {
 <p style="font-size:1.25rem; color:#333; max-width:650px; margin: 1rem auto;">
     No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.
    </p>
-<p style="font-size: 1.1rem; font-weight: bold; color: red; margin-top: 1rem;">
+<p style="font-size: 1.1rem; font-weight: bold; color: red; margin-top: 1rem; min-height:3rem; overflow:hidden; display:flex; align-items:center; justify-content:center; border: 2px solid #ccc; transition: border-color 0.3s ease;">
 <span id="rotatingSlogan">
      Sell in seconds.
     </span>
@@ -458,7 +462,7 @@ section {
     }
    </script>
 </section>
-<section style="   text-align: center; max-width: 900px; margin: 2rem auto;background-color: #ffe5e5; color: #111111;padding: 4rem 2rem; margin: 3rem auto;">
+<section style="   text-align: center; max-width: 900px; margin: 2rem auto;background-color: #ffe5e5; color: #111111;padding: 4rem 2rem; margin: 3rem auto; min-height:3rem; overflow:hidden; display:flex; align-items:center; justify-content:center; border: 2px solid #ccc; transition: border-color 0.3s ease;">
 <h2 style="color: black; margin-bottom: 1rem;">
     Why Sellers Trust Recarra
    </h2>
@@ -622,7 +626,7 @@ section {
     loginMsg.innerText = 'Welcome back! Dashboard loaded.';
   });
   </script>
-<section id="motivation-ticker" style="background:#ffe5e5;   text-align:center; max-width:900px; margin:2rem auto; border-top:2px solid #e63946; border-bottom:2px solid #e63946; font-weight:bold;background-color: #f0f0f0; color: #111111;padding: 4rem 2rem; margin: 3rem auto;">
+<section id="motivation-ticker" style="background:#ffe5e5;   text-align:center; max-width:900px; margin:2rem auto; border-top:2px solid #e63946; border-bottom:2px solid #e63946; font-weight:bold;background-color: #f0f0f0; color: #111111;padding: 4rem 2rem; margin: 3rem auto; min-height:3rem; overflow:hidden; display:flex; align-items:center; justify-content:center; border: 2px solid #ccc; transition: border-color 0.3s ease;">
 <h2 style="color: black; margin-bottom: 1rem;">Why People Sell with Recarra</h2>
 <p id="typewriterMessage" style="font-size: 1.2rem; font-weight: bold; min-height: 1.8em; white-space: nowrap; overflow: hidden; border-right: 3px solid red; width: 100%; max-width: 700px; margin: 0 auto; text-align: center;"></p>
 </section>
@@ -787,7 +791,7 @@ function openChat() {
 </div>
 </section>
 <script>
-   const taglines = ['Sell your car — fast, fair, and AI-powered.', 'Get a real cash offer in minutes — only with Recarra.', 'Snap a photo. Get paid. It’s that simple.', 'Recarra pays more than junkyards — every time.', 'Don’t wait. Get a same-day pickup and cash.', 'Sell your car as-is. No repairs. No drama.', 'Our AI gives instant fair offers based on market data.', 'Smarter pricing. Faster deals. Only at Recarra.', 'You describe it — we price it. Recarra AI does the work.', "Tired of lowball offers? Let Recarra's AI win for you.", 'Trusted by thousands across Texas and beyond.', 'Recarra handles all paperwork — stress-free selling.', 'DMV, title, and pickup — we’ve got it covered.', 'Recarra is licensed, bonded, and ready to serve you.', 'Say goodbye to shady buyers. Say hello to Recarra.', 'Sell today. Get paid today. Only with Recarra.', 'Submit a form in 60 seconds. Get paid in hours.', 'Pick your time. We’ll come to you.', 'No dealerships. No middlemen. Just Recarra.', 'Sell from your phone — no visit required.', 'Turn your old car into new cash — fast.', 'Free up space. Fund your next move. Recarra makes it easy.', 'That car isn’t doing you any favors. Recarra will.', 'Don’t just sell your car — outsmart the market.', 'Keep your time. Let Recarra handle the hustle.', 'Get a $100 bonus when you sell same-day.', 'Beat competitor offers — guaranteed or we’ll match it.', 'Extra cash for clean titles — no towing fees.', 'Fastest pickups in the industry. Period.', 'Sell to Recarra and earn referral bonuses too.', 'Recarra — where cars turn into cash effortlessly.', 'No time wasted. No games played. Just Recarra.', "We don't just buy cars — we reward convenience.", 'Sell smarter, not harder — with Recarra.', 'The car market’s brain: Recarra AI.', 'More than offers. We deliver peace of mind.', 'Why wait days when Recarra pays today?', 'Make space, make money — in one click.', 'Your car’s value, finally unlocked.', 'Experience the future of car selling — Recarra style.', 'Old car? New cash. Same day.', 'Click. Upload. Get paid.', 'Recarra believes in fast, fair, final offers.', 'Your next car starts here — sell with Recarra.', 'Skip the scams. Choose Recarra.', 'Tech meets trust — welcome to Recarra.', 'Sell from the sofa — no dealership needed.', 'Your driveway is your new marketplace.', 'Smart sellers sell smarter — with Recarra.', "List, quote, cash. It's that easy."];
+const taglines = ['Sell your car — fast, fair, and AI-powered.', 'Get a real cash offer in minutes — only with Recarra.', 'Snap a photo. Get paid. It’s that simple.', 'Recarra pays more than junkyards — every time.', 'Don’t wait. Get a same-day pickup and cash.', 'Sell your car as-is. No repairs. No drama.', 'Our AI gives instant fair offers based on market data.', 'Smarter pricing. Faster deals. Only at Recarra.', 'You describe it — we price it. Recarra AI does the work.', 'Trusted by thousands across Texas and beyond.'];
 let i = 0;
 setInterval(() => {
   const text = document.getElementById("carouselText");
@@ -1003,7 +1007,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
   </script>
 <script>
-  const messages = [
+const messages = ['Get paid today — no waiting.', 'Sell your junk car in under 5 minutes.', 'Cash in your driveway — turn your car into money.', 'Recarra pays more — guaranteed.', 'Instant offer. Same-day pickup.', 'Trusted by thousands across Texas.', 'Photo. Form. Cash. Done.', 'Smart sellers choose Recarra.', 'No title? No problem.', 'We tow it. You get paid.'];
     "Get paid today — no waiting.",
     "Sell your junk car in under 5 minutes.",
     "Cash in your driveway — turn your car into money.",
