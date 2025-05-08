@@ -8,6 +8,121 @@
 <title>Recarra | Sell Your Car Instantly</title>
 <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
 <style>
+    :root {
+      --primary-color: #d90000;
+      --accent-color: #0071e3;
+      --background-color: #f9f9f9;
+      --text-color: #111;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Urbanist', sans-serif;
+      background: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #000;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      background-color: var(--accent-color);
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    .hero {
+      background: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--text-color);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .cta-section a {
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .cta-section a:hover {
+      background: #a60000;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+<style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Urbanist', sans-serif;
@@ -258,36 +373,81 @@ nav a {
   }
 }
 
-</style>
-</head>
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+.cta-buttons a {
+  flex: 1 1 28%;
+  min-width: 160px;
+  max-width: 200px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0071e3;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  max-width: 800px;
+  margin: 1rem auto;
+}
+.cta-buttons a {
+  flex: 1 1 28%;
+  min-width: 120px;
+  max-width: 160px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0071e3;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+</style></head>
 <body>
 <header style="background:#000; padding:1rem 2rem; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-  <div style="flex:1; min-width:200px;">
-    <h1 style="color:white; font-size:2rem; font-weight:900;">Recarra</h1>
-    <p style="color:#e63946; font-style:italic; font-weight:600; font-size:0.95rem;">Sell your car — fast, fair, and AI-powered.</p>
-  </div>
-  <nav style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:flex-end; align-items:center; margin-top:0.5rem;">
-    <a href="#upload">Upload Photos</a>
-    <a href="#form">Smart Offer</a>
-    <a href="#check-offer">Check Offer</a>
-    <a href="#call">Call Support</a>
-    <a href="#live">Go Live</a>
-    <a href="#textus">Text Us</a>
+<div style="flex:1; min-width:200px;">
+<h1 style="color:white; font-size:2rem; font-weight:900;">Recarra</h1>
+<p style="color:#e63946; font-style:italic; font-weight:600; font-size:0.95rem;">Sell your car — fast, fair, and AI-powered.</p>
+</div>
+<nav style="display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:flex-end; align-items:center; margin-top:0.5rem;">
+<a href="#upload">Upload Photos</a>
+<a href="#form">Smart Offer</a>
+<a href="#check-offer">Check Offer</a>
+<a href="#call">Call Support</a>
+<a href="#live">Go Live</a>
+<a href="#textus">Text Us</a>
 <a href="#scan-vin">Scan VIN</a>
-  </nav>
+</nav>
 </header>
 <section class="hero" style="background-color:#ffffff; color:#222; padding:4rem 2rem; text-align:center;">
-  <h1 style="font-size:2.75rem; font-weight:800; margin-bottom:0.5rem;">Sell Your Car — Your Way</h1>
-  <p style="font-size:1.1rem; max-width:600px; margin:0 auto; color:#444;">No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.</p>
-  <div class="cta-buttons" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-    <a href="#upload">Upload Photos</a>
-    <a href="#form">Smart Offer</a>
-    <a href="#check-offer">Check Offer Status</a>
-    <a href="#call">Call Support</a>
-    <a href="#live">Go Live</a>
-    <a href="#textus">Text Us</a>
-  </div>
-</section>
+<h1 style="font-size:3rem; font-weight:900; color:#000;">Sell Your Car — Your Way</h1>
+<p style="font-size:1.25rem; color:#333; max-width:650px; margin: 1rem auto;">No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.</p>
+<p style="font-size: 1.1rem; font-weight: bold; color: red; margin-top: 1rem;"><span id="rotatingSlogan">Sell in seconds.</span></p></section>
 <section style="background-color:#ffffff; color:#333; padding:3rem 1.5rem;">
 <h2>Why Recarra?</h2>
 <div style="max-width: 700px; margin: auto; text-align: left;">
@@ -315,28 +475,24 @@ nav a {
 <div id="progressFill" style="height: 100%; width: 0%; background-color: #ff0000;"></div>
 </div>
 <p>Fill out the step-by-step form and get your instant AI cash offer in seconds.</p>
-<form id="multiStepForm"><div class="step"> 
+<form id="multiStepForm"><div class="step">
 <div style="position: relative; display: flex; align-items: center; max-width: 400px; margin: auto;">
-  <button onclick="startVoiceInput('input_0')" type="button"
-          style="position: absolute; left: 10px; background: transparent; font-size: 1.2rem; border: none; cursor: pointer; z-index: 2;">🎤</button>
-  <input id="input_0" name="0" placeholder="Vehicle Year (e.g. 2014)"
-         style="padding-left: 2.5rem;" required type="text" list="year-suggestions"/>
+<button onclick="startVoiceInput('input_0')" style="position: absolute; left: 10px; background: transparent; font-size: 1.2rem; border: none; cursor: pointer; z-index: 2;" type="button"></button>
+<input id="input_0" list="year-suggestions" name="0" placeholder="Vehicle Year (e.g. 2014)" required="" style="padding-left: 2.5rem;" type="text"/>
 </div>
 <datalist id="year-suggestions">
-  <option value="2024"><option value="2023"><option value="2022"><option value="2021"><option value="2020">
-</datalist>
- </div>
-<div class="step"> 
+<option value="2024"><option value="2023"><option value="2022"><option value="2021"><option value="2020">
+</option></option></option></option></option></datalist>
+</div>
+<div class="step">
 <div style="position: relative; display: flex; align-items: center; max-width: 400px; margin: auto;">
-  <button onclick="startVoiceInput('input_1')" type="button"
-          style="position: absolute; left: 10px; background: transparent; font-size: 1.2rem; border: none; cursor: pointer; z-index: 2;">🎤</button>
-  <input id="input_1" name="1" placeholder="Mileage (e.g. 120000)"
-         style="padding-left: 2.5rem;" required type="text" list="mileage-suggestions"/>
+<button onclick="startVoiceInput('input_1')" style="position: absolute; left: 10px; background: transparent; font-size: 1.2rem; border: none; cursor: pointer; z-index: 2;" type="button"></button>
+<input id="input_1" list="mileage-suggestions" name="1" placeholder="Mileage (e.g. 120000)" required="" style="padding-left: 2.5rem;" type="text"/>
 </div>
 <datalist id="mileage-suggestions">
-  <option value="50000"><option value="75000"><option value="100000"><option value="120000"><option value="150000">
-</datalist>
- </div>
+<option value="50000"><option value="75000"><option value="100000"><option value="120000"><option value="150000">
+</option></option></option></option></option></datalist>
+</div>
 <div class="step"> <select name="condition" required="">
 <option value="">Condition</option>
 <option value="excellent">Excellent</option>
@@ -345,34 +501,30 @@ nav a {
 <option value="poor">Poor</option>
 <option value="non-running">Non-Running</option>
 </select> </div>
-<div class="step"> 
+<div class="step">
 <div style="position: relative; display: flex; align-items: center; max-width: 400px; margin: auto;">
-  <button onclick="startVoiceInput('input_3')" type="button"
-          style="position: absolute; left: 10px; background: transparent; font-size: 1.2rem; border: none; cursor: pointer; z-index: 2;">🎤</button>
-  <input id="input_3" name="3" placeholder="City (e.g. Houston)"
-         style="padding-left: 2.5rem;" required type="text" list="city-suggestions"/>
+<button onclick="startVoiceInput('input_3')" style="position: absolute; left: 10px; background: transparent; font-size: 1.2rem; border: none; cursor: pointer; z-index: 2;" type="button"></button>
+<input id="input_3" list="city-suggestions" name="3" placeholder="City (e.g. Houston)" required="" style="padding-left: 2.5rem;" type="text"/>
 </div>
 <datalist id="city-suggestions">
-  <option value="Houston"><option value="Austin"><option value="Dallas"><option value="San Antonio"><option value="El Paso">
-</datalist>
- </div>
+<option value="Houston"><option value="Austin"><option value="Dallas"><option value="San Antonio"><option value="El Paso">
+</option></option></option></option></option></datalist>
+</div>
 <div class="step"> <select name="urgency" required="">
 <option value="">Pickup Urgency</option>
 <option value="same-day">Same Day</option>
 <option value="next-day">Next Day</option>
 <option value="flexible">Flexible</option>
 </select> </div>
-<div class="step"> 
+<div class="step">
 <div style="position: relative; display: flex; align-items: center; max-width: 400px; margin: auto;">
-  <button onclick="startVoiceInput('input_5')" type="button"
-          style="position: absolute; left: 10px; background: transparent; font-size: 1.2rem; border: none; cursor: pointer; z-index: 2;">🎤</button>
-  <input id="input_5" name="5" placeholder="Phone Number"
-         style="padding-left: 2.5rem;" required type="text" list="phone-suggestions"/>
+<button onclick="startVoiceInput('input_5')" style="position: absolute; left: 10px; background: transparent; font-size: 1.2rem; border: none; cursor: pointer; z-index: 2;" type="button"></button>
+<input id="input_5" list="phone-suggestions" name="5" placeholder="Phone Number" required="" style="padding-left: 2.5rem;" type="text"/>
 </div>
 <datalist id="phone-suggestions">
-  <option value="3462740071"><option value="8320001111"><option value="7131234567">
-</datalist>
- </div>
+<option value="3462740071"><option value="8320001111"><option value="7131234567">
+</option></option></option></datalist>
+</div>
 <div class="step"> <button type="submit">Submit to Recarra AI</button> </div>
 </form>
 <div class="step active"></div><button id="nextBtn" onclick="nextStep()">Next</button>
@@ -463,30 +615,25 @@ nav a {
 </section>
 <section id="upload" style="background-color:#ffffff; color:#222; padding:3rem 1.5rem; text-align:center;">
 <h2>Upload Photos of Your Vehicle</h2>
-<h2>Upload Photos of Your Vehicle</h2>
 <p>Fill in your details and upload clear photos of your vehicle (front view required).</p>
-<form id="uploadForm" enctype="multipart/form-data" method="POST" action="https://formspree.io/f/mwkgygwn" style="margin-top: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-  <input name="name" placeholder="Your Full Name" required type="text"/>
-  <input name="phone" placeholder="Phone Number" required type="tel"/>
-  <input name="zip" placeholder="ZIP Code" required type="text"/>
-  <label for="photo" style="display:block; margin-top: 1rem; font-weight: bold;">Upload Front Photo of Car:</label>
-  <input id="photo" name="photos" accept="image/*" required type="file"/>
-  <button type="submit" style="margin-top: 1rem;">Send to Recarra AI</button>
+<form action="https://formspree.io/f/mwkgygwn" enctype="multipart/form-data" id="uploadForm" method="POST" style="margin-top: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+<input name="name" placeholder="Your Full Name" required="" type="text"/>
+<input name="phone" placeholder="Phone Number" required="" type="tel"/>
+<input name="zip" placeholder="ZIP Code" required="" type="text"/>
+<label for="photo" style="display:block; margin-top: 1rem; font-weight: bold;">Upload Front Photo of Car:</label>
+<input accept="image/*" id="photo" name="photos" required="" type="file"/>
+<button style="margin-top: 1rem;" type="submit">Send to Recarra AI</button>
 </form>
 <p style="margin-top: 1rem; font-size: 0.9rem;">We will review your image and respond with a cash offer promptly.</p>
 </section>
-
 <section id="scan-vin" style="background-color:#f1f1f1; color:#222; padding:3rem 1.5rem; text-align:center;">
 <h2>Scan Your Vehicle VIN</h2>
-  <h2>Scan Your Vehicle VIN</h2>
-  <p>Quickly identify your car by scanning the VIN barcode on your dashboard or door.</p>
-  <p style="font-size:0.95rem; max-width:600px; margin:1rem auto;">Use your phone camera to scan your Vehicle Identification Number. If you prefer, you can also enter it manually below.</p>
-  <input type="text" name="vin" placeholder="Enter VIN Manually (17 characters)" maxlength="17" pattern="[A-HJ-NPR-Z0-9]{17}" required/>
-  <button style="margin-top:1rem;">Scan or Submit VIN</button>
-  <p style="font-size:0.85rem; margin-top:1rem;">* VIN scanning functionality requires camera access. Manual entry works on all devices.</p>
+<p>Quickly identify your car by scanning the VIN barcode on your dashboard or door.</p>
+<p style="font-size:0.95rem; max-width:600px; margin:1rem auto;">Use your phone camera to scan your Vehicle Identification Number. If you prefer, you can also enter it manually below.</p>
+<input maxlength="17" name="vin" pattern="[A-HJ-NPR-Z0-9]{17}" placeholder="Enter VIN Manually (17 characters)" required="" type="text"/>
+<button style="margin-top:1rem;">Scan or Submit VIN</button>
+<p style="font-size:0.85rem; margin-top:1rem;">* VIN scanning functionality requires camera access. Manual entry works on all devices.</p>
 </section>
-
-
 <section style="background-color:#ffffff; color:#333; padding:3rem 1.5rem; text-align:center;">
 <h2>Why Sellers Trust Recarra</h2>
 <p id="adMessage" style="font-size:1.1rem; font-weight:bold; margin: 1.5rem 0;"></p>
@@ -518,19 +665,17 @@ nav a {
 <form id="inspectionForm" style="margin-top: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
 <input name="name" placeholder="Your Full Name" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="text"/>
 <input name="phone" placeholder="Phone Number" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="tel"/>
-<input name="vehicle" placeholder="Vehicle (Year, Make, Model)" list="vehicle-suggestions" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="text"/>
-
+<input list="vehicle-suggestions" name="vehicle" placeholder="Vehicle (Year, Make, Model)" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="text"/>
 <datalist id="vehicle-suggestions">
-  <option value="2024 Tesla Model 3">
-  <option value="2023 Toyota Camry">
-  <option value="2022 Honda Accord">
-  <option value="2021 Ford F-150">
-  <option value="2020 Nissan Altima">
-  <option value="2019 Chevrolet Malibu">
-  <option value="2018 BMW 3 Series">
-  <option value="2017 Mercedes-Benz C-Class">
-</datalist>
-
+<option value="2024 Tesla Model 3">
+<option value="2023 Toyota Camry">
+<option value="2022 Honda Accord">
+<option value="2021 Ford F-150">
+<option value="2020 Nissan Altima">
+<option value="2019 Chevrolet Malibu">
+<option value="2018 BMW 3 Series">
+<option value="2017 Mercedes-Benz C-Class">
+</option></option></option></option></option></option></option></option></datalist>
 <label for="date" style="display:block; text-align:left; max-width:400px; margin:auto;">Select Date</label>
 <input id="date" name="date" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; display: block;" type="date"/>
 <label for="time" style="display:block; text-align:left; max-width:400px; margin:auto;">Select Time</label>
@@ -564,7 +709,6 @@ nav a {
     inspectForm.reset();
   });
 </script>
-
 <script>
   const loginForm = document.getElementById('loginForm');
   const dashboard = document.getElementById('userDashboard');
@@ -678,19 +822,16 @@ nav a {
 }
 
 </style>
-<footer>
-<p>© 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX</p>
-
 <section id="check-offer" style="background-color:#ffffff; color:#222; padding:3rem 1.5rem; text-align:center;">
-<h2>Check Your Offer Status</h2>
 <h2>Check Your Offer Status</h2>
 <p>Enter your Offer ID to see the current status of your deal.</p>
 <form id="offerStatusForm" style="margin-top: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;">
-  <input name="offerId" placeholder="Enter Your Offer ID" required type="text"/>
-  <button type="submit" style="margin-top: 1rem;">Check Status</button>
+<input name="offerId" placeholder="Enter Your Offer ID" required="" type="text"/>
+<button style="margin-top: 1rem;" type="submit">Check Status</button>
 </form>
 <p id="offerStatusMessage" style="margin-top: 1rem; font-weight: bold;"></p>
-</section>
+</section><div class="cta-buttons"><a href="#upload"> Upload Photos</a><a href="#form"> Smart Offer</a><a href="#check-offer">Check Offer Status</a><a href="#call"> Call Support</a><a href="#live"> Go Live</a><a href="#textus"> Text Us</a><a href="#quote-summary"> Quote Summary</a><a href="#live-chat">‍ Live Chat</a><a href="#referral"> Referral Program</a><a href="#driver-login"> Driver Login</a><a href="#auction"> Car Auction</a><a href="#recarra-blog"> Blog</a><a href="#recarra-app">⬇️ Download App</a><a href="#about">ℹ️ About Recarra</a></div><footer>
+<p>© 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX</p>
 <script>
   const offerForm = document.getElementById('offerStatusForm');
   const statusMsg = document.getElementById('offerStatusMessage');
@@ -705,7 +846,6 @@ nav a {
     statusMsg.innerText = "Offer ID #" + offerId + " is currently being processed. We will contact you shortly.";
   });
 </script>
-
 </footer>
 <script>
 function startVoiceInput(inputId) {
@@ -722,5 +862,13 @@ function startVoiceInput(inputId) {
   recognition.start();
 }
 </script>
-</body>
+<section style="background:#fff; padding:2rem; text-align:center;"><h2>Trusted by:</h2><p>DMV • Tow Network • Local Dealerships</p></section><script>
+let slogans = ["Sell in seconds.", "Cash today.", "No paperwork."];
+let i = 0;
+setInterval(() => {
+  const slogan = document.getElementById("rotatingSlogan");
+  if (slogan) slogan.textContent = slogans[i % slogans.length];
+  i++;
+}, 3000);
+</script><div id="stickyCTA" style="position:fixed; bottom:0; left:0; right:0; background:#0071e3; color:white; display:flex; justify-content:center; gap:1rem; padding:0.75rem; z-index:9999;"><a href="#" style="color:white; font-weight:bold; text-decoration:none;"> Get Offer</a><a href="#" style="color:white; font-weight:bold; text-decoration:none;"> Upload</a><a href="#" style="color:white; font-weight:bold; text-decoration:none;"> Call</a></div></body>
 </html>
