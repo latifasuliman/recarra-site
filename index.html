@@ -91,9 +91,26 @@
       text-align: center;
       font-size: 0.9rem;
     }
-  </style>
+  
+#smartOfferForm input,
+#smartOfferForm select,
+#smartOfferForm textarea,
+#smartOfferForm label {
+  font-size: 1rem;
+}
+</style>
 </head>
 <body>
+
+<!-- Sticky Smart Navigation -->
+<nav id="smartNav" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; color: white; display: flex; justify-content: center; gap: 1rem; padding: 0.5rem 0; z-index: 999; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: none;">
+  <a href="#smartOfferForm" style="color: white; text-decoration: none;">Photo Offer</a>
+  <a href="#licensePlateOffer" style="color: white; text-decoration: none;">Plate Offer</a>
+  <a href="#vinScan" style="color: white; text-decoration: none;">Scan VIN</a>
+  <a href="#voiceAssistant" style="color: white; text-decoration: none;">Voice</a>
+  <a href="#smartVideo" style="color: white; text-decoration: none;">Video</a>
+</nav>
+
   <button class="toggle-mode" onclick="document.body.classList.toggle('dim-mode')">Toggle Dim Mode</button>
 
   <header>
@@ -118,11 +135,185 @@
     <a href="#form" class="btn">Start Offer</a>
   </section>
 
-  <section>
+  
+<section id="smartOfferForm" style="margin-top: 2rem;">
+  <h2>AI Photo Cash Offer</h2>
+  <form id="multiStepForm">
+    <!-- Step 1: Vehicle Details -->
+    <div class="form-step">
+      <h3>Step 1: Vehicle Info</h3>
+      <input type="text" placeholder="Year" name="year" required><br>
+      <input type="text" placeholder="Make" name="make" required><br>
+      <input type="text" placeholder="Model" name="model" required><br>
+      <input type="text" placeholder="Trim (optional)" name="trim"><br>
+      <input type="text" placeholder="Mileage" name="mileage" required><br>
+      <input type="text" placeholder="VIN (or 'skip')" name="vin"><br>
+      <input type="text" placeholder="License Plate" name="plate"><br>
+      <input type="file" name="photos" accept="image/*" multiple onchange="previewImages()" style="margin-top:1rem;"><br>
+      <div id="previewContainer" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem;">
+      <label>Is the engine intact?
+        <select name="engine_intact" onchange="handleEngineCondition(this)">
+          <option value="">-- Select --</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </label><br>
+      <div id="engineDetails" style="display:none;">
+        <textarea name="engine_issues" placeholder="Please describe any engine damage..."></textarea><br>
+      </div>
+</div>
+      <button type="button" class="btn" onclick="nextStep()">Next</button>
+    </div>
+
+    <!-- Step 2: Condition & Ownership -->
+    <div class="form-step" style="display:none;">
+      <h3>Step 2: Condition & Ownership</h3>
+      <label>Does the car run?
+        <select name="runs">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </label><br>
+      <label>Interior Condition
+        <select name="interior">
+          <option>Excellent</option><option>Good</option><option>Fair</option><option>Poor</option>
+        </select>
+      </label><br>
+      <label>Exterior Condition
+        <select name="exterior">
+          <option>Excellent</option><option>Good</option><option>Fair</option><option>Poor</option>
+        </select>
+      </label><br>
+      <label>Do you have the title?
+        <select name="title">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </label><br>
+      <textarea name="issues" placeholder="Any major issues?"></textarea><br>
+      <button type="button" class="btn" onclick="prevStep()">Back</button>
+      <button type="button" class="btn" onclick="nextStep()">Next</button>
+    
+      <label>Is the engine intact?
+        <select name="engine_intact" onchange="handleEngineCondition(this)">
+          <option value="">-- Select --</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </label><br>
+      <div id="engineDetails" style="display:none;">
+        <textarea name="engine_issues" placeholder="Please describe any engine damage..."></textarea><br>
+      </div>
+</div>
+
+    <!-- Step 3: Location -->
+    <div class="form-step" style="display:none;">
+      <h3>Step 3: Location & Pickup</h3>
+      <input type="text" placeholder="ZIP Code" name="zip" required><br>
+      <label>Pickup Method
+        <select name="pickup_method">
+          <option>Smart Map</option>
+          <option>Schedule on Calendar</option>
+          <option>Live Video</option>
+        </select>
+      </label><br>
+      <input type="datetime-local" name="pickup_time"><br>
+      <button type="button" class="btn" onclick="prevStep()">Back</button>
+      <button type="button" class="btn" onclick="nextStep()">Next</button>
+    
+      <label>Is the engine intact?
+        <select name="engine_intact" onchange="handleEngineCondition(this)">
+          <option value="">-- Select --</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </label><br>
+      <div id="engineDetails" style="display:none;">
+        <textarea name="engine_issues" placeholder="Please describe any engine damage..."></textarea><br>
+      </div>
+</div>
+
+    <!-- Step 4: Contact Info -->
+    <div class="form-step" style="display:none;">
+      <h3>Step 4: Contact Info</h3>
+      <input type="text" name="name" placeholder="Full Name" required><br>
+      <input type="tel" name="phone" placeholder="Phone Number" required><br>
+      <input type="email" name="email" placeholder="Email (optional)"><br>
+      <input type="text" name="best_time" placeholder="Best Time to Contact"><br>
+      <button type="button" class="btn" onclick="prevStep()">Back</button>
+      <button type="button" class="btn" onclick="nextStep()">Next</button>
+    </div>
+
+    <!-- Step 5: Payment -->
+    <div class="form-step" style="display:none;">
+      <h3>Step 5: Payment</h3>
+      <label>Preferred Payment
+        <select name="payment_method">
+          <option>Zelle</option><option>Venmo</option><option>Direct Deposit</option><option>Cash</option><option>Certified Check</option>
+        </select>
+      </label><br>
+      <input type="text" name="payment_details" placeholder="Enter Zelle email / Venmo handle etc."><br>
+      <button type="button" class="btn" onclick="prevStep()">Back</button>
+      <button type="button" class="btn" onclick="nextStep()">Next</button>
+    </div>
+
+    <!-- Step 6: Confirmation -->
+    <div class="form-step" style="display:none;">
+      <h3>Step 6: Final Confirmation</h3>
+      <label><input type="checkbox" required> I confirm I am the legal owner or authorized to sell</label><br>
+      <label><input type="checkbox" required> I understand Recarra may follow up via phone or text</label><br>
+      <button type="button" class="btn" onclick="prevStep()">Back</button>
+      <button type="submit" class="btn">Submit Offer</button>
+    </div>
+  </form>
+</section>
+<section>
+  <h2 id="vinScan">Scan Your VIN Instantly</h2>
+  <p>Use your camera to scan your Vehicle Identification Number for a faster, more accurate offer.</p>
+  <button class="btn">Scan VIN</button>
+  <p style="font-size: 0.9rem;">We’ll match your exact make, model, and market value.</p>
+</section>
+<section>
+  <h2 id="licensePlateOffer">License Plate Offer</h2>
+  <p>Enter or upload a picture of your license plate and get an instant offer.</p>
+  <input type="text" name="plate_input" placeholder="License Plate Number" style="width: 100%; padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem;"><br>
+  <input type="file" name="plate_image" accept="image/*" style="margin-bottom: 1rem;"><br>
+  <input type="text" name="first_name" placeholder="First Name" required style="margin-bottom: 0.5rem;"><br>
+  <input type="tel" name="phone_number" placeholder="Phone Number" required style="margin-bottom: 0.5rem;"><br>
+  <input type="email" name="email_address" placeholder="Email Address" required style="margin-bottom: 1rem;"><br>
+  <button class="btn">Get My Offer</button>
+  <p style="font-size: 0.9rem; margin-top: 1rem;">Once your offer is accepted, we'll request additional vehicle and pickup information.</p>
+</section>
+<section>
+  <h2 id="voiceAssistant">Talk to Recarra AI</h2>
+  <p>Use your voice to start an offer, schedule pickup, or ask questions.</p>
+  <button class="btn">Activate Voice</button>
+  <p style="font-size: 0.9rem;">Supports English and Spanish for seamless experience.</p>
+</section>
+
+<section id="smartVideo">
+  <h2>Smart Video Inspection</h2>
+  <p>Schedule a live video call to show us your car inside and out — no app required.</p>
+  <form id="videoInspectionForm" action="mailto:support@recarra.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Full Name" required><br>
+    <input type="tel" name="phone" placeholder="Phone Number" required><br>
+    <input type="text" name="zip" placeholder="ZIP Code" required><br>
+    <input type="date" name="date" required><br>
+    <input type="time" name="time" required><br>
+    <button class="btn" type="submit">Schedule Video Call</button>
+  </form>
+  <p style="font-size: 0.9rem; margin-top: 1rem;">We'll text you a secure video link. Just tap it at your scheduled time.</p>
+</section>
+
+<section>
     <h2>Live Chat & Support</h2>
     <p>Talk to our agents live or schedule a video inspection from your phone.</p>
     <a href="#live" class="btn">Talk Now</a>
   </section>
+
+
+
+
 
   
 <section>
@@ -150,15 +341,19 @@
   </ul>
 </section>
 
+
 <section>
   <h2>How It Works</h2>
   <ol>
-    <li><strong>Submit Your Car:</strong> Upload a photo or scan your VIN.</li>
-    <li><strong>Get a Real Offer:</strong> AI evaluates and generates a cash offer.</li>
-    <li><strong>Choose Your Pickup:</strong> Video or map-based scheduling.</li>
-    <li><strong>Get Paid:</strong> Same-day cash payment via your chosen method.</li>
+    <li><strong>Begin Your Journey with Recarra:</strong> Getting started is easy. Simply upload a photo, scan your VIN, or enter a few vehicle details. Our intelligent system will immediately begin analyzing your car to prepare a real offer — with no obligations, and full respect for your time.</li>
+    <li><strong>Receive a Real, Personalized Cash Offer:</strong> Recarra’s AI technology evaluates your car based on its specs, condition, and current market trends. You’ll receive a firm, personalized cash offer — not a vague estimate. Because markets shift, offers are time-sensitive and may adjust based on demand, so we recommend acting quickly for the best deal.</li>
+    <li><strong>Schedule Pickup at Your Convenience:</strong> We work on your terms. Whether you prefer video confirmation, map-based scheduling, or a simple date and time, you get full control over when and how we collect your vehicle. Same-day pickups are available in many areas.</li>
+    <li><strong>We Handle Everything In Between:</strong> Worried about paperwork or titles? Let us help. Whether you’re missing documentation or unsure about the process, Recarra provides full support to verify ownership and ensure a smooth handoff.</li>
+    <li><strong>Confirm Your Final Details with Confidence:</strong> Before any vehicle is picked up, you’ll review the car’s condition, confirm your contact and location, and select your preferred payment method. Everything is transparent, respectful, and professional.</li>
+    <li><strong>Get Paid Instantly — No Waiting:</strong> As soon as the car is picked up, your payment is sent — typically within minutes. Whether it’s Zelle, Venmo, direct deposit, certified check, or cash, Recarra ensures your money gets to you fast and securely.</li>
   </ol>
 </section>
+
 
 <section>
   <h2>Frequently Asked Questions</h2>
@@ -176,39 +371,17 @@
   <blockquote>"The AI gave me a better price than three local junkyards. I won’t sell my cars any other way again." – Sean D.</blockquote>
 </section>
 
-<section>
-  <h2>Instant Plate Scan</h2>
-  <p>Snap a picture of your license plate to start your car offer instantly.</p>
-  <button class="btn">Scan My Plate</button>
-  <p style="font-size: 0.9rem; margin-top: 1rem;">We’ll decode your vehicle details automatically.</p>
-</section>
 
-<section>
-  <h2>Talk to Our AI Assistant</h2>
-  <p>Use your voice to start an offer, schedule pickup, or ask questions.</p>
-  <button class="btn">Activate Voice</button>
-  <p style="font-size: 0.9rem;">Supports English and Spanish for seamless experience.</p>
-</section>
 
-<section>
-  <h2>Your Offer Progress</h2>
-  <p>Track your offer from submission to payment in real-time.</p>
-  <div style="background: #f3f3f3; border-radius: 10px; padding: 1rem;">
-    <ul style="list-style: none; padding: 0;">
-      <li><strong>✓</strong> Car Info Submitted</li>
-      <li><strong>✓</strong> Offer Generated</li>
-      <li><strong>✓</strong> Pickup Scheduled</li>
-      <li><strong>⌛</strong> Payment In Process</li>
-    </ul>
-  </div>
-</section>
 
-<section>
-  <h2>Smart Video Inspection</h2>
-  <p>Choose a live video call instead of physical appointments.</p>
-  <button class="btn">Start Video Now</button>
-  <p style="font-size: 0.9rem;">Works from any phone — no app needed.</p>
-</section>
+
+
+
+
+
+
+
+
 
 <section>
   <h2>Licensed & Insured Transport</h2>
@@ -220,19 +393,9 @@
   </ul>
 </section>
 
-<section>
-  <h2>Live Map Scheduling</h2>
-  <p>Pick your preferred pickup time and location with our smart map tool.</p>
-  <button class="btn">Schedule on Map</button>
-  <p style="font-size: 0.9rem;">We adjust routes for same-day pickups where available.</p>
-</section>
 
-<section>
-  <h2>Scan Your VIN Instantly</h2>
-  <p>Use your camera to scan your Vehicle Identification Number for a faster, more accurate offer.</p>
-  <button class="btn">Scan VIN</button>
-  <p style="font-size: 0.9rem;">We’ll match your exact make, model, and market value.</p>
-</section>
+
+
 
 <section>
   <h2>Choose Your Payment Method</h2>
@@ -245,28 +408,9 @@
   </ul>
 </section>
 
-<section>
-  <h2>Final Step Confirmation</h2>
-  <p>Before submission, you’ll confirm the following:</p>
-  <ul>
-    <li>Vehicle condition</li>
-    <li>Ownership verification</li>
-    <li>Pickup location & date</li>
-    <li>Preferred payment method</li>
-  </ul>
-  <button class="btn">Confirm & Submit</button>
-</section>
 
-<section>
-  <h2>Seller Dashboard</h2>
-  <p>Track your entire selling process in one place.</p>
-  <ul>
-    <li>Offer status updates</li>
-    <li>Pickup rescheduling</li>
-    <li>Referral rewards tracking</li>
-    <li>Document uploads</li>
-  </ul>
-</section>
+
+
 
 <section>
   <h2>Recarra Mobile App</h2>
@@ -286,9 +430,23 @@
 </section>
 
 
-  <footer>
-    © 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX
-  </footer>
+  
+<footer>
+  © 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX
+  <div style="font-size: 0.75rem; margin-top: 0.5rem;">
+    <a href="#" style="margin-right: 10px;">Privacy Policy</a>
+    <a href="#" style="margin-right: 10px;">Terms & Conditions</a>
+    <a href="#" style="margin-right: 10px;">Cookies</a>
+    <a href="#" style="margin-right: 10px;">Notifications</a>
+    <a href="#" style="margin-right: 10px;">Accessibility</a>
+    <a href="#" style="margin-right: 10px;">Data Protection</a>
+    <a href="#" style="margin-right: 10px;">DMCA</a>
+    <a href="#" style="margin-right: 10px;">Refund Policy</a>
+    <a href="#" style="margin-right: 10px;">Pickup Policy</a>
+    <a href="#">Seller Rights</a>
+  </div>
+</footer>
+
 
   <script>
     // Optionally store mode in localStorage
@@ -348,5 +506,73 @@
   };
 </script>
 
+
+<script>
+  function handleEngineCondition(select) {
+    const container = select.closest('.form-step').querySelector('#engineDetails');
+    if (select.value === 'No') {
+      container.style.display = 'block';
+    } else {
+      container.style.display = 'none';
+    }
+  }
+</script>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('smartNav');
+    if (window.scrollY > 300) {
+      nav.style.display = 'flex';
+    } else {
+      nav.style.display = 'none';
+    }
+  });
+</script>
 </body>
 </html>
+
+
+
+<script>
+  let currentStep = 0;
+  const steps = document.querySelectorAll('.form-step');
+
+  function showStep(index) {
+    steps.forEach((step, i) => step.style.display = i === index ? 'block' : 'none');
+  }
+
+  function nextStep() {
+    if (currentStep < steps.length - 1) currentStep++;
+    showStep(currentStep);
+  }
+
+  function prevStep() {
+    if (currentStep > 0) currentStep--;
+    showStep(currentStep);
+  }
+
+  function previewImages() {
+    const input = document.querySelector('input[type="file"]');
+    const preview = document.getElementById('previewContainer');
+    preview.innerHTML = '';
+    if (input.files.length > 6) {
+      alert("You can upload up to 6 images.");
+      input.value = '';
+      return;
+    }
+    Array.from(input.files).forEach(file => {
+      const reader = new FileReader();
+      reader.onload = e => {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.style.width = '100px';
+        img.style.margin = '5px';
+        img.style.borderRadius = '8px';
+        preview.appendChild(img);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => showStep(currentStep));
+</script>
