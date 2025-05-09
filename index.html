@@ -158,7 +158,14 @@ textarea {
   75% { color: #2196F3; }
   100% { color: #ff4e50; }
 }</style>
-</head>
+<style>
+.form-step {
+  display: none;
+}
+.form-step.active {
+  display: block;
+}
+</style></head>
 <body>
 <!-- Sticky Smart Navigation -->
 <nav id="smartNav" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; color: white; display: flex; justify-content: center; gap: 1rem; padding: 0.5rem 0; z-index: 999; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: none;">
@@ -172,14 +179,13 @@ textarea {
 <h1 style="font-size: 4rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem;">Recarra</h1>
 <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
 </header>
-
 <div style="max-width: 720px; margin: 2rem auto; background: #f2f2f2; border-radius: 10px; padding: 1.25rem 2rem; font-size: 1rem; text-align: center; border: 2px solid #4CAF50;">
 <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
   <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
 
 
   
-<section id="smartOfferForm" style="margin-top: 2rem;">
+<section><h2>AI Smart Offer Form</h2><p>Submit your car details and get an instant AI-generated offer.</p><a class="btn" href="#form">Start Offer</a></section><section id="smartOfferForm" style="margin-top: 2rem;">
 <!-- Recommended layout for Photo Offer image:
 Image dimensions: 600px wide × 400px tall
 File format: JPG or PNG for static images
@@ -193,26 +199,10 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
 <div style="width: 80%; background: linear-gradient(to right, #36d1dc, #5b86e5); height: 16px;"></div>
 </div>
 </div>
-<form id="multiStepForm"><div class="form-step"><div class="form-step">
-<h3>Step 1: Vehicle Info</h3>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-</div><input class="uniform-input" name="year" placeholder="Year" required="" type="text"/><input class="uniform-input" name="make" placeholder="Make" required="" type="text"/><input class="uniform-input" name="model" placeholder="Model" required="" type="text"/><input class="uniform-input" name="trim" placeholder="Trim (optional)" type="text"/><input class="uniform-input" name="mileage" placeholder="Mileage" required="" type="text"/><input class="uniform-input" name="vin" placeholder="VIN (or 'skip')" type="text"/><input class="uniform-input" name="plate" placeholder="License Plate" type="text"/><label style="font-weight: 600;">Upload Front Image</label><input accept="image/*" class="uniform-input" name="photo_front" required="" type="file"/><label style="font-weight: 600;">Upload Rear Image (Trunk)</label><input accept="image/*" class="uniform-input" name="photo_rear" required="" type="file"/><label style="font-weight: 600;">Upload Right Side</label><input accept="image/*" class="uniform-input" name="photo_right" required="" type="file"/><label style="font-weight: 600;">Upload Left Side</label><input accept="image/*" class="uniform-input" name="photo_left" required="" type="file"/><div id="previewContainer" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem;">
-</div><label style="display: block; margin-top: 1rem; font-weight: 600;">Is the engine intact?</label><select class="uniform-input" name="engine_intact" onchange="handleEngineCondition(this)">
-<option value="">-- Select --</option>
-<option value="Yes">Yes</option>
-<option value="No">No</option>
-</select><div id="engineDetails" style="display: none;">
-</div><label for="engine_issues" style="font-weight: 600;">Describe any engine damage:</label><textarea class="uniform-input" name="engine_issues" placeholder="Example: engine won't start, overheating, oil leak..." rows="3"></textarea></div><div class="form-step"><label style="font-weight: 600;">Upload Optional Video (1–3 mins)</label><input accept="video/*" class="uniform-input" name="car_video" type="file"/><button class="btn" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;" type="submit">
-  Submit My Offer Request
-</button><div style="height: 3rem;"></div><div><strong>Sell As-Is</strong><br/>No repairs or cleanups needed — we take all conditions.</div><div><strong>Fast, Secure Payments</strong><br/>Get paid instantly with direct deposit, cash, or debit card transfer.</div><div><strong>Paperwork? Handled.</strong><br/>We take care of title transfer, bill of sale, and everything else.</div><div><strong>Same-Day Pickup</strong><br/>You choose the time, we handle the logistics.</div><div><strong>Thousands Trust Us</strong><br/>Nationwide, verified sellers choose Recarra every day.</div><div style="display: flex; justify-content: space-between; margin-top: 1rem;">
-</div><div style="height: 3rem;"></div></div><div style="display:flex; justify-content:space-between; margin-top:1rem;"><button onclick="prevStep()" style="padding: 0.5rem 1rem; background: #ccc; border-radius: 8px; border: none; font-weight: bold;" type="button">Back</button><button onclick="nextStep()" style="padding: 0.5rem 1rem; background: #4CAF50; color: white; border-radius: 8px; border: none; font-weight: bold;" type="button">Next</button></div></form></section>
+<div id="formProgressWrapper" style="width: 100%; background: #eee; border-radius: 10px; margin: 2rem auto; height: 10px; overflow: hidden;">
+<div id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.5s;"></div>
+</div>
+<form id="multiStepForm"><div class="form-step active"><label style="font-weight:600;">Year</label><input class="uniform-input" name="year" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Make</label><input class="uniform-input" name="make" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Model</label><input class="uniform-input" name="model" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Trim (optional)</label><input class="uniform-input" name="trim" type="text"/></div><div class="form-step"><label style="font-weight:600;">Mileage</label><input class="uniform-input" name="mileage" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">VIN (or 'skip')</label><input class="uniform-input" name="vin" type="text"/></div><div class="form-step"><label style="font-weight:600;">License Plate</label><input class="uniform-input" name="plate" type="text"/></div><div class="form-step"><label style="font-weight:600;">Upload Front Image</label><input accept="image/*" class="uniform-input" name="photo_front" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Rear Image (Trunk)</label><input accept="image/*" class="uniform-input" name="photo_rear" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Right Side</label><input accept="image/*" class="uniform-input" name="photo_right" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Left Side</label><input accept="image/*" class="uniform-input" name="photo_left" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Is the engine intact?</label><select class="uniform-input" name="engine_intact"><option value="">-- Select --</option><option value="Yes">Yes</option><option value="No">No</option></select></div><div class="form-step"><label style="font-weight:600;">Describe any engine damage</label><textarea class="uniform-input" name="engine_issues" placeholder="Describe any engine damage" rows="3"></textarea></div><div class="form-step"><label style="font-weight:600;">Upload Optional Video (1–3 mins)</label><input accept="video/*" class="uniform-input" name="car_video" type="file"/></div><div class="form-step"><h3>Ready to Submit?</h3><button class="btn" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;" type="submit">Submit My Offer Request</button></div><div id="formNav" style="display:flex; justify-content:space-between; margin-top:1rem;"><button onclick="prevStep()" style="padding: 0.5rem 1rem; background: #ccc; border-radius: 8px; border: none; font-weight: bold;" type="button">Back</button><button onclick="nextStep()" style="padding: 0.5rem 1rem; background: #4CAF50; color: white; border-radius: 8px; border: none; font-weight: bold;" type="button">Next</button></div></form></section>
 <section>
 <h2>Frequently Asked Questions</h2>
 <ul>
@@ -418,66 +408,43 @@ rotateFAQ();
 </script>
 </div>
 <script>
-    let currentStep = 0;
-    const steps = document.querySelectorAll('.form-step');
+let currentStep = 0;
+const steps = document.querySelectorAll('.form-step');
+const nextBtn = document.querySelector('button[onclick="nextStep()"]');
+const backBtn = document.querySelector('button[onclick="prevStep()"]');
+const submitBtn = document.querySelector('button[type="submit"]');
+const progressBar = document.getElementById('formProgressBar');
 
-    function showStep(index) {
-      steps.forEach((step, i) => step.style.display = i === index ? 'block' : 'none');
-    }
+function showStep(index) {
+  steps.forEach((step, i) => {
+    step.classList.remove('active');
+    if (i === index) step.classList.add('active');
+  });
 
-    function nextStep() {
-      if (currentStep < steps.length - 1) currentStep++;
-      showStep(currentStep);
-    }
+  if (backBtn) backBtn.style.display = index === 0 ? 'none' : 'inline-block';
+  if (nextBtn) nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
+  if (submitBtn) submitBtn.style.display = index === steps.length - 1 ? 'inline-block' : 'none';
 
-    function prevStep() {
-      if (currentStep > 0) currentStep--;
-      showStep(currentStep);
-    }
+  updateProgressBar(index);
+}
 
-    document.addEventListener('DOMContentLoaded', () => showStep(currentStep));
-    </script></body>
+function updateProgressBar(index) {
+  if (progressBar && steps.length > 0) {
+    const percent = Math.round((index + 1) / steps.length * 100);
+    progressBar.style.width = percent + '%';
+  }
+}
+
+function nextStep() {
+  if (currentStep < steps.length - 1) currentStep++;
+  showStep(currentStep);
+}
+
+function prevStep() {
+  if (currentStep > 0) currentStep--;
+  showStep(currentStep);
+}
+
+document.addEventListener('DOMContentLoaded', () => showStep(currentStep));
+</script></body>
 </html>
-<script>
-  let currentStep = 0;
-  const steps = document.querySelectorAll('.form-step');
-
-  function showStep(index) {
-    steps.forEach((step, i) => step.style.display = i === index ? 'block' : 'none');
-  }
-
-  function nextStep() {
-    if (currentStep < steps.length - 1) currentStep++;
-    showStep(currentStep);
-  }
-
-  function prevStep() {
-    if (currentStep > 0) currentStep--;
-    showStep(currentStep);
-  }
-
-  function previewImages() {
-    const input = document.querySelector('input[type="file"]');
-    const preview = document.getElementById('previewContainer');
-    preview.innerHTML = '';
-    if (input.files.length > 6) {
-      alert("You can upload up to 6 images.");
-      input.value = '';
-      return;
-    }
-    Array.from(input.files).forEach(file => {
-      const reader = new FileReader();
-      reader.onload = e => {
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        img.style.width = '100px';
-        img.style.margin = '5px';
-        img.style.borderRadius = '8px';
-        preview.appendChild(img);
-      };
-      reader.readAsDataURL(file);
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', () => showStep(currentStep));
-</script>
