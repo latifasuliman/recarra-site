@@ -194,7 +194,7 @@ textarea {
 <a href="#voiceAssistant" style="color: white; text-decoration: none;">Voice</a>
 <a href="#smartVideo" style="color: white; text-decoration: none;">Video</a>
 </nav>
-<button class="toggle-mode" onclick="document.body.classList.toggle('dim-mode')" style="position: fixed; top: 80px; right: 20px; padding: 0.6rem 1.2rem; background: #000; color: #fff; border: none; border-radius: 8px; cursor: pointer; z-index: 1000;">Toggle Dim Mode</button>
+
 <header>
 <h1 style="font-size: 4rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem;">Recarra</h1>
 <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
@@ -216,10 +216,7 @@ Image dimensions: 600px wide × 400px tall
 File format: JPG or PNG for static images
 Optional: MP4 or looping GIF showing AI analyzing a photo
 Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or stacked layout for mobile -->
-<!-- Example placeholder image block -->
-<div style="text-align: center; margin-bottom: 2rem;">
-<img alt="Submit Car Photo Example" src="images/photo-offer-example.jpg" style="max-width: 100%; border-radius: 10px;"/>
-</div>
+
 <h2>AI Photo Cash Offer</h2>
 <div style="margin: 2rem auto; max-width: 800px;">
 <div style="margin-bottom: 0.5rem; font-weight: bold;">Step 4 of 5: Vehicle Condition &amp; Media Upload</div>
@@ -348,18 +345,7 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
 <a href="#" style="margin-right: 10px;">Pickup Policy</a>
 <a href="#">Seller Rights</a>
 </div></footer>
-<script>
-    // Optionally store mode in localStorage
-    document.addEventListener("DOMContentLoaded", () => {
-      if (localStorage.getItem("recarra-mode") === "dim") {
-        document.body.classList.add("dim-mode");
-      }
-      document.querySelector(".toggle-mode").addEventListener("click", () => {
-        const isDim = document.body.classList.toggle("dim-mode");
-        localStorage.setItem("recarra-mode", isDim ? "dim" : "light");
-      });
-    });
-  </script>
+
 <!-- Back to Top Button -->
 <button id="backToTop" title="Go to top">↑ Top</button>
 <style>
