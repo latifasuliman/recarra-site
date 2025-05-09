@@ -98,6 +98,45 @@
 #smartOfferForm label {
   font-size: 1rem;
 }
+
+.dim-mode header,
+.dim-mode section,
+.dim-mode footer {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+.dim-mode #faq-container,
+.dim-mode #dynamicFAQ {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+.dim-mode input,
+.dim-mode select,
+.dim-mode textarea {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+  border: 1px solid #444 !important;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
 </style>
 </head>
 <body>
@@ -114,245 +153,99 @@
   <button class="toggle-mode" onclick="document.body.classList.toggle('dim-mode')">Toggle Dim Mode</button>
 
   <header>
-    <h1>Recarra</h1>
+    
+<h1 style="font-size: 4rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem;">Recarra</h1>
+
     <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
   </header>
 
-  <section>
-    <h2>Why Choose Recarra?</h2>
-    <ul>
-      <li>Top Dollar Guaranteed</li>
-      <li>Sell As-Is — No Repairs Needed</li>
-      <li>We Handle the Paperwork</li>
-      <li>Same-Day Pickup Available</li>
-      <li>Trusted by Thousands</li>
-    </ul>
-  </section>
+  
+
+
 
   <section>
     <h2>AI Smart Offer Form</h2>
     <p>Submit your car details and get an instant AI-generated offer.</p>
     <a href="#form" class="btn">Start Offer</a>
   </section>
+<div style="max-width: 720px; margin: 2rem auto; background: #f2f2f2; border-radius: 10px; padding: 1.25rem 2rem; font-size: 1rem; text-align: center; border: 2px solid #4CAF50;">
+  <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
+  <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
+
 
   
 <section id="smartOfferForm" style="margin-top: 2rem;">
-  <h2>AI Photo Cash Offer</h2>
-  <form id="multiStepForm">
+  
+<!-- Recommended layout for Photo Offer image:
+Image dimensions: 600px wide × 400px tall
+File format: JPG or PNG for static images
+Optional: MP4 or looping GIF showing AI analyzing a photo
+Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or stacked layout for mobile -->
+
+<!-- Example placeholder image block -->
+<div style="text-align: center; margin-bottom: 2rem;">
+  <img src="images/photo-offer-example.jpg" alt="Submit Car Photo Example" style="max-width: 100%; border-radius: 10px;">
+  
+</div>
+<h2>AI Photo Cash Offer</h2>
+  
+<div style="margin: 2rem auto; max-width: 800px;">
+  <div style="margin-bottom: 0.5rem; font-weight: bold;">Step 4 of 5: Vehicle Condition & Media Upload</div>
+  <div style="background: #ddd; border-radius: 20px; overflow: hidden;">
+    <div style="width: 80%; background: linear-gradient(to right, #36d1dc, #5b86e5); height: 16px;"></div>
+  </div>
+</div>
+<form id="multiStepForm">
     <!-- Step 1: Vehicle Details -->
     <div class="form-step">
       <h3>Step 1: Vehicle Info</h3>
-      <input type="text" placeholder="Year" name="year" required><br>
-      <input type="text" placeholder="Make" name="make" required><br>
-      <input type="text" placeholder="Model" name="model" required><br>
-      <input type="text" placeholder="Trim (optional)" name="trim"><br>
-      <input type="text" placeholder="Mileage" name="mileage" required><br>
-      <input type="text" placeholder="VIN (or 'skip')" name="vin"><br>
-      <input type="text" placeholder="License Plate" name="plate"><br>
-      <input type="file" name="photos" accept="image/*" multiple onchange="previewImages()" style="margin-top:1rem;"><br>
+      <input type="text" placeholder="Year" name="year" required style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
+      <input type="text" placeholder="Make" name="make" required style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
+      <input type="text" placeholder="Model" name="model" required style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
+      <input type="text" placeholder="Trim (optional)" name="trim" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
+      <input type="text" placeholder="Mileage" name="mileage" required style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
+      <input type="text" placeholder="VIN (or 'skip')" name="vin" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
+      <input type="text" placeholder="License Plate" name="plate" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
+      
+
+<label style="font-weight: 600;">Upload Front Image</label>
+<input type="file" name="photo_front" accept="image/*" required>
+<label style="font-weight: 600;">Upload Rear Image (Trunk)</label>
+<input type="file" name="photo_rear" accept="image/*" required>
+<label style="font-weight: 600;">Upload Right Side</label>
+<input type="file" name="photo_right" accept="image/*" required>
+<label style="font-weight: 600;">Upload Left Side</label>
+<input type="file" name="photo_left" accept="image/*" required><br>
       <div id="previewContainer" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem;">
-      <label>Is the engine intact?
-        <select name="engine_intact" onchange="handleEngineCondition(this)">
-          <option value="">-- Select --</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-      </label><br>
-      <div id="engineDetails" style="display:none;">
-        <textarea name="engine_issues" placeholder="Please describe any engine damage..."></textarea><br>
-      </div>
-</div>
-      <button type="button" class="btn" onclick="nextStep()">Next</button>
-    </div>
+      
+<label style="display: block; margin-top: 1rem; font-weight: 600;">Is the engine intact?</label>
 
-    <!-- Step 2: Condition & Ownership -->
-    <div class="form-step" style="display:none;">
-      <h3>Step 2: Condition & Ownership</h3>
-      <label>Does the car run?
-        <select name="runs">
-          <option>Yes</option>
-          <option>No</option>
-        </select>
-      </label><br>
-      <label>Interior Condition
-        <select name="interior">
-          <option>Excellent</option><option>Good</option><option>Fair</option><option>Poor</option>
-        </select>
-      </label><br>
-      <label>Exterior Condition
-        <select name="exterior">
-          <option>Excellent</option><option>Good</option><option>Fair</option><option>Poor</option>
-        </select>
-      </label><br>
-      <label>Do you have the title?
-        <select name="title">
-          <option>Yes</option>
-          <option>No</option>
-        </select>
-      </label><br>
-      <textarea name="issues" placeholder="Any major issues?"></textarea><br>
-      <button type="button" class="btn" onclick="prevStep()">Back</button>
-      <button type="button" class="btn" onclick="nextStep()">Next</button>
-    
-      <label>Is the engine intact?
-        <select name="engine_intact" onchange="handleEngineCondition(this)">
-          <option value="">-- Select --</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-      </label><br>
-      <div id="engineDetails" style="display:none;">
-        <textarea name="engine_issues" placeholder="Please describe any engine damage..."></textarea><br>
-      </div>
+
+<select name="engine_intact" onchange="handleEngineCondition(this)" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;">
+  <option value="">-- Select --</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+
+<div id="engineDetails" style="display: none;">
+  <label for="engine_issues" style="font-weight: 600;">Describe any engine damage:</label>
+  <textarea name="engine_issues" placeholder="Example: engine won't start, overheating, oil leak..." rows="3" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc;" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"></textarea>
 </div>
 
-    <!-- Step 3: Location -->
-    <div class="form-step" style="display:none;">
-      <h3>Step 3: Location & Pickup</h3>
-      <input type="text" placeholder="ZIP Code" name="zip" required><br>
-      <label>Pickup Method
-        <select name="pickup_method">
-          <option>Smart Map</option>
-          <option>Schedule on Calendar</option>
-          <option>Live Video</option>
-        </select>
-      </label><br>
-      <input type="datetime-local" name="pickup_time"><br>
-      <button type="button" class="btn" onclick="prevStep()">Back</button>
-      <button type="button" class="btn" onclick="nextStep()">Next</button>
-    
-      <label>Is the engine intact?
-        <select name="engine_intact" onchange="handleEngineCondition(this)">
-          <option value="">-- Select --</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-      </label><br>
-      <div id="engineDetails" style="display:none;">
-        <textarea name="engine_issues" placeholder="Please describe any engine damage..."></textarea><br>
-      </div>
-</div>
+<label style="font-weight: 600;">Upload Optional Video (1–3 mins)</label>
+<input type="file" name="car_video" accept="video/*">
+<button class="btn" type="submit" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;">
+  Submit My Offer Request
+</button>
 
-    <!-- Step 4: Contact Info -->
-    <div class="form-step" style="display:none;">
-      <h3>Step 4: Contact Info</h3>
-      <input type="text" name="name" placeholder="Full Name" required><br>
-      <input type="tel" name="phone" placeholder="Phone Number" required><br>
-      <input type="email" name="email" placeholder="Email (optional)"><br>
-      <input type="text" name="best_time" placeholder="Best Time to Contact"><br>
-      <button type="button" class="btn" onclick="prevStep()">Back</button>
-      <button type="button" class="btn" onclick="nextStep()">Next</button>
-    </div>
-
-    <!-- Step 5: Payment -->
-    <div class="form-step" style="display:none;">
-      <h3>Step 5: Payment</h3>
-      <label>Preferred Payment
-        <select name="payment_method">
-          <option>Zelle</option><option>Venmo</option><option>Direct Deposit</option><option>Cash</option><option>Certified Check</option>
-        </select>
-      </label><br>
-      <input type="text" name="payment_details" placeholder="Enter Zelle email / Venmo handle etc."><br>
-      <button type="button" class="btn" onclick="prevStep()">Back</button>
-      <button type="button" class="btn" onclick="nextStep()">Next</button>
-    </div>
-
-    <!-- Step 6: Confirmation -->
-    <div class="form-step" style="display:none;">
-      <h3>Step 6: Final Confirmation</h3>
-      <label><input type="checkbox" required> I confirm I am the legal owner or authorized to sell</label><br>
-      <label><input type="checkbox" required> I understand Recarra may follow up via phone or text</label><br>
-      <button type="button" class="btn" onclick="prevStep()">Back</button>
-      <button type="submit" class="btn">Submit Offer</button>
-    </div>
-  </form>
-</section>
-<section>
-  <h2 id="vinScan">Scan Your VIN Instantly</h2>
-  <p>Use your camera to scan your Vehicle Identification Number for a faster, more accurate offer.</p>
-  <button class="btn">Scan VIN</button>
-  <p style="font-size: 0.9rem;">We’ll match your exact make, model, and market value.</p>
-</section>
-<section>
-  <h2 id="licensePlateOffer">License Plate Offer</h2>
-  <p>Enter or upload a picture of your license plate and get an instant offer.</p>
-  <input type="text" name="plate_input" placeholder="License Plate Number" style="width: 100%; padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem;"><br>
-  <input type="file" name="plate_image" accept="image/*" style="margin-bottom: 1rem;"><br>
-  <input type="text" name="first_name" placeholder="First Name" required style="margin-bottom: 0.5rem;"><br>
-  <input type="tel" name="phone_number" placeholder="Phone Number" required style="margin-bottom: 0.5rem;"><br>
-  <input type="email" name="email_address" placeholder="Email Address" required style="margin-bottom: 1rem;"><br>
-  <button class="btn">Get My Offer</button>
-  <p style="font-size: 0.9rem; margin-top: 1rem;">Once your offer is accepted, we'll request additional vehicle and pickup information.</p>
-</section>
-<section>
-  <h2 id="voiceAssistant">Talk to Recarra AI</h2>
-  <p>Use your voice to start an offer, schedule pickup, or ask questions.</p>
-  <button class="btn">Activate Voice</button>
-  <p style="font-size: 0.9rem;">Supports English and Spanish for seamless experience.</p>
-</section>
-
-<section id="smartVideo">
-  <h2>Smart Video Inspection</h2>
-  <p>Schedule a live video call to show us your car inside and out — no app required.</p>
-  <form id="videoInspectionForm" action="mailto:support@recarra.com" method="post" enctype="text/plain">
-    <input type="text" name="name" placeholder="Full Name" required><br>
-    <input type="tel" name="phone" placeholder="Phone Number" required><br>
-    <input type="text" name="zip" placeholder="ZIP Code" required><br>
-    <input type="date" name="date" required><br>
-    <input type="time" name="time" required><br>
-    <button class="btn" type="submit">Schedule Video Call</button>
-  </form>
-  <p style="font-size: 0.9rem; margin-top: 1rem;">We'll text you a secure video link. Just tap it at your scheduled time.</p>
-</section>
-
-<section>
-    <h2>Live Chat & Support</h2>
-    <p>Talk to our agents live or schedule a video inspection from your phone.</p>
-    <a href="#live" class="btn">Talk Now</a>
-  </section>
-
-
-
-
-
-  
-<section>
-  <h2>Refer & Earn</h2>
-  <p>Share your custom link and earn $50 for each successful sale.</p>
-  <input type="text" value="https://recarra.com/ref?code=YOURID123" readonly style="width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid #ccc;">
-  <p>Send this link to your friends. When they sell their car, you get paid!</p>
-</section>
-
-<section>
-  <h2>Live Car Deals Happening Now</h2>
-  <div style="background-color: #ffeceb; padding: 1rem; border-radius: 10px;">
-    <p><strong>Jessica from Dallas</strong> sold a 2012 Ford Escape for <strong>$980</strong></p>
-    <p><strong>Mike from Houston</strong> accepted $1,250 for a 2013 Chevy Cruze</p>
+    <div><strong>Sell As-Is</strong><br>No repairs or cleanups needed — we take all conditions.</div>
+    <div><strong>Fast, Secure Payments</strong><br>Get paid instantly with direct deposit, cash, or debit card transfer.</div>
+    <div><strong>Paperwork? Handled.</strong><br>We take care of title transfer, bill of sale, and everything else.</div>
+    <div><strong>Same-Day Pickup</strong><br>You choose the time, we handle the logistics.</div>
+    <div><strong>Thousands Trust Us</strong><br>Nationwide, verified sellers choose Recarra every day.</div>
   </div>
 </section>
 
-<section>
-  <h2>Why Sellers Choose Recarra</h2>
-  <ul>
-    <li><strong>Instant Offers:</strong> Get a real quote in seconds with our AI engine.</li>
-    <li><strong>Top Payouts:</strong> We outbid local buyers and junkyards.</li>
-    <li><strong>No Hassle:</strong> Sell as-is. No title or repairs? No problem.</li>
-    <li><strong>Same-Day Pickup:</strong> Accept our offer and get paid within hours.</li>
-  </ul>
-</section>
-
-
-<section>
-  <h2>How It Works</h2>
-  <ol>
-    <li><strong>Begin Your Journey with Recarra:</strong> Getting started is easy. Simply upload a photo, scan your VIN, or enter a few vehicle details. Our intelligent system will immediately begin analyzing your car to prepare a real offer — with no obligations, and full respect for your time.</li>
-    <li><strong>Receive a Real, Personalized Cash Offer:</strong> Recarra’s AI technology evaluates your car based on its specs, condition, and current market trends. You’ll receive a firm, personalized cash offer — not a vague estimate. Because markets shift, offers are time-sensitive and may adjust based on demand, so we recommend acting quickly for the best deal.</li>
-    <li><strong>Schedule Pickup at Your Convenience:</strong> We work on your terms. Whether you prefer video confirmation, map-based scheduling, or a simple date and time, you get full control over when and how we collect your vehicle. Same-day pickups are available in many areas.</li>
-    <li><strong>We Handle Everything In Between:</strong> Worried about paperwork or titles? Let us help. Whether you’re missing documentation or unsure about the process, Recarra provides full support to verify ownership and ensure a smooth handoff.</li>
-    <li><strong>Confirm Your Final Details with Confidence:</strong> Before any vehicle is picked up, you’ll review the car’s condition, confirm your contact and location, and select your preferred payment method. Everything is transparent, respectful, and professional.</li>
-    <li><strong>Get Paid Instantly — No Waiting:</strong> As soon as the car is picked up, your payment is sent — typically within minutes. Whether it’s Zelle, Venmo, direct deposit, certified check, or cash, Recarra ensures your money gets to you fast and securely.</li>
-  </ol>
-</section>
 
 
 <section>
@@ -364,12 +257,7 @@
   </ul>
 </section>
 
-<section>
-  <h2>What Sellers Say About Recarra</h2>
-  <blockquote>"Recarra gave me an offer within minutes — I was paid the same day. Unbelievable!" – Jamal R.</blockquote>
-  <blockquote>"I uploaded a photo, got a fair price, and their team towed it the next morning. Easiest process ever." – Maria T.</blockquote>
-  <blockquote>"The AI gave me a better price than three local junkyards. I won’t sell my cars any other way again." – Sean D.</blockquote>
-</section>
+
 
 
 
@@ -397,16 +285,18 @@
 
 
 
+
 <section>
   <h2>Choose Your Payment Method</h2>
-  <p>After accepting your offer, choose how you want to get paid:</p>
+  <p>After accepting your offer, choose how you want to get paid instantly:</p>
   <ul>
-    <li>Direct Deposit</li>
-    <li>Zelle or Venmo</li>
+    <li>Direct Deposit (instant)</li>
+    <li>Debit Card Transfer (instant)</li>
     <li>Cash on Pickup</li>
-    <li>Certified Check</li>
+    <li>Certified Check (optional)</li>
   </ul>
 </section>
+
 
 
 
@@ -431,6 +321,32 @@
 
 
   
+
+
+
+<section style="background: #f9f9f9; padding: 3rem 2rem; border-radius: 10px; max-width: 960px; margin: 2rem auto;">
+  <h2 style="font-size: 2rem; font-weight: 800; text-align: center;">How It Works</h2>
+  <ol style="font-size: 1.1rem; line-height: 1.7; padding-left: 1.5rem; max-width: 800px; margin: 2rem auto;">
+    <li><strong>Start Your Offer:</strong> Upload a photo, scan your VIN, or enter details to begin.</li>
+    <li><strong>Get a Real Cash Offer:</strong> Our AI evaluates your car and sends you a firm price.</li>
+    <li><strong>Choose Pickup:</strong> You schedule when and where — we’ll handle everything else.</li>
+    <li><strong>Skip the Paperwork:</strong> Recarra takes care of all legal and title-related details.</li>
+    <li><strong>Get Paid Fast:</strong> Choose instant cash, direct deposit, or debit card transfer.</li>
+  </ol>
+</section>
+
+
+
+
+<div style="height: 120px;"></div>
+<section style="background: #ffffff; padding: 3rem 2rem; border-radius: 10px; max-width: 960px; margin: 2rem auto;">
+  <h2 style="font-size: 2rem; font-weight: 800; text-align: center;">What Sellers Say About Recarra</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+    <blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“I submitted my info and was paid the same day. Incredible!”<br><strong>– Marcus W., Texas</strong></blockquote>
+    <blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“They handled everything, even without my title ready.”<br><strong>– Denise R., Florida</strong></blockquote>
+    <blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“The fastest and easiest sale I’ve ever made.”<br><strong>– Leo M., California</strong></blockquote>
+  </div>
+</section>
 <footer>
   © 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX
   <div style="font-size: 0.75rem; margin-top: 0.5rem;">
@@ -444,8 +360,7 @@
     <a href="#" style="margin-right: 10px;">Refund Policy</a>
     <a href="#" style="margin-right: 10px;">Pickup Policy</a>
     <a href="#">Seller Rights</a>
-  </div>
-</footer>
+  </footer>
 
 
   <script>
@@ -528,6 +443,64 @@
     }
   });
 </script>
+
+
+<script>
+const faqs = [
+  { question: "How do I get an offer for my car?", answer: "Submit your vehicle details online — our AI gives you an instant offer." },
+  { question: "What types of vehicles does Recarra buy?", answer: "We purchase all types — cars, trucks, vans, SUVs — running or not." },
+  { question: "Is there a fee to get an offer?", answer: "No. Getting an offer from Recarra is 100% free with no obligation." },
+  { question: "How fast do I get paid?", answer: "We pay instantly via cash, debit card, or direct deposit once your vehicle is picked up." },
+  { question: "Can I sell my car without a title?", answer: "Yes. In many cases we can still proceed. We’ll help guide the process." },
+  { question: "Do I need to bring my car somewhere?", answer: "No. We come to you — at home, work, or anywhere you prefer." },
+  { question: "What if my car doesn’t run?", answer: "We buy vehicles in all conditions — even totaled or non-operational ones." },
+  { question: "How do I schedule my pickup?", answer: "After you accept the offer, you choose your preferred pickup time online." },
+  { question: "What payment methods do you offer?", answer: "We pay via instant debit card, direct deposit, certified check, or cash." },
+  { question: "What areas do you serve?", answer: "We’re licensed nationwide — we can pick up vehicles anywhere in the U.S." },
+  { question: "Can I cancel after accepting the offer?", answer: "Yes, you can cancel prior to pickup — there are no penalties." },
+  { question: "Do I need to clean my car?", answer: "No need. We buy as-is. No detailing, no repairs required." },
+  { question: "Do you buy leased or financed cars?", answer: "We can purchase vehicles with a lien or lease. Let us know upfront." },
+  { question: "How accurate is the AI offer?", answer: "Our system uses real-time data from recent sales to generate reliable offers." },
+  { question: "Will I need to sign anything?", answer: "Yes — a standard bill of sale and title transfer documents, all handled by us." },
+  { question: "Can I sell a car for someone else?", answer: "Yes, as long as you are legally authorized with ID and ownership documents." },
+  { question: "How do I contact support?", answer: "You can call, text, or use our live chat anytime — we’re here 24/7." },
+  { question: "What if my offer expires?", answer: "You can re-submit anytime. Market values fluctuate, so timing matters." },
+  { question: "How long is the offer valid?", answer: "Each offer is valid for a limited time — usually 3 to 7 days." },
+  { question: "Do you buy from businesses or fleets?", answer: "Yes. We purchase fleet vehicles and commercial cars nationwide." }
+];
+
+faqs.sort(() => 0.5 - Math.random());
+
+let currentIndex = 0;
+let showingQuestion = true;
+
+function rotateFAQ() {
+  const questionEl = document.getElementById('faq-question');
+  const answerEl = document.getElementById('faq-answer');
+
+  questionEl.style.opacity = 0;
+  answerEl.style.opacity = 0;
+
+  setTimeout(() => {
+    if (showingQuestion) {
+      questionEl.textContent = faqs[currentIndex].question;
+      answerEl.textContent = "";
+    } else {
+      answerEl.textContent = faqs[currentIndex].answer;
+      currentIndex = (currentIndex + 1) % faqs.length;
+    }
+
+    questionEl.style.opacity = 1;
+    answerEl.style.opacity = 1;
+    showingQuestion = !showingQuestion;
+  }, 400);
+}
+
+setInterval(rotateFAQ, 8000);
+rotateFAQ();
+</script>
+
+
 </body>
 </html>
 
