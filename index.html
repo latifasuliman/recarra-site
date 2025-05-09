@@ -826,34 +826,63 @@ body {
   box-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5);
 }
 
+/* Refined glow button styling */
+.glow-btn {
+  background: #e60023;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
+  border-radius: 10px;
+  transition: all 0.4s ease;
+}
+.glow-btn:hover {
+  background: #ff6600;
+  box-shadow: 0 0 25px rgba(255, 102, 0, 0.6);
+}
+
+/* Section and card lighting on white background */
+section {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.03), 0 5px 25px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+/* CTA highlight: soft gradient and gold accent */
+header .tagline {
+  background: linear-gradient(to right, #111, #e60023, #ff6600);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+.trust-bar {
+  background: linear-gradient(90deg, #000, #ff0000, #ff6600);
+  box-shadow: 0 0 18px rgba(255,255,255,0.2);
+  font-weight: 600;
+}
+
+/* Subtle radial background effect */
 body {
-  transition: background-color 0.5s ease, color 0.5s ease;
+  background: radial-gradient(circle at top left, #fefefe, #ffffff);
 }
 
-header, section, footer {
-  transition: background-color 0.5s ease, color 0.5s ease;
+.qa-block h3,
+section h3,
+.scroll-container h3 {
+  color: #000000;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Dim mode active */
-body.dim-mode {
-  background-color: #000 !important;
-  color: #fff !important;
-}
-
-body.dim-mode header,
-body.dim-mode section,
-body.dim-mode footer {
-  background-color: #111 !important;
-  color: #fff !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-body.dim-mode .btn,
-body.dim-mode .glow-btn {
-  background: #fff !important;
-  color: #000 !important;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
+.qa-block p,
+section p,
+.scroll-container p {
+  color: #555555;
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 0.25rem;
 }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&amp;display=swap" rel="stylesheet"/></head>
@@ -998,11 +1027,13 @@ body.dim-mode .glow-btn {
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const toggle = document.querySelector(".toggle-mode");
-  const saved = localStorage.getItem("recarra-mode");
-  if (saved === "dim") {
+  const mode = localStorage.getItem("recarra-mode");
+
+  if (mode === "dim") {
     body.classList.add("dim-mode");
   }
-  toggle?.addEventListener("click", () => {
+
+  toggle.addEventListener("click", () => {
     const isDim = body.classList.toggle("dim-mode");
     localStorage.setItem("recarra-mode", isDim ? "dim" : "light");
   });
