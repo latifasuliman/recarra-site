@@ -26,6 +26,21 @@ button.glow-effect {
   animation: glowPulse 2s infinite;
 }
 
+
+/* Updated dim-mode styling */
+body.dim-mode section,
+body.dim-mode header,
+body.dim-mode footer,
+body.dim-mode div,
+body.dim-mode form,
+body.dim-mode input,
+body.dim-mode select,
+body.dim-mode button {
+  background-color: #111 !important;
+  color: #ff1a1a !important;
+  border-color: #ff1a1a !important;
+}
+
 </style>
 <style>
 button:hover {
@@ -1109,7 +1124,21 @@ const messages = ['Get paid today — no waiting.', 'Sell your junk car in under
 </script>
 <script>
 function toggleDimMode() {
-    document.body.classList.toggle("dim-mode");
+  document.body.classList.toggle("dim-mode");
+
+  if (document.body.classList.contains("dim-mode")) {
+    document.querySelectorAll("section, div, form").forEach(el => {
+      if (window.getComputedStyle(el).backgroundColor === "rgb(255, 255, 255)") {
+        el.style.backgroundColor = "#111";
+        el.style.color = "#ff1a1a";
+      }
+    });
+  } else {
+    document.querySelectorAll("section, div, form").forEach(el => {
+      el.style.backgroundColor = "";
+      el.style.color = "";
+    });
+  }
 }
 </script>
 <script>
