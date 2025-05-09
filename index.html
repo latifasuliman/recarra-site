@@ -178,7 +178,64 @@ section {
   animation-delay: 0s, 88s;
 }
 </style>
+<style>
+  :root {
+    --recarra-gradient: linear-gradient(135deg, #ff4e50, #f9d423);
+  }
 
+  /* Apply gradient text effect in dim mode */
+  body.dim-mode h1,
+  body.dim-mode h2,
+  body.dim-mode h3,
+  body.dim-mode p,
+  body.dim-mode span,
+  body.dim-mode strong,
+  body.dim-mode .highlight-text {
+    background: var(--recarra-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Gradient button styling */
+  body.dim-mode button {
+    background: var(--recarra-gradient) !important;
+    color: #000 !important;
+    border: none !important;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 78, 80, 0.4);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Optional: glowing effect for special buttons */
+  body.dim-mode .glow-effect {
+    background: var(--recarra-gradient) !important;
+    color: #000 !important;
+    animation: glowPulse 2s infinite;
+    box-shadow: 0 0 15px #ff4e50;
+  }
+
+  /* Optional logo or brand highlight in gradient */
+  body.dim-mode .logo,
+  body.dim-mode .recarra-title {
+    background: var(--recarra-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+</style>
+
+<style>
+.gradient-cycle {
+  transition: background 1s ease-in-out;
+}
+</style>
+
+
+<style>
+.shared-gradient {
+  transition: background 1.5s ease-in-out, color 1s ease-in-out !important;
+}
+</style>
 </head>
 <body style=" color: #000;"><button class="glow-effect" onclick="toggleDimMode()" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.3)'" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 24px rgba(255,0,0,0.5)'" style="
     position: fixed; 
@@ -269,10 +326,8 @@ section {
      No repairs needed. We buy your car exactly as it is.
     </div>
 <div style="border-left: 4px solid red; padding-left: 1rem; margin-bottom: 1rem; color: #000;">
-<strong>
-      No Paperwork Hassle —
-     </strong>
-     We handle titles, DMV forms, and all documentation.
+<strong>Paperwork? We’ve Got You —</strong>
+  We’ll handle the title, bill of sale, and DMV forms — all we need is your ID and ownership proof when we pick up the car.
     </div>
 <div style="border-left: 4px solid red; padding-left: 1rem; margin-bottom: 1rem; color: #000;">
 <strong>
@@ -288,7 +343,7 @@ section {
     </div>
 </div>
 </section>
-<section id="form" style="   text-align: center; max-width: 900px; margin: 2rem auto; border-radius: 10px;  box-shadow: 0 0 10px rgba(0,0,0,0.05);background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="form" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  border-radius: 10px;   box-shadow: 0 0 10px rgba(0,0,0,0.05);  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #4568dc, #b06ab3);">
 <h2 style=" margin-bottom: 1rem; color: #000;">
     AI Offer Form
    </h2>
@@ -525,7 +580,7 @@ section {
   });
   });
   </script>
-<section id="live" style="   text-align: center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="live" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #ff512f, #dd2476);">
 <h2 style=" margin-bottom: 1rem; color: #000;">
     Go Live With a Recarra Agent
    </h2>
@@ -542,7 +597,7 @@ section {
     *No sign-up needed. Talk to our team face-to-face instantly.
    </p>
 </section>
-<section id="upload" style="   text-align: center; max-width: 900px; margin: 2rem auto; border-radius: 10px;  box-shadow: 0 0 10px rgba(0,0,0,0.05);background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="upload" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  border-radius: 10px;   box-shadow: 0 0 10px rgba(0,0,0,0.05);  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #bdc3c7, #2c3e50);">
 <div style="max-width: 900px; margin: 0 auto; color: #000;">
 <h2 style=" margin-bottom: 1rem; color: #000;">
      Upload Photos of Your Vehicle
@@ -567,7 +622,7 @@ section {
     </p>
 </div>
 </section>
-<section id="scan-vin" style="   text-align: center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="scan-vin" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #1d2b64, #f8cdda);">
 <h2 style=" margin-bottom: 1rem; color: #000;">
     Scan Your Vehicle VIN
    </h2>
@@ -636,7 +691,7 @@ section {
 </p>
 </div>
 </section>
-<section id="schedule" style="   text-align: center; max-width: 900px; margin: 2rem auto; border-radius: 10px;  box-shadow: 0 0 10px rgba(0,0,0,0.05);background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="schedule" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  border-radius: 10px;   box-shadow: 0 0 10px rgba(0,0,0,0.05);  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #4e54c8, #8f94fb);">
 <div style="max-width: 900px; margin: 0 auto; color: #000;">
 <h2 style=" margin-bottom: 1rem; color: #000;">
      Schedule a Live Video Inspection
@@ -682,7 +737,7 @@ section {
 </p>
 </div>
 </section>
-<section id="offer-tracker" style="background:#eeeeee;  text-align:center; border-top:2px solid #ccc; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="offer-tracker" style="  text-align:center;  border-top:2px solid #ccc;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #00c6ff, #0072ff);">
 <h2 style="font-size:1.8rem; margin-bottom:1rem; color: #000;">
     Track Your Offer in Real-Time
    </h2>
@@ -764,7 +819,7 @@ section {
 <h2 style=" margin-bottom: 1rem; color: #000;">Why People Sell with Recarra</h2>
 <p id="typewriterMessage" style="font-size: 1.2rem; font-weight: bold; min-height: 1.8em; white-space: nowrap; overflow: hidden; border-right: 3px solid red; width: 100%; max-width: 700px; margin: 0 auto; text-align: center; color: #000;"></p>
 </section>
-<section id="check-offer" style="   text-align: center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="check-offer" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #f7971e, #ffd200);">
 <div style="max-width: 900px; margin: 0 auto; color: #000;">
 <h2 style=" margin-bottom: 1rem; color: #000;">
      Check Your Offer Status
@@ -790,7 +845,7 @@ section {
     DMV • Tow Network • Local Dealerships
    </p>
 </section>
-<section id="voice-ui" style="   text-align: center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="voice-ui" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #485563, #29323c);">
 <h2 style=" margin-bottom: 1rem; color: #000;">
     Talk to Recarra AI
    </h2>
@@ -846,7 +901,7 @@ setTimeout(() => {
     }
    </script>
 </section>
-<section id="plate-recognition" style="   text-align: center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="plate-recognition" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #654ea3, #eaafc8);">
 <div style="max-width: 900px; margin: 0 auto; color: #000;">
 <h2 style=" margin-bottom: 1rem; color: #000;">
      Recognize Your Car by Plate
@@ -893,7 +948,7 @@ setTimeout(() => {
 </div>
 </div>
 </section>
-<section id="faq" style="background:#f9f9f9;  text-align:center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
+<section id="faq" style="  text-align:center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #654ea3, #eaafc8);">
 <h2 style="font-size:1.8rem; margin-bottom:2rem; color: #000;">
     Frequently Asked Questions
    </h2>
@@ -965,7 +1020,6 @@ setTimeout(() => {
     </div>
 </div>
 </section>
-
 <script>
    function startVoiceInput(inputId) {
   if (!('webkitSpeechRecognition' in window)) {
@@ -1294,5 +1348,68 @@ function toggleDimMode() {
 <p>Accessibility &amp; Trust Tools Coming Soon</p>
 </div>
 </footer>
+
+<script>
+const gradients = [
+  "linear-gradient(135deg, #ff4e50, #f9d423)",
+  "linear-gradient(135deg, #00c6ff, #0072ff)",
+  "linear-gradient(135deg, #8e2de2, #4a00e0)",
+  "linear-gradient(135deg, #f7971e, #ffd200)",
+  "linear-gradient(135deg, #bdc3c7, #2c3e50)",
+  "linear-gradient(135deg, #654ea3, #eaafc8)",
+  "linear-gradient(135deg, #1d2b64, #f8cdda)",
+  "linear-gradient(135deg, #ff512f, #dd2476)"
+];
+
+let gIndex = 0;
+function rotateSectionBackgrounds() {
+  const sections = document.querySelectorAll("section");
+  sections.forEach(section => {
+    section.classList.add('gradient-cycle');
+    section.style.background = gradients[gIndex];
+  });
+  gIndex = (gIndex + 1) % gradients.length;
+}
+
+rotateSectionBackgrounds();
+setInterval(rotateSectionBackgrounds, 8000);
+</script>
+
+
+<script>
+const gradientThemes = [
+  { bg: "linear-gradient(135deg, #ff4e50, #f9d423)", text: "#000" },
+  { bg: "linear-gradient(135deg, #4568dc, #b06ab3)", text: "#fff" },
+  { bg: "linear-gradient(135deg, #ff512f, #dd2476)", text: "#fff" },
+  { bg: "linear-gradient(135deg, #bdc3c7, #2c3e50)", text: "#fff" },
+  { bg: "linear-gradient(135deg, #1d2b64, #f8cdda)", text: "#000" },
+  { bg: "linear-gradient(135deg, #4e54c8, #8f94fb)", text: "#fff" },
+  { bg: "linear-gradient(135deg, #00c6ff, #0072ff)", text: "#fff" },
+  { bg: "linear-gradient(135deg, #f7971e, #ffd200)", text: "#000" },
+  { bg: "linear-gradient(135deg, #485563, #29323c)", text: "#fff" },
+  { bg: "linear-gradient(135deg, #654ea3, #eaafc8)", text: "#000" },
+  { bg: "linear-gradient(135deg, #ffffff, #f9f9f9)", text: "#000" }
+];
+
+let themeIndex = 0;
+
+function applyTheme() {
+  const { bg, text } = gradientThemes[themeIndex];
+  const elements = document.querySelectorAll('body, header, footer, nav, section, div, p, h1, h2, h3, h4, h5, h6, a, span, label, input, select, button');
+  elements.forEach(el => {
+    el.classList.add('shared-gradient');
+    el.style.background = bg;
+    el.style.color = text;
+    if (el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'BUTTON') {
+      el.style.borderColor = text;
+    }
+  });
+
+  themeIndex = (themeIndex + 1) % gradientThemes.length;
+}
+
+setInterval(applyTheme, 88000);
+window.addEventListener('DOMContentLoaded', applyTheme);
+</script>
 </body>
 </html>
