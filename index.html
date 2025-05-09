@@ -31,7 +31,6 @@
       color: var(--dim-text);
     }
 
-    header, section, footer {
       max-width: 960px;
       margin: 2rem auto;
       padding: 2rem;
@@ -79,7 +78,6 @@
     }
 
     .dim-mode header,
-    .dim-mode section,
     .dim-mode footer {
       background-color: #111 !important;
     }
@@ -620,14 +618,223 @@ footer {
   color: #fff;
   text-align: center;
 }
+
+  border-radius: 25px !important;
+  border: 3px solid black;
+  animation: borderColorCycle 888s infinite alternate;
+  transition: all 0.5s ease-in-out;
+}
+@keyframes borderColorCycle {
+  0% { border-color: #000000; }
+  12.5% { border-color: #ff0000; }
+  25% { border-color: #ff6600; }
+  37.5% { border-color: #ffff00; }
+  50% { border-color: #00cc00; }
+  62.5% { border-color: #0066ff; }
+  75% { border-color: #8000ff; }
+  87.5% { border-color: #ff33aa; }
+  100% { border-color: #000000; }
+}
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 0, 100, 0.2);
+  transition: box-shadow 0.6s ease-in-out;
+}
+
+body {
+  border: 10px solid black;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+  0%   { border-color: black; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+  25%  { border-color: white; box-shadow: 0 0 40px rgba(255,255,255,0.5); }
+  50%  { border-color: red; box-shadow: 0 0 60px rgba(255,255,255,0.8); }
+  75%  { border-color: orange; box-shadow: 0 0 40px rgba(255,255,255,0.5); }
+  100% { border-color: black; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+}
+
+/* Glassmorphism style for sections */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Floating Trust Bar */
+.floating-trust-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1rem;
+  z-index: 10000;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  animation: trustBarFadeIn 1s ease-in-out;
+}
+
+@keyframes trustBarFadeIn {
+  from { opacity: 0; top: -40px; }
+  to { opacity: 1; top: 0; }
+}
+
+body {
+  border: 8px solid black;
+  box-sizing: border-box;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2), 0 0 25px rgba(255, 255, 255, 0.1);
+}
+  0%   { border-color: black; }
+  25%  { border-color: white; }
+  50%  { border-color: red; }
+  75%  { border-color: orange; }
+  100% { border-color: black; }
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main, .content, .form, .scroll-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+header, footer {
+  background-color: #ffffff;
+  color: #000;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+section h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+button, .cta a {
+  background-color: #ff4d4d;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+button:hover, .cta a:hover {
+  background-color: #e60000;
+}
+
+.branding-header {
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+.logo-title {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: 'Cinzel', serif;
+  color: #111;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+.tagline {
+  font-size: 1.1rem;
+  color: #444;
+  font-weight: 500;
+}
+.trust-bar {
+  background: linear-gradient(90deg, #000, #333);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+body {
+  border: 8px solid black;
+  animation: blackWhiteBorder 8s infinite alternate;
+  box-sizing: border-box;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+@keyframes blackWhiteBorder {
+  0%   { border-color: black; }
+  50%  { border-color: white; }
+  100% { border-color: black; }
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.glow-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255,255,255,0.2);
+  transition: all 0.4s ease;
+}
+
+.glow-btn:hover {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5);
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&amp;display=swap" rel="stylesheet"/></head>
 <body>
-<button class="toggle-mode" onclick="document.body.classList.toggle('dim-mode')">Toggle Dim Mode</button>
-<header style="background: var(--current-bg, #111); color: #fff; padding: 2rem 1rem 1rem; margin-top: 0; position: relative; overflow: hidden; border-radius: 0 0 20px 20px; transition: background 2s ease-in-out;"><div class="recarra-animator"><div class="recarra-name" style="animation: recarraCycle 64s linear infinite; animation-delay:0s;"><span style="font-family:serif;font-size:3rem;font-weight:bold;">Recarra</span></div><div class="recarra-name" style="animation: recarraCycle 64s linear infinite; animation-delay:8s;"><span style="font-family:cursive;font-size:2.8rem;color:#222;">Recarra</span></div><div class="recarra-name" style="animation: recarraCycle 64s linear infinite; animation-delay:16s;"><span style="text-transform:uppercase;font-size:3.2rem;">RECAR<span style="color:red;">RA</span></span></div><div class="recarra-name" style="animation: recarraCycle 64s linear infinite; animation-delay:24s;"><span style="font-style:italic;font-size:2.9rem;text-shadow:2px 2px #ccc;">Recarra</span></div><div class="recarra-name" style="animation: recarraCycle 64s linear infinite; animation-delay:32s;"><span style="font-family:monospace;font-size:3rem;">Recarra</span></div><div class="recarra-name" style="animation: recarraCycle 64s linear infinite; animation-delay:40s;"><span style="font-family:sans-serif;font-size:2.8rem;font-weight:900;">RECAR<span style="color:#f00;">RA</span></span></div><div class="recarra-name" style="animation: recarraCycle 64s linear infinite; animation-delay:48s;"><span style="font-weight:lighter;font-size:3rem;">Recarra</span></div><div class="recarra-name" style="animation: recarraCycle 64s linear infinite; animation-delay:56s;"><span style="font-weight:800;font-size:3.5rem;">Recarra</span></div></div><div class="ai-cta-animator"><div class="ai-cta" style="animation: aiCycle 64s linear infinite; animation-delay:0s;"><a href="#form" style="text-decoration:none; font-size:1.8rem; font-weight:800; color:red;">AI Instant Offer</a></div><div class="ai-cta" style="animation: aiCycle 64s linear infinite; animation-delay:8s;"><a href="#form" style="text-decoration:none; font-size:1.8rem; font-weight:800; color:red;">AI Instant Payment</a></div><div class="ai-cta" style="animation: aiCycle 64s linear infinite; animation-delay:16s;"><a href="#form" style="text-decoration:none; font-size:1.8rem; font-weight:800; color:red;">Get Paid Instantly</a></div><div class="ai-cta" style="animation: aiCycle 64s linear infinite; animation-delay:24s;"><a href="#form" style="text-decoration:none; font-size:1.8rem; font-weight:800; color:red;">Real-Time AI Car Valuation</a></div><div class="ai-cta" style="animation: aiCycle 64s linear infinite; animation-delay:32s;"><a href="#form" style="text-decoration:none; font-size:1.8rem; font-weight:800; color:red;">No Hassle. Instant Cash.</a></div><div class="ai-cta" style="animation: aiCycle 64s linear infinite; animation-delay:40s;"><a href="#form" style="text-decoration:none; font-size:1.8rem; font-weight:800; color:red;">Offer in Seconds. No Waiting.</a></div><div class="ai-cta" style="animation: aiCycle 64s linear infinite; animation-delay:48s;"><a href="#form" style="text-decoration:none; font-size:1.8rem; font-weight:800; color:red;">Smart Car Selling</a></div><div class="ai-cta" style="animation: aiCycle 64s linear infinite; animation-delay:56s;"><a href="#form" style="text-decoration:none; font-size:1.8rem; font-weight:800; color:red;">Recarra’s AI Pays More</a></div></div></header>
-<section style="background-color: #ffffff; color: #000; padding: 2rem; border-radius: 10px;">
+<button class="toggle-mode" onclick="document.body.classList.toggle('dim-mode')" style="position: fixed; top: 60px; right: 20px; padding: 0.6rem 1.2rem; background: #000; color: #fff; border: none; border-radius: 8px; cursor: pointer; z-index: 10001;">Toggle Dim Mode</button>
+<header style="background: var(--current-bg, #111); color: #fff; padding: 2rem 1rem 1rem; margin-top: 0; position: relative; overflow: hidden; border-radius: 0 0 20px 20px; transition: background 2s ease-in-out;"><div class="branding-header"><h1 class="logo-title">Recarra</h1><p class="tagline">Say Goodbye to Your Car in Minutes — And Get Paid Instantly</p></div><div class="trust-bar">Trusted by 10,000+ sellers • Licensed Nationwide • 24/7 AI-Powered Service</div><div class="action-buttons"><a class="glow-btn" href="#form">Get Offer</a><a class="glow-btn" href="#schedule">Schedule</a><a class="glow-btn" href="#pickup">Pickup</a><a class="glow-btn" href="#contact">Support</a><a class="glow-btn" href="#sell">Sell Now</a></div></header>
+<section style="background-color: #ffffff; color: #000000; border-radius: 20px; box-shadow: none; padding: 2rem;">
 <h2>Why Choose Recarra?</h2>
-<div class="scroll-container"><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 0s;">Why Choose Recarra?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 8s;">Because we offer the fastest, most trusted car-selling experience online.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 16s;">What makes Recarra different?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 24s;">AI-generated offers, instant payment, and same-day pickup.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 32s;">Do I need to fix my car first?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 40s;">No repairs needed — sell as-is in any condition.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 48s;">Can I trust the offer?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 56s;">Yes — it's based on real-time market data, verified by AI.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 64s;">Do I get paid fast?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 72s;">Absolutely. Most payments are made the same day.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 80s;">Is the service really free?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 88s;">Yes, towing and paperwork are included with no hidden fees.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 96s;">How easy is the process?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 104s;">Takes just minutes — from form to final payment.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 112s;">What support is available?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 120s;">Live chat, voice AI, and video inspection at your convenience.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 128s;">Can I refer others?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 136s;">Yes, and earn $50+ for every successful referral.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 144s;">Why sellers love us?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 152s;">Recarra is fast, fair, and fully verified across the U.S.</p></div></section>
+<div class="scroll-container"><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 0s;">Why Choose Recarra?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 8s;">Because we offer the fastest, most trusted car-selling experience online.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 16s;">What makes Recarra different?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 24s;">AI-generated offers, instant payment, and same-day pickup.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 32s;">Do I need to fix my car first?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 40s;">No repairs needed — sell as-is in any condition.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 48s;">Can I trust the offer?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 56s;">Yes — it's based on real-time market data, verified by AI.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 64s;">Do I get paid fast?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 72s;">Absolutely. Most payments are made the same day.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 80s;">Is the service really free?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 88s;">Yes, towing and paperwork are included with no hidden fees.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 96s;">How easy is the process?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 104s;">Takes just minutes — from form to final payment.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 112s;">What support is available?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 120s;">Live chat, voice AI, and video inspection at your convenience.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 128s;">Can I refer others?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 136s;">Yes, and earn $50+ for every successful referral.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 144s;">Why sellers love us?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 152s;">Recarra is fast, fair, and fully verified across the U.S.</p></div></section><section style="background-color: #ffffff;  color: #000;  padding: 2rem">
+<h2>How It Works</h2>
+<div class="scroll-container"><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 0s;">Step 1: Submit Your Car</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 8s;">Upload a photo or scan your VIN from any device.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 16s;">Step 2: Get a Real Offer</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 24s;">Our AI gives you a real-time, accurate cash value instantly.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 32s;">Step 3: Choose Your Pickup</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 40s;">Pick your time using our live map or video scheduling tool.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 48s;">Step 4: Get Paid</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 56s;">Cash out via direct deposit, Zelle, or even on-the-spot cash.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 64s;">Need support along the way?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 72s;">Live agents and AI assistants are here to guide you.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 80s;">What about paperwork?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 88s;">We help with title, ownership, and state compliance.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 96s;">What if I’m unsure?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 104s;">You can start now and decide later — no commitment.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 112s;">Can I reschedule pickup?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 120s;">Yes — easily change your date or location anytime.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 128s;">What if I cancel?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 136s;">You’re in full control — cancel anytime before the tow.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 144s;">How fast is the whole process?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 152s;">Most cars are picked up and paid within 24 hours.</p></div></section>
 <section>
 <h2>AI Smart Offer Form</h2>
 <p>Enter your details. Let our AI work its magic — and send you a cash offer in seconds.</p>
@@ -648,16 +855,13 @@ footer {
 <h2>Live Car Deals Happening Now</h2>
 <div class="live-feed" style="background-color: #ffffff; padding: 1rem; border-radius: 10px; color: #000;"><p>Nina in Vegas was paid in cash for a 2013 BMW 3 Series — $2,200.</p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p></div>
 </section>
-<section style="background-color: #ffffff; color: #000; padding: 2rem; border-radius: 10px;">
+<section style="background-color: #ffffff;  color: #000;  padding: 2rem">
 <h2>Why Sellers Choose Recarra</h2>
 <div class="scroll-container"><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 0s;">Why do people trust Recarra?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 8s;">Because we deliver instant, guaranteed offers with no pressure.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 16s;">How do we pay more than local buyers?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 24s;">Our AI scans real-time market data to outbid junkyards and dealers.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 32s;">Why sell as-is?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 40s;">Because your time matters — no repairs needed.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 48s;">Why is same-day pickup powerful?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 56s;">Because you get paid in hours, not days.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 64s;">How do we handle paperwork?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 72s;">We take care of every form, title, and DMV step for you.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 80s;">Why zero fees?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 88s;">Because what we offer is what you get — no deductions.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 96s;">Can I sell my car with issues?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 104s;">Yes, we love imperfect cars too.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 112s;">Why is Recarra different?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 120s;">Because our tech and team put you first.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 128s;">Is it safe?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 136s;">All pickups are insured, documented, and background-checked.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 144s;">Do I need to decide now?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 152s;">No — get an offer today, sell whenever you're ready.</p></div></section>
-<section style="background-color: #ffffff; color: #000; padding: 2rem; border-radius: 10px;">
-<h2>How It Works</h2>
-<div class="scroll-container"><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 0s;">Step 1: Submit Your Car</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 8s;">Upload a photo or scan your VIN from any device.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 16s;">Step 2: Get a Real Offer</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 24s;">Our AI gives you a real-time, accurate cash value instantly.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 32s;">Step 3: Choose Your Pickup</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 40s;">Pick your time using our live map or video scheduling tool.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 48s;">Step 4: Get Paid</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 56s;">Cash out via direct deposit, Zelle, or even on-the-spot cash.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 64s;">Need support along the way?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 72s;">Live agents and AI assistants are here to guide you.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 80s;">What about paperwork?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 88s;">We help with title, ownership, and state compliance.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 96s;">What if I’m unsure?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 104s;">You can start now and decide later — no commitment.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 112s;">Can I reschedule pickup?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 120s;">Yes — easily change your date or location anytime.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 128s;">What if I cancel?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 136s;">You’re in full control — cancel anytime before the tow.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 144s;">How fast is the whole process?</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 152s;">Most cars are picked up and paid within 24 hours.</p></div></section>
-<section style="background-color: #ffffff; color: #000; padding: 2rem; border-radius: 10px;">
+<section style="background-color: #ffffff;  color: #000;  padding: 2rem">
 <h2>Frequently Asked Questions</h2>
 <div class="scroll-container"><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">How fast do I get paid? — Most payments are completed the same day your car is picked up.</p><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">Do I need my title? — In most states, yes. But we can help if it's lost or damaged.</p><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">What if my car doesn’t run? — No problem — we buy non-running vehicles too.</p><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">Can I sell without keys? — Yes, we can make offers on vehicles without keys.</p><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">What if I still owe money? — We can help pay off your balance and handle the paperwork.</p><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">Is there a fee for towing? — No — towing is always 100% free with Recarra.</p><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">How do I know it’s a fair offer? — Our AI checks real-time market data to ensure top value.</p><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">Can I cancel my offer? — Yes, you’re never locked in. Cancel anytime before pickup.</p><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">What areas do you serve? — We operate nationwide — every city, every state.</p><p class="scroll-msg" style="animation: faqScroll 80s linear infinite;">Is this service safe? — Yes. All drivers are licensed, insured, and background-checked.</p></div></section>
-<section style="background-color: #ffffff; color: #000; padding: 2rem; border-radius: 10px;">
+<section style="background-color: #ffffff;  color: #000;  padding: 2rem">
 <h2>What Sellers Say About Recarra</h2>
 <div class="scroll-container"><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 0s;">Recarra gave me an offer within minutes — I was paid the same day. Unbelievable!</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 8s;">– Jamal R.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 16s;">I uploaded a photo, got a fair price, and their team towed it the next morning. Easiest process ever.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 24s;">– Maria T.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 32s;">The AI gave me a better price than three local junkyards. I won’t sell my cars any other way again.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 40s;">– Sean D.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 48s;">Payment was same-day and process was so easy. Highly recommended!</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 56s;">– Evelyn C.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 64s;">It took less than 5 minutes to sell my car. I couldn’t believe it.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 72s;">– Don K.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 80s;">Recarra’s team handled everything, even without a title. Amazing.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 88s;">– Arjun M.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 96s;">Customer service was super fast and friendly.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 104s;">– Luis A.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 112s;">Better than dealerships — I got more money and no hassle.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 120s;">– Kiera P.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 128s;">Video call saved me so much time. Great option!</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 136s;">– Travis J.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 144s;">Their smart offer was $500 higher than my local junkyard.</p><p class="scroll-msg" style="animation: qaScroll 160s linear infinite; animation-delay: 152s;">– Paula S.</p></div></section>
 <section>
@@ -761,17 +965,21 @@ footer {
     © 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX
   </footer>
 <script>
-    // Optionally store mode in localStorage
-    document.addEventListener("DOMContentLoaded", () => {
-      if (localStorage.getItem("recarra-mode") === "dim") {
-        document.body.classList.add("dim-mode");
-      }
-      document.querySelector(".toggle-mode").addEventListener("click", () => {
-        const isDim = document.body.classList.toggle("dim-mode");
-        localStorage.setItem("recarra-mode", isDim ? "dim" : "light");
-      });
-    });
-  </script>
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const toggle = document.querySelector(".toggle-mode");
+  const mode = localStorage.getItem("recarra-mode");
+
+  if (mode === "dim") {
+    body.classList.add("dim-mode");
+  }
+
+  toggle.addEventListener("click", () => {
+    const isDim = body.classList.toggle("dim-mode");
+    localStorage.setItem("recarra-mode", isDim ? "dim" : "light");
+  });
+});
+</script>
 <!-- Back to Top Button -->
 <button id="backToTop" title="Go to top">↑ Top</button>
 <style>
