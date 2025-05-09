@@ -223,46 +223,331 @@ section {
     font-weight: bold;
   }
 </style>
-
 <style>
 .gradient-cycle {
   transition: background 1s ease-in-out;
 }
 </style>
+<style>
+.section-light {
+  color: #000 !important;
+}
+.section-dark {
+  color: #fff !important;
+}
+.gradient-text {
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+</style>
+<style>
 
-</head>
-<body style=" color: #000;"><button class="glow-effect" onclick="toggleDimMode()" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.3)'" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 24px rgba(255,0,0,0.5)'" style="
-    position: fixed; 
+  20%  { background: linear-gradient(135deg, #4568dc, #b06ab3); }
+  40%  { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+  60%  { background: linear-gradient(135deg, #4e54c8, #8f94fb); }
+  80%  { background: linear-gradient(135deg, #1d2b64, #f8cdda); }
+  100% { background: linear-gradient(135deg, #ff4e50, #f9d423); }
+}
+section {
+  
+  transition: background 2s ease-in-out;
+}
+button {
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: #000;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+}
+h2, h3, p {
+  color: #000 !important;
+  font-family: 'Poppins', sans-serif;
+}
+input, select {
+  border: 1px solid #e63946;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.recarra-title {
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+section {
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+  border-radius: 10px;
+}
+</style>
+<style>
+.fine-art-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.fine-art-title.glow {
+  text-shadow: 0 0 12px rgba(255, 78, 80, 0.6);
+}
+</style>
+<style>
+.fine-art-form {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 3rem;
+  max-width: 600px;
+  margin: auto;
+  animation: fadein 1s ease;
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: #ff4e50;
+  box-shadow: 0 0 8px rgba(255, 78, 80, 0.6);
+  background: rgba(255,255,255,0.95);
+}
+.step-indicator {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #f9d423;
+  text-shadow: 1px 1px 2px #333;
+}
+.subtitle-line {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+button:hover {
+  animation: pulseGlow 1.2s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 6px rgba(255, 78, 80, 0.5); }
+  50% { box-shadow: 0 0 18px rgba(255, 78, 80, 0.9); }
+  100% { box-shadow: 0 0 6px rgba(255, 78, 80, 0.5); }
+}
+</style>
+<style>
+.step {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: none;
+}
+.step.active {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+<style>
+
+  33.3% {
+    background: linear-gradient(135deg, #1c92d2, #f2fcfe);
+    color: #000;
+  }
+  66.6% {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: #000;
+  }
+  100%  {
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    color: #000;
+  }
+}
+
+section, 
+button, 
+input, 
+select, 
+textarea, 
+header, 
+footer {
+  
+  transition: background 2s ease-in-out, color 1s ease-in-out;
+  color: #000;
+}
+
+button {
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+h1, h2, h3, h4, h5, h6, p, label, input, select, textarea {
+  color: #000;
+}
+</style>
+<style>
+section {
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  transition: background 2s ease-in-out;
+  color: #000;
+}
+</style>
+<style>
+:root {
+  --main-bg-1: linear-gradient(135deg, #ff4e50, #f9d423);
+  --main-text-1: #000;
+  --main-bg-2: #ffffff;
+  --main-text-2: #ff1a1a;
+  --active-bg: var(--main-bg-1);
+  --active-text: var(--main-text-1);
+}
+
+body.color-swap {
+  animation: swapTheme 8888s infinite;
+}
+
+@keyframes swapTheme {
+  0%, 49.9% {
+    --active-bg: var(--main-bg-1);
+    --active-text: var(--main-text-1);
+  }
+  50%, 100% {
+    --active-bg: var(--main-bg-2);
+    --active-text: var(--main-text-2);
+  }
+}
+
+body.color-swap,
+body.color-swap section,
+body.color-swap header,
+body.color-swap footer,
+body.color-swap input,
+body.color-swap button,
+body.color-swap nav,
+body.color-swap form {
+  background: var(--active-bg) !important;
+  color: var(--active-text) !important;
+  transition: background 2s ease-in-out, color 2s ease-in-out;
+}
+
+body.color-swap .fine-art-title,
+body.color-swap .recarra-title {
+  background: var(--active-bg) !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+</style>
+<style>
+.fine-art-title,
+.gradient-title,
+h2 {
+  font-weight: 900;
+  background: linear-gradient(90deg, #ff1a1a, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+</style><style>
+body, h1, h2, h3, p, input, button {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+</style><style>
+#multiStepForm .step {
+  display: none;
+  animation: fadein 0.6s ease-in-out;
+}
+#multiStepForm .step.active {
+  display: block;
+}
+.fine-art-form {
+  border: 3px solid transparent;
+  border-image: linear-gradient(45deg, #ff4e50, #f9d423) 1;
+  box-shadow: 0 0 20px rgba(255, 78, 80, 0.2);
+}
+.step-indicator {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f39c12;
+  margin-bottom: 1rem;
+}
+button[data-next] {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  color: #000;
+  box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+  transition: all 0.3s ease;
+}
+button[data-next]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255, 78, 80, 0.6);
+}
+</style><style>
+#adMessage, #typewriterMessage {
+  min-height: 1.8em;
+  display: block;
+  overflow: hidden;
+}
+</style></head>
+<body style=" color: #000;"><button class="color-swap glow-effect" onclick="toggleDimMode()" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.3)'" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 24px rgba(255,0,0,0.5)'" style="position: fixed; 
     top: 20px; 
     right: 20px; 
     z-index: 9999; 
     padding: 0.7rem 1.4rem; 
-    background-color: #000; 
-    color: #ff1a1a; 
+    background- 
+     
     border: none; 
     border-radius: 8px; 
     font-size: 1rem; 
     font-weight: bold; 
     letter-spacing: 0.5px;
     box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;">
+    transition: transform 0.3s ease, box-shadow 0.3s ease;; color: #000;">
   Toggle Dim Mode
 </button>
-<section style="  text-align:left;  max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
-<h1 style="font-size: 4rem; font-weight: 900; background: linear-gradient(135deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;">
+<section style="text-align:left;  max-width: 900px; margin: 2rem auto; margin: 3rem auto;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h1 style="font-size: 4rem; font-weight: 900; background: linear-gradient(135deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); margin-bottom: 0.5rem;; color: #000;">
   Recarra
 </h1>
-<p style="font-size: 1.4rem; font-weight: 500; color: #444; margin-top: 0;">
+<p style="font-size: 1.4rem; font-weight: 500;  margin-top: 0;; color: #000;">
   The AI-Powered Way to Sell Your Car Instantly
 </p>
-<p style="font-size:1.1rem;  margin-top:1rem; max-width:600px; color: #000;">
+<p style="font-size:1.1rem;  margin-top:1rem; max-width:600px;; color: #000;">
     Recarra is your direct path to instant car cash offers, same-day pickups, and no paperwork hassles — trusted by sellers across the nation.
    </p>
 </section>
 <header style="position:sticky; top:0; z-index:9999; background:#fff; padding:1rem 2rem; display:flex; flex-direction:column; color: #000;">
 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; color: #000;">
 <div style="flex:1; color: #000;">
-<h1 style=" font-size: 1.5rem; margin: 0; color: #000;">Recarra</h1>
+<h1 style="font-size: 1.5rem; margin: 0;; color: #000;">Recarra</h1>
 </div>
 <nav style="display:flex; gap:1rem; flex-wrap:wrap; color: #000;">
 <a href="#form" style=" text-decoration:none; font-weight:bold; color: #000;">Offer</a>
@@ -282,28 +567,16 @@ section {
 <a href="#live" style=" text-decoration:none; font-size:0.9rem; color: #000;">Go Live</a>
 </div>
 </header>
-<section class="hero" style="   text-align: center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
-<h1 style=" margin-bottom: 0; font-size: 1.5rem; color: #000;">
-    Sell Your Car — Your Way
-</h1>
-<div style="display: flex; justify-content: center; gap: 1.5rem; margin: 1rem auto; color: #000;">
-</div>
-<p style="font-size:1.25rem;  max-width:650px; margin: 1rem auto; color: #000;">
-    No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.
-   </p>
-<p style="font-size: 1.1rem; font-weight: bold;  margin-top: 1rem; min-height:3rem; overflow:hidden; display:flex; align-items:center; justify-content:center; border: 2px solid #ccc; transition: border-color 0.3s ease; color: #000;">
-<span id="rotatingSlogan" style="min-height: 2.5rem; color: #000;">
-     Sell in seconds.
-    </span>
-</p>
+<section class="fine-art-form gradient-cycle" style="text-align: center; max-width: 900px; margin: 2rem auto; margin: 3rem auto;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title glow">Sell Your Car — Your Way</h2>
+<p style="font-size:1.25rem; max-width:650px; margin:1rem auto;">No delays. No pressure. Snap a photo, fill a form, or talk to us — and get paid instantly.</p>
+<button class="cta-glow" style="margin-top:1rem;">Sell in seconds</button>
 </section>
-<div id="dynamicSloganCarousel" style="text-align:center; font-style:italic; font-size:1.3rem; padding:2rem 1rem;  background: linear-gradient(90deg, #fdfdfd, #f0f0f0, #fdfdfd); border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); animation: fadein 1.5s ease-in-out; color: #000;">
-<span id="carouselSloganText" style="min-height: 2.5rem; color: #000;">
-    You're in control — Recarra is just here to help.
-   </span>
+<div class="glass-form" id="dynamicSloganCarousel" style="text-align:center; font-style:italic; font-size:1.3rem; padding:2rem 1rem;  background: linear-gradient(90deg, #fdfdfd, #f0f0f0, #fdfdfd); border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); animation: fadein 1.5s ease-in-out; color: #000;">
+<p class="gradient-title" style="font-size:1.2rem;">You're in control — <strong style="font-weight:700;">Recarra</strong> is just here to help.</p>
 </div>
-<section style="   text-align: center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<section style="text-align: center; max-width: 900px; margin: 2rem auto; margin: 3rem auto;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
     Why Recarra?
    </h2>
 <div style="max-width: 700px; margin: auto; text-align: left; color: #000;">
@@ -337,26 +610,22 @@ section {
     </div>
 </div>
 </section>
-<section id="form" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  border-radius: 10px;   box-shadow: 0 0 10px rgba(0,0,0,0.05);  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #4568dc, #b06ab3);">
-<h2 style=" margin-bottom: 1rem; color: #000;">
-    AI Offer Form
-   </h2>
-<h2 style=" margin-bottom: 1rem; color: #000;">
-    Recarra Smart AI Offer
-   </h2>
+<section class="fine-art-form" id="form" style="text-align: center;  max-width: 900px;  margin: 2rem auto;  border-radius: 10px;   box-shadow: 0 0 10px rgba(0,0,0,0.05);  margin: 3rem auto;   ;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title glow">Smart AI Car Offer</h2>
+<p class="subtitle-line">Instant cash value. No guessing. Powered by Recarra AI.</p>
+<div class="step-indicator">Step <span id="stepNum">1</span> of 6</div>
 <div id="progressBar" style="height: 8px; width: 100%; background- margin-bottom: 20px; color: #000;">
 <div id="progressFill" style="height: 100%; width: 0%; background- color: #000;">
 </div>
 </div>
-<p style=" color: #000;">
+<p style="; color: #000;">
     Fill out the step-by-step form and get your instant AI cash offer in seconds.
    </p>
 <form id="multiStepForm">
-<div class="step" style="; display: block; color: #000;">
+<div class="step" style="; display: block; color: #000;"><div class="step-indicator">Step 1 of 9</div>
 <div style="position: relative; display: flex; align-items: center; max-width: 400px; margin: auto; color: #000;">
-<button onclick="startVoiceInput('input_0')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;" type="button">
-</button>
-<input id="input_0" list="year-suggestions" name="0" placeholder="Vehicle Year (e.g. 2014)" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
+<button onclick="startVoiceInput('input_0')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;" type="button"><i class="fa fa-microphone"></i></button>
+<input id="input_0" list="year-suggestions" name="0" placeholder="Vehicle Year (e.g. 2014)" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="text"/>
 </div>
 <datalist id="year-suggestions">
 <option value="2024">
@@ -370,15 +639,14 @@ section {
 </option>
 </option>
 </datalist>
-<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
       Next
      </button>
 </div>
-<div class="step" style="; display: none; color: #000;">
+<div class="step" style="; display: none; color: #000;"><div class="step-indicator">Step 2 of 9</div>
 <div style="position: relative; display: flex; align-items: center; max-width: 400px; margin: auto; color: #000;">
-<button onclick="startVoiceInput('input_1')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;" type="button">
-</button>
-<input id="input_1" list="mileage-suggestions" name="1" placeholder="Mileage (e.g. 120000)" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
+<button onclick="startVoiceInput('input_1')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;" type="button"><i class="fa fa-microphone"></i></button>
+<input id="input_1" list="mileage-suggestions" min="0" name="1" placeholder="Mileage (e.g. 120000)" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="number"/>
 </div>
 <datalist id="mileage-suggestions">
 <option value="50000">
@@ -392,12 +660,12 @@ section {
 </option>
 </option>
 </datalist>
-<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
       Next
      </button>
 </div>
-<div class="step" style="; display: none; color: #000;">
-<select name="condition" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;">
+<div class="step" style="; display: none; color: #000;"><div class="step-indicator">Step 3 of 9</div>
+<select name="condition" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;">
 <option value="">
        Condition
       </option>
@@ -417,15 +685,14 @@ section {
        Non-Running
       </option>
 </select>
-<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
       Next
      </button>
 </div>
-<div class="step" style="; display: none; color: #000;">
+<div class="step" style="; display: none; color: #000;"><div class="step-indicator">Step 4 of 9</div>
 <div style="position: relative; display: flex; align-items: center; max-width: 400px; margin: auto; color: #000;">
-<button onclick="startVoiceInput('input_3')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;" type="button">
-</button>
-<input id="input_3" list="city-suggestions" name="3" placeholder="City (e.g. Houston)" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
+<button onclick="startVoiceInput('input_3')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;" type="button"><i class="fa fa-microphone"></i></button>
+<input id="input_3" list="city-suggestions" name="3" placeholder="City (e.g. Houston)" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="text"/>
 </div>
 <datalist id="city-suggestions">
 <option value="Houston">
@@ -439,12 +706,12 @@ section {
 </option>
 </option>
 </datalist>
-<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
       Next
      </button>
 </div>
-<div class="step" style="; display: none; color: #000;">
-<select name="urgency" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;">
+<div class="step" style="; display: none; color: #000;"><div class="step-indicator">Step 5 of 9</div>
+<select name="urgency" required="" style="width: 100%; max-width: 400px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;">
 <option value="">
        Pickup Urgency
       </option>
@@ -458,15 +725,14 @@ section {
        Flexible
       </option>
 </select>
-<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
       Next
      </button>
 </div>
-<div class="step" style="; display: none; color: #000;">
+<div class="step" style="; display: none; color: #000;"><div class="step-indicator">Step 6 of 9</div>
 <div style="position: relative; display: flex; align-items: center; max-width: 400px; margin: auto; color: #000;">
-<button onclick="startVoiceInput('input_5')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;" type="button">
-</button>
-<input id="input_5" list="phone-suggestions" name="5" placeholder="Phone Number" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
+<button onclick="startVoiceInput('input_5')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;" type="button"><i class="fa fa-microphone"></i></button>
+<input id="input_5" list="phone-suggestions" name="5" placeholder="Phone Number" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="tel"/>
 </div>
 <datalist id="phone-suggestions">
 <option value="3462740071">
@@ -476,28 +742,28 @@ section {
 </option>
 </option>
 </datalist>
-<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<button data-next="true" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
       Next
      </button>
 </div>
-<div class="step" style="; display: none; color: #000;">
-<button style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;" type="submit">
+<div class="step" style="; display: none; color: #000;"><div class="step-indicator">Step 7 of 9</div>
+<button style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;" type="submit">
       AI Cash Offer
      </button>
 </div>
-<div class="step" style="; display: none; color: #000;">
+<div class="step" style="; display: none; color: #000;"><div class="step-indicator">Step 8 of 9</div>
 <label>
       Upload Photos (Front, Side, Dashboard):
      </label>
-<input accept="image/*" multiple="True" name="photos" required="False" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="file"/>
+<input accept="image/*" multiple="True" name="photos" required="False" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="file"/>
 </div>
 </form>
 <div id="estimatedOfferPreview" style="margin-top:1rem; font-weight:bold;  display:none; color: #000;">
     Estimated Offer: $[placeholder]
    </div>
-<div class="step active">
+<div class="step active"><div class="step-indicator">Step 9 of 9</div>
 </div>
-<h3 id="offerResult" style=" margin-bottom: 1rem; color: #000;">
+<h3 class="fine-art-title" id="offerResult" style="margin-bottom: 1rem;; color: #000;">
 </h3>
 </section>
 <script>
@@ -539,7 +805,7 @@ section {
       phone: formData.get('phone')
     };
 
-    fetch('http://localhost:5000/api/offer', {
+    fetch('https://recarra.com/api/offer', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -574,69 +840,69 @@ section {
   });
   });
   </script>
-<section id="live" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #ff512f, #dd2476);">
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<section id="live" style="text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;   ;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
     Go Live With a Recarra Agent
    </h2>
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
     Go Live With Us
    </h2>
-<p style=" color: #000;">
+<p style="; color: #000;">
     Want to talk right now? Join a live video call — no login, no hassle.
    </p>
 <a href="https://meet.jit.si/RecarraLiveHelp" style="display:inline-block; margin-top:1rem; background:#ff0000; padding:12px 24px;  font-weight:bold; border-radius:30px; text-decoration:none; color: #000;" target="_blank">
     Go Live Now
    </a>
-<p style="margin-top: 1rem; font-size: 0.9rem; color: #000;">
+<p style="margin-top: 1rem; font-size: 0.9rem;; color: #000;">
     *No sign-up needed. Talk to our team face-to-face instantly.
    </p>
 </section>
-<section id="upload" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  border-radius: 10px;   box-shadow: 0 0 10px rgba(0,0,0,0.05);  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #bdc3c7, #2c3e50);">
+<section id="upload" style="text-align: center;  max-width: 900px;  margin: 2rem auto;  border-radius: 10px;   box-shadow: 0 0 10px rgba(0,0,0,0.05);  margin: 3rem auto;   ;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
 <div style="max-width: 900px; margin: 0 auto; color: #000;">
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
      Upload Photos of Your Vehicle
     </h2>
-<p style=" color: #000;">
+<p style="; color: #000;">
      Fill in your details and upload clear photos of your vehicle (front view required).
     </p>
 <form action="https://formspree.io/f/mwkgygwn" enctype="multipart/form-data" id="uploadForm" method="POST" style="margin-top: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; color: #000;">
-<input name="name" placeholder="Your Full Name" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
-<input name="phone" placeholder="Phone Number" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="tel"/>
-<input name="zip" placeholder="ZIP Code" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
+<input name="name" placeholder="Your Full Name" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="text"/>
+<input name="phone" placeholder="Phone Number" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="tel"/>
+<input name="zip" placeholder="ZIP Code" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="text"/>
 <label for="photo" style="display:block; margin-top: 1rem; font-weight: bold; color: #000;">
       Upload Front Photo of Car:
      </label>
-<input accept="image/*" id="photo" name="photos" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="file"/>
-<button style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;" type="submit">
+<input accept="image/*" id="photo" name="photos" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="file"/>
+<button style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;" type="submit">
       Send to Recarra AI
      </button>
 </form>
-<p style="margin-top: 1rem; font-size: 0.9rem; color: #000;">
+<p style="margin-top: 1rem; font-size: 0.9rem;; color: #000;">
      We will review your image and respond with a cash offer promptly.
     </p>
 </div>
 </section>
-<section id="scan-vin" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #1d2b64, #f8cdda);">
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<section id="scan-vin" style="text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;   ;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
     Scan Your Vehicle VIN
    </h2>
-<p style=" color: #000;">
+<p style="; color: #000;">
     Quickly identify your car by scanning the VIN barcode on your dashboard or door.
    </p>
-<p style="font-size:0.95rem; max-width:600px; margin:1rem auto; color: #000;">
+<p style="font-size:0.95rem; max-width:600px; margin:1rem auto;; color: #000;">
     Use your phone camera to scan your Vehicle Identification Number. If you prefer, you can also enter it manually below.
    </p>
-<input maxlength="17" name="vin" pattern="[A-HJ-NPR-Z0-9]{17}" placeholder="Enter VIN Manually (17 characters)" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
-<button style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<input maxlength="17" name="vin" pattern="[A-HJ-NPR-Z0-9]{17}" placeholder="Enter VIN Manually (17 characters)" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="text"/>
+<button style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
     Scan or Submit VIN
    </button>
-<p style="font-size:0.85rem; margin-top:1rem; color: #000;">
+<p style="font-size:0.85rem; margin-top:1rem;; color: #000;">
     * VIN scanning functionality requires camera access. Manual entry works on all devices.
    </p>
-<p style="margin-top: 1rem; color: #000;">
+<p style="margin-top: 1rem;; color: #000;">
     To use your camera, click the button below and scan your VIN barcode.
    </p>
-<button onclick="startVinScan()" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<button onclick="startVinScan()" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
     Start VIN Scan
    </button>
 <script>
@@ -645,11 +911,11 @@ section {
     }
    </script>
 </section>
-<section style="   text-align: center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; min-height:3rem; overflow:hidden; display:flex; align-items:center; justify-content:center; border: 2px solid #ccc; transition: border-color 0.3s ease; color: #000;">
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<section style="text-align: center; max-width: 900px; margin: 2rem auto; margin: 3rem auto; min-height:3rem; overflow:hidden; display:flex; align-items:center; justify-content:center; border: 2px solid #333; transition: border-  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
     Why Sellers Trust Recarra
    </h2>
-<p id="adMessage" style="font-size:1.1rem; font-weight:bold; margin: 1.5rem 0; color: #000;">
+<p id="adMessage" style="font-size:1.1rem; font-weight:bold; margin: 1.5rem 0;; color: #000;">
 </p>
 <script>
     const adMessages = [
@@ -668,74 +934,108 @@ section {
     rotateAd();
    </script>
 <div style="margin-top:2rem; max-width:600px; margin-left:auto; margin-right:auto; text-align:left; color: #000;">
-<p style=" color: #000;">
+<p style="; color: #000;">
 <em>
       "I uploaded two photos and got paid the same day! Easiest process ever." – Maria G., Houston
      </em>
 </p>
-<p style=" color: #000;">
+<p style="; color: #000;">
 <em>
       "Recarra offered me more than any junkyard. Highly recommended!" – Jamal A., Katy
      </em>
 </p>
-<p style=" color: #000;">
+<p style="; color: #000;">
 <em>
       "The smart form was fast and accurate. Love the $100 bonus!" – Luis R., Sugar Land
      </em>
 </p>
 </div>
 </section>
-<section id="schedule" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  border-radius: 10px;   box-shadow: 0 0 10px rgba(0,0,0,0.05);  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #4e54c8, #8f94fb);">
-<div style="max-width: 900px; margin: 0 auto; color: #000;">
-<h2 style=" margin-bottom: 1rem; color: #000;">
-     Schedule a Live Video Inspection
-    </h2>
-<p style=" color: #000;">
-     Book a video call with our team to verify your car and lock in your cash offer.
-    </p>
-<form id="inspectionForm" style="margin-top: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; color: #000;">
-<input name="name" placeholder="Your Full Name" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
-<input name="phone" placeholder="Phone Number" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="tel"/>
-<input list="vehicle-suggestions" name="vehicle" placeholder="Vehicle (Year, Make, Model)" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
-<datalist id="vehicle-suggestions">
-<option value="2024 Tesla Model 3">
-<option value="2023 Toyota Camry">
-<option value="2022 Honda Accord">
-<option value="2021 Ford F-150">
-<option value="2020 Nissan Altima">
-<option value="2019 Chevrolet Malibu">
-<option value="2018 BMW 3 Series">
-<option value="2017 Mercedes-Benz C-Class">
-</option>
-</option>
-</option>
-</option>
-</option>
-</option>
-</option>
-</option>
-</datalist>
-<label for="date" style="display:block; text-align:left; max-width:400px; margin:auto; color: #000;">
-      Select Date
-     </label>
-<input id="date" name="date" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="date" value="2025-05-08"/>
-<label for="time" style="display:block; text-align:left; max-width:400px; margin:auto; color: #000;">
-      Select Time
-     </label>
-<input id="time" name="time" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="time" value="10:54"/>
-<button style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;" type="submit">
-      Confirm Inspection
-     </button>
-</form>
-<p id="inspectionMessage" style="margin-top: 1rem; font-weight: bold; color: #000;">
-</p>
+<section class="glass-form" id="schedule" style="background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="gradient-title fine-art-title">Schedule a Live Video Inspection</h2>
+<p>Verify your vehicle with our team and lock in your cash offer.</p>
+<form id="inspectionForm">
+<div class="form-field">
+<input name="name" placeholder="Your Full Name" required="" type="text"/>
 </div>
+<div class="form-field">
+<input name="phone" placeholder="Phone Number" required="" type="tel"/>
+</div>
+<div class="form-field">
+<input name="vehicle" placeholder="Vehicle (Year, Make, Model)" required="" type="text"/>
+</div>
+<div class="form-field">
+<label>Select Date</label>
+<input min="2025-05-09" name="date" placeholder="Select a date" required="" type="date"/>
+</div>
+<div class="form-field">
+<label>Select Time</label>
+<input name="time" placeholder="Select a time" required="" type="time"/>
+</div>
+<button class="cta-glow" type="submit">
+<i class="fa fa-video"></i> Confirm Inspection
+    </button>
+<p id="inspectionMessage"></p>
+</form>
 </section>
-<section id="offer-tracker" style="  text-align:center;  border-top:2px solid #ccc;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #00c6ff, #0072ff);">
-<h2 style="font-size:1.8rem; margin-bottom:1rem; color: #000;">
+<style>
+.glass-form {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  padding: 3rem 2rem;
+  color: #fff;
+  max-width: 500px;
+  margin: 4rem auto;
+  animation: fadeInUp 1.5s ease;
+}
+
+.gradient-title {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form-field {
+  margin: 1rem 0;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+}
+
+.cta-glow {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  color: #000;
+  box-shadow: 0 0 12px rgba(255, 78, 80, 0.6);
+  transition: all 0.3s ease;
+}
+
+.cta-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(249, 212, 35, 0.8);
+}
+</style>
+<section id="offer-tracker" style="text-align:center;  border-top:2px solid #ccc;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;   ;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="font-size:1.8rem; margin-bottom:1rem;; color: #000;">
     Track Your Offer in Real-Time
    </h2>
-<p style="margin-bottom:2rem; color: #000;">
+<p style="margin-bottom:2rem;; color: #000;">
     Your offer status will update as we verify your vehicle and finalize your payment.
    </p>
 <div style="max-width:600px; margin:0 auto; background:#fff; border-radius:8px; overflow:hidden; border:1px solid #ccc; color: #000;">
@@ -759,11 +1059,11 @@ section {
 </div>
 </div>
 </section>
-<section style="background:#fff; text-align:center;  max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
-<h2 style="font-size:1.5rem; margin-bottom:1rem; color: #000;">
+<section style="text-align:center;  max-width: 900px; margin: 2rem auto; margin: 3rem auto;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="font-size:1.5rem; margin-bottom:1rem;; color: #000;">
     Fully Licensed. Bonded. Insured.
    </h2>
-<p style="font-size:1rem;  color: #000;">
+<p style="font-size:1rem;; color: #000;">
     We are a verified car buyer across all 50 states.
    </p>
 <div style="margin-top:1.5rem; display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; color: #000;">
@@ -809,52 +1109,52 @@ section {
     loginMsg.innerText = 'Welcome back! Dashboard loaded.';
   });
   </script>
-<section id="motivation-ticker" style="background:#ffe5e5;   text-align:center; max-width:900px; margin:2rem auto; border-top:2px solid #e63946; border-bottom:2px solid #e63946; font-weight:bold;background- padding: 4rem 2rem; margin: 3rem auto; min-height:3rem; overflow:hidden; display:flex; align-items:center; justify-content:center; border: 2px solid #ccc; transition: border-color 0.3s ease; color: #000;">
-<h2 style=" margin-bottom: 1rem; color: #000;">Why People Sell with Recarra</h2>
-<p id="typewriterMessage" style="font-size: 1.2rem; font-weight: bold; min-height: 1.8em; white-space: nowrap; overflow: hidden; border-right: 3px solid red; width: 100%; max-width: 700px; margin: 0 auto; text-align: center; color: #000;"></p>
+<section id="motivation-ticker" style="text-align:center; max-width:900px; margin:2rem auto; border-top:2px solid #e63946; border-bottom:2px solid #e63946; font-weight:bold; margin: 3rem auto; min-height:3rem; overflow:hidden; display:flex; align-items:center; justify-content:center; border: 2px solid #333; transition: border-  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">Why People Sell with Recarra</h2>
+<p id="typewriterMessage" style="font-size: 1.2rem; font-weight: bold; min-height: 1.8em; white-space: nowrap; overflow: hidden; border-right: 3px solid red; width: 100%; max-width: 700px; margin: 0 auto; text-align: center;; color: #000;"></p>
 </section>
-<section id="check-offer" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #f7971e, #ffd200);">
+<section id="check-offer" style="text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;   ;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
 <div style="max-width: 900px; margin: 0 auto; color: #000;">
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
      Check Your Offer Status
     </h2>
-<p style=" color: #000;">
+<p style="; color: #000;">
      Enter your Offer ID to see the current status of your deal.
     </p>
 <form id="offerStatusForm" style="margin-top: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; color: #000;">
-<input name="offerId" placeholder="Enter Your Offer ID" required="" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="text"/>
-<button style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;" type="submit">
+<input name="offerId" placeholder="Enter Your Offer ID" required="" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="text"/>
+<button style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;" type="submit">
       Check Status
      </button>
 </form>
-<p id="offerStatusMessage" style="margin-top: 1rem; font-weight: bold; color: #000;">
+<p id="offerStatusMessage" style="margin-top: 1rem; font-weight: bold;; color: #000;">
 </p>
 </div>
 </section>
-<section style="   text-align: center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<section style="text-align: center; max-width: 900px; margin: 2rem auto; margin: 3rem auto;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
     Trusted by:
    </h2>
-<p style=" color: #000;">
+<p style="; color: #000;">
     DMV • Tow Network • Local Dealerships
    </p>
 </section>
-<section id="voice-ui" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #485563, #29323c);">
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<section id="voice-ui" style="text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;   ;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
     Talk to Recarra AI
    </h2>
-<p style=" color: #000;">
+<p style="; color: #000;">
     Use your voice to ask questions or fill the form. Just click below and speak.
    </p>
-<button onclick="startVoiceAssistant()" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<button onclick="startVoiceAssistant()" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
     Activate Voice Assistant
    </button>
-<p id="voiceResult" style="margin-top:1rem; color: #000;">
+<p id="voiceResult" style="margin-top:1rem;; color: #000;">
 <div id="chatBoxTrigger" style="margin-top:2rem; display:none; color: #000;">
 <div style="background:#fff; border:1px solid #ccc; border-radius:8px; padding:1rem; color: #000;">
-<h3>Start Chat Based on Your Voice</h3>
-<p id="chatIntroText"></p>
-<p id="chatbotResponse" style="margin-top:10px; color: #000;"></p>
+<h3 class="fine-art-title" style="; color: #000;">Start Chat Based on Your Voice</h3>
+<p id="chatIntroText" style="; color: #000;"></p>
+<p id="chatbotResponse" style="margin-top:10px;; color: #000;"></p>
 <script>
 function speakResponse(text) {
   if ('speechSynthesis' in window) {
@@ -876,7 +1176,7 @@ setTimeout(() => {
   simulateAIResponse("Hello! How can I help you today?");
 }, 2000);
 </script>
-<button onclick="openChat()" style="background:#0071e3;  padding:0.75rem 1.5rem; border:none; border-radius:6px; color: #000;">Start Chat</button>
+<button onclick="openChat()" style="background:#0071e3;  padding:0.75rem 1.5rem; border:none; border-radius:6px;; color: #000;">Start Chat</button>
 </div>
 </div>
 </p>
@@ -889,28 +1189,29 @@ setTimeout(() => {
       const recognition = new webkitSpeechRecognition();
       recognition.lang = 'en-US';
       recognition.onresult = function(event) {
+document.getElementById('chatBoxTrigger').style.display = 'block';
         document.getElementById('voiceResult').innerText = 'You said: ' + event.results[0][0].transcript;
       };
       recognition.start();
     }
    </script>
 </section>
-<section id="plate-recognition" style="   text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #654ea3, #eaafc8);">
+<section id="plate-recognition" style="text-align: center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;   ;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
 <div style="max-width: 900px; margin: 0 auto; color: #000;">
-<h2 style=" margin-bottom: 1rem; color: #000;">
+<h2 class="fine-art-title" style="margin-bottom: 1rem;; color: #000;">
      Recognize Your Car by Plate
     </h2>
-<p style=" color: #000;">
+<p style="; color: #000;">
      Upload a clear photo of your license plate to identify your vehicle.
     </p>
-<input accept="image/*" style="width: 100%; max-width: 300px; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block; color: #000;" type="file"/>
-<button onclick="alert('License Plate AI recognition coming soon')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease; color: #000;">
+<input accept="image/*" style="width: 100%; max-width: 300px; margin: 0.5rem auto; padding: 1rem; font-size: 1rem; border-radius: 6px; border: 1px solid #e63946; background-  display: block;; color: #000;" type="file"/>
+<button onclick="alert('License Plate AI recognition coming soon')" style="background: linear-gradient(135deg, #ff4e50, #f9d423);font-weight: bold;padding: 0.75rem 1.5rem;border-radius: 50px;border: none;cursor: pointer;font-size: 1rem;transition: transform 0.2s ease, box-shadow 0.2s ease;; color: #000;">
      Submit Plate
     </button>
 </div>
 </section>
-<section style="   text-align:center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
-<h2 style="font-size:2rem; margin-bottom:1rem; color: #000;">
+<section style="text-align:center; max-width: 900px; margin: 2rem auto; margin: 3rem auto;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="font-size:2rem; margin-bottom:1rem;; color: #000;">
     What Sellers Say About Recarra
    </h2>
 <blockquote style="font-style:italic; margin: 1rem auto; max-width:600px; color: #000;">
@@ -923,7 +1224,7 @@ setTimeout(() => {
     "The AI gave me a better price than three local junkyards. I won’t sell my cars any other way again." – Sean D.
    </blockquote>
 <div style="margin-top:2rem; color: #000;">
-<h3 style="font-size:1.3rem; margin-bottom:1rem; color: #000;">
+<h3 class="fine-art-title" style="font-size:1.3rem; margin-bottom:1rem;; color: #000;">
      Trusted by:
     </h3>
 <div style="display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; color: #000;">
@@ -942,8 +1243,8 @@ setTimeout(() => {
 </div>
 </div>
 </section>
-<section id="faq" style="  text-align:center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;  color: #000; ; background: linear-gradient(135deg, #654ea3, #eaafc8);">
-<h2 style="font-size:1.8rem; margin-bottom:2rem; color: #000;">
+<section id="faq" style="text-align:center;  max-width: 900px;  margin: 2rem auto;  margin: 3rem auto;   ;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="font-size:1.8rem; margin-bottom:2rem;; color: #000;">
     Frequently Asked Questions
    </h2>
 <div style="max-width:700px; margin:0 auto; text-align:left; color: #000;">
@@ -953,7 +1254,7 @@ setTimeout(() => {
        How fast do I get paid?
       </strong>
 </summary>
-<p style="margin-top:0.5rem; color: #000;">
+<p style="margin-top:0.5rem;; color: #000;">
       Same day for verified sellers. Most get paid within hours.
      </p>
 </details>
@@ -963,7 +1264,7 @@ setTimeout(() => {
        Do I need my title?
       </strong>
 </summary>
-<p style="margin-top:0.5rem; color: #000;">
+<p style="margin-top:0.5rem;; color: #000;">
       A title is helpful but not required in many states. We handle the paperwork.
      </p>
 </details>
@@ -973,14 +1274,14 @@ setTimeout(() => {
        What if my car doesn’t run?
       </strong>
 </summary>
-<p style="margin-top:0.5rem; color: #000;">
+<p style="margin-top:0.5rem;; color: #000;">
       No problem. We buy non-running cars too and offer towing at no charge.
      </p>
 </details>
 </div>
 </section>
-<section style="background:#f1f1f1;  text-align:center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
-<h2 style="font-size:1.8rem; margin-bottom:1rem; color: #000;">
+<section style="text-align:center; max-width: 900px; margin: 2rem auto; margin: 3rem auto;  background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="font-size:1.8rem; margin-bottom:1rem;; color: #000;">
     How It Works
    </h2>
 <div style="display:flex; flex-direction:column; gap:2rem; max-width:800px; margin:0 auto; color: #000;">
@@ -1043,11 +1344,11 @@ setInterval(() => {
     Recarra Assistant
    </div>
 <div style="padding:10px; font-size:0.9rem; color: #000;">
-<p style=" color: #000;">
+<p style="; color: #000;">
      You can continue the conversation here. Type, speak, or request a video call.
     </p>
-<button onclick="startChatVoiceReply()" style="margin:10px 0; background:#0071e3;  padding:0.5rem 1rem; border:none; border-radius:6px; color: #000;">Speak to Recarra AI</button>
-<button onclick="startVideoCall()" style="background:#ff4e50;  padding:0.5rem 1rem; border:none; border-radius:6px; color: #000;">Start Video Call</button>
+<button onclick="startChatVoiceReply()" style="margin:10px 0; background:#0071e3;  padding:0.5rem 1rem; border:none; border-radius:6px;; color: #000;">Speak to Recarra AI</button>
+<button onclick="startVideoCall()" style="background:#ff4e50;  padding:0.5rem 1rem; border:none; border-radius:6px;; color: #000;">Start Video Call</button>
 <script>
 function startChatVoiceReply() {
   if (!('webkitSpeechRecognition' in window)) {
@@ -1068,10 +1369,10 @@ function startVideoCall() {
   window.open("https://meet.jit.si/RecarraLiveHelp", "_blank");
 }
 </script>
-<p style=" color: #000;">
+<p style="; color: #000;">
      Hi! Need help selling your car? I'm here to assist.
     </p>
-<p style=" color: #000;">
+<p style="; color: #000;">
      [Chatbot backend coming soon]
     </p>
 </div>
@@ -1216,11 +1517,11 @@ function toggleDimMode() {
     }
   }, 5000);
 </script>
-<section style="text-align:center; max-width:900px; margin:3rem auto; padding:3rem 2rem; background:linear-gradient(135deg, #ffffff, #f9f9f9); border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.05); border: 1px solid #ddd;">
-<h2 style="font-size:2.2rem; font-weight:900; background: linear-gradient(90deg, #ff1a1a, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom:1.5rem;">
+<section style="text-align:center; max-width:900px; margin:3rem auto; padding:3rem 2rem;  border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.05); border: 1px solid #ddd; background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;">
+<h2 class="fine-art-title" style="font-size:2.2rem; font-weight:900; background: linear-gradient(90deg, #ff1a1a, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom:1.5rem;; color: #000;">
     Why Sellers Choose Recarra
   </h2>
-<p id="carouselText" style="font-size:1.5rem; font-style:italic; font-weight:500; color:#333; height:3rem; transition:opacity 0.8s ease-in-out;">
+<p id="carouselText" style="font-size:1.5rem; font-style:italic; font-weight:500;  height:3rem; transition:opacity 0.8s ease-in-out;; color: #000;">
     Sell your car — fast, fair, and AI-powered.
   </p>
 <div style="margin-top:2rem; display:grid; gap:1.5rem; grid-template-columns:1fr 1fr; max-width:700px; margin-left:auto; margin-right:auto; text-align:left;">
@@ -1263,10 +1564,10 @@ function toggleDimMode() {
     }
   }, 5000);
 </script>
-<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="position:fixed;bottom:20px;right:20px;z-index:9999;padding:0.75rem 1.25rem;background:#ff1a1a;color:white;border:none;border-radius:50px;font-weight:bold;box-shadow:0 0 12px rgba(255,0,0,0.5);">
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="position:fixed;bottom:20px;right:20px;z-index:9999;padding:0.75rem 1.25rem;background:#ff1a1a;color:white;border:none;border-radius:50px;font-weight:bold;box-shadow:0 0 12px rgba(255,0,0,0.5);; color: #000;">
   ↑ Top
 </button>
-<section id="offer-history" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem; background:#fff; border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05);"><h2>Your Offer History</h2><p>Track all your past offers, estimated values, and pickup history.</p>
+<section id="offer-history" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem;  border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05); background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;"><h2 class="fine-art-title" style="; color: #000;">Your Offer History</h2><p style="; color: #000;">Track all your past offers, estimated values, and pickup history.</p>
 <div style="margin:2rem auto; max-width:800px; text-align:left;">
 <table style="width:100%; border-collapse:collapse;">
 <thead style="background:#f4f4f4;">
@@ -1287,24 +1588,24 @@ function toggleDimMode() {
 </tbody>
 </table>
 </div>
-</section><section id="live-deal-feed" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem; background:#fff; border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05);"><h2>Live Car Deals Happening Now</h2><p>See real-time updates from across the state.</p>
+</section><section id="live-deal-feed" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem;  border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05); background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;"><h2 class="fine-art-title" style="; color: #000;">Live Car Deals Happening Now</h2><p style="; color: #000;">See real-time updates from across the state.</p>
 <div id="dealFeed" style="font-size:1rem; margin:1rem auto; max-width:600px; background:#fff3f3; padding:1rem; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.05); text-align:left;">
-<p><strong>Jessica from Dallas</strong> sold a 2012 Ford Escape for <strong>$980</strong></p>
-<p><strong>Mike from Houston</strong> accepted $1,250 for a 2013 Chevy Cruze</p>
+<p style="; color: #000;"><strong>Jessica from Dallas</strong> sold a 2012 Ford Escape for <strong>$980</strong></p>
+<p style="; color: #000;"><strong>Mike from Houston</strong> accepted $1,250 for a 2013 Chevy Cruze</p>
 </div>
-</section><section id="referral-program" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem; background:#fff; border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05);"><h2>Refer &amp; Earn</h2><p>Share your custom link and earn $50 for each successful sale.</p>
+</section><section id="referral-program" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem;  border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05); background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;"><h2 class="fine-art-title" style="; color: #000;">Refer &amp; Earn</h2><p style="; color: #000;">Share your custom link and earn $50 for each successful sale.</p>
 <div style="margin:2rem auto; max-width:600px;">
-<p style="font-weight:bold;">Your Referral Link:</p>
-<input readonly="" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;" type="text" value="https://recarra.com/ref?code=YOURID123"/>
-<p style="margin-top:0.5rem;">Send this link to your friends. When they sell their car, you get paid!</p>
+<p style="font-weight:bold;; color: #000;">Your Referral Link:</p>
+<input readonly="" style="width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:4px;; color: #000;" type="text" value="https://recarra.com/ref?code=YOURID123"/>
+<p style="margin-top:0.5rem;; color: #000;">Send this link to your friends. When they sell their car, you get paid!</p>
 </div>
-</section><section id="quick-estimator" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem; background:#fff; border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05);"><h2>Instant Value Estimator</h2><p>Quickly estimate your car's worth before starting the form.</p>
+</section><section id="quick-estimator" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem;  border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05); background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;"><h2 class="fine-art-title" style="; color: #000;">Instant Value Estimator</h2><p style="; color: #000;">Quickly estimate your car's worth before starting the form.</p>
 <form id="quickEstimatorForm" style="max-width:500px; margin:1rem auto; display:flex; flex-direction:column; gap:1rem;">
-<input placeholder="Year, Make, Model" required="" style="padding:0.75rem; border-radius:6px; border:1px solid #ccc;" type="text"/>
-<input placeholder="Mileage" required="" style="padding:0.75rem; border-radius:6px; border:1px solid #ccc;" type="text"/>
-<button onclick="alert('Estimated value: $1,150')" style="padding:0.75rem; border-radius:6px; background:#ff4e50; color:#fff; border:none;" type="button">Estimate Value</button>
+<input placeholder="Year, Make, Model" required="" style="padding:0.75rem; border-radius:6px; border:1px solid #ccc;; color: #000;" type="text"/>
+<input min="0" placeholder="Mileage" required="" style="padding:0.75rem; border-radius:6px; border:1px solid #ccc;; color: #000;" type="number"/>
+<button onclick="alert('Estimated value: $1,150')" style="padding:0.75rem; border-radius:6px; background:#ff4e50;  border:none;; color: #000;" type="button">Estimate Value</button>
 </form>
-</section><section id="social-proof" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem; background:#fff; border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05);"><h2>Real Sellers, Real Results</h2><p>A snapshot of happy Recarra customers.</p>
+</section><section id="social-proof" style="text-align:center; max-width:900px; margin:3rem auto; padding:2rem;  border-radius:10px; box-shadow:0 0 12px rgba(0,0,0,0.05); background: #fff !important; color: #000 !important; border: 1px solid #ddd; border-radius: 12px; padding: 2.5rem; box-shadow: 0 0 8px rgba(0,0,0,0.05); max-width: 900px; margin: 2rem auto;"><h2 class="fine-art-title" style="; color: #000;">Real Sellers, Real Results</h2><p style="; color: #000;">A snapshot of happy Recarra customers.</p>
 <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;">
 <img src="https://via.placeholder.com/120x120.png?text=Maria" style="border-radius:50%; border:2px solid red;"/>
 <img src="https://via.placeholder.com/120x120.png?text=Luis" style="border-radius:50%; border:2px solid red;"/>
@@ -1312,10 +1613,10 @@ function toggleDimMode() {
 </div>
 </section>
 <footer style="background-color:#000; color:#fff; text-align:center; padding:2.5rem 1rem; font-size:0.9rem;">
-<p style="margin-bottom:0.5rem;">
+<p style="margin-bottom:0.5rem;; color: #000;">
     © 2025 Recarra. All rights reserved.
   </p>
-<p>
+<p style="; color: #000;">
 <a href="mailto:support@recarra.com" style="color:#ff4e50;">support@recarra.com</a> |
     Houston, TX
   </p>
@@ -1337,12 +1638,11 @@ function toggleDimMode() {
 <a href="https://linkedin.com/company/recarra" style="margin: 0 10px; color:#fff;" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 </div>
 <div style="margin-top:1.5rem; font-size:0.85rem; color:#aaa;">
-<p>Fully Licensed, Bonded &amp; Insured Nationwide</p>
-<p>256-bit SSL Secured | GDPR &amp; CCPA Compliant</p>
-<p>Accessibility &amp; Trust Tools Coming Soon</p>
+<p style="; color: #000;">Fully Licensed, Bonded &amp; Insured Nationwide</p>
+<p style="; color: #000;">256-bit SSL Secured | GDPR &amp; CCPA Compliant</p>
+<p style="; color: #000;">Accessibility &amp; Trust Tools Coming Soon</p>
 </div>
 </footer>
-
 <script>
 const gradients = [
   "linear-gradient(135deg, #ff4e50, #f9d423)",
@@ -1368,6 +1668,46 @@ function rotateSectionBackgrounds() {
 rotateSectionBackgrounds();
 setInterval(rotateSectionBackgrounds, 8000);
 </script>
+<script>
+let currentStep = 0;
+const steps = document.querySelectorAll('#multiStepForm .step');
+const stepNum = document.getElementById('stepNum');
 
-</body>
+function showStep(i) {
+  steps.forEach((step, index) => {
+    step.classList.remove('active');
+    if (index === i) step.classList.add('active');
+  });
+  if (stepNum) stepNum.textContent = i + 1;
+}
+document.addEventListener("DOMContentLoaded", function() {
+  showStep(currentStep);
+  const nextBtns = document.querySelectorAll('#multiStepForm .step button[data-next]');
+  nextBtns.forEach((btn) => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+  });
+});
+</script>
+<script>
+  document.querySelectorAll('button[data-next="true"]').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      nextStep();
+    });
+  });
+</script>
+<script>
+document.querySelectorAll('[data-next]').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    nextStep();
+  });
+});
+</script></body>
 </html>
