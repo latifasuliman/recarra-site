@@ -138,7 +138,33 @@ body.dim-mode a {
 body.dim-mode * {
     color: #ff1a1a !important;
 }
-</style></head>
+</style>
+<style>
+@keyframes flashingColors {
+  0%   { border-color: red; }
+  25%  { border-color: yellow; }
+  50%  { border-color: green; }
+  75%  { border-color: blue; }
+  100% { border-color: violet; }
+}
+
+@keyframes borderCycle {
+  0%, 91.6% {
+    border-color: black;
+  }
+  91.7%, 100% {
+    border-color: red; /* Trigger override */
+  }
+}
+
+section {
+  border: 3px solid black;
+  animation: borderCycle 96s linear infinite, flashingColors 8s linear infinite;
+  animation-delay: 0s, 88s;
+}
+</style>
+
+</head>
 <body style=" color: #000;"><button class="glow-effect" onclick="toggleDimMode()" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.3)'" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 24px rgba(255,0,0,0.5)'" style="
     position: fixed; 
     top: 20px; 
