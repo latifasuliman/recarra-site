@@ -26,10 +26,7 @@
       transition: all 0.5s ease-in-out;
     }
 
-    body.dim-mode {
-      background-color: var(--dim-bg);
-      color: var(--dim-text);
-    }
+    body
 
     header, section, footer {
       max-width: 960px;
@@ -74,19 +71,11 @@
       z-index: 1000;
     }
 
-    .dim-mode .btn {
-      color: #000 !important;
-    }
+    
 
-    .dim-mode header,
-    .dim-mode section,
-    .dim-mode footer {
-      background-color: #111 !important;
-    }
+    
 
-    .dim-mode .highlight {
-      color: var(--lux-gold);
-    }
+    
 
     footer {
       text-align: center;
@@ -100,26 +89,11 @@
   font-size: 1rem;
 }
 
-.dim-mode header,
-.dim-mode section,
-.dim-mode footer {
-  background-color: #121212 !important;
-  color: #ffffff !important;
-}
 
-.dim-mode #faq-container,
-.dim-mode #dynamicFAQ {
-  background-color: #121212 !important;
-  color: #ffffff !important;
-}
 
-.dim-mode input,
-.dim-mode select,
-.dim-mode textarea {
-  background-color: #1f1f1f !important;
-  color: #ffffff !important;
-  border: 1px solid #444 !important;
-}
+
+
+
 
 input[type="text"],
 input[type="tel"],
@@ -194,16 +168,11 @@ textarea {
 <a href="#voiceAssistant" style="color: white; text-decoration: none;">Voice</a>
 <a href="#smartVideo" style="color: white; text-decoration: none;">Video</a>
 </nav>
-
 <header>
 <h1 style="font-size: 4rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem;">Recarra</h1>
 <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
 </header>
-<section>
-<h2>AI Smart Offer Form</h2>
-<p>Submit your car details and get an instant AI-generated offer.</p>
-<a class="btn" href="#form">Start Offer</a>
-</section>
+
 <div style="max-width: 720px; margin: 2rem auto; background: #f2f2f2; border-radius: 10px; padding: 1.25rem 2rem; font-size: 1rem; text-align: center; border: 2px solid #4CAF50;">
 <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
   <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
@@ -216,7 +185,7 @@ Image dimensions: 600px wide × 400px tall
 File format: JPG or PNG for static images
 Optional: MP4 or looping GIF showing AI analyzing a photo
 Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or stacked layout for mobile -->
-
+<!-- Example placeholder image block -->
 <h2>AI Photo Cash Offer</h2>
 <div style="margin: 2rem auto; max-width: 800px;">
 <div style="margin-bottom: 0.5rem; font-weight: bold;">Step 4 of 5: Vehicle Condition &amp; Media Upload</div>
@@ -224,52 +193,26 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
 <div style="width: 80%; background: linear-gradient(to right, #36d1dc, #5b86e5); height: 16px;"></div>
 </div>
 </div>
-<form id="multiStepForm">
-<!-- Step 1: Vehicle Details -->
-<div class="form-step">
+<form id="multiStepForm"><div class="form-step"><div class="form-step">
 <h3>Step 1: Vehicle Info</h3>
-<input class="uniform-input" name="year" placeholder="Year" required="" type="text"/><br/>
-<input class="uniform-input" name="make" placeholder="Make" required="" type="text"/><br/>
-<input class="uniform-input" name="model" placeholder="Model" required="" type="text"/><br/>
-<input class="uniform-input" name="trim" placeholder="Trim (optional)" type="text"/><br/>
-<input class="uniform-input" name="mileage" placeholder="Mileage" required="" type="text"/><br/>
-<input class="uniform-input" name="vin" placeholder="VIN (or 'skip')" type="text"/><br/>
-<input class="uniform-input" name="plate" placeholder="License Plate" type="text"/><br/>
-<label style="font-weight: 600;">Upload Front Image</label>
-<input accept="image/*" class="uniform-input" name="photo_front" required="" type="file"/>
-<label style="font-weight: 600;">Upload Rear Image (Trunk)</label>
-<input accept="image/*" class="uniform-input" name="photo_rear" required="" type="file"/>
-<label style="font-weight: 600;">Upload Right Side</label>
-<input accept="image/*" class="uniform-input" name="photo_right" required="" type="file"/>
-<label style="font-weight: 600;">Upload Left Side</label>
-<input accept="image/*" class="uniform-input" name="photo_left" required="" type="file"/><br/>
-<div id="previewContainer" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem;">
-<label style="display: block; margin-top: 1rem; font-weight: 600;">Is the engine intact?</label>
-<select class="uniform-input" name="engine_intact" onchange="handleEngineCondition(this)">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div><input class="uniform-input" name="year" placeholder="Year" required="" type="text"/><input class="uniform-input" name="make" placeholder="Make" required="" type="text"/><input class="uniform-input" name="model" placeholder="Model" required="" type="text"/><input class="uniform-input" name="trim" placeholder="Trim (optional)" type="text"/><input class="uniform-input" name="mileage" placeholder="Mileage" required="" type="text"/><input class="uniform-input" name="vin" placeholder="VIN (or 'skip')" type="text"/><input class="uniform-input" name="plate" placeholder="License Plate" type="text"/><label style="font-weight: 600;">Upload Front Image</label><input accept="image/*" class="uniform-input" name="photo_front" required="" type="file"/><label style="font-weight: 600;">Upload Rear Image (Trunk)</label><input accept="image/*" class="uniform-input" name="photo_rear" required="" type="file"/><label style="font-weight: 600;">Upload Right Side</label><input accept="image/*" class="uniform-input" name="photo_right" required="" type="file"/><label style="font-weight: 600;">Upload Left Side</label><input accept="image/*" class="uniform-input" name="photo_left" required="" type="file"/><div id="previewContainer" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem;">
+</div><label style="display: block; margin-top: 1rem; font-weight: 600;">Is the engine intact?</label><select class="uniform-input" name="engine_intact" onchange="handleEngineCondition(this)">
 <option value="">-- Select --</option>
 <option value="Yes">Yes</option>
 <option value="No">No</option>
-</select>
-<div id="engineDetails" style="display: none;">
-<label for="engine_issues" style="font-weight: 600;">Describe any engine damage:</label>
-<textarea class="uniform-input" name="engine_issues" placeholder="Example: engine won't start, overheating, oil leak..." rows="3"></textarea>
-</div>
-<label style="font-weight: 600;">Upload Optional Video (1–3 mins)</label>
-<input accept="video/*" class="uniform-input" name="car_video" type="file"/>
-<button class="btn" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;" type="submit">
+</select><div id="engineDetails" style="display: none;">
+</div><label for="engine_issues" style="font-weight: 600;">Describe any engine damage:</label><textarea class="uniform-input" name="engine_issues" placeholder="Example: engine won't start, overheating, oil leak..." rows="3"></textarea></div><div class="form-step"><label style="font-weight: 600;">Upload Optional Video (1–3 mins)</label><input accept="video/*" class="uniform-input" name="car_video" type="file"/><button class="btn" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;" type="submit">
   Submit My Offer Request
-</button><div style="height: 3rem;"></div>
-<div><strong>Sell As-Is</strong><br/>No repairs or cleanups needed — we take all conditions.</div>
-<div><strong>Fast, Secure Payments</strong><br/>Get paid instantly with direct deposit, cash, or debit card transfer.</div>
-<div><strong>Paperwork? Handled.</strong><br/>We take care of title transfer, bill of sale, and everything else.</div>
-<div><strong>Same-Day Pickup</strong><br/>You choose the time, we handle the logistics.</div>
-<div><strong>Thousands Trust Us</strong><br/>Nationwide, verified sellers choose Recarra every day.</div>
-</div>
-</div>
-<div style="display: flex; justify-content: space-between; margin-top: 1rem;">
-
-</div>
-<div style="height: 3rem;"></div></form></section>
+</button><div style="height: 3rem;"></div><div><strong>Sell As-Is</strong><br/>No repairs or cleanups needed — we take all conditions.</div><div><strong>Fast, Secure Payments</strong><br/>Get paid instantly with direct deposit, cash, or debit card transfer.</div><div><strong>Paperwork? Handled.</strong><br/>We take care of title transfer, bill of sale, and everything else.</div><div><strong>Same-Day Pickup</strong><br/>You choose the time, we handle the logistics.</div><div><strong>Thousands Trust Us</strong><br/>Nationwide, verified sellers choose Recarra every day.</div><div style="display: flex; justify-content: space-between; margin-top: 1rem;">
+</div><div style="height: 3rem;"></div></div><div style="display:flex; justify-content:space-between; margin-top:1rem;"><button onclick="prevStep()" style="padding: 0.5rem 1rem; background: #ccc; border-radius: 8px; border: none; font-weight: bold;" type="button">Back</button><button onclick="nextStep()" style="padding: 0.5rem 1rem; background: #4CAF50; color: white; border-radius: 8px; border: none; font-weight: bold;" type="button">Next</button></div></form></section>
 <section>
 <h2>Frequently Asked Questions</h2>
 <ul>
@@ -345,7 +288,18 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
 <a href="#" style="margin-right: 10px;">Pickup Policy</a>
 <a href="#">Seller Rights</a>
 </div></footer>
-
+<script>
+    // Optionally store mode in localStorage
+    document.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("recarra-mode") === "dim") {
+        document.body.classList.add("dim-mode");
+      }
+      document.querySelector(".toggle-mode").addEventListener("click", () => {
+        const isDim = document.body.classList.toggle("dim-mode");
+        localStorage.setItem("recarra-mode", isDim ? "dim" : "light");
+      });
+    });
+  </script>
 <!-- Back to Top Button -->
 <button id="backToTop" title="Go to top">↑ Top</button>
 <style>
@@ -463,10 +417,26 @@ setInterval(rotateFAQ, 8000);
 rotateFAQ();
 </script>
 </div>
+<script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll('.form-step');
 
+    function showStep(index) {
+      steps.forEach((step, i) => step.style.display = i === index ? 'block' : 'none');
+    }
 
+    function nextStep() {
+      if (currentStep < steps.length - 1) currentStep++;
+      showStep(currentStep);
+    }
 
-</body>
+    function prevStep() {
+      if (currentStep > 0) currentStep--;
+      showStep(currentStep);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => showStep(currentStep));
+    </script></body>
 </html>
 <script>
   let currentStep = 0;
