@@ -16,7 +16,17 @@
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-  </style>
+  
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 5px #ff1a1a; }
+  50% { box-shadow: 0 0 20px #ff1a1a; }
+  100% { box-shadow: 0 0 5px #ff1a1a; }
+}
+button.glow-effect {
+  animation: glowPulse 2s infinite;
+}
+
+</style>
 <style>
 button:hover {
     transform: scale(1.05);
@@ -103,16 +113,52 @@ div:hover, section:hover {
     max-width: 900px;
   }
 </style>
-
-</head>
-<body style=" color: #000;"><button onclick="toggleDimMode()" style="position:fixed; top:20px; right:20px; z-index:9999;padding:0.5rem 1rem; background:#333;  border:none; border-radius:5px; font-size:0.9rem; color: #000;color: #000 !important;">Toggle Dim Mode</button>
+<style>
+body.dim-mode {
+  background-color: #000;
+  color: #ff1a1a;
+}
+body.dim-mode section,
+body.dim-mode header,
+body.dim-mode footer {
+  background-color: #111 !important;
+  color: #ff1a1a !important;
+}
+body.dim-mode input,
+body.dim-mode select,
+body.dim-mode button {
+  background-color: #222 !important;
+  color: #ff1a1a !important;
+  border-color: #ff1a1a !important;
+}
+body.dim-mode a {
+  color: #ff4e50 !important;
+}
+</style></head>
+<body style=" color: #000;"><button class="glow-effect" onclick="toggleDimMode()" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.3)'" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 24px rgba(255,0,0,0.5)'" style="
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 9999; 
+    padding: 0.7rem 1.4rem; 
+    background-color: #000; 
+    color: #ff1a1a; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;">
+  Toggle Dim Mode
+</button>
 <section style="  text-align:left;  max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
-<h1 style="font-size:3rem; font-weight:900;  color: #000;">
-    Recarra
-   </h1>
-<p style="font-size:1.5rem; font-style:italic;  margin-top:1rem; color: #000;">
-    Changing the way America sells cars — fast, fair, and AI-powered.
-   </p>
+<h1 style="font-size: 4rem; font-weight: 900; background: linear-gradient(135deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem;">
+  Recarra
+</h1>
+<p style="font-size: 1.4rem; font-weight: 500; color: #444; margin-top: 0;">
+  The AI-Powered Way to Sell Your Car Instantly
+</p>
 <p style="font-size:1.1rem;  margin-top:1rem; max-width:600px; color: #000;">
     Recarra is your direct path to instant car cash offers, same-day pickups, and no paperwork hassles — trusted by sellers across the nation.
    </p>
@@ -802,16 +848,6 @@ setTimeout(() => {
 </div>
 </div>
 </section>
-<section style="  text-align:center; max-width: 900px; margin: 2rem auto; background-  padding: 4rem 2rem; margin: 3rem auto; color: #000;">
-<h2 style="font-size:1.6rem; margin-bottom:1rem; color: #000;">
-    Why Sellers Choose Recarra
-   </h2>
-<div id="taglineCarousel" style="font-size:1.5rem; font-style:italic;  height:3.5rem; overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center; background:#fff000; color: #000;color: #000 !important;">
-<span id="carouselText" style="position:absolute; transition: opacity 0.5s ease; color: #000;color: #000 !important;">
-     Sell your car — fast, fair, and AI-powered.
-    </span>
-</div>
-</section>
 <section id="faq" style="background:#f9f9f9;  text-align:center; max-width: 900px; margin: 2rem auto;background- padding: 4rem 2rem; margin: 3rem auto; color: #000;">
 <h2 style="font-size:1.8rem; margin-bottom:2rem; color: #000;">
     Frequently Asked Questions
@@ -1063,18 +1099,84 @@ const messages = ['Get paid today — no waiting.', 'Sell your junk car in under
 function toggleDimMode() {
     document.body.classList.toggle("dim-mode");
 }
-</script><script>
-const taglines = ['Sell your car — fast, fair, and AI-powered.', 'Get a real cash offer in minutes — only with Recarra.', 'Snap a photo. Get paid. It’s that simple.', 'Recarra pays more than junkyards — every time.', 'Don’t wait. Get a same-day pickup and cash.', 'Sell your car as-is. No repairs. No drama.', 'Our AI gives instant fair offers based on market data.', 'Smarter pricing. Faster deals. Only at Recarra.', 'You describe it — we price it. Recarra AI does the work.', 'Trusted by thousands across Texas and beyond.'];
-let i = 0;
-setInterval(() => {
-  const text = document.getElementById("carouselText");
-  if (text) {
-    text.classList.remove('slide-text'); // Reset animation
-    void text.offsetWidth; // Trigger reflow
-    text.textContent = taglines[i];
-    text.classList.add('slide-text');
-    i = (i + 1) % taglines.length;
-  }
-}, 5000);
-</script></body>
+</script>
+<script>
+  const taglines = [
+    'Sell your car — fast, fair, and AI-powered.',
+    'Get a real cash offer in minutes — only with Recarra.',
+    'Snap a photo. Get paid. It’s that simple.',
+    'Recarra pays more than junkyards — every time.',
+    'Don’t wait. Get a same-day pickup and cash.',
+    'Sell your car as-is. No repairs. No drama.',
+    'Our AI gives instant fair offers based on market data.',
+    'Smarter pricing. Faster deals. Only at Recarra.',
+    'You describe it — we price it. Recarra AI does the work.',
+    'Trusted by thousands across Texas and beyond.'
+  ];
+
+  let i = 0;
+  setInterval(() => {
+    const text = document.getElementById("carouselText");
+    if (text) {
+      text.style.opacity = 0;
+      setTimeout(() => {
+        i = (i + 1) % taglines.length;
+        text.textContent = taglines[i];
+        text.style.opacity = 1;
+      }, 400);
+    }
+  }, 5000);
+</script>
+<section style="text-align:center; max-width:900px; margin:3rem auto; padding:3rem 2rem; background:linear-gradient(135deg, #ffffff, #f9f9f9); border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.05); border: 1px solid #ddd;">
+<h2 style="font-size:2.2rem; font-weight:900; background: linear-gradient(90deg, #ff1a1a, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom:1.5rem;">
+    Why Sellers Choose Recarra
+  </h2>
+<p id="carouselText" style="font-size:1.5rem; font-style:italic; font-weight:500; color:#333; height:3rem; transition:opacity 0.8s ease-in-out;">
+    Sell your car — fast, fair, and AI-powered.
+  </p>
+<div style="margin-top:2rem; display:grid; gap:1.5rem; grid-template-columns:1fr 1fr; max-width:700px; margin-left:auto; margin-right:auto; text-align:left;">
+<div style="display:flex; gap:0.75rem; align-items:flex-start;">
+<span style="font-size:1.5rem; color:#ff1a1a;">●</span>
+<div><strong>Instant Offers:</strong> Get a real quote in seconds with our AI engine.</div>
+</div>
+<div style="display:flex; gap:0.75rem; align-items:flex-start;">
+<span style="font-size:1.5rem; color:#ff1a1a;">●</span>
+<div><strong>Top Payouts:</strong> We consistently outbid local buyers and junkyards.</div>
+</div>
+<div style="display:flex; gap:0.75rem; align-items:flex-start;">
+<span style="font-size:1.5rem; color:#ff1a1a;">●</span>
+<div><strong>No Hassle:</strong> Sell as-is. No title or repairs? No problem.</div>
+</div>
+<div style="display:flex; gap:0.75rem; align-items:flex-start;">
+<span style="font-size:1.5rem; color:#ff1a1a;">●</span>
+<div><strong>Same-Day Pickup:</strong> Accept our offer and get paid within hours.</div>
+</div>
+</div>
+</section>
+<script>
+  const taglines = [
+    'Sell your car — fast, fair, and AI-powered.',
+    'Instant quote. Same-day cash.',
+    'No paperwork. No pressure. Just payment.',
+    'Photo. Form. Done. Cash in your hands.',
+    'AI-powered car selling — only at Recarra.'
+  ];
+  let i = 0;
+  setInterval(() => {
+    const text = document.getElementById("carouselText");
+    if (text) {
+      text.style.opacity = 0;
+      setTimeout(() => {
+        i = (i + 1) % taglines.length;
+        text.textContent = taglines[i];
+        text.style.opacity = 1;
+      }, 400);
+    }
+  }, 5000);
+</script>
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" style="position:fixed;bottom:20px;right:20px;z-index:9999;padding:0.75rem 1.25rem;background:#ff1a1a;color:white;border:none;border-radius:50px;font-weight:bold;box-shadow:0 0 12px rgba(255,0,0,0.5);">
+  ↑ Top
+</button>
+</body>
 </html>
