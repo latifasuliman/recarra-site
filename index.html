@@ -230,12 +230,6 @@ section {
 }
 </style>
 
-
-<style>
-.shared-gradient {
-  transition: background 1.5s ease-in-out, color 1s ease-in-out !important;
-}
-</style>
 </head>
 <body style=" color: #000;"><button class="glow-effect" onclick="toggleDimMode()" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(255, 0, 0, 0.3)'" onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 8px 24px rgba(255,0,0,0.5)'" style="
     position: fixed; 
@@ -1375,41 +1369,5 @@ rotateSectionBackgrounds();
 setInterval(rotateSectionBackgrounds, 8000);
 </script>
 
-
-<script>
-const gradientThemes = [
-  { bg: "linear-gradient(135deg, #ff4e50, #f9d423)", text: "#000" },
-  { bg: "linear-gradient(135deg, #4568dc, #b06ab3)", text: "#fff" },
-  { bg: "linear-gradient(135deg, #ff512f, #dd2476)", text: "#fff" },
-  { bg: "linear-gradient(135deg, #bdc3c7, #2c3e50)", text: "#fff" },
-  { bg: "linear-gradient(135deg, #1d2b64, #f8cdda)", text: "#000" },
-  { bg: "linear-gradient(135deg, #4e54c8, #8f94fb)", text: "#fff" },
-  { bg: "linear-gradient(135deg, #00c6ff, #0072ff)", text: "#fff" },
-  { bg: "linear-gradient(135deg, #f7971e, #ffd200)", text: "#000" },
-  { bg: "linear-gradient(135deg, #485563, #29323c)", text: "#fff" },
-  { bg: "linear-gradient(135deg, #654ea3, #eaafc8)", text: "#000" },
-  { bg: "linear-gradient(135deg, #ffffff, #f9f9f9)", text: "#000" }
-];
-
-let themeIndex = 0;
-
-function applyTheme() {
-  const { bg, text } = gradientThemes[themeIndex];
-  const elements = document.querySelectorAll('body, header, footer, nav, section, div, p, h1, h2, h3, h4, h5, h6, a, span, label, input, select, button');
-  elements.forEach(el => {
-    el.classList.add('shared-gradient');
-    el.style.background = bg;
-    el.style.color = text;
-    if (el.tagName === 'INPUT' || el.tagName === 'SELECT' || el.tagName === 'BUTTON') {
-      el.style.borderColor = text;
-    }
-  });
-
-  themeIndex = (themeIndex + 1) % gradientThemes.length;
-}
-
-setInterval(applyTheme, 88000);
-window.addEventListener('DOMContentLoaded', applyTheme);
-</script>
 </body>
 </html>
