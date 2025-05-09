@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recarra | Sell Your Car Instantly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recarra | Sell Your Car Instantly</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --main-gradient: linear-gradient(135deg, #ff4e50, #f9d423);
       --lux-gold: #ffd700;
@@ -137,233 +138,217 @@ textarea {
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
-</style>
+
+.uniform-input {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s;
+  background: transparent;
+  color: #ff4e50;
+  box-shadow: 0 0 12px rgba(255, 78, 80, 0.6);
+}
+
+  transform: scale(1.1);
+}
+
+  0% { color: #ff4e50; }
+  25% { color: #f9d423; }
+  50% { color: #4CAF50; }
+  75% { color: #2196F3; }
+  100% { color: #ff4e50; }
+}
+
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  color: #ff4e50;
+  transition: color 1s ease;
+}
+
+  0% { color: #ff4e50; }
+  25% { color: #f9d423; }
+  50% { color: #4CAF50; }
+  75% { color: #2196F3; }
+  100% { color: #ff4e50; }
+}</style>
 </head>
 <body>
-
 <!-- Sticky Smart Navigation -->
 <nav id="smartNav" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; color: white; display: flex; justify-content: center; gap: 1rem; padding: 0.5rem 0; z-index: 999; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: none;">
-  <a href="#smartOfferForm" style="color: white; text-decoration: none;">Photo Offer</a>
-  <a href="#licensePlateOffer" style="color: white; text-decoration: none;">Plate Offer</a>
-  <a href="#vinScan" style="color: white; text-decoration: none;">Scan VIN</a>
-  <a href="#voiceAssistant" style="color: white; text-decoration: none;">Voice</a>
-  <a href="#smartVideo" style="color: white; text-decoration: none;">Video</a>
+<a href="#smartOfferForm" style="color: white; text-decoration: none;">Photo Offer</a>
+<a href="#licensePlateOffer" style="color: white; text-decoration: none;">Plate Offer</a>
+<a href="#vinScan" style="color: white; text-decoration: none;">Scan VIN</a>
+<a href="#voiceAssistant" style="color: white; text-decoration: none;">Voice</a>
+<a href="#smartVideo" style="color: white; text-decoration: none;">Video</a>
 </nav>
-
-  <button class="toggle-mode" onclick="document.body.classList.toggle('dim-mode')">Toggle Dim Mode</button>
-
-  <header>
-    
+<button class="toggle-mode" onclick="document.body.classList.toggle('dim-mode')" style="position: fixed; top: 80px; right: 20px; padding: 0.6rem 1.2rem; background: #000; color: #fff; border: none; border-radius: 8px; cursor: pointer; z-index: 1000;">Toggle Dim Mode</button>
+<header>
 <h1 style="font-size: 4rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem;">Recarra</h1>
-
-    <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
-  </header>
-
-  
-
-
-
-  <section>
-    <h2>AI Smart Offer Form</h2>
-    <p>Submit your car details and get an instant AI-generated offer.</p>
-    <a href="#form" class="btn">Start Offer</a>
-  </section>
+<p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
+</header>
+<section>
+<h2>AI Smart Offer Form</h2>
+<p>Submit your car details and get an instant AI-generated offer.</p>
+<a class="btn" href="#form">Start Offer</a>
+</section>
 <div style="max-width: 720px; margin: 2rem auto; background: #f2f2f2; border-radius: 10px; padding: 1.25rem 2rem; font-size: 1rem; text-align: center; border: 2px solid #4CAF50;">
-  <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
+<strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
   <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
 
 
   
 <section id="smartOfferForm" style="margin-top: 2rem;">
-  
 <!-- Recommended layout for Photo Offer image:
 Image dimensions: 600px wide × 400px tall
 File format: JPG or PNG for static images
 Optional: MP4 or looping GIF showing AI analyzing a photo
 Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or stacked layout for mobile -->
-
 <!-- Example placeholder image block -->
 <div style="text-align: center; margin-bottom: 2rem;">
-  <img src="images/photo-offer-example.jpg" alt="Submit Car Photo Example" style="max-width: 100%; border-radius: 10px;">
-  
+<img alt="Submit Car Photo Example" src="images/photo-offer-example.jpg" style="max-width: 100%; border-radius: 10px;"/>
 </div>
 <h2>AI Photo Cash Offer</h2>
-  
 <div style="margin: 2rem auto; max-width: 800px;">
-  <div style="margin-bottom: 0.5rem; font-weight: bold;">Step 4 of 5: Vehicle Condition & Media Upload</div>
-  <div style="background: #ddd; border-radius: 20px; overflow: hidden;">
-    <div style="width: 80%; background: linear-gradient(to right, #36d1dc, #5b86e5); height: 16px;"></div>
-  </div>
+<div style="margin-bottom: 0.5rem; font-weight: bold;">Step 4 of 5: Vehicle Condition &amp; Media Upload</div>
+<div style="background: #ddd; border-radius: 20px; overflow: hidden;">
+<div style="width: 80%; background: linear-gradient(to right, #36d1dc, #5b86e5); height: 16px;"></div>
+</div>
 </div>
 <form id="multiStepForm">
-    <!-- Step 1: Vehicle Details -->
-    <div class="form-step">
-      <h3>Step 1: Vehicle Info</h3>
-      <input type="text" placeholder="Year" name="year" required style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
-      <input type="text" placeholder="Make" name="make" required style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
-      <input type="text" placeholder="Model" name="model" required style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
-      <input type="text" placeholder="Trim (optional)" name="trim" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
-      <input type="text" placeholder="Mileage" name="mileage" required style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
-      <input type="text" placeholder="VIN (or 'skip')" name="vin" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
-      <input type="text" placeholder="License Plate" name="plate" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"><br>
-      
-
+<!-- Step 1: Vehicle Details -->
+<div class="form-step">
+<h3>Step 1: Vehicle Info</h3>
+<input class="uniform-input" name="year" placeholder="Year" required="" type="text"/><br/>
+<input class="uniform-input" name="make" placeholder="Make" required="" type="text"/><br/>
+<input class="uniform-input" name="model" placeholder="Model" required="" type="text"/><br/>
+<input class="uniform-input" name="trim" placeholder="Trim (optional)" type="text"/><br/>
+<input class="uniform-input" name="mileage" placeholder="Mileage" required="" type="text"/><br/>
+<input class="uniform-input" name="vin" placeholder="VIN (or 'skip')" type="text"/><br/>
+<input class="uniform-input" name="plate" placeholder="License Plate" type="text"/><br/>
 <label style="font-weight: 600;">Upload Front Image</label>
-<input type="file" name="photo_front" accept="image/*" required>
+<input accept="image/*" class="uniform-input" name="photo_front" required="" type="file"/>
 <label style="font-weight: 600;">Upload Rear Image (Trunk)</label>
-<input type="file" name="photo_rear" accept="image/*" required>
+<input accept="image/*" class="uniform-input" name="photo_rear" required="" type="file"/>
 <label style="font-weight: 600;">Upload Right Side</label>
-<input type="file" name="photo_right" accept="image/*" required>
+<input accept="image/*" class="uniform-input" name="photo_right" required="" type="file"/>
 <label style="font-weight: 600;">Upload Left Side</label>
-<input type="file" name="photo_left" accept="image/*" required><br>
-      <div id="previewContainer" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem;">
-      
+<input accept="image/*" class="uniform-input" name="photo_left" required="" type="file"/><br/>
+<div id="previewContainer" style="display:flex; flex-wrap:wrap; gap:10px; margin-top:1rem;">
 <label style="display: block; margin-top: 1rem; font-weight: 600;">Is the engine intact?</label>
-
-
-<select name="engine_intact" onchange="handleEngineCondition(this)" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;">
-  <option value="">-- Select --</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
+<select class="uniform-input" name="engine_intact" onchange="handleEngineCondition(this)">
+<option value="">-- Select --</option>
+<option value="Yes">Yes</option>
+<option value="No">No</option>
 </select>
-
 <div id="engineDetails" style="display: none;">
-  <label for="engine_issues" style="font-weight: 600;">Describe any engine damage:</label>
-  <textarea name="engine_issues" placeholder="Example: engine won't start, overheating, oil leak..." rows="3" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc;" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; margin-bottom: 1rem;"></textarea>
+<label for="engine_issues" style="font-weight: 600;">Describe any engine damage:</label>
+<textarea class="uniform-input" name="engine_issues" placeholder="Example: engine won't start, overheating, oil leak..." rows="3"></textarea>
 </div>
-
 <label style="font-weight: 600;">Upload Optional Video (1–3 mins)</label>
-<input type="file" name="car_video" accept="video/*">
-<button class="btn" type="submit" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;">
+<input accept="video/*" class="uniform-input" name="car_video" type="file"/>
+<button class="btn" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;" type="submit">
   Submit My Offer Request
-</button>
+</button><div style="height: 3rem;"></div>
+<div><strong>Sell As-Is</strong><br/>No repairs or cleanups needed — we take all conditions.</div>
+<div><strong>Fast, Secure Payments</strong><br/>Get paid instantly with direct deposit, cash, or debit card transfer.</div>
+<div><strong>Paperwork? Handled.</strong><br/>We take care of title transfer, bill of sale, and everything else.</div>
+<div><strong>Same-Day Pickup</strong><br/>You choose the time, we handle the logistics.</div>
+<div><strong>Thousands Trust Us</strong><br/>Nationwide, verified sellers choose Recarra every day.</div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; margin-top: 1rem;">
 
-    <div><strong>Sell As-Is</strong><br>No repairs or cleanups needed — we take all conditions.</div>
-    <div><strong>Fast, Secure Payments</strong><br>Get paid instantly with direct deposit, cash, or debit card transfer.</div>
-    <div><strong>Paperwork? Handled.</strong><br>We take care of title transfer, bill of sale, and everything else.</div>
-    <div><strong>Same-Day Pickup</strong><br>You choose the time, we handle the logistics.</div>
-    <div><strong>Thousands Trust Us</strong><br>Nationwide, verified sellers choose Recarra every day.</div>
-  </div>
-</section>
-
-
-
+</div>
+<div style="height: 3rem;"></div></form></section>
 <section>
-  <h2>Frequently Asked Questions</h2>
-  <ul>
-    <li>How fast do I get paid?</li>
-    <li>Do I need my title?</li>
-    <li>What if my car doesn’t run?</li>
-  </ul>
+<h2>Frequently Asked Questions</h2>
+<ul>
+<li>How fast do I get paid?</li>
+<li>Do I need my title?</li>
+<li>What if my car doesn’t run?</li>
+</ul>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <section>
-  <h2>Licensed & Insured Transport</h2>
-  <p>All Recarra drivers are verified, licensed, and insured for safety and peace of mind.</p>
-  <ul>
-    <li>Background-checked drivers</li>
-    <li>Insured during pickup & delivery</li>
-    <li>Verified documentation process</li>
-  </ul>
+<h2>Licensed &amp; Insured Transport</h2>
+<p>All Recarra drivers are verified, licensed, and insured for safety and peace of mind.</p>
+<ul>
+<li>Background-checked drivers</li>
+<li>Insured during pickup &amp; delivery</li>
+<li>Verified documentation process</li>
+</ul>
 </section>
-
-
-
-
-
-
 <section>
-  <h2>Choose Your Payment Method</h2>
-  <p>After accepting your offer, choose how you want to get paid instantly:</p>
-  <ul>
-    <li>Direct Deposit (instant)</li>
-    <li>Debit Card Transfer (instant)</li>
-    <li>Cash on Pickup</li>
-    <li>Certified Check (optional)</li>
-  </ul>
+<h2>Choose Your Payment Method</h2>
+<p>After accepting your offer, choose how you want to get paid instantly:</p>
+<ul>
+<li>Direct Deposit (instant)</li>
+<li>Debit Card Transfer (instant)</li>
+<li>Cash on Pickup</li>
+<li>Certified Check (optional)</li>
+</ul>
 </section>
-
-
-
-
-
-
 <section>
-  <h2>Recarra Mobile App</h2>
-  <p>Download our app for even faster service, updates, and instant offers.</p>
-  <button class="btn">Notify Me When Ready</button>
-  <p style="font-size: 0.9rem;">Coming soon to iOS & Android.</p>
+<h2>Recarra Mobile App</h2>
+<p>Download our app for even faster service, updates, and instant offers.</p>
+<button class="btn">Notify Me When Ready</button>
+<p style="font-size: 0.9rem;">Coming soon to iOS &amp; Android.</p>
 </section>
-
 <section>
-  <h2>Powered by a Trusted Network</h2>
-  <p>Recarra is connected with trusted vendors, DMV services, and verified buyers nationwide.</p>
-  <ul>
-    <li>DMV Title Check</li>
-    <li>Certified Tow Providers</li>
-    <li>Insurance & Legal Coverage</li>
-  </ul>
+<h2>Powered by a Trusted Network</h2>
+<p>Recarra is connected with trusted vendors, DMV services, and verified buyers nationwide.</p>
+<ul>
+<li>DMV Title Check</li>
+<li>Certified Tow Providers</li>
+<li>Insurance &amp; Legal Coverage</li>
+</ul>
 </section>
-
-
-  
-
-
-
 <section style="background: #f9f9f9; padding: 3rem 2rem; border-radius: 10px; max-width: 960px; margin: 2rem auto;">
-  <h2 style="font-size: 2rem; font-weight: 800; text-align: center;">How It Works</h2>
-  <ol style="font-size: 1.1rem; line-height: 1.7; padding-left: 1.5rem; max-width: 800px; margin: 2rem auto;">
-    <li><strong>Start Your Offer:</strong> Upload a photo, scan your VIN, or enter details to begin.</li>
-    <li><strong>Get a Real Cash Offer:</strong> Our AI evaluates your car and sends you a firm price.</li>
-    <li><strong>Choose Pickup:</strong> You schedule when and where — we’ll handle everything else.</li>
-    <li><strong>Skip the Paperwork:</strong> Recarra takes care of all legal and title-related details.</li>
-    <li><strong>Get Paid Fast:</strong> Choose instant cash, direct deposit, or debit card transfer.</li>
-  </ol>
+<h2 style="font-size: 2rem; font-weight: 800; text-align: center;">How It Works</h2>
+<ol style="font-size: 1.1rem; line-height: 1.7; padding-left: 1.5rem; max-width: 800px; margin: 2rem auto;">
+<li><strong>Start Your Offer:</strong> Upload a photo, scan your VIN, or enter details to begin.</li>
+<li><strong>Get a Real Cash Offer:</strong> Our AI evaluates your car and sends you a firm price.</li>
+<li><strong>Choose Pickup:</strong> You schedule when and where — we’ll handle everything else.</li>
+<li><strong>Skip the Paperwork:</strong> Recarra takes care of all legal and title-related details.</li>
+<li><strong>Get Paid Fast:</strong> Choose instant cash, direct deposit, or debit card transfer.</li>
+</ol>
 </section>
-
-
-
-
 <div style="height: 120px;"></div>
 <section style="background: #ffffff; padding: 3rem 2rem; border-radius: 10px; max-width: 960px; margin: 2rem auto;">
-  <h2 style="font-size: 2rem; font-weight: 800; text-align: center;">What Sellers Say About Recarra</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
-    <blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“I submitted my info and was paid the same day. Incredible!”<br><strong>– Marcus W., Texas</strong></blockquote>
-    <blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“They handled everything, even without my title ready.”<br><strong>– Denise R., Florida</strong></blockquote>
-    <blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“The fastest and easiest sale I’ve ever made.”<br><strong>– Leo M., California</strong></blockquote>
-  </div>
+<h2 style="font-size: 2rem; font-weight: 800; text-align: center;">What Sellers Say About Recarra</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+<blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“I submitted my info and was paid the same day. Incredible!”<br/><strong>– Marcus W., Texas</strong></blockquote>
+<blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“They handled everything, even without my title ready.”<br/><strong>– Denise R., Florida</strong></blockquote>
+<blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“The fastest and easiest sale I’ve ever made.”<br/><strong>– Leo M., California</strong></blockquote>
+</div>
 </section>
 <footer>
   © 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX
   <div style="font-size: 0.75rem; margin-top: 0.5rem;">
-    <a href="#" style="margin-right: 10px;">Privacy Policy</a>
-    <a href="#" style="margin-right: 10px;">Terms & Conditions</a>
-    <a href="#" style="margin-right: 10px;">Cookies</a>
-    <a href="#" style="margin-right: 10px;">Notifications</a>
-    <a href="#" style="margin-right: 10px;">Accessibility</a>
-    <a href="#" style="margin-right: 10px;">Data Protection</a>
-    <a href="#" style="margin-right: 10px;">DMCA</a>
-    <a href="#" style="margin-right: 10px;">Refund Policy</a>
-    <a href="#" style="margin-right: 10px;">Pickup Policy</a>
-    <a href="#">Seller Rights</a>
-  </footer>
-
-
-  <script>
+<a href="#" style="margin-right: 10px;">Privacy Policy</a>
+<a href="#" style="margin-right: 10px;">Terms &amp; Conditions</a>
+<a href="#" style="margin-right: 10px;">Cookies</a>
+<a href="#" style="margin-right: 10px;">Notifications</a>
+<a href="#" style="margin-right: 10px;">Accessibility</a>
+<a href="#" style="margin-right: 10px;">Data Protection</a>
+<a href="#" style="margin-right: 10px;">DMCA</a>
+<a href="#" style="margin-right: 10px;">Refund Policy</a>
+<a href="#" style="margin-right: 10px;">Pickup Policy</a>
+<a href="#">Seller Rights</a>
+</div></footer>
+<script>
     // Optionally store mode in localStorage
     document.addEventListener("DOMContentLoaded", () => {
       if (localStorage.getItem("recarra-mode") === "dim") {
@@ -375,10 +360,8 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
       });
     });
   </script>
-
 <!-- Back to Top Button -->
 <button id="backToTop" title="Go to top">↑ Top</button>
-
 <style>
   #backToTop {
     position: fixed;
@@ -414,14 +397,11 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
     animation: colorCycle 64s infinite;
   }
 </style>
-
 <script>
   document.getElementById("backToTop").onclick = function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 </script>
-
-
 <script>
   function handleEngineCondition(select) {
     const container = select.closest('.form-step').querySelector('#engineDetails');
@@ -432,7 +412,6 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
     }
   }
 </script>
-
 <script>
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('smartNav');
@@ -443,8 +422,6 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
     }
   });
 </script>
-
-
 <script>
 const faqs = [
   { question: "How do I get an offer for my car?", answer: "Submit your vehicle details online — our AI gives you an instant offer." },
@@ -499,13 +476,12 @@ function rotateFAQ() {
 setInterval(rotateFAQ, 8000);
 rotateFAQ();
 </script>
+</div>
+
 
 
 </body>
 </html>
-
-
-
 <script>
   let currentStep = 0;
   const steps = document.querySelectorAll('.form-step');
