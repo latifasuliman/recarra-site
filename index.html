@@ -192,8 +192,8 @@ File format: JPG or PNG for static images
 Optional: MP4 or looping GIF showing AI analyzing a photo
 Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or stacked layout for mobile -->
 <!-- Example placeholder image block -->
-<h2>AI Photo Cash Offer</h2>
-<div style="margin: 2rem auto; max-width: 800px;">
+<h2 style="margin-bottom: 0.5rem; color: #ff4e50;">AI Photo Cash Offer</h2>
+<div style="background: #f2f2f2; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-weight: bold;">
 <div style="margin-bottom: 0.5rem; font-weight: bold;">Step 4 of 5: Vehicle Condition &amp; Media Upload</div>
 <div style="background: #ddd; border-radius: 20px; overflow: hidden;">
 <div style="width: 80%; background: linear-gradient(to right, #36d1dc, #5b86e5); height: 16px;"></div>
@@ -202,7 +202,27 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
 <div id="formProgressWrapper" style="width: 100%; background: #eee; border-radius: 10px; margin: 2rem auto; height: 10px; overflow: hidden;">
 <div id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.5s;"></div>
 </div>
-<form id="multiStepForm"><div class="form-step active"><label style="font-weight:600;">Year</label><input class="uniform-input" name="year" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Make</label><input class="uniform-input" name="make" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Model</label><input class="uniform-input" name="model" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Trim (optional)</label><input class="uniform-input" name="trim" type="text"/></div><div class="form-step"><label style="font-weight:600;">Mileage</label><input class="uniform-input" name="mileage" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">VIN (or 'skip')</label><input class="uniform-input" name="vin" type="text"/></div><div class="form-step"><label style="font-weight:600;">License Plate</label><input class="uniform-input" name="plate" type="text"/></div><div class="form-step"><label style="font-weight:600;">Upload Front Image</label><input accept="image/*" class="uniform-input" name="photo_front" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Rear Image (Trunk)</label><input accept="image/*" class="uniform-input" name="photo_rear" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Right Side</label><input accept="image/*" class="uniform-input" name="photo_right" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Left Side</label><input accept="image/*" class="uniform-input" name="photo_left" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Is the engine intact?</label><select class="uniform-input" name="engine_intact"><option value="">-- Select --</option><option value="Yes">Yes</option><option value="No">No</option></select></div><div class="form-step"><label style="font-weight:600;">Describe any engine damage</label><textarea class="uniform-input" name="engine_issues" placeholder="Describe any engine damage" rows="3"></textarea></div><div class="form-step"><label style="font-weight:600;">Upload Optional Video (1–3 mins)</label><input accept="video/*" class="uniform-input" name="car_video" type="file"/></div><div class="form-step"><h3>Ready to Submit?</h3><button class="btn" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;" type="submit">Submit My Offer Request</button></div><div id="formNav" style="display:flex; justify-content:space-between; margin-top:1rem;"><button onclick="prevStep()" style="padding: 0.5rem 1rem; background: #ccc; border-radius: 8px; border: none; font-weight: bold;" type="button">Back</button><button onclick="nextStep()" style="padding: 0.5rem 1rem; background: #4CAF50; color: white; border-radius: 8px; border: none; font-weight: bold;" type="button">Next</button></div></form></section>
+<div style="background: #f2f2f2; border-radius: 10px; padding: 2rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"><form id="multiStepForm"><div class="form-step active"><label style="font-weight:600;">Year</label><input class="uniform-input" name="year" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Make</label><input class="uniform-input" name="make" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Model</label><input class="uniform-input" name="model" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Trim (optional)</label><input class="uniform-input" name="trim" type="text"/></div><div class="form-step"><label style="font-weight:600;">Mileage</label><input class="uniform-input" name="mileage" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">VIN (or 'skip')</label><input class="uniform-input" name="vin" type="text"/></div><div class="form-step"><label style="font-weight:600;">License Plate</label><input class="uniform-input" name="plate" type="text"/></div><div class="form-step"><label style="font-weight:600;">Upload Front Image</label><input accept="image/*" class="uniform-input" name="photo_front" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Rear Image (Trunk)</label><input accept="image/*" class="uniform-input" name="photo_rear" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Right Side</label><input accept="image/*" class="uniform-input" name="photo_right" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Left Side</label><input accept="image/*" class="uniform-input" name="photo_left" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Is the engine intact?</label><select class="uniform-input" name="engine_intact"><option value="">-- Select --</option><option value="Yes">Yes</option><option value="No">No</option></select></div><div class="form-step"><label style="font-weight:600;">Describe any engine damage</label><textarea class="uniform-input" name="engine_issues" placeholder="Describe any engine damage" rows="3"></textarea></div><div class="form-step"><label style="font-weight:600;">Upload Optional Video (1–3 mins)</label><input accept="video/*" class="uniform-input" name="car_video" type="file"/></div><div class="form-step"><h3>Ready to Submit?</h3>
+<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
+  Your Offer ID: <span id="generatedOfferId"></span>
+</p>
+<button class="btn" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;" type="submit">Submit My Offer Request</button></div><div id="formNav" style="display:flex; justify-content:space-between; margin-top:1rem;"><button onclick="prevStep()" style="padding: 0.5rem 1rem; background: #ccc; border-radius: 8px; border: none; font-weight: bold;" type="button">Back</button><button onclick="nextStep()" style="padding: 0.5rem 1rem; background: #4CAF50; color: white; border-radius: 8px; border: none; font-weight: bold;" type="button">Next</button></div></form></div><div style="margin-top: 3rem;"><h3>Other Smart Ways to Get a Junk Car Offer:</h3><div style="background: #f2f2f2; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"><h4 style="margin-bottom: 0.5rem; color: #ff4e50;">AI License Plate Cash Offer</h4><p style="margin: 0;">Enter or scan your plate — we’ll find your car.</p><form method="post" style="margin-top: 1rem;"><input class="uniform-input" name="plate" placeholder="Enter your License Plate" required="" type="text"/>
+<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
+  Your Offer ID: <span id="generatedOfferId"></span>
+</p>
+<button style="padding: 0.5rem 1rem; background: #ff4e50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button></form></div><div style="background: #f2f2f2; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"><h4 style="margin-bottom: 0.5rem; color: #ff4e50;">AI Video Call Junk Offer</h4><p style="margin: 0;">Schedule a live video inspection of your junk car.</p><form method="post" style="margin-top: 1rem;"><input class="uniform-input" name="video_date" placeholder="Select a date" required="" type="date"/><input class="uniform-input" name="video_time" placeholder="Select a time" required="" type="time"/>
+<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
+  Your Offer ID: <span id="generatedOfferId"></span>
+</p>
+<button style="padding: 0.5rem 1rem; background: #ff4e50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button></form></div><div style="background: #f2f2f2; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"><h4 style="margin-bottom: 0.5rem; color: #ff4e50;">Quick Junk Offer Form</h4><p style="margin: 0;">Just a few fields to get your instant cash quote.</p><form method="post" style="margin-top: 1rem;"><input class="uniform-input" name="name" placeholder="Your Name" required="" type="text"/><input class="uniform-input" name="phone" placeholder="Phone Number" required="" type="tel"/><input class="uniform-input" name="car" placeholder="Car Info (Make, Model, Year)" required="" type="text"/>
+<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
+  Your Offer ID: <span id="generatedOfferId"></span>
+</p>
+<button style="padding: 0.5rem 1rem; background: #ff4e50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button></form></div><form method="post" style="margin-top: 1rem;"><input class="uniform-input" name="vin" placeholder="Enter your Vehicle VIN" required="" type="text"/>
+<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
+  Your Offer ID: <span id="generatedOfferId"></span>
+</p>
+<button style="padding: 0.5rem 1rem; background: #ff4e50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button></form></div></section>
 <section>
 <h2>Frequently Asked Questions</h2>
 <ul>
@@ -446,5 +466,20 @@ function prevStep() {
 }
 
 document.addEventListener('DOMContentLoaded', () => showStep(currentStep));
+</script><script>
+document.addEventListener('DOMContentLoaded', function () {
+  const forms = document.querySelectorAll('#smartOfferForm form');
+  forms.forEach(form => {
+    const uniqueId = 'R-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+    const output = form.querySelector('#generatedOfferId');
+    if (output) {
+      output.textContent = uniqueId;
+    }
+
+    form.addEventListener('submit', function (e) {
+      alert('Offer ID: ' + uniqueId + '\nWe will use this ID to track this car.');
+    });
+  });
+});
 </script></body>
 </html>
