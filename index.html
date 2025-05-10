@@ -980,19 +980,48 @@ textarea {
   background: black;
   color: white;
 }
-</style></head>
+</style><style>
+#smartNav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  background: white;
+  padding: 1rem;
+  justify-items: center;
+  align-items: center;
+}
+.nav-offer-button {
+  width: 100%;
+  max-width: 220px;
+  padding: 1.2rem;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: 50px;
+  background: white;
+  color: black;
+  border: 3px solid black;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.nav-offer-button:hover {
+  background: black;
+  color: white;
+  transform: scale(1.02);
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+</style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/></head>
 <body>
-<nav id="smartNav" style="background: #ffffff; color: black; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 1rem;">
-<button class="nav-offer-button" onclick="showOffer('photo')">📷 Photo Offer</button>
-<button class="nav-offer-button" onclick="showOffer('plate')">🚘 Plate Offer</button>
-<button class="nav-offer-button" onclick="showOffer('vin')">🔍 Vin Offer</button>
-<button class="nav-offer-button" onclick="showOffer('voice')">🎙️ Voice Offer</button>
-<button class="nav-offer-button" onclick="showOffer('video')">🎥 Video Offer</button>
-<button class="nav-offer-button" onclick="window.location.href='tel:+18885558888'">📞 Call Us</button>
+<nav id="smartNav">
+<button class="nav-offer-button" onclick="showOffer('photo')"><i class="fas fa-camera" style="margin-right: 8px;"></i>Photo Offer</button>
+<button class="nav-offer-button" onclick="showOffer('plate')"><i class="fas fa-car" style="margin-right: 8px;"></i>Plate Offer</button>
+<button class="nav-offer-button" onclick="showOffer('vin')"><i class="fas fa-search" style="margin-right: 8px;"></i>Vin Offer</button>
+<button class="nav-offer-button" onclick="showOffer('voice')"><i class="fas fa-microphone" style="margin-right: 8px;"></i>Voice Offer</button>
+<button class="nav-offer-button" onclick="showOffer('video')"><i class="fas fa-video" style="margin-right: 8px;"></i>Video Offer</button>
+<button class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
 </nav>
 <button class="nav-toggle" id="navToggle">☰ Offers</button>
 <!-- Sticky Smart Navigation -->
-
 <header>
 <h1 style="font-size: 4rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem;">Recarra</h1>
 <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
