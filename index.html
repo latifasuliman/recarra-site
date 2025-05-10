@@ -353,6 +353,35 @@ textarea {
     flex: 1 1 calc(20% - 1rem);
   }
 }
+
+/* Fix overlapping between toggle and nav buttons */
+#navToggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  background: #000;
+  color: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: none;
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  #navToggle { display: block; }
+  #smartNav {
+    margin-top: 3.5rem;
+  }
+  #smartNav:not(.active) {
+    display: none !important;
+  }
+  #smartNav.active {
+    display: flex !important;
+  }
+}
 </style>
 <style>
 #offerIconMenu {
