@@ -1075,6 +1075,48 @@ textarea {
   transform: scale(1.03);
   box-shadow: 0 0 8px rgba(255, 78, 80, 0.3);
 }
+</style><style>
+.call-intro {
+  text-align: center;
+  padding: 1rem;
+  animation: fadeInSlide 1s ease-out;
+  background: linear-gradient(to right, #ffffff, #f8f8f8);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.call-intro h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0.2rem 0;
+}
+.call-intro p {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0;
+}
+@keyframes fadeInSlide {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style><style>
+.offer-intro {
+  text-align: center;
+  padding: 1rem;
+  animation: fadeInSlide 1s ease-out;
+  background: linear-gradient(to right, #ffffff, #f3f3f3);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.offer-intro h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0.3rem 0;
+}
+.offer-intro p {
+  font-size: 0.9rem;
+  color: #444;
+  margin: 0;
+}
 </style></head>
 <body>
 <nav id="smartNav">
@@ -1758,25 +1800,291 @@ textarea {
 </style>
 <!-- Dynamic Form Container -->
 <div id="dynamicOfferForm" style="margin-top: 2rem;"></div>
-<div class="offer-wrapper" id="voice-wrapper"><button class="offer-button" data-type="voice" onclick="showOffer('voice')">Voice</button><div class="offer-modal" id="voice-modal" style="display:none;"><div class="modal-content">Voice Offer Window<button onclick="closeOffer('voice')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Phone Number</label><input placeholder="Phone Number" required="required" type="text"/><label>Best Time to Call</label><input placeholder="Best Time to Call" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="text-wrapper"><button class="offer-button" data-type="text" onclick="showOffer('text')">Text</button><div class="offer-modal" id="text-modal" style="display:none;"><div class="modal-content">Text Offer Window<button onclick="closeOffer('text')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Mobile Number</label><input placeholder="Mobile Number" required="required" type="text"/><label>Message</label><input placeholder="Message" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="call-wrapper"><button class="offer-button" data-type="call" onclick="showOffer('call')">Call</button><div class="offer-modal" id="call-modal" style="display:none;"><div class="modal-content">Call Offer Window<button onclick="closeOffer('call')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Phone Number</label><input placeholder="Phone Number" required="required" type="text"/><label>VIN/Plate</label><input placeholder="VIN/Plate" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="chat-wrapper"><button class="offer-button" data-type="chat" onclick="showOffer('chat')">Chat</button><div class="offer-modal" id="chat-modal" style="display:none;"><div class="modal-content">Chat Offer Window<button onclick="closeOffer('chat')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Email</label><input placeholder="Email" required="required" type="text"/><label>Your Question</label><input placeholder="Your Question" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="photo-wrapper"><button class="offer-button" data-type="photo" onclick="showOffer('photo')">Photo</button><div class="offer-modal" id="photo-modal" style="display:none;"><div class="modal-content">Photo Offer Window<button onclick="closeOffer('photo')">Close</button></div><form method="post"><label>Upload Photo</label><input placeholder="Upload Photo" required="required" type="file"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="vin-wrapper"><button class="offer-button" data-type="vin" onclick="showOffer('vin')">VIN</button><div class="offer-modal" id="vin-modal" style="display:none;"><div class="modal-content">Vin Offer Window<button onclick="closeOffer('vin')">Close</button></div><form method="post"><label>Enter VIN</label><input placeholder="Enter VIN" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="plate-wrapper"><button class="offer-button" data-type="plate" onclick="showOffer('plate')">Plate</button><div class="offer-modal" id="plate-modal" style="display:none;"><div class="modal-content">Plate Offer Window<button onclick="closeOffer('plate')">Close</button></div><form method="post"><label>Plate Number</label><input placeholder="Plate Number" required="required" type="text"/><label>State</label><input placeholder="State" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="video-wrapper"><button class="offer-button" data-type="video" onclick="showOffer('video')">Video</button><div class="offer-modal" id="video-modal" style="display:none;"><div class="modal-content">Video Offer Window<button onclick="closeOffer('video')">Close</button></div><form method="post"><label>Upload Video</label><input placeholder="Upload Video" required="required" type="file"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="agent-wrapper"><button class="offer-button" data-type="agent" onclick="showOffer('agent')" title="Talk to a real person supported by AI">Agent</button><div class="offer-modal" id="agent-modal" style="display:none;"><div class="modal-content">Agent Offer Window<button onclick="closeOffer('agent')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Phone Number</label><input placeholder="Phone Number" required="required" type="text"/><label>Preferred Time</label><input placeholder="Preferred Time" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div></section>
+<div class="offer-wrapper" id="voice-wrapper"><button class="offer-button" data-type="voice" onclick="showOffer('voice')">Voice</button><div class="offer-modal" id="voice-modal" style="display:none;">
+<div class="offer-intro">
+<h3>Tell Us About Your Car</h3>
+<p>Get a personalized offer from our trusted team — fast, fair, and no hassle.</p>
+</div>
+
+<div class="modal-content">
+<button onclick="closeOffer('voice')">Close</button>
+<form id="voiceFormSteps">
+<div class="step" id="voice_step1">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep('voice', 1)" type="button">Next</button>
+</div>
+<div class="step" id="voice_step2" style="display:none;">
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep('voice', 1)" type="button">Back</button>
+<button onclick="nextStep('voice', 2)" type="button">Next</button>
+</div>
+<div class="step" id="voice_step3" style="display:none;">
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep('voice', 2)" type="button">Back</button>
+<button type="submit">Submit Offer</button>
+</div>
+</form>
+</div>
+</div></div><div class="offer-wrapper" id="text-wrapper"><button class="offer-button" data-type="text" onclick="showOffer('text')">Text</button><div class="offer-modal" id="text-modal" style="display:none;">
+<div class="offer-intro">
+<h3>Tell Us About Your Car</h3>
+<p>Get a personalized offer from our trusted team — fast, fair, and no hassle.</p>
+</div>
+
+<div class="modal-content">
+<button onclick="closeOffer('text')">Close</button>
+<form id="textFormSteps">
+<div class="step" id="text_step1">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep('text', 1)" type="button">Next</button>
+</div>
+<div class="step" id="text_step2" style="display:none;">
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep('text', 1)" type="button">Back</button>
+<button onclick="nextStep('text', 2)" type="button">Next</button>
+</div>
+<div class="step" id="text_step3" style="display:none;">
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep('text', 2)" type="button">Back</button>
+<button type="submit">Submit Offer</button>
+</div>
+</form>
+</div>
+</div></div><div class="offer-wrapper" id="call-wrapper"><button class="offer-button" data-type="call" onclick="showOffer('call')">Call</button><div class="offer-modal" id="call-modal" style="display:none;">
+<div class="offer-intro">
+<h3>Tell Us About Your Car</h3>
+<p>Get a personalized offer from our trusted team — fast, fair, and no hassle.</p>
+</div>
+
+<div class="call-intro">
+<h3>Let’s Talk About Your Car</h3>
+<p>Connect instantly with our expert team. Fast quotes. Real offers. Zero pressure.</p>
+</div>
+
+<div class="modal-content">
+<button onclick="closeOffer('call')">Close</button>
+<form id="callFormSteps">
+<div class="step" id="call_step1">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep('call', 1)" type="button">Next</button>
+</div>
+<div class="step" id="call_step2" style="display:none;">
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep('call', 1)" type="button">Back</button>
+<button onclick="nextStep('call', 2)" type="button">Next</button>
+</div>
+<div class="step" id="call_step3" style="display:none;">
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep('call', 2)" type="button">Back</button>
+<button type="submit">Submit Offer</button>
+</div>
+</form>
+</div>
+</div></div><div class="offer-wrapper" id="chat-wrapper"><button class="offer-button" data-type="chat" onclick="showOffer('chat')">Chat</button><div class="offer-modal" id="chat-modal" style="display:none;">
+<div class="offer-intro">
+<h3>Tell Us About Your Car</h3>
+<p>Get a personalized offer from our trusted team — fast, fair, and no hassle.</p>
+</div>
+
+<div class="modal-content">
+<button onclick="closeOffer('chat')">Close</button>
+<form id="chatFormSteps">
+<div class="step" id="chat_step1">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep('chat', 1)" type="button">Next</button>
+</div>
+<div class="step" id="chat_step2" style="display:none;">
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep('chat', 1)" type="button">Back</button>
+<button onclick="nextStep('chat', 2)" type="button">Next</button>
+</div>
+<div class="step" id="chat_step3" style="display:none;">
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep('chat', 2)" type="button">Back</button>
+<button type="submit">Submit Offer</button>
+</div>
+</form>
+</div>
+</div></div><div class="offer-wrapper" id="photo-wrapper"><button class="offer-button" data-type="photo" onclick="showOffer('photo')">Photo</button><div class="offer-modal" id="photo-modal" style="display:none;">
+<div class="offer-intro">
+<h3>Tell Us About Your Car</h3>
+<p>Get a personalized offer from our trusted team — fast, fair, and no hassle.</p>
+</div>
+
+<div class="modal-content">
+<button onclick="closeOffer('photo')">Close</button>
+<form id="photoFormSteps">
+<div class="step" id="photo_step1">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep('photo', 1)" type="button">Next</button>
+</div>
+<div class="step" id="photo_step2" style="display:none;">
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep('photo', 1)" type="button">Back</button>
+<button onclick="nextStep('photo', 2)" type="button">Next</button>
+</div>
+<div class="step" id="photo_step3" style="display:none;">
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep('photo', 2)" type="button">Back</button>
+<button type="submit">Submit Offer</button>
+</div>
+</form>
+</div>
+</div></div><div class="offer-wrapper" id="vin-wrapper"><button class="offer-button" data-type="vin" onclick="showOffer('vin')">VIN</button><div class="offer-modal" id="vin-modal" style="display:none;">
+<div class="offer-intro">
+<h3>Tell Us About Your Car</h3>
+<p>Get a personalized offer from our trusted team — fast, fair, and no hassle.</p>
+</div>
+
+<div class="modal-content">
+<button onclick="closeOffer('vin')">Close</button>
+<form id="vinFormSteps">
+<div class="step" id="vin_step1">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep('vin', 1)" type="button">Next</button>
+</div>
+<div class="step" id="vin_step2" style="display:none;">
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep('vin', 1)" type="button">Back</button>
+<button onclick="nextStep('vin', 2)" type="button">Next</button>
+</div>
+<div class="step" id="vin_step3" style="display:none;">
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep('vin', 2)" type="button">Back</button>
+<button type="submit">Submit Offer</button>
+</div>
+</form>
+</div>
+</div></div><div class="offer-wrapper" id="plate-wrapper"><button class="offer-button" data-type="plate" onclick="showOffer('plate')">Plate</button><div class="offer-modal" id="plate-modal" style="display:none;">
+<div class="offer-intro">
+<h3>Tell Us About Your Car</h3>
+<p>Get a personalized offer from our trusted team — fast, fair, and no hassle.</p>
+</div>
+
+<div class="modal-content">
+<button onclick="closeOffer('plate')">Close</button>
+<form id="plateFormSteps">
+<div class="step" id="plate_step1">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep('plate', 1)" type="button">Next</button>
+</div>
+<div class="step" id="plate_step2" style="display:none;">
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep('plate', 1)" type="button">Back</button>
+<button onclick="nextStep('plate', 2)" type="button">Next</button>
+</div>
+<div class="step" id="plate_step3" style="display:none;">
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep('plate', 2)" type="button">Back</button>
+<button type="submit">Submit Offer</button>
+</div>
+</form>
+</div>
+</div></div><div class="offer-wrapper" id="video-wrapper"><button class="offer-button" data-type="video" onclick="showOffer('video')">Video</button><div class="offer-modal" id="video-modal" style="display:none;">
+<div class="offer-intro">
+<h3>Tell Us About Your Car</h3>
+<p>Get a personalized offer from our trusted team — fast, fair, and no hassle.</p>
+</div>
+
+<div class="modal-content">
+<button onclick="closeOffer('video')">Close</button>
+<form id="videoFormSteps">
+<div class="step" id="video_step1">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep('video', 1)" type="button">Next</button>
+</div>
+<div class="step" id="video_step2" style="display:none;">
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep('video', 1)" type="button">Back</button>
+<button onclick="nextStep('video', 2)" type="button">Next</button>
+</div>
+<div class="step" id="video_step3" style="display:none;">
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep('video', 2)" type="button">Back</button>
+<button type="submit">Submit Offer</button>
+</div>
+</form>
+</div>
+</div></div><div class="offer-wrapper" id="agent-wrapper"><button class="offer-button" data-type="agent" onclick="showOffer('agent')" title="Talk to a real person supported by AI">Agent</button><div class="offer-modal" id="agent-modal" style="display:none;">
+<div class="offer-intro">
+<h3>Tell Us About Your Car</h3>
+<p>Get a personalized offer from our trusted team — fast, fair, and no hassle.</p>
+</div>
+
+<div class="modal-content">
+<button onclick="closeOffer('agent')">Close</button>
+<form id="agentFormSteps">
+<div class="step" id="agent_step1">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep('agent', 1)" type="button">Next</button>
+</div>
+<div class="step" id="agent_step2" style="display:none;">
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep('agent', 1)" type="button">Back</button>
+<button onclick="nextStep('agent', 2)" type="button">Next</button>
+</div>
+<div class="step" id="agent_step3" style="display:none;">
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep('agent', 2)" type="button">Back</button>
+<button type="submit">Submit Offer</button>
+</div>
+</form>
+</div>
+</div></div></section>
 <!-- VIN Offer Form -->
 <section id="smartOfferForm" style="margin-top: 2rem;">
 <div class="offer-wrapper" id="ai-wrapper">
-<button class="offer-button" data-type="ai" onclick="showOffer('ai')">
+<button class="offer-button" onclick="showOffer('ai'); return false;">
 <i class="fas fa-robot" style="margin-right: 6px;"></i>AI Smart Offer
-        </button>
+  </button>
 <div class="offer-modal" id="ai-modal" style="display:none;">
 <div class="modal-content">
-<strong>AI Smart Offer Window</strong>
 <button onclick="closeOffer('ai')">Close</button>
-<form method="post">
+<form id="aiFormSteps">
+<div class="step" id="step1">
 <label>Your Name</label>
 <input placeholder="Your Name" required="" type="text"/>
+<button onclick="nextStep(1)" type="button">Next</button>
+</div>
+<div class="step" id="step2" style="display:none;">
 <label>Phone Number</label>
 <input placeholder="Phone Number" required="" type="text"/>
+<button onclick="prevStep(1)" type="button">Back</button>
+<button onclick="nextStep(2)" type="button">Next</button>
+</div>
+<div class="step" id="step3" style="display:none;">
 <label>Vehicle Details</label>
 <input placeholder="Make, Model, Year..." required="" type="text"/>
+<button onclick="prevStep(2)" type="button">Back</button>
 <button type="submit">Submit Offer</button>
+</div>
 </form>
 </div>
 </div>
@@ -2376,34 +2684,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <script>
-function showOffer(type) {
-  const blocks = document.querySelectorAll(".offer-block");
-  blocks.forEach(block => {
-    const form = block.querySelector(`[data-offer]`);
-    if (form) {
-      form.style.display = (form.getAttribute("data-offer") === type) ? "block" : "none";
-    }
-  });
-}
-</script><script>
 document.getElementById("navToggle").onclick = function() {
   const nav = document.getElementById("smartNav");
   nav.classList.toggle("active");
 };
-</script><script>
-function showOffer(offerType) {
-  document.querySelectorAll('.offer-wrapper').forEach(wrapper => {
-    wrapper.style.display = 'none';
-  });
-  document.getElementById(offerType + '-wrapper').style.display = 'block';
-  document.getElementById(offerType + '-modal').style.display = 'block';
-}
-function closeOffer(offerType) {
-  document.getElementById(offerType + '-modal').style.display = 'none';
-  document.querySelectorAll('.offer-wrapper').forEach(wrapper => {
-    wrapper.style.display = 'block';
-  });
-}
 </script><script>
 function showOffer(type) {
     var modals = document.querySelectorAll('.offer-modal');
@@ -2412,6 +2696,40 @@ function showOffer(type) {
 }
 function closeOffer(type) {
     document.getElementById(type + '-modal').style.display = 'none';
+}
+</script><script>
+function showOffer(type) {
+  if (event) event.preventDefault();
+  document.querySelectorAll('.offer-modal').forEach(m => m.style.display = 'none');
+  const modal = document.getElementById(type + '-modal');
+  if (modal) {
+    modal.style.display = 'block';
+    modal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+function closeOffer(type) {
+  const modal = document.getElementById(type + '-modal');
+  if (modal) {
+    modal.style.display = 'none';
+  }
+}
+</script><script>
+function nextStep(current) {
+  document.getElementById('step' + current).style.display = 'none';
+  document.getElementById('step' + (current + 1)).style.display = 'block';
+}
+function prevStep(current) {
+  document.getElementById('step' + current).style.display = 'none';
+  document.getElementById('step' + (current - 1)).style.display = 'block';
+}
+</script><script>
+function nextStep(id, current) {
+  document.getElementById(id + '_step' + current).style.display = 'none';
+  document.getElementById(id + '_step' + (current + 1)).style.display = 'block';
+}
+function prevStep(id, current) {
+  document.getElementById(id + '_step' + current).style.display = 'none';
+  document.getElementById(id + '_step' + (current - 1)).style.display = 'block';
 }
 </script></body>
 </html>
