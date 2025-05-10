@@ -323,8 +323,36 @@ textarea {
   box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
   outline: 2px solid #4CAF50;
 }
-</style>
 
+/* Simplified button design */
+.nav-offer-button {
+  flex: 1 1 calc(50% - 1rem);
+  max-width: 240px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s, border 0.3s;
+}
+.nav-offer-button:hover {
+  background-color: #333;
+  border-color: #666;
+}
+@media (min-width: 768px) {
+  .nav-offer-button {
+    flex: 1 1 calc(33.333% - 1rem);
+  }
+}
+@media (min-width: 1024px) {
+  .nav-offer-button {
+    flex: 1 1 calc(20% - 1rem);
+  }
+}
 </style>
 <style>
 #offerIconMenu {
@@ -453,8 +481,6 @@ textarea {
   box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
   outline: 2px solid #4CAF50;
 }
-</style>
-
 </style>
 <style>
 .form-step {
@@ -630,8 +656,6 @@ textarea {
   outline: 2px solid #4CAF50;
 }
 </style>
-
-</style>
 <style>
 #offerIconMenu {
   display: grid;
@@ -760,18 +784,61 @@ textarea {
   outline: 2px solid #4CAF50;
 }
 </style>
-
-</style>
-</head>
-<body>
+<style>
+#navToggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  background: #000;
+  color: white;
+  border: 2px solid white;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: none;
+}
+@media (max-width: 768px) {
+  #navToggle { display: block; }
+  #smartNav { display: none !important; }
+  #smartNav.active { display: grid !important; }
+}
+#smartNav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: #000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  color: white;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.nav-offer-button {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.6rem 0.75rem;
+  font-weight: 600;
+  border-radius: 30px;
+  width: 100%;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.nav-offer-button:hover {
+  background: white;
+  color: #000;
+  box-shadow: 0 0 8px white;
+}
+</style></head>
+<body><button class="nav-toggle" id="navToggle">☰ Offers</button>
 <!-- Sticky Smart Navigation -->
-<nav id="smartNav" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; color: white; display: flex; justify-content: center; gap: 1rem; padding: 0.5rem 0; z-index: 999; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: none;">
-<a href="#smartOfferForm" style="color: white; text-decoration: none;">Photo Offer</a>
-<a href="#licensePlateOffer" style="color: white; text-decoration: none;">Plate Offer</a>
-<a href="#vinScan" style="color: white; text-decoration: none;">Scan VIN</a>
-<a href="#voiceAssistant" style="color: white; text-decoration: none;">Voice</a>
-<a href="#smartVideo" style="color: white; text-decoration: none;">Video</a>
-</nav>
+<nav id="smartNav" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; color: white;display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));gap: 0.5rem; padding: 0.75rem 1rem; z-index: 999; font-size: 0.95rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center;"><button class="nav-offer-button" onclick="showOffer('photo')">📷 Photo Offer</button><button class="nav-offer-button" onclick="showOffer('plate')">🚘 Plate Offer</button><button class="nav-offer-button" onclick="showOffer('vin')">🔍 Vin Offer</button><button class="nav-offer-button" onclick="showOffer('voice')">🎙️ Voice Offer</button><button class="nav-offer-button" onclick="showOffer('video')">🎥 Video Offer</button></nav>
 <header>
 <h1 style="font-size: 4rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem;">Recarra</h1>
 <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
@@ -789,44 +856,8 @@ textarea {
 </div>
 <!-- Modern Offer Icon Section -->
 <div id="offerIconMenu" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
-<button class="offer-button" data-type="quick" onclick="showOffer('quick')">Quick AI Offer</button><button class="offer-button" data-type="voice" onclick="showOffer('voice')">Voice AI Offer</button><button class="offer-button" data-type="text" onclick="showOffer('text')">Text AI Offer</button><button class="offer-button" data-type="call" onclick="showOffer('call')">Call AI Offer</button><button class="offer-button" data-type="chat" onclick="showOffer('chat')">Chat AI Offer</button><button class="offer-button" data-type="photo" onclick="showOffer('photo')">Photo AI Offer</button><button class="offer-button" data-type="vin" onclick="showOffer('vin')">VIN AI Offer</button><button class="offer-button" data-type="plate" onclick="showOffer('plate')">Plate AI Offer</button><button class="offer-button" data-type="video" onclick="showOffer('video')">Video AI Offer</button><button class="offer-button" data-type="agent" onclick="showOffer('agent')" title="Talk to a real person supported by AI">Live Agent Offer</button></div>
+<div class="offer-block"><button class="offer-button" data-type="voice" onclick="showOffer('voice')">Voice AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="text" onclick="showOffer('text')">Text AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="call" onclick="showOffer('call')">Call AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="chat" onclick="showOffer('chat')">Chat AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="photo" onclick="showOffer('photo')">Photo AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="vin" onclick="showOffer('vin')">VIN AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="plate" onclick="showOffer('plate')">Plate AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="video" onclick="showOffer('video')">Video AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="agent" onclick="showOffer('agent')" title="Talk to a real person supported by AI">Live Agent Offer</button></div></div>
 <!-- Dynamic Form Container -->
-<div id="dynamicOfferForm" style="margin-top: 2rem;">
-<div data-offer="agent" style="display:none;">
-<div style="background: #f2f2f2; border-radius: 10px; padding: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-top: 2rem;">
-<h4 style="margin-bottom: 1rem; color: #ff4e50;">Live Agent Offer</h4>
-<p>Connect with a real person assisted by AI to get your cash offer.</p>
-<form method="post">
-<div class="form-step">
-<label style="font-weight:600;">Your Name</label>
-<input class="uniform-input" name="name" placeholder="Your Name" required="" type="text"/>
-</div>
-<div class="form-step">
-<label style="font-weight:600;">Phone Number</label>
-<input class="uniform-input" name="phone" placeholder="Phone Number" required="" type="tel"/>
-</div>
-<div class="form-step">
-<label style="font-weight:600;">Email Address</label>
-<input class="uniform-input" name="email" placeholder="Email Address" required="" type="email"/>
-</div>
-<div class="form-step">
-<label style="font-weight:600;">Preferred Contact Time</label>
-<input class="uniform-input" name="contact_time" required="" type="time"/>
-</div>
-<div class="form-step">
-<label style="font-weight:600;">Additional Notes (optional)</label>
-<textarea class="uniform-input" name="notes" placeholder="Anything you'd like us to know?" rows="3"></textarea>
-</div>
-<div class="form-nav" style="display:flex; justify-content:space-between;">
-<button onclick="prevStep()" style="display:none;" type="button">Back</button>
-<button onclick="nextStep()" style="display:none;" type="button">Next</button>
-</div>
-<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">Your Offer ID: <span id="generatedOfferId"></span></p>
-<button style="padding: 0.75rem 1rem; background: #4CAF50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button>
-</form>
-</div>
-</div>
-</div>
 <style>
 @keyframes colorCycle {
   0% { background: #ff4e50; }
@@ -1031,8 +1062,6 @@ textarea {
   outline: 2px solid #4CAF50;
 }
 </style>
-
-</style>
 <style>
 #offerIconMenu {
   display: grid;
@@ -1160,8 +1189,6 @@ textarea {
   box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
   outline: 2px solid #4CAF50;
 }
-</style>
-
 </style>
 <!-- Extended Offer Type Icons Section -->
 <!-- Modern Offer Icon Section -->
@@ -1353,8 +1380,6 @@ textarea {
   outline: 2px solid #4CAF50;
 }
 </style>
-
-</style>
 <style>
 #offerIconMenu {
   display: grid;
@@ -1482,8 +1507,6 @@ textarea {
   box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
   outline: 2px solid #4CAF50;
 }
-</style>
-
 </style>
 <!-- Dynamic Form Container -->
 <div id="dynamicOfferForm" style="margin-top: 2rem;"></div>
@@ -1789,8 +1812,6 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
   outline: 2px solid #4CAF50;
 }
 </style>
-
-</style>
 <style>
 #offerIconMenu {
   display: grid;
@@ -1918,8 +1939,6 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
   box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
   outline: 2px solid #4CAF50;
 }
-</style>
-
 </style>
 <script>
   document.getElementById("backToTop").onclick = function () {
@@ -2096,86 +2115,20 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 <script>
 function showOffer(type) {
-  const offerFormContainer = document.getElementById("dynamicOfferForm");
-  const allForms = {
-    photo: document.querySelector('h3:contains("Upload Photos to Get Your AI Cash Offer")')?.parentElement,
-    vin: document.querySelector('h4:contains("AI VIN Cash Offer")')?.parentElement,
-    plate: document.querySelector('h4:contains("AI License Plate Cash Offer")')?.parentElement,
-    video: document.querySelector('h4:contains("AI Video Call Junk Offer")')?.parentElement,
-    quick: document.querySelector('h4:contains("Quick Junk Offer Form")')?.parentElement
-  };
-
-  offerFormContainer.innerHTML = '';
-  Object.values(allForms).forEach(el => {
-    if (el && el.parentElement) el.style.display = 'none';
+  const blocks = document.querySelectorAll(".offer-block");
+  blocks.forEach(block => {
+    const form = block.querySelector(`[data-offer]`);
+    if (form) {
+      form.style.display = (form.getAttribute("data-offer") === type) ? "block" : "none";
+    }
   });
-
-  const selectedForm = allForms[type];
-  if (selectedForm) {
-    const clone = selectedForm.cloneNode(true);
-    clone.style.display = 'block';
-    offerFormContainer.appendChild(clone);
-  }
 }
-</script>
-<script>
-function showOffer(type) {
-  const offerFormContainer = document.getElementById("dynamicOfferForm");
-  const allForms = {
-    vin: document.querySelector('h4:contains("VIN Cash Offer")')?.parentElement,
-    photo: document.querySelector('h3:contains("Upload Photos to Get Your AI Cash Offer")')?.parentElement,
-    plate: document.querySelector('h4:contains("License Plate Cash Offer")')?.parentElement,
-    video: document.querySelector('h4:contains("Video Call Junk Offer")')?.parentElement,
-    quick: document.querySelector('h4:contains("Quick Junk Offer Form")')?.parentElement,
-    voice: document.querySelector('h4:contains("Voice Assistant Offer")')?.parentElement,
-    text: document.querySelector('h4:contains("Text Offer")')?.parentElement,
-    call: document.querySelector('h4:contains("Call Offer")')?.parentElement,
-    chat: document.querySelector('h4:contains("Live Chat AI Offer")')?.parentElement
-  };
-
-  offerFormContainer.innerHTML = '';
-  Object.values(allForms).forEach(el => {
-    if (el && el.parentElement) el.style.display = 'none';
-  });
-
-  const selectedForm = allForms[type];
-  if (selectedForm) {
-    const clone = selectedForm.cloneNode(true);
-    clone.style.display = 'block';
-    offerFormContainer.appendChild(clone);
-  }
-}
-</script>
-<script>
-function showOffer(type) {
-  const offerFormContainer = document.getElementById("dynamicOfferForm");
-  const allForms = {
-    vin: document.querySelector('[data-offer="vin"]'),
-    photo: document.querySelector('[data-offer="photo"]'),
-    plate: document.querySelector('[data-offer="plate"]'),
-    video: document.querySelector('[data-offer="video"]'),
-    quick: document.querySelector('[data-offer="quick"]'),
-    voice: document.querySelector('[data-offer="voice"]'),
-    text: document.querySelector('[data-offer="text"]'),
-    call: document.querySelector('[data-offer="call"]'),
-    chat: document.querySelector('[data-offer="chat"]')
-  };
-
-  document.querySelectorAll(".offer-icon").forEach(el => el.classList.remove("active"));
-  const selectedIcon = document.querySelector(`.offer-icon[data-type="${type}"]`);
-  if (selectedIcon) selectedIcon.classList.add("active");
-
-  offerFormContainer.innerHTML = '';
-  const selectedForm = allForms[type];
-  if (selectedForm) {
-    const clone = selectedForm.cloneNode(true);
-    clone.style.display = "block";
-    offerFormContainer.appendChild(clone);
-    clone.scrollIntoView({ behavior: "smooth" });
-  }
-}
-</script>
-</body>
+</script><script>
+document.getElementById("navToggle").onclick = function() {
+  const nav = document.getElementById("smartNav");
+  nav.classList.toggle("active");
+};
+</script></body>
 </html>
 <script>
   function startVinScan() {
