@@ -1144,11 +1144,11 @@ textarea {
 </style></head>
 <body><audio id="popupSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio><div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
 <nav id="smartNav">
-<button class="nav-offer-button" onclick="showOffer('photo')"><i class="fas fa-camera" style="margin-right: 8px;"></i>Photo Offer</button>
-<button class="nav-offer-button" onclick="showOffer('plate')"><i class="fas fa-car" style="margin-right: 8px;"></i>Plate Offer</button>
-<button class="nav-offer-button" onclick="showOffer('vin')"><i class="fas fa-search" style="margin-right: 8px;"></i>Vin Offer</button>
-<button class="nav-offer-button" onclick="showOffer('voice')"><i class="fas fa-microphone" style="margin-right: 8px;"></i>Voice Offer</button>
-<button class="nav-offer-button" onclick="showOffer('video')"><i class="fas fa-video" style="margin-right: 8px;"></i>Video Offer</button>
+<button class="nav-offer-button" onclick="showOffer('photo', event)"><i class="fas fa-camera" style="margin-right: 8px;"></i>Photo Offer</button>
+<button class="nav-offer-button" onclick="showOffer('plate', event)"><i class="fas fa-car" style="margin-right: 8px;"></i>Plate Offer</button>
+<button class="nav-offer-button" onclick="showOffer('vin', event)"><i class="fas fa-search" style="margin-right: 8px;"></i>Vin Offer</button>
+<button class="nav-offer-button" onclick="showOffer('voice', event)"><i class="fas fa-microphone" style="margin-right: 8px;"></i>Voice Offer</button>
+<button class="nav-offer-button" onclick="showOffer('video', event)"><i class="fas fa-video" style="margin-right: 8px;"></i>Video Offer</button>
 <button class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
 </nav>
 <button class="nav-toggle" id="navToggle">☰ Offers</button>
@@ -1173,20 +1173,20 @@ textarea {
 <p style="font-size: 1.1rem; color: #333; margin-bottom: 1.5rem;">
         Submit your car details and receive an instant AI-powered offer based on real market data.
       </p>
-<button class="offer-button" onclick="showOffer('ai')" style="margin-bottom: 2rem;">
+<button class="offer-button" onclick="showOffer('ai', event)" style="margin-bottom: 2rem;">
 <i class="fas fa-robot" style="margin-right: 6px;"></i>Start Smart AI Offer
       </button>
 <h3 style="font-size: 1.25rem; font-weight: 700; margin-top: 2rem;">Other Smart Ways to Get a Junk Car Offer:</h3>
 <div id="offerIconMenu">
-<button class="offer-button" onclick="showOffer('voice')">Voice</button>
-<button class="offer-button" onclick="showOffer('text')">Text</button>
-<button class="offer-button" onclick="showOffer('call')">Call</button>
-<button class="offer-button" onclick="showOffer('chat')">Chat</button>
-<button class="offer-button" onclick="showOffer('photo')">Photo</button>
-<button class="offer-button" onclick="showOffer('vin')">VIN</button>
-<button class="offer-button" onclick="showOffer('plate')">Plate</button>
-<button class="offer-button" onclick="showOffer('video')">Video</button>
-<button class="offer-button" onclick="showOffer('agent')">Agent</button>
+<button class="offer-button" onclick="showOffer('voice', event)">Voice</button>
+<button class="offer-button" onclick="showOffer('text', event)">Text</button>
+<button class="offer-button" onclick="showOffer('call', event)">Call</button>
+<button class="offer-button" onclick="showOffer('chat', event)">Chat</button>
+<button class="offer-button" onclick="showOffer('photo', event)">Photo</button>
+<button class="offer-button" onclick="showOffer('vin', event)">VIN</button>
+<button class="offer-button" onclick="showOffer('plate', event)">Plate</button>
+<button class="offer-button" onclick="showOffer('video', event)">Video</button>
+<button class="offer-button" onclick="showOffer('agent', event)">Agent</button>
 </div>
 </section>
 </section></div>
@@ -1789,20 +1789,10 @@ document.getElementById("navToggle").onclick = function() {
   nav.classList.toggle("active");
 };
 </script><script>
-function showOffer(type) {
-  document.getElementById('popupSound').play();
-    var modals = document.querySelectorAll('.offer-modal');
-    modals.forEach(m => m.style.display = 'none');
-    document.getElementById(type + '-modal').style.display = 'block';
-}
-function closeOffer(type) {
-    document.getElementById(type + '-modal').style.display = 'none';
-}
-</script><script>
-function showOffer(type) {
-  document.getElementById('popupSound').play();
+function showOffer(type, event) {
   if (event) event.preventDefault();
-  document.querySelectorAll('.offer-modal').forEach(m => m.style.display = 'none');
+  document.getElementById('popupSound').play();
+  document.getElementById('modalOverlay').style.display = 'block';
   const modal = document.getElementById(type + '-modal');
   if (modal) {
     modal.style.display = 'block';
@@ -1810,11 +1800,36 @@ function showOffer(type) {
   }
 }
 function closeOffer(type) {
+  document.getElementById('modalOverlay').style.display = 'none';
+  document.getElementById(type + '-modal').style.display = 'none';
+}
+document.getElementById('modalOverlay').addEventListener('click', function () {
+  document.querySelectorAll('.offer-modal').forEach(function(modal) {
+    modal.style.display = 'none';
+  });
+  this.style.display = 'none';
+});
+</script><script>
+function showOffer(type, event) {
+  if (event) event.preventDefault();
+  document.getElementById('popupSound').play();
+  document.getElementById('modalOverlay').style.display = 'block';
   const modal = document.getElementById(type + '-modal');
   if (modal) {
-    modal.style.display = 'none';
+    modal.style.display = 'block';
+    modal.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
+function closeOffer(type) {
+  document.getElementById('modalOverlay').style.display = 'none';
+  document.getElementById(type + '-modal').style.display = 'none';
+}
+document.getElementById('modalOverlay').addEventListener('click', function () {
+  document.querySelectorAll('.offer-modal').forEach(function(modal) {
+    modal.style.display = 'none';
+  });
+  this.style.display = 'none';
+});
 </script><script>
 function nextStep(current) {
   document.getElementById('step' + current).style.display = 'none';
@@ -1834,10 +1849,15 @@ function prevStep(id, current) {
   document.getElementById(id + '_step' + (current - 1)).style.display = 'block';
 }
 </script><script>
-function showOffer(type) {
+function showOffer(type, event) {
+  if (event) event.preventDefault();
   document.getElementById('popupSound').play();
   document.getElementById('modalOverlay').style.display = 'block';
-  document.getElementById(type + '-modal').style.display = 'block';
+  const modal = document.getElementById(type + '-modal');
+  if (modal) {
+    modal.style.display = 'block';
+    modal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }
 function closeOffer(type) {
   document.getElementById('modalOverlay').style.display = 'none';
@@ -1849,6 +1869,23 @@ document.getElementById('modalOverlay').addEventListener('click', function () {
   });
   this.style.display = 'none';
 });
+</script><div class="offer-modal" id="voice-modal" style="display:none;"><form id="voiceForm"><div class="form-step" id="voice_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('voice', 1)" type="button">Next</button></div><div class="form-step" id="voice_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('voice', 2)" type="button">Back</button><button onclick="nextStep('voice', 2)" type="button">Next</button></div><div class="form-step" id="voice_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('voice', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><div class="offer-modal" id="photo-modal" style="display:none;"><form id="photoForm"><div class="form-step" id="photo_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('photo', 1)" type="button">Next</button></div><div class="form-step" id="photo_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('photo', 2)" type="button">Back</button><button onclick="nextStep('photo', 2)" type="button">Next</button></div><div class="form-step" id="photo_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('photo', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><div class="offer-modal" id="vin-modal" style="display:none;"><form id="vinForm"><div class="form-step" id="vin_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('vin', 1)" type="button">Next</button></div><div class="form-step" id="vin_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('vin', 2)" type="button">Back</button><button onclick="nextStep('vin', 2)" type="button">Next</button></div><div class="form-step" id="vin_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('vin', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><div class="offer-modal" id="plate-modal" style="display:none;"><form id="plateForm"><div class="form-step" id="plate_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('plate', 1)" type="button">Next</button></div><div class="form-step" id="plate_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('plate', 2)" type="button">Back</button><button onclick="nextStep('plate', 2)" type="button">Next</button></div><div class="form-step" id="plate_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('plate', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><div class="offer-modal" id="video-modal" style="display:none;"><form id="videoForm"><div class="form-step" id="video_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('video', 1)" type="button">Next</button></div><div class="form-step" id="video_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('video', 2)" type="button">Back</button><button onclick="nextStep('video', 2)" type="button">Next</button></div><div class="form-step" id="video_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('video', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><div class="offer-modal" id="text-modal" style="display:none;"><form id="textForm"><div class="form-step" id="text_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('text', 1)" type="button">Next</button></div><div class="form-step" id="text_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('text', 2)" type="button">Back</button><button onclick="nextStep('text', 2)" type="button">Next</button></div><div class="form-step" id="text_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('text', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><div class="offer-modal" id="call-modal" style="display:none;"><form id="callForm"><div class="form-step" id="call_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('call', 1)" type="button">Next</button></div><div class="form-step" id="call_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('call', 2)" type="button">Back</button><button onclick="nextStep('call', 2)" type="button">Next</button></div><div class="form-step" id="call_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('call', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><div class="offer-modal" id="chat-modal" style="display:none;"><form id="chatForm"><div class="form-step" id="chat_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('chat', 1)" type="button">Next</button></div><div class="form-step" id="chat_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('chat', 2)" type="button">Back</button><button onclick="nextStep('chat', 2)" type="button">Next</button></div><div class="form-step" id="chat_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('chat', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><div class="offer-modal" id="agent-modal" style="display:none;"><form id="agentForm"><div class="form-step" id="agent_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('agent', 1)" type="button">Next</button></div><div class="form-step" id="agent_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('agent', 2)" type="button">Back</button><button onclick="nextStep('agent', 2)" type="button">Next</button></div><div class="form-step" id="agent_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('agent', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><div class="offer-modal" id="ai-modal" style="display:none;"><form id="aiForm"><div class="form-step" id="ai_step1" style="display:block;"><label>What’s your name?</label><input required="True" type="text"/><button onclick="nextStep('ai', 1)" type="button">Next</button></div><div class="form-step" id="ai_step2" style="display:none;"><label>Your phone number?</label><input required="True" type="tel"/><button onclick="prevStep('ai', 2)" type="button">Back</button><button onclick="nextStep('ai', 2)" type="button">Next</button></div><div class="form-step" id="ai_step3" style="display:none;"><label>Your email?</label><input required="True" type="email"/><button onclick="prevStep('ai', 3)" type="button">Back</button><button type="submit">Submit Offer</button></div></form></div><script>
+function nextStep(id, current) {
+  const currentStep = document.getElementById(id + '_step' + current);
+  const nextStep = document.getElementById(id + '_step' + (current + 1));
+  if (currentStep && nextStep) {
+    currentStep.style.display = 'none';
+    nextStep.style.display = 'block';
+  }
+}
+function prevStep(id, current) {
+  const currentStep = document.getElementById(id + '_step' + current);
+  const prevStep = document.getElementById(id + '_step' + (current - 1));
+  if (currentStep && prevStep) {
+    currentStep.style.display = 'none';
+    prevStep.style.display = 'block';
+  }
+}
 </script></body>
 </html>
 <script>
