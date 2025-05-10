@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (box) box.classList.add(chosen);
 });
 </script>
-<link href="recarra.css" rel="stylesheet"/><meta content="Recarra is an AI-powered platform to sell your car instantly with cash, direct deposit, or debit card payouts." name="description"/><meta content="Recarra | Sell Your Car Instantly" property="og:title"/><meta content="Get an instant offer for your car with AI technology. Trusted, fast, and reliable." property="og:description"/><meta content="https://recarra.com/assets/share-image.jpg" property="og:image"/><meta content="https://recarra.com" property="og:url"/></head>
+<link href="recarra.css" rel="stylesheet"/></head>
 <body>
 <!-- Splash Welcome Screen -->
 <div id="splashScreen" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,#ff4e50,#f9d423);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#000;text-align:center;transition:opacity 1s ease;">
@@ -108,7 +108,7 @@ window.addEventListener("load", () => {
 </select>
 <textarea placeholder="Address / Pickup Instructions" required="" rows="3"></textarea>
 <textarea placeholder="Any additional notes or questions?" rows="3"></textarea>
-<button aria-label="Submit your car offer details" class="offer-button" style="width:100%;font-size:1.1rem;font-weight:700;border-radius:50px;background:linear-gradient(to right,#ff4e50,#f9d423);color:black;box-shadow:0 0 12px rgba(255,78,80,0.3);position:relative;z-index:10;margin-top:1.5rem;position:relative;z-index:10;margin-top:1.5rem;" type="submit">
+<button class="offer-button" style="width:100%;font-size:1.1rem;font-weight:700;border-radius:50px;background:linear-gradient(to right,#ff4e50,#f9d423);color:black;box-shadow:0 0 12px rgba(255,78,80,0.3);position:relative;z-index:10;margin-top:1.5rem;position:relative;z-index:10;margin-top:1.5rem;" type="submit">
 <i class="fas fa-bolt" style="margin-right: 8px;"></i> Submit Offer
 </button>
 </form>
@@ -135,12 +135,12 @@ window.addEventListener("load", () => {
 </div>
 </section>
 <div class="offer-button-grid">
-<button aria-label="Accept button" class="offer-button" onclick="showOffer('photo', event)">Accept</button>
-<button aria-label="Extend button" class="offer-button" onclick="showOffer('vin', event)">Extend</button>
-<button aria-label="Email button" class="offer-button" onclick="showOffer('email', event)">Email</button>
-<button aria-label="Text button" class="offer-button" onclick="showOffer('text', event)">Text</button>
-<button aria-label="Call button" class="offer-button" onclick="showOffer('call', event)">Call</button>
-<button aria-label="Call Us button" class="offer-button" onclick="window.location.href='tel:+18885558888'">Call Us</button>
+<button class="offer-button" onclick="showOffer('photo', event)">Accept</button>
+<button class="offer-button" onclick="showOffer('vin', event)">Extend</button>
+<button class="offer-button" onclick="showOffer('email', event)">Email</button>
+<button class="offer-button" onclick="showOffer('text', event)">Text</button>
+<button class="offer-button" onclick="showOffer('call', event)">Call</button>
+<button class="offer-button" onclick="window.location.href='tel:+18885558888'">Call Us</button>
 </div>
 <section class="call-intro" style="animation: fadeInSlide 1s ease-out; margin: 2rem auto; max-width: 720px; padding: 1.25rem 2rem; border-radius: 10px; background: linear-gradient(to right, #ffffff, #f8f8f8); text-align: center;">
 <h3 style="font-size: 1.3rem; font-weight: 800; margin: 0.5rem 0;">
