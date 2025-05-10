@@ -43,11 +43,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Recarra | Sell Your Car Instantly</title>
-
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"></noscript>
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript></noscript>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"><style>
 :root {
 --main-gradient: linear-gradient(135deg, #ff4e50, #f9d423);
 --lux-gold: #ffd700;
@@ -1456,7 +1454,7 @@ grid-template-columns: 1fr 1fr;
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <meta content="Recarra" name="apple-mobile-web-app-title"/>
-<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon">
 <style>
 body.dim-mode {
   background-color: #121212;
@@ -1497,7 +1495,7 @@ body.dim-mode .section-title {
 <link href="/icons/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-<link href="/manifest.json" rel="manifest"/>
+
 <meta content="#ff4e50" name="msapplication-TileColor"/>
 <meta content="/icons/mstile-150x150.png" name="msapplication-TileImage"/>
 <link href="/splash/splash-light.png" media="(prefers-color-scheme: light)" rel="apple-touch-startup-image"/>
@@ -1565,8 +1563,66 @@ document.addEventListener('DOMContentLoaded', () => {
   if (box) box.classList.add(chosen);
 });
 </script>
-</head>
-<body><audio id="popupSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio><div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+<style>
+#recarraForm input,
+#recarraForm select,
+#recarraForm textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+#recarraForm input:focus,
+#recarraForm select:focus,
+#recarraForm textarea:focus {
+  border-color: #ff4e50;
+  outline: none;
+  box-shadow: 0 0 10px rgba(255,78,80,0.3);
+}
+
+#recarraForm button[type="submit"] {
+  padding: 0.9rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 78, 80, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#recarraForm button[type="submit"]:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px rgba(255, 78, 80, 0.3);
+}
+</style>
+</link></link></head>
+<body>
+<!-- Splash Welcome Screen -->
+<div id="splashScreen" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,#ff4e50,#f9d423);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#000;text-align:center;transition:opacity 1s ease;">
+<h1 style="font-size:3rem;font-weight:900;margin-bottom:1rem;">Welcome to Recarra</h1>
+<p style="font-size:1.25rem;margin-bottom:2rem;">A high-end AI-powered car buying platform</p>
+<button onclick="hideSplash()" style="padding:0.75rem 1.5rem;font-size:1.1rem;border:none;border-radius:30px;background:#000;color:#fff;cursor:pointer;">Enter Site</button>
+<audio id="enterSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-4.mp3"></audio>
+</div>
+<script>
+function hideSplash() {
+  document.getElementById("splashScreen").style.opacity = "0";
+  document.getElementById("splashScreen").style.pointerEvents = "none";
+  document.getElementById("enterSound").play();
+  setTimeout(() => document.getElementById("splashScreen").style.display = "none", 1000);
+}
+window.addEventListener("load", () => {
+  setTimeout(hideSplash, 8000);
+});
+</script>
+<audio id="popupSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio><div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
 <nav id="smartNav">
 <button aria-label="Accept Offer" class="nav-offer-button" onclick="showOffer('photo', event)">Accept Offer</button>
 <button aria-label="Text Offer" class="nav-offer-button" onclick="showOffer('plate', event)">Text Offer</button>
@@ -1589,6 +1645,27 @@ document.addEventListener('DOMContentLoaded', () => {
   </a>
 </div>
 </header>
+<!-- Recarra Full Form Section -->
+<section class="section-block fade-in-section" id="recarraForm" style="max-width:720px;margin:3rem auto;padding:2rem;border-radius:12px;background:#fff;box-shadow:0 0 12px rgba(0,0,0,0.05);">
+<h2 class="section-title" style="font-size:2rem;text-align:center;color:#ff4e50;">Recarra Form</h2>
+<form style="display:flex;flex-direction:column;gap:1rem;">
+<input placeholder="Full Name" required="" type="text"/>
+<input placeholder="Phone Number" required="" type="tel"/>
+<input placeholder="Email Address" required="" type="email"/>
+<input placeholder="Car Year, Make, and Model" required="" type="text"/>
+<input placeholder="VIN Number (optional)" type="text"/>
+<input accept="image/*" type="file"/>
+<select required="">
+<option value="">Preferred Payment Method</option>
+<option value="cash">Cash</option>
+<option value="direct">Direct Deposit</option>
+<option value="debit">Instant Debit Transfer</option>
+</select>
+<textarea placeholder="Address / Pickup Instructions" required="" rows="3"></textarea>
+<textarea placeholder="Any additional notes or questions?" rows="3"></textarea>
+<button class="btn" style="margin-top:1rem;" type="submit">Submit My Info</button>
+</form>
+</section>
 <div class="offer-button-grid">
 <button class="offer-button" onclick="showOffer('photo', event)">Accept</button>
 <button class="offer-button" onclick="showOffer('vin', event)">Extend</button>
@@ -1834,7 +1911,6 @@ localStorage.setItem("recarra-mode", isDim ? "dim" : "light");
 <h2 class="section-title" style="font-size: 2.2rem; text-align: center; color: #ff4e50;">
 <i class="fas fa-envelope-open-text" style="margin-right: 10px;"></i> Drop a Message for the CEO
   </h2>
-
 <div style="text-align: center; margin-bottom: 0.5rem;">
 <i class="fas fa-feather-alt" style="
     font-size: 2rem;
@@ -2762,6 +2838,22 @@ rotateRecarraPhrase();
     rotateCEOQuote();
     setInterval(rotateCEOQuote, 8000);
   });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const recarraForm = document.querySelector("#recarraForm form");
+  if (recarraForm) {
+    recarraForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      recarraForm.style.display = "none";
+      const confirm = document.createElement("div");
+      confirm.style = "text-align:center;font-size:1.25rem;padding:2rem;border-radius:12px;background:#e8ffe8;border:2px solid #4CAF50;color:#2e7d32;";
+      confirm.innerHTML = "<strong>Thank you!</strong><br>Your info was received. We’ll contact you shortly.";
+      recarraForm.parentNode.appendChild(confirm);
+    });
+  }
+});
 </script>
 </body>
 </html>
