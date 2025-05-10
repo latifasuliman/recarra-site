@@ -2435,6 +2435,48 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 </script>
 
+
+<section class="fade-in-section section-block">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div id="faq-container" style="text-align: center; padding: 1rem;">
+    <h3 id="faq-question" style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;"></h3>
+    <p id="faq-answer" style="font-size: 1.25rem; color: #555;"></p>
+  </div>
+</section>
+
+<script>
+const faqs = [
+  { question: "How fast will Recarra pay me for my car?", answer: "We pay instantly through cash, debit card transfer, or direct deposit once the car is picked up." },
+  { question: "Can I sell my car to Recarra without the title?", answer: "Yes, we provide alternative solutions and guide you through the process smoothly." },
+  { question: "Do I need to clean or repair my car before selling?", answer: "No cleaning or repairs needed—sell your car as-is, hassle-free." },
+  { question: "What payment methods does Recarra offer?", answer: "You can select from instant cash, debit card transfer, or direct bank deposit." },
+  { question: "Does Recarra handle all the paperwork?", answer: "Absolutely! We take care of all the necessary paperwork to make your experience stress-free." },
+  { question: "Will Recarra buy my car even if it doesn't run?", answer: "Certainly, we buy cars in any condition, running or not." },
+  { question: "How does Recarra determine the value of my car?", answer: "We use advanced AI technology and real-time market data to offer fair and competitive prices." }
+];
+
+let faqIndex = 0;
+let showingAnswer = false;
+
+function rotateFAQ() {
+  const questionEl = document.getElementById('faq-question');
+  const answerEl = document.getElementById('faq-answer');
+
+  if (!showingAnswer) {
+    questionEl.textContent = faqs[faqIndex].question;
+    answerEl.textContent = '';
+    showingAnswer = true;
+  } else {
+    answerEl.textContent = faqs[faqIndex].answer;
+    faqIndex = (faqIndex + 1) % faqs.length;
+    showingAnswer = false;
+  }
+}
+
+setInterval(rotateFAQ, 5000);
+window.onload = rotateFAQ;
+</script>
+
 </body>
 </html>
 <script>
