@@ -1567,6 +1567,19 @@ Submit your car details and receive an instant AI-powered offer based on real ma
 <h2 class="section-title">Recarra Mobile App</h2>
 <p>Download our app for even faster service, updates, and instant offers.</p>
 <button aria-label="Notify Me When Ready" class="btn">Notify Me When Ready</button>
+<button id="installApp" style="
+  display: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: black;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 78, 80, 0.3);
+  transition: transform 0.3s ease;
+">Install Recarra App</button>
 <p style="font-size: 0.9rem;">Coming soon to iOS &amp; Android.</p>
 </section>
 <section class="fade-in-section section-block">
@@ -2355,6 +2368,33 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(err => console.error('Service Worker registration failed:', err));
     });
   }
+</script>
+
+
+<!-- PWA Install Prompt -->
+<script>
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    const installBtn = document.getElementById('installApp');
+    if (installBtn) {
+      installBtn.style.display = 'inline-block';
+      installBtn.addEventListener('click', () => {
+        installBtn.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the A2HS prompt');
+          } else {
+            console.log('User dismissed the A2HS prompt');
+          }
+          deferredPrompt = null;
+        });
+      });
+    }
+  });
 </script>
 
 </body>
