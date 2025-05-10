@@ -1408,6 +1408,72 @@ input:invalid {
   cursor: pointer;
   z-index: 10;
 }
+</style><style>
+.counter-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  background: linear-gradient(145deg, #f5f5f5, #e0e0e0, #cccccc);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  margin: 3rem auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05), inset 0 0 30px rgba(255,255,255,0.3);
+  text-align: center;
+  max-width: 960px;
+}
+.counter-box {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+  width: 100%;
+}
+.counter-box i {
+  font-size: 2rem;
+  color: #ff4e50;
+}
+.counter-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff4e50;
+  margin-top: 0.5rem;
+}
+.counter-label {
+  font-size: 1rem;
+  color: #444;
+  margin-top: 0.3rem;
+}
+</style><style>
+.counter-box {
+  position: relative;
+}
+.counter-box:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.counter-box::after {
+  content: '';
+  opacity: 0;
+}
+.counter-box i {
+  animation: fadeInUp 0.8s ease forwards;
+}
+@keyframes fadeInUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
 </style></head>
 <body><audio id="popupSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio><div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
 <nav id="smartNav">
@@ -1455,6 +1521,25 @@ input:invalid {
 <button aria-label="Video" class="offer-button" onclick="showOffer('video', event)">Video</button>
 <button aria-label="Agent" class="offer-button" onclick="showOffer('agent', event)">Agent</button>
 </div>
+<section class="counter-section fade-in-section" style="text-align: center; padding: 3rem 1rem; border-radius: 10px; margin-top: 2rem; background: linear-gradient(145deg, #f5f5f5, #e0e0e0, #cccccc); box-shadow: 0 0 20px rgba(0,0,0,0.1), inset 0 0 30px rgba(255,255,255,0.3);">
+<h2 style="font-weight:800; font-size: 2rem; margin-bottom: 1.5rem;">Recarra By the Numbers</h2>
+<div class="counter-box" data-tooltip="Total verified car sellers">
+<i class="fas fa-car" style="font-size: 2rem; color: #555;"></i>
+<div class="counter-number" data-target="10000">0</div>
+<div class="counter-label">Cars Purchased</div>
+</div>
+<div class="counter-box" data-tooltip="US states actively served">
+<i class="fas fa-flag-usa" style="font-size: 2rem; color: #555;"></i>
+<div class="counter-number" data-target="50">0</div>
+<div class="counter-label">States Served</div>
+</div>
+<div class="counter-box" data-tooltip="Service available 24/7">
+<i class="fas fa-clock" style="font-size: 2rem; color: #555;"></i>
+<div class="counter-number" data-target="24">0</div>
+<div class="counter-label">Hour Service</div>
+</div>
+</section>
+
 </section><section style="border-top: 2px solid rgba(0,0,0,0.05); margin-top: 2rem; padding-top: 2rem; ; ; ; text-align: center">
 <h2 style="font-weight:600;">How Recarra Compares to Other Car Offer Sites</h2>
 <p>Recarra is designed to outperform the competition — not just in look, but in measurable business value.</p>
@@ -1534,22 +1619,40 @@ input:invalid {
 </section>
 <section class="counter-section fade-in-section" style="text-align: center; padding: 3rem 1rem; border-radius: 10px; margin-top: 2rem; background: linear-gradient(145deg, #f5f5f5, #e0e0e0, #cccccc); box-shadow: 0 0 20px rgba(0,0,0,0.1), inset 0 0 30px rgba(255,255,255,0.3);">
 <h2 style="font-weight:800; font-size: 2rem; margin-bottom: 1.5rem;">Recarra By the Numbers</h2>
-<div class="counter-box">
+<div class="counter-box" data-tooltip="Real seller feedback">
 <i class="fas fa-car" style="font-size: 2rem; color: #555;"></i>
 <div class="counter-number" data-target="10000">0</div>
 <div class="counter-label">Cars Purchased</div>
 </div>
-<div class="counter-box">
+<div class="counter-box" data-tooltip="Most common customer questions">
 <i class="fas fa-flag-usa" style="font-size: 2rem; color: #555;"></i>
 <div class="counter-number" data-target="50">0</div>
 <div class="counter-label">States Served</div>
 </div>
-<div class="counter-box">
+<div class="counter-box" data-tooltip="Our verified reliability score">
 <i class="fas fa-clock" style="font-size: 2rem; color: #555;"></i>
 <div class="counter-number" data-target="24">0</div>
 <div class="counter-label">Hour Service</div>
 </div>
-</section><footer>
+</section>
+<section class="counter-section fade-in-section">
+<div class="counter-box">
+<i class="fas fa-comments"></i>
+<div class="counter-number" data-target="1200">0</div>
+<div class="counter-label">Testimonials Collected</div>
+</div>
+<div class="counter-box">
+<i class="fas fa-question-circle"></i>
+<div class="counter-number" data-target="50">0</div>
+<div class="counter-label">FAQs Answered</div>
+</div>
+<div class="counter-box">
+<i class="fas fa-shield-alt"></i>
+<div class="counter-number" data-target="100">0</div>
+<div class="counter-label">Guarantee Score</div>
+</div>
+</section>
+<footer>
   © 2025 Recarra. All rights reserved. | support@recarra.com | Houston, TX
   <div style="font-size: 0.75rem; margin-top: 0.5rem;">
 <a href="#" style="margin-right: 10px;">Privacy Policy</a>
