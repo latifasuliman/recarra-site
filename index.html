@@ -1503,7 +1503,7 @@ body.dim-mode .section-title {
 <h1 style="font-size: 5rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; margin-bottom: 0.5rem;">Recarra</h1>
 <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
 <div style="margin-top: 1.5rem; display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap;">
-  <img src="bolt-icon.png" alt="Power Icon" style="height: 48px; width: auto;" />
+  <i class="fas fa-bolt" style="color: #ff4e50; font-size: 2.5rem;"></i>
   <a href="#smartOfferForm" style="background: linear-gradient(to right, #ff4e50, #f9d423); color: black; font-weight: 700; font-size: 1.1rem; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
     <i class="fas fa-money-bill-wave"></i> Get My Instant Offer
   </a>
@@ -2507,7 +2507,45 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(section);
   });
 });
-</script></body>
+</script>
+<!-- Rotating Global CTA System -->
+<div id="recarraDynamicSentence" style="font-size: 1.25rem; font-weight: 600; text-align: center; padding: 1rem 1.5rem; border-radius: 12px; transition: all 1s ease; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.08); margin: 2rem auto; max-width: 720px;"></div>
+
+<script>
+const recarraPhrases = [
+  "Claim Your Get My Instant Offer With Recarra",
+  "Turn your junk car into fast, fair cash.",
+  "You’re not just selling metal—you’re gaining peace.",
+  "Let your driveway breathe: Everything we do leads to one thing: your satisfaction.",
+  "Recarra: Where your metal meets its match in money.",
+  "Your car’s worth is more than it seems.",
+  "Say goodbye to clutter, and hello to cash.",
+  "You see junk. We see justice.",
+  "The past is in your rearview. The payout is ahead.",
+  "Letting go never paid so well."
+  // ... (for demo purposes, only 10 here; insert all 888 in production) ...
+];
+
+let phraseIndex = 0;
+const sentenceBox = document.getElementById("recarraDynamicSentence");
+const recarraColors = ['#ff4e50', '#f9d423', '#4CAF50', '#2196F3', '#000', '#9C27B0'];
+const recarraFonts = ['Poppins', 'Georgia', 'Arial', 'Courier New', 'Verdana'];
+
+function rotateRecarraPhrase() {
+  const phrase = recarraPhrases[phraseIndex % recarraPhrases.length];
+  const color = recarraColors[phraseIndex % recarraColors.length];
+  const font = recarraFonts[phraseIndex % recarraFonts.length];
+  sentenceBox.textContent = phrase;
+  sentenceBox.style.color = color;
+  sentenceBox.style.fontFamily = font;
+  sentenceBox.style.fontSize = (1.25 + (phraseIndex % 3) * 0.15) + 'rem';
+  phraseIndex++;
+}
+setInterval(rotateRecarraPhrase, 8000);
+rotateRecarraPhrase();
+</script>
+
+</body>
 </html>
 <script>
 function startVinScan() {
