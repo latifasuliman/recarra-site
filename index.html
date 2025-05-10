@@ -45,7 +45,7 @@
 <title>Recarra | Sell Your Car Instantly</title>
 <link as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <noscript></noscript>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"><style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>
 :root {
 --main-gradient: linear-gradient(135deg, #ff4e50, #f9d423);
 --lux-gold: #ffd700;
@@ -1454,7 +1454,7 @@ grid-template-columns: 1fr 1fr;
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <meta content="Recarra" name="apple-mobile-web-app-title"/>
-<link href="/icons/icon-192.png" rel="apple-touch-icon">
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
 <style>
 body.dim-mode {
   background-color: #121212;
@@ -1494,11 +1494,10 @@ body.dim-mode .section-title {
 <!-- Preload icons and splash screens -->
 <link href="/icons/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-
+<link href="/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
 <meta content="#ff4e50" name="msapplication-TileColor"/>
 <meta content="/icons/mstile-150x150.png" name="msapplication-TileImage"/>
-<link href="/splash/splash-light.png" media="(prefers-color-scheme: light)" rel="apple-touch-startup-image"/>
+<link href="/splash/splash-light.png" media="(prefers-color-scheme: light)" rel="apple-touch-startup-image">
 <link href="/splash/splash-dark.png" media="(prefers-color-scheme: dark)" rel="apple-touch-startup-image"/>
 <style>
 @keyframes fadeInUpZoom {
@@ -1654,7 +1653,10 @@ window.addEventListener("load", () => {
 <input placeholder="Email Address" required="" type="email"/>
 <input placeholder="Car Year, Make, and Model" required="" type="text"/>
 <input placeholder="VIN Number (optional)" type="text"/>
-<input accept="image/*" type="file"/>
+<label>Front of Car</label><input accept="image/*" required="" type="file"/>
+<label>Back of Car</label><input accept="image/*" required="" type="file"/>
+<label>Right Side</label><input accept="image/*" required="" type="file"/>
+<label>Left Side</label><input accept="image/*" required="" type="file"/>
 <select required="">
 <option value="">Preferred Payment Method</option>
 <option value="cash">Cash</option>
@@ -1663,9 +1665,36 @@ window.addEventListener("load", () => {
 </select>
 <textarea placeholder="Address / Pickup Instructions" required="" rows="3"></textarea>
 <textarea placeholder="Any additional notes or questions?" rows="3"></textarea>
-<button class="btn" style="margin-top:1rem;" type="submit">Submit My Info</button>
+<p style="font-size: 1rem; font-weight: 600; color: #555; margin: 1rem 0;">
+You will receive an instant offer on this screen and via email and iMessage delivered to you within few minutes once your offer is generated — end to end AI powered.
+</p>
+<button class="offer-button" style="width:100%;font-size:1.1rem;font-weight:700;border-radius:50px;background:linear-gradient(to right,#ff4e50,#f9d423);color:black;box-shadow:0 0 12px rgba(255,78,80,0.3);" type="submit">
+<i class="fas fa-bolt" style="margin-right: 8px;"></i> Submit Offer
+</button>
 </form>
 </section>
+<section class="section-block fade-in-section" style="background: #f8f8f8; border-radius: 12px; padding: 2rem;">
+<h2 class="section-title" style="text-align:center; color:#ff4e50;">Why Customers Trust Recarra</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;text-align:center;margin-top:2rem;">
+<div>
+<i class="fas fa-shield-alt" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">Licensed &amp; Insured</p>
+</div>
+<div>
+<i class="fas fa-headset" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">24/7 Support</p>
+</div>
+<div>
+<i class="fas fa-money-bill-wave" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">Instant Payout</p>
+</div>
+<div>
+<i class="fas fa-id-card-alt" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">DMV Verified</p>
+</div>
+</div>
+</section>
+
 <div class="offer-button-grid">
 <button class="offer-button" onclick="showOffer('photo', event)">Accept</button>
 <button class="offer-button" onclick="showOffer('vin', event)">Extend</button>
@@ -2839,7 +2868,6 @@ rotateRecarraPhrase();
     setInterval(rotateCEOQuote, 8000);
   });
 </script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const recarraForm = document.querySelector("#recarraForm form");
@@ -2855,6 +2883,38 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector("#recarraForm form");
+  if (form) {
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      form.innerHTML = "<div style='text-align:center; padding:2rem; font-size:1.2rem; font-weight:bold; color:#2e7d32; background:#e8ffe8; border:2px solid #4CAF50; border-radius:12px;'>Thank you! Your offer is being generated. Check this screen shortly and watch for iMessage + email delivery.</div>";
+    });
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("#recarraForm form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const thankYouMessage = document.createElement("div");
+      thankYouMessage.id = "thankYouMsg";
+      thankYouMessage.style = "text-align:center; padding:2rem; font-size:1.2rem; font-weight:bold; color:#2e7d32; background:#e8ffe8; border:2px solid #4CAF50; border-radius:12px;";
+      thankYouMessage.innerHTML = "Thank you! Your offer is being generated. Check this screen shortly and watch for iMessage + email delivery.";
+      form.replaceWith(thankYouMessage);
+      document.getElementById("formSubmitSound").play();
+      setTimeout(() => {
+        thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    });
+  }
+});
+</script>
+<audio id="formSubmitSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-29.mp3"></audio>
 </body>
 </html>
 <script>
