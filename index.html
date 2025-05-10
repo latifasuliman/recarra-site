@@ -1010,7 +1010,72 @@ textarea {
   transform: scale(1.02);
   box-shadow: 0 0 12px rgba(0,0,0,0.3);
 }
-</style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/></head>
+</style><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/><style>
+#smartNav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  background: white;
+  padding: 0.75rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.nav-offer-button {
+  width: 100%;
+  max-width: 180px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 40px;
+  background: white;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.nav-offer-button i {
+  margin-right: 6px;
+}
+
+.nav-offer-button:hover {
+  background: black;
+  color: white;
+  transform: scale(1.02);
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+</style><style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  max-width: 180px;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 40px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.offer-button:hover {
+  opacity: 0.92;
+  transform: scale(1.03);
+  box-shadow: 0 0 8px rgba(255, 78, 80, 0.3);
+}
+</style></head>
 <body>
 <nav id="smartNav">
 <button class="nav-offer-button" onclick="showOffer('photo')"><i class="fas fa-camera" style="margin-right: 8px;"></i>Photo Offer</button>
@@ -1696,12 +1761,26 @@ textarea {
 <div class="offer-wrapper" id="voice-wrapper"><button class="offer-button" data-type="voice" onclick="showOffer('voice')">Voice</button><div class="offer-modal" id="voice-modal" style="display:none;"><div class="modal-content">Voice Offer Window<button onclick="closeOffer('voice')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Phone Number</label><input placeholder="Phone Number" required="required" type="text"/><label>Best Time to Call</label><input placeholder="Best Time to Call" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="text-wrapper"><button class="offer-button" data-type="text" onclick="showOffer('text')">Text</button><div class="offer-modal" id="text-modal" style="display:none;"><div class="modal-content">Text Offer Window<button onclick="closeOffer('text')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Mobile Number</label><input placeholder="Mobile Number" required="required" type="text"/><label>Message</label><input placeholder="Message" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="call-wrapper"><button class="offer-button" data-type="call" onclick="showOffer('call')">Call</button><div class="offer-modal" id="call-modal" style="display:none;"><div class="modal-content">Call Offer Window<button onclick="closeOffer('call')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Phone Number</label><input placeholder="Phone Number" required="required" type="text"/><label>VIN/Plate</label><input placeholder="VIN/Plate" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="chat-wrapper"><button class="offer-button" data-type="chat" onclick="showOffer('chat')">Chat</button><div class="offer-modal" id="chat-modal" style="display:none;"><div class="modal-content">Chat Offer Window<button onclick="closeOffer('chat')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Email</label><input placeholder="Email" required="required" type="text"/><label>Your Question</label><input placeholder="Your Question" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="photo-wrapper"><button class="offer-button" data-type="photo" onclick="showOffer('photo')">Photo</button><div class="offer-modal" id="photo-modal" style="display:none;"><div class="modal-content">Photo Offer Window<button onclick="closeOffer('photo')">Close</button></div><form method="post"><label>Upload Photo</label><input placeholder="Upload Photo" required="required" type="file"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="vin-wrapper"><button class="offer-button" data-type="vin" onclick="showOffer('vin')">VIN</button><div class="offer-modal" id="vin-modal" style="display:none;"><div class="modal-content">Vin Offer Window<button onclick="closeOffer('vin')">Close</button></div><form method="post"><label>Enter VIN</label><input placeholder="Enter VIN" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="plate-wrapper"><button class="offer-button" data-type="plate" onclick="showOffer('plate')">Plate</button><div class="offer-modal" id="plate-modal" style="display:none;"><div class="modal-content">Plate Offer Window<button onclick="closeOffer('plate')">Close</button></div><form method="post"><label>Plate Number</label><input placeholder="Plate Number" required="required" type="text"/><label>State</label><input placeholder="State" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="video-wrapper"><button class="offer-button" data-type="video" onclick="showOffer('video')">Video</button><div class="offer-modal" id="video-modal" style="display:none;"><div class="modal-content">Video Offer Window<button onclick="closeOffer('video')">Close</button></div><form method="post"><label>Upload Video</label><input placeholder="Upload Video" required="required" type="file"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="agent-wrapper"><button class="offer-button" data-type="agent" onclick="showOffer('agent')" title="Talk to a real person supported by AI">Agent</button><div class="offer-modal" id="agent-modal" style="display:none;"><div class="modal-content">Agent Offer Window<button onclick="closeOffer('agent')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Phone Number</label><input placeholder="Phone Number" required="required" type="text"/><label>Preferred Time</label><input placeholder="Preferred Time" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div></section>
 <!-- VIN Offer Form -->
 <section id="smartOfferForm" style="margin-top: 2rem;">
-<!-- Recommended layout for Photo Offer image:
-Image dimensions: 600px wide × 400px tall
-File format: JPG or PNG for static images
-Optional: MP4 or looping GIF showing AI analyzing a photo
-Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or stacked layout for mobile -->
-<!-- Example placeholder image block -->
+<div class="offer-wrapper" id="ai-wrapper">
+<button class="offer-button" data-type="ai" onclick="showOffer('ai')">
+<i class="fas fa-robot" style="margin-right: 6px;"></i>AI Smart Offer
+        </button>
+<div class="offer-modal" id="ai-modal" style="display:none;">
+<div class="modal-content">
+<strong>AI Smart Offer Window</strong>
+<button onclick="closeOffer('ai')">Close</button>
+<form method="post">
+<label>Your Name</label>
+<input placeholder="Your Name" required="" type="text"/>
+<label>Phone Number</label>
+<input placeholder="Phone Number" required="" type="text"/>
+<label>Vehicle Details</label>
+<input placeholder="Make, Model, Year..." required="" type="text"/>
+<button type="submit">Submit Offer</button>
+</form>
+</div>
+</div>
+</div>
 </section></div>
 <div style="background: #f2f2f2; border-radius: 10px; padding: 2rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"></div>
 <!-- New Smart AI Photo Form -->
@@ -2324,6 +2403,15 @@ function closeOffer(offerType) {
   document.querySelectorAll('.offer-wrapper').forEach(wrapper => {
     wrapper.style.display = 'block';
   });
+}
+</script><script>
+function showOffer(type) {
+    var modals = document.querySelectorAll('.offer-modal');
+    modals.forEach(m => m.style.display = 'none');
+    document.getElementById(type + '-modal').style.display = 'block';
+}
+function closeOffer(type) {
+    document.getElementById(type + '-modal').style.display = 'none';
 }
 </script></body>
 </html>
