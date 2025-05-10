@@ -157,7 +157,305 @@ textarea {
   50% { color: #4CAF50; }
   75% { color: #2196F3; }
   100% { color: #ff4e50; }
-}</style>
+}
+<style>
+.offer-icon svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  stroke: currentColor;
+}
+
+<style>
+.offer-button {
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+#offerIconMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
+</style>
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
+</style>
 <style>
 .form-step {
   display: none;
@@ -165,7 +463,306 @@ textarea {
 .form-step.active {
   display: block;
 }
-</style></head>
+
+<style>
+.offer-icon svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  stroke: currentColor;
+}
+
+<style>
+.offer-button {
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+#offerIconMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
+</style>
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
+</style>
+</head>
 <body>
 <!-- Sticky Smart Navigation -->
 <nav id="smartNav" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; color: white; display: flex; justify-content: center; gap: 1rem; padding: 0.5rem 0; z-index: 999; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: none;">
@@ -185,44 +782,723 @@ textarea {
 
 
   
-<section><h2>AI Smart Offer Form</h2><p>Submit your car details and get an instant AI-generated offer.</p><a class="btn" href="#form">Start Offer</a></section><section id="smartOfferForm" style="margin-top: 2rem;">
+<section><h2>AI Smart Offer Form</h2><p>Submit your car details and get an instant AI-generated offer.</p><a class="btn" href="#form">Start Offer</a>
+<!-- Full AI Offer Icons Section -->
+<div style="margin-top: 3rem;"><h3>Other Smart Ways to Get a Junk Car Offer:</h3>
+<!-- AI License Plate Cash Offer -->
+</div>
+<!-- Modern Offer Icon Section -->
+<div id="offerIconMenu" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+<button class="offer-button" data-type="quick" onclick="showOffer('quick')">Quick AI Offer</button><button class="offer-button" data-type="voice" onclick="showOffer('voice')">Voice AI Offer</button><button class="offer-button" data-type="text" onclick="showOffer('text')">Text AI Offer</button><button class="offer-button" data-type="call" onclick="showOffer('call')">Call AI Offer</button><button class="offer-button" data-type="chat" onclick="showOffer('chat')">Chat AI Offer</button><button class="offer-button" data-type="photo" onclick="showOffer('photo')">Photo AI Offer</button><button class="offer-button" data-type="vin" onclick="showOffer('vin')">VIN AI Offer</button><button class="offer-button" data-type="plate" onclick="showOffer('plate')">Plate AI Offer</button><button class="offer-button" data-type="video" onclick="showOffer('video')">Video AI Offer</button><button class="offer-button" data-type="agent" onclick="showOffer('agent')" title="Talk to a real person supported by AI">Live Agent Offer</button></div>
+<!-- Dynamic Form Container -->
+<div id="dynamicOfferForm" style="margin-top: 2rem;">
+<div data-offer="agent" style="display:none;">
+<div style="background: #f2f2f2; border-radius: 10px; padding: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-top: 2rem;">
+<h4 style="margin-bottom: 1rem; color: #ff4e50;">Live Agent Offer</h4>
+<p>Connect with a real person assisted by AI to get your cash offer.</p>
+<form method="post">
+<div class="form-step">
+<label style="font-weight:600;">Your Name</label>
+<input class="uniform-input" name="name" placeholder="Your Name" required="" type="text"/>
+</div>
+<div class="form-step">
+<label style="font-weight:600;">Phone Number</label>
+<input class="uniform-input" name="phone" placeholder="Phone Number" required="" type="tel"/>
+</div>
+<div class="form-step">
+<label style="font-weight:600;">Email Address</label>
+<input class="uniform-input" name="email" placeholder="Email Address" required="" type="email"/>
+</div>
+<div class="form-step">
+<label style="font-weight:600;">Preferred Contact Time</label>
+<input class="uniform-input" name="contact_time" required="" type="time"/>
+</div>
+<div class="form-step">
+<label style="font-weight:600;">Additional Notes (optional)</label>
+<textarea class="uniform-input" name="notes" placeholder="Anything you'd like us to know?" rows="3"></textarea>
+</div>
+<div class="form-nav" style="display:flex; justify-content:space-between;">
+<button onclick="prevStep()" style="display:none;" type="button">Back</button>
+<button onclick="nextStep()" style="display:none;" type="button">Next</button>
+</div>
+<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">Your Offer ID: <span id="generatedOfferId"></span></p>
+<button style="padding: 0.75rem 1rem; background: #4CAF50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button>
+</form>
+</div>
+</div>
+</div>
+<style>
+@keyframes colorCycle {
+  0% { background: #ff4e50; }
+  20% { background: #f9d423; }
+  40% { background: #4CAF50; }
+  60% { background: #2196F3; }
+  80% { background: #9C27B0; }
+  100% { background: #ff4e50; }
+}
+.offer-icon {
+  width: 120px;
+  height: 120px;
+  background: #ff4e50;
+  color: white;
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  padding: 1rem 0.5rem;
+  transition: transform 0.3s ease;
+  animation: colorCycle 8s infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.offer-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 14px rgba(255, 78, 80, 0.7);
+}
+.icon-symbol {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.icon-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+<style>
+.offer-icon svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  stroke: currentColor;
+}
+
+<style>
+.offer-button {
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+#offerIconMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
+</style>
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
+</style>
+<!-- Extended Offer Type Icons Section -->
+<!-- Modern Offer Icon Section -->
+<div id="offerIconMenu" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+</div>
+<style>
+.offer-icon {
+  width: 120px;
+  height: 100px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 2.5;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.offer-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 78, 80, 0.6);
+}
+
+<style>
+.offer-icon svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  stroke: currentColor;
+}
+
+<style>
+.offer-button {
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+#offerIconMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
+</style>
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
+</style>
+<!-- Dynamic Form Container -->
+<div id="dynamicOfferForm" style="margin-top: 2rem;"></div>
+</section>
+<!-- VIN Offer Form -->
+<section id="smartOfferForm" style="margin-top: 2rem;">
 <!-- Recommended layout for Photo Offer image:
 Image dimensions: 600px wide × 400px tall
 File format: JPG or PNG for static images
 Optional: MP4 or looping GIF showing AI analyzing a photo
 Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or stacked layout for mobile -->
 <!-- Example placeholder image block -->
-<h2 style="margin-bottom: 0.5rem; color: #ff4e50;">AI Photo Cash Offer</h2>
-<div style="background: #f2f2f2; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1); font-weight: bold;">
-<div style="margin-bottom: 0.5rem; font-weight: bold;">Step 4 of 5: Vehicle Condition &amp; Media Upload</div>
-<div style="background: #ddd; border-radius: 20px; overflow: hidden;">
-<div style="width: 80%; background: linear-gradient(to right, #36d1dc, #5b86e5); height: 16px;"></div>
-</div>
-</div>
-<div id="formProgressWrapper" style="width: 100%; background: #eee; border-radius: 10px; margin: 2rem auto; height: 10px; overflow: hidden;">
-<div id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.5s;"></div>
-</div>
-<div style="background: #f2f2f2; border-radius: 10px; padding: 2rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"><form id="multiStepForm"><div class="form-step active"><label style="font-weight:600;">Year</label><input class="uniform-input" name="year" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Make</label><input class="uniform-input" name="make" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Model</label><input class="uniform-input" name="model" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">Trim (optional)</label><input class="uniform-input" name="trim" type="text"/></div><div class="form-step"><label style="font-weight:600;">Mileage</label><input class="uniform-input" name="mileage" required="" type="text"/></div><div class="form-step"><label style="font-weight:600;">VIN (or 'skip')</label><input class="uniform-input" name="vin" type="text"/></div><div class="form-step"><label style="font-weight:600;">License Plate</label><input class="uniform-input" name="plate" type="text"/></div><div class="form-step"><label style="font-weight:600;">Upload Front Image</label><input accept="image/*" class="uniform-input" name="photo_front" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Rear Image (Trunk)</label><input accept="image/*" class="uniform-input" name="photo_rear" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Right Side</label><input accept="image/*" class="uniform-input" name="photo_right" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Upload Left Side</label><input accept="image/*" class="uniform-input" name="photo_left" required="" type="file"/></div><div class="form-step"><label style="font-weight:600;">Is the engine intact?</label><select class="uniform-input" name="engine_intact"><option value="">-- Select --</option><option value="Yes">Yes</option><option value="No">No</option></select></div><div class="form-step"><label style="font-weight:600;">Describe any engine damage</label><textarea class="uniform-input" name="engine_issues" placeholder="Describe any engine damage" rows="3"></textarea></div><div class="form-step"><label style="font-weight:600;">Upload Optional Video (1–3 mins)</label><input accept="video/*" class="uniform-input" name="car_video" type="file"/></div><div class="form-step"><h3>Ready to Submit?</h3>
-<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
-  Your Offer ID: <span id="generatedOfferId"></span>
-</p>
-<button class="btn" style="margin-top: 2rem; width: 100%; padding: 1rem; font-size: 1.1rem; background: linear-gradient(to right, #ff512f, #f09819); color: white; border: none; border-radius: 8px; cursor: pointer;" type="submit">Submit My Offer Request</button></div><div id="formNav" style="display:flex; justify-content:space-between; margin-top:1rem;"><button onclick="prevStep()" style="padding: 0.5rem 1rem; background: #ccc; border-radius: 8px; border: none; font-weight: bold;" type="button">Back</button><button onclick="nextStep()" style="padding: 0.5rem 1rem; background: #4CAF50; color: white; border-radius: 8px; border: none; font-weight: bold;" type="button">Next</button></div></form></div><div style="margin-top: 3rem;"><h3>Other Smart Ways to Get a Junk Car Offer:</h3><div style="background: #f2f2f2; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"><h4 style="margin-bottom: 0.5rem; color: #ff4e50;">AI License Plate Cash Offer</h4><p style="margin: 0;">Enter or scan your plate — we’ll find your car.</p><form method="post" style="margin-top: 1rem;"><input class="uniform-input" name="plate" placeholder="Enter your License Plate" required="" type="text"/>
-<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
-  Your Offer ID: <span id="generatedOfferId"></span>
-</p>
-<button style="padding: 0.5rem 1rem; background: #ff4e50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button></form></div><div style="background: #f2f2f2; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"><h4 style="margin-bottom: 0.5rem; color: #ff4e50;">AI Video Call Junk Offer</h4><p style="margin: 0;">Schedule a live video inspection of your junk car.</p><form method="post" style="margin-top: 1rem;"><input class="uniform-input" name="video_date" placeholder="Select a date" required="" type="date"/><input class="uniform-input" name="video_time" placeholder="Select a time" required="" type="time"/>
-<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
-  Your Offer ID: <span id="generatedOfferId"></span>
-</p>
-<button style="padding: 0.5rem 1rem; background: #ff4e50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button></form></div><div style="background: #f2f2f2; border-radius: 10px; padding: 1.5rem; margin-top: 1rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"><h4 style="margin-bottom: 0.5rem; color: #ff4e50;">Quick Junk Offer Form</h4><p style="margin: 0;">Just a few fields to get your instant cash quote.</p><form method="post" style="margin-top: 1rem;"><input class="uniform-input" name="name" placeholder="Your Name" required="" type="text"/><input class="uniform-input" name="phone" placeholder="Phone Number" required="" type="tel"/><input class="uniform-input" name="car" placeholder="Car Info (Make, Model, Year)" required="" type="text"/>
-<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
-  Your Offer ID: <span id="generatedOfferId"></span>
-</p>
-<button style="padding: 0.5rem 1rem; background: #ff4e50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button></form></div><form method="post" style="margin-top: 1rem;"><input class="uniform-input" name="vin" placeholder="Enter your Vehicle VIN" required="" type="text"/>
-<p id="offerIdNotice" style="margin-top: 1rem; font-weight: bold; color: green;">
-  Your Offer ID: <span id="generatedOfferId"></span>
-</p>
-<button style="padding: 0.5rem 1rem; background: #ff4e50; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;" type="submit">Submit</button></form></div></section>
+</section></div>
+<div style="background: #f2f2f2; border-radius: 10px; padding: 2rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"></div>
+<!-- New Smart AI Photo Form -->
 <section>
 <h2>Frequently Asked Questions</h2>
 <ul>
@@ -346,6 +1622,304 @@ Suggested placement: next to the AI Photo Cash Offer form in a side-by-side or s
   #backToTop {
     animation: colorCycle 64s infinite;
   }
+
+<style>
+.offer-icon svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+  stroke: currentColor;
+}
+
+<style>
+.offer-button {
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+#offerIconMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
+</style>
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 90%;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;  /* One button per row on mobile */
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin: 0;
+}
+
+.offer-button:hover {
+  border-color: #ff4e50;
+  color: #ff4e50;
+}
+
+.offer-button.active {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+@media (min-width: 768px) {
+  #offerIconMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  #offerIconMenu {
+    grid-template-columns: 1fr;
+  }
+}
+
+<style>
+#offerIconMenu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.offer-button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.offer-button.active {
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.3);
+  outline: 2px solid #4CAF50;
+}
+</style>
+
 </style>
 <script>
   document.getElementById("backToTop").onclick = function () {
@@ -426,7 +2000,6 @@ function rotateFAQ() {
 setInterval(rotateFAQ, 8000);
 rotateFAQ();
 </script>
-</div>
 <script>
 let currentStep = 0;
 const steps = document.querySelectorAll('.form-step');
@@ -481,5 +2054,151 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
-</script></body>
+</script><script>
+document.addEventListener('DOMContentLoaded', function () {
+  const forms = document.querySelectorAll("form");
+  forms.forEach(form => {
+    const steps = form.querySelectorAll(".form-step");
+    let current = 0;
+
+    function updateStep() {
+      steps.forEach((step, idx) => step.style.display = idx === current ? "block" : "none");
+      const backBtn = form.querySelector("button[onclick='prevStep()']");
+      const nextBtn = form.querySelector("button[onclick='nextStep()']");
+      if (backBtn) backBtn.style.display = current > 0 ? "inline-block" : "none";
+      if (nextBtn) {
+        nextBtn.style.display = "none";
+        const input = steps[current].querySelector("input, select, textarea");
+        if (input) {
+          input.addEventListener("input", () => {
+            if (input.checkValidity()) nextBtn.style.display = "inline-block";
+            else nextBtn.style.display = "none";
+          });
+        }
+      }
+    }
+
+    form.prevStep = function () {
+      if (current > 0) current--;
+      updateStep();
+    };
+
+    form.nextStep = function () {
+      if (current < steps.length - 1) current++;
+      updateStep();
+    };
+
+    form.querySelector("button[onclick='prevStep()']").addEventListener("click", () => form.prevStep());
+    form.querySelector("button[onclick='nextStep()']").addEventListener("click", () => form.nextStep());
+    updateStep();
+  });
+});
+</script>
+<script>
+function showOffer(type) {
+  const offerFormContainer = document.getElementById("dynamicOfferForm");
+  const allForms = {
+    photo: document.querySelector('h3:contains("Upload Photos to Get Your AI Cash Offer")')?.parentElement,
+    vin: document.querySelector('h4:contains("AI VIN Cash Offer")')?.parentElement,
+    plate: document.querySelector('h4:contains("AI License Plate Cash Offer")')?.parentElement,
+    video: document.querySelector('h4:contains("AI Video Call Junk Offer")')?.parentElement,
+    quick: document.querySelector('h4:contains("Quick Junk Offer Form")')?.parentElement
+  };
+
+  offerFormContainer.innerHTML = '';
+  Object.values(allForms).forEach(el => {
+    if (el && el.parentElement) el.style.display = 'none';
+  });
+
+  const selectedForm = allForms[type];
+  if (selectedForm) {
+    const clone = selectedForm.cloneNode(true);
+    clone.style.display = 'block';
+    offerFormContainer.appendChild(clone);
+  }
+}
+</script>
+<script>
+function showOffer(type) {
+  const offerFormContainer = document.getElementById("dynamicOfferForm");
+  const allForms = {
+    vin: document.querySelector('h4:contains("VIN Cash Offer")')?.parentElement,
+    photo: document.querySelector('h3:contains("Upload Photos to Get Your AI Cash Offer")')?.parentElement,
+    plate: document.querySelector('h4:contains("License Plate Cash Offer")')?.parentElement,
+    video: document.querySelector('h4:contains("Video Call Junk Offer")')?.parentElement,
+    quick: document.querySelector('h4:contains("Quick Junk Offer Form")')?.parentElement,
+    voice: document.querySelector('h4:contains("Voice Assistant Offer")')?.parentElement,
+    text: document.querySelector('h4:contains("Text Offer")')?.parentElement,
+    call: document.querySelector('h4:contains("Call Offer")')?.parentElement,
+    chat: document.querySelector('h4:contains("Live Chat AI Offer")')?.parentElement
+  };
+
+  offerFormContainer.innerHTML = '';
+  Object.values(allForms).forEach(el => {
+    if (el && el.parentElement) el.style.display = 'none';
+  });
+
+  const selectedForm = allForms[type];
+  if (selectedForm) {
+    const clone = selectedForm.cloneNode(true);
+    clone.style.display = 'block';
+    offerFormContainer.appendChild(clone);
+  }
+}
+</script>
+<script>
+function showOffer(type) {
+  const offerFormContainer = document.getElementById("dynamicOfferForm");
+  const allForms = {
+    vin: document.querySelector('[data-offer="vin"]'),
+    photo: document.querySelector('[data-offer="photo"]'),
+    plate: document.querySelector('[data-offer="plate"]'),
+    video: document.querySelector('[data-offer="video"]'),
+    quick: document.querySelector('[data-offer="quick"]'),
+    voice: document.querySelector('[data-offer="voice"]'),
+    text: document.querySelector('[data-offer="text"]'),
+    call: document.querySelector('[data-offer="call"]'),
+    chat: document.querySelector('[data-offer="chat"]')
+  };
+
+  document.querySelectorAll(".offer-icon").forEach(el => el.classList.remove("active"));
+  const selectedIcon = document.querySelector(`.offer-icon[data-type="${type}"]`);
+  if (selectedIcon) selectedIcon.classList.add("active");
+
+  offerFormContainer.innerHTML = '';
+  const selectedForm = allForms[type];
+  if (selectedForm) {
+    const clone = selectedForm.cloneNode(true);
+    clone.style.display = "block";
+    offerFormContainer.appendChild(clone);
+    clone.scrollIntoView({ behavior: "smooth" });
+  }
+}
+</script>
+</body>
 </html>
+<script>
+  function startVinScan() {
+    alert("VIN scan functionality coming soon. This will launch your camera and detect the VIN from a barcode.");
+    // In production, use a library like QuaggaJS to integrate scanning and assign result to:
+    // document.getElementById('vinInput').value = scannedVIN;
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const forms = document.querySelectorAll("form");
+    forms.forEach(form => {
+      const id = "R-" + Math.random().toString(36).substring(2, 10).toUpperCase();
+      const idSpan = form.querySelector("#generatedOfferId");
+      if (idSpan) idSpan.textContent = id;
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = form.querySelector("[name='name']")?.value || "Customer";
+        const phone = form.querySelector("[name='phone']")?.value || "[your phone]";
+        const email = form.querySelector("[name='email']")?.value || "[your email]";
+        alert(`Thanks ${name}, your offer ID is ${id}.\nWe’ll respond via ${phone} or ${email} within 5 minutes.`);
+      });
+    });
+  });
+</script>
