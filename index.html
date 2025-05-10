@@ -962,10 +962,37 @@ textarea {
   color: #000;
   box-shadow: 0 0 8px white;
 }
+</style><style>
+.nav-offer-button {
+  background: white;
+  color: black;
+  border: 2px solid black;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+.nav-offer-button:hover {
+  background: black;
+  color: white;
+}
 </style></head>
-<body><button class="nav-toggle" id="navToggle">☰ Offers</button>
+<body>
+<nav id="smartNav" style="background: #ffffff; color: black; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 1rem;">
+<button class="nav-offer-button" onclick="showOffer('photo')">📷 Photo Offer</button>
+<button class="nav-offer-button" onclick="showOffer('plate')">🚘 Plate Offer</button>
+<button class="nav-offer-button" onclick="showOffer('vin')">🔍 Vin Offer</button>
+<button class="nav-offer-button" onclick="showOffer('voice')">🎙️ Voice Offer</button>
+<button class="nav-offer-button" onclick="showOffer('video')">🎥 Video Offer</button>
+<button class="nav-offer-button" onclick="window.location.href='tel:+18885558888'">📞 Call Us</button>
+</nav>
+<button class="nav-toggle" id="navToggle">☰ Offers</button>
 <!-- Sticky Smart Navigation -->
-<nav id="smartNav" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; color: white;display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));gap: 0.5rem; padding: 0.75rem 1rem; z-index: 999; font-size: 0.95rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center;"><button class="nav-offer-button" onclick="showOffer('photo')">📷 Photo Offer</button><button class="nav-offer-button" onclick="showOffer('plate')">🚘 Plate Offer</button><button class="nav-offer-button" onclick="showOffer('vin')">🔍 Vin Offer</button><button class="nav-offer-button" onclick="showOffer('voice')">🎙️ Voice Offer</button><button class="nav-offer-button" onclick="showOffer('video')">🎥 Video Offer</button><button class="nav-offer-button" onclick="window.location.href='tel:+18885558888'">📞 Call Us</button></nav>
+
 <header>
 <h1 style="font-size: 4rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem;">Recarra</h1>
 <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
