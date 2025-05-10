@@ -382,6 +382,104 @@ textarea {
     display: flex !important;
   }
 }
+
+/* Gradient-based, homepage-style buttons */
+.nav-offer-button {
+  flex: 1 1 calc(50% - 1rem);
+  max-width: 240px;
+  background: linear-gradient(90deg, #ff4e50, #f9d423);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.nav-offer-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+@media (min-width: 768px) {
+  .nav-offer-button {
+    flex: 1 1 calc(33.333% - 1rem);
+  }
+}
+@media (min-width: 1024px) {
+  .nav-offer-button {
+    flex: 1 1 calc(20% - 1rem);
+  }
+}
+
+.offer-button {
+  width: 100%;
+  max-width: 220px;
+  margin: 0.5rem auto;
+}
+@media (min-width: 600px) {
+  .offer-button {
+    display: inline-block;
+    width: calc(50% - 1rem);
+    margin: 0.5rem;
+  }
+}
+@media (min-width: 900px) {
+  .offer-button {
+    width: calc(33.333% - 1rem);
+  }
+}
+
+.offer-wrapper {
+  text-align: center;
+  margin: 1rem auto;
+}
+.offer-modal {
+  margin-top: 1rem;
+  background: #fff;
+  border: 2px solid #ccc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 90%;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+.offer-modal button {
+  margin-top: 1rem;
+  background: #ff4e50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.offer-button {
+  width: 100%;
+  max-width: 220px;
+  margin: 0.5rem auto;
+}
+.offer-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+.offer-section {
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .offer-wrapper {
+    width: 48%;
+    margin: 1%;
+  }
+}
+@media (min-width: 900px) {
+  .offer-wrapper {
+    width: 30%;
+    margin: 1.5%;
+  }
+}
 </style>
 <style>
 #offerIconMenu {
@@ -867,7 +965,7 @@ textarea {
 </style></head>
 <body><button class="nav-toggle" id="navToggle">☰ Offers</button>
 <!-- Sticky Smart Navigation -->
-<nav id="smartNav" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; color: white;display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));gap: 0.5rem; padding: 0.75rem 1rem; z-index: 999; font-size: 0.95rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center;"><button class="nav-offer-button" onclick="showOffer('photo')">📷 Photo Offer</button><button class="nav-offer-button" onclick="showOffer('plate')">🚘 Plate Offer</button><button class="nav-offer-button" onclick="showOffer('vin')">🔍 Vin Offer</button><button class="nav-offer-button" onclick="showOffer('voice')">🎙️ Voice Offer</button><button class="nav-offer-button" onclick="showOffer('video')">🎥 Video Offer</button></nav>
+<nav id="smartNav" style="position: fixed; top: 0; left: 0; width: 100%; background: #000; color: white;display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));gap: 0.5rem; padding: 0.75rem 1rem; z-index: 999; font-size: 0.95rem; box-shadow: 0 2px 6px rgba(0,0,0,0.2); text-align: center;"><button class="nav-offer-button" onclick="showOffer('photo')">📷 Photo Offer</button><button class="nav-offer-button" onclick="showOffer('plate')">🚘 Plate Offer</button><button class="nav-offer-button" onclick="showOffer('vin')">🔍 Vin Offer</button><button class="nav-offer-button" onclick="showOffer('voice')">🎙️ Voice Offer</button><button class="nav-offer-button" onclick="showOffer('video')">🎥 Video Offer</button><button class="nav-offer-button" onclick="window.location.href='tel:+18885558888'">📞 Call Us</button></nav>
 <header>
 <h1 style="font-size: 4rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-bottom: 0.5rem;">Recarra</h1>
 <p class="highlight">The AI-Powered Way to Sell Your Car Instantly</p>
@@ -885,7 +983,7 @@ textarea {
 </div>
 <!-- Modern Offer Icon Section -->
 <div id="offerIconMenu" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
-<div class="offer-block"><button class="offer-button" data-type="voice" onclick="showOffer('voice')">Voice AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="text" onclick="showOffer('text')">Text AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="call" onclick="showOffer('call')">Call AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="chat" onclick="showOffer('chat')">Chat AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="photo" onclick="showOffer('photo')">Photo AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="vin" onclick="showOffer('vin')">VIN AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="plate" onclick="showOffer('plate')">Plate AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="video" onclick="showOffer('video')">Video AI Offer</button></div><div class="offer-block"><button class="offer-button" data-type="agent" onclick="showOffer('agent')" title="Talk to a real person supported by AI">Live Agent Offer</button></div></div>
+<div class="offer-block"></div><div class="offer-block"></div><div class="offer-block"></div><div class="offer-block"></div><div class="offer-block"></div><div class="offer-block"></div><div class="offer-block"></div><div class="offer-block"></div><div class="offer-block"></div></div>
 <!-- Dynamic Form Container -->
 <style>
 @keyframes colorCycle {
@@ -1539,7 +1637,7 @@ textarea {
 </style>
 <!-- Dynamic Form Container -->
 <div id="dynamicOfferForm" style="margin-top: 2rem;"></div>
-</section>
+<div class="offer-wrapper" id="voice-wrapper"><button class="offer-button" data-type="voice" onclick="showOffer('voice')">Voice</button><div class="offer-modal" id="voice-modal" style="display:none;"><div class="modal-content">Voice Offer Window<button onclick="closeOffer('voice')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Phone Number</label><input placeholder="Phone Number" required="required" type="text"/><label>Best Time to Call</label><input placeholder="Best Time to Call" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="text-wrapper"><button class="offer-button" data-type="text" onclick="showOffer('text')">Text</button><div class="offer-modal" id="text-modal" style="display:none;"><div class="modal-content">Text Offer Window<button onclick="closeOffer('text')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Mobile Number</label><input placeholder="Mobile Number" required="required" type="text"/><label>Message</label><input placeholder="Message" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="call-wrapper"><button class="offer-button" data-type="call" onclick="showOffer('call')">Call</button><div class="offer-modal" id="call-modal" style="display:none;"><div class="modal-content">Call Offer Window<button onclick="closeOffer('call')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Phone Number</label><input placeholder="Phone Number" required="required" type="text"/><label>VIN/Plate</label><input placeholder="VIN/Plate" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="chat-wrapper"><button class="offer-button" data-type="chat" onclick="showOffer('chat')">Chat</button><div class="offer-modal" id="chat-modal" style="display:none;"><div class="modal-content">Chat Offer Window<button onclick="closeOffer('chat')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Email</label><input placeholder="Email" required="required" type="text"/><label>Your Question</label><input placeholder="Your Question" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="photo-wrapper"><button class="offer-button" data-type="photo" onclick="showOffer('photo')">Photo</button><div class="offer-modal" id="photo-modal" style="display:none;"><div class="modal-content">Photo Offer Window<button onclick="closeOffer('photo')">Close</button></div><form method="post"><label>Upload Photo</label><input placeholder="Upload Photo" required="required" type="file"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="vin-wrapper"><button class="offer-button" data-type="vin" onclick="showOffer('vin')">VIN</button><div class="offer-modal" id="vin-modal" style="display:none;"><div class="modal-content">Vin Offer Window<button onclick="closeOffer('vin')">Close</button></div><form method="post"><label>Enter VIN</label><input placeholder="Enter VIN" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="plate-wrapper"><button class="offer-button" data-type="plate" onclick="showOffer('plate')">Plate</button><div class="offer-modal" id="plate-modal" style="display:none;"><div class="modal-content">Plate Offer Window<button onclick="closeOffer('plate')">Close</button></div><form method="post"><label>Plate Number</label><input placeholder="Plate Number" required="required" type="text"/><label>State</label><input placeholder="State" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="video-wrapper"><button class="offer-button" data-type="video" onclick="showOffer('video')">Video</button><div class="offer-modal" id="video-modal" style="display:none;"><div class="modal-content">Video Offer Window<button onclick="closeOffer('video')">Close</button></div><form method="post"><label>Upload Video</label><input placeholder="Upload Video" required="required" type="file"/><button type="submit">Submit Offer</button></form></div></div><div class="offer-wrapper" id="agent-wrapper"><button class="offer-button" data-type="agent" onclick="showOffer('agent')" title="Talk to a real person supported by AI">Agent</button><div class="offer-modal" id="agent-modal" style="display:none;"><div class="modal-content">Agent Offer Window<button onclick="closeOffer('agent')">Close</button></div><form method="post"><label>Your Name</label><input placeholder="Your Name" required="required" type="text"/><label>Phone Number</label><input placeholder="Phone Number" required="required" type="text"/><label>Preferred Time</label><input placeholder="Preferred Time" required="required" type="text"/><button type="submit">Submit Offer</button></form></div></div></section>
 <!-- VIN Offer Form -->
 <section id="smartOfferForm" style="margin-top: 2rem;">
 <!-- Recommended layout for Photo Offer image:
@@ -2157,6 +2255,20 @@ document.getElementById("navToggle").onclick = function() {
   const nav = document.getElementById("smartNav");
   nav.classList.toggle("active");
 };
+</script><script>
+function showOffer(offerType) {
+  document.querySelectorAll('.offer-wrapper').forEach(wrapper => {
+    wrapper.style.display = 'none';
+  });
+  document.getElementById(offerType + '-wrapper').style.display = 'block';
+  document.getElementById(offerType + '-modal').style.display = 'block';
+}
+function closeOffer(offerType) {
+  document.getElementById(offerType + '-modal').style.display = 'none';
+  document.querySelectorAll('.offer-wrapper').forEach(wrapper => {
+    wrapper.style.display = 'block';
+  });
+}
 </script></body>
 </html>
 <script>
