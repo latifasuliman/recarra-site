@@ -1488,7 +1488,6 @@ body.dim-mode .section-title {
 <meta content="/icons/mstile-150x150.png" name="msapplication-TileImage"/>
 <link href="/splash/splash-light.png" media="(prefers-color-scheme: light)" rel="apple-touch-startup-image"/>
 <link href="/splash/splash-dark.png" media="(prefers-color-scheme: dark)" rel="apple-touch-startup-image"/>
-
 <style>
 @keyframes fadeInUpZoom {
   from { opacity: 0; transform: translateY(20px) scale(0.95); }
@@ -1529,7 +1528,29 @@ document.addEventListener('DOMContentLoaded', function () {
   if (section) observer.observe(section);
 });
 </script>
-
+<style>
+@keyframes pulseBorder {
+  0% { border-color: #ff4e50; box-shadow: 0 0 0 0 rgba(255,78,80,0.4); }
+  50% { border-color: #f9d423; box-shadow: 0 0 12px 6px rgba(255,218,35,0.25); }
+  100% { border-color: #ff4e50; box-shadow: 0 0 0 0 rgba(255,78,80,0.4); }
+}
+.animated-border-box {
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+.border-speed-8    { animation: pulseBorder 8s infinite; }
+.border-speed-88   { animation: pulseBorder 88s infinite; }
+.border-speed-888  { animation: pulseBorder 888s infinite; }
+.border-speed-8888 { animation: pulseBorder 8888s infinite; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const box = document.querySelector('.animated-border-box');
+  const speeds = ['border-speed-8', 'border-speed-88', 'border-speed-888', 'border-speed-8888'];
+  const chosen = speeds[Math.floor(Math.random() * speeds.length)];
+  if (box) box.classList.add(chosen);
+});
+</script>
 </head>
 <body><audio id="popupSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio><div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
 <nav id="smartNav">
@@ -1570,7 +1591,7 @@ document.addEventListener('DOMContentLoaded', function () {
     From instant AI pricing to voice and video offers, you're always in control — fast, simple, and secure.
   </p>
 </section>
-<div style="max-width: 720px; margin: 2rem auto; background: #f2f2f2; border-radius: 10px; padding: 1.25rem 2rem; font-size: 1rem; text-align: center; border: 2px solid #ff4e50;">
+<div class="animated-border-box" style="max-width: 720px; margin: 2rem auto; background: #f2f2f2; border-radius: 10px; padding: 1.25rem 2rem; font-size: 1rem; text-align: center; border: 2px solid #ff4e50;">
 <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
 <strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
 <section class="section-block" id="smartOfferForm">
@@ -1627,7 +1648,69 @@ Submit your car details and receive an instant AI-powered offer based on real ma
 <li><strong>Built for Scale:</strong> Structured to grow with markets and opportunity.</li>
 </ul>
 </section>
-</section></div>
+</section><section class="fade-in-section section-block"><h2 class="section-title">Frequently Asked Questions</h2><h3 id="faq-question" style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;"></h3><p id="faq-answer" style="font-size: 1.25rem; color: #555;"></p></section><script>
+const faqs = [
+{ question: "How do I get an offer for my car?", answer: "Submit your vehicle details online — our AI gives you an instant offer." },
+{ question: "What types of vehicles does Recarra buy?", answer: "We purchase all types — cars, trucks, vans, SUVs — running or not." },
+{ question: "Is there a fee to get an offer?", answer: "No. Getting an offer from Recarra is 100% free with no obligation." },
+{ question: "How fast do I get paid?", answer: "We pay instantly via cash, debit card, or direct deposit once your vehicle is picked up." },
+{ question: "Can I sell my car without a title?", answer: "Yes. In many cases we can still proceed. We’ll help guide the process." },
+{ question: "Do I need to bring my car somewhere?", answer: "No. We come to you — at home, work, or anywhere you prefer." },
+{ question: "What if my car doesn’t run?", answer: "We buy vehicles in all conditions — even totaled or non-operational ones." },
+{ question: "How do I schedule my pickup?", answer: "After you accept the offer, you choose your preferred pickup time online." },
+{ question: "What payment methods do you offer?", answer: "We pay via instant debit card, direct deposit, certified check, or cash." },
+{ question: "What areas do you serve?", answer: "We’re licensed nationwide — we can pick up vehicles anywhere in the U.S." },
+{ question: "Can I cancel after accepting the offer?", answer: "Yes, you can cancel prior to pickup — there are no penalties." },
+{ question: "Do I need to clean my car?", answer: "No need. We buy as-is. No detailing, no repairs required." },
+{ question: "Do you buy leased or financed cars?", answer: "We can purchase vehicles with a lien or lease. Let us know upfront." },
+{ question: "How accurate is the AI offer?", answer: "Our system uses real-time data from recent sales to generate reliable offers." },
+{ question: "Will I need to sign anything?", answer: "Yes — a standard bill of sale and title transfer documents, all handled by us." },
+{ question: "Can I sell a car for someone else?", answer: "Yes, as long as you are legally authorized with ID and ownership documents." },
+{ question: "How do I contact support?", answer: "You can call, text, or use our live chat anytime — we’re here 24/7." },
+{ question: "What if my offer expires?", answer: "You can re-submit anytime. Market values fluctuate, so timing matters." },
+{ question: "How long is the offer valid?", answer: "Each offer is valid for a limited time — usually 3 to 7 days." },
+{ question: "Do you buy from businesses or fleets?", answer: "Yes. We purchase fleet vehicles and commercial cars nationwide." }
+];
+faqs.sort(() => 0.5 - Math.random());
+let currentIndex = 0;
+let showingQuestion = true;
+function rotateFAQ() {
+const questionEl = document.getElementById('faq-question');
+const answerEl = document.getElementById('faq-answer');
+questionEl.style.opacity = 0;
+answerEl.style.opacity = 0;
+setTimeout(() => {
+if (showingQuestion) {
+questionEl.textContent = faqs[currentIndex].question;
+answerEl.textContent = "";
+} else {
+answerEl.textContent = faqs[currentIndex].answer;
+currentIndex = (currentIndex + 1) % faqs.length;
+}
+questionEl.style.opacity = 1;
+answerEl.style.opacity = 1;
+showingQuestion = !showingQuestion;
+}, 400);
+}
+setInterval(rotateFAQ, 8000);
+rotateFAQ();
+</script>
+<section class="fade-in-section section-block" style="
+  background: #ffffff;
+  border-top: 3px solid #ff4e50;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.05);
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px 20px 0 0;
+  font-size: 1rem;
+  color: #888;
+  font-style: italic;
+">
+  Powered by Purpose — Recarra connects cars with their true value.
+</section>
+</div>
 <div style="background: #f2f2f2; border-radius: 10px; padding: 2rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"></div>
 <section class="fade-in-section section-block">
 <h2 class="section-title">Licensed &amp; Insured Transport</h2>
@@ -1733,11 +1816,30 @@ localStorage.setItem("recarra-mode", isDim ? "dim" : "light");
 <i class="fas fa-money-bill-wave" style="margin-right: 0.5rem;"></i> Get My Instant Offer
   </a>
 </section>
-
 <section class="fade-in-section section-block ceo-message-section" style="background: linear-gradient(145deg, #ffffff, #f3f3f3); border-radius: 20px; padding: 2rem; margin-top: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
 <h2 class="section-title" style="font-size: 2.2rem; text-align: center; color: #ff4e50;">
 <i class="fas fa-envelope-open-text" style="margin-right: 10px;"></i> Drop a Message for the CEO
   </h2>
+
+<div style="text-align: center; margin-bottom: 0.5rem;">
+<i class="fas fa-feather-alt" style="
+    font-size: 2rem;
+    color: #ff4e50;
+    text-shadow: 0 0 8px rgba(255,78,80,0.3);
+    animation: glowPulse 4s ease-in-out infinite;
+  "></i>
+</div>
+<style>
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 8px rgba(255,78,80,0.3); }
+  50% { text-shadow: 0 0 16px rgba(255,218,35,0.4); }
+  100% { text-shadow: 0 0 8px rgba(255,78,80,0.3); }
+}
+</style>
+<div id="ceo-quote" style="font-size: 1.2rem; font-style: italic; color: #444; text-align: center; max-width: 700px; margin: 1.5rem auto;"></div>
+<div style="font-size: 1.1rem; color: #444; text-align: center; max-width: 700px; margin: 0 auto 2rem; font-style: italic;">
+<strong>Recarra</strong>, a high-end AI-driven car buying platform committed to elegance, speed, and trust.
+    </div>
 <p style="text-align: center; color: #555; font-size: 1rem; margin-bottom: 2rem;">
     Your message goes straight to the heart of Recarra. Share your feedback, experience, or thoughts privately with the founder.
   </p>
@@ -1772,7 +1874,6 @@ document.getElementById("ceoMessageForm").addEventListener("submit", function(e)
     <a href="#" style="margin: 0 8px; color: #666; text-decoration: none;">Seller Rights</a>
 </div>
 </footer>
-<div style="height: 80px; background: linear-gradient(to top, #f2f2f2, transparent); border-radius: 0 0 20px 20px;"></div>
 <button aria-label="↑ Top" id="backToTop" title="Go to top">↑ Top</button>
 <script>
 document.getElementById("backToTop").onclick = function () {
@@ -1798,53 +1899,6 @@ nav.style.display = 'flex';
 nav.style.display = 'none';
 }
 });
-</script>
-<script>
-const faqs = [
-{ question: "How do I get an offer for my car?", answer: "Submit your vehicle details online — our AI gives you an instant offer." },
-{ question: "What types of vehicles does Recarra buy?", answer: "We purchase all types — cars, trucks, vans, SUVs — running or not." },
-{ question: "Is there a fee to get an offer?", answer: "No. Getting an offer from Recarra is 100% free with no obligation." },
-{ question: "How fast do I get paid?", answer: "We pay instantly via cash, debit card, or direct deposit once your vehicle is picked up." },
-{ question: "Can I sell my car without a title?", answer: "Yes. In many cases we can still proceed. We’ll help guide the process." },
-{ question: "Do I need to bring my car somewhere?", answer: "No. We come to you — at home, work, or anywhere you prefer." },
-{ question: "What if my car doesn’t run?", answer: "We buy vehicles in all conditions — even totaled or non-operational ones." },
-{ question: "How do I schedule my pickup?", answer: "After you accept the offer, you choose your preferred pickup time online." },
-{ question: "What payment methods do you offer?", answer: "We pay via instant debit card, direct deposit, certified check, or cash." },
-{ question: "What areas do you serve?", answer: "We’re licensed nationwide — we can pick up vehicles anywhere in the U.S." },
-{ question: "Can I cancel after accepting the offer?", answer: "Yes, you can cancel prior to pickup — there are no penalties." },
-{ question: "Do I need to clean my car?", answer: "No need. We buy as-is. No detailing, no repairs required." },
-{ question: "Do you buy leased or financed cars?", answer: "We can purchase vehicles with a lien or lease. Let us know upfront." },
-{ question: "How accurate is the AI offer?", answer: "Our system uses real-time data from recent sales to generate reliable offers." },
-{ question: "Will I need to sign anything?", answer: "Yes — a standard bill of sale and title transfer documents, all handled by us." },
-{ question: "Can I sell a car for someone else?", answer: "Yes, as long as you are legally authorized with ID and ownership documents." },
-{ question: "How do I contact support?", answer: "You can call, text, or use our live chat anytime — we’re here 24/7." },
-{ question: "What if my offer expires?", answer: "You can re-submit anytime. Market values fluctuate, so timing matters." },
-{ question: "How long is the offer valid?", answer: "Each offer is valid for a limited time — usually 3 to 7 days." },
-{ question: "Do you buy from businesses or fleets?", answer: "Yes. We purchase fleet vehicles and commercial cars nationwide." }
-];
-faqs.sort(() => 0.5 - Math.random());
-let currentIndex = 0;
-let showingQuestion = true;
-function rotateFAQ() {
-const questionEl = document.getElementById('faq-question');
-const answerEl = document.getElementById('faq-answer');
-questionEl.style.opacity = 0;
-answerEl.style.opacity = 0;
-setTimeout(() => {
-if (showingQuestion) {
-questionEl.textContent = faqs[currentIndex].question;
-answerEl.textContent = "";
-} else {
-answerEl.textContent = faqs[currentIndex].answer;
-currentIndex = (currentIndex + 1) % faqs.length;
-}
-questionEl.style.opacity = 1;
-answerEl.style.opacity = 1;
-showingQuestion = !showingQuestion;
-}, 400);
-}
-setInterval(rotateFAQ, 8000);
-rotateFAQ();
 </script>
 <script>
 let currentStep = 0;
@@ -2530,8 +2584,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <section class="fade-in-section section-block">
 <h2 class="section-title">Frequently Asked Questions</h2>
 <div id="faq-container" style="text-align: center; padding: 1rem;">
-<h3 id="faq-question" style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;"></h3>
-<p id="faq-answer" style="font-size: 1.25rem; color: #555;"></p>
 </div>
 </section>
 <script>
@@ -2636,6 +2688,67 @@ rotateRecarraPhrase();
   100% { background-position-x: 1000px; }
 }
 </style>
+<script>
+  const ceoMessages = ['Recarra empowers every car owner to sell with dignity, speed, and value.', 'We built Recarra to replace confusion with clarity and trust.', 'Behind every offer is a system powered by AI — and guided by real humans.', 'Every button, every line of code — designed for all people, all cars.', "Our goal is not just to buy junk cars — it's to restore peace of mind.", 'Recarra stands for real value, real speed, and real care.', "We didn't just automate the process — we elevated it.", 'Our platform speaks every language: VIN, voice, photo, plate, and chat.', 'We believe selling your car should be just as easy as texting a friend.', 'Built in America, trusted across every driveway and highway.', "Your experience matters more than just your vehicle's value.", "Recarra doesn't judge your car — we evaluate, appreciate, and act.", "You shouldn't wait days for a price. Recarra gives it instantly.", "Fast payments, safe pickups, and full transparency — that's our code.", 'We created Recarra for the grandma, the mechanic, and the college kid alike.', "Elegance isn't just visual — it's how Recarra treats every request.", 'Smart offers. Smarter dignity. Recarra is for every driver.'];
+  let ceoIndex = 0;
+  function rotateCEOQuote() {
+    const el = document.getElementById("ceo-quote");
+    el.textContent = ceoMessages[ceoIndex];
+    ceoIndex = (ceoIndex + 1) % ceoMessages.length;
+  }
+  setInterval(rotateCEOQuote, 8000);
+  document.addEventListener('DOMContentLoaded', rotateCEOQuote);
+</script>
+<style>
+#ceo-quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #444;
+  text-align: center;
+  max-width: 700px;
+  margin: 1.5rem auto;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+#ceo-quote.visible {
+  opacity: 1;
+}
+</style>
+<script>
+  const ceoMessages = [
+    "Recarra empowers every car owner to sell with dignity, speed, and value.",
+    "We built Recarra to replace confusion with clarity and trust.",
+    "Behind every offer is a system powered by AI — and guided by real humans.",
+    "Every button, every line of code — designed for all people, all cars.",
+    "Our goal is not just to buy junk cars — it's to restore peace of mind.",
+    "Recarra stands for real value, real speed, and real care.",
+    "We didn't just automate the process — we elevated it.",
+    "Our platform speaks every language: VIN, voice, photo, plate, and chat.",
+    "We believe selling your car should be just as easy as texting a friend.",
+    "Built in America, trusted across every driveway and highway.",
+    "Your experience matters more than just your vehicle's value.",
+    "Recarra doesn't judge your car — we evaluate, appreciate, and act.",
+    "You shouldn't wait days for a price. Recarra gives it instantly.",
+    "Fast payments, safe pickups, and full transparency — that's our code.",
+    "We created Recarra for the grandma, the mechanic, and the college kid alike.",
+    "Elegance isn't just visual — it's how Recarra treats every request.",
+    "Smart offers. Smarter dignity. Recarra is for every driver."
+  ];
+  let ceoIndex = 0;
+  function rotateCEOQuote() {
+    const el = document.getElementById("ceo-quote");
+    el.classList.remove("visible");
+    setTimeout(() => {
+      el.textContent = ceoMessages[ceoIndex];
+      el.classList.add("visible");
+      ceoIndex = (ceoIndex + 1) % ceoMessages.length;
+    }, 300);
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    rotateCEOQuote();
+    setInterval(rotateCEOQuote, 8000);
+  });
+</script>
 </body>
 </html>
 <script>
