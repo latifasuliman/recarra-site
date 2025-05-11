@@ -1831,7 +1831,6 @@ document.addEventListener('DOMContentLoaded', () => {
   to { transform: translateY(0); }
 }
 </style>
-
 <style>
 /* Step transition */
 .toolbox-step {
@@ -1858,6 +1857,32 @@ document.addEventListener('DOMContentLoaded', () => {
 @keyframes slideUp {
   from { transform: translateY(100%); }
   to { transform: translateY(0); }
+}
+</style>
+
+<style>
+.toolbox-input {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  background: #fff;
+  color: #000;
+}
+.toolbox-step {
+  animation: fadeIn 0.35s ease-in-out;
+}
+.toolbox-modal button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.toolbox-modal button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+.toolbox-modal button:active {
+  transform: scale(0.97);
 }
 </style>
 </head>
