@@ -1759,6 +1759,10 @@ document.addEventListener('DOMContentLoaded', () => {
 .vertical-menu-icon i {
   transform: rotate(180deg);
 }
+</style><style>
+.floating-button {
+  transition: background 3s ease-in-out;
+}
 </style></head>
 <body><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
@@ -1782,7 +1786,11 @@ window.addEventListener("load", () => {
 <button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
 <button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
 </nav>
-<button aria-label="☰ Recarra" class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+<button aria-label="☰ Recarra" class="nav-toggle" id="navToggle" style="background: black; border-radius: 50px; padding: 0.5rem 1rem;">
+<div style="width: 20px; height: 3px; background: white; margin: 4px auto; border-radius: 2px;"></div>
+<div style="width: 20px; height: 3px; background: white; margin: 4px auto; border-radius: 2px;"></div>
+<div style="width: 20px; height: 3px; background: white; margin: 4px auto; border-radius: 2px;"></div>
+</button>
 <header>
 <h1>Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
@@ -3434,7 +3442,43 @@ document.addEventListener("DOMContentLoaded", () => {
 <i class="fas fa-question-circle"></i> Help
   </button>
 </div>
-<div class="vertical-menu-icon" style=" font-size: 2rem; font-weight: bold; color: white;">///</div></body>
+<div class="vertical-menu-icon" style=" font-size: 2rem; font-weight: bold; color: white;">///</div><script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btnOffer = document.querySelector('.btn-offer');
+  const btnChat = document.querySelector('.btn-chat');
+  const btnHelp = document.querySelector('.btn-help');
+
+  const offerGradients = [
+    'linear-gradient(to right, #ffcc00, #ff3366)',
+    'linear-gradient(to right, #f7971e, #ffd200)',
+    'linear-gradient(to right, #ff5f6d, #ffc371)'
+  ];
+
+  const chatGradients = [
+    'linear-gradient(to right, #00c6ff, #0072ff)',
+    'linear-gradient(to right, #3a7bd5, #3a6073)',
+    'linear-gradient(to right, #2193b0, #6dd5ed)'
+  ];
+
+  const helpGradients = [
+    'linear-gradient(to right, #ff7e5f, #feb47b)',
+    'linear-gradient(to right, #ff6a00, #ee0979)',
+    'linear-gradient(to right, #f12711, #f5af19)'
+  ];
+
+  let index = 0;
+
+  function cycleIndividualColors() {
+    if (btnOffer) btnOffer.style.background = offerGradients[index % offerGradients.length];
+    if (btnChat) btnChat.style.background = chatGradients[index % chatGradients.length];
+    if (btnHelp) btnHelp.style.background = helpGradients[index % helpGradients.length];
+    index++;
+  }
+
+  cycleIndividualColors();
+  setInterval(cycleIndividualColors, 888000);
+});
+</script></body>
 </html>
 <script>
 function startVinScan() {
