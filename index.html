@@ -1651,6 +1651,10 @@ document.addEventListener('DOMContentLoaded', () => {
 .offer-modal {
   min-height: 2rem;
 }
+</style><style>
+#floatingToggleTab:hover {
+  box-shadow: 0 0 12px 4px rgba(255, 78, 80, 0.4);
+}
 </style></head>
 <body><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
@@ -1689,7 +1693,35 @@ window.addEventListener("load", () => {
 </div>
 </header>
 <!-- Recarra Full Form Section -->
-<section class="section-block" id="smartOfferForm">
+<section class="section-block fade-in-section" id="recarraForm" style="max-width: 720px; margin: 3rem auto; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);">
+<h2 class="section-title" style="font-size:2rem; text-align:center; color:#ff4e50;">Recarra Smart Offer Form</h2>
+<form id="smartRecarraForm" style="display:flex; flex-direction:column; gap:1.5rem;"><div id="formProgressDots" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem;"><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span></div>
+<div class="form-progress-container" style="width: 100%; max-width: 400px; height: 10px; background-color: #eee; border-radius: 10px; overflow: hidden; margin: 1rem auto;">
+<div class="form-progress-bar" id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.5s ease-in-out;"></div>
+</div>
+<div class="form-step active" style="display: block;"><input placeholder="Full Name" required="" type="text"/></div>
+<div class="form-step" style="display: none;"><input placeholder="Phone Number" required="" type="tel"/></div>
+<div class="form-step" style="display: none;"><input placeholder="Email Address" required="" type="email"/></div>
+<div class="form-step" style="display: none;"><input placeholder="Car Year, Make, and Model" required="" type="text"/></div>
+<div class="form-step" style="display: none;"><input placeholder="VIN Number (optional)" type="text"/></div>
+<div class="form-step" style="display: none;"><label>Front of Car</label><input accept="image/*" required="" type="file"/></div>
+<div class="form-step" style="display: none;"><label>Back of Car</label><input accept="image/*" required="" type="file"/></div>
+<div class="form-step" style="display: none;"><label>Right Side</label><input accept="image/*" required="" type="file"/></div>
+<div class="form-step" style="display: none;"><label>Left Side</label><input accept="image/*" required="" type="file"/></div>
+<div class="form-step" style="display: none;">
+<select required="">
+<option value="">Preferred Payment Method</option>
+<option value="cash">Cash</option>
+<option value="direct">Direct Deposit</option>
+<option value="debit">Instant Debit Transfer</option>
+</select>
+</div>
+<div class="form-step" style="display: none;"><textarea placeholder="Pickup Instructions" required="" rows="3"></textarea></div>
+<div class="form-step" style="display: none;"><textarea placeholder="Any additional notes?" rows="3"></textarea></div>
+<button class="offer-button" id="nextBtn" style="display: block; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="button">Next</button>
+<button class="offer-button" id="submitBtn" style="display: none; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="submit">Submit Offer</button>
+</form>
+</section><section class="section-block" id="smartOfferForm">
 <section class="section-block fade-in-section">
 <h2 class="section-title">
 AI Smart Offer
@@ -2874,35 +2906,6 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 <audio id="formSubmitSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-29.mp3"></audio>
 <section class="section-block fade-in-section" style="padding: 2rem; background: #fff; border-radius: 12px; margin: 2rem auto; text-align: center;"><h3 id="faq-question" style="font-weight:800; font-size:1.2rem; color:#ff4e50;"></h3><p id="faq-answer" style="font-size:1rem; color:#555;"></p></section>
-<section class="section-block fade-in-section" id="recarraForm" style="max-width: 720px; margin: 3rem auto; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);">
-<h2 class="section-title" style="font-size:2rem; text-align:center; color:#ff4e50;">Recarra Smart Offer Form</h2>
-<form id="smartRecarraForm" style="display:flex; flex-direction:column; gap:1.5rem;"><div id="formProgressDots" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem;"><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span></div>
-<div class="form-progress-container" style="width: 100%; max-width: 400px; height: 10px; background-color: #eee; border-radius: 10px; overflow: hidden; margin: 1rem auto;">
-<div class="form-progress-bar" id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.5s ease-in-out;"></div>
-</div>
-<div class="form-step active" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="Full Name" required="" type="text"/></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="Phone Number" required="" type="tel"/></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="Email Address" required="" type="email"/></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="Car Year, Make, and Model" required="" type="text"/></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="VIN Number (optional)" type="text"/></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><label>Front of Car</label><input accept="image/*" required="" type="file"/></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><label>Back of Car</label><input accept="image/*" required="" type="file"/></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><label>Right Side</label><input accept="image/*" required="" type="file"/></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><label>Left Side</label><input accept="image/*" required="" type="file"/></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);">
-<select required="">
-<option value="">Preferred Payment Method</option>
-<option value="cash">Cash</option>
-<option value="direct">Direct Deposit</option>
-<option value="debit">Instant Debit Transfer</option>
-</select>
-</div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><textarea placeholder="Pickup Instructions" required="" rows="3"></textarea></div>
-<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><textarea placeholder="Any additional notes?" rows="3"></textarea></div>
-<button class="offer-button" id="nextBtn" style="display: block; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="button">Next</button>
-<button class="offer-button" id="submitBtn" style="display: none; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="submit">Submit Offer</button>
-</form>
-</section>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const steps = document.querySelectorAll(".form-step");
@@ -3112,6 +3115,113 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   showStep(currentStep);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const recarraForm = document.getElementById("recarraForm");
+  const aiOffer = document.getElementById("smartOfferForm");
+
+  if (recarraForm && aiOffer) {
+    recarraForm.scrollIntoView({ behavior: "smooth", block: "center" });
+    setTimeout(() => {
+      aiOffer.style.transition = "opacity 0.6s ease";
+      aiOffer.style.opacity = "0.05";
+      aiOffer.style.pointerEvents = "none";
+      aiOffer.style.height = "0px";
+      aiOffer.style.overflow = "hidden";
+    }, 800);
+  }
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const recarraForm = document.getElementById("recarraForm");
+  const aiOffer = document.getElementById("smartOfferForm");
+  const toggleBtn = document.getElementById("toggleAISection");
+
+  if (recarraForm && aiOffer && toggleBtn) {
+    recarraForm.scrollIntoView({ behavior: "smooth", block: "center" });
+    setTimeout(() => {
+      aiOffer.style.transition = "opacity 0.6s ease, height 0.6s ease";
+      aiOffer.style.opacity = "0.05";
+      aiOffer.style.pointerEvents = "none";
+      aiOffer.style.height = "0px";
+      aiOffer.style.overflow = "hidden";
+    }, 800);
+
+    toggleBtn.addEventListener("click", () => {
+      if (aiOffer.style.height === "0px") {
+        aiOffer.style.opacity = "1";
+        aiOffer.style.height = "auto";
+        aiOffer.style.pointerEvents = "auto";
+        toggleBtn.textContent = "Hide AI Smart Offer";
+      } else {
+        aiOffer.style.opacity = "0.05";
+        aiOffer.style.height = "0px";
+        aiOffer.style.pointerEvents = "none";
+        toggleBtn.textContent = "Show AI Smart Offer Again";
+      }
+    });
+  }
+});
+</script><div id="floatingToggleTab" style="
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  z-index: 9999;
+  background: linear-gradient(to right, #f9d423, #ff4e50);
+  color: black;
+  font-weight: 700;
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+">
+<img alt="AI Icon" src="https://img.icons8.com/emoji/24/robot-face.png" style="vertical-align: middle; margin-right: 0.5rem;"/>
+<span id="toggleText">Show AI Smart Offer Again</span>
+</div><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const recarraForm = document.getElementById("recarraForm");
+  const aiOffer = document.getElementById("smartOfferForm");
+  const toggleTab = document.getElementById("floatingToggleTab");
+  const toggleText = document.getElementById("toggleText");
+  const smartForm = document.getElementById("smartRecarraForm");
+
+  if (recarraForm && aiOffer && toggleTab) {
+    aiOffer.style.transition = "opacity 0.6s ease, height 0.6s ease";
+    aiOffer.style.opacity = "0.05";
+    aiOffer.style.pointerEvents = "none";
+    aiOffer.style.height = "0px";
+    aiOffer.style.overflow = "hidden";
+
+    toggleTab.addEventListener("click", () => {
+      if (aiOffer.style.height === "0px") {
+        aiOffer.style.opacity = "1";
+        aiOffer.style.height = "auto";
+        aiOffer.style.pointerEvents = "auto";
+        toggleText.textContent = "Hide AI Smart Offer";
+      } else {
+        aiOffer.style.opacity = "0.05";
+        aiOffer.style.height = "0px";
+        aiOffer.style.pointerEvents = "none";
+        toggleText.textContent = "Show AI Smart Offer Again";
+      }
+    });
+  }
+
+  if (smartForm) {
+    smartForm.addEventListener("submit", () => {
+      setTimeout(() => {
+        if (aiOffer) {
+          aiOffer.style.opacity = "0.05";
+          aiOffer.style.height = "0px";
+          aiOffer.style.pointerEvents = "none";
+          toggleText.textContent = "Show AI Smart Offer Again";
+        }
+      }, 600);
+    });
+  }
 });
 </script></body>
 </html>
