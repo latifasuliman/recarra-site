@@ -1655,8 +1655,255 @@ document.addEventListener('DOMContentLoaded', () => {
 #floatingToggleTab:hover {
   box-shadow: 0 0 12px 4px rgba(255, 78, 80, 0.4);
 }
+</style><style>
+#floatingButtonsContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+.floating-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+  text-align: center;
+}
+.floating-button i {
+  font-size: 1.2rem;
+}
+.floating-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 78, 80, 0.4);
+}
+.btn-offer {
+  background: linear-gradient(to right, #ffcc00, #ff3366);
+  color: black;
+}
+.btn-chat {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+}
+.btn-help {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: white;
+}
+</style>
+<style>
+.nav-toggle.unified-toggle {
+  background: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.nav-toggle.unified-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+</style>
+<style>
+.nav-toggle.nav-matched {
+  background: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 180px;
+  text-align: center;
+}
+.nav-toggle.nav-matched:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+</style><style>
+.nav-toggle.nav-matched {
+  background: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 180px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-toggle.nav-matched:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+#rightSmartNav, #smartNav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+#rightSmartNav.open, #smartNav.open {
+  max-height: 500px;
+}
+</style><style>
+.nav-toggle.unified-perfect {
+  background: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.75rem;
+  border: 3px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.nav-toggle.unified-perfect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px rgba(255,255,255,0.3);
+}
 </style></head>
-<body><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<body>
+<!-- Recarra Main Menu (Left) -->
+<div style="position: fixed; top: 10px; left: 10px; z-index: 10000;">
+<button class="menu-button" id="recarraMenuToggle">
+<i class="fas fa-bars"></i> Recarra
+  </button>
+<div class="dropdown-panel" id="recarraDropdown">
+<a href="#how-it-works">How It Works</a>
+<a href="#faq">FAQs</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+<!-- AI Menu (Right) -->
+<div style="position: fixed; top: 10px; right: 10px; z-index: 10000;">
+<button class="menu-button" id="aiMenuToggle">
+<i class="fas fa-brain"></i> AI Menu
+  </button>
+<div class="dropdown-panel" id="aiDropdown">
+<a href="#smart-offer">Smart Offer</a>
+<a href="#ai-chat">AI Chat</a>
+<a href="#get-help">Get Help</a>
+</div>
+</div>
+<style>
+.menu-button {
+  background: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: 3px solid white;
+  border-radius: 12px;
+  min-width: 180px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+.menu-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px rgba(255,255,255,0.3);
+}
+.dropdown-panel {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border: 2px solid black;
+  padding: 0.5rem;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.dropdown-panel a {
+  text-decoration: none;
+  color: black;
+  padding: 0.5rem;
+  font-weight: 600;
+}
+.dropdown-panel a:hover {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+</style>
+<script>
+document.getElementById("recarraMenuToggle").addEventListener("click", function() {
+  const panel = document.getElementById("recarraDropdown");
+  panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+});
+document.getElementById("aiMenuToggle").addEventListener("click", function() {
+  const panel = document.getElementById("aiDropdown");
+  panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+});
+</script>
+<!-- Left Recarra Menu -->
+<!-- Right AI Menu -->
+<style>
+.menu-button {
+  background: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border: 3px solid white;
+  border-radius: 12px;
+  min-width: 180px;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+.menu-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 14px rgba(255,255,255,0.3);
+}
+</style>
+<!-- Right-Side Dropdown Menu Styled Like Recarra -->
+<script>
+document.getElementById("rightNavToggle").addEventListener("click", function() {
+  const menu = document.getElementById("rightSmartNav");
+  menu.style.display = menu.style.display === "none" ? "grid" : "none";
+});
+</script>
+<script>
+document.getElementById("dropdownToggle").addEventListener("click", function() {
+  const content = document.getElementById("dropdownContent");
+  content.style.display = content.style.display === "none" ? "block" : "none";
+});
+</script>
+<audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
 function hideSplash() {
@@ -1670,17 +1917,8 @@ window.addEventListener("load", () => {
 });
 </script>
 <div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
-<nav id="smartNav">
-<button aria-label="Accept Offer" class="nav-offer-button" onclick="showOffer('photo', event)">Accept Offer</button>
-<button aria-label="Text Offer" class="nav-offer-button" onclick="showOffer('plate', event)">Text Offer</button>
-<button aria-label="Extend Offer" class="nav-offer-button" onclick="showOffer('vin', event)">Extend Offer</button>
-<button aria-label="Call for Offer" class="nav-offer-button" onclick="showOffer('voice', event)">Call for Offer</button>
-<button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
-<button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
-</nav>
-<button aria-label="☰ Recarra" class="nav-toggle" id="navToggle">☰ Recarra</button>
 <header>
-<h1 style="font-size: 5rem; background: linear-gradient(90deg, #ff4e50, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 900; margin-bottom: 0.5rem;">Recarra</h1>
+<h1 style="text-align: center; display: block; margin: 0 auto; font-weight: bold; font-size: 2.5rem;">Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
   An end-to-end, AI-powered car buying platform.
 </div>
@@ -2664,7 +2902,6 @@ function installPwa() {
   }
 }
 </script>
-<button aria-label="Install Recarra App" id="installPwaButton" onclick="installPwa()" style="display:none; position: fixed; bottom: 100px; right: 30px; padding: 0.75rem 1.25rem; font-weight: bold; background: #000; color: #fff; border: none; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; cursor: pointer;"><i class="fas fa-download"></i>Install App</button>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -3149,51 +3386,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-</script><div id="floatingStack" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10000;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1rem;
-"><div id="aiTipBubble" style="max-width: 280px; background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.1); color: #333; font-size: 0.95rem; font-weight: 500; display: none;">Let's get started! Enter your name to begin.</div><div id="floatingToggleTab" style="background: linear-gradient(to right, #f9d423, #ff4e50); color: black; font-weight: 700; padding: 0.8rem 1.6rem; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
-<div style="display: flex; align-items: center; gap: 0.5rem;">
-<img alt="AI Icon" src="https://cdn-icons-png.flaticon.com/512/4712/4712100.png" style="height: 22px; vertical-align: middle;"/>
-<span id="toggleText">Show AI Smart Offer Again</span>
-</div>
-</div><div id="liveChatButton" style="
-  background: linear-gradient(to right, #4facfe, #00f2fe);
-  color: white;
-  font-weight: 700;
-  padding: 0.7rem 1.4rem;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  cursor: pointer;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-">
-<img alt="Chat Icon" src="https://cdn-icons-png.flaticon.com/512/9068/9068679.png" style="height: 20px; width: 20px;"/>
-<span>Live Chat</span>
-</div><div id="getHelpButton" style="
-  background: linear-gradient(to right, #ff9966, #ff5e62);
-  color: white;
-  font-weight: 700;
-  padding: 0.7rem 1.4rem;
-  border-radius: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  cursor: pointer;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-">
-<img alt="Help Icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" style="height: 20px; width: 20px;"/>
-<span>Get Help</span>
-</div></div><script>
+</script><script>
 document.addEventListener("DOMContentLoaded", function () {
   const recarraForm = document.getElementById("recarraForm");
   const aiOffer = document.getElementById("smartOfferForm");
@@ -3242,7 +3435,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <div id="chatPopup" style="display:none; position:fixed; bottom:100px; right:20px; width:300px; background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); padding:1rem; z-index:10001;; transition: transform 0.3s ease, opacity 0.3s ease; transform: translateY(30px); opacity: 0;"><span class="popup-close" style="position:absolute; top:8px; right:12px; cursor:pointer; font-weight:bold; font-size:1.1rem;">×</span>
-<strong style="display:block; margin-bottom:0.5rem;">Live Chat</strong>
+<strong style="display:block; margin-bottom:0.5rem;">Chat</strong>
 <p>Hello! I'm Recarra’s smart assistant. How can I help you today?</p>
 </div>
 <div id="helpPopup" style="display:none; position:fixed; bottom:100px; right:20px; width:300px; background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); padding:1rem; z-index:10001;; transition: transform 0.3s ease, opacity 0.3s ease; transform: translateY(30px); opacity: 0;"><span class="popup-close" style="position:absolute; top:8px; right:12px; cursor:pointer; font-weight:bold; font-size:1.1rem;">×</span>
@@ -3344,6 +3537,34 @@ document.addEventListener("DOMContentLoaded", () => {
       closePopup(helpPopup);
     }
   });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("scrollTop").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.getElementById("quickChat").addEventListener("click", () => {
+    alert("Chat coming soon...");
+  });
+
+  document.getElementById("quickHelp").addEventListener("click", () => {
+    alert("Help Center launching shortly...");
+  });
+
+  document.getElementById("quickOffer").addEventListener("click", () => {
+    window.scrollTo({ top: document.getElementById("recarraForm")?.offsetTop || 300, behavior: 'smooth' });
+  });
+});
+</script>
+<script>
+document.getElementById("rightNavToggle").addEventListener("click", function() {
+  const menu = document.getElementById("rightSmartNav");
+  menu.classList.toggle("open");
+});
+document.getElementById("navToggle").addEventListener("click", function() {
+  const menu = document.getElementById("smartNav");
+  menu.classList.toggle("open");
 });
 </script></body>
 </html>
