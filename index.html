@@ -1917,19 +1917,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     .form-drawer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      max-height: 65%;
-      background: white;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
-      padding: 2rem 1.5rem;
-      z-index: 9999;
-      display: none;
-      animation: slideUp 0.4s ease forwards;
-    }
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 700px;
+  max-height: 50vh;
+  overflow-y: auto;
+  background: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
+  padding: 2rem 1.5rem;
+  z-index: 9999;
+  display: none;
+  animation: slideUp 0.4s ease forwards;
+}
 
     @keyframes slideUp {
       from { transform: translateY(100%); opacity: 0; }
@@ -1978,8 +1982,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
 .form-drawer {
+  position: fixed;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
+  max-width: 700px;
+  max-height: 50vh;
+  overflow-y: auto;
+  background: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
+  padding: 2rem 1.5rem;
+  z-index: 9999;
+  display: none;
+  animation: slideUp 0.4s ease forwards;
 }
 .disclaimer {
   font-size: 0.85rem;
@@ -2003,11 +2021,23 @@ document.addEventListener('DOMContentLoaded', () => {
     </style><style>
 @media (max-width: 600px) {
   .form-drawer {
-    width: 100% !important;
-    max-height: 80% !important;
-    padding: 1.5rem 1rem !important;
-    border-radius: 16px 16px 0 0 !important;
-  }
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 700px;
+  max-height: 50vh;
+  overflow-y: auto;
+  background: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
+  padding: 2rem 1.5rem;
+  z-index: 9999;
+  display: none;
+  animation: slideUp 0.4s ease forwards;
+}
 
   .form-title {
     font-size: 1.4rem !important;
@@ -4543,6 +4573,80 @@ function closeForm() {
   document.getElementById('modalOverlay').style.display = 'none';
   document.getElementById('formDrawer').style.display = 'none';
   document.getElementById('formContentArea').innerHTML = '';
+}
+</script>
+
+<!-- Overlay -->
+<div id="formOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+<!-- Unified Drawer -->
+<div class="form-drawer" id="formDrawer">
+<button onclick="closeForm()" style="position:absolute; top:10px; right:20px; background:black; color:white; border:none; border-radius:50%; width:30px; height:30px; font-size:1.2rem; cursor:pointer;">×</button>
+<h2 class="form-title" id="drawerTitle">Smart Offer</h2>
+<p class="disclaimer">This is just an estimate. Final price will depend on vehicle ownership, condition, and documentation.</p>
+<div id="formStepContainer">
+<input id="stepInput" onkeydown="if(event.key==='Enter') nextStep()" placeholder="Enter your name" type="text"/>
+</div>
+<button class="agree-btn" onclick="nextStep()" style="margin-top:1rem;">Next</button>
+</div>
+<!-- Audio -->
+<audio id="openSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio>
+<audio id="closeSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio>
+<audio id="stepSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
+
+<script>
+document.getElementById('chooseOfferBtn').onclick = () => {
+  const menu = document.getElementById('offerDropdown');
+  menu.style.display = (menu.style.display === 'none') ? 'block' : 'none';
+};
+
+function openForm(type) {
+  document.getElementById('offerDropdown').style.display = 'none';
+  document.getElementById('formOverlay').style.display = 'block';
+  document.getElementById('formDrawer').style.display = 'block';
+  document.getElementById('openSound').play();
+  const titleMap = {
+    'ai_offer': 'AI Offer',
+    'chat': 'Live Chat Offer',
+    'voice': 'Voice Offer',
+    'vin': 'VIN Offer',
+    'plate': 'License Plate Offer',
+    'photo': 'Photo Upload Offer',
+    'video': 'Video Call Offer',
+    'email': 'Email Offer',
+    'agent': 'Agent Callback',
+    'recarra_full_form': 'Recarra Full Form'
+  };
+  document.getElementById('drawerTitle').innerText = titleMap[type] || 'Smart Offer';
+
+  let placeholder = 'Enter your name';
+  if (type === 'voice') placeholder = 'Say your name aloud';
+  else if (type === 'vin') placeholder = 'Enter your VIN';
+  else if (type === 'photo') placeholder = 'Upload photo or enter car condition';
+  else if (type === 'email') placeholder = 'Enter your email address';
+
+  document.getElementById('formStepContainer').innerHTML =
+    `<input type="text" id="stepInput" placeholder="${placeholder}" onkeydown="if(event.key==='Enter') nextStep()"/>`;
+}
+
+function nextStep() {
+  const val = document.getElementById('stepInput').value.trim();
+  if (!val) return alert("Please complete this field.");
+  document.getElementById('stepSound').play();
+  document.getElementById('formStepContainer').innerHTML =
+    '<input type="text" id="stepInput" placeholder="Enter your car details" onkeydown="if(event.key===\'Enter\') finishForm()"/>';
+}
+
+function finishForm() {
+  const val = document.getElementById('stepInput').value.trim();
+  if (!val) return alert("Please enter your car details.");
+  alert("Form submitted! You will receive your smart offer shortly.");
+  closeForm();
+}
+
+function closeForm() {
+  document.getElementById('formOverlay').style.display = 'none';
+  document.getElementById('formDrawer').style.display = 'none';
+  document.getElementById('closeSound').play();
 }
 </script>
 </body>
