@@ -1700,210 +1700,8 @@ document.addEventListener('DOMContentLoaded', () => {
   background: linear-gradient(to right, #ff7e5f, #feb47b);
   color: white;
 }
-</style>
-<style>
-.nav-toggle.unified-toggle {
-  background: black;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
-}
-.nav-toggle.unified-toggle:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
-</style>
-<style>
-.nav-toggle.nav-matched {
-  background: black;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.75rem 1.75rem;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-width: 180px;
-  text-align: center;
-}
-.nav-toggle.nav-matched:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
-}
-</style><style>
-.nav-toggle.nav-matched {
-  background: black;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.75rem 1.75rem;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-width: 180px;
-  text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.nav-toggle.nav-matched:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
-}
-#rightSmartNav, #smartNav {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-out;
-}
-#rightSmartNav.open, #smartNav.open {
-  max-height: 500px;
-}
-</style><style>
-.nav-toggle.unified-perfect {
-  background: black;
-  color: white;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.75rem 1.75rem;
-  border: 3px solid white;
-  border-radius: 10px;
-  cursor: pointer;
-  min-width: 180px;
-  text-align: center;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-.nav-toggle.unified-perfect:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 14px rgba(255,255,255,0.3);
-}
 </style></head>
-<body>
-<!-- Recarra Main Menu (Left) -->
-<div style="position: fixed; top: 10px; left: 10px; z-index: 10000;">
-<button class="menu-button" id="recarraMenuToggle">
-<i class="fas fa-bars"></i> Recarra
-  </button>
-<div class="dropdown-panel" id="recarraDropdown">
-<a href="#how-it-works">How It Works</a>
-<a href="#faq">FAQs</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
-<!-- AI Menu (Right) -->
-<div style="position: fixed; top: 10px; right: 10px; z-index: 10000;">
-<button class="menu-button" id="aiMenuToggle">
-<i class="fas fa-brain"></i> AI Menu
-  </button>
-<div class="dropdown-panel" id="aiDropdown">
-<a href="#smart-offer">Smart Offer</a>
-<a href="#ai-chat">AI Chat</a>
-<a href="#get-help">Get Help</a>
-</div>
-</div>
-<style>
-.menu-button {
-  background: black;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  border: 3px solid white;
-  border-radius: 12px;
-  min-width: 180px;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-}
-.menu-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 14px rgba(255,255,255,0.3);
-}
-.dropdown-panel {
-  display: none;
-  flex-direction: column;
-  background: #fff;
-  border: 2px solid black;
-  padding: 0.5rem;
-  border-radius: 10px;
-  margin-top: 0.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-.dropdown-panel a {
-  text-decoration: none;
-  color: black;
-  padding: 0.5rem;
-  font-weight: 600;
-}
-.dropdown-panel a:hover {
-  background: #f0f0f0;
-  border-radius: 5px;
-}
-</style>
-<script>
-document.getElementById("recarraMenuToggle").addEventListener("click", function() {
-  const panel = document.getElementById("recarraDropdown");
-  panel.style.display = panel.style.display === "flex" ? "none" : "flex";
-});
-document.getElementById("aiMenuToggle").addEventListener("click", function() {
-  const panel = document.getElementById("aiDropdown");
-  panel.style.display = panel.style.display === "flex" ? "none" : "flex";
-});
-</script>
-<!-- Left Recarra Menu -->
-<!-- Right AI Menu -->
-<style>
-.menu-button {
-  background: black;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.75rem 1.5rem;
-  border: 3px solid white;
-  border-radius: 12px;
-  min-width: 180px;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-}
-.menu-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 14px rgba(255,255,255,0.3);
-}
-</style>
-<!-- Right-Side Dropdown Menu Styled Like Recarra -->
-<script>
-document.getElementById("rightNavToggle").addEventListener("click", function() {
-  const menu = document.getElementById("rightSmartNav");
-  menu.style.display = menu.style.display === "none" ? "grid" : "none";
-});
-</script>
-<script>
-document.getElementById("dropdownToggle").addEventListener("click", function() {
-  const content = document.getElementById("dropdownContent");
-  content.style.display = content.style.display === "none" ? "block" : "none";
-});
-</script>
-<audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<body><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
 function hideSplash() {
@@ -1917,8 +1715,17 @@ window.addEventListener("load", () => {
 });
 </script>
 <div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+<nav id="smartNav">
+<button aria-label="Accept Offer" class="nav-offer-button" onclick="showOffer('photo', event)">Accept Offer</button>
+<button aria-label="Text Offer" class="nav-offer-button" onclick="showOffer('plate', event)">Text Offer</button>
+<button aria-label="Extend Offer" class="nav-offer-button" onclick="showOffer('vin', event)">Extend Offer</button>
+<button aria-label="Call for Offer" class="nav-offer-button" onclick="showOffer('voice', event)">Call for Offer</button>
+<button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
+<button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
+</nav>
+<button aria-label="☰ Recarra" class="nav-toggle" id="navToggle">☰ Recarra</button>
 <header>
-<h1 style="text-align: center; display: block; margin: 0 auto; font-weight: bold; font-size: 2.5rem;">Recarra</h1>
+<h1>Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
   An end-to-end, AI-powered car buying platform.
 </div>
@@ -3557,16 +3364,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<script>
-document.getElementById("rightNavToggle").addEventListener("click", function() {
-  const menu = document.getElementById("rightSmartNav");
-  menu.classList.toggle("open");
-});
-document.getElementById("navToggle").addEventListener("click", function() {
-  const menu = document.getElementById("smartNav");
-  menu.classList.toggle("open");
-});
-</script></body>
+<div id="floatingButtonsContainer">
+<button class="floating-button btn-offer">
+<i class="fas fa-robot"></i> AI Offer
+  </button>
+<button class="floating-button btn-chat">
+<i class="fas fa-comments"></i> Chat
+  </button>
+<button class="floating-button btn-help">
+<i class="fas fa-question-circle"></i> Help
+  </button>
+</div>
+</body>
 </html>
 <script>
 function startVinScan() {
