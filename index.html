@@ -3629,23 +3629,14 @@ function loadForm(type) {
   const menu = document.getElementById('smartMenuDropdown');
   const switchBtn = document.getElementById('switchMethodBtn');
 
-  // Only hide the dropdown menu
   if (menu) menu.style.display = 'none';
-
-  // Hide main form
   if (mainForm) mainForm.style.display = 'none';
-
-  // Show overlay
   if (overlay) overlay.style.display = 'block';
-
-  // Show switch method button
   if (switchBtn) switchBtn.style.display = 'block';
 
-  // Play sound
   const openSound = document.getElementById('popupOpenSound');
   if (openSound) openSound.play();
 
-  // Inject form
   formDisplay.innerHTML = `
     <form onsubmit="submitSmartForm(event)" class="offer-modal fade-in-section">
       <h2 style="color:#ff4e50;">${type.toUpperCase()} Offer</h2>
@@ -3663,24 +3654,18 @@ function loadForm(type) {
 function returnToMainForm() {
   const mainForm = document.getElementById('recarraForm');
   const formDisplay = document.getElementById('formDisplayArea');
-  const overlay = document.getElementById('modalOverlay');
   const switchBtn = document.getElementById('switchMethodBtn');
 
-  // Show main form
   if (mainForm) mainForm.style.display = 'block';
-
-  // Clear injected form
   if (formDisplay) formDisplay.innerHTML = '';
-
-  // Hide overlay and switch button
-  if (overlay) overlay.style.display = 'none';
   if (switchBtn) switchBtn.style.display = 'none';
 
-  // Play sound
   const closeSound = document.getElementById('popupCloseSound');
   if (closeSound) closeSound.play();
 
   mainForm.scrollIntoView({ behavior: 'smooth' });
+
+  // Don't hide overlay: user may want to reopen menu
 }
 
 function submitSmartForm(e) {
