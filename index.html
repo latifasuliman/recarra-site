@@ -1764,7 +1764,7 @@ document.addEventListener('DOMContentLoaded', () => {
   transition: background 3s ease-in-out;
 }
 </style></head>
-<body><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<body><button id="smartMenuToggle" style="position: fixed; top: 20px; right: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="loadForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="loadForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="loadForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="loadForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="loadForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="loadForm('email')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Email</button><button class="dropdown-option" onclick="loadForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="loadForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="loadForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="loadForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Recarra Full Form</button></div><div id="formDisplayArea" style="margin: 2rem auto; max-width: 720px; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
 function hideSplash() {
@@ -3432,17 +3432,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <div id="floatingButtonsContainer">
-<button class="floating-button btn-offer">
-<i class="fas fa-robot"></i> AI Offer
-  </button>
-<button class="floating-button btn-chat">
-<i class="fas fa-comments"></i> Chat
-  </button>
-<button class="floating-button btn-help">
-<i class="fas fa-question-circle"></i> Help
-  </button>
+
+
+
 </div>
-<div class="vertical-menu-icon" style=" font-size: 2rem; font-weight: bold; color: white;">///</div><script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
   const btnOffer = document.querySelector('.btn-offer');
   const btnChat = document.querySelector('.btn-chat');
@@ -3478,6 +3472,24 @@ document.addEventListener('DOMContentLoaded', () => {
   cycleIndividualColors();
   setInterval(cycleIndividualColors, 888000);
 });
+</script><script>
+document.getElementById('smartMenuToggle').addEventListener('click', function () {
+    const menu = document.getElementById('smartMenuDropdown');
+    menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+});
+
+function loadForm(type) {
+    const area = document.getElementById('formDisplayArea');
+    let content = '<h2 style="text-align:center; color:#ff4e50;">Currently Filling: ' + type.replace('_', ' ') + '</h2>';
+    if (type === 'recarra_full_form') {
+        const recarraForm = document.getElementById('recarraForm');
+        content += recarraForm ? recarraForm.innerHTML : '<p>Recarra Form not found.</p>';
+    } else {
+        content += '<form style="display:flex; flex-direction:column; gap:1rem;"><input placeholder="Your Name" required><input placeholder="Your Phone"><textarea placeholder="Details for ' + type + '"></textarea><button type="submit" style="padding:0.8rem; border:none; background:linear-gradient(to right, #ff4e50, #f9d423); border-radius:30px; font-weight:bold;">Submit</button></form>';
+    }
+    area.innerHTML = content;
+    window.scrollTo({ top: area.offsetTop, behavior: 'smooth' });
+}
 </script></body>
 </html>
 <script>
