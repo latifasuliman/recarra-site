@@ -1,0 +1,4623 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><style>
+/* Responsive Button Group */
+.smart-offer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.smart-offer-buttons button {
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  flex: 1 1 140px;
+  max-width: 180px;
+}
+
+/* Form Input Responsiveness */
+.smart-form input,
+.smart-form select,
+.smart-form textarea {
+  width: 100%;
+  max-width: 500px;
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  margin: 0.5rem auto;
+  display: block;
+}
+
+/* Form Container */
+.form-wrapper {
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+}
+
+
+:root {
+--main-gradient: linear-gradient(135deg, #ff4e50, #f9d423);
+--lux-gold: #ffd700;
+--dim-bg: #000000;
+--dim-text: #ffffff;
+--light-bg: #ffffff;
+--light-text: #000000;
+}
+body {
+font-family: 'Poppins', sans-serif;
+margin: 0;
+padding: 0;
+background-color: var(--light-bg);
+color: var(--light-text);
+transition: all 0.5s ease-in-out;
+}
+body
+header, section, footer {
+max-width: 960px;
+margin: 2rem auto;
+padding: 2rem;
+border-radius: 10px;
+background-color: inherit;
+box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+transition: background-color 0.5s ease, color 0.5s ease;
+}
+h1, h2, h3, p {
+margin-bottom: 1rem;
+}
+.btn {
+display: inline-block;
+padding: 0.75rem 1.5rem;
+border-radius: 50px;
+background: var(--main-gradient);
+color: #000;
+font-weight: bold;
+text-decoration: none;
+transition: transform 0.3s ease;
+}
+.btn:hover {
+transform: scale(1.05);
+box-shadow: 0 0 12px rgba(255, 78, 80, 0.6);
+}
+.toggle-mode {
+position: fixed;
+top: 20px;
+right: 20px;
+padding: 0.6rem 1.2rem;
+background: #000;
+color: #fff;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+z-index: 1000;
+}
+footer {
+text-align: center;
+font-size: 0.9rem;
+}
+#smartOfferForm input,
+#smartOfferForm select,
+#smartOfferForm textarea,
+#smartOfferForm label {
+font-size: 1rem;
+}
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+input[type="time"],
+input[type="file"],
+select,
+textarea {
+width: 100%;
+max-width: 100%;
+padding: 1rem;
+font-size: 1rem;
+border-radius: 8px;
+border: 1px solid #ccc;
+box-sizing: border-box;
+margin-bottom: 1rem;
+}
+.uniform-input {
+width: 100%;
+max-width: 100%;
+padding: 1rem;
+font-size: 1rem;
+border-radius: 8px;
+border: 1px solid #ccc;
+box-sizing: border-box;
+margin-bottom: 1rem;
+}
+padding: 1rem 1.5rem;
+font-size: 2rem;
+font-weight: bold;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+transition: transform 0.3s;
+background: transparent;
+color: #ff4e50;
+box-shadow: 0 0 12px rgba(255, 78, 80, 0.6);
+}
+transform: scale(1.1);
+}
+0% { color: #ff4e50; }
+25% { color: #f9d423; }
+50% { color: #ff4e50; }
+75% { color: #2196F3; }
+100% { color: #ff4e50; }
+}
+font-size: 0.85rem;
+margin-top: 0.5rem;
+color: #ff4e50;
+transition: color 1s ease;
+}
+0% { color: #ff4e50; }
+25% { color: #f9d423; }
+50% { color: #ff4e50; }
+75% { color: #2196F3; }
+100% { color: #ff4e50; }
+}
+<style>
+.offer-icon svg {
+width: 32px;
+height: 32px;
+margin-bottom: 0.5rem;
+stroke: currentColor;
+}
+<style>
+.offer-button {
+padding: 1rem 1.25rem;
+font-size: 0.95rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f2f2f2;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+#offerIconMenu {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 1rem;
+padding: 1rem;
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 1.5rem;
+justify-items: center;
+padding: 1rem;
+}
+.offer-button {
+width: 90%;
+padding: 1.25rem 1.5rem;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f5f5f5;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+@media (min-width: 768px) {
+#offerIconMenu {
+grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+}
+}
+@media (max-width: 767px) {
+#offerIconMenu {
+grid-template-columns: 1fr;  /* One button per row on mobile */
+}
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 0.75rem;
+justify-items: center;
+padding: 0.5rem;
+}
+.offer-button {
+width: 100%;
+padding: 1rem 1.25rem;
+font-size: 1.05rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f9f9f9;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+margin: 0;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+@media (min-width: 768px) {
+#offerIconMenu {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+@media (max-width: 767px) {
+#offerIconMenu {
+grid-template-columns: 1fr;
+}
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 1rem;
+justify-items: center;
+padding: 1rem;
+}
+.offer-button {
+width: 100%;
+padding: 1rem 1.25rem;
+font-size: 1.05rem;
+font-weight: 700;
+border-radius: 50px;
+background: linear-gradient(to right, #ff4e50, #f9d423);
+color: black;
+border: none;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+}
+.offer-button:hover {
+opacity: 0.9;
+transform: scale(1.02);
+}
+.offer-button.active {
+box-shadow: 0 0 12px rgba(255, 78, 80, 0.3);
+outline: 2px solid #4CAF50;
+}
+/* Simplified button design */
+.nav-offer-button {
+flex: 1 1 calc(50% - 1rem);
+max-width: 240px;
+background-color: #222;
+color: #fff;
+border: 1px solid #444;
+padding: 0.75rem;
+border-radius: 6px;
+font-size: 0.95rem;
+font-weight: 500;
+cursor: pointer;
+text-align: center;
+transition: background-color 0.3s, border 0.3s;
+}
+.nav-offer-button:hover {
+background-color: #ff4e50;
+border-color: #ff4e50;
+}
+@media (min-width: 768px) {
+.nav-offer-button {
+flex: 1 1 calc(33.333% - 1rem);
+}
+}
+@media (min-width: 1024px) {
+.nav-offer-button {
+flex: 1 1 calc(20% - 1rem);
+}
+}
+/* Fix overlapping between toggle and nav buttons */
+#navToggle {
+position: fixed;
+top: 10px;
+left: 10px;
+z-index: 1001;
+background: #000;
+color: white;
+border: 2px solid white;
+border-radius: 6px;
+padding: 0.5rem 1rem;
+font-size: 1rem;
+cursor: pointer;
+display: none;
+margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+#navToggle { display: block; }
+#smartNav {
+margin-top: 3.5rem;
+}
+#smartNav:not(.active) {
+display: none !important;
+}
+#smartNav.active {
+display: flex !important;
+}
+}
+/* Gradient-based, homepage-style buttons */
+.nav-offer-button {
+flex: 1 1 calc(50% - 1rem);
+max-width: 240px;
+background: linear-gradient(90deg, #ff4e50, #f9d423);
+color: white;
+border: none;
+padding: 0.75rem;
+border-radius: 30px;
+font-size: 1rem;
+font-weight: bold;
+cursor: pointer;
+text-align: center;
+box-shadow: 0 2px 6px rgba(255, 78, 80, 0.3);
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.nav-offer-button:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 10px rgba(255, 78, 80, 0.3);
+}
+@media (min-width: 768px) {
+.nav-offer-button {
+flex: 1 1 calc(33.333% - 1rem);
+}
+}
+@media (min-width: 1024px) {
+.nav-offer-button {
+flex: 1 1 calc(20% - 1rem);
+}
+}
+.offer-button {
+width: 100%;
+max-width: 220px;
+margin: 0.5rem auto;
+}
+@media (min-width: 600px) {
+.offer-button {
+display: inline-block;
+width: calc(50% - 1rem);
+margin: 0.5rem;
+}
+}
+@media (min-width: 900px) {
+.offer-button {
+width: calc(33.333% - 1rem);
+}
+}
+.offer-wrapper {
+text-align: center;
+margin: 1rem auto;
+}
+.offer-modal {
+margin-top: 1rem;
+background: #fff;
+border: 2px solid #ff4e50;
+padding: 1.5rem;
+border-radius: 8px;
+max-width: 90%;
+box-shadow: 0 0 12px rgba(255, 78, 80, 0.3);
+}
+.offer-modal button {
+margin-top: 1rem;
+background: #ff4e50;
+color: white;
+border: none;
+padding: 0.5rem 1rem;
+border-radius: 6px;
+cursor: pointer;
+}
+.offer-button {
+width: 100%;
+max-width: 220px;
+margin: 0.5rem auto;
+}
+.offer-wrapper {
+display: inline-block;
+vertical-align: top;
+text-align: center;
+}
+.offer-section {
+text-align: center;
+}
+@media (min-width: 600px) {
+.offer-wrapper {
+width: 48%;
+margin: 1%;
+}
+}
+@media (min-width: 900px) {
+.offer-wrapper {
+width: 30%;
+margin: 1.5%;
+}
+}
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 1.5rem;
+justify-items: center;
+padding: 1rem;
+}
+.offer-button {
+width: 90%;
+padding: 1.25rem 1.5rem;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f5f5f5;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+@media (min-width: 768px) {
+#offerIconMenu {
+grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+}
+}
+@media (max-width: 767px) {
+#offerIconMenu {
+grid-template-columns: 1fr;  /* One button per row on mobile */
+}
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 0.75rem;
+justify-items: center;
+padding: 0.5rem;
+}
+.offer-button {
+width: 100%;
+padding: 1rem 1.25rem;
+font-size: 1.05rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f9f9f9;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+margin: 0;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+@media (min-width: 768px) {
+#offerIconMenu {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+@media (max-width: 767px) {
+#offerIconMenu {
+grid-template-columns: 1fr;
+}
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 1rem;
+justify-items: center;
+padding: 1rem;
+}
+.offer-button {
+width: 100%;
+padding: 1rem 1.25rem;
+font-size: 1.05rem;
+font-weight: 700;
+border-radius: 50px;
+background: linear-gradient(to right, #ff4e50, #f9d423);
+color: black;
+border: none;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+}
+.offer-button:hover {
+opacity: 0.9;
+transform: scale(1.02);
+}
+.offer-button.active {
+box-shadow: 0 0 12px rgba(255, 78, 80, 0.3);
+outline: 2px solid #4CAF50;
+}
+.form-step {
+display: none;
+}
+.form-step.active {
+display: block;
+}
+<style>
+.offer-icon svg {
+width: 32px;
+height: 32px;
+margin-bottom: 0.5rem;
+stroke: currentColor;
+}
+<style>
+.offer-button {
+padding: 1rem 1.25rem;
+font-size: 0.95rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f2f2f2;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+#offerIconMenu {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 1rem;
+padding: 1rem;
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 1.5rem;
+justify-items: center;
+padding: 1rem;
+}
+.offer-button {
+width: 90%;
+padding: 1.25rem 1.5rem;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f5f5f5;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+@media (min-width: 768px) {
+#offerIconMenu {
+grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+}
+}
+@media (max-width: 767px) {
+#offerIconMenu {
+grid-template-columns: 1fr;  /* One button per row on mobile */
+}
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 0.75rem;
+justify-items: center;
+padding: 0.5rem;
+}
+.offer-button {
+width: 100%;
+padding: 1rem 1.25rem;
+font-size: 1.05rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f9f9f9;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+margin: 0;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+@media (min-width: 768px) {
+#offerIconMenu {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+@media (max-width: 767px) {
+#offerIconMenu {
+grid-template-columns: 1fr;
+}
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 1rem;
+justify-items: center;
+padding: 1rem;
+}
+.offer-button {
+width: 100%;
+padding: 1rem 1.25rem;
+font-size: 1.05rem;
+font-weight: 700;
+border-radius: 50px;
+background: linear-gradient(to right, #ff4e50, #f9d423);
+color: black;
+border: none;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+}
+.offer-button:hover {
+opacity: 0.9;
+transform: scale(1.02);
+}
+.offer-button.active {
+box-shadow: 0 0 12px rgba(255, 78, 80, 0.3);
+outline: 2px solid #4CAF50;
+}
+#navToggle {
+position: fixed;
+top: 10px;
+left: 10px;
+z-index: 1001;
+background: #000;
+color: white;
+border: 2px solid white;
+border-radius: 6px;
+padding: 0.5rem 1rem;
+font-size: 1rem;
+cursor: pointer;
+display: none;
+}
+@media (max-width: 768px) {
+#navToggle { display: block; }
+#smartNav { display: none !important; }
+#smartNav.active { display: grid !important; }
+}
+#smartNav {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+gap: 0.5rem;
+padding: 0.75rem 1rem;
+background: #000;
+box-shadow: 0 2px 6px rgba(255, 78, 80, 0.3);
+color: white;
+z-index: 999;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+}
+.nav-offer-button {
+background: none;
+border: 2px solid white;
+color: white;
+font: inherit;
+cursor: pointer;
+padding: 0.6rem 0.75rem;
+font-weight: 600;
+border-radius: 30px;
+width: 100%;
+transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.nav-offer-button:hover {
+background: white;
+color: #000;
+box-shadow: 0 0 8px white;
+}
+.nav-offer-button {
+background: white;
+color: black;
+border: 2px solid black;
+padding: 0.75rem 1.25rem;
+border-radius: 50px;
+font-size: 1rem;
+font-weight: 700;
+cursor: pointer;
+text-align: center;
+transition: all 0.3s ease;
+min-width: 140px;
+}
+.nav-offer-button:hover {
+background: black;
+color: white;
+}
+#smartNav {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 1rem;
+background: white;
+padding: 1rem;
+justify-items: center;
+align-items: center;
+}
+.nav-offer-button {
+width: 100%;
+max-width: 220px;
+padding: 1.2rem;
+font-size: 1rem;
+font-weight: 800;
+border-radius: 50px;
+background: white;
+color: black;
+border: 3px solid black;
+box-shadow: 0 0 8px rgba(255, 78, 80, 0.3);
+transition: all 0.3s ease;
+text-align: center;
+}
+.nav-offer-button:hover {
+background: black;
+color: white;
+transform: scale(1.02);
+box-shadow: 0 0 12px rgba(255, 78, 80, 0.3);
+}
+#smartNav {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+gap: 0.75rem;
+background: white;
+padding: 0.75rem;
+justify-items: center;
+align-items: center;
+}
+.nav-offer-button {
+width: 100%;
+max-width: 180px;
+padding: 0.6rem 1rem;
+font-size: 0.9rem;
+font-weight: 700;
+border-radius: 40px;
+background: white;
+color: black;
+border: 2px solid black;
+box-shadow: 0 0 4px rgba(0,0,0,0.05);
+transition: all 0.2s ease;
+text-align: center;
+}
+.nav-offer-button i {
+margin-right: 6px;
+}
+.nav-offer-button:hover {
+background: black;
+color: white;
+transform: scale(1.02);
+box-shadow: 0 0 8px rgba(255, 78, 80, 0.3);
+}
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 0.75rem;
+justify-items: center;
+padding: 1rem;
+}
+.offer-button {
+width: 100%;
+max-width: 180px;
+padding: 0.6rem 1rem;
+font-size: 0.95rem;
+font-weight: 700;
+border-radius: 40px;
+background: linear-gradient(to right, #ff4e50, #f9d423);
+color: black;
+border: none;
+cursor: pointer;
+text-align: center;
+transition: all 0.3s ease;
+}
+.offer-button:hover {
+opacity: 0.92;
+transform: scale(1.03);
+box-shadow: 0 0 8px rgba(255, 78, 80, 0.3);
+}
+.call-intro {
+text-align: center;
+padding: 1rem;
+animation: fadeInSlide 1s ease-out;
+background: linear-gradient(to right, #ffffff, #f8f8f8);
+border-radius: 10px;
+margin-bottom: 1rem;
+}
+.call-intro h3 {
+font-size: 1.3rem;
+font-weight: 800;
+margin: 0.2rem 0;
+}
+.call-intro p {
+font-size: 0.95rem;
+color: #ff4e50;
+margin: 0;
+}
+@keyframes fadeInSlide {
+from { opacity: 0; transform: translateY(-20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.offer-intro {
+text-align: center;
+padding: 1rem;
+animation: fadeInSlide 1s ease-out;
+background: linear-gradient(to right, #ffffff, #f3f3f3);
+border-radius: 10px;
+margin-bottom: 1rem;
+}
+.offer-intro h3 {
+font-size: 1.25rem;
+font-weight: 800;
+margin: 0.3rem 0;
+}
+.offer-intro p {
+font-size: 0.9rem;
+color: #ff4e50;
+margin: 0;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: scale(0.95); }
+to { opacity: 1; transform: scale(1); }
+}
+.offer-modal {
+animation: fadeIn 0.3s ease-out;
+z-index: 1000;
+position: relative;
+}
+@keyframes slideFadeIn {
+from {
+opacity: 0;
+transform: translateY(-20px) scale(0.95);
+}
+to {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+}
+.offer-modal {
+animation: slideFadeIn 0.4s ease-out;
+}
+.theme-clean { --bg: #f8f9fa; --text: #111; --accent: #007bff; }
+.theme-fiery { --bg: #fff5f3; --text: #900; --accent: #ff4500; }
+.theme-luxury { --bg: #0a0a0a; --text: #ffd700; --accent: #444; }
+body { background: var(--bg); color: var(--text); transition: all 0.4s ease; }
+.offer-button:hover { box-shadow: 0 0 8px var(--accent); border-color: var(--accent); }
+.theme-toggle { position: fixed; bottom: 10px; right: 10px; z-index: 9999; }
+#backToTop {
+position: fixed;
+bottom: 40px;
+right: 30px;
+z-index: 1000;
+border: none;
+outline: none;
+background-color: red;
+color: white;
+cursor: pointer;
+padding: 14px 28px;
+border-radius: 40px;
+font-size: 18px;
+font-weight: bold;
+box-shadow: 0 0 20px red;
+transition: background-color 1s, box-shadow 1s;
+}
+@keyframes colorCycle {
+0% { background-color: red; box-shadow: 0 0 20px red; }
+12.5% { background-color: orange; box-shadow: 0 0 20px orange; }
+25% { background-color: yellow; box-shadow: 0 0 20px yellow; }
+37.5% { background-color: green; box-shadow: 0 0 20px green; }
+50% { background-color: blue; box-shadow: 0 0 20px blue; }
+62.5% { background-color: indigo; box-shadow: 0 0 20px indigo; }
+75% { background-color: violet; box-shadow: 0 0 20px violet; }
+87.5% { background-color: black; box-shadow: 0 0 20px white; }
+100% { background-color: red; box-shadow: 0 0 20px red; }
+}
+#backToTop {
+animation: colorCycle 64s infinite;
+}
+<style>
+.offer-icon svg {
+width: 32px;
+height: 32px;
+margin-bottom: 0.5rem;
+stroke: currentColor;
+}
+<style>
+.offer-button {
+padding: 1rem 1.25rem;
+font-size: 0.95rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f2f2f2;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+#offerIconMenu {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 1rem;
+padding: 1rem;
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 1.5rem;
+justify-items: center;
+padding: 1rem;
+}
+.offer-button {
+width: 90%;
+padding: 1.25rem 1.5rem;
+font-size: 1.1rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f5f5f5;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+@media (min-width: 768px) {
+#offerIconMenu {
+grid-template-columns: repeat(3, 1fr);  /* 3 buttons per row on desktop */
+}
+}
+@media (max-width: 767px) {
+#offerIconMenu {
+grid-template-columns: 1fr;  /* One button per row on mobile */
+}
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 0.75rem;
+justify-items: center;
+padding: 0.5rem;
+}
+.offer-button {
+width: 100%;
+padding: 1rem 1.25rem;
+font-size: 1.05rem;
+font-weight: 600;
+border-radius: 8px;
+background-color: #f9f9f9;
+border: 2px solid #ff4e50;
+color: #ff4e50;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+margin: 0;
+}
+.offer-button:hover {
+border-color: #ff4e50;
+color: #ff4e50;
+}
+.offer-button.active {
+border-color: #ff4e50;
+color: #ff4e50;
+font-weight: 700;
+box-shadow: 0 0 10px rgba(255, 78, 80, 0.3);
+}
+@media (min-width: 768px) {
+#offerIconMenu {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+@media (max-width: 767px) {
+#offerIconMenu {
+grid-template-columns: 1fr;
+}
+}
+<style>
+#offerIconMenu {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 1rem;
+justify-items: center;
+padding: 1rem;
+}
+.offer-button {
+width: 100%;
+padding: 1rem 1.25rem;
+font-size: 1.05rem;
+font-weight: 700;
+border-radius: 50px;
+background: linear-gradient(to right, #ff4e50, #f9d423);
+color: black;
+border: none;
+cursor: pointer;
+transition: all 0.3s ease;
+text-align: center;
+}
+.offer-button:hover {
+opacity: 0.9;
+transform: scale(1.02);
+}
+.offer-button.active {
+box-shadow: 0 0 12px rgba(255, 78, 80, 0.3);
+outline: 2px solid #4CAF50;
+}
+
+
+.compare-section {
+background: linear-gradient(to right, #ffffff, #f7f7f7);
+border-radius: 10px;
+padding: 2rem;
+animation: fadeInCompare 1s ease-out;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.compare-section h2 {
+font-size: 2rem;
+font-weight: 800;
+margin-bottom: 1rem;
+text-align: center;
+color: #222;
+}
+.compare-section ul {
+list-style: none;
+padding-left: 0;
+}
+.compare-section li {
+margin-bottom: 1rem;
+padding-left: 2rem;
+position: relative;
+font-size: 1.05rem;
+color: #ff4e50;
+line-height: 1.6;
+}
+.compare-section li::before {
+content: "\f058";
+font-family: "Font Awesome 6 Free";
+font-weight: 900;
+position: absolute;
+left: 0;
+top: 2px;
+color: #ff4e50;
+font-size: 1.2rem;
+}
+@keyframes fadeInCompare {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+
+.animated-review {
+display: none;
+opacity: 0;
+transition: opacity 0.8s ease-in-out;
+font-size: 1.1rem;
+padding: 1rem;
+border-radius: 10px;
+background: #fff;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+text-align: center;
+}
+.animated-review.active {
+display: block;
+opacity: 1;
+}
+.animated-review .stars {
+color: #ff9800;
+font-size: 1.3rem;
+margin: 0.5rem 0;
+}
+.review-carousel-container {
+max-width: 720px;
+margin: 2rem auto;
+}
+
+
+.form-progress-container {
+width: 100%;
+max-width: 400px;
+height: 10px;
+background-color: #eee;
+border-radius: 10px;
+overflow: hidden;
+margin: 1rem auto;
+}
+.form-progress-bar {
+height: 100%;
+width: 0%;
+background: linear-gradient(to right, #ff4e50, #f9d423);
+transition: width 0.5s ease-in-out;
+}
+
+
+.fade-in-section {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-section.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+
+.counter-section {
+text-align: center;
+padding: 2rem 1rem;
+background: #ffffff;
+border-radius: 10px;
+margin-top: 2rem;
+}
+.counter-box {
+display: inline-block;
+margin: 1rem 2rem;
+}
+.counter-number {
+font-size: 2.5rem;
+font-weight: 800;
+color: #ff4e50;
+}
+.counter-label {
+font-size: 1rem;
+color: #ff4e50;
+}
+
+
+.testimonial-filter {
+background: #f0f0f0;
+border: none;
+padding: 0.6rem 1.2rem;
+margin: 0.5rem;
+font-weight: bold;
+border-radius: 30px;
+cursor: pointer;
+transition: all 0.3s ease;
+box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+.testimonial-filter:hover {
+background: #ff4e50;
+color: white;
+box-shadow: 0 0 12px rgba(255,78,80,0.4);
+}
+
+
+.testimonial-filter.active {
+background: #333;
+color: #fff;
+box-shadow: 0 0 12px rgba(255, 78, 80, 0.3);
+}
+.testimonial-filter i {
+margin-right: 0.5rem;
+}
+
+
+#voiceFilterBtn.listening {
+animation: pulseMic 1s infinite;
+background: #ff4e50 !important;
+color: white !important;
+}
+@keyframes pulseMic {
+0% { box-shadow: 0 0 0 0 rgba(255,78,80,0.6); }
+70% { box-shadow: 0 0 0 15px rgba(255,78,80,0); }
+100% { box-shadow: 0 0 0 0 rgba(255,78,80,0); }
+}
+#voiceFallback {
+display: none;
+color: red;
+font-size: 0.9rem;
+margin-top: 0.5rem;
+}
+
+
+input:invalid {
+border: 2px solid red;
+outline: none;
+}
+.modal-close-btn {
+position: absolute;
+top: 1rem;
+right: 1rem;
+background: #000;
+color: white;
+border: none;
+border-radius: 50%;
+width: 30px;
+height: 30px;
+font-size: 1.2rem;
+cursor: pointer;
+z-index: 10;
+}
+
+
+.counter-section {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 2rem;
+justify-items: center;
+background: linear-gradient(145deg, #f5f5f5, #e0e0e0, #cccccc);
+padding: 3rem 2rem;
+border-radius: 20px;
+margin: 3rem auto;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05), inset 0 0 30px rgba(255,255,255,0.3);
+text-align: center;
+max-width: 960px;
+}
+.counter-box {
+background: white;
+border-radius: 15px;
+padding: 1.5rem;
+box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+width: 100%;
+}
+.counter-box i {
+font-size: 2rem;
+color: #ff4e50;
+}
+.counter-number {
+font-size: 2.5rem;
+font-weight: bold;
+color: #ff4e50;
+margin-top: 0.5rem;
+}
+.counter-label {
+font-size: 1rem;
+color: #ff4e50;
+margin-top: 0.3rem;
+}
+
+
+.counter-box {
+position: relative;
+}
+.counter-box:hover::after {
+content: attr(data-tooltip);
+position: absolute;
+bottom: -2rem;
+left: 50%;
+transform: translateX(-50%);
+background: #222;
+color: white;
+font-size: 0.75rem;
+padding: 0.4rem 0.8rem;
+border-radius: 6px;
+white-space: nowrap;
+opacity: 1;
+transition: opacity 0.3s ease;
+}
+.counter-box::after {
+content: '';
+opacity: 0;
+}
+.counter-box i {
+animation: fadeInUp 0.8s ease forwards;
+}
+@keyframes fadeInUp {
+0% { transform: translateY(20px); opacity: 0; }
+100% { transform: translateY(0); opacity: 1; }
+}
+
+
+.counter-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 2rem;
+justify-items: center;
+width: 100%;
+}
+.counter-box {
+background: white;
+border-radius: 15px;
+padding: 1.5rem;
+box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+text-align: center;
+width: 100%;
+max-width: 220px;
+}
+@media (max-width: 600px) {
+.counter-grid {
+grid-template-columns: 1fr 1fr;
+}
+}
+
+
+.offer-button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  justify-content: center;
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.offer-button {
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 40px;
+  background: white;
+  color: black;
+  border: 2px solid black;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+.offer-button:hover {
+  background: black;
+  color: white;
+  transform: scale(1.03);
+  box-shadow: 0 0 8px rgba(255, 78, 80, 0.3);
+}
+
+
+@keyframes pulseInstall {
+  0% { box-shadow: 0 0 0 0 rgba(255, 78, 80, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(255, 78, 80, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 78, 80, 0); }
+}
+#installPwaButton i {
+  margin-right: 8px;
+  animation: pulseInstall 1.5s infinite;
+  color: #f9d423;
+}
+
+
+body.dim-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+body.dim-mode header, 
+body.dim-mode section, 
+body.dim-mode footer {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(255, 78, 80, 0.15);
+}
+body.dim-mode .offer-button,
+body.dim-mode .nav-offer-button {
+  background-color: #1a1a1a;
+  border: 2px solid #ff4e50;
+  color: #ff4e50;
+}
+body.dim-mode .offer-button:hover,
+body.dim-mode .nav-offer-button:hover {
+  background-color: #ff4e50;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 78, 80, 0.5);
+}
+body.dim-mode .counter-box {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+body.dim-mode .counter-number {
+  color: #ff4e50;
+}
+body.dim-mode .section-title {
+  color: #f9d423;
+}
+
+
+@keyframes fadeInUpZoom {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes pulseButton {
+  0% { box-shadow: 0 0 0 0 rgba(255,78,80,0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(255,78,80,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,78,80,0); }
+}
+#ceoMessageForm input:focus, 
+#ceoMessageForm textarea:focus {
+  outline: none;
+  border: 2px solid #ff4e50;
+  box-shadow: 0 0 8px rgba(255,78,80,0.3);
+  transition: all 0.3s ease;
+}
+#ceoMessageForm button {
+  animation: pulseButton 3s infinite;
+}
+.ceo-message-section {
+  animation: fadeInUpZoom 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+
+@keyframes pulseBorder {
+  0% { border-color: #ff4e50; box-shadow: 0 0 0 0 rgba(255,78,80,0.4); }
+  50% { border-color: #f9d423; box-shadow: 0 0 12px 6px rgba(255,218,35,0.25); }
+  100% { border-color: #ff4e50; box-shadow: 0 0 0 0 rgba(255,78,80,0.4); }
+}
+.animated-border-box {
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+.border-speed-8    { animation: pulseBorder 8s infinite; }
+.border-speed-88   { animation: pulseBorder 88s infinite; }
+.border-speed-888  { animation: pulseBorder 888s infinite; }
+.border-speed-8888 { animation: pulseBorder 8888s infinite; }
+
+
+#recarraForm input,
+#recarraForm select,
+#recarraForm textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+#recarraForm input:focus,
+#recarraForm select:focus,
+#recarraForm textarea:focus {
+  border-color: #ff4e50;
+  outline: none;
+  box-shadow: 0 0 10px rgba(255,78,80,0.3);
+}
+
+#recarraForm button[type="submit"] {
+  padding: 0.9rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 78, 80, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#recarraForm button[type="submit"]:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px rgba(255, 78, 80, 0.3);
+}
+
+
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 8px rgba(255,78,80,0.3); }
+  50% { text-shadow: 0 0 16px rgba(255,218,35,0.4); }
+  100% { text-shadow: 0 0 8px rgba(255,78,80,0.3); }
+}
+
+
+@keyframes flagFly {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
+
+
+#ceo-quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #444;
+  text-align: center;
+  max-width: 700px;
+  margin: 1.5rem auto;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+#ceo-quote.visible {
+  opacity: 1;
+}
+
+#faq-question, #faq-answer {
+  transition: opacity 0.6s ease;
+}
+
+@media (min-width: 1024px) {
+  .nav-offer-button {
+    flex: 1 1 16%;
+    max-width: 16%;
+  }
+}
+</style>
+<link href="/manifest.json" rel="manifest"/>
+<meta content="#ff4e50" name="theme-color"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recarra | Sell Your Car Instantly</title>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript></noscript>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Recarra" name="apple-mobile-web-app-title"/>
+<link href="/icons/icon-192.png" rel="apple-touch-icon"/>
+<!-- Preload icons and splash screens -->
+<link href="/icons/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<meta content="#ff4e50" name="msapplication-TileColor"/>
+<meta content="/icons/mstile-150x150.png" name="msapplication-TileImage"/>
+<link href="/splash/splash-light.png" media="(prefers-color-scheme: light)" rel="apple-touch-startup-image"/>
+<link href="/splash/splash-dark.png" media="(prefers-color-scheme: dark)" rel="apple-touch-startup-image"/>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  const section = document.querySelector('.ceo-message-section');
+  if (section) observer.observe(section);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const box = document.querySelector('.animated-border-box');
+  const speeds = ['border-speed-8', 'border-speed-88', 'border-speed-888', 'border-speed-8888'];
+  const chosen = speeds[Math.floor(Math.random() * speeds.length)];
+  if (box) box.classList.add(chosen);
+});
+</script>
+<style>
+#faq-question, #faq-answer {
+  min-height: 2rem;
+  display: block;
+}
+.fade-in-section {
+  min-height: 2rem;
+}
+.offer-modal {
+  min-height: 2rem;
+}
+</style><style>
+#floatingToggleTab:hover {
+  box-shadow: 0 0 12px 4px rgba(255, 78, 80, 0.4);
+}
+</style><style>
+#floatingButtonsContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+.floating-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+  text-align: center;
+}
+.floating-button i {
+  font-size: 1.2rem;
+}
+.floating-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 78, 80, 0.4);
+}
+.btn-offer {
+  background: linear-gradient(to right, #ffcc00, #ff3366);
+  color: black;
+}
+.btn-chat {
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+}
+.btn-help {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: white;
+}
+</style><style>
+.vertical-recarra-menu {
+  writing-mode: vertical-rl;
+  text-align: center;
+  transform: rotate(180deg);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1.5rem 0.75rem;
+  background: linear-gradient(to bottom, #ff4e50, #f9d423);
+  color: black;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  border: none;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.vertical-recarra-menu:hover {
+  transform: rotate(180deg) scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+.vertical-recarra-menu i {
+  transform: rotate(180deg);
+  font-size: 1.2rem;
+}
+</style><style>
+.vertical-menu-icon {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: #000;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 40px;
+  padding: 1.5rem 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.vertical-menu-icon:hover {
+  transform: rotate(180deg) scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.vertical-menu-icon i {
+  transform: rotate(180deg);
+}
+</style><style>
+.floating-button {
+  transition: background 3s ease-in-out;
+}
+</style>
+<style>
+.toolbox-modal {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-height: 65%;
+  background: #fefefe;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 -6px 24px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  padding: 1.5rem 1.25rem;
+  animation: slideUp 0.4s ease forwards;
+  z-index: 10001;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+.toolbox-modal h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.toolbox-modal label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.toolbox-modal input,
+.toolbox-modal textarea,
+.toolbox-modal select {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  background: #fff;
+  color: #000;
+}
+
+.toolbox-modal button {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toolbox-modal button:hover {
+  background: #e0e0e0;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+</style>
+<style>
+/* Step transition */
+.toolbox-step {
+  animation: fadeIn 0.35s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button interactions */
+.toolbox-modal button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.toolbox-modal button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+.toolbox-modal button:active {
+  transform: scale(0.97);
+}
+
+/* Toolbox slide-up drawer animation (already present, just polished) */
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+</style>
+<style>
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+</style>
+<style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    .header {
+      padding: 1.5rem 1rem;
+      background: #ff4f4f;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .menu-wrapper {
+      padding: 1.5rem;
+      background: white;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border-radius: 20px;
+      margin: 1rem;
+    }
+
+    .menu-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .menu-button {
+      flex: 1 1 45%;
+      background: linear-gradient(to right, #ff4f4f, #ffcc33);
+      color: black;
+      padding: 0.8rem;
+      border-radius: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(255, 79, 79, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .menu-button:hover {
+      transform: scale(1.03);
+    }
+
+    .form-drawer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-height: 65%;
+      background: white;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
+      padding: 2rem 1.5rem;
+      z-index: 9999;
+      display: none;
+      animation: slideUp 0.4s ease forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .form-title {
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: #ff4f4f;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input {
+      padding: 0.9rem;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .btn {
+      background: linear-gradient(to right, #ff4f4f, #ffcc33);
+      border: none;
+      border-radius: 50px;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: black;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+    }
+
+    .close-btn {
+      text-align: center;
+      margin-top: 1rem;
+      color: #666;
+      cursor: pointer;
+    }
+  
+.form-drawer {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.disclaimer {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 1rem;
+  text-align: center;
+  line-height: 1.4;
+}
+.agree-btn {
+  margin-top: 1rem;
+  background: linear-gradient(to right, #4CAF50, #8BC34A);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+    </style><style>
+@media (max-width: 600px) {
+  .form-drawer {
+    width: 100% !important;
+    max-height: 80% !important;
+    padding: 1.5rem 1rem !important;
+    border-radius: 16px 16px 0 0 !important;
+  }
+
+  .form-title {
+    font-size: 1.4rem !important;
+  }
+
+  .agree-btn, .close-btn {
+    font-size: 0.95rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+
+  .form-progress-container {
+    height: 8px !important;
+  }
+
+  input#stepInput {
+    font-size: 1rem !important;
+    padding: 0.8rem !important;
+  }
+}
+</style><style>
+@keyframes fadeInField {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style><style>
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+button.agree-btn {
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(255, 78, 80, 0.3);
+  border: none;
+  border-radius: 30px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button.agree-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(255, 78, 80, 0.4);
+}
+
+input:focus {
+  outline: none;
+  border-color: #ff4e50;
+  box-shadow: 0 0 8px rgba(255, 78, 80, 0.2);
+}
+</style></head>
+<body><button id="smartMenuToggle" style="position: fixed; top: 20px; left: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="openForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="openForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="openForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="openForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="openForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="openForm('email')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Email</button><button class="dropdown-option" onclick="openForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="openForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="openForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="openForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Recarra Full Form</button></div><div id="formDisplayArea" style="margin: 2rem auto; max-width: 720px; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<!-- Splash Welcome Screen -->
+<script>
+function hideSplash() {
+  document.getElementById("splashScreen").style.opacity = "0";
+  document.getElementById("splashScreen").style.pointerEvents = "none";
+  document.getElementById("enterSound").play();
+  setTimeout(() => document.getElementById("splashScreen").style.display = "none", 1000);
+}
+window.addEventListener("load", () => {
+  setTimeout(hideSplash, 8000);
+});
+</script>
+<div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+<nav id="smartNav">
+<button aria-label="Accept Offer" class="nav-offer-button" onclick="showOffer('photo', event)">Accept Offer</button>
+<button aria-label="Text Offer" class="nav-offer-button" onclick="showOffer('plate', event)">Text Offer</button>
+<button aria-label="Extend Offer" class="nav-offer-button" onclick="showOffer('vin', event)">Extend Offer</button>
+<button aria-label="Call for Offer" class="nav-offer-button" onclick="showOffer('voice', event)">Call for Offer</button>
+<button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
+<button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
+</nav>
+<header>
+<h1>Recarra</h1>
+<div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
+  An end-to-end, AI-powered car buying platform.
+</div>
+<div class="call-intro" style="margin-top: 1.5rem;"><h3 style="font-size: 1.4rem; font-weight: 800; margin: 0;">Recarra: Where your car meets its match in real value.</h3></div>
+<div style="margin-top: 1.5rem; display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap;">
+<i class="fas fa-bolt" style="color: #ff4e50; font-size: 2.5rem;"></i>
+<a href="#smartOfferForm" style="background: linear-gradient(to right, #ff4e50, #f9d423); color: black; font-weight: 700; font-size: 1.1rem; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+<i class="fas fa-money-bill-wave"></i> Get My Instant Offer
+  </a>
+</div>
+</header>
+<!-- Recarra Full Form Section -->
+<section class="section-block fade-in-section" id="recarraForm" style="max-width: 720px; margin: 3rem auto; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);">
+<h2 class="section-title" style="font-size:2rem; text-align:center; color:#ff4e50;">Recarra Smart Offer Form</h2>
+<form id="smartRecarraForm" style="display:flex; flex-direction:column; gap:1.5rem;"><div id="formProgressDots" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem;"><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span></div>
+<div class="form-progress-container" style="width: 100%; max-width: 400px; height: 10px; background-color: #eee; border-radius: 10px; overflow: hidden; margin: 1rem auto;">
+<div class="form-progress-bar" id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.5s ease-in-out;"></div>
+</div>
+<div class="form-step active" style="display: block;"><input aria-label="Full Name" placeholder="Full Name" required="" type="text"/></div>
+<div class="form-step" style="display: none;"><input aria-label="Phone Number" placeholder="Phone Number" required="" type="tel"/></div>
+<div class="form-step" style="display: none;"><input aria-label="Email Address" placeholder="Email Address" required="" type="email"/></div>
+<div class="form-step" style="display: none;"><input aria-label="Car Year, Make, and Model" placeholder="Car Year, Make, and Model" required="" type="text"/></div>
+<div class="form-step" style="display: none;"><input aria-label="VIN Number (optional)" placeholder="VIN Number (optional)" type="text"/></div>
+<div class="form-step" style="display: none;"><label>Front of Car</label><input accept="image/*" aria-label="Input field" placeholder="Enter value" required="" type="file"/></div>
+<div class="form-step" style="display: none;"><label>Back of Car</label><input accept="image/*" aria-label="Input field" placeholder="Enter value" required="" type="file"/></div>
+<div class="form-step" style="display: none;"><label>Right Side</label><input accept="image/*" aria-label="Input field" placeholder="Enter value" required="" type="file"/></div>
+<div class="form-step" style="display: none;"><label>Left Side</label><input accept="image/*" aria-label="Input field" placeholder="Enter value" required="" type="file"/></div>
+<div class="form-step" style="display: none;">
+<select required="">
+<option value="">Preferred Payment Method</option>
+<option value="cash">Cash</option>
+<option value="direct">Direct Deposit</option>
+<option value="debit">Instant Debit Transfer</option>
+</select>
+</div>
+<div class="form-step" style="display: none;"><textarea placeholder="Pickup Instructions" required="" rows="3"></textarea></div>
+<div class="form-step" style="display: none;"><textarea placeholder="Any additional notes?" rows="3"></textarea></div>
+<button class="offer-button" id="nextBtn" style="display: block; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="button">Next</button>
+<button class="offer-button" id="submitBtn" style="display: none; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="submit">Submit Offer</button>
+</form>
+</section><section class="section-block fade-in-section" style="background: #f8f8f8; border-radius: 12px; padding: 2rem;">
+<h2 class="section-title" style="text-align:center; color:#ff4e50;">Why Customers Trust Recarra</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;text-align:center;margin-top:2rem;">
+<div>
+<i class="fas fa-shield-alt" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">Licensed &amp; Insured</p>
+</div>
+<div>
+<i class="fas fa-headset" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">24/7 Support</p>
+</div>
+<div>
+<i class="fas fa-money-bill-wave" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">Instant Payout</p>
+</div>
+<div>
+<i class="fas fa-id-card-alt" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">DMV Verified</p>
+</div>
+</div>
+</section>
+<div class="offer-button-grid">
+<button class="offer-button" onclick="showOffer('photo', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Accept</button>
+<button class="offer-button" onclick="showOffer('vin', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Extend</button>
+<button class="offer-button" onclick="showOffer('email', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Email</button>
+<button class="offer-button" onclick="showOffer('text', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Text</button>
+<button class="offer-button" onclick="showOffer('call', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Call</button>
+<button class="offer-button" onclick="window.location.href='tel:+18885558888'" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Call Us</button>
+</div>
+<section class="call-intro" style="animation: fadeInSlide 1s ease-out; margin: 2rem auto; max-width: 720px; padding: 1.25rem 2rem; border-radius: 10px; background: linear-gradient(to right, #ffffff, #f8f8f8); text-align: center;">
+<h3 style="font-size: 1.3rem; font-weight: 800; margin: 0.5rem 0;">
+    Recarra Gives You the Smartest Ways to Sell Your Car
+  </h3>
+<p style="font-size: 1rem; color: #ff4e50; margin: 0;">
+    From instant AI pricing to voice and video offers, you're always in control — fast, simple, and secure.
+  </p>
+</section>
+<div class="animated-border-box" style="max-width: 720px; margin: 2rem auto; background: #f2f2f2; border-radius: 10px; padding: 1.25rem 2rem; font-size: 1rem; text-align: center; border: 2px solid #ff4e50;">
+<strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
+<strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
+<script>
+const faqs = [
+{ question: "How do I get an offer for my car?", answer: "Submit your vehicle details online — our AI gives you an instant offer." },
+{ question: "What types of vehicles does Recarra buy?", answer: "We purchase all types — cars, trucks, vans, SUVs — running or not." },
+{ question: "Is there a fee to get an offer?", answer: "No. Getting an offer from Recarra is 100% free with no obligation." },
+{ question: "How fast do I get paid?", answer: "We pay instantly via cash, debit card, or direct deposit once your vehicle is picked up." },
+{ question: "Can I sell my car without a title?", answer: "Yes. In many cases we can still proceed. We’ll help guide the process." },
+{ question: "Do I need to bring my car somewhere?", answer: "No. We come to you — at home, work, or anywhere you prefer." },
+{ question: "What if my car doesn’t run?", answer: "We buy vehicles in all conditions — even totaled or non-operational ones." },
+{ question: "How do I schedule my pickup?", answer: "After you accept the offer, you choose your preferred pickup time online." },
+{ question: "What payment methods do you offer?", answer: "We pay via instant debit card, direct deposit, certified check, or cash." },
+{ question: "What areas do you serve?", answer: "We’re licensed nationwide — we can pick up vehicles anywhere in the U.S." },
+{ question: "Can I cancel after accepting the offer?", answer: "Yes, you can cancel prior to pickup — there are no penalties." },
+{ question: "Do I need to clean my car?", answer: "No need. We buy as-is. No detailing, no repairs required." },
+{ question: "Do you buy leased or financed cars?", answer: "We can purchase vehicles with a lien or lease. Let us know upfront." },
+{ question: "How accurate is the AI offer?", answer: "Our system uses real-time data from recent sales to generate reliable offers." },
+{ question: "Will I need to sign anything?", answer: "Yes — a standard bill of sale and title transfer documents, all handled by us." },
+{ question: "Can I sell a car for someone else?", answer: "Yes, as long as you are legally authorized with ID and ownership documents." },
+{ question: "How do I contact support?", answer: "You can call, text, or use our live chat anytime — we’re here 24/7." },
+{ question: "What if my offer expires?", answer: "You can re-submit anytime. Market values fluctuate, so timing matters." },
+{ question: "How long is the offer valid?", answer: "Each offer is valid for a limited time — usually 3 to 7 days." },
+{ question: "Do you buy from businesses or fleets?", answer: "Yes. We purchase fleet vehicles and commercial cars nationwide." }
+];
+faqs.sort(() => 0.5 - Math.random());
+let currentIndex = 0;
+let showingQuestion = true;
+function rotateFAQ() {
+const questionEl = document.getElementById('faq-question');
+const answerEl = document.getElementById('faq-answer');
+questionEl.style.opacity = 0;
+answerEl.style.opacity = 0;
+setTimeout(() => {
+if (showingQuestion) {
+questionEl.textContent = faqs[currentIndex].question;
+answerEl.textContent = "";
+} else {
+answerEl.textContent = faqs[currentIndex].answer;
+currentIndex = (currentIndex + 1) % faqs.length;
+}
+questionEl.style.opacity = 1;
+answerEl.style.opacity = 1;
+showingQuestion = !showingQuestion;
+}, 400);
+}
+setInterval(rotateFAQ, 8000);
+rotateFAQ();
+</script>
+<section class="fade-in-section section-block" style="background: #ffffff; padding: 2rem; text-align: center; color: #ff4e50; font-size: 1.1rem; font-weight: 600; border-radius: 12px; margin-top: 2rem;">
+  Powered by Purpose — Recarra connects cars with their true value.
+</section>
+</div>
+<div style="background: #f2f2f2; border-radius: 10px; padding: 2rem; margin-top: 2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"></div>
+<section class="fade-in-section section-block">
+<h2 class="section-title">Licensed &amp; Insured Transport</h2>
+<p>All Recarra drivers are verified, licensed, and insured for safety and peace of mind.</p>
+<ul>
+<li>Background-checked drivers</li>
+<li>Insured during pickup &amp; delivery</li>
+<li>Verified documentation process</li>
+</ul>
+</section>
+<section class="fade-in-section section-block">
+<h2 class="section-title">Choose Your Payment Method</h2>
+<p>After accepting your offer, choose how you want to get paid instantly:</p>
+<ul>
+<li>Direct Deposit (instant)</li>
+<li>Debit Card Transfer (instant)</li>
+<li>Cash on Pickup</li>
+<li>Certified Check (optional)</li>
+</ul>
+</section>
+<section class="section-block fade-in-section">
+<h2 class="section-title">Recarra Mobile App</h2>
+<p>Download our app for even faster service, updates, and instant offers.</p>
+<button aria-label="Notify Me When Ready" class="btn">Notify Me When Ready</button>
+<button id="installApp" style="
+  display: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: black;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 78, 80, 0.3);
+  transition: transform 0.3s ease;
+">Install Recarra App</button>
+<p style="font-size: 0.9rem;">Coming soon to iOS &amp; Android.</p>
+</section>
+<section class="fade-in-section section-block">
+<h2 class="section-title">Powered by a Trusted Network</h2>
+<p>Recarra is connected with trusted vendors, DMV services, and verified buyers nationwide.</p>
+<ul>
+<li>DMV Title Check</li>
+<li>Certified Tow Providers</li>
+<li>Insurance &amp; Legal Coverage</li>
+</ul>
+</section>
+<section class="fade-in-section section-block">
+<h2 class="section-title">How It Works</h2>
+<ol style="font-size: 1.1rem; line-height: 1.7; padding-left: 1.5rem; max-width: 800px; margin: 2rem auto;">
+<li><strong>Start Your Offer:</strong> Upload a photo, scan your VIN, or enter details to begin.</li>
+<li><strong>Get a Real Cash Offer:</strong> Our AI evaluates your car and sends you a firm price.</li>
+<li><strong>Choose Pickup:</strong> You schedule when and where — we’ll handle everything else.</li>
+<li><strong>Skip the Paperwork:</strong> Recarra takes care of all legal and title-related details.</li>
+<li><strong>Get Paid Fast:</strong> Choose instant cash, direct deposit, or debit card transfer.</li>
+</ol>
+</section>
+<div style="height: 120px;"></div>
+<section class="section-block fade-in-section">
+<h2 class="section-title">What Sellers Say About Recarra</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+<blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“I submitted my info and was paid the same day. Incredible!”<br/><strong>– Marcus W., Texas</strong></blockquote>
+<blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“They handled everything, even without my title ready.”<br/><strong>– Denise R., Florida</strong></blockquote>
+<blockquote style="background: #f1f1f1; padding: 1rem; border-radius: 8px;">“The fastest and easiest sale I’ve ever made.”<br/><strong>– Leo M., California</strong></blockquote>
+</div>
+</section>
+<section class="call-intro" style="animation: fadeInSlide 1s ease-out; margin: 2rem auto; max-width: 720px; padding: 1.25rem 2rem; border-radius: 10px; background: linear-gradient(to right, #ffffff, #f8f8f8); text-align: center;">
+<h3 style="font-size: 1.3rem; font-weight: 800; margin: 0.5rem 0;">
+    Built for Everyone. Trusted by Thousands. Ready for You.
+  </h3>
+<p style="font-size: 1rem; color: #ff4e50; margin: 0;">
+    Whether you snap a photo, talk it out, or type a quick message — Recarra makes it easy for all people to sell their cars, their way.
+  </p>
+</section><div style="margin-top: 2rem; text-align: center;">
+<h3 style="margin-bottom: 0.5rem;">Ready to Sell Your Car?</h3>
+<p style="margin-bottom: 1rem;">Use any method — photo, chat, call, or VIN — to get started instantly.</p>
+<a class="btn" href="#smartOfferForm">Get My Instant Offer</a>
+</div>
+<div style="text-align: center; margin-top: 1.5rem;">
+</div>
+<script>
+// Optionally store mode in localStorage
+document.addEventListener("DOMContentLoaded", () => {
+if (localStorage.getItem("recarra-mode") === "dim") {
+document.body.classList.add("dim-mode");
+}
+document.querySelector(".toggle-mode").addEventListener("click", () => {
+const isDim = document.body.classList.toggle("dim-mode");
+localStorage.setItem("recarra-mode", isDim ? "dim" : "light");
+});
+});
+</script>
+<section class="fade-in-section section-block" style="text-align: center;">
+<h2 class="section-title" style="font-size: 2rem;">
+<i class="fas fa-bolt" style="color: #ff4e50; margin-right: 0.5rem;"></i>
+    Ready to Sell Your Car?
+  </h2>
+<p style="font-size: 1.1rem; color: #555; max-width: 720px; margin: 0 auto 1.5rem;">
+    Get a real offer with no pressure. Choose <strong>Photo</strong>, <strong>Chat</strong>, <strong>Call</strong>, or <strong>VIN Scan</strong> — it's instant, smart, and built for you.
+  </p>
+<a class="btn" href="#smartOfferForm" style="font-size: 1.1rem; padding: 1rem 2rem; border-radius: 50px;">
+<i class="fas fa-money-bill-wave" style="margin-right: 0.5rem;"></i> Get My Instant Offer
+  </a>
+</section>
+<section class="fade-in-section section-block ceo-message-section" style="background: linear-gradient(145deg, #ffffff, #f3f3f3); border-radius: 20px; padding: 2rem; margin-top: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+<h2 class="section-title" style="font-size: 2.2rem; text-align: center; color: #ff4e50;">
+<i class="fas fa-envelope-open-text" style="margin-right: 10px;"></i> Drop a Message for the CEO
+  </h2>
+<div style="text-align: center; margin-bottom: 0.5rem;">
+<i class="fas fa-feather-alt" style="
+    font-size: 2rem;
+    color: #ff4e50;
+    text-shadow: 0 0 8px rgba(255,78,80,0.3);
+    animation: glowPulse 4s ease-in-out infinite;
+  "></i>
+</div>
+<div id="ceo-quote" style="font-size: 1.2rem; font-style: italic; color: #444; text-align: center; max-width: 700px; margin: 1.5rem auto;"></div>
+<div style="font-size: 1.1rem; color: #444; text-align: center; max-width: 700px; margin: 0 auto 2rem; font-style: italic;">
+<strong>Recarra</strong>, a high-end AI-driven car buying platform committed to elegance, speed, and trust.
+    </div>
+<p style="text-align: center; color: #555; font-size: 1rem; margin-bottom: 2rem;">
+    Your message goes straight to the heart of Recarra. Share your feedback, experience, or thoughts privately with the founder.
+  </p>
+<form id="ceoMessageForm" style="max-width: 600px; margin: 0 auto; display: grid; gap: 1rem;">
+<input aria-label="Your Name (optional)" class="uniform-input" name="name" placeholder="Your Name (optional)" type="text"/>
+<input aria-label="Your Email (optional)" class="uniform-input" name="email" placeholder="Your Email (optional)" type="email"/>
+<textarea class="uniform-input" name="message" placeholder="Type your message here..." required="" rows="5"></textarea>
+<button class="btn" style="margin-top: 1rem;" type="submit">Send Message</button>
+<p id="ceoMessageConfirmation" style="display:none; color: green; margin-top: 1rem; text-align: center;">Your message has been sent privately to the CEO. Thank you!</p>
+</form>
+</section>
+<script>
+document.getElementById("ceoMessageForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  this.reset();
+  document.getElementById("ceoMessageConfirmation").style.display = "block";
+});
+</script>
+<button aria-label="↑ Top" id="backToTop" style=" z-index: 10;" title="Go to top">↑ Top</button>
+<script>
+document.getElementById("backToTop").onclick = function () {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+</script>
+<script>
+function handleEngineCondition(select) {
+const container = select.closest('.form-step').querySelector('#engineDetails');
+if (select.value === 'No') {
+container.style.display = 'block';
+} else {
+container.style.display = 'none';
+}
+}
+</script>
+<script>
+window.addEventListener('scroll', () => {
+const nav = document.getElementById('smartNav');
+if (window.scrollY > 300) {
+nav.style.display = 'flex';
+} else {
+nav.style.display = 'none';
+}
+});
+</script>
+<script>
+let currentStep = 0;
+const steps = document.querySelectorAll('.form-step');
+const nextBtn = document.querySelector('button[onclick="nextStep()"]');
+const backBtn = document.querySelector('button[onclick="prevStep()"]');
+const submitBtn = document.querySelector('button[type="submit"]');
+const progressBar = document.getElementById('formProgressBar');
+function showStep(index) {
+steps.forEach((step, i) => {
+step.classList.remove('active');
+if (i === index) step.classList.add('active');
+});
+if (backBtn) backBtn.style.display = index === 0 ? 'none' : 'inline-block';
+if (nextBtn) nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
+if (submitBtn) submitBtn.style.display = index === steps.length - 1 ? 'inline-block' : 'none';
+updateProgressBar(index);
+}
+function updateProgressBar(index) {
+if (progressBar && steps.length > 0) {
+const percent = Math.round((index + 1) / steps.length * 100);
+progressBar.style.width = percent + '%';
+}
+}
+function nextStep() {
+if (currentStep < steps.length - 1) currentStep++;
+showStep(currentStep);
+}
+function prevStep() {
+if (currentStep > 0) currentStep--;
+showStep(currentStep);
+}
+document.addEventListener('DOMContentLoaded', () => showStep(currentStep));
+</script><script>
+document.addEventListener('DOMContentLoaded', function () {
+const forms = document.querySelectorAll('#smartOfferForm form');
+forms.forEach(form => {
+const uniqueId = 'R-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+const output = form.querySelector('#generatedOfferId');
+if (output) {
+output.textContent = uniqueId;
+}
+form.addEventListener('submit', function (e) {
+alert('Offer ID: ' + uniqueId + '\nWe will use this ID to track this car.');
+});
+});
+});
+</script><script>
+document.addEventListener('DOMContentLoaded', function () {
+const forms = document.querySelectorAll("form");
+forms.forEach(form => {
+const steps = form.querySelectorAll(".form-step");
+let current = 0;
+function updateStep() {
+steps.forEach((step, idx) => step.style.display = idx === current ? "block" : "none");
+const backBtn = form.querySelector("button[onclick='prevStep()']");
+const nextBtn = form.querySelector("button[onclick='nextStep()']");
+if (backBtn) backBtn.style.display = current > 0 ? "inline-block" : "none";
+if (nextBtn) {
+nextBtn.style.display = "none";
+const input = steps[current].querySelector("input, select, textarea");
+if (input) {
+input.addEventListener("input", () => {
+if (input.checkValidity()) nextBtn.style.display = "inline-block";
+else nextBtn.style.display = "none";
+});
+}
+}
+}
+form.prevStep = function () {
+if (current > 0) current--;
+updateStep();
+};
+form.nextStep = function () {
+if (current < steps.length - 1) current++;
+updateStep();
+};
+form.querySelector("button[onclick='prevStep()']").addEventListener("click", () => form.prevStep());
+form.querySelector("button[onclick='nextStep()']").addEventListener("click", () => form.nextStep());
+updateStep();
+});
+});
+</script>
+<script>
+document.getElementById("navToggle").onclick = function() {
+const nav = document.getElementById("smartNav");
+nav.classList.toggle("active");
+};
+</script><script>
+function showOffer(type, event) {
+if (event) event.preventDefault();
+// Close all modals
+document.querySelectorAll('.offer-modal').forEach(function(modal) {
+modal.style.display = 'none';
+});
+// Reset the form and show only the first step
+const form = document.querySelector(`#${type}-modal form`);
+if (form) {
+form.reset();
+const steps = form.querySelectorAll('.form-step');
+steps.forEach((step, index) => {
+step.style.display = index === 0 ? 'block' : 'none';
+});
+}
+// Show overlay and selected modal
+playSound();
+document.getElementById('modalOverlay').style.display = 'block';
+const modal = document.getElementById(type + '-modal');
+if (modal) {
+modal.style.display = 'block';
+modal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+}
+function closeOffer(type) {
+document.getElementById('modalOverlay').style.display = 'none';
+document.getElementById(type + '-modal').style.display = 'none';
+}
+document.getElementById('modalOverlay').addEventListener('click', function () {
+document.querySelectorAll('.offer-modal').forEach(function(modal) {
+modal.style.display = 'none';
+});
+this.style.display = 'none';
+});
+</script><script>
+function nextStep(current) {
+document.getElementById('step' + current).style.display = 'none';
+document.getElementById('step' + (current + 1)).style.display = 'block';
+}
+function prevStep(current) {
+document.getElementById('step' + current).style.display = 'none';
+document.getElementById('step' + (current - 1)).style.display = 'block';
+}
+</script><script>
+function nextStep(id, current) {
+document.getElementById(id + '_step' + current).style.display = 'none';
+document.getElementById(id + '_step' + (current + 1)).style.display = 'block';
+}
+function prevStep(id, current) {
+document.getElementById(id + '_step' + current).style.display = 'none';
+document.getElementById(id + '_step' + (current - 1)).style.display = 'block';
+}
+</script><div class="offer-modal" id="voice-modal" style="display:none;"><form id="voiceForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar0"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span id="generatedOfferId"></span></div><div class="form-step" id="voice_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('voice', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="voice_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('voice', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('voice', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="voice_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('voice', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm0" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><div class="offer-modal" id="photo-modal" style="display:none;"><form id="photoForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar1"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="photo_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('photo', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="photo_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('photo', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('photo', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="photo_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('photo', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm1" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><div class="offer-modal" id="vin-modal" style="display:none;"><form id="vinForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar2"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="vin_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('vin', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="vin_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('vin', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('vin', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="vin_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('vin', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm2" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><div class="offer-modal" id="plate-modal" style="display:none;"><form id="plateForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar3"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="plate_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('plate', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="plate_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('plate', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('plate', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="plate_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('plate', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm3" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><div class="offer-modal" id="video-modal" style="display:none;"><form id="videoForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar4"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="video_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('video', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="video_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('video', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('video', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="video_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('video', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm4" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><div class="offer-modal" id="text-modal" style="display:none;"><form id="textForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar5"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="text_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('text', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="text_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('text', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('text', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="text_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('text', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm5" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><div class="offer-modal" id="call-modal" style="display:none;"><form id="callForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar6"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="call_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('call', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="call_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('call', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('call', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="call_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('call', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm6" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><div class="offer-modal" id="chat-modal" style="display:none;"><form id="chatForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar7"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="chat_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('chat', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="chat_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('chat', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('chat', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="chat_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('chat', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm7" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><div class="offer-modal" id="agent-modal" style="display:none;"><form id="agentForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar8"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="agent_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('agent', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="agent_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('agent', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('agent', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="agent_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('agent', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm8" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><div class="offer-modal" id="ai-modal" style="display:none;"><form id="aiForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar9"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="ai_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('ai', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="ai_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your phone number?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="tel"/><button aria-label="Back" onclick="prevStep('ai', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('ai', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="ai_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your email?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('ai', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm9" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><script>
+function nextStep(id, current) {
+const currentStep = document.getElementById(id + '_step' + current);
+const nextStep = document.getElementById(id + '_step' + (current + 1));
+if (currentStep && nextStep) {
+currentStep.style.display = 'none';
+nextStep.style.display = 'block';
+}
+}
+function prevStep(id, current) {
+const currentStep = document.getElementById(id + '_step' + current);
+const prevStep = document.getElementById(id + '_step' + (current - 1));
+if (currentStep && prevStep) {
+currentStep.style.display = 'none';
+prevStep.style.display = 'block';
+}
+}
+</script><script>
+function generateUniqueOfferId() {
+return 'R-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+}
+function showOffer(type, event) {
+if (event) event.preventDefault();
+// Close all modals
+document.querySelectorAll('.offer-modal').forEach(function(modal) {
+modal.style.display = 'none';
+});
+// Reset the form and set to first step
+const form = document.querySelector(`#${type}-modal form`);
+if (form) {
+form.reset();
+const steps = form.querySelectorAll('.form-step');
+steps.forEach((step, index) => {
+step.style.display = index === 0 ? 'block' : 'none';
+});
+const idSpan = form.querySelector('#generatedOfferId');
+if (idSpan) {
+idSpan.textContent = generateUniqueOfferId();
+}
+}
+playSound();
+document.getElementById('modalOverlay').style.display = 'block';
+const modal = document.getElementById(type + '-modal');
+if (modal) {
+modal.style.display = 'block';
+modal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+}
+function closeOffer(type) {
+document.getElementById('modalOverlay').style.display = 'none';
+document.getElementById(type + '-modal').style.display = 'none';
+}
+document.getElementById('modalOverlay').addEventListener('click', function () {
+document.querySelectorAll('.offer-modal').forEach(function(modal) {
+modal.style.display = 'none';
+});
+this.style.display = 'none';
+});
+</script><div class="offer-modal" id="email-modal" style="display:none;"><form id="emailForm" style="text-align: center;"><div class="form-progress-container"><div class="form-progress-bar" id="formProgressBar10"></div></div><div class="offer-id-display" style="margin-bottom:1rem; font-weight:bold;">Your Offer ID: <span></span></div><div class="form-step" id="email_step1" style="display:block;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">What’s your name?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Next" onclick="nextStep('email', 1)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="email_step2" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Your vehicle details?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="text"/><button aria-label="Back" onclick="prevStep('email', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Next" onclick="nextStep('email', 2)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Next</button></div><div class="form-step" id="email_step3" style="display:none;"><label style="display: block; margin: 1rem auto; text-align: center; font-weight: 600;">Best email to contact you?</label><input aria-label="Input field" placeholder="Enter value" required="True" style="margin: 0.5rem auto; display: block; text-align: center;" type="email"/><button aria-label="Back" onclick="prevStep('email', 3)" style="margin: 0.5rem auto; display: block; text-align: center;" type="button">Back</button><button aria-label="Submit Offer" style="margin: 0.5rem auto; display: block; text-align: center;" type="submit">Submit Offer</button></div><div id="voiceFallbackForm10" style="display:none; color:red; font-size:0.8rem; margin-top:0.5rem;">Voice input not supported on this browser.</div></form></div><script>
+window.addEventListener("scroll", function() {
+const nav = document.getElementById("smartNav");
+if (window.scrollY > 50) {
+nav.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+nav.style.padding = "0.5rem 1rem";
+} else {
+nav.style.boxShadow = "none";
+nav.style.padding = "1rem 1.5rem";
+}
+});
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener("click", function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute("href"));
+if (target) {
+target.scrollIntoView({ behavior: "smooth" });
+}
+});
+});
+</script><script>
+document.querySelectorAll('form').forEach(form => {
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+const modal = this.closest('.offer-modal');
+const id = this.querySelector('#generatedOfferId')?.textContent || 'UNKNOWN';
+console.log("Submitted Offer ID:", id);
+console.log("Offer Type:", form.id.replace('Form',''));
+this.innerHTML = '<div style="padding:2rem; font-size:1.2rem;">Thank you! Your offer has been submitted.<br><br>Your Offer ID: <strong>' + id + '</strong></div>';
+});
+});
+</script><div class="theme-toggle"></div><script>
+document.addEventListener("DOMContentLoaded", () => {
+const audio = document.getElementById("popupSound");
+if (audio) audio.load();
+});
+function playSound() {
+try {
+document.getElementById("popupSound").play().catch(() => {});
+} catch (e) {}
+}
+</script><script>
+document.querySelectorAll("form").forEach(form => {
+form.addEventListener("submit", function(e) {
+e.preventDefault();
+form.style.display = 'none';
+const confirmation = document.createElement("div");
+confirmation.className = "form-confirmation";
+confirmation.innerHTML = "<h3>Thank you! Your offer was submitted successfully.</h3><p>We’ll contact you shortly to complete the pickup.</p>";
+form.parentNode.appendChild(confirmation);
+});
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+const reviews = document.querySelectorAll('.animated-review');
+let index = 0;
+setInterval(() => {
+reviews[index].classList.remove('active');
+index = (index + 1) % reviews.length;
+reviews[index].classList.add('active');
+}, 8000);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+const reviews = document.querySelectorAll('.animated-review');
+let index = 0;
+let startX = null;
+function showReview(newIndex) {
+reviews[index].classList.remove('active');
+index = newIndex;
+reviews[index].classList.add('active');
+}
+function nextReview() {
+let nextIndex = (index + 1) % reviews.length;
+showReview(nextIndex);
+}
+function prevReview() {
+let prevIndex = (index - 1 + reviews.length) % reviews.length;
+showReview(prevIndex);
+}
+setInterval(nextReview, 8000);
+const container = document.querySelector('.review-carousel-container');
+if (container) {
+container.addEventListener('touchstart', function (e) {
+startX = e.touches[0].clientX;
+}, false);
+container.addEventListener('touchend', function (e) {
+if (startX === null) return;
+let endX = e.changedTouches[0].clientX;
+if (startX - endX > 50) nextReview();
+else if (endX - startX > 50) prevReview();
+startX = null;
+}, false);
+}
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+const reviews = document.querySelectorAll('.animated-review');
+const location = navigator.geolocation;
+const userRegion = window.navigator.language || "en-US";
+// Tag reviews with metadata (simplified for demonstration)
+const metaReviews = [
+{ region: "Midwest", vehicle: "Truck", index: 0 },
+{ region: "South", vehicle: "Sedan", index: 1 },
+{ region: "Northeast", vehicle: "SUV", index: 2 }
+];
+function highlightRelevantReview() {
+let highlightIndex = 0;
+// Basic regional check based on language/location
+if (userRegion.includes("en-US")) {
+if (userRegion.includes("TX") || userRegion.includes("FL") || userRegion.includes("GA")) {
+highlightIndex = 1;
+} else if (userRegion.includes("MI") || userRegion.includes("IL")) {
+highlightIndex = 0;
+} else {
+highlightIndex = 2;
+}
+}
+reviews.forEach((rev, idx) => rev.classList.remove('active'));
+reviews[highlightIndex].classList.add('active');
+}
+// Optional enhancement: auto scroll to the review section
+setTimeout(() => {
+const reviewSection = document.querySelector('.review-carousel-container');
+if (reviewSection) {
+reviewSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+highlightRelevantReview();
+}, 2000);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+const forms = document.querySelectorAll("form");
+forms.forEach(form => {
+const steps = form.querySelectorAll(".form-step");
+let current = 0;
+const progressBar = form.querySelector(".form-progress-bar");
+function updateProgress() {
+const percent = Math.round((current + 1) / steps.length * 100);
+if (progressBar) progressBar.style.width = percent + "%";
+}
+function showStep(index) {
+steps.forEach((step, i) => step.style.display = i === index ? "block" : "none");
+current = index;
+updateProgress();
+}
+const nextBtns = form.querySelectorAll("button[onclick^='nextStep']");
+const backBtns = form.querySelectorAll("button[onclick^='prevStep']");
+nextBtns.forEach(btn => {
+btn.addEventListener("click", () => {
+if (current < steps.length - 1) showStep(current + 1);
+});
+});
+backBtns.forEach(btn => {
+btn.addEventListener("click", () => {
+if (current > 0) showStep(current - 1);
+});
+});
+showStep(current);
+});
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in-section').forEach(section => {
+observer.observe(section);
+});
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+const counters = document.querySelectorAll(".counter-number");
+const animateCounter = (el) => {
+const update = () => {
+const target = +el.getAttribute("data-target");
+const count = +el.innerText;
+const increment = target / 80;
+if (count < target) {
+el.innerText = Math.ceil(count + increment);
+setTimeout(update, 20);
+} else {
+el.innerText = target;
+}
+};
+update();
+};
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+animateCounter(entry.target);
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 1 });
+counters.forEach(counter => {
+observer.observe(counter);
+});
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+const quotes = document.querySelectorAll("blockquote");
+let index = 0;
+function showQuote(i) {
+quotes.forEach((q, j) => {
+q.style.display = j === i ? "block" : "none";
+});
+}
+if (quotes.length > 1) {
+showQuote(index);
+setInterval(() => {
+index = (index + 1) % quotes.length;
+showQuote(index);
+}, 6000);
+}
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+const quotes = document.querySelectorAll("blockquote");
+let index = 0;
+let startX = null;
+function showQuote(i) {
+quotes.forEach((q, j) => {
+q.style.display = j === i ? "block" : "none";
+});
+}
+if (quotes.length > 1) {
+showQuote(index);
+setInterval(() => {
+index = (index + 1) % quotes.length;
+showQuote(index);
+}, 6000);
+}
+const container = document.querySelector("section");
+if (container) {
+container.addEventListener("touchstart", function (e) {
+startX = e.touches[0].clientX;
+}, false);
+container.addEventListener("touchend", function (e) {
+if (startX === null) return;
+let endX = e.changedTouches[0].clientX;
+if (startX - endX > 50) {
+index = (index + 1) % quotes.length;
+showQuote(index);
+} else if (endX - startX > 50) {
+index = (index - 1 + quotes.length) % quotes.length;
+showQuote(index);
+}
+startX = null;
+}, false);
+}
+const filters = document.querySelectorAll(".testimonial-filter");
+if (filters.length > 0) {
+filters.forEach(filter => {
+filter.addEventListener("click", () => {
+const tag = filter.dataset.tag;
+quotes.forEach(q => {
+if (!tag || q.dataset.tag === tag) {
+q.style.display = "block";
+} else {
+q.style.display = "none";
+}
+});
+});
+});
+}
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+const filters = document.querySelectorAll(".testimonial-filter");
+filters.forEach(btn => {
+btn.addEventListener("click", () => {
+filters.forEach(b => b.classList.remove("active"));
+btn.classList.add("active");
+});
+});
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+if (!('webkitSpeechRecognition' in window)) return;
+const recognition = new webkitSpeechRecognition();
+recognition.continuous = false;
+recognition.interimResults = false;
+const voiceBtn = document.getElementById("voiceFilterBtn");
+if (!voiceBtn) return;
+voiceBtn.addEventListener("click", function () {
+recognition.start();
+voiceBtn.innerText = "Listening...";
+});
+recognition.onresult = function (event) {
+const transcript = event.results[0][0].transcript.toLowerCase();
+const filters = document.querySelectorAll(".testimonial-filter");
+filters.forEach(btn => {
+const label = btn.innerText.toLowerCase();
+if (transcript.includes(label)) {
+btn.click();
+}
+});
+recognition.stop();
+voiceBtn.innerText = "Voice Filter";
+};
+recognition.onerror = function () {
+recognition.stop();
+voiceBtn.innerText = "Voice Filter";
+};
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+const voiceBtn = document.getElementById("voiceFilterBtn");
+const fallback = document.getElementById("voiceFallback");
+if (!('webkitSpeechRecognition' in window)) {
+if (fallback) fallback.style.display = "block";
+if (voiceBtn) voiceBtn.style.display = "none";
+return;
+}
+const recognition = new webkitSpeechRecognition();
+recognition.continuous = false;
+recognition.interimResults = false;
+voiceBtn.addEventListener("click", function () {
+recognition.start();
+voiceBtn.classList.add("listening");
+voiceBtn.innerText = "Listening...";
+});
+recognition.onresult = function (event) {
+const transcript = event.results[0][0].transcript.toLowerCase();
+const filters = document.querySelectorAll(".testimonial-filter");
+filters.forEach(btn => {
+const label = btn.innerText.toLowerCase();
+if (transcript.includes(label)) {
+btn.click();
+}
+});
+recognition.stop();
+voiceBtn.classList.remove("listening");
+voiceBtn.innerText = "Voice Filter";
+};
+recognition.onerror = function () {
+recognition.stop();
+voiceBtn.classList.remove("listening");
+voiceBtn.innerText = "Voice Filter";
+};
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+if (!('webkitSpeechRecognition' in window)) return;
+const micIcons = document.querySelectorAll(".voice-input-icon");
+micIcons.forEach(icon => {
+const input = document.getElementById(icon.dataset.input);
+const recognition = new webkitSpeechRecognition();
+recognition.continuous = false;
+recognition.interimResults = false;
+icon.addEventListener("click", () => {
+icon.innerText = "🎙️ Listening...";
+recognition.start();
+});
+recognition.onresult = function (event) {
+input.value = event.results[0][0].transcript;
+recognition.stop();
+icon.innerText = "🎤";
+};
+recognition.onerror = function () {
+recognition.stop();
+icon.innerText = "🎤";
+};
+});
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+if (!('webkitSpeechRecognition' in window)) return;
+const allForms = document.querySelectorAll("form");
+const recognition = new webkitSpeechRecognition();
+recognition.continuous = false;
+recognition.interimResults = false;
+recognition.lang = "en-US";
+document.addEventListener("keydown", function (e) {
+if (e.ctrlKey && e.key === 'm') {
+recognition.start();
+}
+});
+recognition.onresult = function (event) {
+const transcript = event.results[0][0].transcript.toLowerCase();
+if (transcript.includes("next")) {
+document.querySelector("button[onclick^='nextStep']")?.click();
+} else if (transcript.includes("back")) {
+document.querySelector("button[onclick^='prevStep']")?.click();
+} else if (transcript.includes("submit")) {
+document.querySelector("form button[type='submit']")?.click();
+}
+};
+recognition.onerror = function () {
+recognition.stop();
+};
+});
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(function (registration) {
+          console.log('ServiceWorker registered:', registration);
+        })
+        .catch(function (error) {
+          console.log('ServiceWorker registration failed:', error);
+        });
+    });
+  }
+</script>
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const installBtn = document.getElementById('installPwaButton');
+  if (installBtn) installBtn.style.display = 'inline-block';
+});
+
+function installPwa() {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the install prompt');
+      } else {
+        console.log('User dismissed the install prompt');
+      }
+      deferredPrompt = null;
+    });
+  }
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const savedMode = localStorage.getItem("recarra-mode");
+  if (savedMode) {
+    document.body.classList.toggle("dim-mode", savedMode === "dim");
+  } else if (prefersDark) {
+    document.body.classList.add("dim-mode");
+    localStorage.setItem("recarra-mode", "dim");
+  }
+});
+</script>
+<!-- PWA Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('Service Worker registered:', reg))
+        .catch(err => console.error('Service Worker registration failed:', err));
+    });
+  }
+</script>
+<!-- PWA Install Prompt -->
+<script>
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+
+    const installBtn = document.getElementById('installApp');
+    if (installBtn) {
+      installBtn.style.display = 'inline-block';
+      installBtn.addEventListener('click', () => {
+        installBtn.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the A2HS prompt');
+          } else {
+            console.log('User dismissed the A2HS prompt');
+          }
+          deferredPrompt = null;
+        });
+      });
+    }
+  });
+</script>
+<section class="fade-in-section section-block">
+<h2 class="section-title">Frequently Asked Questions</h2>
+<div id="faq-container" style="text-align: center; padding: 1rem;">
+</div>
+</section>
+<script>
+const faqs = [
+  { question: "How fast will Recarra pay me for my car?", answer: "We pay instantly through cash, debit card transfer, or direct deposit once the car is picked up." },
+  { question: "Can I sell my car to Recarra without the title?", answer: "Yes, we provide alternative solutions and guide you through the process smoothly." },
+  { question: "Do I need to clean or repair my car before selling?", answer: "No cleaning or repairs needed—sell your car as-is, hassle-free." },
+  { question: "What payment methods does Recarra offer?", answer: "You can select from instant cash, debit card transfer, or direct bank deposit." },
+  { question: "Does Recarra handle all the paperwork?", answer: "Absolutely! We take care of all the necessary paperwork to make your experience stress-free." },
+  { question: "Will Recarra buy my car even if it doesn't run?", answer: "Certainly, we buy cars in any condition, running or not." },
+  { question: "How does Recarra determine the value of my car?", answer: "We use advanced AI technology and real-time market data to offer fair and competitive prices." }
+];
+
+let faqIndex = 0;
+let showingAnswer = false;
+
+function rotateFAQ() {
+  const questionEl = document.getElementById('faq-question');
+  const answerEl = document.getElementById('faq-answer');
+
+  if (!showingAnswer) {
+    questionEl.textContent = faqs[faqIndex].question;
+    answerEl.textContent = '';
+    showingAnswer = true;
+  } else {
+    answerEl.textContent = faqs[faqIndex].answer;
+    faqIndex = (faqIndex + 1) % faqs.length;
+    showingAnswer = false;
+  }
+}
+
+setInterval(rotateFAQ, 5000);
+window.onload = rotateFAQ;
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.fade-in-section').forEach(section => {
+    observer.observe(section);
+  });
+});
+</script>
+<!-- Rotating Global CTA System -->
+<div id="recarraDynamicSentence" style="font-size: 1.25rem; font-weight: 600; text-align: center; padding: 1rem 1.5rem; border-radius: 12px; transition: all 1s ease; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.08); margin: 2rem auto; max-width: 720px;"></div>
+<script>
+const recarraPhrases = [
+  "Claim Your Get My Instant Offer With Recarra",
+  "Turn your junk car into fast, fair cash.",
+  "You’re not just selling metal—you’re gaining peace.",
+  "Let your driveway breathe: Everything we do leads to one thing: your satisfaction.",
+  "Recarra: Where your metal meets its match in money.",
+  "Your car’s worth is more than it seems.",
+  "Say goodbye to clutter, and hello to cash.",
+  "You see junk. We see justice.",
+  "The past is in your rearview. The payout is ahead.",
+  "Letting go never paid so well."
+  // ... (for demo purposes, only 10 here; insert all 888 in production) ...
+];
+
+let phraseIndex = 0;
+const sentenceBox = document.getElementById("recarraDynamicSentence");
+const recarraColors = ['#ff4e50', '#f9d423', '#4CAF50', '#2196F3', '#000', '#9C27B0'];
+const recarraFonts = ['Poppins', 'Georgia', 'Arial', 'Courier New', 'Verdana'];
+
+function rotateRecarraPhrase() {
+  const phrase = recarraPhrases[phraseIndex % recarraPhrases.length];
+  const color = recarraColors[phraseIndex % recarraColors.length];
+  const font = recarraFonts[phraseIndex % recarraFonts.length];
+  sentenceBox.textContent = phrase;
+  sentenceBox.style.color = color;
+  sentenceBox.style.fontFamily = font;
+  sentenceBox.style.fontSize = (1.25 + (phraseIndex % 3) * 0.15) + 'rem';
+  phraseIndex++;
+}
+setInterval(rotateRecarraPhrase, 8000);
+rotateRecarraPhrase();
+</script>
+<div id="backToTopSpacer" style="height: 100px;"></div>
+<div style="
+  height: 100px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg');
+  background-size: cover;
+  background-position: center;
+  animation: flagFly 20s infinite linear alternate;
+  border-radius: 0 0 20px 20px;
+  opacity: 0.2;
+  position: relative;
+  z-index: -1;
+">
+</div>
+<script>
+  const ceoMessages = ['Recarra empowers every car owner to sell with dignity, speed, and value.', 'We built Recarra to replace confusion with clarity and trust.', 'Behind every offer is a system powered by AI — and guided by real humans.', 'Every button, every line of code — designed for all people, all cars.', "Our goal is not just to buy junk cars — it's to restore peace of mind.", 'Recarra stands for real value, real speed, and real care.', "We didn't just automate the process — we elevated it.", 'Our platform speaks every language: VIN, voice, photo, plate, and chat.', 'We believe selling your car should be just as easy as texting a friend.', 'Built in America, trusted across every driveway and highway.', "Your experience matters more than just your vehicle's value.", "Recarra doesn't judge your car — we evaluate, appreciate, and act.", "You shouldn't wait days for a price. Recarra gives it instantly.", "Fast payments, safe pickups, and full transparency — that's our code.", 'We created Recarra for the grandma, the mechanic, and the college kid alike.', "Elegance isn't just visual — it's how Recarra treats every request.", 'Smart offers. Smarter dignity. Recarra is for every driver.'];
+  let ceoIndex = 0;
+  function rotateCEOQuote() {
+    const el = document.getElementById("ceo-quote");
+    el.textContent = ceoMessages[ceoIndex];
+    ceoIndex = (ceoIndex + 1) % ceoMessages.length;
+  }
+  setInterval(rotateCEOQuote, 8000);
+  document.addEventListener('DOMContentLoaded', rotateCEOQuote);
+</script>
+<script>
+  const ceoMessages = [
+    "Recarra empowers every car owner to sell with dignity, speed, and value.",
+    "We built Recarra to replace confusion with clarity and trust.",
+    "Behind every offer is a system powered by AI — and guided by real humans.",
+    "Every button, every line of code — designed for all people, all cars.",
+    "Our goal is not just to buy junk cars — it's to restore peace of mind.",
+    "Recarra stands for real value, real speed, and real care.",
+    "We didn't just automate the process — we elevated it.",
+    "Our platform speaks every language: VIN, voice, photo, plate, and chat.",
+    "We believe selling your car should be just as easy as texting a friend.",
+    "Built in America, trusted across every driveway and highway.",
+    "Your experience matters more than just your vehicle's value.",
+    "Recarra doesn't judge your car — we evaluate, appreciate, and act.",
+    "You shouldn't wait days for a price. Recarra gives it instantly.",
+    "Fast payments, safe pickups, and full transparency — that's our code.",
+    "We created Recarra for the grandma, the mechanic, and the college kid alike.",
+    "Elegance isn't just visual — it's how Recarra treats every request.",
+    "Smart offers. Smarter dignity. Recarra is for every driver."
+  ];
+  let ceoIndex = 0;
+  function rotateCEOQuote() {
+    const el = document.getElementById("ceo-quote");
+    el.classList.remove("visible");
+    setTimeout(() => {
+      el.textContent = ceoMessages[ceoIndex];
+      el.classList.add("visible");
+      ceoIndex = (ceoIndex + 1) % ceoMessages.length;
+    }, 300);
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    rotateCEOQuote();
+    setInterval(rotateCEOQuote, 8000);
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const recarraForm = document.querySelector("#recarraForm form");
+  if (recarraForm) {
+    recarraForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      recarraForm.style.display = "none";
+      const confirm = document.createElement("div");
+      confirm.style = "text-align:center;font-size:1.25rem;padding:2rem;border-radius:12px;background:#e8ffe8;border:2px solid #4CAF50;color:#2e7d32;";
+      confirm.innerHTML = "<strong>Thank you!</strong><br>Your info was received. We’ll contact you shortly.";
+      recarraForm.parentNode.appendChild(confirm);
+    });
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector("#recarraForm form");
+  if (form) {
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      form.innerHTML = "<div style='text-align:center; padding:2rem; font-size:1.2rem; font-weight:bold; color:#2e7d32; background:#e8ffe8; border:2px solid #4CAF50; border-radius:12px;'>Thank you! Your offer is being generated. Check this screen shortly and watch for iMessage + email delivery.</div>";
+    });
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("#recarraForm form");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const thankYouMessage = document.createElement("div");
+      thankYouMessage.id = "thankYouMsg";
+      thankYouMessage.style = "text-align:center; padding:2rem; font-size:1.2rem; font-weight:bold; color:#2e7d32; background:#e8ffe8; border:2px solid #4CAF50; border-radius:12px;";
+      thankYouMessage.innerHTML = "Thank you! Your offer is being generated. Check this screen shortly and watch for iMessage + email delivery.";
+      form.replaceWith(thankYouMessage);
+      document.getElementById("formSubmitSound").play();
+      setTimeout(() => {
+        thankYouMessage.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    });
+  }
+});
+</script>
+<audio id="formSubmitSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-29.mp3"></audio>
+<section class="section-block fade-in-section" style="padding: 2rem; background: #fff; border-radius: 12px; margin: 2rem auto; text-align: center;"><h3 id="faq-question" style="font-weight:800; font-size:1.2rem; color:#ff4e50;"></h3><p id="faq-answer" style="font-size:1rem; color:#555;"></p></section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".form-step");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitBtn = document.getElementById("submitBtn");
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.display = i === index ? "block" : "none";
+    });
+    nextBtn.style.display = index === steps.length - 1 ? "none" : "block";
+    submitBtn.style.display = index === steps.length - 1 ? "block" : "none";
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
+});
+</script>
+<footer>
+<p>© 2025 Recarra. All rights reserved. | Houston, TX | <a href="mailto:support@recarra.com">support@recarra.com</a></p>
+<p>
+<a href="#">Privacy Policy</a> | 
+    <a href="#">Terms</a> | 
+    <a href="#">DMCA</a> | 
+    <a href="#">Data Protection</a> |
+    <a href="#">Refunds</a> | 
+    <a href="#">Accessibility</a> | 
+    <a href="#">Cookies</a> | 
+    <a href="#">Pickup Policy</a> | 
+    <a href="#">Seller Rights</a>
+</p>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  if (form) {
+    const happySound = new Audio("https://www.soundjay.com/human/sounds/applause-8.mp3");
+    form.addEventListener("submit", function (e) {
+      setTimeout(() => happySound.play(), 500);
+    });
+  }
+});
+</script><section class="section-block fade-in-section" style="background: #ffffff; padding: 2rem; border-radius: 10px; margin-top: 2rem;"><h3 id="faq-question" style="font-weight: 800; font-size: 1.2rem; text-align: center;"></h3><p id="faq-answer" style="font-size: 1rem; color: #555; text-align: center;"></p></section><script>
+window.addEventListener("load", function () {
+  const hour = new Date().getHours();
+  const audio = new Audio(
+    hour < 12
+      ? "https://www.soundjay.com/button/beep-07.wav"
+      : hour < 18
+      ? "https://www.soundjay.com/button/beep-08b.wav"
+      : "https://www.soundjay.com/button/beep-09.wav"
+  );
+  setTimeout(() => audio.play(), 1200);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".form-step");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitBtn = document.getElementById("submitBtn");
+  const dots = document.querySelectorAll("#formProgressDots span");
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.opacity = "0";
+      step.style.transition = "opacity 0.4s ease";
+      step.style.display = i === index ? "block" : "none";
+    });
+    setTimeout(() => {
+      steps[index].style.opacity = "1";
+    }, 50);
+
+    dots.forEach((dot, i) => {
+      dot.style.background = i === index ? "#ff4e50" : "#ccc";
+    });
+
+    nextBtn.style.display = index === steps.length - 1 ? "none" : "block";
+    submitBtn.style.display = index === steps.length - 1 ? "block" : "none";
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".form-step");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitBtn = document.getElementById("submitBtn");
+  const dots = document.querySelectorAll("#formProgressDots span");
+  const progressBar = document.getElementById("formProgressBar");
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.display = i === index ? "block" : "none";
+      step.style.opacity = i === index ? "1" : "0";
+      step.style.transform = i === index ? "translateY(0)" : "translateY(20px)";
+    });
+    dots.forEach((dot, i) => {
+      dot.style.background = i === index ? "#ff4e50" : "#ccc";
+    });
+    const progress = ((index + 1) / steps.length) * 100;
+    progressBar.style.width = progress + "%";
+
+    nextBtn.style.display = index === steps.length - 1 ? "none" : "block";
+    submitBtn.style.display = index === steps.length - 1 ? "block" : "none";
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".form-step");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitBtn = document.getElementById("submitBtn");
+  const dots = document.querySelectorAll("#formProgressDots span");
+  const progressBar = document.getElementById("formProgressBar");
+  const stepSound = document.getElementById("stepSound");
+  const tipBubble = document.getElementById("aiTipBubble");
+
+  const tips = [
+    "Let's get started! Enter your name to begin.",
+    "Now your phone number so we can reach you.",
+    "We’ll send a confirmation to your email.",
+    "Tell us about your car — year, make, and model.",
+    "If you have the VIN, enter it here.",
+    "Please upload a clear photo of the front of your car.",
+    "Now show us the back of the car.",
+    "Upload a photo of the right side.",
+    "And now the left side.",
+    "Choose how you want to get paid.",
+    "Any pickup instructions we should know?",
+    "Anything else you'd like to add?"
+  ];
+
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.display = i === index ? "block" : "none";
+      step.style.opacity = i === index ? "1" : "0";
+      step.style.transform = i === index ? "translateY(0)" : "translateY(20px)";
+    });
+    dots.forEach((dot, i) => {
+      dot.style.background = i === index ? "#ff4e50" : "#ccc";
+    });
+
+    const progress = ((index + 1) / steps.length) * 100;
+    progressBar.style.width = progress + "%";
+
+    nextBtn.style.display = index === steps.length - 1 ? "none" : "block";
+    submitBtn.style.display = index === steps.length - 1 ? "block" : "none";
+
+    // Play step sound
+    if (stepSound) stepSound.play();
+
+    // Update AI tip
+    if (tipBubble && tips[index]) {
+      tipBubble.style.display = "block";
+      tipBubble.textContent = tips[index];
+    }
+
+    // Auto-scroll to form
+    const form = document.getElementById("smartRecarraForm");
+    if (form) form.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const recarraForm = document.getElementById("recarraForm");
+  const aiOffer = document.getElementById("smartOfferForm");
+
+  if (recarraForm && aiOffer) {
+    recarraForm.scrollIntoView({ behavior: "smooth", block: "center" });
+    setTimeout(() => {
+      aiOffer.style.transition = "opacity 0.6s ease";
+      aiOffer.style.opacity = "0.05";
+      aiOffer.style.pointerEvents = "none";
+      aiOffer.style.height = "0px";
+      aiOffer.style.overflow = "hidden";
+    }, 800);
+  }
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const recarraForm = document.getElementById("recarraForm");
+  const aiOffer = document.getElementById("smartOfferForm");
+  const toggleBtn = document.getElementById("toggleAISection");
+
+  if (recarraForm && aiOffer && toggleBtn) {
+    recarraForm.scrollIntoView({ behavior: "smooth", block: "center" });
+    setTimeout(() => {
+      aiOffer.style.transition = "opacity 0.6s ease, height 0.6s ease";
+      aiOffer.style.opacity = "0.05";
+      aiOffer.style.pointerEvents = "none";
+      aiOffer.style.height = "0px";
+      aiOffer.style.overflow = "hidden";
+    }, 800);
+
+    toggleBtn.addEventListener("click", () => {
+      if (aiOffer.style.height === "0px") {
+        aiOffer.style.opacity = "1";
+        aiOffer.style.height = "auto";
+        aiOffer.style.pointerEvents = "auto";
+        toggleBtn.textContent = "Hide AI Smart Offer";
+      } else {
+        aiOffer.style.opacity = "0.05";
+        aiOffer.style.height = "0px";
+        aiOffer.style.pointerEvents = "none";
+        toggleBtn.textContent = "Show AI Smart Offer Again";
+      }
+    });
+  }
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const recarraForm = document.getElementById("recarraForm");
+  const aiOffer = document.getElementById("smartOfferForm");
+  const toggleTab = document.getElementById("floatingToggleTab");
+  const toggleText = document.getElementById("toggleText");
+  const tipBubble = document.getElementById("aiTipBubble");
+  const smartForm = document.getElementById("smartRecarraForm");
+
+  if (recarraForm && aiOffer && toggleTab) {
+    aiOffer.style.transition = "opacity 0.6s ease, height 0.6s ease";
+    aiOffer.style.opacity = "0.05";
+    aiOffer.style.pointerEvents = "none";
+    aiOffer.style.height = "0px";
+    aiOffer.style.overflow = "hidden";
+
+    toggleTab.addEventListener("click", () => {
+      if (aiOffer.style.height === "0px") {
+        aiOffer.style.opacity = "1";
+        aiOffer.style.height = "auto";
+        aiOffer.style.pointerEvents = "auto";
+        toggleText.textContent = "Hide AI Smart Offer";
+        tipBubble.style.display = "none";
+      } else {
+        aiOffer.style.opacity = "0.05";
+        aiOffer.style.height = "0px";
+        aiOffer.style.pointerEvents = "none";
+        toggleText.textContent = "Show AI Smart Offer Again";
+        tipBubble.style.display = "block";
+      }
+    });
+  }
+
+  if (smartForm) {
+    smartForm.addEventListener("submit", () => {
+      setTimeout(() => {
+        if (aiOffer && toggleText) {
+          aiOffer.style.opacity = "0.05";
+          aiOffer.style.height = "0px";
+          aiOffer.style.pointerEvents = "none";
+          toggleText.textContent = "Show AI Smart Offer Again";
+          tipBubble.style.display = "block";
+        }
+      }, 600);
+    });
+  }
+});
+</script>
+<div id="chatPopup" style="display:none; position:fixed; bottom:100px; right:20px; width:300px; background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); padding:1rem; z-index:10001;; transition: transform 0.3s ease, opacity 0.3s ease; transform: translateY(30px); opacity: 0;"><span class="popup-close" style="position:absolute; top:8px; right:12px; cursor:pointer; font-weight:bold; font-size:1.1rem;">×</span>
+<strong style="display:block; margin-bottom:0.5rem;">Chat</strong>
+<p>Hello! I'm Recarra’s smart assistant. How can I help you today?</p>
+</div>
+<div id="helpPopup" style="display:none; position:fixed; bottom:100px; right:20px; width:300px; background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); padding:1rem; z-index:10001;; transition: transform 0.3s ease, opacity 0.3s ease; transform: translateY(30px); opacity: 0;"><span class="popup-close" style="position:absolute; top:8px; right:12px; cursor:pointer; font-weight:bold; font-size:1.1rem;">×</span>
+<strong style="display:block; margin-bottom:0.5rem;">Help Center</strong>
+<p>Need assistance? Choose a help option:</p>
+<ul style="padding-left:1rem; margin:0;">
+<li>Email: support@recarra.com</li>
+<li>Text: (888) 888-8888</li>
+<li>Visit our FAQ section</li>
+</ul>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chatBtn = document.getElementById("liveChatButton");
+  const helpBtn = document.getElementById("getHelpButton");
+  const chatPopup = document.getElementById("chatPopup");
+  const helpPopup = document.getElementById("helpPopup");
+
+  chatBtn.addEventListener("click", () => {
+    chatPopup.style.display = chatPopup.style.display === "none" ? "block" : "none";
+    helpPopup.style.display = "none";
+  });
+
+  helpBtn.addEventListener("click", () => {
+    helpPopup.style.display = helpPopup.style.display === "none" ? "block" : "none";
+    chatPopup.style.display = "none";
+  });
+
+  // Optional: close popups on outside click
+  document.addEventListener("click", (e) => {
+    if (!chatPopup.contains(e.target) && !chatBtn.contains(e.target)) {
+      chatPopup.style.display = "none";
+    }
+    if (!helpPopup.contains(e.target) && !helpBtn.contains(e.target)) {
+      helpPopup.style.display = "none";
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chatBtn = document.getElementById("liveChatButton");
+  const helpBtn = document.getElementById("getHelpButton");
+  const chatPopup = document.getElementById("chatPopup");
+  const helpPopup = document.getElementById("helpPopup");
+  const openSound = document.getElementById("popupOpenSound");
+  const closeSound = document.getElementById("popupCloseSound");
+
+  function openPopup(popup) {
+    popup.style.display = "block";
+    setTimeout(() => {
+      popup.style.transform = "translateY(0)";
+      popup.style.opacity = "1";
+    }, 10);
+    if (openSound) openSound.play().catch(() => {});
+  }
+
+  function closePopup(popup) {
+    popup.style.transform = "translateY(30px)";
+    popup.style.opacity = "0";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 300);
+    if (closeSound) closeSound.play().catch(() => {});
+  }
+
+  chatBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (chatPopup.style.display === "none" || chatPopup.style.opacity === "0") {
+      closePopup(helpPopup);
+      openPopup(chatPopup);
+    } else {
+      closePopup(chatPopup);
+    }
+  });
+
+  helpBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (helpPopup.style.display === "none" || helpPopup.style.opacity === "0") {
+      closePopup(chatPopup);
+      openPopup(helpPopup);
+    } else {
+      closePopup(helpPopup);
+    }
+  });
+
+  document.querySelectorAll(".popup-close").forEach(close => {
+    close.addEventListener("click", (e) => {
+      const popup = e.target.closest("div");
+      closePopup(popup);
+      e.stopPropagation();
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!chatPopup.contains(e.target) && !chatBtn.contains(e.target)) {
+      closePopup(chatPopup);
+    }
+    if (!helpPopup.contains(e.target) && !helpBtn.contains(e.target)) {
+      closePopup(helpPopup);
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("scrollTop").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  document.getElementById("quickChat").addEventListener("click", () => {
+    alert("Chat coming soon...");
+  });
+
+  document.getElementById("quickHelp").addEventListener("click", () => {
+    alert("Help Center launching shortly...");
+  });
+
+  document.getElementById("quickOffer").addEventListener("click", () => {
+    window.scrollTo({ top: document.getElementById("recarraForm")?.offsetTop || 300, behavior: 'smooth' });
+  });
+});
+</script>
+<div id="floatingButtonsContainer">
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btnOffer = document.querySelector('.btn-offer');
+  const btnChat = document.querySelector('.btn-chat');
+  const btnHelp = document.querySelector('.btn-help');
+
+  const offerGradients = [
+    'linear-gradient(to right, #ffcc00, #ff3366)',
+    'linear-gradient(to right, #f7971e, #ffd200)',
+    'linear-gradient(to right, #ff5f6d, #ffc371)'
+  ];
+
+  const chatGradients = [
+    'linear-gradient(to right, #00c6ff, #0072ff)',
+    'linear-gradient(to right, #3a7bd5, #3a6073)',
+    'linear-gradient(to right, #2193b0, #6dd5ed)'
+  ];
+
+  const helpGradients = [
+    'linear-gradient(to right, #ff7e5f, #feb47b)',
+    'linear-gradient(to right, #ff6a00, #ee0979)',
+    'linear-gradient(to right, #f12711, #f5af19)'
+  ];
+
+  let index = 0;
+
+  function cycleIndividualColors() {
+    if (btnOffer) btnOffer.style.background = offerGradients[index % offerGradients.length];
+    if (btnChat) btnChat.style.background = chatGradients[index % chatGradients.length];
+    if (btnHelp) btnHelp.style.background = helpGradients[index % helpGradients.length];
+    index++;
+  }
+
+  cycleIndividualColors();
+  setInterval(cycleIndividualColors, 888000);
+});
+</script><script>
+document.getElementById('smartMenuToggle').addEventListener('click', function () {
+    const menu = document.getElementById('smartMenuDropdown');
+    menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+});
+
+function loadForm(type) {
+    const area = document.getElementById('formDisplayArea');
+    let content = '<h2 style="text-align:center; color:#ff4e50;">Currently Filling: ' + type.replace('_', ' ') + '</h2>';
+    if (type === 'recarra_full_form') {
+        const recarraForm = document.getElementById('recarraForm');
+        content += recarraForm ? recarraForm.innerHTML : '<p>Recarra Form not found.</p>';
+    } else {
+        content += '<form style="display:flex; flex-direction:column; gap:1rem;"><input placeholder="Your Name" required><input placeholder="Your Phone"><textarea placeholder="Details for ' + type + '"></textarea><button type="submit" style="padding:0.8rem; border:none; background:linear-gradient(to right, #ff4e50, #f9d423); border-radius:30px; font-weight:bold;">Submit</button></form>';
+    }
+    area.innerHTML = content;
+    window.scrollTo({ top: area.offsetTop, behavior: 'smooth' });
+}
+</script>
+<!-- Floating Switch Button -->
+<button id="switchMethodBtn" onclick="reopenSmartMenu()" style="
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  z-index: 10001;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: none;
+">
+  Change Offer Method
+</button>
+<script>
+function reopenSmartMenu() {
+  document.getElementById('smartMenuDropdown').style.display = 'block';
+  document.getElementById('popupOpenSound').play();
+}
+
+// Patch existing functions to include switch button toggle
+const originalLoadForm = window.loadForm;
+window.loadForm = function(type) {
+  if (originalLoadForm) originalLoadForm(type);
+  const switchBtn = document.getElementById('switchMethodBtn');
+  if (switchBtn) switchBtn.style.display = 'block';
+};
+
+const originalReturnToMainForm = window.returnToMainForm;
+window.returnToMainForm = function() {
+  if (originalReturnToMainForm) originalReturnToMainForm();
+  const switchBtn = document.getElementById('switchMethodBtn');
+  if (switchBtn) switchBtn.style.display = 'none';
+};
+</script>
+<script>
+// Ensure dropdown menu auto-closes after selection and reopens if reopened manually
+function loadForm(type) {
+  const formDisplay = document.getElementById('formDisplayArea');
+  const overlay = document.getElementById('modalOverlay');
+  const mainForm = document.getElementById('recarraForm');
+  const menu = document.getElementById('smartMenuDropdown');
+  const switchBtn = document.getElementById('switchMethodBtn');
+
+  // Hide the menu (auto-close)
+  if (menu) menu.style.display = 'none';
+
+  // Hide the main form
+  if (mainForm) mainForm.style.display = 'none';
+
+  // Show overlay
+  if (overlay) overlay.style.display = 'block';
+
+  // Play open sound
+  const openSound = document.getElementById('popupOpenSound');
+  if (openSound) openSound.play();
+
+  // Enable switch method floating button
+  if (switchBtn) switchBtn.style.display = 'block';
+
+  // Show the selected form
+  formDisplay.innerHTML = `
+    <form onsubmit="submitSmartForm(event)" class="offer-modal fade-in-section">
+      <h2 style="color:#ff4e50;">${type.toUpperCase()} Offer</h2>
+      <p>This is a demo for the <strong>${type}</strong> offer form.</p>
+      <input type="text" placeholder="Your Name" class="uniform-input" />
+      <input type="tel" placeholder="Phone Number" class="uniform-input" />
+      <button type="submit" class="offer-button" style="margin-top:1.5rem;">Submit Offer</button>
+      <button type="button" onclick="returnToMainForm()" class="offer-button" style="margin-top:1rem;">Back to Main Form</button>
+    </form>
+  `;
+
+  formDisplay.scrollIntoView({ behavior: 'smooth' });
+}
+
+function returnToMainForm() {
+  const mainForm = document.getElementById('recarraForm');
+  const formDisplay = document.getElementById('formDisplayArea');
+  const overlay = document.getElementById('modalOverlay');
+  const switchBtn = document.getElementById('switchMethodBtn');
+
+  // Show the main form
+  if (mainForm) mainForm.style.display = 'block';
+
+  // Clear the custom form
+  if (formDisplay) formDisplay.innerHTML = '';
+
+  // Hide the overlay and switch method
+  if (overlay) overlay.style.display = 'none';
+  if (switchBtn) switchBtn.style.display = 'none';
+
+  // Play close sound
+  const closeSound = document.getElementById('popupCloseSound');
+  if (closeSound) closeSound.play();
+
+  mainForm.scrollIntoView({ behavior: 'smooth' });
+}
+
+function submitSmartForm(e) {
+  e.preventDefault();
+  const formDisplay = document.getElementById('formDisplayArea');
+  formDisplay.innerHTML = `
+    <div style="text-align:center; padding:2rem;">
+      <i class="fas fa-check-circle" style="color:green; font-size:2rem;"></i>
+      <p>Offer submitted successfully. We will contact you shortly.</p>
+      <button onclick="returnToMainForm()" class="offer-button" style="margin-top:1.5rem;">Back to Main Form</button>
+    </div>
+  `;
+  document.getElementById('stepSound').play();
+}
+
+function reopenSmartMenu() {
+  const menu = document.getElementById('smartMenuDropdown');
+  if (menu) {
+    menu.style.display = 'block';
+    document.getElementById('popupOpenSound').play();
+  }
+}
+</script>
+<script>
+function loadForm(type) {
+  const formDisplay = document.getElementById('formDisplayArea');
+  const overlay = document.getElementById('modalOverlay');
+  const mainForm = document.getElementById('recarraForm');
+  const menu = document.getElementById('smartMenuDropdown');
+  const switchBtn = document.getElementById('switchMethodBtn');
+
+  // Always hide dropdown menu but keep the modal overlay active
+  if (menu) menu.style.display = 'none';
+  if (mainForm) mainForm.style.display = 'none';
+  if (overlay) overlay.style.display = 'block';
+  if (switchBtn) switchBtn.style.display = 'block';
+
+  const openSound = document.getElementById('popupOpenSound');
+  if (openSound) openSound.play();
+
+  formDisplay.innerHTML = `
+    <form onsubmit="submitSmartForm(event)" class="offer-modal fade-in-section">
+      <h2 style="color:#ff4e50;">${type.toUpperCase()} Offer</h2>
+      <p>This is a demo for the <strong>${type}</strong> offer form.</p>
+      <input type="text" placeholder="Your Name" class="uniform-input" />
+      <input type="tel" placeholder="Phone Number" class="uniform-input" />
+      <button type="submit" class="offer-button" style="margin-top:1.5rem;">Submit Offer</button>
+      <button type="button" onclick="returnToMainForm()" class="offer-button" style="margin-top:1rem;">Back to Recarra Form</button>
+    </form>
+  `;
+
+  formDisplay.scrollIntoView({ behavior: 'smooth' });
+}
+
+function returnToMainForm() {
+  const mainForm = document.getElementById('recarraForm');
+  const formDisplay = document.getElementById('formDisplayArea');
+  const overlay = document.getElementById('modalOverlay');
+  const switchBtn = document.getElementById('switchMethodBtn');
+
+  // Show main Recarra form
+  if (mainForm) mainForm.style.display = 'block';
+
+  // Clear temporary form
+  if (formDisplay) formDisplay.innerHTML = '';
+
+  // Keep overlay ON (do NOT hide it)
+  if (switchBtn) switchBtn.style.display = 'block';
+
+  const closeSound = document.getElementById('popupCloseSound');
+  if (closeSound) closeSound.play();
+
+  mainForm.scrollIntoView({ behavior: 'smooth' });
+}
+
+function submitSmartForm(e) {
+  e.preventDefault();
+  const formDisplay = document.getElementById('formDisplayArea');
+  const overlay = document.getElementById('modalOverlay');
+
+  formDisplay.innerHTML = `
+    <div style="text-align:center; padding:2rem;">
+      <i class="fas fa-check-circle" style="color:green; font-size:2rem;"></i>
+      <p>Offer submitted successfully. We will contact you shortly.</p>
+      <button onclick="fullyCloseOverlay()" class="offer-button" style="margin-top:1.5rem;">Back to Home</button>
+    </div>
+  `;
+
+  document.getElementById('stepSound').play();
+}
+
+function fullyCloseOverlay() {
+  const overlay = document.getElementById('modalOverlay');
+  const switchBtn = document.getElementById('switchMethodBtn');
+  const formDisplay = document.getElementById('formDisplayArea');
+  if (overlay) overlay.style.display = 'none';
+  if (switchBtn) switchBtn.style.display = 'none';
+  if (formDisplay) formDisplay.innerHTML = '';
+}
+
+function reopenSmartMenu() {
+  const menu = document.getElementById('smartMenuDropdown');
+  if (menu) {
+    menu.style.display = 'block';
+    document.getElementById('popupOpenSound').play();
+  }
+}
+</script>
+<script>
+function showOffer(type, event) {
+  event.preventDefault();
+  const overlay = document.getElementById("modalOverlay");
+  overlay.style.display = "block";
+  document.getElementById("popupOpenSound").play();
+  document.getElementById("formDisplayArea").innerHTML = '<div class="offer-modal"><h3>' + type.toUpperCase() + ' Form</h3><p>Form content for: ' + type + '</p></div>';
+}
+
+function loadForm(type) {
+  const overlay = document.getElementById("modalOverlay");
+  overlay.style.display = "block";
+  document.getElementById("popupOpenSound").play();
+  document.getElementById("formDisplayArea").innerHTML = '<div class="offer-modal"><h3>' + type.toUpperCase() + ' Form</h3><p>Form content for: ' + type + '</p></div>';
+}
+
+function submitOffer(e) {
+  e.preventDefault();
+  document.getElementById("modalOverlay").style.display = "none";
+  document.getElementById("popupCloseSound").play();
+  alert("Your offer has been submitted!");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("smartRecarraForm");
+  if (form) {
+    form.addEventListener("submit", submitOffer);
+  }
+});
+</script>
+<script>
+function loadForm(formName) {
+  const overlay = document.getElementById("modalOverlay");
+  overlay.style.display = "block";
+  document.getElementById("popupOpenSound").play();
+  const display = document.getElementById("formDisplayArea");
+  display.innerHTML = '<div class="offer-modal"><h3 style="text-align:center; font-size:1.5rem; color:#ff4e50; font-weight:800;">' + formName.toUpperCase() + ' Form</h3><p style="text-align:center;">Form content for: ' + formName + '</p></div>';
+}
+
+function showOffer(formName, event) {
+  event.preventDefault();
+  loadForm(formName);
+}
+
+function submitOffer(e) {
+  e.preventDefault();
+  document.getElementById("modalOverlay").style.display = "none";
+  document.getElementById("popupCloseSound").play();
+  alert("Your offer has been submitted!");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("smartRecarraForm");
+  if (form) {
+    form.addEventListener("submit", submitOffer);
+  }
+
+  // Step-by-step form progression logic
+  let currentStep = 0;
+  const steps = document.querySelectorAll('.form-step');
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  const progressBar = document.getElementById('formProgressBar');
+  const dots = document.querySelectorAll('#formProgressDots span');
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.display = i === index ? 'block' : 'none';
+      dots[i].style.background = i === index ? '#ff4e50' : '#ccc';
+    });
+    progressBar.style.width = ((index + 1) / steps.length * 100) + '%';
+    nextBtn.style.display = index < steps.length - 1 ? 'block' : 'none';
+    submitBtn.style.display = index === steps.length - 1 ? 'block' : 'none';
+  }
+
+  if (nextBtn && steps.length > 0) {
+    nextBtn.addEventListener('click', function () {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+        document.getElementById("stepSound").play();
+      }
+    });
+    showStep(currentStep);
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.getElementById("smartMenuToggle");
+  const dropdown = document.getElementById("smartMenuDropdown");
+  if (menuBtn && dropdown) {
+    menuBtn.addEventListener("click", () => {
+      dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+    });
+  }
+
+  const steps = document.querySelectorAll('.form-step');
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  const progressBar = document.getElementById('formProgressBar');
+  const dots = document.querySelectorAll('#formProgressDots span');
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.display = i === index ? 'block' : 'none';
+      if (dots[i]) dots[i].style.background = i === index ? '#ff4e50' : '#ccc';
+    });
+    if (progressBar) progressBar.style.width = ((index + 1) / steps.length * 100) + '%';
+    if (nextBtn) nextBtn.style.display = index < steps.length - 1 ? 'block' : 'none';
+    if (submitBtn) submitBtn.style.display = index === steps.length - 1 ? 'block' : 'none';
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function () {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+        document.getElementById("stepSound").play();
+      }
+    });
+  }
+
+  showStep(currentStep);
+
+  const recarraForm = document.getElementById("smartRecarraForm");
+  if (recarraForm) {
+    recarraForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("modalOverlay").style.display = "none";
+      document.getElementById("popupCloseSound").play();
+      alert("Offer submitted successfully!");
+    });
+  }
+});
+
+function loadForm(formName) {
+  const overlay = document.getElementById("modalOverlay");
+  if (overlay) overlay.style.display = "block";
+  document.getElementById("popupOpenSound").play();
+  document.getElementById("formDisplayArea").innerHTML = `
+    <div class="offer-modal">
+      <h3 style="text-align:center; font-size:1.5rem; color:#ff4e50; font-weight:800;">` + formName.toUpperCase() + ` Form</h3>
+      <p style="text-align:center;">Form content for: ` + formName + `</p>
+    </div>
+  `;
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("smartMenuToggle");
+  const dropdown = document.getElementById("smartMenuDropdown");
+  if (toggleBtn && dropdown) {
+    toggleBtn.addEventListener("click", function () {
+      const currentDisplay = dropdown.style.display;
+      dropdown.style.display = currentDisplay === "block" ? "none" : "block";
+    });
+  }
+});
+</script>
+<div aria-label="Smart Offer Form Modal" aria-modal="true" class="toolbox-modal" id="smartToolboxModal" role="dialog" style="display:none; position:fixed; top:50px; left:50%; transform:translateX(-50%);
+background:#fff; max-width:500px; width:90%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.2); z-index:10001; padding:1.5rem;"><div style="width: 50px; height: 5px; background: #ccc; border-radius: 5px; margin: 0 auto 1rem auto;"></div>
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+<h2 id="toolboxTitle" style="font-size:1.5rem; color:#ff4e50;">AI Offer Form</h2>
+<button onclick="closeToolbox()" style="background:none; border:none; font-size:1.2rem; cursor:pointer;">×</button>
+</div>
+<form id="toolboxForm">
+<div class="toolbox-step" style="display:block;">
+<label>What is your vehicle’s year, make, and model?</label>
+<input aria-label="e.g. 2016 Toyota Camry" class="toolbox-input" placeholder="e.g. 2016 Toyota Camry" required="" type="text"/>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>VIN (optional)</label>
+<input aria-label="Input field" class="toolbox-input" maxlength="17" placeholder="Enter value" type="text"/>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>Mileage</label>
+<input aria-label="Input field" class="toolbox-input" placeholder="Enter value" required="" type="number"/>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>Briefly describe the condition</label>
+<textarea class="toolbox-input" required=""></textarea>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>ZIP Code or City</label>
+<input aria-label="Input field" class="toolbox-input" placeholder="Enter value" required="" type="text"/>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>Do you have the title?</label>
+<select class="toolbox-input" required="">
+<option value="">Select one</option>
+<option value="yes">Yes</option>
+<option value="no">No</option>
+</select>
+</div>
+<div class="toolbox-step" id="photoUploadStep" style="display:none;">
+<label>Upload photos of your car (optional)</label>
+<input accept="image/*" aria-label="Input field" class="toolbox-input" multiple="" placeholder="Enter value" type="file"/>
+</div>
+<div class="toolbox-step" id="nameStep" style="display:none;">
+<label>Your name</label>
+<input aria-label="Input field" class="toolbox-input" placeholder="Enter value" required="" type="text"/>
+</div>
+<div class="toolbox-step" id="phoneStep" style="display:none;">
+<label>Phone number</label>
+<input aria-label="Input field" class="toolbox-input" placeholder="Enter value" required="" type="tel"/>
+</div>
+<div class="toolbox-step" id="emailStep" style="display:none;">
+<label>Email address</label>
+<input aria-label="Input field" class="toolbox-input" placeholder="Enter value" required="" type="email"/>
+</div>
+<div class="toolbox-step" id="priceStep" style="display:none;">
+<label>How much would you like to get for your car?</label>
+<input aria-label="Input field" class="toolbox-input" placeholder="Enter value" type="text"/>
+</div>
+<div style="margin-top:1rem; display:flex; justify-content:space-between;">
+<button id="toolboxNextBtn" onclick="nextToolboxStep()" type="button">Next</button>
+<button id="toolboxSubmitBtn" style="display:none;" type="submit">Submit</button>
+</div>
+<div id="toolboxFooter" style="margin-top:1rem; border-top:1px solid #eee; padding-top:1rem; text-align:center;">
+<button onclick="resetToolboxForm()" style="margin:0.5rem;" type="button">Start Over</button>
+<button onclick="saveToolboxForm()" style="margin:0.5rem;" type="button">Save for Later</button>
+<button onclick="quickCallForm()" style="margin:0.5rem;" type="button">Just Call Me</button>
+<button onclick="closeToolbox()" style="margin:0.5rem;" type="button">Never Mind</button>
+</div>
+</form>
+</div>
+<script>
+let currentToolboxStep = 0;
+function openToolbox(title = "AI Offer Form") {
+  document.getElementById("smartToolboxModal").style.display = "block";
+  document.getElementById("toolboxTitle").innerText = title;
+  localStorage.setItem("toolboxOpen", "true");
+}
+function closeToolbox() {
+  document.getElementById("smartToolboxModal").style.display = "none";
+}
+function nextToolboxStep() {
+  const steps = document.querySelectorAll(".toolbox-step");
+  if (currentToolboxStep < steps.length - 1) {
+    steps[currentToolboxStep].style.display = "none";
+    currentToolboxStep++;
+    steps[currentToolboxStep].style.display = "block";
+  }
+  if (currentToolboxStep === steps.length - 1) {
+    document.getElementById("toolboxNextBtn").style.display = "none";
+    document.getElementById("toolboxSubmitBtn").style.display = "block";
+  }
+}
+document.getElementById("toolboxForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Offer Submitted!");
+  closeToolbox();
+  localStorage.removeItem("toolboxOpen");
+});
+window.onload = function() {
+  if (localStorage.getItem("toolboxOpen") === "true") {
+    openToolbox();
+  }
+}
+</script>
+<script>
+let recognition;
+function startVoiceInput() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice input not supported in your browser.");
+    return;
+  }
+  recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.onresult = function(event) {
+    const result = event.results[0][0].transcript;
+    document.getElementById("voiceInputField").value = result;
+  };
+  recognition.start();
+}
+function stopVoiceInput() {
+  if (recognition) {
+    recognition.stop();
+  }
+}
+</script>
+<script>
+function previewVideo(input) {
+  const file = input.files[0];
+  const preview = document.getElementById("videoPreview");
+  if (file && preview) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      preview.src = e.target.result;
+      preview.style.display = "block";
+    };
+    reader.readAsDataURL(file);
+  }
+}
+</script>
+<script>
+function resetToolboxForm() {
+  document.getElementById("toolboxForm").reset();
+  currentToolboxStep = 0;
+  showToolboxStep(currentToolboxStep);
+}
+
+function saveToolboxForm() {
+  const inputs = document.querySelectorAll("#toolboxForm input, #toolboxForm textarea, #toolboxForm select");
+  const data = {};
+  inputs.forEach(input => {
+    data[input.name || input.id || input.placeholder] = input.value;
+  });
+  localStorage.setItem("savedFormData", JSON.stringify(data));
+  alert("Form data saved. You can return later to complete it.");
+}
+
+function quickCallForm() {
+  alert("We’ll reach out to you shortly. Thank you!");
+  document.getElementById("toolboxForm").reset();
+  closeToolbox();
+}
+
+window.onload = function() {
+  if (localStorage.getItem("savedFormData")) {
+    const data = JSON.parse(localStorage.getItem("savedFormData"));
+    const inputs = document.querySelectorAll("#toolboxForm input, #toolboxForm textarea, #toolboxForm select");
+    inputs.forEach(input => {
+      const key = input.name || input.id || input.placeholder;
+      if (data[key]) {
+        input.value = data[key];
+      }
+    });
+  }
+}
+</script>
+<div aria-labelledby="formTitle" aria-modal="true" class="form-drawer" id="formDrawer" role="dialog">
+<div class="form-progress-container" style="width: 100%; max-width: 100%; height: 10px; background: #eee; border-radius: 10px; margin-bottom: 1rem; overflow: hidden;">
+<div id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.4s ease-in-out;"></div>
+</div>
+<div class="form-title" id="formTitle">Offer Form</div>
+<div class="input-group">
+<input aria-label="Start entering..." placeholder="Start entering..." type="text"/>
+<button class="btn">Next</button>
+<div class="close-btn" onclick="closeForm()">Close</div>
+</div>
+<div class="disclaimer">
+      This is just an estimate. Final price depends on inspection,<br/>
+      ownership, condition, and required legal documents.
+    </div>
+<button class="agree-btn">I Understand</button>
+</div><script>
+const stepForms = {
+"ai_offer": [
+{placeholder: "Describe your car in one sentence", type: "text", name: "description", validate: function(value, data) { return value.length > 10; }},
+],
+"chat": [
+{placeholder: "What do you want to ask?", type: "text", name: "chat_question", validate: function(value, data) { return value.length > 5; }},
+],
+"voice": [
+{placeholder: "Enter your phone number", type: "tel", name: "phone", validate: function(value, data) { return value.length >= 10; }},
+],
+"photo": [
+{placeholder: "Upload a photo of your car", type: "file", name: "photo", validate: function(value, data) { return value !== ''; }},
+],
+"video": [
+{placeholder: "Upload a video of your car", type: "file", name: "video", validate: function(value, data) { return value !== ''; }},
+],
+"email": [
+{placeholder: "Enter your email", type: "email", name: "email", validate: function(value, data) { return value.includes('@'); }},
+{placeholder: "Confirm your email", type: "email", name: "confirm_email", validate: function(value, data) { return value === data['email']; }},
+],
+"vin": [
+{placeholder: "Enter your VIN", type: "text", name: "vin", validate: function(value, data) { return value.length === 17; }},
+{placeholder: "Enter your ZIP code", type: "text", name: "zip", validate: function(value, data) { return value.length === 5; }},
+],
+"plate": [
+{placeholder: "Enter your license plate", type: "text", name: "plate", validate: function(value, data) { return value.length > 4; }},
+],
+"agent": [
+{placeholder: "Enter your name", type: "text", name: "name", validate: function(value, data) { return value.length > 1; }},
+{placeholder: "Preferred contact time", type: "text", name: "time", validate: function(value, data) { return value.length > 3; }},
+],
+"recarra_full_form": [
+{placeholder: "Full Name", type: "text", name: "name", validate: function(value, data) { return value.length > 1; }},
+{placeholder: "Vehicle Make & Model", type: "text", name: "car", validate: function(value, data) { return value.length > 2; }},
+{placeholder: "Year", type: "number", name: "year", validate: function(value, data) { return value.length === 4; }},
+{placeholder: "Phone Number", type: "tel", name: "phone", validate: function(value, data) { return value.length >= 10; }},
+],
+};
+
+let currentStep = 0;
+let stepData = {};
+let activeForm = "";
+
+function openForm(formName) {
+  activeForm = formName;
+  stepData = {};
+  currentStep = 0;
+  showStep(); updateProgress();
+  document.getElementById('modalOverlay').style.display = 'block';
+  document.getElementById('formDrawer').style.display = 'block';
+  document.getElementById('popupOpenSound')?.play();
+}
+
+function showStep() {
+  const steps = stepForms[activeForm];
+  if (!steps || currentStep >= steps.length) {
+    document.getElementById('formContentArea').innerHTML = '<p>Form complete. Thank you.</p>';
+    return;
+  }
+  const step = steps[currentStep];
+  
+  const iconMap = {
+    "text": "fa-car",
+    "email": "fa-envelope",
+    "tel": "fa-phone",
+    "file": "fa-camera",
+    "number": "fa-hashtag"
+  };
+  const iconClass = iconMap[step.type] || "fa-pen";
+  document.getElementById('formContentArea').innerHTML = `
+    <div class="fade-in-field" style="animation: fadeInField 0.6s ease;">
+      <label style="font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fas ${iconClass}" style="color: #ff4e50;"></i>
+        ${step.placeholder}
+      </label>
+      <input type="${step.type}" id="stepInput"
+        style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" />
+      <button onclick="nextStep()" class="agree-btn" style="margin-top: 1rem;">Next</button>
+    </div>
+  `;
+
+    <input type="${step.type}" placeholder="${step.placeholder}" id="stepInput" style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" />
+    <button onclick="nextStep()" class="agree-btn" style="margin-top: 1rem;">Next</button>
+  `;
+}
+
+function nextStep() {
+  const input = document.getElementById('stepInput');
+  const value = input.value.trim();
+  const step = stepForms[activeForm][currentStep];
+  if (step.validate(value, stepData)) {
+    stepData[step.name] = value;
+    currentStep++;
+    updateProgress();
+    showStep(); updateProgress();
+    document.getElementById('stepSound')?.play();
+  } else {
+    input.style.border = '2px solid red';
+    input.focus();
+  }
+}
+
+function closeForm() {
+  document.getElementById('modalOverlay').style.display = 'none';
+  document.getElementById('formDrawer').style.display = 'none';
+  document.getElementById('formContentArea').innerHTML = '';
+  stepData = {};
+  currentStep = 0;
+}
+
+
+function updateProgress() {
+  const steps = stepForms[activeForm];
+  const percent = Math.floor((currentStep / steps.length) * 100);
+  document.getElementById('formProgressBar').style.width = percent + '%';
+}
+
+
+function saveProgress() {
+  if (!activeForm) return;
+  localStorage.setItem("recarraFormData_" + activeForm, JSON.stringify({
+    currentStep,
+    stepData
+  }));
+}
+
+function loadSavedProgress(formName) {
+  const saved = localStorage.getItem("recarraFormData_" + formName);
+  if (saved) {
+    try {
+      const data = JSON.parse(saved);
+      currentStep = data.currentStep || 0;
+      stepData = data.stepData || {};
+    } catch (e) {
+      currentStep = 0;
+      stepData = {};
+    }
+  } else {
+    currentStep = 0;
+    stepData = {};
+  }
+}
+
+function clearSavedProgress(formName) {
+  localStorage.removeItem("recarraFormData_" + formName);
+}
+
+function openForm(formName) {
+  activeForm = formName;
+  loadSavedProgress(formName);
+  showStep();
+  document.getElementById('modalOverlay').style.display = 'block';
+  document.getElementById('formDrawer').style.display = 'block';
+  updateProgress();
+  document.getElementById('popupOpenSound')?.play();
+}
+
+function showStep() {
+  const steps = stepForms[activeForm];
+  if (!steps || currentStep >= steps.length) {
+    
+  const iconMap = {
+    "text": "fa-car",
+    "email": "fa-envelope",
+    "tel": "fa-phone",
+    "file": "fa-camera",
+    "number": "fa-hashtag"
+  };
+  const iconClass = iconMap[step.type] || "fa-pen";
+  document.getElementById('formContentArea').innerHTML = `
+    <div class="fade-in-field" style="animation: fadeInField 0.6s ease;">
+      <label style="font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fas ${iconClass}" style="color: #ff4e50;"></i>
+        ${step.placeholder}
+      </label>
+      <input type="${step.type}" id="stepInput"
+        style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" />
+      <button onclick="nextStep()" class="agree-btn" style="margin-top: 1rem;">Next</button>
+    </div>
+  `;
+
+      <div style="text-align: center; padding: 2rem;">
+        <h3 style="color: #4CAF50;">Thank you!</h3>
+        <p>Your form has been completed and submitted successfully.</p>
+        <button class="agree-btn" onclick="closeForm()">Close</button>
+      </div>
+    `;
+    clearSavedProgress(activeForm);
+    updateProgress();
+    return;
+  }
+  const step = steps[currentStep];
+  
+  const iconMap = {
+    "text": "fa-car",
+    "email": "fa-envelope",
+    "tel": "fa-phone",
+    "file": "fa-camera",
+    "number": "fa-hashtag"
+  };
+  const iconClass = iconMap[step.type] || "fa-pen";
+  document.getElementById('formContentArea').innerHTML = `
+    <div class="fade-in-field" style="animation: fadeInField 0.6s ease;">
+      <label style="font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fas ${iconClass}" style="color: #ff4e50;"></i>
+        ${step.placeholder}
+      </label>
+      <input type="${step.type}" id="stepInput"
+        style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" />
+      <button onclick="nextStep()" class="agree-btn" style="margin-top: 1rem;">Next</button>
+    </div>
+  `;
+
+    <input type="${step.type}" placeholder="${step.placeholder}" id="stepInput"
+      style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" />
+    <button onclick="nextStep()" class="agree-btn" style="margin-top: 1rem;">Next</button>
+  `;
+}
+
+function nextStep() {
+  const input = document.getElementById('stepInput');
+  const value = input.value.trim();
+  const step = stepForms[activeForm][currentStep];
+  if (step.validate(value, stepData)) {
+    stepData[step.name] = value;
+    currentStep++;
+    saveProgress();
+    showStep();
+    document.getElementById('stepSound')?.play();
+  } else {
+    input.style.border = '2px solid red';
+    input.focus();
+  }
+}
+</script>
+<!-- Modal Overlay -->
+<div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+<!-- Smart Form Drawer -->
+<div class="form-drawer" id="formDrawer" style="display:none;">
+<div class="form-title">Recarra Offer Form</div>
+<div id="formContentArea">
+<input aria-label="Your Name" placeholder="Your Name" style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" type="text"/>
+</div>
+<div class="disclaimer">
+    This is just an estimate. Final offer depends on inspection, documents, and vehicle condition.
+  </div>
+<button class="agree-btn" onclick="submitForm()">Submit Offer</button>
+<div class="close-btn" onclick="closeForm()">Close</div>
+</div>
+<script>
+function openForm(formName) {
+  document.getElementById('formContentArea').innerHTML = '<input type="text" placeholder="Your Name" style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" />';
+  document.getElementById('modalOverlay').style.display = 'block';
+  document.getElementById('formDrawer').style.display = 'block';
+  document.getElementById('popupOpenSound')?.play();
+}
+function closeForm() {
+  document.getElementById('modalOverlay').style.display = 'none';
+  document.getElementById('formDrawer').style.display = 'none';
+  document.getElementById('formContentArea').innerHTML = '';
+}
+</script>
+</body>
+</html>
+<script>
+function startVinScan() {
+alert("VIN scan functionality coming soon. This will launch your camera and detect the VIN from a barcode.");
+// In production, use a library like QuaggaJS to integrate scanning and assign result to:
+// document.getElementById('vinInput').value = scannedVIN;
+}
+</script>
+<script>
+<script>
+let currentToolboxStep = 0;
+let steps = [];
+
+function openToolbox(title = "AI Offer Form") {
+  document.getElementById("smartToolboxModal").style.display = "block";
+  document.getElementById("toolboxTitle").innerText = title;
+  localStorage.setItem("toolboxOpen", "true");
+  
+  // Common sense: hide steps based on form type
+  if (title.includes("VIN") || title.includes("Plate")) {
+    document.getElementById("phoneStep").style.display = "block";
+    document.getElementById("emailStep").style.display = "block";
+    document.getElementById("priceStep").style.display = "block";
+  } else if (title.includes("Voice")) {
+    document.getElementById("emailStep").style.display = "block";
+    document.getElementById("priceStep").style.display = "block";
+  } else {
+    document.getElementById("nameStep").style.display = "block";
+    document.getElementById("phoneStep").style.display = "block";
+    document.getElementById("emailStep").style.display = "block";
+    document.getElementById("priceStep").style.display = "block";
+  }
+
+  // Refresh step list
+  steps = document.querySelectorAll(".toolbox-step");
+  currentToolboxStep = 0;
+  showToolboxStep(currentToolboxStep);
+}
+
+function closeToolbox() {
+  document.getElementById("smartToolboxModal").style.display = "none";
+}
+
+function showToolboxStep(index) {
+  steps.forEach((step, i) => {
+    step.style.display = i === index ? "block" : "none";
+  });
+  if (document.getElementById("toolboxProgress")) {
+    document.getElementById("toolboxProgress").value = ((index + 1) / steps.length) * 100;
+  }
+  document.getElementById("toolboxNextBtn").style.display = index < steps.length - 1 ? "block" : "none";
+  document.getElementById("toolboxSubmitBtn").style.display = index === steps.length - 1 ? "block" : "none";
+}
+
+function nextToolboxStep() {
+  if (currentToolboxStep < steps.length - 1) {
+    steps[currentToolboxStep].style.display = "none";
+    currentToolboxStep++;
+    showToolboxStep(currentToolboxStep);
+  }
+}
+
+document.getElementById("toolboxForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Offer Submitted!");
+  closeToolbox();
+  localStorage.removeItem("toolboxOpen");
+});
+
+window.onload = function() {
+  if (localStorage.getItem("toolboxOpen") === "true") {
+    openToolbox();
+  }
+}
+</script>
