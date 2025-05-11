@@ -1861,28 +1861,9 @@ document.addEventListener('DOMContentLoaded', () => {
 </style>
 
 <style>
-.toolbox-input {
-  width: 100%;
-  padding: 0.65rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  background: #fff;
-  color: #000;
-}
-.toolbox-step {
-  animation: fadeIn 0.35s ease-in-out;
-}
-.toolbox-modal button {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.toolbox-modal button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-}
-.toolbox-modal button:active {
-  transform: scale(0.97);
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 </style>
 </head>
@@ -3921,8 +3902,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-<div class="toolbox-modal" id="smartToolboxModal" style="display:none; position:fixed; top:50px; left:50%; transform:translateX(-50%);
-background:#fff; max-width:500px; width:90%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.2); z-index:10001; padding:1.5rem;">
+<div aria-label="Smart Offer Form Modal" aria-modal="true" class="toolbox-modal" id="smartToolboxModal" role="dialog" style="display:none; position:fixed; top:50px; left:50%; transform:translateX(-50%);
+background:#fff; max-width:500px; width:90%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.2); z-index:10001; padding:1.5rem;"><div style="width: 50px; height: 5px; background: #ccc; border-radius: 5px; margin: 0 auto 1rem auto;"></div>
 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
 <h2 id="toolboxTitle" style="font-size:1.5rem; color:#ff4e50;">AI Offer Form</h2>
 <button onclick="closeToolbox()" style="background:none; border:none; font-size:1.2rem; cursor:pointer;">×</button>
