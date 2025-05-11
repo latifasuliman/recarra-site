@@ -1656,7 +1656,7 @@ document.addEventListener('DOMContentLoaded', () => {
   box-shadow: 0 0 12px 4px rgba(255, 78, 80, 0.4);
 }
 </style></head>
-<body><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<body><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
 function hideSplash() {
@@ -3036,7 +3036,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showStep(currentStep);
 });
-</script><div id="aiTipBubble" style="position: fixed; bottom: 110px; right: 20px; max-width: 300px; background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.1); color: #333; font-size: 0.95rem; font-weight: 500; z-index: 1000; display: none;">Let's get started! Enter your name to begin.</div><script>
+</script><script>
 document.addEventListener("DOMContentLoaded", () => {
   const steps = document.querySelectorAll(".form-step");
   const nextBtn = document.getElementById("nextBtn");
@@ -3149,17 +3149,57 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-</script><div id="floatingToggleTab" style="position: fixed; bottom: 30px; right: 20px; z-index: 9999; background: linear-gradient(to right, #f9d423, #ff4e50); color: black; font-weight: 700; padding: 0.8rem 1.4rem; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; display: flex; align-items: center;">
+</script><div id="floatingStack" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+"><div id="aiTipBubble" style="max-width: 280px; background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.1); color: #333; font-size: 0.95rem; font-weight: 500; display: none;">Let's get started! Enter your name to begin.</div><div id="floatingToggleTab" style="background: linear-gradient(to right, #f9d423, #ff4e50); color: black; font-weight: 700; padding: 0.8rem 1.6rem; border-radius: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
 <div style="display: flex; align-items: center; gap: 0.5rem;">
 <img alt="AI Icon" src="https://cdn-icons-png.flaticon.com/512/4712/4712100.png" style="height: 22px; vertical-align: middle;"/>
 <span id="toggleText">Show AI Smart Offer Again</span>
 </div>
-</div><script>
+</div><div id="liveChatButton" style="
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+">
+<img alt="Chat Icon" src="https://cdn-icons-png.flaticon.com/512/9068/9068679.png" style="height: 20px; width: 20px;"/>
+<span>Live Chat</span>
+</div><div id="getHelpButton" style="
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  color: white;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+">
+<img alt="Help Icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" style="height: 20px; width: 20px;"/>
+<span>Get Help</span>
+</div></div><script>
 document.addEventListener("DOMContentLoaded", function () {
   const recarraForm = document.getElementById("recarraForm");
   const aiOffer = document.getElementById("smartOfferForm");
   const toggleTab = document.getElementById("floatingToggleTab");
   const toggleText = document.getElementById("toggleText");
+  const tipBubble = document.getElementById("aiTipBubble");
   const smartForm = document.getElementById("smartRecarraForm");
 
   if (recarraForm && aiOffer && toggleTab) {
@@ -3175,11 +3215,13 @@ document.addEventListener("DOMContentLoaded", function () {
         aiOffer.style.height = "auto";
         aiOffer.style.pointerEvents = "auto";
         toggleText.textContent = "Hide AI Smart Offer";
+        tipBubble.style.display = "none";
       } else {
         aiOffer.style.opacity = "0.05";
         aiOffer.style.height = "0px";
         aiOffer.style.pointerEvents = "none";
         toggleText.textContent = "Show AI Smart Offer Again";
+        tipBubble.style.display = "block";
       }
     });
   }
@@ -3187,15 +3229,121 @@ document.addEventListener("DOMContentLoaded", function () {
   if (smartForm) {
     smartForm.addEventListener("submit", () => {
       setTimeout(() => {
-        if (aiOffer) {
+        if (aiOffer && toggleText) {
           aiOffer.style.opacity = "0.05";
           aiOffer.style.height = "0px";
           aiOffer.style.pointerEvents = "none";
           toggleText.textContent = "Show AI Smart Offer Again";
+          tipBubble.style.display = "block";
         }
       }, 600);
     });
   }
+});
+</script>
+<div id="chatPopup" style="display:none; position:fixed; bottom:100px; right:20px; width:300px; background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); padding:1rem; z-index:10001;; transition: transform 0.3s ease, opacity 0.3s ease; transform: translateY(30px); opacity: 0;"><span class="popup-close" style="position:absolute; top:8px; right:12px; cursor:pointer; font-weight:bold; font-size:1.1rem;">×</span>
+<strong style="display:block; margin-bottom:0.5rem;">Live Chat</strong>
+<p>Hello! I'm Recarra’s smart assistant. How can I help you today?</p>
+</div>
+<div id="helpPopup" style="display:none; position:fixed; bottom:100px; right:20px; width:300px; background:white; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); padding:1rem; z-index:10001;; transition: transform 0.3s ease, opacity 0.3s ease; transform: translateY(30px); opacity: 0;"><span class="popup-close" style="position:absolute; top:8px; right:12px; cursor:pointer; font-weight:bold; font-size:1.1rem;">×</span>
+<strong style="display:block; margin-bottom:0.5rem;">Help Center</strong>
+<p>Need assistance? Choose a help option:</p>
+<ul style="padding-left:1rem; margin:0;">
+<li>Email: support@recarra.com</li>
+<li>Text: (888) 888-8888</li>
+<li>Visit our FAQ section</li>
+</ul>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chatBtn = document.getElementById("liveChatButton");
+  const helpBtn = document.getElementById("getHelpButton");
+  const chatPopup = document.getElementById("chatPopup");
+  const helpPopup = document.getElementById("helpPopup");
+
+  chatBtn.addEventListener("click", () => {
+    chatPopup.style.display = chatPopup.style.display === "none" ? "block" : "none";
+    helpPopup.style.display = "none";
+  });
+
+  helpBtn.addEventListener("click", () => {
+    helpPopup.style.display = helpPopup.style.display === "none" ? "block" : "none";
+    chatPopup.style.display = "none";
+  });
+
+  // Optional: close popups on outside click
+  document.addEventListener("click", (e) => {
+    if (!chatPopup.contains(e.target) && !chatBtn.contains(e.target)) {
+      chatPopup.style.display = "none";
+    }
+    if (!helpPopup.contains(e.target) && !helpBtn.contains(e.target)) {
+      helpPopup.style.display = "none";
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chatBtn = document.getElementById("liveChatButton");
+  const helpBtn = document.getElementById("getHelpButton");
+  const chatPopup = document.getElementById("chatPopup");
+  const helpPopup = document.getElementById("helpPopup");
+  const openSound = document.getElementById("popupOpenSound");
+  const closeSound = document.getElementById("popupCloseSound");
+
+  function openPopup(popup) {
+    popup.style.display = "block";
+    setTimeout(() => {
+      popup.style.transform = "translateY(0)";
+      popup.style.opacity = "1";
+    }, 10);
+    if (openSound) openSound.play().catch(() => {});
+  }
+
+  function closePopup(popup) {
+    popup.style.transform = "translateY(30px)";
+    popup.style.opacity = "0";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 300);
+    if (closeSound) closeSound.play().catch(() => {});
+  }
+
+  chatBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (chatPopup.style.display === "none" || chatPopup.style.opacity === "0") {
+      closePopup(helpPopup);
+      openPopup(chatPopup);
+    } else {
+      closePopup(chatPopup);
+    }
+  });
+
+  helpBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (helpPopup.style.display === "none" || helpPopup.style.opacity === "0") {
+      closePopup(chatPopup);
+      openPopup(helpPopup);
+    } else {
+      closePopup(helpPopup);
+    }
+  });
+
+  document.querySelectorAll(".popup-close").forEach(close => {
+    close.addEventListener("click", (e) => {
+      const popup = e.target.closest("div");
+      closePopup(popup);
+      e.stopPropagation();
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!chatPopup.contains(e.target) && !chatBtn.contains(e.target)) {
+      closePopup(chatPopup);
+    }
+    if (!helpPopup.contains(e.target) && !helpBtn.contains(e.target)) {
+      closePopup(helpPopup);
+    }
+  });
 });
 </script></body>
 </html>
