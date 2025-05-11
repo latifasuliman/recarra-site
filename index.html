@@ -1654,12 +1654,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </style></head>
 <body>
 <!-- Splash Welcome Screen -->
-<div id="splashScreen" style="position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right,#ff4e50,#f9d423);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#000;text-align:center;transition:opacity 1s ease;">
-<h1 style="font-size:3rem;font-weight:900;margin-bottom:1rem;">Welcome to Recarra</h1>
-<p style="font-size:1.25rem;margin-bottom:2rem;">A high-end AI-powered car buying platform</p>
-<button onclick="hideSplash()" style="padding:0.75rem 1.5rem;font-size:1.1rem;border:none;border-radius:30px;background:#000;color:#fff;cursor:pointer;">Enter Site</button>
-<audio id="enterSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-4.mp3"></audio>
-</div>
+
 <script>
 function hideSplash() {
   document.getElementById("splashScreen").style.opacity = "0";
@@ -1671,7 +1666,7 @@ window.addEventListener("load", () => {
   setTimeout(hideSplash, 8000);
 });
 </script>
-<audio id="popupSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio><div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+<div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
 <nav id="smartNav">
 <button aria-label="Accept Offer" class="nav-offer-button" onclick="showOffer('photo', event)">Accept Offer</button>
 <button aria-label="Text Offer" class="nav-offer-button" onclick="showOffer('plate', event)">Text Offer</button>
@@ -2930,7 +2925,29 @@ document.addEventListener("DOMContentLoaded", function () {
     <a href="#">Seller Rights</a>
 </p>
 </footer>
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  if (form) {
+    const happySound = new Audio("https://www.soundjay.com/human/sounds/applause-8.mp3");
+    form.addEventListener("submit", function (e) {
+      setTimeout(() => happySound.play(), 500);
+    });
+  }
+});
+</script><section class="section-block fade-in-section" style="background: #ffffff; padding: 2rem; border-radius: 10px; margin-top: 2rem;"><h3 id="faq-question" style="font-weight: 800; font-size: 1.2rem; text-align: center;"></h3><p id="faq-answer" style="font-size: 1rem; color: #555; text-align: center;"></p></section><script>
+window.addEventListener("load", function () {
+  const hour = new Date().getHours();
+  const audio = new Audio(
+    hour < 12
+      ? "https://www.soundjay.com/button/beep-07.wav"
+      : hour < 18
+      ? "https://www.soundjay.com/button/beep-08b.wav"
+      : "https://www.soundjay.com/button/beep-09.wav"
+  );
+  setTimeout(() => audio.play(), 1200);
+});
+</script></body>
 </html>
 <script>
 function startVinScan() {
