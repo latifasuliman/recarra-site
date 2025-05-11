@@ -1652,7 +1652,7 @@ document.addEventListener('DOMContentLoaded', () => {
   min-height: 2rem;
 }
 </style></head>
-<body>
+<body><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
 function hideSplash() {
@@ -1689,47 +1689,6 @@ window.addEventListener("load", () => {
 </div>
 </header>
 <!-- Recarra Full Form Section -->
-
-<section class="section-block fade-in-section" style="background: #f8f8f8; border-radius: 12px; padding: 2rem;">
-<h2 class="section-title" style="text-align:center; color:#ff4e50;">Why Customers Trust Recarra</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;text-align:center;margin-top:2rem;">
-<div>
-<i class="fas fa-shield-alt" style="font-size:2rem;color:#ff4e50;"></i>
-<p style="margin-top:0.5rem;font-weight:600;">Licensed &amp; Insured</p>
-</div>
-<div>
-<i class="fas fa-headset" style="font-size:2rem;color:#ff4e50;"></i>
-<p style="margin-top:0.5rem;font-weight:600;">24/7 Support</p>
-</div>
-<div>
-<i class="fas fa-money-bill-wave" style="font-size:2rem;color:#ff4e50;"></i>
-<p style="margin-top:0.5rem;font-weight:600;">Instant Payout</p>
-</div>
-<div>
-<i class="fas fa-id-card-alt" style="font-size:2rem;color:#ff4e50;"></i>
-<p style="margin-top:0.5rem;font-weight:600;">DMV Verified</p>
-</div>
-</div>
-</section>
-<div class="offer-button-grid">
-<button class="offer-button" onclick="showOffer('photo', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Accept</button>
-<button class="offer-button" onclick="showOffer('vin', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Extend</button>
-<button class="offer-button" onclick="showOffer('email', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Email</button>
-<button class="offer-button" onclick="showOffer('text', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Text</button>
-<button class="offer-button" onclick="showOffer('call', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Call</button>
-<button class="offer-button" onclick="window.location.href='tel:+18885558888'" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Call Us</button>
-</div>
-<section class="call-intro" style="animation: fadeInSlide 1s ease-out; margin: 2rem auto; max-width: 720px; padding: 1.25rem 2rem; border-radius: 10px; background: linear-gradient(to right, #ffffff, #f8f8f8); text-align: center;">
-<h3 style="font-size: 1.3rem; font-weight: 800; margin: 0.5rem 0;">
-    Recarra Gives You the Smartest Ways to Sell Your Car
-  </h3>
-<p style="font-size: 1rem; color: #ff4e50; margin: 0;">
-    From instant AI pricing to voice and video offers, you're always in control — fast, simple, and secure.
-  </p>
-</section>
-<div class="animated-border-box" style="max-width: 720px; margin: 2rem auto; background: #f2f2f2; border-radius: 10px; padding: 1.25rem 2rem; font-size: 1rem; text-align: center; border: 2px solid #ff4e50;">
-<strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
-<strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
 <section class="section-block" id="smartOfferForm">
 <section class="section-block fade-in-section">
 <h2 class="section-title">
@@ -1784,7 +1743,47 @@ Submit your car details and receive an instant AI-powered offer based on real ma
 <li><strong>Built for Scale:</strong> Structured to grow with markets and opportunity.</li>
 </ul>
 </section>
-</section><script>
+</section><section class="section-block fade-in-section" style="background: #f8f8f8; border-radius: 12px; padding: 2rem;">
+<h2 class="section-title" style="text-align:center; color:#ff4e50;">Why Customers Trust Recarra</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;text-align:center;margin-top:2rem;">
+<div>
+<i class="fas fa-shield-alt" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">Licensed &amp; Insured</p>
+</div>
+<div>
+<i class="fas fa-headset" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">24/7 Support</p>
+</div>
+<div>
+<i class="fas fa-money-bill-wave" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">Instant Payout</p>
+</div>
+<div>
+<i class="fas fa-id-card-alt" style="font-size:2rem;color:#ff4e50;"></i>
+<p style="margin-top:0.5rem;font-weight:600;">DMV Verified</p>
+</div>
+</div>
+</section>
+<div class="offer-button-grid">
+<button class="offer-button" onclick="showOffer('photo', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Accept</button>
+<button class="offer-button" onclick="showOffer('vin', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Extend</button>
+<button class="offer-button" onclick="showOffer('email', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Email</button>
+<button class="offer-button" onclick="showOffer('text', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Text</button>
+<button class="offer-button" onclick="showOffer('call', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Call</button>
+<button class="offer-button" onclick="window.location.href='tel:+18885558888'" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Call Us</button>
+</div>
+<section class="call-intro" style="animation: fadeInSlide 1s ease-out; margin: 2rem auto; max-width: 720px; padding: 1.25rem 2rem; border-radius: 10px; background: linear-gradient(to right, #ffffff, #f8f8f8); text-align: center;">
+<h3 style="font-size: 1.3rem; font-weight: 800; margin: 0.5rem 0;">
+    Recarra Gives You the Smartest Ways to Sell Your Car
+  </h3>
+<p style="font-size: 1rem; color: #ff4e50; margin: 0;">
+    From instant AI pricing to voice and video offers, you're always in control — fast, simple, and secure.
+  </p>
+</section>
+<div class="animated-border-box" style="max-width: 720px; margin: 2rem auto; background: #f2f2f2; border-radius: 10px; padding: 1.25rem 2rem; font-size: 1rem; text-align: center; border: 2px solid #ff4e50;">
+<strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
+<strong>Get Paid Instantly:</strong> Choose <strong>Cash</strong>, <strong>Direct Deposit</strong>, or <strong>Instant Debit Card Transfer</strong> — your money, your way.
+<script>
 const faqs = [
 { question: "How do I get an offer for my car?", answer: "Submit your vehicle details online — our AI gives you an instant offer." },
 { question: "What types of vehicles does Recarra buy?", answer: "We purchase all types — cars, trucks, vans, SUVs — running or not." },
@@ -2877,17 +2876,20 @@ document.addEventListener("DOMContentLoaded", function () {
 <section class="section-block fade-in-section" style="padding: 2rem; background: #fff; border-radius: 12px; margin: 2rem auto; text-align: center;"><h3 id="faq-question" style="font-weight:800; font-size:1.2rem; color:#ff4e50;"></h3><p id="faq-answer" style="font-size:1rem; color:#555;"></p></section>
 <section class="section-block fade-in-section" id="recarraForm" style="max-width: 720px; margin: 3rem auto; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);">
 <h2 class="section-title" style="font-size:2rem; text-align:center; color:#ff4e50;">Recarra Smart Offer Form</h2>
-<form id="smartRecarraForm" style="display:flex; flex-direction:column; gap:1.5rem;">
-<div class="form-step active"><input placeholder="Full Name" required="" type="text"/></div>
-<div class="form-step"><input placeholder="Phone Number" required="" type="tel"/></div>
-<div class="form-step"><input placeholder="Email Address" required="" type="email"/></div>
-<div class="form-step"><input placeholder="Car Year, Make, and Model" required="" type="text"/></div>
-<div class="form-step"><input placeholder="VIN Number (optional)" type="text"/></div>
-<div class="form-step"><label>Front of Car</label><input accept="image/*" required="" type="file"/></div>
-<div class="form-step"><label>Back of Car</label><input accept="image/*" required="" type="file"/></div>
-<div class="form-step"><label>Right Side</label><input accept="image/*" required="" type="file"/></div>
-<div class="form-step"><label>Left Side</label><input accept="image/*" required="" type="file"/></div>
-<div class="form-step">
+<form id="smartRecarraForm" style="display:flex; flex-direction:column; gap:1.5rem;"><div id="formProgressDots" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem;"><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span></div>
+<div class="form-progress-container" style="width: 100%; max-width: 400px; height: 10px; background-color: #eee; border-radius: 10px; overflow: hidden; margin: 1rem auto;">
+<div class="form-progress-bar" id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.5s ease-in-out;"></div>
+</div>
+<div class="form-step active" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="Full Name" required="" type="text"/></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="Phone Number" required="" type="tel"/></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="Email Address" required="" type="email"/></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="Car Year, Make, and Model" required="" type="text"/></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><input placeholder="VIN Number (optional)" type="text"/></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><label>Front of Car</label><input accept="image/*" required="" type="file"/></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><label>Back of Car</label><input accept="image/*" required="" type="file"/></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><label>Right Side</label><input accept="image/*" required="" type="file"/></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><label>Left Side</label><input accept="image/*" required="" type="file"/></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);">
 <select required="">
 <option value="">Preferred Payment Method</option>
 <option value="cash">Cash</option>
@@ -2895,10 +2897,10 @@ document.addEventListener("DOMContentLoaded", function () {
 <option value="debit">Instant Debit Transfer</option>
 </select>
 </div>
-<div class="form-step"><textarea placeholder="Pickup Instructions" required="" rows="3"></textarea></div>
-<div class="form-step"><textarea placeholder="Any additional notes?" rows="3"></textarea></div>
-<button class="offer-button" id="nextBtn" style="width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="button">Next</button>
-<button class="offer-button" id="submitBtn" style="display:none; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="submit">Submit Offer</button>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><textarea placeholder="Pickup Instructions" required="" rows="3"></textarea></div>
+<div class="form-step" style="display: none; opacity: 0; transition: all 0.5s ease; transform: translateY(20px);"><textarea placeholder="Any additional notes?" rows="3"></textarea></div>
+<button class="offer-button" id="nextBtn" style="display: block; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="button">Next</button>
+<button class="offer-button" id="submitBtn" style="display: none; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="submit">Submit Offer</button>
 </form>
 </section>
 <script>
@@ -2961,6 +2963,155 @@ window.addEventListener("load", function () {
       : "https://www.soundjay.com/button/beep-09.wav"
   );
   setTimeout(() => audio.play(), 1200);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".form-step");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitBtn = document.getElementById("submitBtn");
+  const dots = document.querySelectorAll("#formProgressDots span");
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.opacity = "0";
+      step.style.transition = "opacity 0.4s ease";
+      step.style.display = i === index ? "block" : "none";
+    });
+    setTimeout(() => {
+      steps[index].style.opacity = "1";
+    }, 50);
+
+    dots.forEach((dot, i) => {
+      dot.style.background = i === index ? "#ff4e50" : "#ccc";
+    });
+
+    nextBtn.style.display = index === steps.length - 1 ? "none" : "block";
+    submitBtn.style.display = index === steps.length - 1 ? "block" : "none";
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".form-step");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitBtn = document.getElementById("submitBtn");
+  const dots = document.querySelectorAll("#formProgressDots span");
+  const progressBar = document.getElementById("formProgressBar");
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.display = i === index ? "block" : "none";
+      step.style.opacity = i === index ? "1" : "0";
+      step.style.transform = i === index ? "translateY(0)" : "translateY(20px)";
+    });
+    dots.forEach((dot, i) => {
+      dot.style.background = i === index ? "#ff4e50" : "#ccc";
+    });
+    const progress = ((index + 1) / steps.length) * 100;
+    progressBar.style.width = progress + "%";
+
+    nextBtn.style.display = index === steps.length - 1 ? "none" : "block";
+    submitBtn.style.display = index === steps.length - 1 ? "block" : "none";
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
+});
+</script><div id="aiTipBubble" style="
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  max-width: 300px;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+  z-index: 1000;
+  display: none;
+">Let's get started! Enter your name to begin.</div><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const steps = document.querySelectorAll(".form-step");
+  const nextBtn = document.getElementById("nextBtn");
+  const submitBtn = document.getElementById("submitBtn");
+  const dots = document.querySelectorAll("#formProgressDots span");
+  const progressBar = document.getElementById("formProgressBar");
+  const stepSound = document.getElementById("stepSound");
+  const tipBubble = document.getElementById("aiTipBubble");
+
+  const tips = [
+    "Let's get started! Enter your name to begin.",
+    "Now your phone number so we can reach you.",
+    "We’ll send a confirmation to your email.",
+    "Tell us about your car — year, make, and model.",
+    "If you have the VIN, enter it here.",
+    "Please upload a clear photo of the front of your car.",
+    "Now show us the back of the car.",
+    "Upload a photo of the right side.",
+    "And now the left side.",
+    "Choose how you want to get paid.",
+    "Any pickup instructions we should know?",
+    "Anything else you'd like to add?"
+  ];
+
+  let currentStep = 0;
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.display = i === index ? "block" : "none";
+      step.style.opacity = i === index ? "1" : "0";
+      step.style.transform = i === index ? "translateY(0)" : "translateY(20px)";
+    });
+    dots.forEach((dot, i) => {
+      dot.style.background = i === index ? "#ff4e50" : "#ccc";
+    });
+
+    const progress = ((index + 1) / steps.length) * 100;
+    progressBar.style.width = progress + "%";
+
+    nextBtn.style.display = index === steps.length - 1 ? "none" : "block";
+    submitBtn.style.display = index === steps.length - 1 ? "block" : "none";
+
+    // Play step sound
+    if (stepSound) stepSound.play();
+
+    // Update AI tip
+    if (tipBubble && tips[index]) {
+      tipBubble.style.display = "block";
+      tipBubble.textContent = tips[index];
+    }
+
+    // Auto-scroll to form
+    const form = document.getElementById("smartRecarraForm");
+    if (form) form.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentStep < steps.length - 1) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  showStep(currentStep);
 });
 </script></body>
 </html>
