@@ -1732,6 +1732,33 @@ document.addEventListener('DOMContentLoaded', () => {
   transform: rotate(180deg);
   font-size: 1.2rem;
 }
+</style><style>
+.vertical-menu-icon {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: #000;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 40px;
+  padding: 1.5rem 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.vertical-menu-icon:hover {
+  transform: rotate(180deg) scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.vertical-menu-icon i {
+  transform: rotate(180deg);
+}
 </style></head>
 <body><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
@@ -1755,7 +1782,7 @@ window.addEventListener("load", () => {
 <button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
 <button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
 </nav>
-<button aria-label="☰ Recarra" class="nav-toggle" id="navToggle">☰ Recarra</button>
+<button aria-label="☰ Recarra" class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
 <header>
 <h1>Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
@@ -3407,7 +3434,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <i class="fas fa-question-circle"></i> Help
   </button>
 </div>
-<div class="vertical-recarra-menu"><i class="fas fa-bars"></i><span>Recarra</span></div></body>
+<div class="vertical-menu-icon" style=" font-size: 2rem; font-weight: bold; color: white;">///</div></body>
 </html>
 <script>
 function startVinScan() {
