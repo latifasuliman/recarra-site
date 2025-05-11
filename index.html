@@ -1764,7 +1764,7 @@ document.addEventListener('DOMContentLoaded', () => {
   transition: background 3s ease-in-out;
 }
 </style></head>
-<body><button id="smartMenuToggle" style="position: fixed; top: 20px; right: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="loadForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="loadForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="loadForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="loadForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="loadForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="loadForm('email')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Email</button><button class="dropdown-option" onclick="loadForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="loadForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="loadForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="loadForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Recarra Full Form</button></div><div id="formDisplayArea" style="margin: 2rem auto; max-width: 720px; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<body><button id="smartMenuToggle" style="position: fixed; top: 20px; left: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="loadForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="loadForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="loadForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="loadForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="loadForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="loadForm('email')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Email</button><button class="dropdown-option" onclick="loadForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="loadForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="loadForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="loadForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Recarra Full Form</button></div><div id="formDisplayArea" style="margin: 2rem auto; max-width: 720px; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
 function hideSplash() {
@@ -1786,11 +1786,7 @@ window.addEventListener("load", () => {
 <button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
 <button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
 </nav>
-<button aria-label="☰ Recarra" class="nav-toggle" id="navToggle" style="background: black; border-radius: 50px; padding: 0.5rem 1rem;">
-<div style="width: 20px; height: 3px; background: white; margin: 4px auto; border-radius: 2px;"></div>
-<div style="width: 20px; height: 3px; background: white; margin: 4px auto; border-radius: 2px;"></div>
-<div style="width: 20px; height: 3px; background: white; margin: 4px auto; border-radius: 2px;"></div>
-</button>
+
 <header>
 <h1>Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
@@ -3432,9 +3428,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <div id="floatingButtonsContainer">
-
-
-
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -3510,8 +3503,6 @@ function loadForm(type) {
 ">
   Change Offer Method
 </button>
-
-
 <script>
 function reopenSmartMenu() {
   document.getElementById('smartMenuDropdown').style.display = 'block';
@@ -3533,8 +3524,6 @@ window.returnToMainForm = function() {
   if (switchBtn) switchBtn.style.display = 'none';
 };
 </script>
-
-
 <script>
 // Ensure dropdown menu auto-closes after selection and reopens if reopened manually
 function loadForm(type) {
@@ -3619,8 +3608,6 @@ function reopenSmartMenu() {
   }
 }
 </script>
-
-
 <script>
 function loadForm(type) {
   const formDisplay = document.getElementById('formDisplayArea');
@@ -3706,7 +3693,36 @@ function reopenSmartMenu() {
   }
 }
 </script>
+<script>
+function showOffer(type, event) {
+  event.preventDefault();
+  const overlay = document.getElementById("modalOverlay");
+  overlay.style.display = "block";
+  document.getElementById("popupOpenSound").play();
+  document.getElementById("formDisplayArea").innerHTML = '<div class="offer-modal"><h3>' + type.toUpperCase() + ' Form</h3><p>Form content for: ' + type + '</p></div>';
+}
 
+function loadForm(type) {
+  const overlay = document.getElementById("modalOverlay");
+  overlay.style.display = "block";
+  document.getElementById("popupOpenSound").play();
+  document.getElementById("formDisplayArea").innerHTML = '<div class="offer-modal"><h3>' + type.toUpperCase() + ' Form</h3><p>Form content for: ' + type + '</p></div>';
+}
+
+function submitOffer(e) {
+  e.preventDefault();
+  document.getElementById("modalOverlay").style.display = "none";
+  document.getElementById("popupCloseSound").play();
+  alert("Your offer has been submitted!");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("smartRecarraForm");
+  if (form) {
+    form.addEventListener("submit", submitOffer);
+  }
+});
+</script>
 </body>
 </html>
 <script>
