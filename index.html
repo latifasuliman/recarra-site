@@ -1586,6 +1586,17 @@ body.dim-mode .section-title {
 #ceo-quote.visible {
   opacity: 1;
 }
+
+#faq-question, #faq-answer {
+  transition: opacity 0.6s ease;
+}
+
+@media (min-width: 1024px) {
+  .nav-offer-button {
+    flex: 1 1 16%;
+    max-width: 16%;
+  }
+}
 </style>
 <link href="/manifest.json" rel="manifest"/>
 <meta content="#ff4e50" name="theme-color"/>
@@ -1704,7 +1715,6 @@ window.addEventListener("load", () => {
 </select>
 <textarea placeholder="Address / Pickup Instructions" required="" rows="3"></textarea>
 <textarea placeholder="Any additional notes or questions?" rows="3"></textarea>
-
 <button class="offer-button" style="width:100%;font-size:1.1rem;font-weight:700;border-radius:50px;background:linear-gradient(to right,#ff4e50,#f9d423);color:black;box-shadow:0 0 12px rgba(255,78,80,0.3);position:relative;z-index:10;margin-top:1.5rem;;position:relative;z-index:10;margin-top:1.5rem;" type="submit">
 <i class="fas fa-bolt" style="margin-right: 8px;"></i> Submit Offer
 </button>
@@ -1804,7 +1814,7 @@ Submit your car details and receive an instant AI-powered offer based on real ma
 <li><strong>Built for Scale:</strong> Structured to grow with markets and opportunity.</li>
 </ul>
 </section>
-</section><section class="fade-in-section section-block"><h2 class="section-title">Frequently Asked Questions</h2><h3 id="faq-question" style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;"></h3><p id="faq-answer" style="font-size: 1.25rem; color: #555;"></p></section><script>
+</section><script>
 const faqs = [
 { question: "How do I get an offer for my car?", answer: "Submit your vehicle details online — our AI gives you an instant offer." },
 { question: "What types of vehicles does Recarra buy?", answer: "We purchase all types — cars, trucks, vans, SUVs — running or not." },
