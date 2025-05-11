@@ -3846,6 +3846,20 @@ function loadForm(formName) {
 }
 </script>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.getElementById("smartMenuToggle");
+  const dropdown = document.getElementById("smartMenuDropdown");
+  if (toggleBtn && dropdown) {
+    toggleBtn.addEventListener("click", function () {
+      const currentDisplay = dropdown.style.display;
+      dropdown.style.display = currentDisplay === "block" ? "none" : "block";
+    });
+  }
+});
+</script>
+
 </body>
 </html>
 <script>
