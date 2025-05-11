@@ -1763,8 +1763,105 @@ document.addEventListener('DOMContentLoaded', () => {
 .floating-button {
   transition: background 3s ease-in-out;
 }
-</style></head>
-<body><button id="smartMenuToggle" style="position: fixed; top: 20px; left: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="loadForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="loadForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="loadForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="loadForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="loadForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="loadForm('email')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Email</button><button class="dropdown-option" onclick="loadForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="loadForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="loadForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="loadForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Recarra Full Form</button></div><div id="formDisplayArea" style="margin: 2rem auto; max-width: 720px; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+</style>
+<style>
+.toolbox-modal {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-height: 65%;
+  background: #fefefe;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 -6px 24px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  padding: 1.5rem 1.25rem;
+  animation: slideUp 0.4s ease forwards;
+  z-index: 10001;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+}
+
+.toolbox-modal h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.toolbox-modal label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.toolbox-modal input,
+.toolbox-modal textarea,
+.toolbox-modal select {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  background: #fff;
+  color: #000;
+}
+
+.toolbox-modal button {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toolbox-modal button:hover {
+  background: #e0e0e0;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+</style>
+
+<style>
+/* Step transition */
+.toolbox-step {
+  animation: fadeIn 0.35s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Button interactions */
+.toolbox-modal button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.toolbox-modal button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
+.toolbox-modal button:active {
+  transform: scale(0.97);
+}
+
+/* Toolbox slide-up drawer animation (already present, just polished) */
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+</style>
+</head>
+<body><button id="smartMenuToggle" style="position: fixed; top: 20px; left: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="loadForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="loadForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="loadForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="loadForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="loadForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="loadForm('email')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Email</button><button class="dropdown-option" onclick="loadForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="loadForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="loadForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="loadForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Recarra Full Form</button><a href="#" onclick="openToolbox('Chat Offer')">Chat Offer</a><a href="#" onclick="openToolbox('Photo Offer')">Photo Offer</a><a href="#" onclick="openToolbox('Voice Offer')">Voice Offer</a><a href="#" onclick="openToolbox('Video Offer')">Video Offer</a><a href="#" onclick="openToolbox('Email Offer')">Email Offer</a><a href="#" onclick="openToolbox('VIN Offer')">VIN Offer</a><a href="#" onclick="openToolbox('Plate Offer')">Plate Offer</a><a href="#" onclick="openToolbox('Agent Offer')">Agent Offer</a><a href="#" onclick="openToolbox('Recarra Full Form')">Recarra Full Form</a></div><div id="formDisplayArea" style="margin: 2rem auto; max-width: 720px; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
 function hideSplash() {
@@ -1786,7 +1883,6 @@ window.addEventListener("load", () => {
 <button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
 <button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
 </nav>
-
 <header>
 <h1>Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
@@ -1829,60 +1925,6 @@ window.addEventListener("load", () => {
 <button class="offer-button" id="nextBtn" style="display: block; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="button">Next</button>
 <button class="offer-button" id="submitBtn" style="display: none; width:100%; font-size:1.1rem; font-weight:700; border-radius:50px; background:linear-gradient(to right,#ff4e50,#f9d423); color:black; box-shadow:0 0 12px rgba(255,78,80,0.3); max-width:220px; margin: 0 auto;" type="submit">Submit Offer</button>
 </form>
-</section><section class="section-block" id="smartOfferForm">
-<section class="section-block fade-in-section">
-<h2 class="section-title">
-AI Smart Offer
-</h2>
-<p style="font-size: 1.1rem; color: #333; margin-bottom: 1.5rem;">
-Submit your car details and receive an instant AI-powered offer based on real market data.
-</p>
-<button aria-label="Start Smart AI Offer" class="offer-button" onclick="showOffer('ai', event)" style="margin-bottom: 2rem; margin: 0 auto; display: block; text-align: center; max-width: 220px;">
-<i class="fas fa-robot" style="margin-right: 6px;"></i>Start Smart AI Offer
-</button>
-<h3 style="font-size: 1.25rem; font-weight: 700; margin-top: 2rem;font-weight:600;">Other Smart Ways to Get a Junk Car Offer:</h3>
-<div id="offerIconMenu">
-<button aria-label="Voice" class="offer-button" onclick="showOffer('voice', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Voice</button><button aria-label="Email" class="offer-button" onclick="showOffer('email', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Email</button>
-<button aria-label="Text" class="offer-button" onclick="showOffer('text', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Text</button>
-<button aria-label="Call" class="offer-button" onclick="showOffer('call', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Call</button>
-<button aria-label="Chat" class="offer-button" onclick="showOffer('chat', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Chat</button>
-<button aria-label="Photo" class="offer-button" onclick="showOffer('photo', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Photo</button>
-<button aria-label="VIN" class="offer-button" onclick="showOffer('vin', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">VIN</button>
-<button aria-label="Plate" class="offer-button" onclick="showOffer('plate', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Plate</button>
-<button aria-label="Video" class="offer-button" onclick="showOffer('video', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Video</button>
-<button aria-label="Agent" class="offer-button" onclick="showOffer('agent', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Agent</button>
-</div>
-<section class="counter-section fade-in-section section-block">
-<h2 class="section-title">Recarra By the Numbers</h2>
-<div class="counter-box" data-tooltip="Total verified car sellers">
-<i class="fas fa-car" style="font-size: 2rem; color: #555;"></i>
-<div class="counter-number" data-target="10000">0</div>
-<div class="counter-label">Cars Purchased</div>
-</div>
-<div class="counter-box" data-tooltip="US states actively served">
-<i class="fas fa-flag-usa" style="font-size: 2rem; color: #555;"></i>
-<div class="counter-number" data-target="50">0</div>
-<div class="counter-label">States Served</div>
-</div>
-<div class="counter-box" data-tooltip="Service available 24/7">
-<i class="fas fa-clock" style="font-size: 2rem; color: #555;"></i>
-<div class="counter-number" data-target="24">0</div>
-<div class="counter-label">Hour Service</div>
-</div>
-</section>
-</section><section class="section-block fade-in-section">
-<h2 class="section-title">How Recarra Compares to Other Car Offer Sites</h2>
-<p>Recarra is designed to outperform the competition — not just in look, but in measurable business value.</p>
-<ul style="line-height: 1.7;">
-<li><strong>Higher Conversion Rates:</strong> Less friction, more completed offers.</li>
-<li><strong>More Intake Channels:</strong> Voice, text, photo, chat, and more.</li>
-<li><strong>Faster Closures:</strong> Firm offers and immediate action.</li>
-<li><strong>Flexible Payments:</strong> Instant options that sellers love.</li>
-<li><strong>Nationwide Coverage:</strong> Reliable, verified transportation partners.</li>
-<li><strong>Trusted Brand:</strong> Transparency, updates, and real customer confidence.</li>
-<li><strong>Built for Scale:</strong> Structured to grow with markets and opportunity.</li>
-</ul>
-</section>
 </section><section class="section-block fade-in-section" style="background: #f8f8f8; border-radius: 12px; padding: 2rem;">
 <h2 class="section-title" style="text-align:center; color:#ff4e50;">Why Customers Trust Recarra</h2>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;text-align:center;margin-top:2rem;">
@@ -3723,7 +3765,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
 <script>
 function loadForm(formName) {
   const overlay = document.getElementById("modalOverlay");
@@ -3781,8 +3822,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const menuBtn = document.getElementById("smartMenuToggle");
@@ -3845,8 +3884,6 @@ function loadForm(formName) {
   `;
 }
 </script>
-
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("smartMenuToggle");
@@ -3859,7 +3896,180 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+<div class="toolbox-modal" id="smartToolboxModal" style="display:none; position:fixed; top:50px; left:50%; transform:translateX(-50%);
+background:#fff; max-width:500px; width:90%; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.2); z-index:10001; padding:1.5rem;">
+<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+<h2 id="toolboxTitle" style="font-size:1.5rem; color:#ff4e50;">AI Offer Form</h2>
+<button onclick="closeToolbox()" style="background:none; border:none; font-size:1.2rem; cursor:pointer;">×</button>
+</div>
+<form id="toolboxForm">
+<div class="toolbox-step" style="display:block;">
+<label>What is your vehicle’s year, make, and model?</label>
+<input class="toolbox-input" placeholder="e.g. 2016 Toyota Camry" required="" type="text"/>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>VIN (optional)</label>
+<input class="toolbox-input" maxlength="17" type="text"/>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>Mileage</label>
+<input class="toolbox-input" required="" type="number"/>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>Briefly describe the condition</label>
+<textarea class="toolbox-input" required=""></textarea>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>ZIP Code or City</label>
+<input class="toolbox-input" required="" type="text"/>
+</div>
+<div class="toolbox-step" style="display:none;">
+<label>Do you have the title?</label>
+<select class="toolbox-input" required="">
+<option value="">Select one</option>
+<option value="yes">Yes</option>
+<option value="no">No</option>
+</select>
+</div>
+<div class="toolbox-step" id="photoUploadStep" style="display:none;">
+<label>Upload photos of your car (optional)</label>
+<input accept="image/*" class="toolbox-input" multiple="" type="file"/>
+</div>
+<div class="toolbox-step" id="nameStep" style="display:none;">
+<label>Your name</label>
+<input class="toolbox-input" required="" type="text"/>
+</div>
+<div class="toolbox-step" id="phoneStep" style="display:none;">
+<label>Phone number</label>
+<input class="toolbox-input" required="" type="tel"/>
+</div>
+<div class="toolbox-step" id="emailStep" style="display:none;">
+<label>Email address</label>
+<input class="toolbox-input" required="" type="email"/>
+</div>
+<div class="toolbox-step" id="priceStep" style="display:none;">
+<label>How much would you like to get for your car?</label>
+<input class="toolbox-input" type="text"/>
+</div>
+<div style="margin-top:1rem; display:flex; justify-content:space-between;">
+<button id="toolboxNextBtn" onclick="nextToolboxStep()" type="button">Next</button>
+<button id="toolboxSubmitBtn" style="display:none;" type="submit">Submit</button>
+</div>
+<div id="toolboxFooter" style="margin-top:1rem; border-top:1px solid #eee; padding-top:1rem; text-align:center;">
+<button onclick="resetToolboxForm()" style="margin:0.5rem;" type="button">Start Over</button>
+<button onclick="saveToolboxForm()" style="margin:0.5rem;" type="button">Save for Later</button>
+<button onclick="quickCallForm()" style="margin:0.5rem;" type="button">Just Call Me</button>
+<button onclick="closeToolbox()" style="margin:0.5rem;" type="button">Never Mind</button>
+</div>
+</form>
+</div>
+<script>
+let currentToolboxStep = 0;
+function openToolbox(title = "AI Offer Form") {
+  document.getElementById("smartToolboxModal").style.display = "block";
+  document.getElementById("toolboxTitle").innerText = title;
+  localStorage.setItem("toolboxOpen", "true");
+}
+function closeToolbox() {
+  document.getElementById("smartToolboxModal").style.display = "none";
+}
+function nextToolboxStep() {
+  const steps = document.querySelectorAll(".toolbox-step");
+  if (currentToolboxStep < steps.length - 1) {
+    steps[currentToolboxStep].style.display = "none";
+    currentToolboxStep++;
+    steps[currentToolboxStep].style.display = "block";
+  }
+  if (currentToolboxStep === steps.length - 1) {
+    document.getElementById("toolboxNextBtn").style.display = "none";
+    document.getElementById("toolboxSubmitBtn").style.display = "block";
+  }
+}
+document.getElementById("toolboxForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Offer Submitted!");
+  closeToolbox();
+  localStorage.removeItem("toolboxOpen");
+});
+window.onload = function() {
+  if (localStorage.getItem("toolboxOpen") === "true") {
+    openToolbox();
+  }
+}
+</script>
+<script>
+let recognition;
+function startVoiceInput() {
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("Voice input not supported in your browser.");
+    return;
+  }
+  recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.onresult = function(event) {
+    const result = event.results[0][0].transcript;
+    document.getElementById("voiceInputField").value = result;
+  };
+  recognition.start();
+}
+function stopVoiceInput() {
+  if (recognition) {
+    recognition.stop();
+  }
+}
+</script>
+<script>
+function previewVideo(input) {
+  const file = input.files[0];
+  const preview = document.getElementById("videoPreview");
+  if (file && preview) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      preview.src = e.target.result;
+      preview.style.display = "block";
+    };
+    reader.readAsDataURL(file);
+  }
+}
+</script>
+<script>
+function resetToolboxForm() {
+  document.getElementById("toolboxForm").reset();
+  currentToolboxStep = 0;
+  showToolboxStep(currentToolboxStep);
+}
 
+function saveToolboxForm() {
+  const inputs = document.querySelectorAll("#toolboxForm input, #toolboxForm textarea, #toolboxForm select");
+  const data = {};
+  inputs.forEach(input => {
+    data[input.name || input.id || input.placeholder] = input.value;
+  });
+  localStorage.setItem("savedFormData", JSON.stringify(data));
+  alert("Form data saved. You can return later to complete it.");
+}
+
+function quickCallForm() {
+  alert("We’ll reach out to you shortly. Thank you!");
+  document.getElementById("toolboxForm").reset();
+  closeToolbox();
+}
+
+window.onload = function() {
+  if (localStorage.getItem("savedFormData")) {
+    const data = JSON.parse(localStorage.getItem("savedFormData"));
+    const inputs = document.querySelectorAll("#toolboxForm input, #toolboxForm textarea, #toolboxForm select");
+    inputs.forEach(input => {
+      const key = input.name || input.id || input.placeholder;
+      if (data[key]) {
+        input.value = data[key];
+      }
+    });
+  }
+}
+</script>
 </body>
 </html>
 <script>
@@ -3870,19 +4080,69 @@ alert("VIN scan functionality coming soon. This will launch your camera and dete
 }
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-const forms = document.querySelectorAll("form");
-forms.forEach(form => {
-const id = "R-" + Math.random().toString(36).substring(2, 10).toUpperCase();
-const idSpan = form.querySelector("#generatedOfferId");
-if (idSpan) idSpan.textContent = id;
-form.addEventListener("submit", function (e) {
-e.preventDefault();
-const name = form.querySelector("[name='name']")?.value || "Customer";
-const phone = form.querySelector("[name='phone']")?.value || "[your phone]";
-const email = form.querySelector("[name='email']")?.value || "[your email]";
-alert(`Thanks ${name}, your offer ID is ${id}.\nWe’ll respond via ${phone} or ${email} within 5 minutes.`);
+<script>
+let currentToolboxStep = 0;
+let steps = [];
+
+function openToolbox(title = "AI Offer Form") {
+  document.getElementById("smartToolboxModal").style.display = "block";
+  document.getElementById("toolboxTitle").innerText = title;
+  localStorage.setItem("toolboxOpen", "true");
+  
+  // Common sense: hide steps based on form type
+  if (title.includes("VIN") || title.includes("Plate")) {
+    document.getElementById("phoneStep").style.display = "block";
+    document.getElementById("emailStep").style.display = "block";
+    document.getElementById("priceStep").style.display = "block";
+  } else if (title.includes("Voice")) {
+    document.getElementById("emailStep").style.display = "block";
+    document.getElementById("priceStep").style.display = "block";
+  } else {
+    document.getElementById("nameStep").style.display = "block";
+    document.getElementById("phoneStep").style.display = "block";
+    document.getElementById("emailStep").style.display = "block";
+    document.getElementById("priceStep").style.display = "block";
+  }
+
+  // Refresh step list
+  steps = document.querySelectorAll(".toolbox-step");
+  currentToolboxStep = 0;
+  showToolboxStep(currentToolboxStep);
+}
+
+function closeToolbox() {
+  document.getElementById("smartToolboxModal").style.display = "none";
+}
+
+function showToolboxStep(index) {
+  steps.forEach((step, i) => {
+    step.style.display = i === index ? "block" : "none";
+  });
+  if (document.getElementById("toolboxProgress")) {
+    document.getElementById("toolboxProgress").value = ((index + 1) / steps.length) * 100;
+  }
+  document.getElementById("toolboxNextBtn").style.display = index < steps.length - 1 ? "block" : "none";
+  document.getElementById("toolboxSubmitBtn").style.display = index === steps.length - 1 ? "block" : "none";
+}
+
+function nextToolboxStep() {
+  if (currentToolboxStep < steps.length - 1) {
+    steps[currentToolboxStep].style.display = "none";
+    currentToolboxStep++;
+    showToolboxStep(currentToolboxStep);
+  }
+}
+
+document.getElementById("toolboxForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Offer Submitted!");
+  closeToolbox();
+  localStorage.removeItem("toolboxOpen");
 });
-});
-});
+
+window.onload = function() {
+  if (localStorage.getItem("toolboxOpen") === "true") {
+    openToolbox();
+  }
+}
 </script>
