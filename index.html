@@ -1859,14 +1859,148 @@ document.addEventListener('DOMContentLoaded', () => {
   to { transform: translateY(0); }
 }
 </style>
-
 <style>
 @keyframes slideUp {
   from { transform: translateY(100%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 </style>
-</head>
+<style>
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+    }
+
+    .header {
+      padding: 1.5rem 1rem;
+      background: #ff4f4f;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .menu-wrapper {
+      padding: 1.5rem;
+      background: white;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border-radius: 20px;
+      margin: 1rem;
+    }
+
+    .menu-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .menu-button {
+      flex: 1 1 45%;
+      background: linear-gradient(to right, #ff4f4f, #ffcc33);
+      color: black;
+      padding: 0.8rem;
+      border-radius: 30px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(255, 79, 79, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .menu-button:hover {
+      transform: scale(1.03);
+    }
+
+    .form-drawer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-height: 65%;
+      background: white;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
+      padding: 2rem 1.5rem;
+      z-index: 9999;
+      display: none;
+      animation: slideUp 0.4s ease forwards;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .form-title {
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: bold;
+      color: #ff4f4f;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input {
+      padding: 0.9rem;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .btn {
+      background: linear-gradient(to right, #ff4f4f, #ffcc33);
+      border: none;
+      border-radius: 50px;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: black;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+    }
+
+    .close-btn {
+      text-align: center;
+      margin-top: 1rem;
+      color: #666;
+      cursor: pointer;
+    }
+  
+.form-drawer {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.disclaimer {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 1rem;
+  text-align: center;
+  line-height: 1.4;
+}
+.agree-btn {
+  margin-top: 1rem;
+  background: linear-gradient(to right, #4CAF50, #8BC34A);
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 30px;
+  width: 100%;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+    </style></head>
 <body><button id="smartMenuToggle" style="position: fixed; top: 20px; left: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="loadForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="loadForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="loadForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="loadForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="loadForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="loadForm('email')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Email</button><button class="dropdown-option" onclick="loadForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="loadForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="loadForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="loadForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Recarra Full Form</button><a href="#" onclick="openToolbox('Chat Offer')">Chat Offer</a><a href="#" onclick="openToolbox('Photo Offer')">Photo Offer</a><a href="#" onclick="openToolbox('Voice Offer')">Voice Offer</a><a href="#" onclick="openToolbox('Video Offer')">Video Offer</a><a href="#" onclick="openToolbox('Email Offer')">Email Offer</a><a href="#" onclick="openToolbox('VIN Offer')">VIN Offer</a><a href="#" onclick="openToolbox('Plate Offer')">Plate Offer</a><a href="#" onclick="openToolbox('Agent Offer')">Agent Offer</a><a href="#" onclick="openToolbox('Recarra Full Form')">Recarra Full Form</a></div><div id="formDisplayArea" style="margin: 2rem auto; max-width: 720px; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
@@ -4076,7 +4210,34 @@ window.onload = function() {
   }
 }
 </script>
-</body>
+<div class="form-drawer" id="formDrawer">
+<div class="form-title" id="formTitle">Offer Form</div>
+<div class="input-group">
+<input placeholder="Start entering..." type="text"/>
+<button class="btn">Next</button>
+<div class="close-btn" onclick="closeForm()">Close</div>
+</div>
+<div class="disclaimer">
+      This is just an estimate. Final price depends on inspection,<br/>
+      ownership, condition, and required legal documents.
+    </div>
+<button class="agree-btn">I Understand</button>
+</div><script>
+function openForm(title) {
+  document.getElementById('formTitle').innerText = title;
+  document.getElementById('formDrawer').style.display = 'block';
+  localStorage.setItem("lastFormTitle", title);
+}
+function closeForm() {
+  document.getElementById('formDrawer').style.display = 'none';
+}
+window.onload = function() {
+  const lastForm = localStorage.getItem("lastFormTitle");
+  if (lastForm) {
+    openForm(lastForm);
+  }
+}
+    </script></body>
 </html>
 <script>
 function startVinScan() {
