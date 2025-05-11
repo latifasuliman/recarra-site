@@ -1700,6 +1700,38 @@ document.addEventListener('DOMContentLoaded', () => {
   background: linear-gradient(to right, #ff7e5f, #feb47b);
   color: white;
 }
+</style><style>
+.vertical-recarra-menu {
+  writing-mode: vertical-rl;
+  text-align: center;
+  transform: rotate(180deg);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1.5rem 0.75rem;
+  background: linear-gradient(to bottom, #ff4e50, #f9d423);
+  color: black;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  border: none;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.vertical-recarra-menu:hover {
+  transform: rotate(180deg) scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+.vertical-recarra-menu i {
+  transform: rotate(180deg);
+  font-size: 1.2rem;
+}
 </style></head>
 <body><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
@@ -3375,7 +3407,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <i class="fas fa-question-circle"></i> Help
   </button>
 </div>
-</body>
+<div class="vertical-recarra-menu"><i class="fas fa-bars"></i><span>Recarra</span></div></body>
 </html>
 <script>
 function startVinScan() {
