@@ -3629,6 +3629,7 @@ function loadForm(type) {
   const menu = document.getElementById('smartMenuDropdown');
   const switchBtn = document.getElementById('switchMethodBtn');
 
+  // Always hide dropdown menu but keep the modal overlay active
   if (menu) menu.style.display = 'none';
   if (mainForm) mainForm.style.display = 'none';
   if (overlay) overlay.style.display = 'block';
@@ -3644,27 +3645,30 @@ function loadForm(type) {
       <input type="text" placeholder="Your Name" class="uniform-input" />
       <input type="tel" placeholder="Phone Number" class="uniform-input" />
       <button type="submit" class="offer-button" style="margin-top:1.5rem;">Submit Offer</button>
-      <button type="button" onclick="returnToMainForm(true)" class="offer-button" style="margin-top:1rem;">Back to Main Form</button>
+      <button type="button" onclick="returnToMainForm()" class="offer-button" style="margin-top:1rem;">Back to Recarra Form</button>
     </form>
   `;
 
   formDisplay.scrollIntoView({ behavior: 'smooth' });
 }
 
-function returnToMainForm(keepOverlay = false) {
+function returnToMainForm() {
   const mainForm = document.getElementById('recarraForm');
   const formDisplay = document.getElementById('formDisplayArea');
   const overlay = document.getElementById('modalOverlay');
   const switchBtn = document.getElementById('switchMethodBtn');
 
+  // Show main Recarra form
   if (mainForm) mainForm.style.display = 'block';
+
+  // Clear temporary form
   if (formDisplay) formDisplay.innerHTML = '';
-  if (switchBtn) switchBtn.style.display = 'none';
+
+  // Keep overlay ON (do NOT hide it)
+  if (switchBtn) switchBtn.style.display = 'block';
 
   const closeSound = document.getElementById('popupCloseSound');
   if (closeSound) closeSound.play();
-
-  if (!keepOverlay && overlay) overlay.style.display = 'none';
 
   mainForm.scrollIntoView({ behavior: 'smooth' });
 }
@@ -3678,12 +3682,20 @@ function submitSmartForm(e) {
     <div style="text-align:center; padding:2rem;">
       <i class="fas fa-check-circle" style="color:green; font-size:2rem;"></i>
       <p>Offer submitted successfully. We will contact you shortly.</p>
-      <button onclick="returnToMainForm()" class="offer-button" style="margin-top:1.5rem;">Back to Main Form</button>
+      <button onclick="fullyCloseOverlay()" class="offer-button" style="margin-top:1.5rem;">Back to Home</button>
     </div>
   `;
 
-  if (overlay) overlay.style.display = 'none';
   document.getElementById('stepSound').play();
+}
+
+function fullyCloseOverlay() {
+  const overlay = document.getElementById('modalOverlay');
+  const switchBtn = document.getElementById('switchMethodBtn');
+  const formDisplay = document.getElementById('formDisplayArea');
+  if (overlay) overlay.style.display = 'none';
+  if (switchBtn) switchBtn.style.display = 'none';
+  if (formDisplay) formDisplay.innerHTML = '';
 }
 
 function reopenSmartMenu() {
