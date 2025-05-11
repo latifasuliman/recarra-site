@@ -3644,16 +3644,17 @@ function loadForm(type) {
       <input type="text" placeholder="Your Name" class="uniform-input" />
       <input type="tel" placeholder="Phone Number" class="uniform-input" />
       <button type="submit" class="offer-button" style="margin-top:1.5rem;">Submit Offer</button>
-      <button type="button" onclick="returnToMainForm()" class="offer-button" style="margin-top:1rem;">Back to Main Form</button>
+      <button type="button" onclick="returnToMainForm(true)" class="offer-button" style="margin-top:1rem;">Back to Main Form</button>
     </form>
   `;
 
   formDisplay.scrollIntoView({ behavior: 'smooth' });
 }
 
-function returnToMainForm() {
+function returnToMainForm(keepOverlay = false) {
   const mainForm = document.getElementById('recarraForm');
   const formDisplay = document.getElementById('formDisplayArea');
+  const overlay = document.getElementById('modalOverlay');
   const switchBtn = document.getElementById('switchMethodBtn');
 
   if (mainForm) mainForm.style.display = 'block';
@@ -3663,14 +3664,16 @@ function returnToMainForm() {
   const closeSound = document.getElementById('popupCloseSound');
   if (closeSound) closeSound.play();
 
-  mainForm.scrollIntoView({ behavior: 'smooth' });
+  if (!keepOverlay && overlay) overlay.style.display = 'none';
 
-  // Don't hide overlay: user may want to reopen menu
+  mainForm.scrollIntoView({ behavior: 'smooth' });
 }
 
 function submitSmartForm(e) {
   e.preventDefault();
   const formDisplay = document.getElementById('formDisplayArea');
+  const overlay = document.getElementById('modalOverlay');
+
   formDisplay.innerHTML = `
     <div style="text-align:center; padding:2rem;">
       <i class="fas fa-check-circle" style="color:green; font-size:2rem;"></i>
@@ -3678,6 +3681,8 @@ function submitSmartForm(e) {
       <button onclick="returnToMainForm()" class="offer-button" style="margin-top:1.5rem;">Back to Main Form</button>
     </div>
   `;
+
+  if (overlay) overlay.style.display = 'none';
   document.getElementById('stepSound').play();
 }
 
