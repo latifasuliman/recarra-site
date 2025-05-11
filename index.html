@@ -3723,6 +3723,65 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
+
+<script>
+function loadForm(formName) {
+  const overlay = document.getElementById("modalOverlay");
+  overlay.style.display = "block";
+  document.getElementById("popupOpenSound").play();
+  const display = document.getElementById("formDisplayArea");
+  display.innerHTML = '<div class="offer-modal"><h3 style="text-align:center; font-size:1.5rem; color:#ff4e50; font-weight:800;">' + formName.toUpperCase() + ' Form</h3><p style="text-align:center;">Form content for: ' + formName + '</p></div>';
+}
+
+function showOffer(formName, event) {
+  event.preventDefault();
+  loadForm(formName);
+}
+
+function submitOffer(e) {
+  e.preventDefault();
+  document.getElementById("modalOverlay").style.display = "none";
+  document.getElementById("popupCloseSound").play();
+  alert("Your offer has been submitted!");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("smartRecarraForm");
+  if (form) {
+    form.addEventListener("submit", submitOffer);
+  }
+
+  // Step-by-step form progression logic
+  let currentStep = 0;
+  const steps = document.querySelectorAll('.form-step');
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  const progressBar = document.getElementById('formProgressBar');
+  const dots = document.querySelectorAll('#formProgressDots span');
+
+  function showStep(index) {
+    steps.forEach((step, i) => {
+      step.style.display = i === index ? 'block' : 'none';
+      dots[i].style.background = i === index ? '#ff4e50' : '#ccc';
+    });
+    progressBar.style.width = ((index + 1) / steps.length * 100) + '%';
+    nextBtn.style.display = index < steps.length - 1 ? 'block' : 'none';
+    submitBtn.style.display = index === steps.length - 1 ? 'block' : 'none';
+  }
+
+  if (nextBtn && steps.length > 0) {
+    nextBtn.addEventListener('click', function () {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+        document.getElementById("stepSound").play();
+      }
+    });
+    showStep(currentStep);
+  }
+});
+</script>
+
 </body>
 </html>
 <script>
