@@ -3534,6 +3534,92 @@ window.returnToMainForm = function() {
 };
 </script>
 
+
+<script>
+// Ensure dropdown menu auto-closes after selection and reopens if reopened manually
+function loadForm(type) {
+  const formDisplay = document.getElementById('formDisplayArea');
+  const overlay = document.getElementById('modalOverlay');
+  const mainForm = document.getElementById('recarraForm');
+  const menu = document.getElementById('smartMenuDropdown');
+  const switchBtn = document.getElementById('switchMethodBtn');
+
+  // Hide the menu (auto-close)
+  if (menu) menu.style.display = 'none';
+
+  // Hide the main form
+  if (mainForm) mainForm.style.display = 'none';
+
+  // Show overlay
+  if (overlay) overlay.style.display = 'block';
+
+  // Play open sound
+  const openSound = document.getElementById('popupOpenSound');
+  if (openSound) openSound.play();
+
+  // Enable switch method floating button
+  if (switchBtn) switchBtn.style.display = 'block';
+
+  // Show the selected form
+  formDisplay.innerHTML = `
+    <form onsubmit="submitSmartForm(event)" class="offer-modal fade-in-section">
+      <h2 style="color:#ff4e50;">${type.toUpperCase()} Offer</h2>
+      <p>This is a demo for the <strong>${type}</strong> offer form.</p>
+      <input type="text" placeholder="Your Name" class="uniform-input" />
+      <input type="tel" placeholder="Phone Number" class="uniform-input" />
+      <button type="submit" class="offer-button" style="margin-top:1.5rem;">Submit Offer</button>
+      <button type="button" onclick="returnToMainForm()" class="offer-button" style="margin-top:1rem;">Back to Main Form</button>
+    </form>
+  `;
+
+  formDisplay.scrollIntoView({ behavior: 'smooth' });
+}
+
+function returnToMainForm() {
+  const mainForm = document.getElementById('recarraForm');
+  const formDisplay = document.getElementById('formDisplayArea');
+  const overlay = document.getElementById('modalOverlay');
+  const switchBtn = document.getElementById('switchMethodBtn');
+
+  // Show the main form
+  if (mainForm) mainForm.style.display = 'block';
+
+  // Clear the custom form
+  if (formDisplay) formDisplay.innerHTML = '';
+
+  // Hide the overlay and switch method
+  if (overlay) overlay.style.display = 'none';
+  if (switchBtn) switchBtn.style.display = 'none';
+
+  // Play close sound
+  const closeSound = document.getElementById('popupCloseSound');
+  if (closeSound) closeSound.play();
+
+  mainForm.scrollIntoView({ behavior: 'smooth' });
+}
+
+function submitSmartForm(e) {
+  e.preventDefault();
+  const formDisplay = document.getElementById('formDisplayArea');
+  formDisplay.innerHTML = `
+    <div style="text-align:center; padding:2rem;">
+      <i class="fas fa-check-circle" style="color:green; font-size:2rem;"></i>
+      <p>Offer submitted successfully. We will contact you shortly.</p>
+      <button onclick="returnToMainForm()" class="offer-button" style="margin-top:1.5rem;">Back to Main Form</button>
+    </div>
+  `;
+  document.getElementById('stepSound').play();
+}
+
+function reopenSmartMenu() {
+  const menu = document.getElementById('smartMenuDropdown');
+  if (menu) {
+    menu.style.display = 'block';
+    document.getElementById('popupOpenSound').play();
+  }
+}
+</script>
+
 </body>
 </html>
 <script>
