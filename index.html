@@ -1788,7 +1788,7 @@ window.addEventListener("load", () => {
 <button aria-label="Call for Offer" class="nav-offer-button" onclick="showOffer('voice', event)">Call for Offer</button>
 <button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
 </nav>
-<header style=" position: sticky; top: 0; z-index: 1000; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div id="recarra-logo" style="font-size: 2.5rem; font-weight: 800; color: white; text-shadow: 1px 1px 2px #000; margin-bottom: 0.5rem;">Recarra</div>
+<header style=" background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div id="recarra-logo" style="font-size: 2.5rem; font-weight: 800; color: white; text-shadow: 1px 1px 2px #000; margin-bottom: 0.5rem;">Recarra</div>
 <h1>Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
   An end-to-end, AI-powered car buying platform.
@@ -4517,58 +4517,7 @@ function showThankYouMessage() {
 <h2>Thank You!</h2>
 <p>Your offer ID: <strong id="offerIdDisplay">#...</strong></p>
 <p>Estimated Offer Amount: <strong id="offerAmountDisplay">$...</strong></p>
-</div><script>
-function toggleMenu() {
-  const menu = document.getElementById('smartMenuDropdown');
-  menu.classList.toggle('show');
-}
-
-function closeAllForms() {
-  const forms = document.querySelectorAll('.form-drawer');
-  forms.forEach(f => {
-    f.classList.remove('active');
-    f.style.display = 'none';
-  });
-  document.getElementById('switchFormBtn').style.display = 'none';
-  document.getElementById('quitFormBtn').style.display = 'none';
-  document.getElementById('thankYouMessage').style.display = 'none';
-}
-
-function showThankYouMessage() {
-  const offerId = "RC-" + Math.floor(100000 + Math.random() * 900000);
-  const offerAmount = "$" + (1500 + Math.floor(Math.random() * 4500));
-  document.getElementById("offerIdDisplay").textContent = offerId;
-  document.getElementById("offerAmountDisplay").textContent = offerAmount;
-  closeAllForms();
-  document.getElementById("thankYouMessage").style.display = "block";
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  openForm('recarra_full_form');
-  window.openForm = function (formId) {
-    const dropdown = document.getElementById('smartMenuDropdown');
-    if (dropdown) dropdown.classList.remove('show');
-
-    const forms = document.querySelectorAll('.form-drawer');
-    forms.forEach(f => {
-      f.classList.remove('active');
-      f.style.display = 'none';
-    });
-
-    const target = document.getElementById('form-' + formId);
-    if (target) {
-      target.style.display = 'block';
-      void target.offsetWidth; // force reflow
-      target.classList.add('active');
-    }
-
-    const container = document.getElementById('formContainer');
-    if (container) container.scrollIntoView({ behavior: 'smooth' });
-    document.getElementById('switchFormBtn').style.display = 'block';
-    document.getElementById('quitFormBtn').style.display = 'block';
-  };
-});
-</script>
+</div>
 <section class="fade-in" style="max-width: 720px; margin: 3rem auto; padding: 2rem; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border: 2px solid #ff4e50; border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: center;">
 <div style="font-size: 1.15rem; line-height: 1.7; color: #333; font-weight: 500; margin-bottom: 1.5rem;">
 <strong style="color: #000;">Get Paid Instantly:</strong> Choose 
@@ -4654,7 +4603,6 @@ window.addEventListener("scroll", () => {
   btn.style.display = window.scrollY > 300 ? "block" : "none";
 });
 </script>
-
 <section style="max-width: 720px; margin: 4rem auto; padding: 2.5rem 2rem; background: #fff; border-radius: 20px; box-shadow: 0 6px 24px rgba(0,0,0,0.06); text-align: left;">
 <h2 style="font-size: 2rem; font-weight: 800; color: #ff4e50; margin-bottom: 1.25rem; text-align: center;">
     🚗 How to Sell Your Car on Recarra
@@ -4667,7 +4615,23 @@ window.addEventListener("scroll", () => {
 <li><strong>Get Paid Fast:</strong> Choose from instant cash, direct deposit, or debit card transfer.</li>
 </ol>
 </section>
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.getElementById("chooseOfferBtn");
+  const menu = document.getElementById("smartMenuDropdown");
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => {
+      const isVisible = menu.style.display === "block";
+      menu.style.display = isVisible ? "none" : "block";
+    });
+    document.addEventListener("click", function(event) {
+      if (!menu.contains(event.target) && event.target !== menuBtn) {
+        menu.style.display = "none";
+      }
+    });
+  }
+});
+</script></body>
 </html>
 <script>
 function startVinScan() {
