@@ -1,894 +1,130 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Recarra | AI Car Offer Platform</title>
-<style>
+  <meta charset="UTF-8">
+  <title>Recarra Welcome</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff;
-      color: #000;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #ffffff;
     }
-    header {
+    .splash-overlay {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      background: #fff;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .logo {
-      font-size: 1.75rem;
-      font-weight: bold;
-      background: linear-gradient(to right, #ff3c3c, #f9d423);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    nav {
-      display: flex;
-      gap: 1rem;
-    }
-    nav a {
-      text-decoration: none;
-      color: #000;
-      font-weight: 500;
-    }
-    main {
-      max-width: 700px;
-      margin: 2rem auto;
+      justify-content: center;
+      height: 100vh;
+      background: #fefefe;
       padding: 1rem;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    .form-card {
-      padding: 2rem;
+    .splash-card {
+      background: #fff;
       border-radius: 20px;
-      background: #fff;
-      border: 2px solid #eee;
-      margin-bottom: 2rem;
-    }
-    .form-title {
+      padding: 2rem;
+      max-width: 420px;
+      width: 100%;
       text-align: center;
-      font-size: 1.6rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .splash-card h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .splash-card h2 {
+      font-size: 1.4rem;
       font-weight: 600;
-      color: #ff4b4b;
+      margin-bottom: 1.5rem;
     }
-    .progress {
-      height: 6px;
-      background: #eee;
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 1rem 0;
+    .cta-button {
+      background: linear-gradient(to right, #f9d423, #ff3c3c);
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 0.9rem 1.2rem;
+      width: 100%;
+      border-radius: 999px;
+      border: none;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
     }
-    .progress-bar {
-      width: 12.5%;
-      height: 100%;
-      background: linear-gradient(to right, #ff3c3c, #f9d423);
-    }
-    .input-field {
+    .red-outline-btn {
       display: block;
       width: 100%;
-      padding: 1rem;
-      border: 2px solid #eee;
-      border-radius: 10px;
-      margin: 1rem 0;
+      border: 2px solid red;
+      border-radius: 12px;
+      padding: 0.75rem;
       font-size: 1rem;
-      outline: none;
+      font-weight: 500;
+      color: #000;
+      background: #fff;
+      margin-bottom: 0.75rem;
+      cursor: pointer;
     }
-    .next-button {
-      display: inline-block;
-      background: linear-gradient(to right, #ff3c3c, #f9d423);
+    .message-block {
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .message-block h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .message-block input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+    .send-btn {
+      margin-top: 1rem;
+      width: 100%;
+      background: linear-gradient(to right, #f9d423, #ff3c3c);
+      border: none;
       color: #000;
       font-weight: bold;
-      border-radius: 50px;
-      padding: 0.75rem 2rem;
-      border: none;
-      cursor: pointer;
       font-size: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      padding: 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
     }
-    footer {
-      text-align: center;
-      font-size: 0.875rem;
-      color: #666;
-      margin-top: 4rem;
-      padding-bottom: 2rem;
+    .remember-toggle {
+      margin-top: 1rem;
+      text-align: left;
+      font-size: 0.9rem;
     }
-  
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .form-card {
-    padding: 1rem;
-    margin: 1rem;
-  }
-  .dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 4px;
-  }
-  .input-field {
-    font-size: 0.95rem;
-    padding: 0.8rem;
-  }
-  .next-button {
-    font-size: 0.95rem;
-    padding: 0.6rem 1.5rem;
-  }
-}
-
-.input-field {
-  font-size: 1.1rem;
-  padding: 1rem;
-  border-radius: 12px;
-  width: 100%;
-  border: 2px solid #ccc;
-  animation: flash-border 3s linear infinite;
-  transition: all 0.3s ease;
-}
-
-@keyframes flash-border {
-  0%   { box-shadow: 0 0 0px red; border-color: red; }
-  33%  { box-shadow: 0 0 10px black; border-color: black; }
-  66%  { box-shadow: 0 0 10px gray; border-color: gray; }
-  100% { box-shadow: 0 0 0px red; border-color: red; }
-}
-</style>
-<style>
-.dot-progress {
-  text-align: center;
-  margin-top: 1rem;
-}
-.dot {
-  height: 14px;
-  width: 14px;
-  margin: 0 6px;
-  background-color: #ccc;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-.dot.active {
-  background-color: #ff4b4b;
-}
-</style><style>
-.input-field {
-  width: 90%;
-  height: 3.5rem;
-  font-size: 1rem;
-  padding: 0.75rem;
-  border-radius: 12px;
-  border: 2px solid #ccc;
-  animation: flash-border 3s linear infinite;
-  transition: all 0.3s ease;
-  display: block;
-  margin: 1rem auto;
-}
-</style><style>
-body {
-  background-color: #f2f2f2;
-}
-</style><style>
-.hero-header {
-  text-align: center;
-  padding: 2rem 1rem 1rem;
-  background: #f2f2f2;
-}
-.brand-title {
-  font-size: 3rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-}
-.brand-subtitle {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #333;
-  margin-top: 0.5rem;
-  line-height: 1.4;
-}
-.cta-block {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-.icon-flash {
-  font-size: 2.5rem;
-  color: #ff3c3c;
-}
-.hero-button {
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: #000;
-  font-size: 1.1rem;
-  font-weight: bold;
-  padding: 0.8rem 1.8rem;
-  border: none;
-  border-radius: 50px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  cursor: pointer;
-}
-</style><style>
-#offerMenu {
-  background: #fff;
-  border: 2px solid #eee;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  padding: 0.75rem 1rem;
-  margin-top: 0.5rem;
-  width: 280px;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-#offerMenu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#offerMenu li {
-  margin: 0.25rem 0;
-}
-
-.dropdown-item {
-  width: 100%;
-  background: linear-gradient(to right, #f9d423, #ff3c3c);
-  color: #000;
-  font-weight: bold;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.dropdown-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(-10px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-</style><style>
-.brand-description {
-  font-size: 1rem;
-  color: #444;
-  font-weight: 500;
-  margin-top: 1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style><style>
-.hero-brand {
-  font-size: 3.5rem;
-  font-weight: bold;
-  color: #111;
-  letter-spacing: -0.5px;
-}
-.hero-header.highend {
-  background: linear-gradient(to right, #f5f5f5, #eaeaea, #f5f5f5);
-  border-bottom: 1px solid #ccc;
-}
-</style><style>
-@keyframes borderColorShift {
-  0%   { box-shadow: 0 0 15px 3px #ff3c3c inset; }
-  25%  { box-shadow: 0 0 15px 3px #f9d423 inset; }
-  50%  { box-shadow: 0 0 15px 3px #3cf9d4 inset; }
-  75%  { box-shadow: 0 0 15px 3px #5c3cff inset; }
-  100% { box-shadow: 0 0 15px 3px #ff3c3c inset; }
-}
-
-body {
-  animation: borderColorShift 8s infinite;
-  border: 10px solid transparent;
-  box-sizing: border-box;
-}
-
-#topBtn {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 999;
-  background: red;
-  color: white;
-  border: none;
-  font-size: 1rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
-  cursor: pointer;
-  animation: topBtnGlow 8s infinite;
-  box-shadow: 0 0 10px red;
-}
-@keyframes topBtnGlow {
-  0%   { background: #ff3c3c; box-shadow: 0 0 12px #ff3c3c; }
-  25%  { background: #f9d423; box-shadow: 0 0 12px #f9d423; }
-  50%  { background: #3cf9d4; box-shadow: 0 0 12px #3cf9d4; }
-  75%  { background: #5c3cff; box-shadow: 0 0 12px #5c3cff; }
-  100% { background: #ff3c3c; box-shadow: 0 0 12px #ff3c3c; }
-}
-</style><style>
-section {
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 1rem 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-h3 {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #ff3c3c;
-}
-.badge-grid, .testimonial-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-.badge, .testimonial {
-  background: #f8f8f8;
-  padding: 1rem;
-  border-radius: 8px;
-  flex: 1 1 40%;
-  text-align: center;
-  font-weight: 500;
-}
-.faq details {
-  margin: 0.5rem 0;
-}
-.faq summary {
-  font-weight: bold;
-  cursor: pointer;
-}
-.how-it-works ol {
-  padding-left: 1.25rem;
-}
-#liveChatWidget {
-  position: fixed;
-  bottom: 80px;
-  right: 24px;
-  background: #ff3c3c;
-  color: white;
-  padding: 0.75rem 1rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-</style><style>
-.stats-numbers {
-  background: white;
-  text-align: center;
-  padding: 2rem 1rem;
-  border-radius: 16px;
-  margin: 3rem auto;
-  max-width: 800px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-.stats-grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-.stat {
-  flex: 1 1 120px;
-}
-.stat .icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-.stat .value {
-  font-size: 2rem;
-  color: #ff3c3c;
-  font-weight: bold;
-}
-.stat .label {
-  color: #444;
-  font-size: 0.95rem;
-}
-.recently-bought {
-  background: #ffffff;
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-}
-.recent-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0;
-}
-.recent-list li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
-}
-</style><style>
-.splash-overlay {
-  position: fixed;
-  z-index: 9999;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.splash-card {
-  width: 90%;
-  max-width: 420px;
-  padding: 2.5rem 1.5rem;
-  border-radius: 20px;
-  background: #fff;
-  text-align: center;
-}
-.splash-card h1 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #111;
-}
-.splash-card h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin: 1rem 0 2rem;
-}
-.cta-button {
-  background: linear-gradient(to right, #f9d423, #ff3c3c);
-  color: #000;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 0.9rem 1.2rem;
-  width: 100%;
-  border-radius: 999px;
-  border: none;
-  margin-bottom: 1.5rem;
-  cursor: pointer;
-}
-.red-outline-btn {
-  display: block;
-  width: 100%;
-  border: 2px solid red;
-  border-radius: 12px;
-  padding: 0.75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #000;
-  background: #fff;
-  margin-bottom: 0.75rem;
-  cursor: pointer;
-}
-.message-block {
-  margin-top: 2rem;
-  text-align: left;
-  background: #f9f9f9;
-  padding: 1rem;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-}
-.message-block h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-.message-block input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-top: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  font-size: 1rem;
-}
-.message-block button {
-  margin-top: 1rem;
-  width: 100%;
-  background: linear-gradient(to right, #f9d423, #ff3c3c);
-  border: none;
-  color: #000;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 0.9rem;
-  border-radius: 999px;
-  cursor: pointer;
-}
-</style>
-<style>
-  .splash-overlay.fade-out {
-    animation: fadeOut 0.6s forwards;
-  }
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; visibility: hidden; }
-  }
-</style>
+  </style>
 </head>
 <body>
-<div class="splash-overlay" id="welcomeSplash">
-<div class="splash-card">
-<h1>Recarra</h1>
-<h2>Sell Your Car Instantly</h2>
-<button class="main-btn" id="startForm">Get an Offer</button>
-<form action="https://formsubmit.co/your@email.com" id="splashForm" method="POST" style="display:none;">
-<h1>Recarra</h1>
-<h2>Sell Your Car Instantly</h2>
-<button class="cta-button" type="button">Get an Offer</button>
-<button class="red-outline-btn" type="button">Get an Instant Cash Offer</button>
-<button class="red-outline-btn" type="button">Schedule an Inspection</button>
-<button class="red-outline-btn" type="button">Submit Vehicle Details</button>
-<button class="red-outline-btn" type="button">Contact Us</button>
-<div class="message-block">
-<h3>Message from the CEO</h3>
-<input name="name" placeholder="Name" required="" type="text"/>
-<button type="submit">Send</button>
-</div>
-<input name="_captcha" type="hidden" value="false"/>
-<input name="_next" type="hidden" value="https://recarra.com/thank-you"/>
-</form>
-<button class="main-btn secondary" id="skipSplash">Enter Recarra</button>
+  <div class="splash-overlay" id="welcomeSplash">
+    <form class="splash-card" method="POST" action="https://formsubmit.co/your@email.com">
+      <h1>Recarra</h1>
+      <h2>Sell Your Car Instantly</h2>
+      <button class="cta-button" type="button">Get an Offer</button>
+      <button class="red-outline-btn" type="button">Get an Instant Cash Offer</button>
+      <button class="red-outline-btn" type="button">Schedule an Inspection</button>
+      <button class="red-outline-btn" type="button">Submit Vehicle Details</button>
+      <button class="red-outline-btn" type="button">Contact Us</button>
 
-<div style="margin-top: 1rem; text-align: left;">
-<label style="font-size: 0.9rem;">
-<input id="rememberUser" style="margin-right: 0.5rem;" type="checkbox"/>
-    Don't show this again
-  </label>
-</div>
-</div>
-</div>
-<script>
-  const splash = document.getElementById("welcomeSplash");
-  const form = document.getElementById("splashForm");
-  const startBtn = document.getElementById("startForm");
-  const skipBtn = document.getElementById("skipSplash");
+      <div class="message-block">
+        <h3>Message from the CEO</h3>
+        <input type="text" name="name" placeholder="Name" required>
+        <button type="submit" class="send-btn">Send</button>
+      </div>
 
-  // Only disappear if no fields touched
-  let touched = false;
-  document.querySelectorAll(".splash-input").forEach(input => {
-    input.addEventListener("input", () => touched = true);
-  });
+      <div class="remember-toggle">
+        <label>
+          <input type="checkbox" id="rememberUser"> Don’t show this again
+        </label>
+      </div>
 
-  startBtn.onclick = () => {
-    form.style.display = "block";
-    startBtn.style.display = "none";
-  };
-
-  skipBtn.onclick = () => {
-    if (!touched) splash.style.display = "none";
-  };
-
-  form.onsubmit = (e) => {
-    e.preventDefault();
-    splash.style.display = "none"; // simulate submit
-    // You can add backend logic here
-  };
-</script>
-<section class="hero-header highend">
-<div class="hero-logo-row">
-<div class="hero-icon">⚡</div>
-<div class="hero-brand">Recarra</div>
-</div>
-<h2 class="hero-slogan">The AI-Powered Way to<br/>Sell Your Car Instantly</h2>
-<p class="hero-description">
-    We reinvent car selling with smart AI, instant quotes, and human-free offers—
-    designed for speed, trust, and total ease.
-  </p>
-</section>
-<header>
-</header>
-<div style="position: relative; display: inline-block; margin-top: 1rem;">
-<button class="next-button" id="offerToggle">Choose Offer Method</button>
-<div id="offerMenu" style="display: none; position: absolute; top: 110%; left: 0; background: #fff; border: 2px solid #eee; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 999;">
-<ul style="list-style: none; margin: 0; padding: 0;">
-<li><button class="dropdown-item" data-target="form0">AI Recarra Instant Offer</button></li>
-<li><button class="dropdown-item" data-target="form1">License Plate Offer</button></li>
-<li><button class="dropdown-item" data-target="form2">VIN Offer</button></li>
-<li><button class="dropdown-item" data-target="form3">Voice Offer</button></li>
-<li><button class="dropdown-item" data-target="form4">Photo Upload Offer</button></li>
-<li><button class="dropdown-item" data-target="form5">Live Chat Offer</button></li>
-<li><button class="dropdown-item" data-target="form6">Email Offer</button></li>
-<li><button class="dropdown-item" data-target="form7">SMS Text Offer</button></li>
-<li><button class="dropdown-item" data-target="form8">Call Offer</button></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li><button class="dropdown-item" data-target="form13">Scan VIN Offer</button></li>
-<li><button class="dropdown-item" data-target="form14">Manual Entry Offer</button></li>
-<li><button class="dropdown-item" data-target="form15">Full Inspection Offer</button></li>
-</ul>
-</div>
-</div>
-<script>
-      const toggle = document.getElementById("offerToggle");
-      const menu = document.getElementById("offerMenu");
-      toggle.onclick = () => {
-        menu.style.display = menu.style.display === "none" ? "block" : "none";
-      };
-
-      const dropdownItems = document.querySelectorAll(".dropdown-item");
-      const forms = document.querySelectorAll(".form-card");
-      forms.forEach((form, i) => form.id = "form" + i);
-      forms.forEach((form, i) => {
-        if (i !== 0) form.style.display = "none";
-      });
-
-      dropdownItems.forEach(item => {
-        item.onclick = () => {
-          forms.forEach(f => f.style.display = "none");
-          const target = document.getElementById(item.dataset.target);
-          if (target) target.style.display = "block";
-          menu.style.display = "none";
-        };
-      });
-    </script>
-<main>
-<section class="form-card" id="form0">
-<div class="dot-progress">
-<span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">AI Recarra Instant Offer</div>
-<div class="progress"><div class="progress-bar"></div></div>
-<input class="input-field" placeholder="Full Name" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form1" style="display: none;">
-<div class="dot-progress">
-<span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">License Plate Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 25%;"></div></div>
-<input class="input-field" placeholder="License Plate Number" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<!-- Additional forms (14 more) will follow this same format -->
-<section class="form-card" id="form2" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">VIN Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for vin offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form3" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">Voice Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for voice offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form4" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">Photo Upload Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for photo upload offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form5" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">Live Chat Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for live chat offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form6" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">Email Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for email offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form7" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">SMS Text Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for sms text offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form8" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">Call Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for call offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form13" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">Scan VIN Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for scan vin offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form14" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">Manual Entry Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for manual entry offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-<section class="form-card" id="form15" style="display: none;">
-<div class="dot-progress">
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-</div>
-<div class="form-title">Full Inspection Offer</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field" placeholder="Enter details for full inspection offer" type="text"/>
-<button class="next-button">Next</button>
-</section>
-</main>
-<section class="trust-badges">
-<h3>Trusted By Thousands</h3>
-<div class="badge-grid">
-<div class="badge">✔ Licensed &amp; Insured</div>
-<div class="badge">✔ 24/7 Support</div>
-<div class="badge">✔ Instant Payout</div>
-<div class="badge">✔ DMV Verified</div>
-<div class="badge">✔ End-to-End AI</div>
-<div class="badge">✔ 50,000+ Cars Bought</div>
-</div>
-</section>
-<section class="faq-section">
-<h3>Frequently Asked Questions</h3>
-<div class="faq">
-<details><summary>How fast will I get paid?</summary><p>Most customers are paid within 1 hour of accepting the offer.</p></details>
-<details><summary>Can I sell without a title?</summary><p>In most states, yes. We’ll help you navigate the paperwork.</p></details>
-<details><summary>What if my car doesn’t run?</summary><p>No problem — we buy all conditions, including non-running vehicles.</p></details>
-<details><summary>Is Recarra a real company?</summary><p>Yes — and we’re growing rapidly across the U.S. with full licensing.</p></details>
-</div>
-</section>
-<section class="testimonials">
-<h3>What Sellers Are Saying</h3>
-<div class="testimonial-grid">
-<div class="testimonial">“Recarra gave me an offer in minutes and paid me same day!” — Mike D., Houston TX</div>
-<div class="testimonial">“So easy. No calls, no hassle. Just clicked and done.” — Aisha K., Atlanta GA</div>
-<div class="testimonial">“They even helped with the title. Unreal service.” — Jenna L., San Diego CA</div>
-</div>
-</section>
-<section class="how-it-works">
-<h3>How It Works</h3>
-<ol>
-<li>Choose an offer method</li>
-<li>Answer smart questions</li>
-<li>Get your instant offer</li>
-<li>Accept and schedule pickup</li>
-<li>Get paid instantly</li>
-</ol>
-</section>
-<section class="seo-block">
-<h3>Why Recarra?</h3>
-<p>Recarra is the fastest, smartest way to sell your car online. We use AI, secure instant payments, and licensed transport to handle everything. No phone calls, no games. Just offers that make sense — fast.</p>
-</section>
-<div id="liveChatWidget">Need help? Our AI assistant is ready.</div>
-<section class="stats-numbers">
-<h3>Recarra By the Numbers</h3>
-<div class="stats-grid">
-<div class="stat"><div class="icon">🚗</div><div class="value">10,000</div><div class="label">Cars Purchased</div></div>
-<div class="stat"><div class="icon">🏁</div><div class="value">50</div><div class="label">States Served</div></div>
-<div class="stat"><div class="icon">⏰</div><div class="value">24</div><div class="label">Hour Service</div></div>
-</div>
-</section>
-<section class="recently-bought">
-<h3>Recently Bought Vehicles</h3>
-<ul class="recent-list">
-<li>2020 Honda Civic – $6,200 – Phoenix, AZ</li>
-<li>2012 Toyota Camry – $2,800 – Dallas, TX</li>
-<li>2015 Ford F-150 – $9,500 – Atlanta, GA</li>
-<li>2008 BMW 328i – $3,400 – Chicago, IL</li>
-<li>2016 Chevy Malibu – $5,100 – Tampa, FL</li>
-</ul>
-</section>
-<footer>
-    © 2025 Recarra. All rights reserved.
-  </footer>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const toggle = document.getElementById("offerToggle");
-  const menu = document.getElementById("offerMenu");
-  toggle.onclick = () => {
-    menu.style.display = menu.style.display === "none" ? "block" : "none";
-  };
-
-  const dropdownItems = document.querySelectorAll(".dropdown-item");
-  const forms = document.querySelectorAll(".form-card");
-  dropdownItems.forEach(item => {
-    item.onclick = () => {
-      forms.forEach(f => f.style.display = "none");
-      const target = document.getElementById(item.dataset.target);
-      if (target) target.style.display = "block";
-      menu.style.display = "none";
-    };
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const dots = form.querySelectorAll(".dot");
-    const nextBtn = form.querySelector(".next-button");
-    let step = 0;
-    nextBtn.addEventListener("click", () => {
-      if (step < dots.length - 1) {
-        dots[step].classList.remove("active");
-        step++;
-        dots[step].classList.add("active");
-      }
-    });
-  });
-});
-</script>
-<button id="topBtn" title="Back to top">↑ Top</button>
-<script>
-  const topBtn = document.getElementById("topBtn");
-  window.onscroll = function() {
-    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
-  };
-  topBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-</script>
-<audio id="clickSound" preload="auto" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
-<audio id="clickSound" preload="auto" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
-
-
-<audio id="clickSound" preload="auto" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
-<script>
-  // Skip splash if already remembered
-  if (localStorage.getItem("recarraRemember") === "true") {
-    document.getElementById("welcomeSplash").style.display = "none";
-  }
-
-  const clickSound = document.getElementById("clickSound");
-  function playClickAndOpen(formId) {
-    clickSound.play();
-    const splash = document.getElementById("welcomeSplash");
-    const remember = document.getElementById("rememberUser").checked;
-    if (remember) localStorage.setItem("recarraRemember", "true");
-    if (splash) splash.classList.add("fade-out");
-    setTimeout(() => {
-      if (splash) splash.style.display = "none";
-      const form = document.getElementById(formId);
-      if (form) {
-        form.style.display = "block";
-        form.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 600);
-  }
-
-  document.querySelectorAll('.red-outline-btn')[0].onclick = () => playClickAndOpen('form0');
-  document.querySelectorAll('.red-outline-btn')[1].onclick = () => playClickAndOpen('form1');
-  document.querySelectorAll('.red-outline-btn')[2].onclick = () => playClickAndOpen('form14');
-  document.querySelectorAll('.red-outline-btn')[3].onclick = () => playClickAndOpen('form5');
-</script>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://recarra.com/thank-you">
+    </form>
+  </div>
 </body>
 </html>
