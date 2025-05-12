@@ -520,9 +520,184 @@ button {
   margin-top: 1.5rem;
   display: none;
 }
-</style></head>
+</style>
+<style>
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 8px #ff3c3c; }
+  50% { box-shadow: 0 0 24px #f9d423; }
+  100% { box-shadow: 0 0 8px #ff3c3c; }
+}
+
+.thank-you {
+  animation: glowPulse 2s ease-in-out infinite;
+  background: #fff8f0;
+  color: #222;
+  border-radius: 16px;
+  padding: 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(255, 60, 60, 0.2);
+}
+
+#confetti-canvas {
+  position: fixed;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+</style>
+<canvas id="confetti-canvas"></canvas>
+<script>
+function generateUniqueOfferID() {
+  const now = Date.now().toString(); // milliseconds
+  const randomNum = Math.floor(Math.random() * 9000 + 1000); // random 4-digit
+  return 'RC-' + now.slice(-6) + '-' + randomNum;
+}
+</script>
+<style>
+@keyframes fadeInOutLogo {
+  0% { opacity: 0; transform: scale(0.95); }
+  5% { opacity: 1; transform: scale(1); }
+  95% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.95); }
+}
+
+.logo-img {
+  animation: fadeInOutLogo 8888s ease-in-out infinite;
+  transition: transform 1s ease, opacity 1s ease;
+  display: block;
+  margin: 0 auto;
+  max-height: 60px;
+}
+</style>
+<style>
+@keyframes fadeInOutSync {
+  0% { opacity: 0; transform: translateY(-10px); }
+  5% { opacity: 1; transform: translateY(0); }
+  95% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+.hero-title, .main-button, .animated-heading {
+  animation: fadeInOutSync 8888s ease-in-out infinite;
+  transition: all 1.5s ease;
+}
+</style>
+<style>
+body {
+  background: linear-gradient(120deg, #f9f9f9, #fefefe);
+  background-size: 400% 400%;
+  animation: gradientShift 8888s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Scroll-triggered fade-in for trust badges */
+.trust-badge {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.trust-badge.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+<style>
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px rgba(255, 60, 60, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(255, 60, 60, 0.6); }
+  100% { box-shadow: 0 0 10px rgba(255, 60, 60, 0.3); }
+}
+
+#get-offer-now {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+</style>
+<style>
+section.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 2rem auto;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+  max-width: 900px;
+  font-family: 'Segoe UI', sans-serif;
+}
+section.card h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+section.card p, section.card li {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+.icon-box-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 2rem;
+  gap: 2rem;
+  text-align: center;
+}
+.icon-box {
+  width: 40%;
+  min-width: 140px;
+}
+.icon-box img {
+  width: 48px;
+  margin-bottom: 0.5rem;
+}
+.icon-box p {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.trust-numbers {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+.trust-numbers div {
+  text-align: center;
+}
+.trust-numbers div span {
+  display: block;
+  font-size: 2rem;
+  color: #e74c3c;
+  font-weight: bold;
+}
+.cta-button {
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  box-shadow: 0 0 15px rgba(255, 60, 60, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.cta-button:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
 <body>
-<section class="hero-header highend">
+<section class="hero-header highend"><img alt="Recarra Logo" class="logo-img" id="recarra-logo"/>
 <div class="hero-logo-row" style="text-align: left; padding-left: 2rem;">
 </div>
 <h2 class="hero-slogan">
@@ -532,7 +707,7 @@ button {
   Recarra delivers seamless AI-powered offers—no agents, no delays. Just smart value, speed, and full control, all from your screen.
 </p>
 </section>
-<header>
+<header style="text-align:center; padding:3rem 1rem; background: linear-gradient(to right, #ffffff, #fefefe);">
 </header>
 <div style="position: relative; display: inline-block; margin-top: 1rem;">
 <button class="next-button" id="offerToggle">Choose Offer Method</button>
@@ -1479,561 +1654,425 @@ button {
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
 <input class="input-field step-field" data-step="1" placeholder="Name" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Damage description" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section></main>
+<section class="card"><h2>Why Recarra?</h2><p>We pay more, operate faster, and offer 24/7 instant AI-powered deals for every vehicle type.</p></section>
+<section class="card"><h2>How Recarra Buys Your Car</h2><p>Submit your info → We review your vehicle → You accept → We pay instantly and schedule pickup.</p></section>
+<section class="card"><h2>Recarra AI</h2><p>Advanced VIN detection, license plate scanning, voice assistant offers, and dynamic pricing logic give you better deals in seconds.</p></section>
+<section class="card"><h2>Will Your Car Be Reported as Junk?</h2><p>Only with your approval. Recarra provides full transparency and legal assurance for every deal.</p></section>
+<section class="card"><h2>Message from Our CEO</h2><p>Welcome to Recarra — where speed, honesty, and technology redefine how you sell your car. We believe every customer deserves the best.</p>
+<div style="margin-top:2rem;">
+<h3 style="color:#c0392b;">We’d Love to Hear From You</h3>
+<form style="margin-top:1rem;">
+<label for="cust-name">Your Name:</label><br/>
+<input id="cust-name" name="cust-name" required="" style="width:100%;padding:0.6rem;margin-bottom:1rem;" type="text"/><br/>
+<label for="cust-feedback">Your Message:</label><br/>
+<textarea id="cust-feedback" name="cust-feedback" required="" rows="4" style="width:100%;padding:0.6rem;margin-bottom:1rem;"></textarea><br/>
+<button class="cta-button" type="submit">Send Feedback</button>
+</form>
+</div>
+</section>
+<section class="card"><h2>Recarra by the Numbers</h2><p>10,000+ offers processed, 98% satisfaction, $Millions paid out — and growing every day.</p></section>
+<section class="card"><h2>Get to Know Recarra Online Auction</h2><p>Explore Recarrabids.com — our platform where vehicles are auctioned to the highest bidder instantly, with verified buyers.</p></section>
+<section class="card"><h2>Recarra Drives</h2><p>We care. Recarra funds clean transport, recycling incentives, and vehicle donation programs that support real families.</p></section>
+<section class="card"><h2>Trust &amp; Assurance</h2><p>Licensed. DMV-Verified. Fully insured. Transparent offers. Instant payouts. Recarra is built for confidence.</p></section>
+<!-- EXPANDABLE FAQ SECTION --><section class="card" id="faq">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<button class="faq-question">How fast do I get paid? <span class="arrow">▼</span></button>
+<div class="faq-answer">Most customers receive payment the same day the offer is accepted.</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Do I need a title? <span class="arrow">▼</span></button>
+<div class="faq-answer">Not always. If you don’t have a title, we’ll help you with the paperwork.</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Can I sell a non-running or junk car? <span class="arrow">▼</span></button>
+<div class="faq-answer">Yes. Recarra buys vehicles in any condition — whether running, totaled, or salvaged.</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Is pickup really free? <span class="arrow">▼</span></button>
+<div class="faq-answer">Yes, all pickups are included and completely free of charge, no hidden fees.</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">How is my car's offer determined? <span class="arrow">▼</span></button>
+<div class="faq-answer">AI compares your VIN, condition, demand, and market prices to offer the best value.</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">What paperwork do I need to sell my car? <span class="arrow">▼</span></button>
+<div class="faq-answer">Usually a title and ID. We can assist if anything is missing or lost.</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Can I sell my car with a loan or lien? <span class="arrow">▼</span></button>
+<div class="faq-answer">Yes. We'll help pay off the remaining balance and process the transfer correctly.</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Will I get paid before or after the car is picked up? <span class="arrow">▼</span></button>
+<div class="faq-answer">Most customers receive payment instantly at pickup or digitally right before.</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">Do I need to bring the car anywhere? <span class="arrow">▼</span></button>
+<div class="faq-answer">No. We schedule pickup at your convenience — home, work, or anywhere.</div>
+</div>
+<div class="faq-item">
+<button class="faq-question">What if I change my mind after accepting the offer? <span class="arrow">▼</span></button>
+<div class="faq-answer">No problem. You can cancel any time before pickup with no penalty.</div>
+</div>
+</section>
+<style>
+.faq-item {
+  margin-bottom: 1rem;
+}
+.faq-question {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background: #fff0ec;
+  border: 2px solid #f9d423;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #e74c3c;
+  text-align: left;
+  position: relative;
+}
+.faq-question .arrow {
+  float: right;
+  transition: transform 0.3s ease;
+}
+.faq-answer {
+  display: none;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1rem;
+  background: #fefefe;
+  border-left: 3px solid #f9d423;
+  border-radius: 0 0 12px 12px;
+  color: #444;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+      const answer = button.nextElementSibling;
+      const arrow = button.querySelector(".arrow");
+      const isVisible = answer.style.display === "block";
+      document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
+      document.querySelectorAll(".faq-question .arrow").forEach(a => a.style.transform = "rotate(0deg)");
+      if (!isVisible) {
+        answer.style.display = "block";
+        arrow.style.transform = "rotate(180deg)";
+      }
+    });
+  });
+});
+</script>
 <footer>
     © 2025 Recarra. All rights reserved.
   </footer>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const toggle = document.getElementById("offerToggle");
-  const menu = document.getElementById("offerMenu");
-  toggle.onclick = () => {
-    menu.style.display = menu.style.display === "none" ? "block" : "none";
-  };
+function launchConfetti() {
+  const duration = 2 * 1000;
+  const animationEnd = Date.now() + duration;
+  const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
 
-  const dropdownItems = document.querySelectorAll(".dropdown-item");
-  const forms = document.querySelectorAll(".form-card");
-  dropdownItems.forEach(item => {
-    item.onclick = () => {
-      forms.forEach(f => f.style.display = "none");
-      const target = document.getElementById(item.dataset.target);
-      if (target) target.style.display = "block";
-      menu.style.display = "none";
-    };
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const dots = form.querySelectorAll(".dot");
-    const nextBtn = form.querySelector(".next-button");
-    let step = 0;
-    nextBtn.addEventListener("click", () => {
-      if (step < dots.length - 1) {
-        dots[step].classList.remove("active");
-        step++;
-        dots[step].classList.add("active");
-      }
-    });
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const logoImages = [
-    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-darkblue-safe-v2.png",
-    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-gold-safe-v2.png",
-    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-silver-safe-v2.png",
-    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-carbon-safe-v2.png"
-  ];
-  const logoElement = document.getElementById("recarraLogo");
-  let current = 0;
-  setInterval(() => {
-    current = (current + 1) % logoImages.length;
-    logoElement.src = logoImages[current];
-  }, 8888000); // rotate every 8888 seconds
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector(".hero-header");
-  const images = [
-    "6162E5B0-D519-4D70-BCE7-4A212BD2B1E9.jpeg",
-    "AF70B9DF-F7F6-4CBE-8090-1FE75C8B31A5.jpeg"
-  ].map(img => `./${img}`);
-  let i = 0;
-  function changeHeaderBackground() {
-    header.style.backgroundImage = `url('${images[i]}')`;
-    i = (i + 1) % images.length;
+  function randomInRange(min, max) {
+    return Math.random() * (max - min) + min;
   }
-  changeHeaderBackground();
-  setInterval(changeHeaderBackground, 888000); // every 888 seconds
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
+
+  const interval = setInterval(() => {
+    const timeLeft = animationEnd - Date.now();
+
+    if (timeLeft <= 0) {
+      return clearInterval(interval);
+    }
+
+    const particleCount = 50 * (timeLeft / duration);
+    confetti(Object.assign({}, defaults, {
+      particleCount,
+      origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 }
+    }));
+  }, 250);
+}
+</script>
+<script>
+const tikSound = new Audio("https://www.myinstants.com/media/sounds/mouse-click.mp3");
+const doneSound = new Audio("https://www.myinstants.com/media/sounds/notification.mp3");
+
+function speak(text) {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.pitch = 1;
+    utterance.rate = 1;
+    window.speechSynthesis.speak(utterance);
+  }
+}
+
+function resetFormStates() {
   document.querySelectorAll(".form-card").forEach(form => {
-    const steps = form.querySelectorAll(".step-field");
-    const submitBtn = form.querySelector(".submit-button");
+    const stepFields = form.querySelectorAll(".step-field");
+    const dots = form.querySelectorAll(".dot");
+    const progressBar = form.querySelector(".progress-bar");
     const thankYou = form.querySelector(".thank-you");
+    const nextBtn = form.querySelector(".next-button.submit-button");
+
+    stepFields.forEach((field, i) => {
+      field.style.display = i === 0 ? "block" : "none";
+    });
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === 0));
+    if (progressBar) progressBar.style.width = `${100 / stepFields.length}%`;
+
+    if (nextBtn) {
+      nextBtn.textContent = "Submit Offer";
+      nextBtn.disabled = false;
+      nextBtn.style.background = "linear-gradient(to right, #ff3c3c, #f9d423)";
+      nextBtn.style.display = "block";
+    }
+    if (thankYou) {
+      thankYou.style.display = "none";
+      thankYou.textContent = "";
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuItems = document.querySelectorAll(".dropdown-item");
+  menuItems.forEach(item => {
+    item.addEventListener("click", () => {
+      setTimeout(() => resetFormStates(), 300);
+    });
+  });
+
+  document.querySelectorAll(".form-card").forEach(form => {
     let currentStep = 0;
-
-    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
-
-    function updateButtons(container, step) {
-      container.innerHTML = "";
-
-      if (step > 0) {
-        const prev = document.createElement("button");
-        prev.textContent = "Previous";
-        prev.className = "prev-button";
-        prev.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
-          currentStep--;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-        };
-        container.appendChild(prev);
-      }
-
-      if (step < steps.length - 1) {
-        const next = document.createElement("button");
-        next.textContent = "Next";
-        next.className = "next-button";
-        next.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
-          currentStep++;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-        };
-        container.appendChild(next);
-      }
-
-      if (step === steps.length - 1) {
-        submitBtn.style.display = "inline-block";
-      } else {
-        submitBtn.style.display = "none";
-      }
-
-      const quit = document.createElement("button");
-      quit.textContent = "Quit";
-      quit.className = "quit-button";
-      quit.onclick = e => {
-        e.preventDefault();
-        if (confirm("Are you sure you want to quit this form?")) {
-          form.querySelectorAll(".step-field").forEach(f => f.style.display = "none");
-          container.innerHTML = "";
-          submitBtn.style.display = "none";
-          thankYou.style.display = "none";
-          currentStep = 0;
-          steps[0].style.display = "block";
-          updateButtons(container, 0);
-        }
-      };
-      container.appendChild(quit);
-    }
-
-    const nav = document.createElement("div");
-    nav.className = "step-nav";
-    form.appendChild(nav);
-    updateButtons(nav, currentStep);
-
-    if (submitBtn) {
-      submitBtn.addEventListener("click", function () {
-        const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
-        thankYou.textContent = "Thank you! Your Offer ID is: " + id;
-        thankYou.style.display = "block";
-        submitBtn.style.display = "none";
-        nav.innerHTML = "";
-      });
-    }
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const steps = form.querySelectorAll(".step-field");
-    const submitBtn = form.querySelector(".submit-button");
-    let thankYou = form.querySelector(".thank-you");
-
-    if (!thankYou) {
-      thankYou = document.createElement("div");
-      thankYou.className = "thank-you reviewing-screen";
-      thankYou.innerHTML = `
-        <h3>Thank you for submitting your vehicle info!</h3>
-        <p class="reviewing-dots">Our AI is reviewing your details<span></span></p>
-        <p class="small-note">Final offer will be confirmed shortly after reviewing your ownership, condition, and documents.</p>
-        <p><strong>Your Offer ID:</strong> RC-${Math.floor(100000 + Math.random() * 900000)}</p>
-      `;
-      form.appendChild(thankYou);
-    }
-
-    if (submitBtn) {
-      submitBtn.addEventListener("click", function () {
-        steps.forEach(s => s.style.display = "none");
-        submitBtn.style.display = "none";
-        const nav = form.querySelector(".step-nav");
-        if (nav) nav.innerHTML = "";
-        thankYou.style.display = "block";
-      });
-    }
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const steps = form.querySelectorAll(".step-field");
-    const submitBtn = form.querySelector(".submit-button");
+    const stepFields = form.querySelectorAll(".step-field");
+    const dots = form.querySelectorAll(".dot");
+    const progressBar = form.querySelector(".progress-bar");
+    const nextBtn = form.querySelector(".next-button.submit-button");
     const thankYou = form.querySelector(".thank-you");
-    let currentStep = 0;
 
-    // Create and insert dots
-    const dotWrap = document.createElement("div");
-    dotWrap.className = "step-dots";
-    steps.forEach(() => {
-      const dot = document.createElement("span");
-      dotWrap.appendChild(dot);
+    stepFields.forEach((field, i) => {
+      field.style.display = i === 0 ? "block" : "none";
     });
-    form.insertBefore(dotWrap, steps[0]);
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === 0));
+    if (progressBar) progressBar.style.width = `${100 / stepFields.length}%`;
+    if (nextBtn) nextBtn.style.display = "block";
 
-    function updateDots() {
-      dotWrap.querySelectorAll("span").forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentStep);
-      });
-    }
-
-    function updateButtons(container, step) {
-      container.innerHTML = "";
-      updateDots();
-
-      if (step > 0) {
-        const prev = document.createElement("button");
-        prev.textContent = "Previous";
-        prev.className = "prev-button";
-        prev.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
-          currentStep--;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-        };
-        container.appendChild(prev);
-      }
-
-      if (step < steps.length - 1) {
-        const next = document.createElement("button");
-        next.textContent = "Next";
-        next.className = "next-button";
-        next.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
+    if (nextBtn) {
+      nextBtn.onclick = () => {
+        tikSound.play();
+        if (currentStep < stepFields.length - 1) {
+          stepFields[currentStep].style.display = "none";
           currentStep++;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-        };
-        container.appendChild(next);
-      }
+          stepFields[currentStep].style.display = "block";
+          form.scrollIntoView({ behavior: "smooth" });
 
-      if (step === steps.length - 1) {
-        submitBtn.style.display = "inline-block";
-      } else {
-        submitBtn.style.display = "none";
-      }
-
-      const quit = document.createElement("button");
-      quit.textContent = "Quit";
-      quit.className = "quit-button";
-      quit.onclick = e => {
-        e.preventDefault();
-        if (confirm("Are you sure you want to quit this form?")) {
-          steps.forEach(f => f.style.display = "none");
-          container.innerHTML = "";
-          submitBtn.style.display = "none";
-          thankYou.style.display = "none";
-          currentStep = 0;
-          steps[0].style.display = "block";
-          updateButtons(container, 0);
+          dots.forEach((dot, i) => dot.classList.toggle("active", i === currentStep));
+          if (progressBar) {
+            const percent = ((currentStep + 1) / stepFields.length) * 100;
+            progressBar.style.width = `${percent}%`;
+          }
+        } else {
+          nextBtn.textContent = "Done";
+          nextBtn.disabled = true;
+          nextBtn.style.background = "linear-gradient(to right, #4caf50, #81c784)";
+          doneSound.play();
+          speak("Your offer has been submitted successfully.");
+          launchConfetti();
+          if (thankYou) {
+            const offerId = generateUniqueOfferID();
+            thankYou.textContent = "Thank you! Your Offer ID is: " + offerId;
+            thankYou.style.display = "block";
+          }
+          form.scrollIntoView({ behavior: "smooth" });
         }
       };
-      container.appendChild(quit);
-    }
-
-    const nav = document.createElement("div");
-    nav.className = "step-nav";
-    form.appendChild(nav);
-
-    steps.forEach((step, index) => {
-      step.style.display = index === 0 ? "block" : "none";
-    });
-
-    updateButtons(nav, currentStep);
-
-    if (submitBtn) {
-      submitBtn.addEventListener("click", function () {
-        steps.forEach(s => s.style.display = "none");
-        submitBtn.style.display = "none";
-        nav.innerHTML = "";
-        if (thankYou) {
-          thankYou.style.display = "block";
-        }
-      });
     }
   });
 });
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const steps = form.querySelectorAll(".step-field");
-    const submitBtn = form.querySelector(".submit-button");
-    let thankYou = form.querySelector(".thank-you");
+</script>
+<style>
+.logo-img {
+  max-height: 60px;
+  transition: opacity 0.5s ease;
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const logo = document.getElementById("recarra-logo");
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (!thankYou) {
-      thankYou = document.createElement("div");
-      thankYou.className = "thank-you reviewing-screen";
-      thankYou.innerHTML = `
-        <h3>Thank you for submitting your vehicle info!</h3>
-        <p class="reviewing-dots">Our AI is reviewing your details<span></span></p>
-        <p><strong>Your Offer ID:</strong> RC-${Math.floor(100000 + Math.random() * 900000)}</p>
-        <p><small>Submitted: ${new Date().toLocaleString()}</small></p>
-        <div class="confirm-options">
-          <button>Text Me My Offer</button>
-          <button>Schedule Pickup</button>
-          <button>Submit Another Car</button>
-        </div>
-      `;
-      form.appendChild(thankYou);
-    }
+  // Default to dark theme check, but could be extended
+  if (prefersDark) {
+    logo.src = "icons/recarra-logo-gold-safe-v2.png";
+  } else {
+    logo.src = "icons/recarra-logo-silver-safe-v2.png";
+  }
 
-    const nav = form.querySelector(".step-nav");
-    const dots = form.querySelectorAll(".step-dots span");
-    let currentStep = 0;
-
-    function updateDots() {
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentStep);
-      });
-    }
-
-    function scrollIntoViewIfNeeded(el) {
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-
-    function updateButtons(container, step) {
-      container.innerHTML = "";
-      updateDots();
-
-      if (step > 0) {
-        const prev = document.createElement("button");
-        prev.className = "prev-button";
-        prev.textContent = "Previous";
-        prev.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
-          currentStep--;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-          scrollIntoViewIfNeeded(steps[currentStep]);
-        };
-        container.appendChild(prev);
-      }
-
-      if (step < steps.length - 1) {
-        const next = document.createElement("button");
-        next.className = "next-button";
-        next.textContent = "Next";
-        next.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
-          currentStep++;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-          scrollIntoViewIfNeeded(steps[currentStep]);
-        };
-        container.appendChild(next);
-      }
-
-      if (step === steps.length - 1) {
-        submitBtn.style.display = "inline-block";
-      } else {
-        submitBtn.style.display = "none";
-      }
-
-      const quit = document.createElement("button");
-      quit.textContent = "Quit";
-      quit.className = "quit-button";
-      quit.onclick = e => {
-        e.preventDefault();
-        if (confirm("Are you sure you want to quit this form?")) {
-          steps.forEach(f => f.style.display = "none");
-          submitBtn.style.display = "none";
-          thankYou.style.display = "none";
-          currentStep = 0;
-          steps[0].style.display = "block";
-          updateButtons(container, 0);
-          scrollIntoViewIfNeeded(steps[0]);
-        }
-      };
-      container.appendChild(quit);
-    }
-
-    const dotsContainer = form.querySelector(".step-dots");
-    const nav = form.querySelector(".step-nav");
-
-    if (steps.length && dotsContainer && nav) {
-      steps.forEach((step, index) => {
-        step.style.display = index === 0 ? "block" : "none";
-      });
-      updateButtons(nav, currentStep);
-    }
-
-    if (submitBtn) {
-      submitBtn.addEventListener("click", function () {
-        steps.forEach(s => s.style.display = "none");
-        submitBtn.style.display = "none";
-        nav.innerHTML = "";
-        if (thankYou) {
-          thankYou.style.display = "block";
-          scrollIntoViewIfNeeded(thankYou);
-        }
-      });
+  // Optional: toggle logo dynamically if background changes
+  // Example listener for theme toggle:
+  const observer = new MutationObserver(() => {
+    const bg = getComputedStyle(document.body).backgroundColor;
+    if (bg.includes("0, 0, 0") || bg.includes("33, 33, 33")) {
+      logo.src = "icons/recarra-logo-gold-safe-v2.png";
+    } else {
+      logo.src = "icons/recarra-logo-silver-safe-v2.png";
     }
   });
+
+  observer.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
 });
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const makeByYear = {
-    "2020": ["Toyota", "Ford", "BMW"],
-    "2021": ["Toyota", "Ford", "BMW", "Chevrolet"],
-    "2022": ["Tesla", "Toyota", "Ford"],
-    "2023": ["Tesla", "Hyundai", "Kia", "Nissan"],
-    "2024": ["Toyota", "Hyundai", "Ford", "Chevrolet"],
-  };
-
-  const modelsByMake = {
-    "Toyota": ["Camry", "Corolla", "Prius", "Highlander"],
-    "Ford": ["F-150", "Escape", "Mustang"],
-    "BMW": ["3 Series", "X5", "M4"],
-    "Chevrolet": ["Malibu", "Tahoe", "Silverado"],
-    "Tesla": ["Model 3", "Model S", "Model Y"],
-    "Hyundai": ["Elantra", "Santa Fe", "Ioniq"],
-    "Kia": ["Soul", "Sportage", "Telluride"],
-    "Nissan": ["Altima", "Rogue", "Leaf"]
-  };
-
-  const yearSelect = document.getElementById("car-year");
-  const makeSelect = document.getElementById("car-make");
-  const modelSelect = document.getElementById("car-model");
-
-  yearSelect?.addEventListener("change", function () {
-    const selectedYear = yearSelect.value;
-    makeSelect.innerHTML = "<option value=''>Choose Make</option>";
-    modelSelect.innerHTML = "<option value=''>Choose Model</option>";
-    const makes = makeByYear[selectedYear] || [];
-    makes.forEach(make => {
-      const option = document.createElement("option");
-      option.value = make;
-      option.textContent = make;
-      makeSelect.appendChild(option);
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
     });
-  });
+  }, { threshold: 0.1 });
 
-  makeSelect?.addEventListener("change", function () {
-    const selectedMake = makeSelect.value;
-    modelSelect.innerHTML = "<option value=''>Choose Model</option>";
-    const models = modelsByMake[selectedMake] || [];
-    models.forEach(model => {
-      const option = document.createElement("option");
-      option.value = model;
-      option.textContent = model;
-      modelSelect.appendChild(option);
-    });
-  });
+  document.querySelectorAll(".trust-badge").forEach(el => observer.observe(el));
 });
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const steps = form.querySelectorAll(".step-field");
-    const submitBtn = form.querySelector(".submit-button");
-    let thankYou = form.querySelector(".thank-you");
-    let currentStep = 0;
+</script>
+<style>
+#get-offer-now {
+  display: block;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
+  transition: transform 0.3s ease;
+}
 
-    // Setup dot indicators
-    const dotWrap = document.createElement("div");
-    dotWrap.className = "step-dots";
-    steps.forEach(() => {
-      const dot = document.createElement("span");
-      dotWrap.appendChild(dot);
+#get-offer-now:hover {
+  transform: scale(1.05);
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const offerForms = document.querySelectorAll(".form-card");
+  const offerButton = document.getElementById("get-offer-now");
+
+  if (offerButton && offerForms.length > 0) {
+    offerButton.addEventListener("click", () => {
+      const randomForm = offerForms[Math.floor(Math.random() * offerForms.length)];
+      offerForms.forEach(f => f.style.display = "none");
+      randomForm.style.display = "block";
+      randomForm.scrollIntoView({ behavior: "smooth" });
     });
-    form.insertBefore(dotWrap, steps[0]);
-
-    function updateDots() {
-      dotWrap.querySelectorAll("span").forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentStep);
-      });
-    }
-
-    function scrollIntoViewIfNeeded(el) {
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-
-    function updateButtons(container, step) {
-      container.innerHTML = "";
-      updateDots();
-
-      if (step > 0) {
-        const prev = document.createElement("button");
-        prev.textContent = "Previous";
-        prev.className = "prev-button";
-        prev.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
-          currentStep--;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-          scrollIntoViewIfNeeded(steps[currentStep]);
-        };
-        container.appendChild(prev);
-      }
-
-      if (step < steps.length - 1) {
-        const next = document.createElement("button");
-        next.textContent = "Next";
-        next.className = "next-button";
-        next.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
-          currentStep++;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-          scrollIntoViewIfNeeded(steps[currentStep]);
-        };
-        container.appendChild(next);
-      }
-
-      if (step === steps.length - 1 && submitBtn) {
-        submitBtn.style.display = "inline-block";
-      } else if (submitBtn) {
-        submitBtn.style.display = "none";
-      }
-
-      const quit = document.createElement("button");
-      quit.textContent = "Quit";
-      quit.className = "quit-button";
-      quit.onclick = e => {
-        e.preventDefault();
-        if (confirm("Are you sure you want to quit this form?")) {
-          steps.forEach(f => f.style.display = "none");
-          currentStep = 0;
-          steps[0].style.display = "block";
-          updateButtons(container, 0);
-          scrollIntoViewIfNeeded(steps[0]);
-          if (submitBtn) submitBtn.style.display = "none";
-          if (thankYou) thankYou.style.display = "none";
-        }
-      };
-      container.appendChild(quit);
-    }
-
-    const nav = document.createElement("div");
-    nav.className = "step-nav";
-    form.appendChild(nav);
-
-    steps.forEach((step, i) => {
-      step.style.display = i === 0 ? "block" : "none";
-    });
-
-    updateButtons(nav, currentStep);
-
-    if (submitBtn) {
-      submitBtn.addEventListener("click", function () {
-        steps.forEach(s => s.style.display = "none");
-        submitBtn.style.display = "none";
-        nav.innerHTML = "";
-        if (thankYou) {
-          thankYou.style.display = "block";
-          scrollIntoViewIfNeeded(thankYou);
-        }
-      });
-    }
-  });
+  }
 });
-</script></body>
+</script>
+<button id="floating-offer-btn">Get Instant Cash Offer Now</button>
+<style>
+#floating-offer-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+  padding: 1rem 1.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  animation: pulseGlow 5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
+  transition: transform 0.3s ease;
+}
+#floating-offer-btn:hover {
+  transform: scale(1.08);
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const forms = document.querySelectorAll(".form-card");
+  const btn = document.getElementById("floating-offer-btn");
+
+  if (btn && forms.length > 0) {
+    btn.addEventListener("click", () => {
+      const randomForm = forms[Math.floor(Math.random() * forms.length)];
+      forms.forEach(f => f.style.display = "none");
+      randomForm.style.display = "block";
+      randomForm.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+});
+</script>
+<button id="top-button">↑ Top</button>
+<style>
+#top-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10000;
+  padding: 1rem 1.6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+#top-button:hover {
+  transform: scale(1.08);
+}
+
+#floating-offer-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+  padding: 1rem 1.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  animation: pulseGlow 5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
+  transition: transform 0.3s ease;
+}
+#floating-offer-btn:hover {
+  transform: scale(1.08);
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Offer Button Logic
+  const forms = document.querySelectorAll(".form-card");
+  const offerBtn = document.getElementById("floating-offer-btn");
+  if (offerBtn && forms.length > 0) {
+    offerBtn.addEventListener("click", () => {
+      const randomForm = forms[Math.floor(Math.random() * forms.length)];
+      forms.forEach(f => f.style.display = "none");
+      randomForm.style.display = "block";
+      randomForm.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  // Scroll to top logic
+  const topBtn = document.getElementById("top-button");
+  if (topBtn) {
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});
+</script>
+</body>
 </html>
