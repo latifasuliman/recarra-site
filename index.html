@@ -295,18 +295,11 @@ body {
   color: white;
   border-bottom: none;
 }
-</style><style>
-.hero-header {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: background-image 2s ease-in-out;
-}
 </style></head>
 <body>
 <section class="hero-header highend">
 <div class="hero-logo-row" style="text-align: left; padding-left: 2rem;">
-
+<img alt="Recarra Logo" id="recarraLogo" src="https://raw.githubusercontent.com/latifasuliman/recarra-site/main/assets/recarra-logo-darkblue-safe.png" style="height: 80px; max-width: 320px;"/>
 </div>
 <h2 class="hero-slogan">
   The Intelligent, Instant Way to Sell Your Car
@@ -517,11 +510,51 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script><script>
 document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const steps = form.querySelectorAll(".step-field");
+    const submitBtn = form.querySelector(".submit-button");
+    const thankYou = form.querySelector(".thank-you");
+    let currentStep = 0;
+
+    steps[currentStep].style.display = "block";
+
+    const nextButton = form.querySelector(".next-button:not(.submit-button)");
+    if (nextButton) {
+      nextButton.remove();
+    }
+
+    steps.forEach((input, i) => {
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          if (i < steps.length - 1) {
+            steps[i].style.display = "none";
+            steps[i + 1].style.display = "block";
+          } else {
+            steps[i].style.display = "none";
+            submitBtn.style.display = "inline-block";
+          }
+        }
+      });
+    });
+
+    if (submitBtn) {
+      submitBtn.addEventListener("click", function () {
+        const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
+        thankYou.textContent = "Thank you! Your Offer ID is: " + id;
+        submitBtn.style.display = "none";
+        thankYou.style.display = "block";
+      });
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
   const logoImages = [
-    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-darkblue-safe-v2.png",
-    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-gold-safe-v2.png",
-    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-silver-safe-v2.png",
-    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-carbon-safe-v2.png"
+    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/assets/recarra-logo-darkblue-safe.png",
+    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/assets/recarra-logo-gold-safe.png",
+    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/assets/recarra-logo-silver-safe.png",
+    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/assets/recarra-logo-carbon-safe.png"
   ];
   const logoElement = document.getElementById("recarraLogo");
   let current = 0;
@@ -529,148 +562,6 @@ document.addEventListener("DOMContentLoaded", function () {
     current = (current + 1) % logoImages.length;
     logoElement.src = logoImages[current];
   }, 8888000); // rotate every 8888 seconds
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const steps = form.querySelectorAll(".step-field");
-    const submitBtn = form.querySelector(".submit-button");
-    const thankYou = form.querySelector(".thank-you");
-
-    let currentStep = 0;
-    steps.forEach((step, index) => {
-      step.style.display = index === 0 ? "block" : "none";
-    });
-
-    function showNextStep() {
-      if (currentStep < steps.length - 1) {
-        steps[currentStep].style.display = "none";
-        currentStep++;
-        steps[currentStep].style.display = "block";
-      } else {
-        steps[currentStep].style.display = "none";
-        submitBtn.style.display = "inline-block";
-      }
-    }
-
-    // Create and insert Next buttons after each input
-    steps.forEach((input, i) => {
-      const nextBtn = document.createElement("button");
-      nextBtn.className = "next-button";
-      nextBtn.textContent = "Next";
-      nextBtn.style.marginTop = "0.5rem";
-      nextBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-        showNextStep();
-      });
-      input.insertAdjacentElement("afterend", nextBtn);
-    });
-
-    if (submitBtn) {
-      submitBtn.addEventListener("click", function () {
-        const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
-        thankYou.textContent = "Thank you! Your Offer ID is: " + id;
-        submitBtn.style.display = "none";
-        thankYou.style.display = "block";
-      });
-    }
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector(".hero-header");
-  const images = [
-    "6162E5B0-D519-4D70-BCE7-4A212BD2B1E9.jpeg",
-    "AF70B9DF-F7F6-4CBE-8090-1FE75C8B31A5.jpeg"
-  ].map(img => `./${img}`);
-  let i = 0;
-  function changeHeaderBackground() {
-    header.style.backgroundImage = `url('${images[i]}')`;
-    i = (i + 1) % images.length;
-  }
-  changeHeaderBackground();
-  setInterval(changeHeaderBackground, 888000); // every 888 seconds
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const steps = form.querySelectorAll(".step-field");
-    const submitBtn = form.querySelector(".submit-button");
-    const thankYou = form.querySelector(".thank-you");
-    let currentStep = 0;
-
-    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
-
-    function updateButtons(container, step) {
-      container.innerHTML = "";
-
-      if (step > 0) {
-        const prev = document.createElement("button");
-        prev.textContent = "Previous";
-        prev.className = "prev-button";
-        prev.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
-          currentStep--;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-        };
-        container.appendChild(prev);
-      }
-
-      if (step < steps.length - 1) {
-        const next = document.createElement("button");
-        next.textContent = "Next";
-        next.className = "next-button";
-        next.onclick = e => {
-          e.preventDefault();
-          steps[step].style.display = "none";
-          currentStep++;
-          steps[currentStep].style.display = "block";
-          updateButtons(container, currentStep);
-        };
-        container.appendChild(next);
-      }
-
-      if (step === steps.length - 1) {
-        submitBtn.style.display = "inline-block";
-      } else {
-        submitBtn.style.display = "none";
-      }
-
-      const quit = document.createElement("button");
-      quit.textContent = "Quit";
-      quit.className = "quit-button";
-      quit.onclick = e => {
-        e.preventDefault();
-        if (confirm("Are you sure you want to quit this form?")) {
-          form.querySelectorAll(".step-field").forEach(f => f.style.display = "none");
-          container.innerHTML = "";
-          submitBtn.style.display = "none";
-          thankYou.style.display = "none";
-          currentStep = 0;
-          steps[0].style.display = "block";
-          updateButtons(container, 0);
-        }
-      };
-      container.appendChild(quit);
-    }
-
-    const nav = document.createElement("div");
-    nav.className = "step-nav";
-    form.appendChild(nav);
-    updateButtons(nav, currentStep);
-
-    if (submitBtn) {
-      submitBtn.addEventListener("click", function () {
-        const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
-        thankYou.textContent = "Thank you! Your Offer ID is: " + id;
-        thankYou.style.display = "block";
-        submitBtn.style.display = "none";
-        nav.innerHTML = "";
-      });
-    }
-  });
 });
 </script></body>
 </html>
