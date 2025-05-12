@@ -1621,6 +1621,32 @@ body.dim-mode .section-title {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
+@media (max-width: 768px) {
+  #smartMenuDropdown {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    z-index: 999;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  #smartMenuDropdown button {
+    width: 100%;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  #chooseOfferBtn {
+    display: block;
+    margin: auto;
+    width: 90%;
+    font-size: 1.1rem;
+  }
+}
 </style>
 <link href="/manifest.json" rel="manifest"/>
 <meta content="#ff4e50" name="theme-color"/>
@@ -2146,7 +2172,7 @@ window.addEventListener("load", () => {
 <button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
 <button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
 </nav>
-<header><div id="recarra-logo">Recarra</div>
+<header><div id="recarra-logo" style="font-size: 2.5rem; font-weight: 800; color: white; text-shadow: 1px 1px 2px #000; margin-bottom: 0.5rem;">Recarra</div>
 <h1>Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
   An end-to-end, AI-powered car buying platform.
@@ -2159,7 +2185,6 @@ window.addEventListener("load", () => {
   </a>
 </div>
 </header>
-<button class="choose-offer-button" id="chooseOfferBtn">Choose Offer Method</button>
 
 <!-- Recarra Full Form Section -->
 <section class="section-block fade-in-section" id="recarraForm" style="max-width: 720px; margin: 3rem auto; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);">
@@ -4931,6 +4956,33 @@ function closeForm() {
     window.scrollTo(0, form.offsetTop);
   }
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const allForms = [
+    'ai_offer', 'chat', 'voice', 'photo', 'video',
+    'email', 'vin', 'plate', 'agent', 'recarra_full_form'
+  ];
+
+  function hideAllForms() {
+    allForms.forEach(id => {
+      const form = document.getElementById(id + '-form');
+      if (form) form.style.display = 'none';
+    });
+  }
+
+  window.openForm = function(formId) {
+    hideAllForms();
+    const form = document.getElementById(formId + '-form');
+    if (form) form.style.display = 'block';
+  }
+
+  hideAllForms();  // Hide all on page load
+  const defaultForm = document.getElementById('recarra_full_form-form');
+  if (defaultForm) defaultForm.style.display = 'block';
+});
+</script>
+
 </body>
 </html>
 <script>
