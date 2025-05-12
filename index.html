@@ -1647,6 +1647,42 @@ body.dim-mode .section-title {
     font-size: 1.1rem;
   }
 }
+
+
+#smartMenuDropdown {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+#smartMenuDropdown.show {
+  max-height: 500px;
+  opacity: 1;
+}
+
+
+.form-drawer {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  display: none;
+}
+.form-drawer.active {
+  display: block !important;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 <link href="/manifest.json" rel="manifest"/>
 <meta content="#ff4e50" name="theme-color"/>
@@ -1703,7 +1739,36 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </head>
-<body><button id="smartMenuToggle" style="position: fixed; top: 20px; left: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="openForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="openForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="openForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="openForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="openForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="openForm('email')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Email</button><button class="dropdown-option" onclick="openForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="openForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="openForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="openForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Recarra Instant Offer</button></div><div id="formDisplayArea" style="margin: 2rem auto; max-width: 720px; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<body>
+
+<section style="max-width: 720px; margin: 4rem auto; padding: 2.5rem 1.5rem; background: #fff; border-radius: 20px; box-shadow: 0 6px 24px rgba(0,0,0,0.06); text-align: center;">
+<h2 style="font-size: 2.25rem; font-weight: 900; color: #111; margin-bottom: 0.75rem;">
+<span style="color: #ff4e50;">⚡</span> Ready to Sell Your Car?
+  </h2>
+<p style="font-size: 1.1rem; font-weight: 500; color: #444; margin-bottom: 2rem;">
+    Get a real offer with no pressure. Use <strong>Photo</strong>, <strong>Chat</strong>, <strong>Call</strong>, or <strong>VIN Scan</strong> — it’s instant, smart, and built for you.
+  </p>
+<button style="padding: 1rem 2rem; font-size: 1.2rem; font-weight: bold; border: none; border-radius: 50px; background: linear-gradient(to right, #ff4e50, #f9d423); color: #000; box-shadow: 0 4px 14px rgba(0,0,0,0.15); cursor: pointer;">
+<span style="font-size: 1.4rem;">💰</span> Get My Instant Offer
+  </button>
+</section>
+<section id="hero" style="text-align: center; padding: 3rem 1rem; background: linear-gradient(to bottom, #fff, #f9f9f9); border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); max-width: 720px; margin: auto;">
+<h1 style="font-size: 3rem; font-weight: 900; color: #111; text-shadow: 2px 2px 0 #f9d423, -2px -2px 0 #ff4e50; letter-spacing: 1px; margin-bottom: 1rem;">
+    Recarra
+  </h1>
+<p style="font-size: 1.25rem; font-weight: 500; color: #555; margin-bottom: 1.5rem;">
+    An end-to-end, AI-powered car buying platform.
+  </p>
+<div style="background: #fff8e1; padding: 1rem 1.5rem; border-radius: 12px; box-shadow: inset 0 0 10px rgba(255, 194, 0, 0.2); display: inline-block; margin-bottom: 2rem;">
+<strong style="font-size: 1.15rem; color: #222;">Recarra:</strong>
+<span style="font-weight: 700; color: #333;">Where your car meets its match in real value.</span>
+</div>
+<br/>
+<button style="padding: 1rem 2rem; font-size: 1.2rem; font-weight: bold; border: none; border-radius: 50px; background: linear-gradient(to right, #ff4e50, #f9d423); color: #000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); cursor: pointer; transition: transform 0.2s ease;">
+    Get My Instant Offer
+  </button>
+</section>
+<button id="smartMenuToggle" style="position: fixed; top: 20px; left: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="openForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="openForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="openForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="openForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="openForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="openForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="openForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="openForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="openForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Recarra Instant Offer</button></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
 function hideSplash() {
@@ -1723,9 +1788,8 @@ window.addEventListener("load", () => {
 <button aria-label="Extend Offer" class="nav-offer-button" onclick="showOffer('vin', event)">Extend Offer</button>
 <button aria-label="Call for Offer" class="nav-offer-button" onclick="showOffer('voice', event)">Call for Offer</button>
 <button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
-<button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
 </nav>
-<header><div id="recarra-logo" style="font-size: 2.5rem; font-weight: 800; color: white; text-shadow: 1px 1px 2px #000; margin-bottom: 0.5rem;">Recarra</div>
+<header style=" position: sticky; top: 0; z-index: 1000; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);"><div id="recarra-logo" style="font-size: 2.5rem; font-weight: 800; color: white; text-shadow: 1px 1px 2px #000; margin-bottom: 0.5rem;">Recarra</div>
 <h1>Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
   An end-to-end, AI-powered car buying platform.
@@ -1789,12 +1853,6 @@ window.addEventListener("load", () => {
 </div>
 </section>
 <div class="offer-button-grid">
-<button class="offer-button" onclick="showOffer('photo', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Accept</button>
-<button class="offer-button" onclick="showOffer('vin', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Extend</button>
-<button class="offer-button" onclick="showOffer('email', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Email</button>
-<button class="offer-button" onclick="showOffer('text', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Text</button>
-<button class="offer-button" onclick="showOffer('call', event)" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Call</button>
-<button class="offer-button" onclick="window.location.href='tel:+18885558888'" style=" margin: 0 auto; display: block; text-align: center; max-width: 220px;">Call Us</button>
 </div>
 <section class="call-intro" style="animation: fadeInSlide 1s ease-out; margin: 2rem auto; max-width: 720px; padding: 1.25rem 2rem; border-radius: 10px; background: linear-gradient(to right, #ffffff, #f8f8f8); text-align: center;">
 <h3 style="font-size: 1.3rem; font-weight: 800; margin: 0.5rem 0;">
@@ -4441,62 +4499,11 @@ function closeForm() {
 <input id="stepInput" onkeydown="if(event.key==='Enter') nextStep()" placeholder="Enter your name" type="text"/>
 </div>
 <button class="agree-btn" onclick="nextStep()" style="margin-top:1rem;">Next</button>
-</div></section><button id="switchFormBtn" onclick="toggleMenu()" style="position: fixed; bottom: 80px; right: 20px; z-index: 10000; padding: 0.8rem 1.4rem; font-weight: bold; background: linear-gradient(to right, #f9d423, #ff4e50); color: black; border: none; border-radius: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none;">Choose Another Method</button><script>
-function toggleMenu() {
-  const menu = document.getElementById('smartMenuDropdown');
-  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-}
-</script><script>
-document.addEventListener('DOMContentLoaded', function () {
-  openForm('recarra_full_form');
-  window.openForm = function (formId) {
-    const dropdown = document.getElementById('smartMenuDropdown');
-    if (dropdown) dropdown.style.display = 'none';
-    document.querySelectorAll('.form-drawer').forEach(f => f.style.display = 'none');
-    const target = document.getElementById('form-' + formId);
-    if (target) target.style.display = 'block';
-    const container = document.getElementById('formContainer');
-    if (container) container.scrollIntoView({ behavior: 'smooth' });
-    const switchBtn = document.getElementById('switchFormBtn');
-    if (switchBtn) switchBtn.style.display = 'block';
-  };
-});
-</script><button id="quitFormBtn" onclick="closeAllForms()" style="position: fixed; bottom: 140px; right: 20px; z-index: 10000; padding: 0.75rem 1.25rem; font-weight: bold; background: #eee; color: #333; border: 2px solid #ccc; border-radius: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: none;">Cancel / Close</button><div id="thankYouMessage" style="display:none; text-align:center; padding:2rem;">
+</div><div class="form-drawer" id="form-ai_offer" style="display: none; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"><h2 style="color:#ff4e50;">[AI_OFFER Form Placeholder]</h2><p>This is where the ai_offer form content will go.</p></div><div class="form-drawer" id="form-chat" style="display: none; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"><h2 style="color:#ff4e50;">[CHAT Form Placeholder]</h2><p>This is where the chat form content will go.</p></div><div class="form-drawer" id="form-voice" style="display: none; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"><h2 style="color:#ff4e50;">[VOICE Form Placeholder]</h2><p>This is where the voice form content will go.</p></div><div class="form-drawer" id="form-photo" style="display: none; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"><h2 style="color:#ff4e50;">[PHOTO Form Placeholder]</h2><p>This is where the photo form content will go.</p></div><div class="form-drawer" id="form-video" style="display: none; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"><h2 style="color:#ff4e50;">[VIDEO Form Placeholder]</h2><p>This is where the video form content will go.</p></div><div class="form-drawer" id="form-email" style="display: none; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"><h2 style="color:#ff4e50;">[EMAIL Form Placeholder]</h2><p>This is where the email form content will go.</p></div><div class="form-drawer" id="form-vin" style="display: none; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"><h2 style="color:#ff4e50;">[VIN Form Placeholder]</h2><p>This is where the vin form content will go.</p></div><div class="form-drawer" id="form-plate" style="display: none; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"><h2 style="color:#ff4e50;">[PLATE Form Placeholder]</h2><p>This is where the plate form content will go.</p></div><div class="form-drawer" id="form-agent" style="display: none; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"><h2 style="color:#ff4e50;">[AGENT Form Placeholder]</h2><p>This is where the agent form content will go.</p></div></section><button id="switchFormBtn" onclick="toggleMenu()" style="position: fixed; bottom: 80px; right: 20px; z-index: 10000; padding: 0.8rem 1.4rem; font-weight: bold; background: linear-gradient(to right, #f9d423, #ff4e50); color: black; border: none; border-radius: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none;">Choose Another Method</button><button id="quitFormBtn" onclick="closeAllForms()" style="position: fixed; bottom: 140px; right: 20px; z-index: 10000; padding: 0.75rem 1.25rem; font-weight: bold; background: #eee; color: #333; border: 2px solid #ccc; border-radius: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: none;">Cancel / Close</button><div id="thankYouMessage" style="display:none; text-align:center; padding:2rem;">
 <h2>Thank You!</h2>
 <p>Your offer ID: <strong id="offerIdDisplay">#...</strong></p>
 <p>Estimated Offer Amount: <strong id="offerAmountDisplay">$...</strong></p>
 </div><script>
-function toggleMenu() {
-  const menu = document.getElementById('smartMenuDropdown');
-  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  openForm('recarra_full_form');
-
-  window.openForm = function (formId) {
-    const dropdown = document.getElementById('smartMenuDropdown');
-    if (dropdown) dropdown.style.display = 'none';
-    document.querySelectorAll('.form-drawer').forEach(f => f.style.display = 'none');
-    const target = document.getElementById('form-' + formId);
-    if (target) target.style.display = 'block';
-    const container = document.getElementById('formContainer');
-    if (container) container.scrollIntoView({ behavior: 'smooth' });
-    const switchBtn = document.getElementById('switchFormBtn');
-    const quitBtn = document.getElementById('quitFormBtn');
-    if (switchBtn) switchBtn.style.display = 'block';
-    if (quitBtn) quitBtn.style.display = 'block';
-  };
-
-  window.closeAllForms = function () {
-    document.querySelectorAll('.form-drawer').forEach(f => f.style.display = 'none');
-    const switchBtn = document.getElementById('switchFormBtn');
-    const quitBtn = document.getElementById('quitFormBtn');
-    if (switchBtn) switchBtn.style.display = 'none';
-    if (quitBtn) quitBtn.style.display = 'none';
-  };
-});
-</script><script>
 function showThankYouMessage() {
   const offerId = "RC-" + Math.floor(100000 + Math.random() * 900000);
   const offerAmount = "$" + (1500 + Math.floor(Math.random() * 4500));
@@ -4507,7 +4514,149 @@ function showThankYouMessage() {
   closeAllForms(); // Hide form
   document.getElementById("thankYouMessage").style.display = "block";
 }
-</script></body>
+</script><section id="formContainer" style="max-width: 720px; margin: 3rem auto; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></section><button id="switchFormBtn" onclick="toggleMenu()" style="position: fixed; bottom: 80px; right: 20px; z-index: 10000; padding: 0.8rem 1.4rem; font-weight: bold; background: linear-gradient(to right, #f9d423, #ff4e50); color: black; border: none; border-radius: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none;">Choose Another Method</button><button id="quitFormBtn" onclick="closeAllForms()" style="position: fixed; bottom: 140px; right: 20px; z-index: 10000; padding: 0.75rem 1.25rem; font-weight: bold; background: #eee; color: #333; border: 2px solid #ccc; border-radius: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: none;">Cancel / Close</button><div id="thankYouMessage" style="display:none; text-align:center; padding:2rem;">
+<h2>Thank You!</h2>
+<p>Your offer ID: <strong id="offerIdDisplay">#...</strong></p>
+<p>Estimated Offer Amount: <strong id="offerAmountDisplay">$...</strong></p>
+</div><script>
+function toggleMenu() {
+  const menu = document.getElementById('smartMenuDropdown');
+  menu.classList.toggle('show');
+}
+
+function closeAllForms() {
+  const forms = document.querySelectorAll('.form-drawer');
+  forms.forEach(f => {
+    f.classList.remove('active');
+    f.style.display = 'none';
+  });
+  document.getElementById('switchFormBtn').style.display = 'none';
+  document.getElementById('quitFormBtn').style.display = 'none';
+  document.getElementById('thankYouMessage').style.display = 'none';
+}
+
+function showThankYouMessage() {
+  const offerId = "RC-" + Math.floor(100000 + Math.random() * 900000);
+  const offerAmount = "$" + (1500 + Math.floor(Math.random() * 4500));
+  document.getElementById("offerIdDisplay").textContent = offerId;
+  document.getElementById("offerAmountDisplay").textContent = offerAmount;
+  closeAllForms();
+  document.getElementById("thankYouMessage").style.display = "block";
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  openForm('recarra_full_form');
+  window.openForm = function (formId) {
+    const dropdown = document.getElementById('smartMenuDropdown');
+    if (dropdown) dropdown.classList.remove('show');
+
+    const forms = document.querySelectorAll('.form-drawer');
+    forms.forEach(f => {
+      f.classList.remove('active');
+      f.style.display = 'none';
+    });
+
+    const target = document.getElementById('form-' + formId);
+    if (target) {
+      target.style.display = 'block';
+      void target.offsetWidth; // force reflow
+      target.classList.add('active');
+    }
+
+    const container = document.getElementById('formContainer');
+    if (container) container.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('switchFormBtn').style.display = 'block';
+    document.getElementById('quitFormBtn').style.display = 'block';
+  };
+});
+</script>
+<section class="fade-in" style="max-width: 720px; margin: 3rem auto; padding: 2rem; background: linear-gradient(to bottom, #ffffff, #f8f9fa); border: 2px solid #ff4e50; border-radius: 20px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); text-align: center;">
+<div style="font-size: 1.15rem; line-height: 1.7; color: #333; font-weight: 500; margin-bottom: 1.5rem;">
+<strong style="color: #000;">Get Paid Instantly:</strong> Choose 
+    <strong style="color: #000;">Cash</strong>, 
+    <strong style="color: #000;">Direct Deposit</strong>, or 
+    <strong style="color: #000;">Instant Debit Card Transfer</strong> — 
+    your money, your way.
+  </div>
+<div style="background: #fff; padding: 1.5rem; border-radius: 16px; box-shadow: inset 0 0 12px rgba(255, 78, 80, 0.15); margin-top: 2rem;">
+<p style="font-size: 1.25rem; font-weight: 700; color: #ff4e50; margin: 0;">
+      Powered by Purpose — Recarra connects cars with their true value.
+    </p>
+</div>
+</section>
+<section class="fade-in" id="faq-header" style="max-width: 720px; margin: 4rem auto 2rem; padding: 2rem 1.5rem; background: #fff; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center;">
+<h2 style="font-size: 2rem; font-weight: 900; color: #111; margin: 0;">
+    Frequently Asked Questions
+  </h2>
+</section>
+<section class="fade-in" id="metal-money" style="max-width: 720px; margin: 2rem auto; padding: 1.5rem; background: #fff; border-radius: 20px; box-shadow: 0 4px 16px rgba(255, 78, 80, 0.05); text-align: center;">
+<p style="font-size: 1.3rem; font-weight: 800; color: #000; margin: 0;">
+    Recarra: Where your metal meets its match in money.
+  </p>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+<section style="background: url('https://via.placeholder.com/1600x600') center/cover fixed; padding: 5rem 2rem; color: white; text-align: center; font-weight: bold; font-size: 2rem; text-shadow: 0 2px 5px rgba(0,0,0,0.5); margin-top: 4rem;">
+  AI-Powered. Trust-Driven. Car Selling Redefined.
+</section>
+<section style="max-width: 720px; margin: 4rem auto; text-align: center;">
+<h2 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Our Impact</h2>
+<div style="display: flex; justify-content: space-around; font-size: 2rem; font-weight: bold;">
+<div><div class="counter" data-target="4800">0</div><small>Cars Sold</small></div>
+<div><div class="counter" data-target="98">0</div><small>% Offer Acceptance</small></div>
+<div><div class="counter" data-target="24">0</div><small>/7 Support</small></div>
+</div>
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.counter');
+  counters.forEach(counter => {
+    const update = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const step = target / 100;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + step);
+        setTimeout(update, 20);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  });
+});
+</script>
+<script>
+document.querySelectorAll('.offer-button').forEach(button => {
+  button.addEventListener('click', () => {
+    console.log('Offer selected:', button.dataset.offerType || 'unknown');
+  });
+});
+</script>
+
+<button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 30px; right: 20px; background: #000; color: #fff; border: none; border-radius: 50px; padding: 0.8rem 1.2rem; font-size: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.2); cursor: pointer; display: none;">
+↑ Top
+</button>
+<script>
+window.addEventListener("scroll", () => {
+  const btn = document.getElementById("scrollTopBtn");
+  btn.style.display = window.scrollY > 300 ? "block" : "none";
+});
+</script>
+</body>
 </html>
 <script>
 function startVinScan() {
