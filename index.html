@@ -550,81 +550,9 @@ button {
 }
 </style>
 <canvas id="confetti-canvas"></canvas>
-<script>
-function generateUniqueOfferID() {
-  const now = Date.now().toString(); // milliseconds
-  const randomNum = Math.floor(Math.random() * 9000 + 1000); // random 4-digit
-  return 'RC-' + now.slice(-6) + '-' + randomNum;
-}
-</script>
-<style>
-@keyframes fadeInOutLogo {
-  0% { opacity: 0; transform: scale(0.95); }
-  5% { opacity: 1; transform: scale(1); }
-  95% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.95); }
-}
-
-.logo-img {
-  animation: fadeInOutLogo 8888s ease-in-out infinite;
-  transition: transform 1s ease, opacity 1s ease;
-  display: block;
-  margin: 0 auto;
-  max-height: 60px;
-}
-</style>
-<style>
-@keyframes fadeInOutSync {
-  0% { opacity: 0; transform: translateY(-10px); }
-  5% { opacity: 1; transform: translateY(0); }
-  95% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-10px); }
-}
-
-.hero-title, .main-button, .animated-heading {
-  animation: fadeInOutSync 8888s ease-in-out infinite;
-  transition: all 1.5s ease;
-}
-</style>
-<style>
-body {
-  background: linear-gradient(120deg, #f9f9f9, #fefefe);
-  background-size: 400% 400%;
-  animation: gradientShift 8888s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Scroll-triggered fade-in for trust badges */
-.trust-badge {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.trust-badge.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
-<style>
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 10px rgba(255, 60, 60, 0.3); }
-  50% { box-shadow: 0 0 25px rgba(255, 60, 60, 0.6); }
-  100% { box-shadow: 0 0 10px rgba(255, 60, 60, 0.3); }
-}
-
-#get-offer-now {
-  animation: pulseGlow 5s ease-in-out infinite;
-}
-</style>
 </head>
 <body>
-<section class="hero-header highend"><img alt="Recarra Logo" class="logo-img" id="recarra-logo"/>
+<section class="hero-header highend">
 <div class="hero-logo-row" style="text-align: left; padding-left: 2rem;">
 </div>
 <h2 class="hero-slogan">
@@ -1584,6 +1512,8 @@ body {
 <footer>
     © 2025 Recarra. All rights reserved.
   </footer>
+
+
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
 function launchConfetti() {
@@ -1610,6 +1540,7 @@ function launchConfetti() {
   }, 250);
 }
 </script>
+
 <script>
 const tikSound = new Audio("https://www.myinstants.com/media/sounds/mouse-click.mp3");
 const doneSound = new Audio("https://www.myinstants.com/media/sounds/notification.mp3");
@@ -1623,41 +1554,7 @@ function speak(text) {
   }
 }
 
-function resetFormStates() {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const stepFields = form.querySelectorAll(".step-field");
-    const dots = form.querySelectorAll(".dot");
-    const progressBar = form.querySelector(".progress-bar");
-    const thankYou = form.querySelector(".thank-you");
-    const nextBtn = form.querySelector(".next-button.submit-button");
-
-    stepFields.forEach((field, i) => {
-      field.style.display = i === 0 ? "block" : "none";
-    });
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === 0));
-    if (progressBar) progressBar.style.width = `${100 / stepFields.length}%`;
-
-    if (nextBtn) {
-      nextBtn.textContent = "Submit Offer";
-      nextBtn.disabled = false;
-      nextBtn.style.background = "linear-gradient(to right, #ff3c3c, #f9d423)";
-      nextBtn.style.display = "block";
-    }
-    if (thankYou) {
-      thankYou.style.display = "none";
-      thankYou.textContent = "";
-    }
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
-  const menuItems = document.querySelectorAll(".dropdown-item");
-  menuItems.forEach(item => {
-    item.addEventListener("click", () => {
-      setTimeout(() => resetFormStates(), 300);
-    });
-  });
-
   document.querySelectorAll(".form-card").forEach(form => {
     let currentStep = 0;
     const stepFields = form.querySelectorAll(".step-field");
@@ -1694,200 +1591,12 @@ document.addEventListener("DOMContentLoaded", () => {
           doneSound.play();
           speak("Your offer has been submitted successfully.");
           launchConfetti();
-          if (thankYou) {
-            const offerId = generateUniqueOfferID();
-            thankYou.textContent = "Thank you! Your Offer ID is: " + offerId;
-            thankYou.style.display = "block";
-          }
+          if (thankYou) thankYou.style.display = "block";
           form.scrollIntoView({ behavior: "smooth" });
         }
       };
     }
   });
-});
-</script>
-<style>
-.logo-img {
-  max-height: 60px;
-  transition: opacity 0.5s ease;
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const logo = document.getElementById("recarra-logo");
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  // Default to dark theme check, but could be extended
-  if (prefersDark) {
-    logo.src = "icons/recarra-logo-gold-safe-v2.png";
-  } else {
-    logo.src = "icons/recarra-logo-silver-safe-v2.png";
-  }
-
-  // Optional: toggle logo dynamically if background changes
-  // Example listener for theme toggle:
-  const observer = new MutationObserver(() => {
-    const bg = getComputedStyle(document.body).backgroundColor;
-    if (bg.includes("0, 0, 0") || bg.includes("33, 33, 33")) {
-      logo.src = "icons/recarra-logo-gold-safe-v2.png";
-    } else {
-      logo.src = "icons/recarra-logo-silver-safe-v2.png";
-    }
-  });
-
-  observer.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll(".trust-badge").forEach(el => observer.observe(el));
-});
-</script>
-<style>
-#get-offer-now {
-  display: block;
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: white;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
-  transition: transform 0.3s ease;
-}
-
-#get-offer-now:hover {
-  transform: scale(1.05);
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const offerForms = document.querySelectorAll(".form-card");
-  const offerButton = document.getElementById("get-offer-now");
-
-  if (offerButton && offerForms.length > 0) {
-    offerButton.addEventListener("click", () => {
-      const randomForm = offerForms[Math.floor(Math.random() * offerForms.length)];
-      offerForms.forEach(f => f.style.display = "none");
-      randomForm.style.display = "block";
-      randomForm.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-});
-</script>
-<button id="floating-offer-btn">Get Instant Cash Offer Now</button>
-<style>
-#floating-offer-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10000;
-  padding: 1rem 1.8rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: white;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  animation: pulseGlow 5s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
-  transition: transform 0.3s ease;
-}
-#floating-offer-btn:hover {
-  transform: scale(1.08);
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const forms = document.querySelectorAll(".form-card");
-  const btn = document.getElementById("floating-offer-btn");
-
-  if (btn && forms.length > 0) {
-    btn.addEventListener("click", () => {
-      const randomForm = forms[Math.floor(Math.random() * forms.length)];
-      forms.forEach(f => f.style.display = "none");
-      randomForm.style.display = "block";
-      randomForm.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-});
-</script>
-<button id="top-button">↑ Top</button>
-<style>
-#top-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 10000;
-  padding: 1rem 1.6rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background: red;
-  color: white;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
-  transition: transform 0.3s ease;
-}
-#top-button:hover {
-  transform: scale(1.08);
-}
-
-#floating-offer-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10000;
-  padding: 1rem 1.8rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: white;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  animation: pulseGlow 5s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
-  transition: transform 0.3s ease;
-}
-#floating-offer-btn:hover {
-  transform: scale(1.08);
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Offer Button Logic
-  const forms = document.querySelectorAll(".form-card");
-  const offerBtn = document.getElementById("floating-offer-btn");
-  if (offerBtn && forms.length > 0) {
-    offerBtn.addEventListener("click", () => {
-      const randomForm = forms[Math.floor(Math.random() * forms.length)];
-      forms.forEach(f => f.style.display = "none");
-      randomForm.style.display = "block";
-      randomForm.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-
-  // Scroll to top logic
-  const topBtn = document.getElementById("top-button");
-  if (topBtn) {
-    topBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
 });
 </script>
 </body>
