@@ -295,11 +295,143 @@ body {
   color: white;
   border-bottom: none;
 }
+</style><style>
+.hero-header {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 2s ease-in-out;
+}
+</style><style>
+.submit-button {
+  display: block;
+  margin: 2rem auto 1rem auto;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: black;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  box-shadow: 0 0 20px rgba(255, 60, 60, 0.3);
+  cursor: pointer;
+  position: relative;
+  animation: glow-border 3s linear infinite;
+}
+
+@keyframes glow-border {
+  0% {
+    box-shadow: 0 0 5px #ff3c3c, 0 0 10px #f9d423;
+  }
+  50% {
+    box-shadow: 0 0 20px #f9d423, 0 0 30px #ff3c3c;
+  }
+  100% {
+    box-shadow: 0 0 5px #ff3c3c, 0 0 10px #f9d423;
+  }
+}
+</style><style>
+/* Shared Glow Foundation */
+button {
+  border-radius: 50px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Submit Offer - Red to Yellow */
+.submit-button {
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  animation: glow-submit 3s linear infinite;
+}
+@keyframes glow-submit {
+  0% { box-shadow: 0 0 6px #ff3c3c; }
+  50% { box-shadow: 0 0 20px #f9d423; }
+  100% { box-shadow: 0 0 6px #ff3c3c; }
+}
+
+/* Next Button - Blue Glow */
+.next-button {
+  background: #2196F3;
+  color: #fff;
+  animation: glow-next 3s ease-in-out infinite;
+}
+@keyframes glow-next {
+  0%, 100% { box-shadow: 0 0 8px #2196F3; }
+  50% { box-shadow: 0 0 16px #64B5F6; }
+}
+
+/* Previous Button - Gray to Blue Glow */
+.prev-button {
+  background: #607D8B;
+  color: white;
+  animation: glow-prev 3s ease-in-out infinite;
+}
+@keyframes glow-prev {
+  0%, 100% { box-shadow: 0 0 6px #90A4AE; }
+  50% { box-shadow: 0 0 12px #78909C; }
+}
+
+/* Quit Button - Orange Pulse */
+.quit-button {
+  background: #FF9800;
+  color: white;
+  animation: glow-quit 3s ease-in-out infinite;
+}
+@keyframes glow-quit {
+  0%, 100% { box-shadow: 0 0 6px #FF9800; }
+  50% { box-shadow: 0 0 14px #FFB74D; }
+}
+
+/* Dropdown/Menu Button - Gold Glow */
+.dropdown-item {
+  background: linear-gradient(to right, #f9d423, #ff3c3c);
+  color: #000;
+  animation: glow-menu 3s ease-in-out infinite;
+}
+@keyframes glow-menu {
+  0%, 100% { box-shadow: 0 0 6px #f9d423; }
+  50% { box-shadow: 0 0 14px #ffcc33; }
+}
+</style><style>
+.reviewing-screen {
+  display: none;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reviewing-dots::after {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
 </style></head>
 <body>
 <section class="hero-header highend">
 <div class="hero-logo-row" style="text-align: left; padding-left: 2rem;">
-<img alt="Recarra Logo" id="recarraLogo" src="https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-darkblue-safe-v2.png" style="height: 80px; max-width: 320px;"/>
 </div>
 <h2 class="hero-slogan">
   The Intelligent, Instant Way to Sell Your Car
@@ -365,7 +497,60 @@ body {
 </div>
 <div class="form-title">AI Recarra Instant Offer</div>
 <div class="progress"><div class="progress-bar"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="What’s the year, make, and model of your car?" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Enter your ZIP code" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Briefly describe your car’s condition" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="What’s the year, make, and model of your car?" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Select the year of your vehicle:</label><br/>
+<select name="year" required="">
+<option value="">Choose Year</option>
+<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
+</select>
+</div>
+<div class="step-field" style="display:none;">
+<label>Select the make:</label><br/>
+<select name="make" required="">
+<option value="">Choose Make</option>
+<option value="Toyota">Toyota</option>
+<option value="Ford">Ford</option>
+<option value="Honda">Honda</option>
+<option value="Chevrolet">Chevrolet</option>
+<option value="BMW">BMW</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="step-field" style="display:none;">
+<label>Select the model:</label><br/>
+<input name="model" placeholder="Type your model (e.g. Camry)" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Does the vehicle have any of the following issues?</label><br/>
+<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
+<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
+<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
+<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
+<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Does the car have a clean title?</label><br/>
+<select name="title_status" required="">
+<option value="">Choose one</option>
+<option value="clean">Clean Title</option>
+<option value="salvage">Salvage Title</option>
+<option value="no_title">No Title</option>
+</select>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Enter your ZIP code" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Briefly describe your car’s condition" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form1" style="display: none;">
 <div class="dot-progress">
 <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -374,7 +559,26 @@ body {
 </div>
 <div class="form-title">License Plate Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 25%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your license plate number" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Select your state" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Enter your email for the offer" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Enter your license plate number" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>License Plate Number:</label><br/>
+<input name="plate" placeholder="ABC1234" required="" type="text"/><br/>
+<label>State:</label>
+<input name="state" placeholder="CA" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Select your state" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Enter your email for the offer" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <!-- Additional forms (14 more) will follow this same format -->
 <section class="form-card" id="form2" style="display: none;">
 <div class="dot-progress">
@@ -382,95 +586,317 @@ body {
 </div>
 <div class="form-title">VIN Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your 17-digit VIN" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="What’s the mileage on the car?" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="List any damage or issues" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Enter your 17-digit VIN" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Enter your 17-digit VIN:</label><br/>
+<input name="vin" placeholder="1HGCM82633A123456" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="What’s the mileage on the car?" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="List any damage or issues" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form3" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Voice Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Tap to record a description (simulated)" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Say your location" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Say your preferred payout method" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Tap to record a description (simulated)" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Voice Description (Simulated):</label><br/>
+<input placeholder="Voice entry simulated..." readonly="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Say your location" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Say your preferred payout method" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form4" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Photo Upload Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Upload a front photo of the car" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Upload a side or rear photo" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Add notes about the vehicle’s condition" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Upload a front photo of the car" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Upload Photos of Your Vehicle:</label><br/>
+<input accept="image/*" multiple="" required="" type="file"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Upload a side or rear photo" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Add notes about the vehicle’s condition" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form5" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Live Chat Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your name" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Your phone or email" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Ready to chat now?" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Enter your name" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Are you ready to start a live chat?</label><br/>
+<input placeholder="Chat will open soon..." readonly="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Your phone or email" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Ready to chat now?" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form6" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Email Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your email" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Enter the car make and model" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Add additional comments" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Enter your email" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>We will reply by email — add details:</label><br/>
+<textarea name="car_details" placeholder="Enter full vehicle info"></textarea>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Enter the car make and model" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Add additional comments" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form7" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">SMS Text Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your phone number" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Type your car’s basic info" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Would you like us to text you?" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Enter your phone number" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Confirm your phone number for texting:</label><br/>
+<input name="sms_number" placeholder="+1 (555) 234-7890" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Type your car’s basic info" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Would you like us to text you?" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form8" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Call Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Your name" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Best phone number to reach you" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Preferred time for a call" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Your name" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Best Time to Call:</label><br/>
+<input name="call_time" placeholder="Anytime after 2pm" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Best phone number to reach you" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Preferred time for a call" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form13" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Scan VIN Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Tap to scan VIN (simulated)" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Confirm the VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Add your email or phone number" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Tap to scan VIN (simulated)" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Tap to simulate VIN scan:</label><br/>
+<input placeholder="Scanning VIN..." readonly="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Confirm the VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Add your email or phone number" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form14" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Manual Entry Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your car’s make" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Enter the year and model" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Enter your ZIP or location" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Enter your car’s make" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Enter Make / Model / Year manually:</label><br/>
+<input name="car_entry" placeholder="Honda Accord 2012" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Enter the year and model" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Enter your ZIP or location" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form15" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Full Inspection Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Where should we inspect the car?" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="What day and time works for you?" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="List any issues or questions" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" data-step="1" placeholder="Where should we inspect the car?" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Choose location for full inspection:</label><br/>
+<input name="inspection_location" placeholder="123 Main St, Houston TX" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="What day and time works for you?" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="List any issues or questions" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form9" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Offer Method 9</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your name" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Enter your car info" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Confirm email" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section><section class="form-card" id="form10" style="display: none;">
+<input class="input-field step-field" data-step="1" placeholder="Enter your name" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Enter your car info" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Confirm email" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section><section class="form-card" id="form10" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Offer Method 10</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Upload car images" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Enter your phone" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Describe car" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section><section class="form-card" id="form11" style="display: none;">
+<input class="input-field step-field" data-step="1" placeholder="Upload car images" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="Enter your phone" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Describe car" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section><section class="form-card" id="form11" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Offer Method 11</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="License plate" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="State" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Mileage" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section><section class="form-card" id="form12" style="display: none;">
+<input class="input-field step-field" data-step="1" placeholder="License plate" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="State" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Mileage" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section><section class="form-card" id="form12" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Offer Method 12</div>
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Name" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Damage description" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section></main>
+<input class="input-field step-field" data-step="1" placeholder="Name" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Your Full Name:</label><br/>
+<input name="name" placeholder="John Doe" required="" type="text"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<input class="input-field step-field" data-step="2" placeholder="VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Damage description" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section></main>
 <footer>
     © 2025 Recarra. All rights reserved.
   </footer>
@@ -564,6 +990,132 @@ document.addEventListener("DOMContentLoaded", function () {
         const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
         thankYou.textContent = "Thank you! Your Offer ID is: " + id;
         submitBtn.style.display = "none";
+        thankYou.style.display = "block";
+      });
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector(".hero-header");
+  const images = [
+    "6162E5B0-D519-4D70-BCE7-4A212BD2B1E9.jpeg",
+    "AF70B9DF-F7F6-4CBE-8090-1FE75C8B31A5.jpeg"
+  ].map(img => `./${img}`);
+  let i = 0;
+  function changeHeaderBackground() {
+    header.style.backgroundImage = `url('${images[i]}')`;
+    i = (i + 1) % images.length;
+  }
+  changeHeaderBackground();
+  setInterval(changeHeaderBackground, 888000); // every 888 seconds
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const steps = form.querySelectorAll(".step-field");
+    const submitBtn = form.querySelector(".submit-button");
+    const thankYou = form.querySelector(".thank-you");
+    let currentStep = 0;
+
+    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
+
+    function updateButtons(container, step) {
+      container.innerHTML = "";
+
+      if (step > 0) {
+        const prev = document.createElement("button");
+        prev.textContent = "Previous";
+        prev.className = "prev-button";
+        prev.onclick = e => {
+          e.preventDefault();
+          steps[step].style.display = "none";
+          currentStep--;
+          steps[currentStep].style.display = "block";
+          updateButtons(container, currentStep);
+        };
+        container.appendChild(prev);
+      }
+
+      if (step < steps.length - 1) {
+        const next = document.createElement("button");
+        next.textContent = "Next";
+        next.className = "next-button";
+        next.onclick = e => {
+          e.preventDefault();
+          steps[step].style.display = "none";
+          currentStep++;
+          steps[currentStep].style.display = "block";
+          updateButtons(container, currentStep);
+        };
+        container.appendChild(next);
+      }
+
+      if (step === steps.length - 1) {
+        submitBtn.style.display = "inline-block";
+      } else {
+        submitBtn.style.display = "none";
+      }
+
+      const quit = document.createElement("button");
+      quit.textContent = "Quit";
+      quit.className = "quit-button";
+      quit.onclick = e => {
+        e.preventDefault();
+        if (confirm("Are you sure you want to quit this form?")) {
+          form.querySelectorAll(".step-field").forEach(f => f.style.display = "none");
+          container.innerHTML = "";
+          submitBtn.style.display = "none";
+          thankYou.style.display = "none";
+          currentStep = 0;
+          steps[0].style.display = "block";
+          updateButtons(container, 0);
+        }
+      };
+      container.appendChild(quit);
+    }
+
+    const nav = document.createElement("div");
+    nav.className = "step-nav";
+    form.appendChild(nav);
+    updateButtons(nav, currentStep);
+
+    if (submitBtn) {
+      submitBtn.addEventListener("click", function () {
+        const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
+        thankYou.textContent = "Thank you! Your Offer ID is: " + id;
+        thankYou.style.display = "block";
+        submitBtn.style.display = "none";
+        nav.innerHTML = "";
+      });
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const steps = form.querySelectorAll(".step-field");
+    const submitBtn = form.querySelector(".submit-button");
+    let thankYou = form.querySelector(".thank-you");
+
+    if (!thankYou) {
+      thankYou = document.createElement("div");
+      thankYou.className = "thank-you reviewing-screen";
+      thankYou.innerHTML = `
+        <h3>Thank you for submitting your vehicle info!</h3>
+        <p class="reviewing-dots">Our AI is reviewing your details<span></span></p>
+        <p class="small-note">Final offer will be confirmed shortly after reviewing your ownership, condition, and documents.</p>
+        <p><strong>Your Offer ID:</strong> RC-${Math.floor(100000 + Math.random() * 900000)}</p>
+      `;
+      form.appendChild(thankYou);
+    }
+
+    if (submitBtn) {
+      submitBtn.addEventListener("click", function () {
+        steps.forEach(s => s.style.display = "none");
+        submitBtn.style.display = "none";
+        const nav = form.querySelector(".step-nav");
+        if (nav) nav.innerHTML = "";
         thankYou.style.display = "block";
       });
     }
