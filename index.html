@@ -510,46 +510,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script><script>
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const steps = form.querySelectorAll(".step-field");
-    const submitBtn = form.querySelector(".submit-button");
-    const thankYou = form.querySelector(".thank-you");
-    let currentStep = 0;
-
-    steps[currentStep].style.display = "block";
-
-    const nextButton = form.querySelector(".next-button:not(.submit-button)");
-    if (nextButton) {
-      nextButton.remove();
-    }
-
-    steps.forEach((input, i) => {
-      input.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          e.preventDefault();
-          if (i < steps.length - 1) {
-            steps[i].style.display = "none";
-            steps[i + 1].style.display = "block";
-          } else {
-            steps[i].style.display = "none";
-            submitBtn.style.display = "inline-block";
-          }
-        }
-      });
-    });
-
-    if (submitBtn) {
-      submitBtn.addEventListener("click", function () {
-        const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
-        thankYou.textContent = "Thank you! Your Offer ID is: " + id;
-        submitBtn.style.display = "none";
-        thankYou.style.display = "block";
-      });
-    }
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
   const logoImages = [
     "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-darkblue-safe-v2.png",
     "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-gold-safe-v2.png",
@@ -562,6 +522,52 @@ document.addEventListener("DOMContentLoaded", function () {
     current = (current + 1) % logoImages.length;
     logoElement.src = logoImages[current];
   }, 8888000); // rotate every 8888 seconds
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const steps = form.querySelectorAll(".step-field");
+    const submitBtn = form.querySelector(".submit-button");
+    const thankYou = form.querySelector(".thank-you");
+
+    let currentStep = 0;
+    steps.forEach((step, index) => {
+      step.style.display = index === 0 ? "block" : "none";
+    });
+
+    function showNextStep() {
+      if (currentStep < steps.length - 1) {
+        steps[currentStep].style.display = "none";
+        currentStep++;
+        steps[currentStep].style.display = "block";
+      } else {
+        steps[currentStep].style.display = "none";
+        submitBtn.style.display = "inline-block";
+      }
+    }
+
+    // Create and insert Next buttons after each input
+    steps.forEach((input, i) => {
+      const nextBtn = document.createElement("button");
+      nextBtn.className = "next-button";
+      nextBtn.textContent = "Next";
+      nextBtn.style.marginTop = "0.5rem";
+      nextBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        showNextStep();
+      });
+      input.insertAdjacentElement("afterend", nextBtn);
+    });
+
+    if (submitBtn) {
+      submitBtn.addEventListener("click", function () {
+        const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
+        thankYou.textContent = "Thank you! Your Offer ID is: " + id;
+        submitBtn.style.display = "none";
+        thankYou.style.display = "block";
+      });
+    }
+  });
 });
 </script></body>
 </html>
