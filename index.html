@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Recarra | AI Car Offer Platform</title>
+<title><span id="recarra-name">Recarra | AI Car Offer Platform</span></title>
 <style>
     body {
       margin: 0;
@@ -758,6 +758,33 @@ section.card p, section.card li {
   animation: slightBounce 0.6s ease-in-out;
 }
 </style>
+<style>
+#form-menu {
+  background: #fff;
+  border: 2px solid #0077ff;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  padding: 10px;
+  position: absolute;
+  z-index: 9999;
+  margin-top: 10px;
+}
+#form-menu .dropdown-item {
+  background: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px 0;
+  font-weight: bold;
+  color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#form-menu .dropdown-item:hover {
+  background: #ffcc00;
+  color: black;
+}
+</style>
 </head>
 <body>
 <audio id="sparkle-sound" preload="auto">
@@ -829,7 +856,7 @@ section.card p, section.card li {
 <header style="text-align:center; padding:3rem 1rem; background: linear-gradient(to right, #ffffff, #fefefe);">
 </header>
 <div style="position: relative; display: inline-block; margin-top: 1rem;">
-<button class="next-button" id="offerToggle">Choose Offer Method</button>
+<button class="next-button" id="offerToggle">Choose Offer Method</button><div class="dropdown-menu" id="form-menu" style="display:none;"><button class="dropdown-item" data-target="form0">Offer Method 1</button><button class="dropdown-item" data-target="form1">Offer Method 2</button><button class="dropdown-item" data-target="form2">Offer Method 3</button><button class="dropdown-item" data-target="form3">Offer Method 4</button><button class="dropdown-item" data-target="form4">Offer Method 5</button><button class="dropdown-item" data-target="form5">Offer Method 6</button><button class="dropdown-item" data-target="form6">Offer Method 7</button><button class="dropdown-item" data-target="form7">Offer Method 8</button><button class="dropdown-item" data-target="form8">Offer Method 9</button><button class="dropdown-item" data-target="form9">Offer Method 10</button><button class="dropdown-item" data-target="form10">Offer Method 11</button><button class="dropdown-item" data-target="form11">Offer Method 12</button><button class="dropdown-item" data-target="form12">Offer Method 13</button><button class="dropdown-item" data-target="form13">Offer Method 14</button><button class="dropdown-item" data-target="form14">Offer Method 15</button><button class="dropdown-item" data-target="form15">Offer Method 16</button></div>
 <div id="offerMenu" style="display: none; position: absolute; top: 110%; left: 0; background: #fff; border: 2px solid #eee; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 999;">
 <ul style="list-style: none; margin: 0; padding: 0;">
 <li><button class="dropdown-item" data-target="form0">AI Recarra Instant Offer</button></li>
@@ -1970,7 +1997,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
-<button id="floating-offer-btn">Get Instant Cash Offer Now</button>
+<button id="floating-offer-btn" onclick="showFormById('form0')">Get Instant Cash Offer Now</button>
 <style>
 #floating-offer-btn {
   position: fixed;
@@ -2087,43 +2114,6 @@ setInterval(() => {
   nameCycleIndex++;
 }, 8000);
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.querySelector('.cta-button');
-  const menu = document.getElementById('form-menu');
-  const formLinks = document.querySelectorAll('#form-menu .dropdown-item');
-  const allForms = document.querySelectorAll('.form-section');
-
-  if (menuBtn && menu && formLinks.length > 0) {
-    menuBtn.addEventListener("click", () => {
-      menu.style.display = "block";
-      menu.scrollIntoView({ behavior: "smooth" });
-    });
-
-    formLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        const targetID = link.dataset.target;
-        allForms.forEach(form => {
-          form.style.opacity = 0;
-          setTimeout(() => {
-            form.style.display = "none";
-          }, 300);
-        });
-
-        const targetForm = document.getElementById(targetID);
-        if (targetForm) {
-          setTimeout(() => {
-            targetForm.style.display = "block";
-            targetForm.style.opacity = 1;
-          }, 350);
-        }
-
-        menu.style.display = "none";
-      });
-    });
-  }
-});
-</script>
 <style>
 .form-section {
   transition: opacity 0.3s ease-in-out;
@@ -2169,42 +2159,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const sparkle = document.getElementById("sparkle-sound");
-  const formMenuItems = document.querySelectorAll('#form-menu .dropdown-item');
-  const allForms = document.querySelectorAll('.form-section');
-
-  if (formMenuItems.length > 0) {
-    formMenuItems.forEach(link => {
-      link.addEventListener("click", () => {
-        const targetID = link.dataset.target;
-        allForms.forEach(f => {
-          f.classList.remove("form-flash", "bounce-scroll");
-          f.style.opacity = 0;
-          setTimeout(() => { f.style.display = "none"; }, 200);
-        });
-
-        const targetForm = document.getElementById(targetID);
-        if (targetForm) {
-          setTimeout(() => {
-            targetForm.style.display = "block";
-            targetForm.style.opacity = 1;
-            targetForm.classList.add("form-flash", "bounce-scroll");
-            sparkle.play();
-            targetForm.scrollIntoView({ behavior: "smooth" });
-          }, 250);
-        }
-        const menu = document.getElementById("form-menu");
-        if (menu) {
-          menu.style.display = "none";
-        }
-      });
-    });
-  }
-});
-</script>
-
 <style>
 #dollar-rain-container {
   position: fixed;
@@ -2236,7 +2190,6 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 </style>
 <div id="dollar-rain-container" style="display: none;"></div>
-
 <script>
 function startDollarRain() {
   const container = document.getElementById("dollar-rain-container");
@@ -2268,6 +2221,77 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 500);
     });
   });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("offerToggle");
+  const menu = document.getElementById("form-menu");
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    });
+  }
+});
+</script>
+
+<button onclick="scrollToTop()" style="position: fixed; bottom: 20px; left: 20px; background: red; color: white;
+border: none; border-radius: 30px; padding: 10px 20px; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999;">
+↑ Top
+</button>
+<script>
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+<script>
+const recarraNames = ["Recarra Cloud", "Recarra Auto", "Recarra AI", "Recarra Hub", "Recarra Gold"];
+let i = 0;
+setInterval(() => {
+  const el = document.getElementById("recarra-name");
+  if (el) el.innerText = recarraNames[i++ % recarraNames.length];
+}, 8000);
+</script>
+
+<script>
+const jokes = [
+  "Why did the junk car go to therapy? It had too many breakdowns.",
+  "My car is like a cat—it sleeps all day and refuses to move.",
+  "Tried to sell my car for parts... but it turns out all the parts were already missing!"
+];
+function tellJoke() {
+  const joke = jokes[Math.floor(Math.random() * jokes.length)];
+  const speech = new SpeechSynthesisUtterance(joke);
+  speech.pitch = 1.2;
+  speech.rate = 1;
+  window.speechSynthesis.speak(speech);
+}
+setInterval(tellJoke, 888000); // every 888 seconds
+</script>
+
+<script>
+function triggerRandomForm() {
+  const allForms = document.querySelectorAll('.form-section');
+  const ids = Array.from(allForms).map(f => f.id);
+  const pick = ids[Math.floor(Math.random() * ids.length)];
+  showFormById(pick);
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("offerToggle");
+  const menu = document.getElementById("form-menu");
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    });
+  }
 });
 </script>
 </body>
