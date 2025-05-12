@@ -1702,454 +1702,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (box) box.classList.add(chosen);
 });
 </script>
-<style>
-#faq-question, #faq-answer {
-  min-height: 2rem;
-  display: block;
-}
-.fade-in-section {
-  min-height: 2rem;
-}
-.offer-modal {
-  min-height: 2rem;
-}
-</style><style>
-#floatingToggleTab:hover {
-  box-shadow: 0 0 12px 4px rgba(255, 78, 80, 0.4);
-}
-</style><style>
-#floatingButtonsContainer {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10000;
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-  align-items: center;
-}
-.floating-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  white-space: nowrap;
-  text-align: center;
-}
-.floating-button i {
-  font-size: 1.2rem;
-}
-.floating-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(255, 78, 80, 0.4);
-}
-.btn-offer {
-  background: linear-gradient(to right, #ffcc00, #ff3366);
-  color: black;
-}
-.btn-chat {
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  color: white;
-}
-.btn-help {
-  background: linear-gradient(to right, #ff7e5f, #feb47b);
-  color: white;
-}
-</style><style>
-.vertical-recarra-menu {
-  writing-mode: vertical-rl;
-  text-align: center;
-  transform: rotate(180deg);
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 1.5rem 0.75rem;
-  background: linear-gradient(to bottom, #ff4e50, #f9d423);
-  color: black;
-  border-radius: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-  border: none;
-  position: fixed;
-  bottom: 2rem;
-  left: 2rem;
-  z-index: 999;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.vertical-recarra-menu:hover {
-  transform: rotate(180deg) scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-}
-.vertical-recarra-menu i {
-  transform: rotate(180deg);
-  font-size: 1.2rem;
-}
-</style><style>
-.vertical-menu-icon {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  background: #000;
-  color: white;
-  font-size: 1.5rem;
-  border-radius: 40px;
-  padding: 1.5rem 0.5rem;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  position: fixed;
-  bottom: 2rem;
-  left: 2rem;
-  z-index: 999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.vertical-menu-icon:hover {
-  transform: rotate(180deg) scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-}
-.vertical-menu-icon i {
-  transform: rotate(180deg);
-}
-</style><style>
-.floating-button {
-  transition: background 3s ease-in-out;
-}
-</style>
-<style>
-.toolbox-modal {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  max-height: 65%;
-  background: #fefefe;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  box-shadow: 0 -6px 24px rgba(0,0,0,0.15);
-  overflow-y: auto;
-  padding: 1.5rem 1.25rem;
-  animation: slideUp 0.4s ease forwards;
-  z-index: 10001;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #222;
-}
-
-.toolbox-modal h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  text-align: center;
-}
-
-.toolbox-modal label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-weight: 500;
-  color: #333;
-}
-
-.toolbox-modal input,
-.toolbox-modal textarea,
-.toolbox-modal select {
-  width: 100%;
-  padding: 0.65rem;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  background: #fff;
-  color: #000;
-}
-
-.toolbox-modal button {
-  background: #f0f0f0;
-  border: none;
-  padding: 0.6rem 1.25rem;
-  border-radius: 12px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  margin: 0.25rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.toolbox-modal button:hover {
-  background: #e0e0e0;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-</style>
-<style>
-/* Step transition */
-.toolbox-step {
-  animation: fadeIn 0.35s ease-in-out;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Button interactions */
-.toolbox-modal button {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.toolbox-modal button:hover {
-  transform: scale(1.03);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-}
-.toolbox-modal button:active {
-  transform: scale(0.97);
-}
-
-/* Toolbox slide-up drawer animation (already present, just polished) */
-@keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-</style>
-<style>
-@keyframes slideUp {
-  from { transform: translateY(100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-</style>
-<style>
-    body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-    }
-
-    .header {
-      padding: 1.5rem 1rem;
-      background: #ff4f4f;
-      color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .menu-wrapper {
-      padding: 1.5rem;
-      background: white;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      border-radius: 20px;
-      margin: 1rem;
-    }
-
-    .menu-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .menu-button {
-      flex: 1 1 45%;
-      background: linear-gradient(to right, #ff4f4f, #ffcc33);
-      color: black;
-      padding: 0.8rem;
-      border-radius: 30px;
-      text-align: center;
-      font-weight: bold;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 3px 8px rgba(255, 79, 79, 0.25);
-      transition: all 0.2s ease;
-    }
-
-    .menu-button:hover {
-      transform: scale(1.03);
-    }
-
-    .form-drawer {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 700px;
-  max-height: 50vh;
-  overflow-y: auto;
-  background: white;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
-  padding: 2rem 1.5rem;
-  z-index: 9999;
-  display: none;
-  animation: slideUp 0.4s ease forwards;
-}
-
-    @keyframes slideUp {
-      from { transform: translateY(100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    .form-title {
-      text-align: center;
-      font-size: 1.75rem;
-      font-weight: bold;
-      color: #ff4f4f;
-      margin-bottom: 1.5rem;
-    }
-
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    input {
-      padding: 0.9rem;
-      border-radius: 12px;
-      border: 1px solid #ddd;
-      font-size: 1rem;
-      width: 100%;
-    }
-
-    .btn {
-      background: linear-gradient(to right, #ff4f4f, #ffcc33);
-      border: none;
-      border-radius: 50px;
-      padding: 1rem;
-      font-size: 1rem;
-      font-weight: bold;
-      color: black;
-      width: 100%;
-      box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
-    }
-
-    .close-btn {
-      text-align: center;
-      margin-top: 1rem;
-      color: #666;
-      cursor: pointer;
-    }
-  
-.form-drawer {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 700px;
-  max-height: 50vh;
-  overflow-y: auto;
-  background: white;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
-  padding: 2rem 1.5rem;
-  z-index: 9999;
-  display: none;
-  animation: slideUp 0.4s ease forwards;
-}
-.disclaimer {
-  font-size: 0.85rem;
-  color: #666;
-  margin-top: 1rem;
-  text-align: center;
-  line-height: 1.4;
-}
-.agree-btn {
-  margin-top: 1rem;
-  background: linear-gradient(to right, #4CAF50, #8BC34A);
-  color: white;
-  font-weight: bold;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 30px;
-  width: 100%;
-  font-size: 0.95rem;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-}
-    </style><style>
-@media (max-width: 600px) {
-  .form-drawer {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 700px;
-  max-height: 50vh;
-  overflow-y: auto;
-  background: white;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.15);
-  padding: 2rem 1.5rem;
-  z-index: 9999;
-  display: none;
-  animation: slideUp 0.4s ease forwards;
-}
-
-  .form-title {
-    font-size: 1.4rem !important;
-  }
-
-  .agree-btn, .close-btn {
-    font-size: 0.95rem !important;
-    padding: 0.75rem 1rem !important;
-  }
-
-  .form-progress-container {
-    height: 8px !important;
-  }
-
-  input#stepInput {
-    font-size: 1rem !important;
-    padding: 0.8rem !important;
-  }
-}
-</style><style>
-@keyframes fadeInField {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style><style>
-body {
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
-}
-
-button.agree-btn {
-  background: linear-gradient(to right, #ff4e50, #f9d423);
-  color: black;
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(255, 78, 80, 0.3);
-  border: none;
-  border-radius: 30px;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-button.agree-btn:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(255, 78, 80, 0.4);
-}
-
-input:focus {
-  outline: none;
-  border-color: #ff4e50;
-  box-shadow: 0 0 8px rgba(255, 78, 80, 0.2);
-}
-</style></head>
+</head>
 <body><button id="smartMenuToggle" style="position: fixed; top: 20px; left: 20px; z-index: 10001; padding: 0.75rem 1.25rem; border-radius: 50px; font-weight: bold; background: linear-gradient(to right, #ff4e50, #f9d423); color: black; border: none; box-shadow: 0 0 12px rgba(0,0,0,0.15); cursor: pointer;">Choose Offer Method</button><div id="smartMenuDropdown" style="display: none; position: fixed; top: 70px; right: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); padding: 1rem; z-index: 10000;"><button class="dropdown-option" onclick="openForm('ai_offer')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Offer</button><button class="dropdown-option" onclick="openForm('chat')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Chat</button><button class="dropdown-option" onclick="openForm('voice')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Voice</button><button class="dropdown-option" onclick="openForm('photo')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Photo</button><button class="dropdown-option" onclick="openForm('video')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Video</button><button class="dropdown-option" onclick="openForm('email')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Email</button><button class="dropdown-option" onclick="openForm('vin')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">VIN</button><button class="dropdown-option" onclick="openForm('plate')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Plate</button><button class="dropdown-option" onclick="openForm('agent')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">Agent</button><button class="dropdown-option" onclick="openForm('recarra_full_form')" style="display: block; width: 100%; margin: 0.25rem 0; padding: 0.5rem 1rem; background: #f9f9f9; border: 1px solid #ccc; border-radius: 8px; font-weight: 600; cursor: pointer;">AI Recarra Instant Offer</button></div><div id="formDisplayArea" style="margin: 2rem auto; max-width: 720px; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);"></div><audio id="popupOpenSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio><audio id="popupCloseSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio><audio id="stepSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
 <!-- Splash Welcome Screen -->
 <script>
@@ -2185,10 +1738,9 @@ window.addEventListener("load", () => {
   </a>
 </div>
 </header>
-
 <!-- AI Recarra Instant Offer Section -->
 <section class="section-block fade-in-section" id="recarraForm" style="max-width: 720px; margin: 3rem auto; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);">
-<h2 class="section-title" style="font-size:2rem; text-align:center; color:#ff4e50;">Recarra Smart Offer Form</h2>
+<h2 class="section-title" style="font-size:2rem; text-align:center; color:#ff4e50;">AI Recarra Instant Offer</h2>
 <form id="smartRecarraForm" style="display:flex; flex-direction:column; gap:1.5rem;"><div id="formProgressDots" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 1.5rem;"><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span><span style="width: 12px; height: 12px; background: #ccc; border-radius: 50%; display: inline-block; transition: background 0.3s;"></span></div>
 <div class="form-progress-container" style="width: 100%; max-width: 400px; height: 10px; background-color: #eee; border-radius: 10px; overflow: hidden; margin: 1rem auto;">
 <div class="form-progress-bar" id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.5s ease-in-out;"></div>
@@ -3394,7 +2946,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-</script><section class="section-block fade-in-section" style="background: #ffffff; padding: 2rem; border-radius: 10px; margin-top: 2rem;"><h3 id="faq-question" style="font-weight: 800; font-size: 1.2rem; text-align: center;"></h3><p id="faq-answer" style="font-size: 1rem; color: #555; text-align: center;"></p></section><script>
+</script><section class="section-block fade-in-section" style="background: #ffffff; padding: 2rem; border-radius: 10px; margin-top: 2rem;"><h3 id="faq-question_2" style="font-weight: 800; font-size: 1.2rem; text-align: center;"></h3><p id="faq-answer_2" style="font-size: 1rem; color: #555; text-align: center;"></p></section><script>
 window.addEventListener("load", function () {
   const hour = new Date().getHours();
   const audio = new Audio(
@@ -4360,22 +3912,7 @@ window.onload = function() {
   }
 }
 </script>
-<div aria-labelledby="formTitle" aria-modal="true" class="form-drawer" id="formDrawer" role="dialog">
-<div class="form-progress-container" style="width: 100%; max-width: 100%; height: 10px; background: #eee; border-radius: 10px; margin-bottom: 1rem; overflow: hidden;">
-<div id="formProgressBar" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.4s ease-in-out;"></div>
-</div>
-<div class="form-title" id="formTitle">Offer Form</div>
-<div class="input-group">
-<input aria-label="Start entering..." placeholder="Start entering..." type="text"/>
-<button class="btn">Next</button>
-<div class="close-btn" onclick="closeForm()">Close</div>
-</div>
-<div class="disclaimer">
-      This is just an estimate. Final price depends on inspection,<br/>
-      ownership, condition, and required legal documents.
-    </div>
-<button class="agree-btn">I Understand</button>
-</div><script>
+<script>
 const stepForms = {
 "ai_offer": [
 {placeholder: "Describe your car in one sentence", type: "text", name: "description", validate: function(value, data) { return value.length > 10; }},
@@ -4612,19 +4149,8 @@ function nextStep() {
 }
 </script>
 <!-- Modal Overlay -->
-<div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
+<div id="modalOverlay_2" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
 <!-- Smart Form Drawer -->
-<div class="form-drawer" id="formDrawer" style="display:none;">
-<div class="form-title">Recarra Offer Form</div>
-<div id="formContentArea">
-<input aria-label="Your Name" placeholder="Your Name" style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" type="text"/>
-</div>
-<div class="disclaimer">
-    This is just an estimate. Final offer depends on inspection, documents, and vehicle condition.
-  </div>
-<button class="agree-btn" onclick="submitForm()">Submit Offer</button>
-<div class="close-btn" onclick="closeForm()">Close</div>
-</div>
 <script>
 function openForm(formName) {
   document.getElementById('formContentArea').innerHTML = '<input type="text" placeholder="Your Name" style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" />';
@@ -4641,19 +4167,10 @@ function closeForm() {
 <!-- Overlay -->
 <div id="formOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
 <!-- Unified Drawer -->
-<div class="form-drawer" id="formDrawer">
-<button onclick="closeForm()" style="position:absolute; top:10px; right:20px; background:black; color:white; border:none; border-radius:50%; width:30px; height:30px; font-size:1.2rem; cursor:pointer;">×</button>
-<h2 class="form-title" id="drawerTitle">Smart Offer</h2>
-<p class="disclaimer">This is just an estimate. Final price will depend on vehicle ownership, condition, and documentation.</p>
-<div id="formStepContainer">
-<input id="stepInput" onkeydown="if(event.key==='Enter') nextStep()" placeholder="Enter your name" type="text"/>
-</div>
-<button class="agree-btn" onclick="nextStep()" style="margin-top:1rem;">Next</button>
-</div>
 <!-- Audio -->
 <audio id="openSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio>
 <audio id="closeSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio>
-<audio id="stepSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
+<audio id="stepSound_2" preload="auto" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
 <script>
 document.getElementById('chooseOfferBtn').onclick = () => {
   const menu = document.getElementById('offerDropdown');
@@ -4870,71 +4387,6 @@ function closeForm() {
 <button class="next-btn" onclick="nextStep('recarra-full-form')">Next</button>
 </div>
 </div>
-<style>
-  .smart-form {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-    padding: 2rem;
-    max-width: 480px;
-    margin: 2rem auto;
-    text-align: center;
-  }
-
-  .form-title {
-    font-size: 1.5rem;
-    color: #ff4e50;
-    margin-bottom: 1rem;
-  }
-
-  .progress-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .progress-dots .dot {
-    width: 12px;
-    height: 12px;
-    background: #ccc;
-    border-radius: 50%;
-  }
-
-  .progress-bar {
-    height: 6px;
-    background: #eee;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-  }
-
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(to right, #ff4e50, #f9d423);
-    width: 10%;
-    transition: width 0.3s ease;
-  }
-
-  .form-step input {
-    width: 80%;
-    padding: 0.8rem;
-    font-size: 1rem;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 1.5rem;
-  }
-
-  .next-btn {
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(to right, #ff4e50, #f9d423);
-    color: black;
-    font-weight: bold;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-  }
-</style>
 <script>
   function nextStep(formId) {
     const form = document.getElementById(formId + '-form');
@@ -4956,67 +4408,106 @@ function closeForm() {
     window.scrollTo(0, form.offsetTop);
   }
 </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const allForms = [
-    'ai_offer', 'chat', 'voice', 'photo', 'video',
-    'email', 'vin', 'plate', 'agent', 'recarra_full_form'
-  ];
-
-  function hideAllForms() {
-    allForms.forEach(id => {
-      const form = document.getElementById(id + '-form');
-      if (form) form.style.display = 'none';
-    });
-  }
-
-  window.openForm = function(formId) {
-    hideAllForms();
-    const form = document.getElementById(formId + '-form');
-    if (form) form.style.display = 'block';
-  }
-
-  hideAllForms();  // Hide all on page load
-  const defaultForm = document.getElementById('recarra_full_form-form');
-  if (defaultForm) defaultForm.style.display = 'block';
-});
-</script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const allForms = [
-    'ai_offer', 'chat', 'voice', 'photo', 'video',
-    'email', 'vin', 'plate', 'agent', 'recarra_full_form'
-  ];
-
-  function hideAllForms() {
-    allForms.forEach(id => {
-      const form = document.getElementById(id + '-form');
-      if (form) form.style.display = 'none';
-    });
-  }
-
-  window.openForm = function(formId) {
-    hideAllForms();
+<section id="formContainer"><div aria-labelledby="formTitle" aria-modal="true" class="form-drawer" id="formDrawer" role="dialog" style="display: none;">
+<div class="form-progress-container" style="width: 100%; max-width: 100%; height: 10px; background: #eee; border-radius: 10px; margin-bottom: 1rem; overflow: hidden;">
+<div id="formProgressBar_2" style="height: 100%; width: 0%; background: linear-gradient(to right, #ff4e50, #f9d423); transition: width 0.4s ease-in-out;"></div>
+</div>
+<div class="form-title" id="formTitle">Offer Form</div>
+<div class="input-group">
+<input aria-label="Start entering..." placeholder="Start entering..." type="text"/>
+<button class="btn">Next</button>
+<div class="close-btn" onclick="closeForm()">Close</div>
+</div>
+<div class="disclaimer">
+      This is just an estimate. Final price depends on inspection,<br/>
+      ownership, condition, and required legal documents.
+    </div>
+<button class="agree-btn">I Understand</button>
+</div><div class="form-drawer" id="formDrawer_2" style="display: none;">
+<div class="form-title">Recarra Offer Form</div>
+<div id="formContentArea">
+<input aria-label="Your Name" placeholder="Your Name" style="padding: 1rem; width: 100%; border-radius: 12px; border: 1px solid #ccc;" type="text"/>
+</div>
+<div class="disclaimer">
+    This is just an estimate. Final offer depends on inspection, documents, and vehicle condition.
+  </div>
+<button class="agree-btn" onclick="submitForm()">Submit Offer</button>
+<div class="close-btn" onclick="closeForm()">Close</div>
+</div><div class="form-drawer" id="formDrawer_3" style="display: none;">
+<button onclick="closeForm()" style="position:absolute; top:10px; right:20px; background:black; color:white; border:none; border-radius:50%; width:30px; height:30px; font-size:1.2rem; cursor:pointer;">×</button>
+<h2 class="form-title" id="drawerTitle">Smart Offer</h2>
+<p class="disclaimer">This is just an estimate. Final price will depend on vehicle ownership, condition, and documentation.</p>
+<div id="formStepContainer">
+<input id="stepInput" onkeydown="if(event.key==='Enter') nextStep()" placeholder="Enter your name" type="text"/>
+</div>
+<button class="agree-btn" onclick="nextStep()" style="margin-top:1rem;">Next</button>
+</div></section><button id="switchFormBtn" onclick="toggleMenu()" style="position: fixed; bottom: 80px; right: 20px; z-index: 10000; padding: 0.8rem 1.4rem; font-weight: bold; background: linear-gradient(to right, #f9d423, #ff4e50); color: black; border: none; border-radius: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: none;">Choose Another Method</button><script>
+function toggleMenu() {
+  const menu = document.getElementById('smartMenuDropdown');
+  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
+</script><script>
+document.addEventListener('DOMContentLoaded', function () {
+  openForm('recarra_full_form');
+  window.openForm = function (formId) {
     const dropdown = document.getElementById('smartMenuDropdown');
-    if (dropdown) dropdown.style.display = 'none';  // Hide the dropdown on selection
-    const form = document.getElementById(formId + '-form');
-    if (form) {
-      form.style.display = 'block';
-      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (dropdown) dropdown.style.display = 'none';
+    document.querySelectorAll('.form-drawer').forEach(f => f.style.display = 'none');
+    const target = document.getElementById('form-' + formId);
+    if (target) target.style.display = 'block';
+    const container = document.getElementById('formContainer');
+    if (container) container.scrollIntoView({ behavior: 'smooth' });
+    const switchBtn = document.getElementById('switchFormBtn');
+    if (switchBtn) switchBtn.style.display = 'block';
+  };
+});
+</script><button id="quitFormBtn" onclick="closeAllForms()" style="position: fixed; bottom: 140px; right: 20px; z-index: 10000; padding: 0.75rem 1.25rem; font-weight: bold; background: #eee; color: #333; border: 2px solid #ccc; border-radius: 40px; box-shadow: 0 0 10px rgba(0,0,0,0.1); display: none;">Cancel / Close</button><div id="thankYouMessage" style="display:none; text-align:center; padding:2rem;">
+<h2>Thank You!</h2>
+<p>Your offer ID: <strong id="offerIdDisplay">#...</strong></p>
+<p>Estimated Offer Amount: <strong id="offerAmountDisplay">$...</strong></p>
+</div><script>
+function toggleMenu() {
+  const menu = document.getElementById('smartMenuDropdown');
+  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  openForm('recarra_full_form');
+
+  window.openForm = function (formId) {
+    const dropdown = document.getElementById('smartMenuDropdown');
+    if (dropdown) dropdown.style.display = 'none';
+    document.querySelectorAll('.form-drawer').forEach(f => f.style.display = 'none');
+    const target = document.getElementById('form-' + formId);
+    if (target) target.style.display = 'block';
+    const container = document.getElementById('formContainer');
+    if (container) container.scrollIntoView({ behavior: 'smooth' });
+    const switchBtn = document.getElementById('switchFormBtn');
+    const quitBtn = document.getElementById('quitFormBtn');
+    if (switchBtn) switchBtn.style.display = 'block';
+    if (quitBtn) quitBtn.style.display = 'block';
   };
 
-  // Show Recarra Full Form (renamed) by default
-  hideAllForms();
-  const defaultForm = document.getElementById('recarra_full_form-form');
-  if (defaultForm) defaultForm.style.display = 'block';
+  window.closeAllForms = function () {
+    document.querySelectorAll('.form-drawer').forEach(f => f.style.display = 'none');
+    const switchBtn = document.getElementById('switchFormBtn');
+    const quitBtn = document.getElementById('quitFormBtn');
+    if (switchBtn) switchBtn.style.display = 'none';
+    if (quitBtn) quitBtn.style.display = 'none';
+  };
 });
-</script>
+</script><script>
+function showThankYouMessage() {
+  const offerId = "RC-" + Math.floor(100000 + Math.random() * 900000);
+  const offerAmount = "$" + (1500 + Math.floor(Math.random() * 4500));
 
-</body>
+  document.getElementById("offerIdDisplay").textContent = offerId;
+  document.getElementById("offerAmountDisplay").textContent = offerAmount;
+
+  closeAllForms(); // Hide form
+  document.getElementById("thankYouMessage").style.display = "block";
+}
+</script></body>
 </html>
 <script>
 function startVinScan() {
