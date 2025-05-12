@@ -695,8 +695,120 @@ section.card p, section.card li {
   transform: scale(1.05);
 }
 </style>
+<style>
+.recarra-icon {
+  transition: transform 0.6s ease;
+}
+.recarra-icon:hover {
+  transform: rotate(360deg);
+}
+.recarra-badge {
+  transition: background 0.3s ease, transform 0.4s ease;
+}
+.recarra-badge:hover {
+  background: #ffd54f;
+  transform: scale(1.1);
+}
+</style>
+<style>
+@keyframes fadePhraseGlow {
+  0% { opacity: 0; box-shadow: none; }
+  10% { opacity: 1; box-shadow: 0 0 8px rgba(255, 60, 60, 0.4); }
+  90% { opacity: 1; box-shadow: 0 0 12px rgba(249, 212, 35, 0.6); }
+  100% { opacity: 0; box-shadow: none; }
+}
+#cycling-offer-button {
+  animation: fadePhraseGlow 88s ease-in-out infinite;
+}
+</style>
+<style>
+#cycling-offer-button {
+  border: 2px solid rgba(255, 60, 60, 0.4);
+  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3), 0 0 5px rgba(249, 212, 35, 0.3);
+}
+</style>
+<style>
+@keyframes starPulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,215,0,0)); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 8px rgba(255,215,0,0.7)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,215,0,0)); }
+}
+.recarra-icon {
+  animation: starPulse 8s infinite;
+  transition: transform 0.3s ease;
+}
+</style>
+<style>
+@keyframes formFlash {
+  0% { box-shadow: 0 0 0px rgba(255, 215, 0, 0); }
+  50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+  100% { box-shadow: 0 0 0px rgba(255, 215, 0, 0); }
+}
+.form-flash {
+  animation: formFlash 1s ease-in-out;
+}
+</style>
+<style>
+@keyframes slightBounce {
+  0% { transform: translateY(-10px); }
+  50% { transform: translateY(5px); }
+  100% { transform: translateY(0); }
+}
+.bounce-scroll {
+  animation: slightBounce 0.6s ease-in-out;
+}
+</style>
 </head>
 <body>
+<audio id="sparkle-sound" preload="auto">
+<source src="https://freesound.org/data/previews/522/522646_11227624-lq.mp3" type="audio/mpeg"/>
+</audio>
+<style>
+#rotating-recarra-name {
+  font-size: 1.6rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.recarra-icon {
+  width: 24px;
+  height: 24px;
+}
+.recarra-badge {
+  font-size: 0.75rem;
+  background: #ffe082;
+  color: #000;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+</style>
+<div id="rotating-recarra-name">
+<a href="javascript:void(0);" id="star-random-trigger"><img alt="Lone Star Icon" class="recarra-icon" src="https://cdn-icons-png.flaticon.com/512/616/616408.png"/></a>
+<span id="recarra-name-text">Recarra</span>
+<span class="recarra-badge" id="recarra-badge">Trusted</span>
+</div>
+<style>
+#rotating-recarra-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 1rem 2rem;
+  display: inline-block;
+  animation: fadeInOut 8888s infinite;
+}
+@keyframes fadeInOut {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+</style>
 <section class="hero-header highend"><img alt="Recarra Logo" class="logo-img" id="recarra-logo"/>
 <div class="hero-logo-row" style="text-align: left; padding-left: 2rem;">
 </div>
@@ -706,6 +818,13 @@ section.card p, section.card li {
 <p class="hero-description">
   Recarra delivers seamless AI-powered offers—no agents, no delays. Just smart value, speed, and full control, all from your screen.
 </p>
+</section>
+<section class="card" id="hero-slogans" style="text-align:center; padding:2rem;">
+<h1 id="main-slogan" style="font-size:2rem; color:#e74c3c;">The Intelligent, Instant Way to Sell Your Car</h1>
+<p id="sub-slogan" style="font-size:1.1rem; color:#333;">Recarra delivers seamless AI-powered offers—no agents, no delays. Just smart value, speed, and full control.</p>
+<div id="junk-joke" style="font-size:1rem; color:#999; margin-top:1rem; display:none;">
+  Why did the junk car call Recarra? It wanted a better life.
+</div>
 </section>
 <header style="text-align:center; padding:3rem 1rem; background: linear-gradient(to right, #ffffff, #fefefe);">
 </header>
@@ -732,29 +851,6 @@ section.card p, section.card li {
 </ul>
 </div>
 </div>
-<script>
-      const toggle = document.getElementById("offerToggle");
-      const menu = document.getElementById("offerMenu");
-      toggle.onclick = () => {
-        menu.style.display = menu.style.display === "none" ? "block" : "none";
-      };
-
-      const dropdownItems = document.querySelectorAll(".dropdown-item");
-      const forms = document.querySelectorAll(".form-card");
-      forms.forEach((form, i) => form.id = "form" + i);
-      forms.forEach((form, i) => {
-        if (i !== 0) form.style.display = "none";
-      });
-
-      dropdownItems.forEach(item => {
-        item.onclick = () => {
-          forms.forEach(f => f.style.display = "none");
-          const target = document.getElementById(item.dataset.target);
-          if (target) target.style.display = "block";
-          menu.style.display = "none";
-        };
-      });
-    </script>
 <main>
 <section class="form-card" id="form0">
 <div class="dot-progress">
@@ -1794,102 +1890,6 @@ function launchConfetti() {
   }, 250);
 }
 </script>
-<script>
-const tikSound = new Audio("https://www.myinstants.com/media/sounds/mouse-click.mp3");
-const doneSound = new Audio("https://www.myinstants.com/media/sounds/notification.mp3");
-
-function speak(text) {
-  if ('speechSynthesis' in window) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.pitch = 1;
-    utterance.rate = 1;
-    window.speechSynthesis.speak(utterance);
-  }
-}
-
-function resetFormStates() {
-  document.querySelectorAll(".form-card").forEach(form => {
-    const stepFields = form.querySelectorAll(".step-field");
-    const dots = form.querySelectorAll(".dot");
-    const progressBar = form.querySelector(".progress-bar");
-    const thankYou = form.querySelector(".thank-you");
-    const nextBtn = form.querySelector(".next-button.submit-button");
-
-    stepFields.forEach((field, i) => {
-      field.style.display = i === 0 ? "block" : "none";
-    });
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === 0));
-    if (progressBar) progressBar.style.width = `${100 / stepFields.length}%`;
-
-    if (nextBtn) {
-      nextBtn.textContent = "Submit Offer";
-      nextBtn.disabled = false;
-      nextBtn.style.background = "linear-gradient(to right, #ff3c3c, #f9d423)";
-      nextBtn.style.display = "block";
-    }
-    if (thankYou) {
-      thankYou.style.display = "none";
-      thankYou.textContent = "";
-    }
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menuItems = document.querySelectorAll(".dropdown-item");
-  menuItems.forEach(item => {
-    item.addEventListener("click", () => {
-      setTimeout(() => resetFormStates(), 300);
-    });
-  });
-
-  document.querySelectorAll(".form-card").forEach(form => {
-    let currentStep = 0;
-    const stepFields = form.querySelectorAll(".step-field");
-    const dots = form.querySelectorAll(".dot");
-    const progressBar = form.querySelector(".progress-bar");
-    const nextBtn = form.querySelector(".next-button.submit-button");
-    const thankYou = form.querySelector(".thank-you");
-
-    stepFields.forEach((field, i) => {
-      field.style.display = i === 0 ? "block" : "none";
-    });
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === 0));
-    if (progressBar) progressBar.style.width = `${100 / stepFields.length}%`;
-    if (nextBtn) nextBtn.style.display = "block";
-
-    if (nextBtn) {
-      nextBtn.onclick = () => {
-        tikSound.play();
-        if (currentStep < stepFields.length - 1) {
-          stepFields[currentStep].style.display = "none";
-          currentStep++;
-          stepFields[currentStep].style.display = "block";
-          form.scrollIntoView({ behavior: "smooth" });
-
-          dots.forEach((dot, i) => dot.classList.toggle("active", i === currentStep));
-          if (progressBar) {
-            const percent = ((currentStep + 1) / stepFields.length) * 100;
-            progressBar.style.width = `${percent}%`;
-          }
-        } else {
-          nextBtn.textContent = "Done";
-          nextBtn.disabled = true;
-          nextBtn.style.background = "linear-gradient(to right, #4caf50, #81c784)";
-          doneSound.play();
-          speak("Your offer has been submitted successfully.");
-          launchConfetti();
-          if (thankYou) {
-            const offerId = generateUniqueOfferID();
-            thankYou.textContent = "Thank you! Your Offer ID is: " + offerId;
-            thankYou.style.display = "block";
-          }
-          form.scrollIntoView({ behavior: "smooth" });
-        }
-      };
-    }
-  });
-});
-</script>
 <style>
 .logo-img {
   max-height: 60px;
@@ -1993,21 +1993,6 @@ document.addEventListener("DOMContentLoaded", () => {
   transform: scale(1.08);
 }
 </style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const forms = document.querySelectorAll(".form-card");
-  const btn = document.getElementById("floating-offer-btn");
-
-  if (btn && forms.length > 0) {
-    btn.addEventListener("click", () => {
-      const randomForm = forms[Math.floor(Math.random() * forms.length)];
-      forms.forEach(f => f.style.display = "none");
-      randomForm.style.display = "block";
-      randomForm.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-});
-</script>
 <button id="top-button">↑ Top</button>
 <style>
 #top-button {
@@ -2052,26 +2037,237 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 </style>
 <script>
+function speakJoke(text) {
+  if ('speechSynthesis' in window) {
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.pitch = 1;
+    utter.rate = 1;
+    utter.volume = 1;
+    speechSynthesis.speak(utter);
+  }
+}
+</script>
+<script>
+const junkJokes = [
+  "Why did the junk car call Recarra? It wanted a better life.",
+  "That rust bucket isn’t trash — it’s Recarra treasure.",
+  "You’d be surprised what Recarra pays for ‘character’ cars.",
+  "Even your car’s exhaust is sighing for a better deal. We hear it.",
+  "Don’t let your junk sit. Let Recarra make it famous — and valuable."
+];
+let jokeIndex = 0;
+setInterval(() => {
+  jokeIndex = (jokeIndex + 1) % junkJokes.length;
+  const jokeEl = document.getElementById("junk-joke");
+  const currentJoke = junkJokes[jokeIndex];
+  jokeEl.textContent = currentJoke;
+  jokeEl.style.display = "block";
+  speakJoke(currentJoke);
+  setTimeout(() => {
+    jokeEl.style.display = "none";
+  }, 12000);
+}, 888000); // every 888 seconds
+</script>
+<script>
+const recarraVariants = [
+  { name: "Recarra AI", badge: "24/7", icon: "ai_icon.png" },
+  { name: "Recarra Cloud", badge: "Smart", icon: "cloud_icon.png" },
+  { name: "Recarra 24/7", badge: "Instant", icon: "clock_icon.png" },
+  { name: "Recarra Auto Logic", badge: "Verified", icon: "chip_icon.png" },
+  { name: "The Recarra Way", badge: "DMV-Trusted", icon: "flag_icon.png" },
+  { name: "Recarra Smart Offers", badge: "AI Powered", icon: "shield_icon.png" }
+];
+
+let nameCycleIndex = 0;
+setInterval(() => {
+  const next = recarraVariants[nameCycleIndex % recarraVariants.length];
+  document.getElementById("recarra-name-text").textContent = next.name;
+  document.getElementById("recarra-badge").textContent = next.badge;
+  document.querySelector(".recarra-icon").src = next.icon;
+  nameCycleIndex++;
+}, 8000);
+</script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Offer Button Logic
-  const forms = document.querySelectorAll(".form-card");
-  const offerBtn = document.getElementById("floating-offer-btn");
-  if (offerBtn && forms.length > 0) {
-    offerBtn.addEventListener("click", () => {
-      const randomForm = forms[Math.floor(Math.random() * forms.length)];
-      forms.forEach(f => f.style.display = "none");
-      randomForm.style.display = "block";
-      randomForm.scrollIntoView({ behavior: "smooth" });
+  const menuBtn = document.querySelector('.cta-button');
+  const menu = document.getElementById('form-menu');
+  const formLinks = document.querySelectorAll('#form-menu .dropdown-item');
+  const allForms = document.querySelectorAll('.form-section');
+
+  if (menuBtn && menu && formLinks.length > 0) {
+    menuBtn.addEventListener("click", () => {
+      menu.style.display = "block";
+      menu.scrollIntoView({ behavior: "smooth" });
     });
+
+    formLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const targetID = link.dataset.target;
+        allForms.forEach(form => {
+          form.style.opacity = 0;
+          setTimeout(() => {
+            form.style.display = "none";
+          }, 300);
+        });
+
+        const targetForm = document.getElementById(targetID);
+        if (targetForm) {
+          setTimeout(() => {
+            targetForm.style.display = "block";
+            targetForm.style.opacity = 1;
+          }, 350);
+        }
+
+        menu.style.display = "none";
+      });
+    });
+  }
+});
+</script>
+<style>
+.form-section {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  display: none;
+}
+</style>
+<script>
+let offerPhraseIndex = 0;
+const chime = new Audio('https://freesound.org/data/previews/341/341695_6262184-lq.mp3'); // sample chime
+
+setInterval(() => {
+  offerPhraseIndex = (offerPhraseIndex + 1) % offerPhrases.length;
+  const button = document.getElementById("cycling-offer-button");
+  button.textContent = offerPhrases[offerPhraseIndex];
+  chime.play();
+}, 88000);
+</script>
+<script>
+const sparkle = new Audio("https://freesound.org/data/previews/522/522646_11227624-lq.mp3");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const starTrigger = document.getElementById("star-random-trigger");
+  const forms = document.querySelectorAll(".form-section");
+
+  if (starTrigger && forms.length > 0) {
+    starTrigger.addEventListener("click", () => {
+      sparkle.play();
+      forms.forEach(f => {
+        f.classList.remove("form-flash", "bounce-scroll");
+        f.style.opacity = 0;
+        setTimeout(() => { f.style.display = "none"; }, 200);
+      });
+
+      const randomForm = forms[Math.floor(Math.random() * forms.length)];
+      setTimeout(() => {
+        randomForm.style.display = "block";
+        randomForm.style.opacity = 1;
+        randomForm.classList.add("form-flash", "bounce-scroll");
+        randomForm.scrollIntoView({ behavior: "smooth" });
+      }, 250);
+    });
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sparkle = document.getElementById("sparkle-sound");
+  const formMenuItems = document.querySelectorAll('#form-menu .dropdown-item');
+  const allForms = document.querySelectorAll('.form-section');
+
+  if (formMenuItems.length > 0) {
+    formMenuItems.forEach(link => {
+      link.addEventListener("click", () => {
+        const targetID = link.dataset.target;
+        allForms.forEach(f => {
+          f.classList.remove("form-flash", "bounce-scroll");
+          f.style.opacity = 0;
+          setTimeout(() => { f.style.display = "none"; }, 200);
+        });
+
+        const targetForm = document.getElementById(targetID);
+        if (targetForm) {
+          setTimeout(() => {
+            targetForm.style.display = "block";
+            targetForm.style.opacity = 1;
+            targetForm.classList.add("form-flash", "bounce-scroll");
+            sparkle.play();
+            targetForm.scrollIntoView({ behavior: "smooth" });
+          }, 250);
+        }
+        const menu = document.getElementById("form-menu");
+        if (menu) {
+          menu.style.display = "none";
+        }
+      });
+    });
+  }
+});
+</script>
+
+<style>
+#dollar-rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.dollar {
+  position: absolute;
+  width: 40px;
+  height: auto;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+<div id="dollar-rain-container" style="display: none;"></div>
+
+<script>
+function startDollarRain() {
+  const container = document.getElementById("dollar-rain-container");
+  container.innerHTML = "";
+  container.style.display = "block";
+
+  for (let i = 0; i < 50; i++) {
+    const img = document.createElement("img");
+    img.src = "https://cdn-icons-png.flaticon.com/512/2331/2331970.png";
+    img.classList.add("dollar");
+    img.style.left = Math.random() * 100 + "vw";
+    img.style.animationDelay = (Math.random() * 3) + "s";
+    container.appendChild(img);
   }
 
-  // Scroll to top logic
-  const topBtn = document.getElementById("top-button");
-  if (topBtn) {
-    topBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => {
+    container.style.display = "none";
+    container.innerHTML = "";
+  }, 8000);
+}
+
+// Attach to all submit buttons with class .submit-button
+document.addEventListener("DOMContentLoaded", () => {
+  const submitButtons = document.querySelectorAll(".submit-button");
+  submitButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      setTimeout(() => {
+        startDollarRain();
+      }, 500);
     });
-  }
+  });
 });
 </script>
 </body>
