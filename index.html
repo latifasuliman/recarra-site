@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title><span id="recarra-name">Recarra | AI Car Offer Platform</span></title>
+<title>Recarra | AI Car Offer Platform</title>
 <style>
     body {
       margin: 0;
@@ -550,338 +550,9 @@ button {
 }
 </style>
 <canvas id="confetti-canvas"></canvas>
-<script>
-function generateUniqueOfferID() {
-  const now = Date.now().toString(); // milliseconds
-  const randomNum = Math.floor(Math.random() * 9000 + 1000); // random 4-digit
-  return 'RC-' + now.slice(-6) + '-' + randomNum;
-}
-</script>
-<style>
-@keyframes fadeInOutLogo {
-  0% { opacity: 0; transform: scale(0.95); }
-  5% { opacity: 1; transform: scale(1); }
-  95% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0; transform: scale(0.95); }
-}
-
-.logo-img {
-  animation: fadeInOutLogo 8888s ease-in-out infinite;
-  transition: transform 1s ease, opacity 1s ease;
-  display: block;
-  margin: 0 auto;
-  max-height: 60px;
-}
-</style>
-<style>
-@keyframes fadeInOutSync {
-  0% { opacity: 0; transform: translateY(-10px); }
-  5% { opacity: 1; transform: translateY(0); }
-  95% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-10px); }
-}
-
-.hero-title, .main-button, .animated-heading {
-  animation: fadeInOutSync 8888s ease-in-out infinite;
-  transition: all 1.5s ease;
-}
-</style>
-<style>
-body {
-  background: linear-gradient(120deg, #f9f9f9, #fefefe);
-  background-size: 400% 400%;
-  animation: gradientShift 8888s ease infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Scroll-triggered fade-in for trust badges */
-.trust-badge {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.trust-badge.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
-<style>
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 10px rgba(255, 60, 60, 0.3); }
-  50% { box-shadow: 0 0 25px rgba(255, 60, 60, 0.6); }
-  100% { box-shadow: 0 0 10px rgba(255, 60, 60, 0.3); }
-}
-
-#get-offer-now {
-  animation: pulseGlow 5s ease-in-out infinite;
-}
-</style>
-<style>
-section.card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 2.5rem;
-  margin: 2rem auto;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
-  max-width: 900px;
-  font-family: 'Segoe UI', sans-serif;
-}
-section.card h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-}
-section.card p, section.card li {
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.6;
-}
-.icon-box-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 2rem;
-  gap: 2rem;
-  text-align: center;
-}
-.icon-box {
-  width: 40%;
-  min-width: 140px;
-}
-.icon-box img {
-  width: 48px;
-  margin-bottom: 0.5rem;
-}
-.icon-box p {
-  font-weight: bold;
-  font-size: 1rem;
-}
-.trust-numbers {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 2rem;
-}
-.trust-numbers div {
-  text-align: center;
-}
-.trust-numbers div span {
-  display: block;
-  font-size: 2rem;
-  color: #e74c3c;
-  font-weight: bold;
-}
-.cta-button {
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  border: none;
-  color: white;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 30px;
-  box-shadow: 0 0 15px rgba(255, 60, 60, 0.3);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.cta-button:hover {
-  transform: scale(1.05);
-}
-</style>
-<style>
-.recarra-icon {
-  transition: transform 0.6s ease;
-}
-.recarra-icon:hover {
-  transform: rotate(360deg);
-}
-.recarra-badge {
-  transition: background 0.3s ease, transform 0.4s ease;
-}
-.recarra-badge:hover {
-  background: #ffd54f;
-  transform: scale(1.1);
-}
-</style>
-<style>
-@keyframes fadePhraseGlow {
-  0% { opacity: 0; box-shadow: none; }
-  10% { opacity: 1; box-shadow: 0 0 8px rgba(255, 60, 60, 0.4); }
-  90% { opacity: 1; box-shadow: 0 0 12px rgba(249, 212, 35, 0.6); }
-  100% { opacity: 0; box-shadow: none; }
-}
-#cycling-offer-button {
-  animation: fadePhraseGlow 88s ease-in-out infinite;
-}
-</style>
-<style>
-#cycling-offer-button {
-  border: 2px solid rgba(255, 60, 60, 0.4);
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3), 0 0 5px rgba(249, 212, 35, 0.3);
-}
-</style>
-<style>
-@keyframes starPulse {
-  0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,215,0,0)); }
-  50% { transform: scale(1.1); filter: drop-shadow(0 0 8px rgba(255,215,0,0.7)); }
-  100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,215,0,0)); }
-}
-.recarra-icon {
-  animation: starPulse 8s infinite;
-  transition: transform 0.3s ease;
-}
-</style>
-<style>
-@keyframes formFlash {
-  0% { box-shadow: 0 0 0px rgba(255, 215, 0, 0); }
-  50% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
-  100% { box-shadow: 0 0 0px rgba(255, 215, 0, 0); }
-}
-.form-flash {
-  animation: formFlash 1s ease-in-out;
-}
-</style>
-<style>
-@keyframes slightBounce {
-  0% { transform: translateY(-10px); }
-  50% { transform: translateY(5px); }
-  100% { transform: translateY(0); }
-}
-.bounce-scroll {
-  animation: slightBounce 0.6s ease-in-out;
-}
-</style>
-<style>
-#form-menu {
-  background: white;
-  border: 2px solid #0077ff;
-  border-radius: 16px;
-  box-shadow: 0 5px 30px rgba(0,0,0,0.25);
-  padding: 10px;
-  position: absolute;
-  top: 60px;
-  right: 20px;
-  z-index: 99999;
-  width: max-content;
-  min-width: 250px;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-#form-menu.show {
-  display: block;
-  opacity: 1;
-}
-#form-menu .dropdown-item {
-  background: white;
-  border: none;
-  padding: 10px 15px;
-  margin: 5px 0;
-  font-weight: bold;
-  color: #333;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-#form-menu .dropdown-item:hover {
-  background: #ffcc00;
-  color: black;
-}
-</style>
-<style>
-.drawer-container {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  border-radius: 20px 20px 0 0;
-  box-shadow: 0 -2px 20px rgba(0,0,0,0.2);
-  width: 90%;
-  max-width: 700px;
-  max-height: 85vh;
-  overflow-y: auto;
-  z-index: 10000;
-  padding: 2rem;
-  display: none;
-  transition: all 0.4s ease;
-}
-.drawer-container.active {
-  display: block;
-}
-.drawer-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  z-index: 9999;
-  display: none;
-}
-.drawer-overlay.active {
-  display: block;
-}
-</style>
 </head>
 <body>
-<audio id="sparkle-sound" preload="auto">
-<source src="https://freesound.org/data/previews/522/522646_11227624-lq.mp3" type="audio/mpeg"/>
-</audio>
-<style>
-#rotating-recarra-name {
-  font-size: 1.6rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.recarra-icon {
-  width: 24px;
-  height: 24px;
-}
-.recarra-badge {
-  font-size: 0.75rem;
-  background: #ffe082;
-  color: #000;
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-weight: 600;
-}
-</style>
-<div id="rotating-recarra-name">
-<a href="javascript:void(0);" id="star-random-trigger"><img alt="Lone Star Icon" class="recarra-icon" src="https://cdn-icons-png.flaticon.com/512/616/616408.png"/></a>
-<span id="recarra-name-text">Recarra</span>
-<span class="recarra-badge" id="recarra-badge">Trusted</span>
-</div>
-<style>
-#rotating-recarra-name {
-  font-size: 1.8rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 1rem 2rem;
-  display: inline-block;
-  animation: fadeInOut 8888s infinite;
-}
-@keyframes fadeInOut {
-  0%,100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-</style>
-<section class="hero-header highend"><img alt="Recarra Logo" class="logo-img" id="recarra-logo"/>
+<section class="hero-header highend">
 <div class="hero-logo-row" style="text-align: left; padding-left: 2rem;">
 </div>
 <h2 class="hero-slogan">
@@ -891,17 +562,10 @@ section.card p, section.card li {
   Recarra delivers seamless AI-powered offers—no agents, no delays. Just smart value, speed, and full control, all from your screen.
 </p>
 </section>
-<section class="card" id="hero-slogans" style="text-align:center; padding:2rem;">
-<h1 id="main-slogan" style="font-size:2rem; color:#e74c3c;">The Intelligent, Instant Way to Sell Your Car</h1>
-<p id="sub-slogan" style="font-size:1.1rem; color:#333;">Recarra delivers seamless AI-powered offers—no agents, no delays. Just smart value, speed, and full control.</p>
-<div id="junk-joke" style="font-size:1rem; color:#999; margin-top:1rem; display:none;">
-  Why did the junk car call Recarra? It wanted a better life.
-</div>
-</section>
-<header style="text-align:center; padding:3rem 1rem; background: linear-gradient(to right, #ffffff, #fefefe);">
+<header>
 </header>
 <div style="position: relative; display: inline-block; margin-top: 1rem;">
-<button class="next-button" id="offerToggle">Choose Offer Method</button><div class="dropdown-menu" id="form-menu" style="display:none;"><button class="dropdown-item" data-target="form0">Offer Method 1</button><button class="dropdown-item" data-target="form1">Offer Method 2</button><button class="dropdown-item" data-target="form2">Offer Method 3</button><button class="dropdown-item" data-target="form3">Offer Method 4</button><button class="dropdown-item" data-target="form4">Offer Method 5</button><button class="dropdown-item" data-target="form5">Offer Method 6</button><button class="dropdown-item" data-target="form6">Offer Method 7</button><button class="dropdown-item" data-target="form7">Offer Method 8</button><button class="dropdown-item" data-target="form8">Offer Method 9</button><button class="dropdown-item" data-target="form9">Offer Method 10</button><button class="dropdown-item" data-target="form10">Offer Method 11</button><button class="dropdown-item" data-target="form11">Offer Method 12</button><button class="dropdown-item" data-target="form12">Offer Method 13</button><button class="dropdown-item" data-target="form13">Offer Method 14</button><button class="dropdown-item" data-target="form14">Offer Method 15</button><button class="dropdown-item" data-target="form15">Offer Method 16</button></div>
+<button class="next-button" id="offerToggle">Choose Offer Method</button>
 <div id="offerMenu" style="display: none; position: absolute; top: 110%; left: 0; background: #fff; border: 2px solid #eee; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 999;">
 <ul style="list-style: none; margin: 0; padding: 0;">
 <li><button class="dropdown-item" data-target="form0">AI Recarra Instant Offer</button></li>
@@ -923,6 +587,29 @@ section.card p, section.card li {
 </ul>
 </div>
 </div>
+<script>
+      const toggle = document.getElementById("offerToggle");
+      const menu = document.getElementById("offerMenu");
+      toggle.onclick = () => {
+        menu.style.display = menu.style.display === "none" ? "block" : "none";
+      };
+
+      const dropdownItems = document.querySelectorAll(".dropdown-item");
+      const forms = document.querySelectorAll(".form-card");
+      forms.forEach((form, i) => form.id = "form" + i);
+      forms.forEach((form, i) => {
+        if (i !== 0) form.style.display = "none";
+      });
+
+      dropdownItems.forEach(item => {
+        item.onclick = () => {
+          forms.forEach(f => f.style.display = "none");
+          const target = document.getElementById(item.dataset.target);
+          if (target) target.style.display = "block";
+          menu.style.display = "none";
+        };
+      });
+    </script>
 <main>
 <section class="form-card" id="form0">
 <div class="dot-progress">
@@ -1822,90 +1509,11 @@ section.card p, section.card li {
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
 <input class="input-field step-field" data-step="1" placeholder="Name" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Damage description" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section></main>
-<section class="card"><h2>Why Recarra?</h2><p>We pay more, operate faster, and offer 24/7 instant AI-powered deals for every vehicle type.</p></section>
-<section class="card"><h2>How Recarra Buys Your Car</h2><p>Submit your info → We review your vehicle → You accept → We pay instantly and schedule pickup.</p></section>
-<section class="card"><h2>Recarra AI</h2><p>Advanced VIN detection, license plate scanning, voice assistant offers, and dynamic pricing logic give you better deals in seconds.</p></section>
-<section class="card"><h2>Will Your Car Be Reported as Junk?</h2><p>Only with your approval. Recarra provides full transparency and legal assurance for every deal.</p></section>
-<section class="card"><h2>Message from Our CEO</h2><p>Welcome to Recarra — where speed, honesty, and technology redefine how you sell your car. We believe every customer deserves the best.</p>
-<div style="margin-top:2rem;">
-<h3 style="color:#c0392b;">We’d Love to Hear From You</h3>
-<form style="margin-top:1rem;">
-<label for="cust-name">Your Name:</label><br/>
-<input id="cust-name" name="cust-name" required="" style="width:100%;padding:0.6rem;margin-bottom:1rem;" type="text"/><br/>
-<label for="cust-feedback">Your Message:</label><br/>
-<textarea id="cust-feedback" name="cust-feedback" required="" rows="4" style="width:100%;padding:0.6rem;margin-bottom:1rem;"></textarea><br/>
-<button class="cta-button" type="submit">Send Feedback</button>
-</form>
-</div>
-</section>
-<section class="card"><h2>Recarra by the Numbers</h2><p>10,000+ offers processed, 98% satisfaction, $Millions paid out — and growing every day.</p></section>
-<section class="card"><h2>Get to Know Recarra Online Auction</h2><p>Explore Recarrabids.com — our platform where vehicles are auctioned to the highest bidder instantly, with verified buyers.</p></section>
-<section class="card"><h2>Recarra Drives</h2><p>We care. Recarra funds clean transport, recycling incentives, and vehicle donation programs that support real families.</p></section>
-<section class="card"><h2>Trust &amp; Assurance</h2><p>Licensed. DMV-Verified. Fully insured. Transparent offers. Instant payouts. Recarra is built for confidence.</p></section>
-<!-- EXPANDABLE FAQ SECTION -->
-<style>
-.faq-item {
-  margin-bottom: 1rem;
-}
-.faq-question {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.1rem;
-  background: #fff0ec;
-  border: 2px solid #f9d423;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #e74c3c;
-  text-align: left;
-  position: relative;
-}
-.faq-question .arrow {
-  float: right;
-  transition: transform 0.3s ease;
-}
-.faq-answer {
-  display: none;
-  margin-top: 0.5rem;
-  padding: 0.8rem 1rem;
-  background: #fefefe;
-  border-left: 3px solid #f9d423;
-  border-radius: 0 0 12px 12px;
-  color: #444;
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", () => {
-      const answer = button.nextElementSibling;
-      const arrow = button.querySelector(".arrow");
-      const isVisible = answer.style.display === "block";
-      document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
-      document.querySelectorAll(".faq-question .arrow").forEach(a => a.style.transform = "rotate(0deg)");
-      if (!isVisible) {
-        answer.style.display = "block";
-        arrow.style.transform = "rotate(180deg)";
-      }
-    });
-  });
-});
-</script>
-<div style="display:flex;justify-content:center;gap:1rem;margin:3rem auto;max-width:600px;">
-<button id="scrollToTopButton" style="background:red;color:white;font-weight:bold;border:none;border-radius:50px;padding:1rem 2rem;box-shadow:0 0 20px red;cursor:pointer;">↑ Top</button>
-<button id="openFormTrigger" style="background:linear-gradient(to right, red, gold);color:white;font-weight:bold;border:none;border-radius:50px;padding:1rem 2rem;box-shadow:0 0 20px orange;cursor:pointer;">Get Instant Cash Offer Now</button>
-</div>
-
-<section id="faq" style="padding:2rem;text-align:center;">
-<h2 style="color:#ff4b4b;">Frequently Asked Questions</h2>
-<div id="faq-display" style="margin-top:2rem;">
-<div id="faq-question" style="font-weight:bold;font-size:1.2rem;margin-bottom:1rem;"></div>
-<div id="faq-answer" style="font-size:1rem;color:#444;"></div>
-</div>
-</section>
 <footer>
     © 2025 Recarra. All rights reserved.
   </footer>
+
+
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
 function launchConfetti() {
@@ -1932,507 +1540,63 @@ function launchConfetti() {
   }, 250);
 }
 </script>
-<style>
-.logo-img {
-  max-height: 60px;
-  transition: opacity 0.5s ease;
-}
-</style>
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const logo = document.getElementById("recarra-logo");
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const tikSound = new Audio("https://www.myinstants.com/media/sounds/mouse-click.mp3");
+const doneSound = new Audio("https://www.myinstants.com/media/sounds/notification.mp3");
 
-  // Default to dark theme check, but could be extended
-  if (prefersDark) {
-    logo.src = "icons/recarra-logo-gold-safe-v2.png";
-  } else {
-    logo.src = "icons/recarra-logo-silver-safe-v2.png";
-  }
-
-  // Optional: toggle logo dynamically if background changes
-  // Example listener for theme toggle:
-  const observer = new MutationObserver(() => {
-    const bg = getComputedStyle(document.body).backgroundColor;
-    if (bg.includes("0, 0, 0") || bg.includes("33, 33, 33")) {
-      logo.src = "icons/recarra-logo-gold-safe-v2.png";
-    } else {
-      logo.src = "icons/recarra-logo-silver-safe-v2.png";
-    }
-  });
-
-  observer.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll(".trust-badge").forEach(el => observer.observe(el));
-});
-</script>
-<style>
-#get-offer-now {
-  display: block;
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: white;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
-  transition: transform 0.3s ease;
-}
-
-#get-offer-now:hover {
-  transform: scale(1.05);
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const offerForms = document.querySelectorAll(".form-card");
-  const offerButton = document.getElementById("get-offer-now");
-
-  if (offerButton && offerForms.length > 0) {
-    offerButton.addEventListener("click", () => {
-      const randomForm = offerForms[Math.floor(Math.random() * offerForms.length)];
-      offerForms.forEach(f => f.style.display = "none");
-      randomForm.style.display = "block";
-      randomForm.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-});
-</script>
-<button id="floating-offer-btn" onclick="showFormById('form0')">Get Instant Cash Offer Now</button>
-<style>
-#floating-offer-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10000;
-  padding: 1rem 1.8rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: white;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  animation: pulseGlow 5s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
-  transition: transform 0.3s ease;
-}
-#floating-offer-btn:hover {
-  transform: scale(1.08);
-}
-</style>
-<button id="top-button">↑ Top</button>
-<style>
-#top-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 10000;
-  padding: 1rem 1.6rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background: red;
-  color: white;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
-  transition: transform 0.3s ease;
-}
-#top-button:hover {
-  transform: scale(1.08);
-}
-
-#floating-offer-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10000;
-  padding: 1rem 1.8rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: white;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  animation: pulseGlow 5s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
-  transition: transform 0.3s ease;
-}
-#floating-offer-btn:hover {
-  transform: scale(1.08);
-}
-</style>
-<script>
-function speakJoke(text) {
+function speak(text) {
   if ('speechSynthesis' in window) {
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.pitch = 1;
-    utter.rate = 1;
-    utter.volume = 1;
-    speechSynthesis.speak(utter);
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.pitch = 1;
+    utterance.rate = 1;
+    window.speechSynthesis.speak(utterance);
   }
 }
-</script>
-<script>
-const junkJokes = [
-  "Why did the junk car call Recarra? It wanted a better life.",
-  "That rust bucket isn’t trash — it’s Recarra treasure.",
-  "You’d be surprised what Recarra pays for ‘character’ cars.",
-  "Even your car’s exhaust is sighing for a better deal. We hear it.",
-  "Don’t let your junk sit. Let Recarra make it famous — and valuable."
-];
-let jokeIndex = 0;
-setInterval(() => {
-  jokeIndex = (jokeIndex + 1) % junkJokes.length;
-  const jokeEl = document.getElementById("junk-joke");
-  const currentJoke = junkJokes[jokeIndex];
-  jokeEl.textContent = currentJoke;
-  jokeEl.style.display = "block";
-  speakJoke(currentJoke);
-  setTimeout(() => {
-    jokeEl.style.display = "none";
-  }, 12000);
-}, 888000); // every 888 seconds
-</script>
-<script>
-const recarraVariants = [
-  { name: "Recarra AI", badge: "24/7", icon: "ai_icon.png" },
-  { name: "Recarra Cloud", badge: "Smart", icon: "cloud_icon.png" },
-  { name: "Recarra 24/7", badge: "Instant", icon: "clock_icon.png" },
-  { name: "Recarra Auto Logic", badge: "Verified", icon: "chip_icon.png" },
-  { name: "The Recarra Way", badge: "DMV-Trusted", icon: "flag_icon.png" },
-  { name: "Recarra Smart Offers", badge: "AI Powered", icon: "shield_icon.png" }
-];
-
-let nameCycleIndex = 0;
-setInterval(() => {
-  const next = recarraVariants[nameCycleIndex % recarraVariants.length];
-  document.getElementById("recarra-name-text").textContent = next.name;
-  document.getElementById("recarra-badge").textContent = next.badge;
-  document.querySelector(".recarra-icon").src = next.icon;
-  nameCycleIndex++;
-}, 8000);
-</script>
-<style>
-.form-section {
-  transition: opacity 0.3s ease-in-out;
-  opacity: 0;
-  display: none;
-}
-</style>
-<script>
-let offerPhraseIndex = 0;
-const chime = new Audio('https://freesound.org/data/previews/341/341695_6262184-lq.mp3'); // sample chime
-
-setInterval(() => {
-  offerPhraseIndex = (offerPhraseIndex + 1) % offerPhrases.length;
-  const button = document.getElementById("cycling-offer-button");
-  button.textContent = offerPhrases[offerPhraseIndex];
-  chime.play();
-}, 88000);
-</script>
-<script>
-const sparkle = new Audio("https://freesound.org/data/previews/522/522646_11227624-lq.mp3");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const starTrigger = document.getElementById("star-random-trigger");
-  const forms = document.querySelectorAll(".form-section");
-
-  if (starTrigger && forms.length > 0) {
-    starTrigger.addEventListener("click", () => {
-      sparkle.play();
-      forms.forEach(f => {
-        f.classList.remove("form-flash", "bounce-scroll");
-        f.style.opacity = 0;
-        setTimeout(() => { f.style.display = "none"; }, 200);
-      });
-
-      const randomForm = forms[Math.floor(Math.random() * forms.length)];
-      setTimeout(() => {
-        randomForm.style.display = "block";
-        randomForm.style.opacity = 1;
-        randomForm.classList.add("form-flash", "bounce-scroll");
-        randomForm.scrollIntoView({ behavior: "smooth" });
-      }, 250);
-    });
-  }
-});
-</script>
-<style>
-#dollar-rain-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  overflow: hidden;
-}
-
-.dollar {
-  position: absolute;
-  width: 40px;
-  height: auto;
-  animation: fall 5s linear infinite;
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(-100px) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-</style>
-<div id="dollar-rain-container" style="display: none;"></div>
-<script>
-function startDollarRain() {
-  const container = document.getElementById("dollar-rain-container");
-  container.innerHTML = "";
-  container.style.display = "block";
-
-  for (let i = 0; i < 50; i++) {
-    const img = document.createElement("img");
-    img.src = "https://cdn-icons-png.flaticon.com/512/2331/2331970.png";
-    img.classList.add("dollar");
-    img.style.left = Math.random() * 100 + "vw";
-    img.style.animationDelay = (Math.random() * 3) + "s";
-    container.appendChild(img);
-  }
-
-  setTimeout(() => {
-    container.style.display = "none";
-    container.innerHTML = "";
-  }, 8000);
-}
-
-// Attach to all submit buttons with class .submit-button
-document.addEventListener("DOMContentLoaded", () => {
-  const submitButtons = document.querySelectorAll(".submit-button");
-  submitButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      setTimeout(() => {
-        startDollarRain();
-      }, 500);
-    });
-  });
-});
-</script>
-<button onclick="scrollToTop()" style="position: fixed; bottom: 20px; left: 20px; background: red; color: white;
-border: none; border-radius: 30px; padding: 10px 20px; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999;">
-↑ Top
-</button>
-<script>
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
-<script>
-const recarraNames = ["Recarra Cloud", "Recarra Auto", "Recarra AI", "Recarra Hub", "Recarra Gold"];
-let i = 0;
-setInterval(() => {
-  const el = document.getElementById("recarra-name");
-  if (el) el.innerText = recarraNames[i++ % recarraNames.length];
-}, 8000);
-</script>
-<script>
-const jokes = [
-  "Why did the junk car go to therapy? It had too many breakdowns.",
-  "My car is like a cat—it sleeps all day and refuses to move.",
-  "Tried to sell my car for parts... but it turns out all the parts were already missing!"
-];
-function tellJoke() {
-  const joke = jokes[Math.floor(Math.random() * jokes.length)];
-  const speech = new SpeechSynthesisUtterance(joke);
-  speech.pitch = 1.2;
-  speech.rate = 1;
-  window.speechSynthesis.speak(speech);
-}
-setInterval(tellJoke, 888000); // every 888 seconds
-</script>
-<script>
-function triggerRandomForm() {
-  const allForms = document.querySelectorAll('.form-section');
-  const ids = Array.from(allForms).map(f => f.id);
-  const pick = ids[Math.floor(Math.random() * ids.length)];
-  showFormById(pick);
-}
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const formSections = document.querySelectorAll(".form-section");
-  formSections.forEach(section => {
-    const steps = section.querySelectorAll(".step-field");
+  document.querySelectorAll(".form-card").forEach(form => {
     let currentStep = 0;
-    const nextBtn = section.querySelector(".next-button");
-    const backBtn = section.querySelector(".back-button");
-    const quitBtn = section.querySelector(".quit-button");
+    const stepFields = form.querySelectorAll(".step-field");
+    const dots = form.querySelectorAll(".dot");
+    const progressBar = form.querySelector(".progress-bar");
+    const nextBtn = form.querySelector(".next-button.submit-button");
+    const thankYou = form.querySelector(".thank-you");
 
-    function showStep(n) {
-      steps.forEach((step, index) => {
-        step.style.display = index === n ? "block" : "none";
-      });
-    }
+    stepFields.forEach((field, i) => {
+      field.style.display = i === 0 ? "block" : "none";
+    });
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === 0));
+    if (progressBar) progressBar.style.width = `${100 / stepFields.length}%`;
+    if (nextBtn) nextBtn.style.display = "block";
 
-    if (nextBtn && steps.length > 0) {
-      nextBtn.addEventListener("click", () => {
-        if (currentStep < steps.length - 1) {
+    if (nextBtn) {
+      nextBtn.onclick = () => {
+        tikSound.play();
+        if (currentStep < stepFields.length - 1) {
+          stepFields[currentStep].style.display = "none";
           currentStep++;
-          showStep(currentStep);
-        }
-      });
-    }
+          stepFields[currentStep].style.display = "block";
+          form.scrollIntoView({ behavior: "smooth" });
 
-    if (backBtn && steps.length > 0) {
-      backBtn.addEventListener("click", () => {
-        if (currentStep > 0) {
-          currentStep--;
-          showStep(currentStep);
+          dots.forEach((dot, i) => dot.classList.toggle("active", i === currentStep));
+          if (progressBar) {
+            const percent = ((currentStep + 1) / stepFields.length) * 100;
+            progressBar.style.width = `${percent}%`;
+          }
+        } else {
+          nextBtn.textContent = "Done";
+          nextBtn.disabled = true;
+          nextBtn.style.background = "linear-gradient(to right, #4caf50, #81c784)";
+          doneSound.play();
+          speak("Your offer has been submitted successfully.");
+          launchConfetti();
+          if (thankYou) thankYou.style.display = "block";
+          form.scrollIntoView({ behavior: "smooth" });
         }
-      });
+      };
     }
-
-    if (quitBtn) {
-      quitBtn.addEventListener("click", () => {
-        if (confirm("Are you sure you want to quit this offer?")) {
-          section.style.display = "none";
-        }
-      });
-    }
-
-    // Initialize first step
-    showStep(0);
   });
-});
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const scrollBtn = document.getElementById("scrollToTopButton");
-  if (scrollBtn) {
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-
-  const openFormBtn = document.getElementById("openFormTrigger");
-  if (openFormBtn) {
-    openFormBtn.addEventListener("click", () => {
-      const forms = document.querySelectorAll(".form-section");
-      if (forms.length > 0) {
-        const randomIndex = Math.floor(Math.random() * forms.length);
-        forms.forEach((form, idx) => {
-          form.style.display = idx === randomIndex ? "block" : "none";
-        });
-        forms[randomIndex].scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  }
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("offerToggle");
-  const menu = document.getElementById("form-menu");
-  if (toggle && menu) {
-    toggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      menu.classList.toggle("show");
-    });
-
-    document.addEventListener("click", (e) => {
-      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-        menu.classList.remove("show");
-      }
-    });
-  }
-});
-</script>
-<script>
-function showFormById(formId) {
-  const drawer = document.getElementById("drawer");
-  const overlay = document.getElementById("drawerOverlay");
-  const forms = drawer.querySelectorAll(".form-section");
-
-  forms.forEach(f => f.style.display = "none");
-
-  const targetForm = drawer.querySelector("#" + formId);
-  if (targetForm) {
-    targetForm.style.display = "block";
-    drawer.classList.add("active");
-    overlay.classList.add("active");
-    targetForm.scrollIntoView({ behavior: "smooth" });
-  }
-}
-
-document.getElementById("drawerOverlay").addEventListener("click", () => {
-  if (confirm("Are you sure you want to close this offer form?")) {
-    document.getElementById("drawer").classList.remove("active");
-    document.getElementById("drawerOverlay").classList.remove("active");
-  }
-});
-</script>
-
-<script>
-const faqs = [
-  { q: "What kind of cars does Recarra buy?", a: "We buy all cars—running, broken, damaged, or totaled." },
-  { q: "How fast do I get paid?", a: "Most customers receive instant payment on pickup." },
-  { q: "Do I need a title?", a: "A title is helpful, but we can assist if it's lost or missing." },
-  { q: "Can I sell a car I still owe money on?", a: "Yes. Recarra can help pay off the remaining balance." },
-  { q: "How do I schedule pickup?", a: "Just submit an offer. We’ll call to confirm a time that works for you." },
-  { q: "What documents are required?", a: "Typically a photo ID and vehicle ownership proof." },
-  { q: "Can I cancel an offer?", a: "Yes, anytime before you accept and schedule." },
-  { q: "How is the price calculated?", a: "Our AI compares market rates, VIN, and vehicle condition." }
-];
-
-let index = 0;
-function shuffleFAQs() {
-  for (let i = faqs.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [faqs[i], faqs[j]] = [faqs[j], faqs[i]];
-  }
-}
-function rotateFAQ() {
-  const question = document.getElementById("faq-question");
-  const answer = document.getElementById("faq-answer");
-
-  if (faqs.length > 0) {
-    const faq = faqs[index % faqs.length];
-    question.textContent = faq.q;
-    answer.textContent = "";
-
-    setTimeout(() => {
-      answer.textContent = faq.a;
-    }, 8000); // 8 sec question only, then show answer
-
-    index++;
-    setTimeout(rotateFAQ, 16000); // total 16 sec per pair
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  shuffleFAQs();
-  rotateFAQ();
 });
 </script>
 </body>
