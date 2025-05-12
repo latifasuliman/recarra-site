@@ -99,11 +99,204 @@
       margin-top: 4rem;
       padding-bottom: 2rem;
     }
-  </style>
-</head>
+  
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .form-card {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+  }
+  .input-field {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+  .next-button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+.input-field {
+  font-size: 1.1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 100%;
+  border: 2px solid #ccc;
+  animation: flash-border 3s linear infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes flash-border {
+  0%   { box-shadow: 0 0 0px red; border-color: red; }
+  33%  { box-shadow: 0 0 10px black; border-color: black; }
+  66%  { box-shadow: 0 0 10px gray; border-color: gray; }
+  100% { box-shadow: 0 0 0px red; border-color: red; }
+}
+</style>
+<style>
+.dot-progress {
+  text-align: center;
+  margin-top: 1rem;
+}
+.dot {
+  height: 14px;
+  width: 14px;
+  margin: 0 6px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+.dot.active {
+  background-color: #ff4b4b;
+}
+</style><style>
+.input-field {
+  width: 90%;
+  height: 3.5rem;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  animation: flash-border 3s linear infinite;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 1rem auto;
+}
+</style><style>
+body {
+  background-color: #f2f2f2;
+}
+</style><style>
+.hero-header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  background: #f2f2f2;
+}
+.brand-title {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+.brand-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+.cta-block {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.icon-flash {
+  font-size: 2.5rem;
+  color: #ff3c3c;
+}
+.hero-button {
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+</style><style>
+#offerMenu {
+  background: #fff;
+  border: 2px solid #eee;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  width: 280px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#offerMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#offerMenu li {
+  margin: 0.25rem 0;
+}
+
+.dropdown-item {
+  width: 100%;
+  background: linear-gradient(to right, #f9d423, #ff3c3c);
+  color: #000;
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dropdown-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style><style>
+.brand-description {
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+  margin-top: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style><style>
+.hero-brand {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #111;
+  letter-spacing: -0.5px;
+}
+.hero-header.highend {
+  background: linear-gradient(to right, #f5f5f5, #eaeaea, #f5f5f5);
+  border-bottom: 1px solid #ccc;
+}
+</style></head>
 <body>
+<section class="hero-header highend">
+<div class="hero-logo-row">
+<div class="hero-icon">⚡</div>
+<div class="hero-brand">Recarra</div>
+</div>
+<h2 class="hero-slogan">The AI-Powered Way to<br/>Sell Your Car Instantly</h2>
+<p class="hero-description">
+    We reinvent car selling with smart AI, instant quotes, and human-free offers—
+    designed for speed, trust, and total ease.
+  </p>
+</section>
 <header>
-<div class="logo">Recarra</div>
 </header>
 <div style="position: relative; display: inline-block; margin-top: 1rem;">
 <button class="next-button" id="offerToggle">Choose Offer Method</button>
@@ -118,10 +311,10 @@
 <li><button class="dropdown-item" data-target="form6">Email Offer</button></li>
 <li><button class="dropdown-item" data-target="form7">SMS Text Offer</button></li>
 <li><button class="dropdown-item" data-target="form8">Call Offer</button></li>
-<li><button class="dropdown-item" data-target="form9">Facebook Offer</button></li>
-<li><button class="dropdown-item" data-target="form10">Google Offer</button></li>
-<li><button class="dropdown-item" data-target="form11">Apple Offer</button></li>
-<li><button class="dropdown-item" data-target="form12">QR Code Offer</button></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
 <li><button class="dropdown-item" data-target="form13">Scan VIN Offer</button></li>
 <li><button class="dropdown-item" data-target="form14">Manual Entry Offer</button></li>
 <li><button class="dropdown-item" data-target="form15">Full Inspection Offer</button></li>
@@ -153,18 +346,118 @@
     </script>
 <main>
 <section class="form-card" id="form0">
+<div class="dot-progress">
+<span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
 <div class="form-title">AI Recarra Instant Offer</div>
 <div class="progress"><div class="progress-bar"></div></div>
 <input class="input-field" placeholder="Full Name" type="text"/>
 <button class="next-button">Next</button>
 </section>
 <section class="form-card" id="form1" style="display: none;">
+<div class="dot-progress">
+<span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
 <div class="form-title">License Plate Offer</div>
 <div class="progress"><div class="progress-bar" style="width: 25%;"></div></div>
 <input class="input-field" placeholder="License Plate Number" type="text"/>
 <button class="next-button">Next</button>
 </section>
 <!-- Additional forms (14 more) will follow this same format -->
+<section class="form-card" id="form2" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">VIN Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for vin offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
+<section class="form-card" id="form3" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">Voice Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for voice offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
+<section class="form-card" id="form4" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">Photo Upload Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for photo upload offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
+<section class="form-card" id="form5" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">Live Chat Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for live chat offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
+<section class="form-card" id="form6" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">Email Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for email offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
+<section class="form-card" id="form7" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">SMS Text Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for sms text offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
+<section class="form-card" id="form8" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">Call Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for call offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
+<section class="form-card" id="form13" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">Scan VIN Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for scan vin offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
+<section class="form-card" id="form14" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">Manual Entry Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for manual entry offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
+<section class="form-card" id="form15" style="display: none;">
+<div class="dot-progress">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="form-title">Full Inspection Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field" placeholder="Enter details for full inspection offer" type="text"/>
+<button class="next-button">Next</button>
+</section>
 </main>
 <footer>
     © 2025 Recarra. All rights reserved.
@@ -186,6 +479,21 @@ document.addEventListener("DOMContentLoaded", function() {
       if (target) target.style.display = "block";
       menu.style.display = "none";
     };
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const dots = form.querySelectorAll(".dot");
+    const nextBtn = form.querySelector(".next-button");
+    let step = 0;
+    nextBtn.addEventListener("click", () => {
+      if (step < dots.length - 1) {
+        dots[step].classList.remove("active");
+        step++;
+        dots[step].classList.add("active");
+      }
+    });
   });
 });
 </script></body>
