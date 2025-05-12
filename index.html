@@ -476,89 +476,7 @@ button {
   box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
   transition: background 0.3s ease;
 }
-</style><style>
-.form-card {
-  max-width: 600px;
-  margin: auto;
-  padding: 2rem;
-}
-.step-nav {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-.step-nav button {
-  padding: 0.8rem 1.4rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.step-nav button:hover {
-  transform: scale(1.05);
-}
-.next-button {
-  background: linear-gradient(to right, #3fa9f5, #007aff);
-  color: white;
-}
-.prev-button {
-  background: linear-gradient(to right, #a1a1a1, #666);
-  color: white;
-}
-.quit-button {
-  background: linear-gradient(to right, #ff9900, #ff6600);
-  color: white;
-}
-.submit-button {
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: black;
-  font-weight: bold;
-  margin-top: 1.5rem;
-  display: none;
-}
-</style>
-<style>
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 8px #ff3c3c; }
-  50% { box-shadow: 0 0 24px #f9d423; }
-  100% { box-shadow: 0 0 8px #ff3c3c; }
-}
-
-.thank-you {
-  animation: glowPulse 2s ease-in-out infinite;
-  background: #fff8f0;
-  color: #222;
-  border-radius: 16px;
-  padding: 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  box-shadow: 0 0 12px rgba(255, 60, 60, 0.2);
-}
-
-#confetti-canvas {
-  position: fixed;
-  pointer-events: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-}
-</style>
-<canvas id="confetti-canvas"></canvas>
-
-<script>
-function generateUniqueOfferID() {
-  const now = Date.now().toString(); // milliseconds
-  const randomNum = Math.floor(Math.random() * 9000 + 1000); // random 4-digit
-  return 'RC-' + now.slice(-6) + '-' + randomNum;
-}
-</script>
-</head>
+</style></head>
 <body>
 <section class="hero-header highend">
 <div class="hero-logo-row" style="text-align: left; padding-left: 2rem;">
@@ -626,18 +544,11 @@ function generateUniqueOfferID() {
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">AI Recarra Instant Offer</div>
+<div class="progress"><div class="progress-bar"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="What’s the year, make, and model of your car?" style="" type="text"/>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Your Phone Number:</label><br/>
-<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Your Email Address:</label><br/>
-<input name="email" placeholder="you@example.com" required="" type="email"/>
-</div>
 <div class="step-field" style="display:none;">
 <label>Select Year:</label><br/>
 <select id="car-year" name="year" required="">
@@ -657,8 +568,38 @@ function generateUniqueOfferID() {
 <option value="">Choose Model</option>
 </select>
 </div>
+
+</div>
 <div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
+<label>Your Phone Number:</label><br/>
+<input name="phone" placeholder="(555) 123-4567" required="" type="tel"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Your Email Address:</label><br/>
+<input name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+<div class="step-field" style="display:none;">
+<label>Select the year of your vehicle:</label><br/>
+<select name="year" required="">
+<option value="">Choose Year</option>
+<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
+</select>
+</div>
+<div class="step-field" style="display:none;">
+<label>Select the make:</label><br/>
+<select name="make" required="">
+<option value="">Choose Make</option>
+<option value="Toyota">Toyota</option>
+<option value="Ford">Ford</option>
+<option value="Honda">Honda</option>
+<option value="Chevrolet">Chevrolet</option>
+<option value="BMW">BMW</option>
+<option value="Other">Other</option>
+</select>
+</div>
+
+<div class="step-field" style="display:none;">
+<label>Does the vehicle have any of the following issues?</label><br/>
 <label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
 <label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
 <label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
@@ -674,8 +615,6 @@ function generateUniqueOfferID() {
 <option value="no_title">No Title</option>
 </select>
 </div>
-<div class="progress"><div class="progress-bar"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="What’s the year, make, and model of your car?" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Enter your ZIP code" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Briefly describe your car’s condition" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form1" style="display: none;">
 <div class="dot-progress">
@@ -684,6 +623,14 @@ function generateUniqueOfferID() {
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">License Plate Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 25%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Enter your license plate number" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>License Plate Number:</label><br/>
+<input name="plate" placeholder="ABC1234" required="" type="text"/><br/>
+<label>State:</label>
+<input name="state" placeholder="CA" required="" type="text"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -696,44 +643,6 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 25%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your license plate number" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Select your state" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Enter your email for the offer" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <!-- Additional forms (14 more) will follow this same format -->
 <section class="form-card" id="form2" style="display: none;">
@@ -741,6 +650,12 @@ function generateUniqueOfferID() {
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">VIN Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Enter your 17-digit VIN" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Enter your 17-digit VIN:</label><br/>
+<input name="vin" placeholder="1HGCM82633A123456" required="" type="text"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -753,50 +668,18 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your 17-digit VIN" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="What’s the mileage on the car?" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="List any damage or issues" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form3" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Voice Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Tap to record a description (simulated)" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Voice Description (Simulated):</label><br/>
+<input placeholder="Voice entry simulated..." readonly="" type="text"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -809,50 +692,18 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Tap to record a description (simulated)" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Say your location" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Say your preferred payout method" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form4" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Photo Upload Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Upload a front photo of the car" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Upload Photos of Your Vehicle:</label><br/>
+<input accept="image/*" multiple="" required="" type="file"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -865,50 +716,18 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Upload a front photo of the car" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Upload a side or rear photo" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Add notes about the vehicle’s condition" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form5" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Live Chat Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Enter your name" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Are you ready to start a live chat?</label><br/>
+<input placeholder="Chat will open soon..." readonly="" type="text"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -921,50 +740,18 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your name" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Your phone or email" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Ready to chat now?" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form6" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Email Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Enter your email" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>We will reply by email — add details:</label><br/>
+<textarea name="car_details" placeholder="Enter full vehicle info"></textarea>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -977,50 +764,18 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your email" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Enter the car make and model" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Add additional comments" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form7" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">SMS Text Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Enter your phone number" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Confirm your phone number for texting:</label><br/>
+<input name="sms_number" placeholder="+1 (555) 234-7890" required="" type="tel"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -1033,50 +788,18 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your phone number" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Type your car’s basic info" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Would you like us to text you?" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form8" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Call Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Your name" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Best Time to Call:</label><br/>
+<input name="call_time" placeholder="Anytime after 2pm" type="text"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -1089,50 +812,18 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Your name" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Best phone number to reach you" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Preferred time for a call" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form13" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Scan VIN Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Tap to scan VIN (simulated)" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Tap to simulate VIN scan:</label><br/>
+<input placeholder="Scanning VIN..." readonly="" type="text"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -1145,50 +836,18 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Tap to scan VIN (simulated)" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Confirm the VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Add your email or phone number" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form14" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Manual Entry Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Enter your car’s make" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Enter Make / Model / Year manually:</label><br/>
+<input name="car_entry" placeholder="Honda Accord 2012" required="" type="text"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -1201,50 +860,18 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your car’s make" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Enter the year and model" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Enter your ZIP or location" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form15" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Full Inspection Offer</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Where should we inspect the car?" style="" type="text"/>
+<div class="step-field" style="display:none;">
+<label>Choose location for full inspection:</label><br/>
+<input name="inspection_location" placeholder="123 Main St, Houston TX" type="text"/>
+</div>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -1257,50 +884,14 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Where should we inspect the car?" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="What day and time works for you?" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="List any issues or questions" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
 <section class="form-card" id="form9" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Offer Method 9</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Enter your name" style="" type="text"/>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -1313,49 +904,13 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Enter your name" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Enter your car info" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Confirm email" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section><section class="form-card" id="form10" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Offer Method 10</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Upload car images" style="" type="text"/>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -1368,49 +923,13 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Upload car images" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="Enter your phone" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Describe car" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section><section class="form-card" id="form11" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Offer Method 11</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="License plate" style="" type="text"/>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -1423,49 +942,13 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="License plate" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="State" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Mileage" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section><section class="form-card" id="form12" style="display: none;">
 <div class="dot-progress">
 <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">Offer Method 12</div>
+<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
+<input class="input-field step-field" data-step="1" placeholder="Name" style="" type="text"/>
 <div class="step-field" style="display:none;">
 <label>Your Full Name:</label><br/>
 <input name="name" placeholder="John Doe" required="" type="text"/>
@@ -1478,171 +961,454 @@ function generateUniqueOfferID() {
 <label>Your Email Address:</label><br/>
 <input name="email" placeholder="you@example.com" required="" type="email"/>
 </div>
-<div class="step-field" style="display:none;">
-<label>Select Year:</label><br/>
-<select id="car-year" name="year" required="">
-<option value="">Choose Year</option>
-<option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Make:</label><br/>
-<select id="car-make" name="make" required="">
-<option value="">Choose Make</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Select Model:</label><br/>
-<select id="car-model" name="model" required="">
-<option value="">Choose Model</option>
-</select>
-</div>
-<div class="step-field" style="display:none;">
-<label>Vehicle Condition:</label><br/>
-<label><input name="engine_runs" type="checkbox" value="no"/> Engine does NOT run</label><br/>
-<label><input name="no_keys" type="checkbox" value="yes"/> No keys</label><br/>
-<label><input name="flat_tires" type="checkbox" value="yes"/> Flat tires</label><br/>
-<label><input name="broken_glass" type="checkbox" value="yes"/> Broken glass</label><br/>
-<label><input name="leaking" type="checkbox" value="yes"/> Leaking fluids</label><br/>
-</div>
-<div class="step-field" style="display:none;">
-<label>Does the car have a clean title?</label><br/>
-<select name="title_status" required="">
-<option value="">Choose one</option>
-<option value="clean">Clean Title</option>
-<option value="salvage">Salvage Title</option>
-<option value="no_title">No Title</option>
-</select>
-</div>
-<div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="Name" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Damage description" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section></main>
 <footer>
     © 2025 Recarra. All rights reserved.
   </footer>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
-function launchConfetti() {
-  const duration = 2 * 1000;
-  const animationEnd = Date.now() + duration;
-  const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+document.addEventListener("DOMContentLoaded", function() {
+  const toggle = document.getElementById("offerToggle");
+  const menu = document.getElementById("offerMenu");
+  toggle.onclick = () => {
+    menu.style.display = menu.style.display === "none" ? "block" : "none";
+  };
 
-  function randomInRange(min, max) {
-    return Math.random() * (max - min) + min;
-  }
-
-  const interval = setInterval(() => {
-    const timeLeft = animationEnd - Date.now();
-
-    if (timeLeft <= 0) {
-      return clearInterval(interval);
-    }
-
-    const particleCount = 50 * (timeLeft / duration);
-    confetti(Object.assign({}, defaults, {
-      particleCount,
-      origin: { x: randomInRange(0.1, 0.9), y: Math.random() - 0.2 }
-    }));
-  }, 250);
-}
-</script>
-
-
-<script>
-const tikSound = new Audio("https://www.myinstants.com/media/sounds/mouse-click.mp3");
-const doneSound = new Audio("https://www.myinstants.com/media/sounds/notification.mp3");
-
-function speak(text) {
-  if ('speechSynthesis' in window) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.pitch = 1;
-    utterance.rate = 1;
-    window.speechSynthesis.speak(utterance);
-  }
-}
-
-function resetFormStates() {
+  const dropdownItems = document.querySelectorAll(".dropdown-item");
+  const forms = document.querySelectorAll(".form-card");
+  dropdownItems.forEach(item => {
+    item.onclick = () => {
+      forms.forEach(f => f.style.display = "none");
+      const target = document.getElementById(item.dataset.target);
+      if (target) target.style.display = "block";
+      menu.style.display = "none";
+    };
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".form-card").forEach(form => {
-    const stepFields = form.querySelectorAll(".step-field");
     const dots = form.querySelectorAll(".dot");
-    const progressBar = form.querySelector(".progress-bar");
-    const thankYou = form.querySelector(".thank-you");
-    const nextBtn = form.querySelector(".next-button.submit-button");
-
-    stepFields.forEach((field, i) => {
-      field.style.display = i === 0 ? "block" : "none";
-    });
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === 0));
-    if (progressBar) progressBar.style.width = `${100 / stepFields.length}%`;
-
-    if (nextBtn) {
-      nextBtn.textContent = "Submit Offer";
-      nextBtn.disabled = false;
-      nextBtn.style.background = "linear-gradient(to right, #ff3c3c, #f9d423)";
-      nextBtn.style.display = "block";
-    }
-    if (thankYou) {
-      thankYou.style.display = "none";
-      thankYou.textContent = "";
-    }
-  });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menuItems = document.querySelectorAll(".dropdown-item");
-  menuItems.forEach(item => {
-    item.addEventListener("click", () => {
-      setTimeout(() => resetFormStates(), 300);
+    const nextBtn = form.querySelector(".next-button");
+    let step = 0;
+    nextBtn.addEventListener("click", () => {
+      if (step < dots.length - 1) {
+        dots[step].classList.remove("active");
+        step++;
+        dots[step].classList.add("active");
+      }
     });
   });
-
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const logoImages = [
+    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-darkblue-safe-v2.png",
+    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-gold-safe-v2.png",
+    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-silver-safe-v2.png",
+    "https://raw.githubusercontent.com/latifasuliman/recarra-site/main/icons/recarra-logo-carbon-safe-v2.png"
+  ];
+  const logoElement = document.getElementById("recarraLogo");
+  let current = 0;
+  setInterval(() => {
+    current = (current + 1) % logoImages.length;
+    logoElement.src = logoImages[current];
+  }, 8888000); // rotate every 8888 seconds
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector(".hero-header");
+  const images = [
+    "6162E5B0-D519-4D70-BCE7-4A212BD2B1E9.jpeg",
+    "AF70B9DF-F7F6-4CBE-8090-1FE75C8B31A5.jpeg"
+  ].map(img => `./${img}`);
+  let i = 0;
+  function changeHeaderBackground() {
+    header.style.backgroundImage = `url('${images[i]}')`;
+    i = (i + 1) % images.length;
+  }
+  changeHeaderBackground();
+  setInterval(changeHeaderBackground, 888000); // every 888 seconds
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".form-card").forEach(form => {
+    const steps = form.querySelectorAll(".step-field");
+    const submitBtn = form.querySelector(".submit-button");
+    const thankYou = form.querySelector(".thank-you");
     let currentStep = 0;
-    const stepFields = form.querySelectorAll(".step-field");
-    const dots = form.querySelectorAll(".dot");
-    const progressBar = form.querySelector(".progress-bar");
-    const nextBtn = form.querySelector(".next-button.submit-button");
-    const thankYou = form.querySelector(".thank-you");
 
-    stepFields.forEach((field, i) => {
-      field.style.display = i === 0 ? "block" : "none";
-    });
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === 0));
-    if (progressBar) progressBar.style.width = `${100 / stepFields.length}%`;
-    if (nextBtn) nextBtn.style.display = "block";
+    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
 
-    if (nextBtn) {
-      nextBtn.onclick = () => {
-        tikSound.play();
-        if (currentStep < stepFields.length - 1) {
-          stepFields[currentStep].style.display = "none";
+    function updateButtons(container, step) {
+      container.innerHTML = "";
+
+      if (step > 0) {
+        const prev = document.createElement("button");
+        prev.textContent = "Previous";
+        prev.className = "prev-button";
+        prev.onclick = e => {
+          e.preventDefault();
+          steps[step].style.display = "none";
+          currentStep--;
+          steps[currentStep].style.display = "block";
+          updateButtons(container, currentStep);
+        };
+        container.appendChild(prev);
+      }
+
+      if (step < steps.length - 1) {
+        const next = document.createElement("button");
+        next.textContent = "Next";
+        next.className = "next-button";
+        next.onclick = e => {
+          e.preventDefault();
+          steps[step].style.display = "none";
           currentStep++;
-          stepFields[currentStep].style.display = "block";
-          form.scrollIntoView({ behavior: "smooth" });
+          steps[currentStep].style.display = "block";
+          updateButtons(container, currentStep);
+        };
+        container.appendChild(next);
+      }
 
-          dots.forEach((dot, i) => dot.classList.toggle("active", i === currentStep));
-          if (progressBar) {
-            const percent = ((currentStep + 1) / stepFields.length) * 100;
-            progressBar.style.width = `${percent}%`;
-          }
-        } else {
-          nextBtn.textContent = "Done";
-          nextBtn.disabled = true;
-          nextBtn.style.background = "linear-gradient(to right, #4caf50, #81c784)";
-          doneSound.play();
-          speak("Your offer has been submitted successfully.");
-          launchConfetti();
-          if (thankYou) {
-            const offerId = generateUniqueOfferID();
-            thankYou.textContent = "Thank you! Your Offer ID is: " + offerId;
-            thankYou.style.display = "block";
-          }
-          form.scrollIntoView({ behavior: "smooth" });
+      if (step === steps.length - 1) {
+        submitBtn.style.display = "inline-block";
+      } else {
+        submitBtn.style.display = "none";
+      }
+
+      const quit = document.createElement("button");
+      quit.textContent = "Quit";
+      quit.className = "quit-button";
+      quit.onclick = e => {
+        e.preventDefault();
+        if (confirm("Are you sure you want to quit this form?")) {
+          form.querySelectorAll(".step-field").forEach(f => f.style.display = "none");
+          container.innerHTML = "";
+          submitBtn.style.display = "none";
+          thankYou.style.display = "none";
+          currentStep = 0;
+          steps[0].style.display = "block";
+          updateButtons(container, 0);
         }
       };
+      container.appendChild(quit);
+    }
+
+    const nav = document.createElement("div");
+    nav.className = "step-nav";
+    form.appendChild(nav);
+    updateButtons(nav, currentStep);
+
+    if (submitBtn) {
+      submitBtn.addEventListener("click", function () {
+        const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
+        thankYou.textContent = "Thank you! Your Offer ID is: " + id;
+        thankYou.style.display = "block";
+        submitBtn.style.display = "none";
+        nav.innerHTML = "";
+      });
     }
   });
 });
-</script>
-</body>
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const steps = form.querySelectorAll(".step-field");
+    const submitBtn = form.querySelector(".submit-button");
+    let thankYou = form.querySelector(".thank-you");
+
+    if (!thankYou) {
+      thankYou = document.createElement("div");
+      thankYou.className = "thank-you reviewing-screen";
+      thankYou.innerHTML = `
+        <h3>Thank you for submitting your vehicle info!</h3>
+        <p class="reviewing-dots">Our AI is reviewing your details<span></span></p>
+        <p class="small-note">Final offer will be confirmed shortly after reviewing your ownership, condition, and documents.</p>
+        <p><strong>Your Offer ID:</strong> RC-${Math.floor(100000 + Math.random() * 900000)}</p>
+      `;
+      form.appendChild(thankYou);
+    }
+
+    if (submitBtn) {
+      submitBtn.addEventListener("click", function () {
+        steps.forEach(s => s.style.display = "none");
+        submitBtn.style.display = "none";
+        const nav = form.querySelector(".step-nav");
+        if (nav) nav.innerHTML = "";
+        thankYou.style.display = "block";
+      });
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const steps = form.querySelectorAll(".step-field");
+    const submitBtn = form.querySelector(".submit-button");
+    const thankYou = form.querySelector(".thank-you");
+    let currentStep = 0;
+
+    // Create and insert dots
+    const dotWrap = document.createElement("div");
+    dotWrap.className = "step-dots";
+    steps.forEach(() => {
+      const dot = document.createElement("span");
+      dotWrap.appendChild(dot);
+    });
+    form.insertBefore(dotWrap, steps[0]);
+
+    function updateDots() {
+      dotWrap.querySelectorAll("span").forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentStep);
+      });
+    }
+
+    function updateButtons(container, step) {
+      container.innerHTML = "";
+      updateDots();
+
+      if (step > 0) {
+        const prev = document.createElement("button");
+        prev.textContent = "Previous";
+        prev.className = "prev-button";
+        prev.onclick = e => {
+          e.preventDefault();
+          steps[step].style.display = "none";
+          currentStep--;
+          steps[currentStep].style.display = "block";
+          updateButtons(container, currentStep);
+        };
+        container.appendChild(prev);
+      }
+
+      if (step < steps.length - 1) {
+        const next = document.createElement("button");
+        next.textContent = "Next";
+        next.className = "next-button";
+        next.onclick = e => {
+          e.preventDefault();
+          steps[step].style.display = "none";
+          currentStep++;
+          steps[currentStep].style.display = "block";
+          updateButtons(container, currentStep);
+        };
+        container.appendChild(next);
+      }
+
+      if (step === steps.length - 1) {
+        submitBtn.style.display = "inline-block";
+      } else {
+        submitBtn.style.display = "none";
+      }
+
+      const quit = document.createElement("button");
+      quit.textContent = "Quit";
+      quit.className = "quit-button";
+      quit.onclick = e => {
+        e.preventDefault();
+        if (confirm("Are you sure you want to quit this form?")) {
+          steps.forEach(f => f.style.display = "none");
+          container.innerHTML = "";
+          submitBtn.style.display = "none";
+          thankYou.style.display = "none";
+          currentStep = 0;
+          steps[0].style.display = "block";
+          updateButtons(container, 0);
+        }
+      };
+      container.appendChild(quit);
+    }
+
+    const nav = document.createElement("div");
+    nav.className = "step-nav";
+    form.appendChild(nav);
+
+    steps.forEach((step, index) => {
+      step.style.display = index === 0 ? "block" : "none";
+    });
+
+    updateButtons(nav, currentStep);
+
+    if (submitBtn) {
+      submitBtn.addEventListener("click", function () {
+        steps.forEach(s => s.style.display = "none");
+        submitBtn.style.display = "none";
+        nav.innerHTML = "";
+        if (thankYou) {
+          thankYou.style.display = "block";
+        }
+      });
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const steps = form.querySelectorAll(".step-field");
+    const submitBtn = form.querySelector(".submit-button");
+    let thankYou = form.querySelector(".thank-you");
+
+    if (!thankYou) {
+      thankYou = document.createElement("div");
+      thankYou.className = "thank-you reviewing-screen";
+      thankYou.innerHTML = `
+        <h3>Thank you for submitting your vehicle info!</h3>
+        <p class="reviewing-dots">Our AI is reviewing your details<span></span></p>
+        <p><strong>Your Offer ID:</strong> RC-${Math.floor(100000 + Math.random() * 900000)}</p>
+        <p><small>Submitted: ${new Date().toLocaleString()}</small></p>
+        <div class="confirm-options">
+          <button>Text Me My Offer</button>
+          <button>Schedule Pickup</button>
+          <button>Submit Another Car</button>
+        </div>
+      `;
+      form.appendChild(thankYou);
+    }
+
+    const nav = form.querySelector(".step-nav");
+    const dots = form.querySelectorAll(".step-dots span");
+    let currentStep = 0;
+
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentStep);
+      });
+    }
+
+    function scrollIntoViewIfNeeded(el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function updateButtons(container, step) {
+      container.innerHTML = "";
+      updateDots();
+
+      if (step > 0) {
+        const prev = document.createElement("button");
+        prev.className = "prev-button";
+        prev.textContent = "Previous";
+        prev.onclick = e => {
+          e.preventDefault();
+          steps[step].style.display = "none";
+          currentStep--;
+          steps[currentStep].style.display = "block";
+          updateButtons(container, currentStep);
+          scrollIntoViewIfNeeded(steps[currentStep]);
+        };
+        container.appendChild(prev);
+      }
+
+      if (step < steps.length - 1) {
+        const next = document.createElement("button");
+        next.className = "next-button";
+        next.textContent = "Next";
+        next.onclick = e => {
+          e.preventDefault();
+          steps[step].style.display = "none";
+          currentStep++;
+          steps[currentStep].style.display = "block";
+          updateButtons(container, currentStep);
+          scrollIntoViewIfNeeded(steps[currentStep]);
+        };
+        container.appendChild(next);
+      }
+
+      if (step === steps.length - 1) {
+        submitBtn.style.display = "inline-block";
+      } else {
+        submitBtn.style.display = "none";
+      }
+
+      const quit = document.createElement("button");
+      quit.textContent = "Quit";
+      quit.className = "quit-button";
+      quit.onclick = e => {
+        e.preventDefault();
+        if (confirm("Are you sure you want to quit this form?")) {
+          steps.forEach(f => f.style.display = "none");
+          submitBtn.style.display = "none";
+          thankYou.style.display = "none";
+          currentStep = 0;
+          steps[0].style.display = "block";
+          updateButtons(container, 0);
+          scrollIntoViewIfNeeded(steps[0]);
+        }
+      };
+      container.appendChild(quit);
+    }
+
+    const dotsContainer = form.querySelector(".step-dots");
+    const nav = form.querySelector(".step-nav");
+
+    if (steps.length && dotsContainer && nav) {
+      steps.forEach((step, index) => {
+        step.style.display = index === 0 ? "block" : "none";
+      });
+      updateButtons(nav, currentStep);
+    }
+
+    if (submitBtn) {
+      submitBtn.addEventListener("click", function () {
+        steps.forEach(s => s.style.display = "none");
+        submitBtn.style.display = "none";
+        nav.innerHTML = "";
+        if (thankYou) {
+          thankYou.style.display = "block";
+          scrollIntoViewIfNeeded(thankYou);
+        }
+      });
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const makeByYear = {
+    "2020": ["Toyota", "Ford", "BMW"],
+    "2021": ["Toyota", "Ford", "BMW", "Chevrolet"],
+    "2022": ["Tesla", "Toyota", "Ford"],
+    "2023": ["Tesla", "Hyundai", "Kia", "Nissan"],
+    "2024": ["Toyota", "Hyundai", "Ford", "Chevrolet"],
+  };
+
+  const modelsByMake = {
+    "Toyota": ["Camry", "Corolla", "Prius", "Highlander"],
+    "Ford": ["F-150", "Escape", "Mustang"],
+    "BMW": ["3 Series", "X5", "M4"],
+    "Chevrolet": ["Malibu", "Tahoe", "Silverado"],
+    "Tesla": ["Model 3", "Model S", "Model Y"],
+    "Hyundai": ["Elantra", "Santa Fe", "Ioniq"],
+    "Kia": ["Soul", "Sportage", "Telluride"],
+    "Nissan": ["Altima", "Rogue", "Leaf"]
+  };
+
+  const yearSelect = document.getElementById("car-year");
+  const makeSelect = document.getElementById("car-make");
+  const modelSelect = document.getElementById("car-model");
+
+  yearSelect?.addEventListener("change", function () {
+    const selectedYear = yearSelect.value;
+    makeSelect.innerHTML = "<option value=''>Choose Make</option>";
+    modelSelect.innerHTML = "<option value=''>Choose Model</option>";
+    const makes = makeByYear[selectedYear] || [];
+    makes.forEach(make => {
+      const option = document.createElement("option");
+      option.value = make;
+      option.textContent = make;
+      makeSelect.appendChild(option);
+    });
+  });
+
+  makeSelect?.addEventListener("change", function () {
+    const selectedMake = makeSelect.value;
+    modelSelect.innerHTML = "<option value=''>Choose Model</option>";
+    const models = modelsByMake[selectedMake] || [];
+    models.forEach(model => {
+      const option = document.createElement("option");
+      option.value = model;
+      option.textContent = model;
+      modelSelect.appendChild(option);
+    });
+  });
+});
+</script></body>
 </html>
