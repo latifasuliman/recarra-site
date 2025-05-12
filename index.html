@@ -109,7 +109,6 @@
 <button class="red-outline-btn" type="button">Accept Your Offer</button>
 <button class="red-outline-btn" type="button">Submit Vehicle Details</button>
 <button class="red-outline-btn" type="button">Contact Us</button>
-
 <div class="remember-toggle">
 <label>
 <input id="rememberUser" type="checkbox"/> Don’t show this again
@@ -137,5 +136,27 @@
     }
   }, 20000);
 </script>
-</body>
+
+
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const dots = form.querySelectorAll(".dot");
+    const nextBtn = form.querySelector(".next-button");
+    let step = 0;
+    nextBtn.addEventListener("click", () => {
+      if (step < dots.length - 1) {
+        dots[step].classList.remove("active");
+        step++;
+        dots[step].classList.add("active");
+      }
+    });
+  });
+});
+</script></body>
 </html>
