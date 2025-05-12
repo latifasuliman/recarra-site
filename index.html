@@ -622,142 +622,8 @@ body {
   animation: pulseGlow 5s ease-in-out infinite;
 }
 </style>
-<style>
-section.card {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 2.5rem;
-  margin: 2rem auto;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.05);
-  max-width: 900px;
-  font-family: 'Segoe UI', sans-serif;
-}
-section.card h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 800;
-}
-section.card p, section.card li {
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.6;
-}
-.icon-box-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 2rem;
-  gap: 2rem;
-  text-align: center;
-}
-.icon-box {
-  width: 40%;
-  min-width: 140px;
-}
-.icon-box img {
-  width: 48px;
-  margin-bottom: 0.5rem;
-}
-.icon-box p {
-  font-weight: bold;
-  font-size: 1rem;
-}
-.trust-numbers {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 2rem;
-}
-.trust-numbers div {
-  text-align: center;
-}
-.trust-numbers div span {
-  display: block;
-  font-size: 2rem;
-  color: #e74c3c;
-  font-weight: bold;
-}
-.cta-button {
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  border: none;
-  color: white;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 30px;
-  box-shadow: 0 0 15px rgba(255, 60, 60, 0.3);
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.cta-button:hover {
-  transform: scale(1.05);
-}
-</style>
-<style>
-.recarra-icon {
-  transition: transform 0.6s ease;
-}
-.recarra-icon:hover {
-  transform: rotate(360deg);
-}
-.recarra-badge {
-  transition: background 0.3s ease, transform 0.4s ease;
-}
-.recarra-badge:hover {
-  background: #ffd54f;
-  transform: scale(1.1);
-}
-</style>
 </head>
 <body>
-<style>
-#rotating-recarra-name {
-  font-size: 1.6rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.recarra-icon {
-  width: 24px;
-  height: 24px;
-}
-.recarra-badge {
-  font-size: 0.75rem;
-  background: #ffe082;
-  color: #000;
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-weight: 600;
-}
-</style>
-<div id="rotating-recarra-name">
-<img alt="icon" class="recarra-icon" src="https://cdn-icons-png.flaticon.com/512/1086/1086933.png"/>
-<span id="recarra-name-text">Recarra</span>
-<span class="recarra-badge" id="recarra-badge">Trusted</span>
-</div>
-<style>
-#rotating-recarra-name {
-  font-size: 1.8rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 1rem 2rem;
-  display: inline-block;
-  animation: fadeInOut 8888s infinite;
-}
-@keyframes fadeInOut {
-  0%,100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-</style>
 <section class="hero-header highend"><img alt="Recarra Logo" class="logo-img" id="recarra-logo"/>
 <div class="hero-logo-row" style="text-align: left; padding-left: 2rem;">
 </div>
@@ -768,14 +634,7 @@ section.card p, section.card li {
   Recarra delivers seamless AI-powered offers—no agents, no delays. Just smart value, speed, and full control, all from your screen.
 </p>
 </section>
-<section class="card" id="hero-slogans" style="text-align:center; padding:2rem;">
-<h1 id="main-slogan" style="font-size:2rem; color:#e74c3c;">The Intelligent, Instant Way to Sell Your Car</h1>
-<p id="sub-slogan" style="font-size:1.1rem; color:#333;">Recarra delivers seamless AI-powered offers—no agents, no delays. Just smart value, speed, and full control.</p>
-<div id="junk-joke" style="font-size:1rem; color:#999; margin-top:1rem; display:none;">
-  Why did the junk car call Recarra? It wanted a better life.
-</div>
-</section>
-<header style="text-align:center; padding:3rem 1rem; background: linear-gradient(to right, #ffffff, #fefefe);">
+<header>
 </header>
 <div style="position: relative; display: inline-block; margin-top: 1rem;">
 <button class="next-button" id="offerToggle">Choose Offer Method</button>
@@ -1722,117 +1581,17 @@ section.card p, section.card li {
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
 <input class="input-field step-field" data-step="1" placeholder="Name" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Damage description" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section></main>
+
 <section class="card"><h2>Why Recarra?</h2><p>We pay more, operate faster, and offer 24/7 instant AI-powered deals for every vehicle type.</p></section>
 <section class="card"><h2>How Recarra Buys Your Car</h2><p>Submit your info → We review your vehicle → You accept → We pay instantly and schedule pickup.</p></section>
 <section class="card"><h2>Recarra AI</h2><p>Advanced VIN detection, license plate scanning, voice assistant offers, and dynamic pricing logic give you better deals in seconds.</p></section>
 <section class="card"><h2>Will Your Car Be Reported as Junk?</h2><p>Only with your approval. Recarra provides full transparency and legal assurance for every deal.</p></section>
-<section class="card"><h2>Message from Our CEO</h2><p>Welcome to Recarra — where speed, honesty, and technology redefine how you sell your car. We believe every customer deserves the best.</p>
-<div style="margin-top:2rem;">
-<h3 style="color:#c0392b;">We’d Love to Hear From You</h3>
-<form style="margin-top:1rem;">
-<label for="cust-name">Your Name:</label><br/>
-<input id="cust-name" name="cust-name" required="" style="width:100%;padding:0.6rem;margin-bottom:1rem;" type="text"/><br/>
-<label for="cust-feedback">Your Message:</label><br/>
-<textarea id="cust-feedback" name="cust-feedback" required="" rows="4" style="width:100%;padding:0.6rem;margin-bottom:1rem;"></textarea><br/>
-<button class="cta-button" type="submit">Send Feedback</button>
-</form>
-</div>
-</section>
+<section class="card"><h2>Message from Our CEO</h2><p>Welcome to Recarra — where speed, honesty, and technology redefine how you sell your car. We believe every customer deserves the best.</p></section>
 <section class="card"><h2>Recarra by the Numbers</h2><p>10,000+ offers processed, 98% satisfaction, $Millions paid out — and growing every day.</p></section>
 <section class="card"><h2>Get to Know Recarra Online Auction</h2><p>Explore Recarrabids.com — our platform where vehicles are auctioned to the highest bidder instantly, with verified buyers.</p></section>
 <section class="card"><h2>Recarra Drives</h2><p>We care. Recarra funds clean transport, recycling incentives, and vehicle donation programs that support real families.</p></section>
 <section class="card"><h2>Trust &amp; Assurance</h2><p>Licensed. DMV-Verified. Fully insured. Transparent offers. Instant payouts. Recarra is built for confidence.</p></section>
-<!-- EXPANDABLE FAQ SECTION --><section class="card" id="faq">
-<h2>Frequently Asked Questions</h2>
-<div class="faq-item">
-<button class="faq-question">How fast do I get paid? <span class="arrow">▼</span></button>
-<div class="faq-answer">Most customers receive payment the same day the offer is accepted.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Do I need a title? <span class="arrow">▼</span></button>
-<div class="faq-answer">Not always. If you don’t have a title, we’ll help you with the paperwork.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Can I sell a non-running or junk car? <span class="arrow">▼</span></button>
-<div class="faq-answer">Yes. Recarra buys vehicles in any condition — whether running, totaled, or salvaged.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Is pickup really free? <span class="arrow">▼</span></button>
-<div class="faq-answer">Yes, all pickups are included and completely free of charge, no hidden fees.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">How is my car's offer determined? <span class="arrow">▼</span></button>
-<div class="faq-answer">AI compares your VIN, condition, demand, and market prices to offer the best value.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">What paperwork do I need to sell my car? <span class="arrow">▼</span></button>
-<div class="faq-answer">Usually a title and ID. We can assist if anything is missing or lost.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Can I sell my car with a loan or lien? <span class="arrow">▼</span></button>
-<div class="faq-answer">Yes. We'll help pay off the remaining balance and process the transfer correctly.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Will I get paid before or after the car is picked up? <span class="arrow">▼</span></button>
-<div class="faq-answer">Most customers receive payment instantly at pickup or digitally right before.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Do I need to bring the car anywhere? <span class="arrow">▼</span></button>
-<div class="faq-answer">No. We schedule pickup at your convenience — home, work, or anywhere.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">What if I change my mind after accepting the offer? <span class="arrow">▼</span></button>
-<div class="faq-answer">No problem. You can cancel any time before pickup with no penalty.</div>
-</div>
-</section>
-<style>
-.faq-item {
-  margin-bottom: 1rem;
-}
-.faq-question {
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.1rem;
-  background: #fff0ec;
-  border: 2px solid #f9d423;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #e74c3c;
-  text-align: left;
-  position: relative;
-}
-.faq-question .arrow {
-  float: right;
-  transition: transform 0.3s ease;
-}
-.faq-answer {
-  display: none;
-  margin-top: 0.5rem;
-  padding: 0.8rem 1rem;
-  background: #fefefe;
-  border-left: 3px solid #f9d423;
-  border-radius: 0 0 12px 12px;
-  color: #444;
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", () => {
-      const answer = button.nextElementSibling;
-      const arrow = button.querySelector(".arrow");
-      const isVisible = answer.style.display === "block";
-      document.querySelectorAll(".faq-answer").forEach(a => a.style.display = "none");
-      document.querySelectorAll(".faq-question .arrow").forEach(a => a.style.transform = "rotate(0deg)");
-      if (!isVisible) {
-        answer.style.display = "block";
-        arrow.style.transform = "rotate(180deg)";
-      }
-    });
-  });
-});
-</script>
+<section class="card"><h2>Frequently Asked Questions (FAQ)</h2><p><strong>Q:</strong> How fast do I get paid?<br/><strong>A:</strong> Most customers receive funds the same day.<br/><br/><strong>Q:</strong> Do I need a title?<br/><strong>A:</strong> Not always — we'll help with paperwork.</p></section>
 <footer>
     © 2025 Recarra. All rights reserved.
   </footer>
@@ -2141,59 +1900,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-</script>
-<script>
-function speakJoke(text) {
-  if ('speechSynthesis' in window) {
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.pitch = 1;
-    utter.rate = 1;
-    utter.volume = 1;
-    speechSynthesis.speak(utter);
-  }
-}
-</script>
-<script>
-const junkJokes = [
-  "Why did the junk car call Recarra? It wanted a better life.",
-  "That rust bucket isn’t trash — it’s Recarra treasure.",
-  "You’d be surprised what Recarra pays for ‘character’ cars.",
-  "Even your car’s exhaust is sighing for a better deal. We hear it.",
-  "Don’t let your junk sit. Let Recarra make it famous — and valuable."
-];
-let jokeIndex = 0;
-setInterval(() => {
-  jokeIndex = (jokeIndex + 1) % junkJokes.length;
-  const jokeEl = document.getElementById("junk-joke");
-  const currentJoke = junkJokes[jokeIndex];
-  jokeEl.textContent = currentJoke;
-  jokeEl.style.display = "block";
-  speakJoke(currentJoke);
-  setTimeout(() => {
-    jokeEl.style.display = "none";
-  }, 12000);
-}, 888000); // every 888 seconds
-</script>
-
-
-<script>
-const recarraVariants = [
-  { name: "Recarra AI", badge: "24/7", icon: "ai_icon.png" },
-  { name: "Recarra Cloud", badge: "Smart", icon: "cloud_icon.png" },
-  { name: "Recarra 24/7", badge: "Instant", icon: "clock_icon.png" },
-  { name: "Recarra Auto Logic", badge: "Verified", icon: "chip_icon.png" },
-  { name: "The Recarra Way", badge: "DMV-Trusted", icon: "flag_icon.png" },
-  { name: "Recarra Smart Offers", badge: "AI Powered", icon: "shield_icon.png" }
-];
-
-let nameCycleIndex = 0;
-setInterval(() => {
-  const next = recarraVariants[nameCycleIndex % recarraVariants.length];
-  document.getElementById("recarra-name-text").textContent = next.name;
-  document.getElementById("recarra-badge").textContent = next.badge;
-  document.querySelector(".recarra-icon").src = next.icon;
-  nameCycleIndex++;
-}, 8000);
 </script>
 </body>
 </html>
