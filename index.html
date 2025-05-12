@@ -476,6 +476,50 @@ button {
   box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
   transition: background 0.3s ease;
 }
+</style><style>
+.form-card {
+  max-width: 600px;
+  margin: auto;
+  padding: 2rem;
+}
+.step-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.step-nav button {
+  padding: 0.8rem 1.4rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.step-nav button:hover {
+  transform: scale(1.05);
+}
+.next-button {
+  background: linear-gradient(to right, #3fa9f5, #007aff);
+  color: white;
+}
+.prev-button {
+  background: linear-gradient(to right, #a1a1a1, #666);
+  color: white;
+}
+.quit-button {
+  background: linear-gradient(to right, #ff9900, #ff6600);
+  color: white;
+}
+.submit-button {
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  color: black;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  display: none;
+}
 </style></head>
 <body>
 <section class="hero-header highend">
