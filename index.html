@@ -760,14 +760,24 @@ section.card p, section.card li {
 </style>
 <style>
 #form-menu {
-  background: #fff;
+  background: white;
   border: 2px solid #0077ff;
   border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 30px rgba(0,0,0,0.25);
   padding: 10px;
   position: absolute;
-  z-index: 9999;
-  margin-top: 10px;
+  top: 60px;
+  right: 20px;
+  z-index: 99999;
+  width: max-content;
+  min-width: 250px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+#form-menu.show {
+  display: block;
+  opacity: 1;
 }
 #form-menu .dropdown-item {
   background: white;
@@ -783,6 +793,41 @@ section.card p, section.card li {
 #form-menu .dropdown-item:hover {
   background: #ffcc00;
   color: black;
+}
+</style>
+<style>
+.drawer-container {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -2px 20px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  z-index: 10000;
+  padding: 2rem;
+  display: none;
+  transition: all 0.4s ease;
+}
+.drawer-container.active {
+  display: block;
+}
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 9999;
+  display: none;
+}
+.drawer-overlay.active {
+  display: block;
 }
 </style>
 </head>
@@ -1797,49 +1842,7 @@ section.card p, section.card li {
 <section class="card"><h2>Get to Know Recarra Online Auction</h2><p>Explore Recarrabids.com — our platform where vehicles are auctioned to the highest bidder instantly, with verified buyers.</p></section>
 <section class="card"><h2>Recarra Drives</h2><p>We care. Recarra funds clean transport, recycling incentives, and vehicle donation programs that support real families.</p></section>
 <section class="card"><h2>Trust &amp; Assurance</h2><p>Licensed. DMV-Verified. Fully insured. Transparent offers. Instant payouts. Recarra is built for confidence.</p></section>
-<!-- EXPANDABLE FAQ SECTION --><section class="card" id="faq">
-<h2>Frequently Asked Questions</h2>
-<div class="faq-item">
-<button class="faq-question">How fast do I get paid? <span class="arrow">▼</span></button>
-<div class="faq-answer">Most customers receive payment the same day the offer is accepted.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Do I need a title? <span class="arrow">▼</span></button>
-<div class="faq-answer">Not always. If you don’t have a title, we’ll help you with the paperwork.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Can I sell a non-running or junk car? <span class="arrow">▼</span></button>
-<div class="faq-answer">Yes. Recarra buys vehicles in any condition — whether running, totaled, or salvaged.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Is pickup really free? <span class="arrow">▼</span></button>
-<div class="faq-answer">Yes, all pickups are included and completely free of charge, no hidden fees.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">How is my car's offer determined? <span class="arrow">▼</span></button>
-<div class="faq-answer">AI compares your VIN, condition, demand, and market prices to offer the best value.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">What paperwork do I need to sell my car? <span class="arrow">▼</span></button>
-<div class="faq-answer">Usually a title and ID. We can assist if anything is missing or lost.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Can I sell my car with a loan or lien? <span class="arrow">▼</span></button>
-<div class="faq-answer">Yes. We'll help pay off the remaining balance and process the transfer correctly.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Will I get paid before or after the car is picked up? <span class="arrow">▼</span></button>
-<div class="faq-answer">Most customers receive payment instantly at pickup or digitally right before.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">Do I need to bring the car anywhere? <span class="arrow">▼</span></button>
-<div class="faq-answer">No. We schedule pickup at your convenience — home, work, or anywhere.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question">What if I change my mind after accepting the offer? <span class="arrow">▼</span></button>
-<div class="faq-answer">No problem. You can cancel any time before pickup with no penalty.</div>
-</div>
-</section>
+<!-- EXPANDABLE FAQ SECTION -->
 <style>
 .faq-item {
   margin-bottom: 1rem;
@@ -1888,6 +1891,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+<div style="display:flex;justify-content:center;gap:1rem;margin:3rem auto;max-width:600px;">
+<button id="scrollToTopButton" style="background:red;color:white;font-weight:bold;border:none;border-radius:50px;padding:1rem 2rem;box-shadow:0 0 20px red;cursor:pointer;">↑ Top</button>
+<button id="openFormTrigger" style="background:linear-gradient(to right, red, gold);color:white;font-weight:bold;border:none;border-radius:50px;padding:1rem 2rem;box-shadow:0 0 20px orange;cursor:pointer;">Get Instant Cash Offer Now</button>
+</div>
+
+<section id="faq" style="padding:2rem;text-align:center;">
+<h2 style="color:#ff4b4b;">Frequently Asked Questions</h2>
+<div id="faq-display" style="margin-top:2rem;">
+<div id="faq-question" style="font-weight:bold;font-size:1.2rem;margin-bottom:1rem;"></div>
+<div id="faq-answer" style="font-size:1rem;color:#444;"></div>
+</div>
+</section>
 <footer>
     © 2025 Recarra. All rights reserved.
   </footer>
@@ -2223,22 +2238,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("offerToggle");
-  const menu = document.getElementById("form-menu");
-  if (toggle && menu) {
-    toggle.addEventListener("click", () => {
-      if (menu.style.display === "block") {
-        menu.style.display = "none";
-      } else {
-        menu.style.display = "block";
-      }
-    });
-  }
-});
-</script>
-
 <button onclick="scrollToTop()" style="position: fixed; bottom: 20px; left: 20px; background: red; color: white;
 border: none; border-radius: 30px; padding: 10px 20px; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 9999;">
 ↑ Top
@@ -2248,7 +2247,6 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
-
 <script>
 const recarraNames = ["Recarra Cloud", "Recarra Auto", "Recarra AI", "Recarra Hub", "Recarra Gold"];
 let i = 0;
@@ -2257,7 +2255,6 @@ setInterval(() => {
   if (el) el.innerText = recarraNames[i++ % recarraNames.length];
 }, 8000);
 </script>
-
 <script>
 const jokes = [
   "Why did the junk car go to therapy? It had too many breakdowns.",
@@ -2273,7 +2270,6 @@ function tellJoke() {
 }
 setInterval(tellJoke, 888000); // every 888 seconds
 </script>
-
 <script>
 function triggerRandomForm() {
   const allForms = document.querySelectorAll('.form-section');
@@ -2282,16 +2278,161 @@ function triggerRandomForm() {
   showFormById(pick);
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const formSections = document.querySelectorAll(".form-section");
+  formSections.forEach(section => {
+    const steps = section.querySelectorAll(".step-field");
+    let currentStep = 0;
+    const nextBtn = section.querySelector(".next-button");
+    const backBtn = section.querySelector(".back-button");
+    const quitBtn = section.querySelector(".quit-button");
 
+    function showStep(n) {
+      steps.forEach((step, index) => {
+        step.style.display = index === n ? "block" : "none";
+      });
+    }
+
+    if (nextBtn && steps.length > 0) {
+      nextBtn.addEventListener("click", () => {
+        if (currentStep < steps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      });
+    }
+
+    if (backBtn && steps.length > 0) {
+      backBtn.addEventListener("click", () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+    }
+
+    if (quitBtn) {
+      quitBtn.addEventListener("click", () => {
+        if (confirm("Are you sure you want to quit this offer?")) {
+          section.style.display = "none";
+        }
+      });
+    }
+
+    // Initialize first step
+    showStep(0);
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollBtn = document.getElementById("scrollToTopButton");
+  if (scrollBtn) {
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  const openFormBtn = document.getElementById("openFormTrigger");
+  if (openFormBtn) {
+    openFormBtn.addEventListener("click", () => {
+      const forms = document.querySelectorAll(".form-section");
+      if (forms.length > 0) {
+        const randomIndex = Math.floor(Math.random() * forms.length);
+        forms.forEach((form, idx) => {
+          form.style.display = idx === randomIndex ? "block" : "none";
+        });
+        forms[randomIndex].scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+});
+</script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("offerToggle");
   const menu = document.getElementById("form-menu");
   if (toggle && menu) {
-    toggle.addEventListener("click", () => {
-      menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("show");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove("show");
+      }
     });
   }
+});
+</script>
+<script>
+function showFormById(formId) {
+  const drawer = document.getElementById("drawer");
+  const overlay = document.getElementById("drawerOverlay");
+  const forms = drawer.querySelectorAll(".form-section");
+
+  forms.forEach(f => f.style.display = "none");
+
+  const targetForm = drawer.querySelector("#" + formId);
+  if (targetForm) {
+    targetForm.style.display = "block";
+    drawer.classList.add("active");
+    overlay.classList.add("active");
+    targetForm.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+document.getElementById("drawerOverlay").addEventListener("click", () => {
+  if (confirm("Are you sure you want to close this offer form?")) {
+    document.getElementById("drawer").classList.remove("active");
+    document.getElementById("drawerOverlay").classList.remove("active");
+  }
+});
+</script>
+
+<script>
+const faqs = [
+  { q: "What kind of cars does Recarra buy?", a: "We buy all cars—running, broken, damaged, or totaled." },
+  { q: "How fast do I get paid?", a: "Most customers receive instant payment on pickup." },
+  { q: "Do I need a title?", a: "A title is helpful, but we can assist if it's lost or missing." },
+  { q: "Can I sell a car I still owe money on?", a: "Yes. Recarra can help pay off the remaining balance." },
+  { q: "How do I schedule pickup?", a: "Just submit an offer. We’ll call to confirm a time that works for you." },
+  { q: "What documents are required?", a: "Typically a photo ID and vehicle ownership proof." },
+  { q: "Can I cancel an offer?", a: "Yes, anytime before you accept and schedule." },
+  { q: "How is the price calculated?", a: "Our AI compares market rates, VIN, and vehicle condition." }
+];
+
+let index = 0;
+function shuffleFAQs() {
+  for (let i = faqs.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [faqs[i], faqs[j]] = [faqs[j], faqs[i]];
+  }
+}
+function rotateFAQ() {
+  const question = document.getElementById("faq-question");
+  const answer = document.getElementById("faq-answer");
+
+  if (faqs.length > 0) {
+    const faq = faqs[index % faqs.length];
+    question.textContent = faq.q;
+    answer.textContent = "";
+
+    setTimeout(() => {
+      answer.textContent = faq.a;
+    }, 8000); // 8 sec question only, then show answer
+
+    index++;
+    setTimeout(rotateFAQ, 16000); // total 16 sec per pair
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  shuffleFAQs();
+  rotateFAQ();
 });
 </script>
 </body>
