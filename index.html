@@ -1597,6 +1597,30 @@ body.dim-mode .section-title {
     max-width: 16%;
   }
 }
+
+#recarra-logo {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.choose-offer-wrapper {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.choose-offer-button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff4e50, #f9d423);
+  color: black;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 </style>
 <link href="/manifest.json" rel="manifest"/>
 <meta content="#ff4e50" name="theme-color"/>
@@ -1630,6 +1654,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const section = document.querySelector('.ceo-message-section');
   if (section) observer.observe(section);
+});
+
+document.querySelectorAll('.dropdown-option').forEach(opt => {
+  opt.addEventListener('click', e => {
+    const id = opt.textContent.trim().toLowerCase().replace(/ /g, '-');
+    openForm(id);
+  });
+});
+
+document.getElementById('chooseOfferBtn').addEventListener('click', () => {
+  const dropdown = document.getElementById('smartMenuDropdown');
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
 });
 </script>
 <script>
@@ -2110,7 +2146,7 @@ window.addEventListener("load", () => {
 <button aria-label="Email Offer" class="nav-offer-button" onclick="showOffer('video', event)">Email Offer</button>
 <button aria-label="Call Us" class="nav-offer-button" onclick="window.location.href='tel:+18885558888'"><i class="fas fa-phone" style="margin-right: 8px;"></i>Call Us</button>
 </nav>
-<header>
+<header><div id="recarra-logo">Recarra</div>
 <h1>Recarra</h1>
 <div style="text-align: center; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; color: #555;">
   An end-to-end, AI-powered car buying platform.
@@ -2123,6 +2159,8 @@ window.addEventListener("load", () => {
   </a>
 </div>
 </header>
+<button class="choose-offer-button" id="chooseOfferBtn">Choose Offer Method</button>
+
 <!-- Recarra Full Form Section -->
 <section class="section-block fade-in-section" id="recarraForm" style="max-width: 720px; margin: 3rem auto; padding: 2rem; border-radius: 12px; background: #fff; box-shadow: 0 0 12px rgba(0,0,0,0.05);">
 <h2 class="section-title" style="font-size:2rem; text-align:center; color:#ff4e50;">Recarra Smart Offer Form</h2>
@@ -4575,7 +4613,6 @@ function closeForm() {
   document.getElementById('formContentArea').innerHTML = '';
 }
 </script>
-
 <!-- Overlay -->
 <div id="formOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:999;"></div>
 <!-- Unified Drawer -->
@@ -4592,7 +4629,6 @@ function closeForm() {
 <audio id="openSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-50.mp3"></audio>
 <audio id="closeSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-37.mp3"></audio>
 <audio id="stepSound" preload="auto" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
-
 <script>
 document.getElementById('chooseOfferBtn').onclick = () => {
   const menu = document.getElementById('offerDropdown');
@@ -4649,89 +4685,252 @@ function closeForm() {
   document.getElementById('closeSound').play();
 }
 </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.getElementById('smartMenuToggle');
-  const dropdown = document.getElementById('smartMenuDropdown');
-  const overlay = document.getElementById('modalOverlay');
-  const formDisplay = document.getElementById('formDisplayArea');
-  const openSound = document.getElementById('popupOpenSound');
-  const closeSound = document.getElementById('popupCloseSound');
-  const stepSound = document.getElementById('stepSound');
-
-  let currentStep = 0;
-  let activeForm = [];
-
-  menuToggle?.addEventListener('click', () => {
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-  });
-
-  window.openForm = function(type) {
-    currentStep = 0;
-    activeForm = getFormSteps(type);
-    showStep();
-    formDisplay.style.display = 'block';
-    overlay.style.display = 'block';
-    openSound?.play();
-  };
-
-  function getFormSteps(type) {
-    const steps = {
-      ai_offer: ["Enter your car’s year", "Enter make", "Enter model"],
-      chat: ["Type your question"],
-      voice: ["Speak now or type"],
-      photo: ["Upload front photo", "Upload back photo"],
-      video: ["Record or schedule a call"],
-      email: ["Enter your email"],
-      vin: ["Enter VIN number"],
-      plate: ["Enter license plate"],
-      agent: ["Enter your phone"],
-      recarra_full_form: ["Enter name", "Enter year", "Enter make", "Enter model"]
-    };
-    return steps[type] || ["Enter your information"];
+<!-- AI Offer Form -->
+<div class="smart-form" id="ai-offer-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">AI Offer Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('ai-offer')">Next</button>
+</div>
+</div>
+<!-- Chat Form -->
+<div class="smart-form" id="chat-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">Chat Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('chat')">Next</button>
+</div>
+</div>
+<!-- Voice Form -->
+<div class="smart-form" id="voice-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">Voice Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('voice')">Next</button>
+</div>
+</div>
+<!-- Photo Form -->
+<div class="smart-form" id="photo-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">Photo Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('photo')">Next</button>
+</div>
+</div>
+<!-- Video Form -->
+<div class="smart-form" id="video-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">Video Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('video')">Next</button>
+</div>
+</div>
+<!-- Email Form -->
+<div class="smart-form" id="email-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">Email Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('email')">Next</button>
+</div>
+</div>
+<!-- VIN Form -->
+<div class="smart-form" id="vin-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">VIN Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('vin')">Next</button>
+</div>
+</div>
+<!-- Plate Form -->
+<div class="smart-form" id="plate-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">Plate Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('plate')">Next</button>
+</div>
+</div>
+<!-- Agent Form -->
+<div class="smart-form" id="agent-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">Agent Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('agent')">Next</button>
+</div>
+</div>
+<!-- Recarra Full Form Form -->
+<div class="smart-form" id="recarra-full-form-form" style="display:none;">
+<div class="form-wrapper">
+<h2 class="form-title">Recarra Full Form Form</h2>
+<div class="progress-dots">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 10%;"></div>
+</div>
+<div class="form-step">
+<input placeholder="Step 1 input" required="" type="text"/>
+</div>
+<button class="next-btn" onclick="nextStep('recarra-full-form')">Next</button>
+</div>
+</div>
+<style>
+  .smart-form {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    padding: 2rem;
+    max-width: 480px;
+    margin: 2rem auto;
+    text-align: center;
   }
 
-  window.showStep = function() {
-    const question = activeForm[currentStep];
-    formDisplay.innerHTML = `
-      <h2>${question}</h2>
-      <input type="text" id="stepInput" aria-label="${question}" required autofocus />
-      <button onclick="nextStep()" class="agree-btn" aria-label="Next">Next</button>
-      <button onclick="closeForm()" class="close-btn" aria-label="Close">Cancel</button>
-      <p class="disclaimer">This is just an estimate. Final price depends on documentation.</p>
-    `;
-  };
+  .form-title {
+    font-size: 1.5rem;
+    color: #ff4e50;
+    margin-bottom: 1rem;
+  }
 
-  window.nextStep = function() {
-    const input = document.getElementById('stepInput');
-    if (!input.value.trim()) {
-      input.style.border = '2px solid red';
-      return;
+  .progress-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .progress-dots .dot {
+    width: 12px;
+    height: 12px;
+    background: #ccc;
+    border-radius: 50%;
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #ff4e50, #f9d423);
+    width: 10%;
+    transition: width 0.3s ease;
+  }
+
+  .form-step input {
+    width: 80%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 1.5rem;
+  }
+
+  .next-btn {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #ff4e50, #f9d423);
+    color: black;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+<script>
+  function nextStep(formId) {
+    const form = document.getElementById(formId + '-form');
+    const fill = form.querySelector('.progress-fill');
+    const dots = form.querySelectorAll('.dot');
+    let current = parseFloat(fill.style.width) || 10;
+    let next = Math.min(current + 10, 100);
+    fill.style.width = next + '%';
+    dots[Math.floor(current / 10)]?.classList.add('active');
+    if (next === 100) {
+      form.innerHTML = '<h2>Thank you!</h2><p>Your form has been submitted.</p>';
     }
-    currentStep++;
-    if (currentStep < activeForm.length) {
-      stepSound?.play();
-      showStep();
-    } else {
-      formDisplay.innerHTML = `
-        <h2>Thank You!</h2>
-        <p>Your submission has been received.</p>
-        <button onclick="closeForm()" class="agree-btn" aria-label="Close">Done</button>
-      `;
-    }
-  };
+  }
 
-  window.closeForm = function() {
-    formDisplay.style.display = 'none';
-    overlay.style.display = 'none';
-    closeSound?.play();
-  };
-
-  overlay?.addEventListener('click', closeForm);
-});
+  function openForm(formId) {
+    document.querySelectorAll('.smart-form').forEach(f => f.style.display = 'none');
+    const form = document.getElementById(formId + '-form');
+    if (form) form.style.display = 'block';
+    window.scrollTo(0, form.offsetTop);
+  }
 </script>
-
 </body>
 </html>
 <script>
