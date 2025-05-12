@@ -1,11 +1,12 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Recarra Welcome</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
+<meta charset="utf-8"/>
+<title>Recarra Welcome</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
     body {
       margin: 0;
       padding: 0;
@@ -100,31 +101,46 @@
   </style>
 </head>
 <body>
-  <div class="splash-overlay" id="welcomeSplash">
-    <form class="splash-card" method="POST" action="https://formsubmit.co/your@email.com">
-      <h1>Recarra</h1>
-      <h2>Sell Your Car Instantly</h2>
-      <button class="cta-button" type="button">Get an Offer</button>
-      <button class="red-outline-btn" type="button">Get an Instant Cash Offer</button>
-      <button class="red-outline-btn" type="button">Schedule an Inspection</button>
-      <button class="red-outline-btn" type="button">Submit Vehicle Details</button>
-      <button class="red-outline-btn" type="button">Contact Us</button>
-
-      <div class="message-block">
-        <h3>Message from the CEO</h3>
-        <input type="text" name="name" placeholder="Name" required>
-        <button type="submit" class="send-btn">Send</button>
-      </div>
-
-      <div class="remember-toggle">
-        <label>
-          <input type="checkbox" id="rememberUser"> Don’t show this again
+<div class="splash-overlay" id="welcomeSplash">
+<form action="https://formsubmit.co/your@email.com" class="splash-card" method="POST">
+<h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 0.25rem;">Sell Your Car</h1>
+<h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 2rem;">Instantly</h2>
+<button class="cta-button" type="button">Get an Offer</button>
+<button class="red-outline-btn" type="button">Get an Instant Cash Offer</button>
+<button class="red-outline-btn" type="button">Accept Your Offer</button>
+<button class="red-outline-btn" type="button">Submit Vehicle Details</button>
+<button class="red-outline-btn" type="button">Contact Us</button>
+<div class="message-block">
+<h3>Message (SEO)</h3>
+<input name="name" placeholder="Enter AI Offer Confirmation #" required="" type="text"/>
+<button class="send-btn" type="submit">Send</button>
+</div>
+<div class="remember-toggle">
+<label>
+<input id="rememberUser" type="checkbox"/> Don’t show this again
         </label>
-      </div>
+</div>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="https://recarra.com/thank-you"/>
+</form>
+</div>
+<script>
+  let interacted = false;
+  const splash = document.getElementById("welcomeSplash");
 
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://recarra.com/thank-you">
-    </form>
-  </div>
+  // Track interaction
+  splash.addEventListener("click", () => interacted = true);
+  splash.addEventListener("keydown", () => interacted = true);
+  document.querySelectorAll('input').forEach(i => {
+    i.addEventListener("input", () => interacted = true);
+  });
+
+  // If no interaction in 20 seconds, hide splash
+  setTimeout(() => {
+    if (!interacted) {
+      splash.style.display = "none";
+    }
+  }, 20000);
+</script>
 </body>
 </html>
