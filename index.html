@@ -282,31 +282,18 @@ body {
   background: linear-gradient(to right, #f5f5f5, #eaeaea, #f5f5f5);
   border-bottom: 1px solid #ccc;
 }
-</style><style>
-@keyframes gradientShift {
-  0% { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
-  25% { background: linear-gradient(135deg, #1e3c72, #2a5298); }
-  50% { background: linear-gradient(135deg, #8e0e00, #1f1c18); }
-  75% { background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); }
-  100% { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
-}
-.hero-header.highend {
-  animation: gradientShift 8888s infinite alternate;
-  color: white;
-  border-bottom: none;
-}
 </style></head>
 <body>
 <section class="hero-header highend">
-<div class="hero-logo-row" style="text-align: left; padding-left: 2rem;">
-<img alt="Recarra Logo" id="recarraLogo" src="https://raw.githubusercontent.com/yourusername/recarra-assets/main/recarra-logo-darkblue.png" style="height: 80px; max-width: 320px;"/>
+<div class="hero-logo-row">
+<div class="hero-icon">⚡</div>
+<div class="hero-brand">Recarra</div>
 </div>
-<h2 class="hero-slogan">
-  The Intelligent, Instant Way to Sell Your Car
-</h2>
+<h2 class="hero-slogan">The AI-Powered Way to<br/>Sell Your Car Instantly</h2>
 <p class="hero-description">
-  Recarra delivers seamless AI-powered offers—no agents, no delays. Just smart value, speed, and full control, all from your screen.
-</p>
+    We reinvent car selling with smart AI, instant quotes, and human-free offers—
+    designed for speed, trust, and total ease.
+  </p>
 </section>
 <header>
 </header>
@@ -547,21 +534,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", function () {
-  const logoImages = [
-    "https://raw.githubusercontent.com/yourusername/recarra-assets/main/recarra-logo-darkblue.png",
-    "https://raw.githubusercontent.com/yourusername/recarra-assets/main/recarra-logo-gold.png",
-    "https://raw.githubusercontent.com/yourusername/recarra-assets/main/recarra-logo-silver.png",
-    "https://raw.githubusercontent.com/yourusername/recarra-assets/main/recarra-logo-carbon.png"
-  ];
-  const logoElement = document.getElementById("recarraLogo");
-  let current = 0;
-  setInterval(() => {
-    current = (current + 1) % logoImages.length;
-    logoElement.src = logoImages[current];
-  }, 8888000); // rotate every 8888 seconds
 });
 </script></body>
 </html>
