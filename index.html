@@ -611,6 +611,7 @@ body {
   transform: translateY(0);
 }
 </style>
+
 <style>
 @keyframes pulseGlow {
   0% { box-shadow: 0 0 10px rgba(255, 60, 60, 0.3); }
@@ -1581,17 +1582,6 @@ body {
 <div class="progress"><div class="progress-bar" style="width: 8.33%;"></div></div>
 <input class="input-field step-field" data-step="1" placeholder="Name" style="" type="text"/>
 <input class="input-field step-field" data-step="2" placeholder="VIN" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Damage description" style="display:none;" type="text"/><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section></main>
-
-<section class="card"><h2>Why Recarra?</h2><p>We pay more, operate faster, and offer 24/7 instant AI-powered deals for every vehicle type.</p></section>
-<section class="card"><h2>How Recarra Buys Your Car</h2><p>Submit your info → We review your vehicle → You accept → We pay instantly and schedule pickup.</p></section>
-<section class="card"><h2>Recarra AI</h2><p>Advanced VIN detection, license plate scanning, voice assistant offers, and dynamic pricing logic give you better deals in seconds.</p></section>
-<section class="card"><h2>Will Your Car Be Reported as Junk?</h2><p>Only with your approval. Recarra provides full transparency and legal assurance for every deal.</p></section>
-<section class="card"><h2>Message from Our CEO</h2><p>Welcome to Recarra — where speed, honesty, and technology redefine how you sell your car. We believe every customer deserves the best.</p></section>
-<section class="card"><h2>Recarra by the Numbers</h2><p>10,000+ offers processed, 98% satisfaction, $Millions paid out — and growing every day.</p></section>
-<section class="card"><h2>Get to Know Recarra Online Auction</h2><p>Explore Recarrabids.com — our platform where vehicles are auctioned to the highest bidder instantly, with verified buyers.</p></section>
-<section class="card"><h2>Recarra Drives</h2><p>We care. Recarra funds clean transport, recycling incentives, and vehicle donation programs that support real families.</p></section>
-<section class="card"><h2>Trust &amp; Assurance</h2><p>Licensed. DMV-Verified. Fully insured. Transparent offers. Instant payouts. Recarra is built for confidence.</p></section>
-<section class="card"><h2>Frequently Asked Questions (FAQ)</h2><p><strong>Q:</strong> How fast do I get paid?<br/><strong>A:</strong> Most customers receive funds the same day.<br/><br/><strong>Q:</strong> Do I need a title?<br/><strong>A:</strong> Not always — we'll help with paperwork.</p></section>
 <footer>
     © 2025 Recarra. All rights reserved.
   </footer>
@@ -1793,110 +1783,6 @@ document.addEventListener("DOMContentLoaded", () => {
       offerForms.forEach(f => f.style.display = "none");
       randomForm.style.display = "block";
       randomForm.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-});
-</script>
-<button id="floating-offer-btn">Get Instant Cash Offer Now</button>
-<style>
-#floating-offer-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10000;
-  padding: 1rem 1.8rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: white;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  animation: pulseGlow 5s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
-  transition: transform 0.3s ease;
-}
-#floating-offer-btn:hover {
-  transform: scale(1.08);
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const forms = document.querySelectorAll(".form-card");
-  const btn = document.getElementById("floating-offer-btn");
-
-  if (btn && forms.length > 0) {
-    btn.addEventListener("click", () => {
-      const randomForm = forms[Math.floor(Math.random() * forms.length)];
-      forms.forEach(f => f.style.display = "none");
-      randomForm.style.display = "block";
-      randomForm.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-});
-</script>
-<button id="top-button">↑ Top</button>
-<style>
-#top-button {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 10000;
-  padding: 1rem 1.6rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background: red;
-  color: white;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
-  transition: transform 0.3s ease;
-}
-#top-button:hover {
-  transform: scale(1.08);
-}
-
-#floating-offer-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 10000;
-  padding: 1rem 1.8rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #ff3c3c, #f9d423);
-  color: white;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  animation: pulseGlow 5s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 60, 60, 0.3);
-  transition: transform 0.3s ease;
-}
-#floating-offer-btn:hover {
-  transform: scale(1.08);
-}
-</style>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Offer Button Logic
-  const forms = document.querySelectorAll(".form-card");
-  const offerBtn = document.getElementById("floating-offer-btn");
-  if (offerBtn && forms.length > 0) {
-    offerBtn.addEventListener("click", () => {
-      const randomForm = forms[Math.floor(Math.random() * forms.length)];
-      forms.forEach(f => f.style.display = "none");
-      randomForm.style.display = "block";
-      randomForm.scrollIntoView({ behavior: "smooth" });
-    });
-  }
-
-  // Scroll to top logic
-  const topBtn = document.getElementById("top-button");
-  if (topBtn) {
-    topBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 });
