@@ -139,6 +139,39 @@
   66%  { box-shadow: 0 0 10px gray; border-color: gray; }
   100% { box-shadow: 0 0 0px red; border-color: red; }
 }
+
+@media (max-width: 768px) {
+  .hero-brand {
+    font-size: 2.2rem;
+  }
+  .hero-slogan {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+  .hero-header {
+    padding: 1.5rem 1rem 0.5rem;
+  }
+  #offerToggle {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+  }
+  .form-card {
+    border-radius: 0;
+    width: 100%;
+    margin: 0;
+    padding: 1rem 0.75rem;
+  }
+  .dropdown-item {
+    padding: 0.9rem 1.2rem;
+    font-size: 1.05rem;
+  }
+  .next-button, .submit-button {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+}
 </style>
 <style>
 .dot-progress {
