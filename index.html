@@ -282,6 +282,18 @@ body {
   background: linear-gradient(to right, #f5f5f5, #eaeaea, #f5f5f5);
   border-bottom: 1px solid #ccc;
 }
+</style><style>
+.form-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.submit-button {
+  display: none;
+  margin: 1rem auto 0;
+  text-align: center;
+}
 </style></head>
 <body>
 <section class="hero-header highend">
@@ -348,11 +360,12 @@ body {
 <div class="dot-progress">
 <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
+<select class="input-field step-field" id="yearSelect" style="display:none;"></select>
+<select class="input-field step-field" id="makeSelect" style="display:none;"></select>
+<select class="input-field step-field" id="modelSelect" style="display:none;"></select>
+<select class="input-field step-field" id="trimSelect" style="display:none;"></select>
 <div class="form-title">AI Recarra Instant Offer</div>
 <div class="progress"><div class="progress-bar"></div></div>
-<input class="input-field step-field" placeholder="What is your car make?" type="text"/>
-<input class="input-field step-field" placeholder="What is your car model?" style="display:none;" type="text"/>
-<input class="input-field step-field" placeholder="What is your car year?" style="display:none;" type="text"/>
 <input class="input-field step-field" placeholder="Enter your full name" style="display:none;" type="text"/>
 <input class="input-field step-field" placeholder="Enter your phone number" style="display:none;" type="tel"/>
 <div class="form-navigation">
