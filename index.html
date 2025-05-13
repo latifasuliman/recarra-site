@@ -130,11 +130,11 @@
   border-radius: 12px;
   width: 100%;
   border: 2px solid #ccc;
-  animation: flash-border 3s linear infinite;
+  
   transition: all 0.3s ease;
 }
 
-@keyframes flash-border {
+ {
   0%   { box-shadow: 0 0 0px red; border-color: red; }
   33%  { box-shadow: 0 0 10px black; border-color: black; }
   66%  { box-shadow: 0 0 10px gray; border-color: gray; }
@@ -167,7 +167,7 @@
   padding: 0.75rem;
   border-radius: 12px;
   border: 2px solid #ccc;
-  animation: flash-border 3s linear infinite;
+  
   transition: all 0.3s ease;
   display: block;
   margin: 1rem auto;
@@ -462,6 +462,43 @@ select {
   text-decoration: none !important;
   -webkit-box-shadow: none !important;
   -webkit-text-fill-color: #000 !important;
+}
+  </style>
+  <style>
+   input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+  box-shadow: 0 0 0px 1000px #fff inset !important;
+  -webkit-text-fill-color: #000 !important;
+  caret-color: #000 !important;
+}
+
+input,
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 12px;
+  border: 2px solid #ccc !important;
+  background-color: white !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+input:focus {
+  outline: none !important;
+}
+  </style>
+  <style>
+   input,
+select,
+.input-field {
+  animation: none !important;
+  box-shadow: none !important;
+  border-color: #ccc !important;
 }
   </style>
  </head>
@@ -923,6 +960,14 @@ document.querySelectorAll(".form-card").forEach(form => {
     </div>
     <div class="step-field" id="form0-step4" style="display: none;">
      <div class="input-group">
+      <label for="color-input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+       Color
+      </label>
+      <input class="input-field" id="color-input" placeholder="What is your vehicle color?" type="text"/>
+     </div>
+    </div>
+    <div class="step-field" id="form0-step5" style="display: none;">
+     <div class="input-group">
       <label for="
 -------upload-license-plate-photo-(optional)
 -------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
@@ -933,7 +978,7 @@ document.querySelectorAll(".form-card").forEach(form => {
 -------input" type="file"/>
      </div>
     </div>
-    <div class="step-field" id="form0-step5" style="display: none;">
+    <div class="step-field" id="form0-step6" style="display: none;">
      <div class="input-group">
       <label for="
 -------upload-vin-photo-(optional)
@@ -945,7 +990,7 @@ document.querySelectorAll(".form-card").forEach(form => {
 -------input" type="file"/>
      </div>
     </div>
-    <div class="step-field" id="form0-step6" style="display: none;">
+    <div class="step-field" id="form0-step7" style="display: none;">
      <div class="input-group">
       <label for="
 -------engine-running?
@@ -967,7 +1012,7 @@ document.querySelectorAll(".form-card").forEach(form => {
       </select>
      </div>
     </div>
-    <div class="step-field" id="form0-step7" style="display: none;">
+    <div class="step-field" id="form0-step8" style="display: none;">
      <div class="input-group">
       <label for="
 -------do-you-have-the-keys?
@@ -989,7 +1034,7 @@ document.querySelectorAll(".form-card").forEach(form => {
       </select>
      </div>
     </div>
-    <div class="step-field" id="form0-step8" style="display: none;">
+    <div class="step-field" id="form0-step9" style="display: none;">
      <div class="input-group">
       <label for="
 -------any-body-damage-or-broken-glass?
@@ -1014,7 +1059,7 @@ document.querySelectorAll(".form-card").forEach(form => {
       </select>
      </div>
     </div>
-    <div class="step-field" id="form0-step9" style="display: none;">
+    <div class="step-field" id="form0-step10" style="display: none;">
      <div class="input-group">
       <label for="
 -------title-status
@@ -1039,7 +1084,7 @@ document.querySelectorAll(".form-card").forEach(form => {
       </select>
      </div>
     </div>
-    <div class="step-field" id="form0-step10" style="display: none;">
+    <div class="step-field" id="form0-step11" style="display: none;">
      <div class="input-group">
       <label for="
 -------full-name
@@ -1051,7 +1096,7 @@ document.querySelectorAll(".form-card").forEach(form => {
 -------input" placeholder="Enter your full name (required)" required="" type="text"/>
      </div>
     </div>
-    <div class="step-field" id="form0-step11" style="display: none;">
+    <div class="step-field" id="form0-step12" style="display: none;">
      <div class="input-group">
       <label for="
 -------mobile-number
@@ -1063,7 +1108,7 @@ document.querySelectorAll(".form-card").forEach(form => {
 -------input" placeholder="Enter your mobile number (SMS-enabled)" required="" type="tel"/>
      </div>
     </div>
-    <div class="step-field" id="form0-step12" style="display: none;">
+    <div class="step-field" id="form0-step13" style="display: none;">
      <div class="input-group">
       <label for="
 -------email-address
