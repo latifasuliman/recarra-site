@@ -1212,5 +1212,94 @@ function startSpeech(button) {
   recognition.start();
 }
 </script>
-</body>
+<script>
+document.querySelectorAll(".form-card").forEach((form, formIndex) => {
+    const steps = form.querySelectorAll(".step-field");
+    const nextBtn = form.querySelector(".next-button-step");
+    const backBtn = form.querySelector(".back-button");
+    const submitBtn = form.querySelector(".submit-button");
+    const quitBtn = form.querySelector(".quit-button");
+    const startOverBtn = form.querySelector(".start-over-button");
+    const thankYou = form.querySelector(".thank-you");
+
+    let index = 0;
+
+    function updateStepDisplay() {
+        steps.forEach((step, i) => {
+            step.style.display = i === index ? "block" : "none";
+        });
+        nextBtn.style.display = index < steps.length - 1 ? "inline-block" : "none";
+        backBtn.style.display = index > 0 ? "inline-block" : "none";
+        submitBtn.style.display = index === steps.length - 1 ? "inline-block" : "none";
+    }
+
+    updateStepDisplay();
+
+    if (nextBtn) {
+        nextBtn.onclick = () => {
+            const currentInput = steps[index].querySelector("input, select, textarea");
+            if (currentInput && currentInput.required && !currentInput.value.trim()) {
+                alert("Please complete this step.");
+                return;
+            }
+            index++;
+            updateStepDisplay();
+        };
+    }
+
+    if (backBtn) {
+        backBtn.onclick = () => {
+            if (index > 0) index--;
+            updateStepDisplay();
+        };
+    }
+
+    if (submitBtn) {
+        submitBtn.onclick = () => {
+            // Generate fake Offer ID
+            const offerId = "RC-" + Math.floor(100000 + Math.random() * 900000);
+            if (thankYou) {
+                thankYou.textContent = "Thank you! Your Offer ID is: " + offerId;
+                thankYou.style.display = "block";
+            }
+            // Collect data and simulate POST
+            const inputs = form.querySelectorAll("input, select, textarea");
+            const data = {};
+            inputs.forEach(input => {
+                if (input.name || input.placeholder) {
+                    data[input.name || input.placeholder] = input.value;
+                }
+            });
+            console.log("Form " + formIndex + " submitted:", data);
+            alert("Your offer was submitted. Thank you!");
+        };
+    }
+
+    if (quitBtn) {
+        quitBtn.onclick = () => {
+            if (confirm("Are you sure you want to quit this offer?")) {
+                form.style.display = "none";
+                document.getElementById("offerMenu").style.display = "block";
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+        };
+    }
+
+    if (startOverBtn) {
+        startOverBtn.onclick = () => {
+            if (confirm("Start over and clear all answers?")) {
+                steps.forEach((step, i) => {
+                    step.style.display = i === 0 ? "block" : "none";
+                    const input = step.querySelector("input, select, textarea");
+                    if (input) input.value = "";
+                });
+                index = 0;
+                thankYou.style.display = "none";
+                updateStepDisplay();
+                window.scrollTo({ top: form.offsetTop - 40, behavior: "smooth" });
+            }
+        };
+    }
+});
+</script></body>
 </html>
