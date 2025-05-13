@@ -147,7 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function playAndRedirect(url) {
     if (audio) audio.play();
     document.body.style.opacity = "0";
-    setTimeout(() => { window.location.href = url; }, 1000);
+    setTimeout(() => {
+      window.location.replace(url);
+    }, 1000);
   }
 
   if (skipLink) {
