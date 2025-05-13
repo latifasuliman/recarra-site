@@ -153,20 +153,20 @@ document.addEventListener("DOMContentLoaded", function () {
   if (skipLink) {
     skipLink.addEventListener("click", function (e) {
       e.preventDefault();
-      playAndRedirect(this.href);
+      playAndRedirect("https://latifasuliman.github.io/recarra-site/");
     });
   }
 
   if (submitBtn) {
     submitBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      playAndRedirect("index.html");
+      playAndRedirect("https://latifasuliman.github.io/recarra-site/");
     });
   }
 
   setTimeout(() => {
     if (!document.hidden) {
-      playAndRedirect("index.html");
+      playAndRedirect("https://latifasuliman.github.io/recarra-site/");
     }
   }, 12000);
 });
