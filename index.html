@@ -1,13 +1,12 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Recarra Quick Offer</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recarra Welcome Screen</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -15,6 +14,25 @@
       color: #000;
       text-align: center;
       padding: 2rem 1rem;
+      transition: opacity 1s ease;
+    }
+    .skip-link {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #ff3c3c;
+      background: #fff;
+      border: 2px solid #ff3c3c;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .skip-link:hover {
+      background: #ff3c3c;
+      color: #fff;
     }
     .title {
       font-size: 2.4rem;
@@ -25,17 +43,6 @@
       font-size: 1.8rem;
       font-weight: bold;
       margin-bottom: 2rem;
-    }
-    .button-main {
-      background: linear-gradient(to right, #f9d423, #ff3c3c);
-      color: black;
-      font-weight: bold;
-      border: none;
-      border-radius: 35px;
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      cursor: pointer;
     }
     .form-box {
       background: #fff;
@@ -67,45 +74,20 @@
       cursor: pointer;
     }
   </style>
-
-<style>
-body {
-  opacity: 1;
-  transition: opacity 1s ease;
-}
-</style>
 </head>
 <body>
-<a class="skip-link" href="index.html">Skip</a>
-<style>
-.skip-link {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  text-decoration: none;
-  font-weight: bold;
-  color: #ff3c3c;
-  background: #fff;
-  border: 2px solid #ff3c3c;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  font-size: 0.95rem;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-.skip-link:hover {
-  background: #ff3c3c;
-  color: #fff;
-}
-</style>
+<a class="skip-link" href="Recarra_Full_Homepage.html">Skip</a>
+
 <div class="title">Recarra</div>
 <div class="subtitle">Sell Your Car Instantly</div>
+
 <div class="form-box">
-<div style="font-weight: 600; margin-bottom: 0.25rem;">Quick Recarra Offer Form</div>
-<input placeholder="Full Name" type="text"/>
-<input placeholder="Mobile Number" type="tel"/>
-<input placeholder="Email Address" type="email"/>
-<select>
-<option disabled="" selected="" value="">Vehicle Year</option>
+  <div style="font-weight: 600; margin-bottom: 0.25rem;">Quick Recarra Offer Form</div>
+  <input type="text" placeholder="Full Name" />
+  <input type="tel" placeholder="Mobile Number" />
+  <input type="email" placeholder="Email Address" />
+  <select>
+    <option value="" disabled selected>Vehicle Year</option>
 <option value="2025">2025</option>
 <option value="2024">2024</option>
 <option value="2023">2023</option>
@@ -142,36 +124,31 @@ body {
 <option value="1992">1992</option>
 <option value="1991">1991</option>
 <option value="1990">1990</option>
-</select>
-<input placeholder="Vehicle Make" type="text"/>
-<input placeholder="Vehicle Model" type="text"/>
-<select>
-<option disabled="" selected="" value="">Vehicle Condition</option>
-<option>Excellent</option>
-<option>Good</option>
-<option>Fair</option>
-<option>Poor</option>
-<option>Damaged / Not Running</option>
-</select>
-<button class="send-button">Submit Offer</button>
+  </select>
+  <input type="text" placeholder="Vehicle Make" />
+  <input type="text" placeholder="Vehicle Model" />
+  <select>
+    <option value="" disabled selected>Vehicle Condition</option>
+    <option>Excellent</option>
+    <option>Good</option>
+    <option>Fair</option>
+    <option>Poor</option>
+    <option>Damaged / Not Running</option>
+  </select>
+  <button class="send-button">Submit Offer</button>
 </div>
+
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-29.mp3"></audio>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const skipLink = document.querySelector(".skip-link");
   const submitBtn = document.querySelector(".send-button");
-
-  // Create sound
-  const audio = document.createElement("audio");
-  audio.src = "https://www.soundjay.com/buttons/sounds/button-29.mp3";
-  audio.id = "clickSound";
-  document.body.appendChild(audio);
+  const audio = document.getElementById("clickSound");
 
   function playAndRedirect(url) {
-    const body = document.body;
     audio.play();
-    body.style.transition = "opacity 1s ease";
-    body.style.opacity = "0";
+    document.body.style.opacity = "0";
     setTimeout(() => {
       window.location.href = url;
     }, 1000);
@@ -187,16 +164,16 @@ document.addEventListener("DOMContentLoaded", function () {
   if (submitBtn) {
     submitBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      playAndRedirect("index.html");
+      playAndRedirect("Recarra_Full_Homepage.html");
     });
   }
 
-  // Auto redirect fallback after 10 seconds
+  // Auto redirect fallback after 12 seconds
   setTimeout(() => {
     if (!document.hidden) {
-      playAndRedirect("index.html");
+      playAndRedirect("Recarra_Full_Homepage.html");
     }
-  }, 10000);
+  }, 12000);
 });
 </script>
 </body>
