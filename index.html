@@ -430,15 +430,13 @@ body {
   100% { transform: rotate(360deg); }
 }
 </style>
-
 </head>
 <body>
-
 <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: white; z-index: 99999; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-  <h1 style="font-size: 2.5rem; font-weight: bold; background: linear-gradient(to right, #ff3c3c, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Recarra</h1>
-  <div class="loader" style="margin-top: 1rem;">
-    <div style="border: 4px solid #f3f3f3; border-top: 4px solid #333; border-radius: 50%; width: 32px; height: 32px; animation: spin 1s linear infinite;"></div>
-  </div>
+<h1 style="font-size: 2.5rem; font-weight: bold; background: linear-gradient(to right, #ff3c3c, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Recarra</h1>
+<div class="loader" style="margin-top: 1rem;">
+<div style="border: 4px solid #f3f3f3; border-top: 4px solid #333; border-radius: 50%; width: 32px; height: 32px; animation: spin 1s linear infinite;"></div>
+</div>
 </div>
 <audio id="submitSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio><div id="formOverlay"></div>
 <section class="hero-header highend">
@@ -612,34 +610,86 @@ document.querySelectorAll(".form-card").forEach(form => {
 </script>
 <main>
 <nav>
-</nav><section class="form-card active" id="form0" style="display: block;"><h2 class="form-title">AI Recarra Instant Offer</h2><div class="dot-progress"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="step-field" id="form0-step0" style="display: block;"><div class="input-group"><select class="input-field" placeholder="What is your vehicle year?"><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option></select></div></div><div class="step-field" id="form0-step1" style="display: none;"><div class="input-group"><select class="input-field" placeholder="What is your vehicle make?"><option value="Toyota">Toyota</option><option value="Honda">Honda</option><option value="Ford">Ford</option><option value="Chevrolet">Chevrolet</option><option value="Nissan">Nissan</option><option value="BMW">BMW</option><option value="Mercedes">Mercedes</option><option value="Hyundai">Hyundai</option><option value="Kia">Kia</option><option value="Volkswagen">Volkswagen</option></select></div></div><div class="step-field" id="form0-step2" style="display: none;"><div class="input-group"><select class="input-field" placeholder="What is your vehicle model?"><option value="Accord">Accord</option><option value="Civic">Civic</option><option value="Camry">Camry</option><option value="Corolla">Corolla</option><option value="F-150">F-150</option><option value="Altima">Altima</option><option value="Model 3">Model 3</option><option value="Elantra">Elantra</option><option value="CX-5">CX-5</option><option value="Golf">Golf</option></select></div></div>
-<div class="step-field" style="display: none;">
+</nav><section class="form-card active" id="form0" style="display: block;">
+
+
+
+
+<h2 class="form-title">AI Recarra Instant Offer</h2>
+<div class="dot-progress">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+<!-- Step 1: Vehicle Year -->
+<div class="step-field" style="display:block;">
 <div class="input-group">
-<label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">Upload license plate photo (optional)</label>
+<select class="input-field" required="">
+<option value="">What year is your vehicle?</option>
+<option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option>
+</select>
+</div>
+</div>
+<!-- Step 2: Do you know the make? -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<label>Do you know your car’s make (brand)?</label>
+<select class="input-field">
+<option value="">Select one</option>
+<option value="yes">Yes, I know the make</option>
+<option value="no">No, I'm not sure</option>
+</select>
+</div>
+</div>
+<!-- Step 3a: Make Dropdown -->
+<div class="step-field make-known" style="display:none;">
+<div class="input-group">
+<select class="input-field">
+<option value="">Select vehicle make</option>
+<option>Toyota</option><option>Honda</option><option>Ford</option><option>Chevrolet</option><option>Nissan</option>
+<option>BMW</option><option>Mercedes</option><option>Hyundai</option><option>Kia</option><option>Volkswagen</option>
+</select>
+</div>
+</div>
+<!-- Step 3b: Unknown Make Text Input -->
+<div class="step-field make-unknown" style="display:none;">
+<div class="input-group">
+<input class="input-field" placeholder="Describe what you remember (e.g. SUV, red van)" type="text"/>
+</div>
+</div>
+<!-- Step 4: Photo Upload (optional) -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<label style="display:block; font-weight:bold;">Upload a photo of your car (optional)</label>
 <input accept="image/*" class="input-field" type="file"/>
 </div>
 </div>
-<div class="step-field" style="display: none;">
-<div class="input-group">
-<label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">Upload your VIN photo (optional)</label>
-<input accept="image/*" class="input-field" type="file"/>
+<!-- Final Step: Contact Info -->
+<div class="step-field" style="display:none;">
+<div class="input-group"><input class="input-field contact-required" placeholder="Enter your full name (required)" required="" type="text"/></div>
 </div>
+<div class="step-field" style="display:none;">
+<div class="input-group"><input class="input-field contact-required" placeholder="Enter your mobile number (SMS-capable)" required="" type="tel"/></div>
 </div>
-<div class="step-field" style="display: none;">
-<div class="input-group">
-<input class="input-field" list="trim-options" placeholder="What is your vehicle trim?" type="text"/>
-<datalist id="trim-options">
-<option value="LE">
-<option value="SE">
-<option value="XLE">
-<option value="Sport">
-<option value="Touring">
-<option value="Platinum">
-<option value="Base">
-</option></option></option></option></option></option></option></datalist>
+<div class="step-field" style="display:none;">
+<div class="input-group"><input class="input-field contact-required" placeholder="Enter your email address" required="" type="email"/></div>
 </div>
+<div class="form-navigation">
+<button class="next-button back-button" type="button">Back</button>
+<button class="next-button next-button-step" type="button">Next</button>
+<button class="next-button quit-button" type="button">Quit</button>
+<button class="next-button start-over-button" type="button">Start Over</button>
 </div>
-<div class="step-field" style="display: none;"><div class="input-group"><input class="input-field contact-required" placeholder="Enter your full name (required)" type="text"/></div></div><div class="step-field" style="display: none;"><div class="input-group"><input class="input-field contact-required" placeholder="Enter your mobile number (SMS-enabled)" type="text"/></div></div><div class="step-field" style="display: none;"><div class="input-group"><input class="input-field contact-required" placeholder="Enter your email address" type="text"/></div></div><div class="form-navigation"><button class="next-button back-button" style="background: linear-gradient(to right, #f9d423, #ff3c3c); color: black; font-weight: bold; border-radius: 25px; padding: 0.75rem 2rem; border: none; margin: 0.5rem auto; display: block;" type="button">Back</button><button class="next-button next-button-step" style="background: linear-gradient(to right, #f9d423, #ff3c3c); color: black; font-weight: bold; border-radius: 25px; padding: 0.75rem 2rem; border: none; margin: 0.5rem auto; display: block;" type="button">Next</button><button class="next-button quit-button" style="background: linear-gradient(to right, #f9d423, #ff3c3c); color: black; font-weight: bold; border-radius: 25px; padding: 0.75rem 2rem; border: none; margin: 0.5rem auto; display: block;" type="button">Quit</button><button class="next-button start-over-button" style="background: linear-gradient(to right, #f9d423, #ff3c3c); color: black; font-weight: bold; border-radius: 25px; padding: 0.75rem 2rem; border: none; margin: 0.5rem auto; display: block;" type="button">Start Over</button></div><button class="submit-button" style="background: linear-gradient(to right, #f9d423, #ff3c3c); color: black; font-weight: bold; border-radius: 25px; padding: 0.75rem 2rem; border: none; margin: 0.5rem auto; display: block;" type="button">Submit Offer</button><div class="thank-you" style="display: none; text-align:center; margin-top:1rem;"></div></section><section class="form-card" id="form1" style="display: none;"><h2 class="form-title">Manual Entry Offer</h2><div class="dot-progress"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="step-field" id="form1-step0" style="display: block;"><div class="input-group"><select class="input-field" placeholder="What is your vehicle year?"><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option></select></div></div><div class="step-field" id="form1-step1" style="display: none;"><div class="input-group"><select class="input-field" placeholder="What is your vehicle make?"><option value="Toyota">Toyota</option><option value="Honda">Honda</option><option value="Ford">Ford</option><option value="Chevrolet">Chevrolet</option><option value="Nissan">Nissan</option><option value="BMW">BMW</option><option value="Mercedes">Mercedes</option><option value="Hyundai">Hyundai</option><option value="Kia">Kia</option><option value="Volkswagen">Volkswagen</option></select></div></div><div class="step-field" id="form1-step2" style="display: none;"><div class="input-group"><select class="input-field" placeholder="What is your vehicle model?"><option value="Accord">Accord</option><option value="Civic">Civic</option><option value="Camry">Camry</option><option value="Corolla">Corolla</option><option value="F-150">F-150</option><option value="Altima">Altima</option><option value="Model 3">Model 3</option><option value="Elantra">Elantra</option><option value="CX-5">CX-5</option><option value="Golf">Golf</option></select></div></div>
+<button class="submit-button" type="button">Submit Offer</button>
+<div class="thank-you" style="display:none; text-align:center; margin-top:1rem;"></div>
+</section><section class="form-card" id="form1" style="display: none;"><h2 class="form-title">Manual Entry Offer</h2><div class="dot-progress"><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><div class="step-field" id="form1-step0" style="display: block;"><div class="input-group"><select class="input-field" placeholder="What is your vehicle year?"><option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option></select></div></div><div class="step-field" id="form1-step1" style="display: none;"><div class="input-group"><select class="input-field" placeholder="What is your vehicle make?"><option value="Toyota">Toyota</option><option value="Honda">Honda</option><option value="Ford">Ford</option><option value="Chevrolet">Chevrolet</option><option value="Nissan">Nissan</option><option value="BMW">BMW</option><option value="Mercedes">Mercedes</option><option value="Hyundai">Hyundai</option><option value="Kia">Kia</option><option value="Volkswagen">Volkswagen</option></select></div></div><div class="step-field" id="form1-step2" style="display: none;"><div class="input-group"><select class="input-field" placeholder="What is your vehicle model?"><option value="Accord">Accord</option><option value="Civic">Civic</option><option value="Camry">Camry</option><option value="Corolla">Corolla</option><option value="F-150">F-150</option><option value="Altima">Altima</option><option value="Model 3">Model 3</option><option value="Elantra">Elantra</option><option value="CX-5">CX-5</option><option value="Golf">Golf</option></select></div></div>
 <div class="step-field" style="display: none;">
 <div class="input-group">
 <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">Upload license plate photo (optional)</label>
@@ -1957,7 +2007,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".submit-button").forEach((submitBtn, index) => {
@@ -1990,7 +2039,6 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 });
 </script>
-
 <script>
   window.addEventListener("load", function () {
     setTimeout(() => {
@@ -1998,6 +2046,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
   });
 </script>
-
 </body>
 </html>
