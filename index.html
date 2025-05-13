@@ -1,168 +1,203 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recarra | AI Car Buying Platform</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recarra Quick Offer</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #ffffff, #f4f4f4);
-      color: #111;
-    }
-    header.hero-header {
-      text-align: center;
-      padding: 4rem 1.5rem 3rem;
-      position: relative;
       background: #fff;
-      border-bottom: 5px solid;
-      border-image: linear-gradient(270deg, #fff, #ccc, #000, #ccc, #fff) 5;
-      animation: borderFlow 8s linear infinite;
+      color: #000;
+      text-align: center;
+      padding: 2rem 1rem;
     }
-    @keyframes borderFlow {
-      0% { border-image-source: linear-gradient(270deg, #fff, #ccc, #000, #ccc, #fff); }
-      50% { border-image-source: linear-gradient(270deg, #000, #ccc, #fff, #ccc, #000); }
-      100% { border-image-source: linear-gradient(270deg, #fff, #ccc, #000, #ccc, #fff); }
-    }
-    .hero-icon {
-      font-size: 2rem;
-      color: #ffcc00;
-      animation: pulse 4s infinite;
+    .title {
+      font-size: 2.4rem;
+      font-weight: bold;
       margin-bottom: 1rem;
-      display: inline-block;
     }
-    .hero-brand {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
+    .subtitle {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
     }
-    .hero-tagline {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-top: 0.5rem;
-    }
-    .hero-description {
-      max-width: 640px;
-      margin: 1rem auto 2rem;
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.6;
-    }
-    .scroll-arrow {
-      font-size: 1.5rem;
-      color: #888;
-      animation: bounce 2s infinite;
-      margin-top: 1.5rem;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.2); opacity: 0.6; }
-    }
-    .get-started-btn {
+    .button-main {
       background: linear-gradient(to right, #f9d423, #ff3c3c);
       color: black;
       font-weight: bold;
-      font-size: 1rem;
-      padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 30px;
-      margin-top: 1.5rem;
+      border-radius: 35px;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
       cursor: pointer;
     }
-    .section {
-      padding: 4rem 1.5rem;
-      text-align: center;
+    .form-box {
       background: #fff;
-      margin: 1rem;
-      border-radius: 16px;
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 0 0 1px #ddd;
+      padding: 1.5rem;
+      margin-top: 1rem;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(to right, #ff512f, #dd2476);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .section p {
-      max-width: 700px;
-      margin: 0 auto;
+    .form-box input, .form-box select {
+      width: 100%;
+      padding: 0.75rem;
       font-size: 1rem;
-      color: #444;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
     }
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-      border-top: 5px solid;
-      border-image: linear-gradient(to right, #fff, #ccc, #000, #ccc, #fff) 5;
-      animation: borderFlow 8s linear infinite;
-    }
-    footer a {
-      color: #f9d423;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 600;
-    }
-    .top-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #fff;
-      border: 2px solid #000;
-      padding: 0.5rem 1rem;
+    .send-button {
+      background: linear-gradient(to right, #f9d423, #ff3c3c);
+      color: black;
       font-weight: bold;
-      border-radius: 20px;
+      border: none;
+      border-radius: 25px;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    }
-    .top-button:hover {
-      background: #000;
-      color: #fff;
     }
   </style>
+
+<style>
+body {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+</style>
 </head>
 <body>
-<header class="hero-header">
-  <div class="hero-icon"><i class="fas fa-bolt"></i></div>
-  <div class="hero-brand">Recarra</div>
-  <div class="hero-tagline">The AI-Powered Way to Sell Your Car Instantly</div>
-  <div class="hero-description">
-    We reinvent car selling with smart AI, instant quotes, and human-free offers — designed for speed, trust, and total ease.
-  </div>
-  <button class="get-started-btn" onclick="document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })">Get Started</button>
-  <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
-</header>
-<section class="section" id="how-it-works">
-  <h2>How It Works</h2>
-  <p>Submit your vehicle info. Our AI generates an instant offer. You approve it. We pay fast and pick it up — no stress, no pressure.</p>
-</section>
-<section class="section">
-  <h2>Why Choose Recarra?</h2>
-  <p>Recarra gives you the best deal without talking to salespeople. Trusted by thousands of car sellers, our system is fast, fair, and fully automated.</p>
-</section>
-<section class="section">
-  <h2>What We Buy</h2>
-  <p>We buy any car, in any condition — from 2025 models to junkers. If it has wheels (or even if it doesn’t), Recarra makes an offer.</p>
-</section>
-<footer>
-  <p>
-    <a href="#how-it-works">How It Works</a> |
-    <a href="#">About Us</a> |
-    <a href="#">Contact</a> |
-    <a href="#">Sell Your Car</a>
-  </p>
-  <p>&copy; 2025 Recarra. All rights reserved.</p>
-</footer>
-<button class="top-button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Top</button>
+<a class="skip-link" href="index.html">Skip</a>
+<style>
+.skip-link {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff3c3c;
+  background: #fff;
+  border: 2px solid #ff3c3c;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.skip-link:hover {
+  background: #ff3c3c;
+  color: #fff;
+}
+</style>
+<div class="title">Recarra</div>
+<div class="subtitle">Sell Your Car Instantly</div>
+<div class="form-box">
+<div style="font-weight: 600; margin-bottom: 0.25rem;">Quick Recarra Offer Form</div>
+<input placeholder="Full Name" type="text"/>
+<input placeholder="Mobile Number" type="tel"/>
+<input placeholder="Email Address" type="email"/>
+<select>
+<option disabled="" selected="" value="">Vehicle Year</option>
+<option value="2025">2025</option>
+<option value="2024">2024</option>
+<option value="2023">2023</option>
+<option value="2022">2022</option>
+<option value="2021">2021</option>
+<option value="2020">2020</option>
+<option value="2019">2019</option>
+<option value="2018">2018</option>
+<option value="2017">2017</option>
+<option value="2016">2016</option>
+<option value="2015">2015</option>
+<option value="2014">2014</option>
+<option value="2013">2013</option>
+<option value="2012">2012</option>
+<option value="2011">2011</option>
+<option value="2010">2010</option>
+<option value="2009">2009</option>
+<option value="2008">2008</option>
+<option value="2007">2007</option>
+<option value="2006">2006</option>
+<option value="2005">2005</option>
+<option value="2004">2004</option>
+<option value="2003">2003</option>
+<option value="2002">2002</option>
+<option value="2001">2001</option>
+<option value="2000">2000</option>
+<option value="1999">1999</option>
+<option value="1998">1998</option>
+<option value="1997">1997</option>
+<option value="1996">1996</option>
+<option value="1995">1995</option>
+<option value="1994">1994</option>
+<option value="1993">1993</option>
+<option value="1992">1992</option>
+<option value="1991">1991</option>
+<option value="1990">1990</option>
+</select>
+<input placeholder="Vehicle Make" type="text"/>
+<input placeholder="Vehicle Model" type="text"/>
+<select>
+<option disabled="" selected="" value="">Vehicle Condition</option>
+<option>Excellent</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Damaged / Not Running</option>
+</select>
+<button class="send-button">Submit Offer</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const skipLink = document.querySelector(".skip-link");
+  const submitBtn = document.querySelector(".send-button");
+
+  // Create sound
+  const audio = document.createElement("audio");
+  audio.src = "https://www.soundjay.com/buttons/sounds/button-29.mp3";
+  audio.id = "clickSound";
+  document.body.appendChild(audio);
+
+  function playAndRedirect(url) {
+    const body = document.body;
+    audio.play();
+    body.style.transition = "opacity 1s ease";
+    body.style.opacity = "0";
+    setTimeout(() => {
+      window.location.href = url;
+    }, 1000);
+  }
+
+  if (skipLink) {
+    skipLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      playAndRedirect(this.href);
+    });
+  }
+
+  if (submitBtn) {
+    submitBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      playAndRedirect("index.html");
+    });
+  }
+
+  // Auto redirect fallback after 10 seconds
+  setTimeout(() => {
+    if (!document.hidden) {
+      playAndRedirect("index.html");
+    }
+  }, 10000);
+});
+</script>
 </body>
 </html>
