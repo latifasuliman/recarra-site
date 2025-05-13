@@ -433,6 +433,21 @@
   margin: 0.25rem;
 }
   </style>
+  <style>
+   .input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.input-field {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: white;
+  z-index: 1;
+  position: relative;
+}
+  </style>
  </head>
  <body>
   <audio id="submitSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3">
@@ -719,10 +734,14 @@ document.querySelectorAll(".form-card").forEach(form => {
     </div>
     <div class="step-field" id="form0-step0" style="display: block;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------year
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Year
       </label>
-      <select class="input-field" required="">
+      <select class="input-field" id="
+-------year
+-------input" required="">
        <option value="2025">
         2025
        </option>
@@ -836,26 +855,38 @@ document.querySelectorAll(".form-card").forEach(form => {
     </div>
     <div class="step-field" id="form0-step1" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------make
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Make
       </label>
-      <input class="input-field" placeholder="What is your vehicle make?" required=""/>
+      <input class="input-field" id="
+-------make
+-------input" placeholder="What is your vehicle make?" required=""/>
      </div>
     </div>
     <div class="step-field" id="form0-step2" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------model
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Model
       </label>
-      <input class="input-field" placeholder="What is your vehicle model?" required=""/>
+      <input class="input-field" id="
+-------model
+-------input" placeholder="What is your vehicle model?" required=""/>
      </div>
     </div>
     <div class="step-field" id="form0-step3" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------trim
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Trim
       </label>
-      <input class="input-field" list="trim-options" placeholder="What is your vehicle trim?"/>
+      <input class="input-field" id="
+-------trim
+-------input" list="trim-options" placeholder="What is your vehicle trim?"/>
       <datalist id="trim-options">
        <option value="LE">
         <option value="SE">
@@ -876,26 +907,38 @@ document.querySelectorAll(".form-card").forEach(form => {
     </div>
     <div class="step-field" id="form0-step4" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------upload-license-plate-photo-(optional)
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Upload license plate photo (optional)
       </label>
-      <input accept="image/*" class="input-field" type="file"/>
+      <input accept="image/*" class="input-field" id="
+-------upload-license-plate-photo-(optional)
+-------input" type="file"/>
      </div>
     </div>
     <div class="step-field" id="form0-step5" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------upload-vin-photo-(optional)
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Upload VIN photo (optional)
       </label>
-      <input accept="image/*" class="input-field" type="file"/>
+      <input accept="image/*" class="input-field" id="
+-------upload-vin-photo-(optional)
+-------input" type="file"/>
      </div>
     </div>
     <div class="step-field" id="form0-step6" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------engine-running?
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Engine Running?
       </label>
-      <select class="input-field" required="">
+      <select class="input-field" id="
+-------engine-running?
+-------input" required="">
        <option value="">
         -- Select --
        </option>
@@ -910,10 +953,14 @@ document.querySelectorAll(".form-card").forEach(form => {
     </div>
     <div class="step-field" id="form0-step7" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------do-you-have-the-keys?
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Do you have the keys?
       </label>
-      <select class="input-field" required="">
+      <select class="input-field" id="
+-------do-you-have-the-keys?
+-------input" required="">
        <option value="">
         -- Select --
        </option>
@@ -928,10 +975,14 @@ document.querySelectorAll(".form-card").forEach(form => {
     </div>
     <div class="step-field" id="form0-step8" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------any-body-damage-or-broken-glass?
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Any body damage or broken glass?
       </label>
-      <select class="input-field" required="">
+      <select class="input-field" id="
+-------any-body-damage-or-broken-glass?
+-------input" required="">
        <option value="">
         -- Select --
        </option>
@@ -949,10 +1000,14 @@ document.querySelectorAll(".form-card").forEach(form => {
     </div>
     <div class="step-field" id="form0-step9" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------title-status
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Title Status
       </label>
-      <select class="input-field" required="">
+      <select class="input-field" id="
+-------title-status
+-------input" required="">
        <option value="">
         -- Select --
        </option>
@@ -970,26 +1025,38 @@ document.querySelectorAll(".form-card").forEach(form => {
     </div>
     <div class="step-field" id="form0-step10" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------full-name
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Full Name
       </label>
-      <input class="input-field contact-required" placeholder="Enter your full name (required)" required="" type="text"/>
+      <input class="input-field contact-required" id="
+-------full-name
+-------input" placeholder="Enter your full name (required)" required="" type="text"/>
      </div>
     </div>
     <div class="step-field" id="form0-step11" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------mobile-number
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Mobile Number
       </label>
-      <input class="input-field contact-required" placeholder="Enter your mobile number (SMS-enabled)" required="" type="tel"/>
+      <input class="input-field contact-required" id="
+-------mobile-number
+-------input" placeholder="Enter your mobile number (SMS-enabled)" required="" type="tel"/>
      </div>
     </div>
     <div class="step-field" id="form0-step12" style="display: none;">
      <div class="input-group">
-      <label style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
+      <label for="
+-------email-address
+-------input" style="margin-bottom: 0.5rem; display:block; font-weight: bold;">
        Email Address
       </label>
-      <input class="input-field contact-required" placeholder="Enter your email address" required="" type="email"/>
+      <input class="input-field contact-required" id="
+-------email-address
+-------input" placeholder="Enter your email address" required="" type="email"/>
      </div>
     </div>
     <button class="submit-button" style="background: linear-gradient(to right, #f9d423, #ff3c3c); color: black; font-weight: bold; border-radius: 25px; padding: 0.75rem 2rem; border: none; margin: 0.5rem auto; display: block;" type="button">
