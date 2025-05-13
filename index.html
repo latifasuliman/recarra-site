@@ -139,52 +139,7 @@
   66%  { box-shadow: 0 0 10px gray; border-color: gray; }
   100% { box-shadow: 0 0 0px red; border-color: red; }
 }
-
-@media (max-width: 768px) {
-  .hero-brand {
-    font-size: 2.2rem;
-  }
-  .hero-slogan {
-    font-size: 1.1rem;
-    line-height: 1.4;
-  }
-  .hero-header {
-    padding: 1.5rem 1rem 0.5rem;
-  }
-  #offerToggle {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    width: 100%;
-  }
-  .form-card {
-    border-radius: 0;
-    width: 100%;
-    margin: 0;
-    padding: 1rem 0.75rem;
-  }
-  .dropdown-item {
-    padding: 0.9rem 1.2rem;
-    font-size: 1.05rem;
-  }
-  .next-button, .submit-button {
-    font-size: 1.1rem;
-    padding: 1rem 2rem;
-  }
-}
-
-    .submit-button {
-        display: block !important;
-        margin: 2rem auto 1rem auto !important;
-        text-align: center;
-    }
-    .form-navigation {
-        display: flex;
-        justify-content: center;
-        gap: 1.2rem;
-        flex-wrap: wrap;
-    }
-    </style>
+</style>
 <style>
 .dot-progress {
   text-align: center;
@@ -391,13 +346,23 @@ body {
 <main>
 <section class="form-card" id="form0">
 <div class="dot-progress">
-<span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
 </div>
 <div class="form-title">AI Recarra Instant Offer</div>
 <div class="progress"><div class="progress-bar"></div></div>
-<input class="input-field step-field" data-step="1" placeholder="What’s the year, make, and model of your car?" style="" type="text"/><input class="input-field step-field" data-step="2" placeholder="Enter your ZIP code" style="display:none;" type="text"/><input class="input-field step-field" data-step="3" placeholder="Briefly describe your car’s condition" style="display:none;" type="text"/><div class="form-navigation"><button class="next-button back-button" style="display:none;" type="button">Back</button><button class="next-button next-button-step" type="button">Next</button><button class="next-button quit-button" type="button">Quit</button></div><button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button><input class="input-field step-field contact-required" placeholder="Enter your full name (required)" style="display:none;" type="text"/><input class="input-field step-field contact-required" placeholder="Enter your mobile number (SMS-enabled)" style="display:none;" type="tel"/><input class="input-field step-field contact-required" placeholder="Enter your email address" style="display:none;" type="email"/><div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div></section>
+<input class="input-field step-field" placeholder="What is your car make?" type="text"/>
+<input class="input-field step-field" placeholder="What is your car model?" style="display:none;" type="text"/>
+<input class="input-field step-field" placeholder="What is your car year?" style="display:none;" type="text"/>
+<input class="input-field step-field" placeholder="Enter your full name" style="display:none;" type="text"/>
+<input class="input-field step-field" placeholder="Enter your phone number" style="display:none;" type="tel"/>
+<div class="form-navigation">
+<button class="next-button back-button" style="display:none;" type="button">Back</button>
+<button class="next-button next-button-step" type="button">Next</button>
+<button class="next-button quit-button" type="button">Quit</button>
+</div>
+<button class="next-button submit-button" style="display:none;" type="button">Submit Offer</button>
+<div class="thank-you" style="display:none; text-align:center; margin-top:1rem;">Thank you! Your Offer ID is: RC-#####</div>
+</section>
 <section class="form-card" id="form1" style="display: none;">
 <div class="dot-progress">
 <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
