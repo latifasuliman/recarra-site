@@ -1001,5 +1001,42 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form0 = document.getElementById("form0");
+  if (form0) {
+    const fields = form0.querySelectorAll(".step-field");
+    if (fields.length > 0) {
+      fields[0].style.display = "block"; // Show the first question
+    }
+  }
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    const yearSelect = document.querySelector("#form0 #yearSelect");
+    if (yearSelect) {
+      yearSelect.style.display = "block";
+    }
+  }, 300); // Wait 300ms to ensure dropdowns are injected
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form0 = document.getElementById("form0");
+  if (!form0) return;
+
+  const observer = new MutationObserver(() => {
+    const yearSelect = form0.querySelector("#yearSelect");
+    if (yearSelect && yearSelect.style.display === "none") {
+      yearSelect.style.display = "block";
+      observer.disconnect(); // Stop watching after it's shown
+    }
+  });
+
+  observer.observe(form0, {
+    childList: true,
+    subtree: true
+  });
+});
 </script></body>
 </html>
