@@ -596,8 +596,35 @@ body {
   transition: box-shadow 0.3s ease-in-out;
 }
 </style>
-</head>
-<body><div id="inactivity-timer" style="position:fixed; top:10px; right:10px; font-weight:bold; font-size:1rem; padding:6px 12px; background:#0f0; color:black; border-radius:10px; z-index:99999;">01:30</div><audio autoplay="autoplay" id="startupChime" preload="auto"><source src="https://www.soundjay.com/button/sounds/button-38.mp3" type="audio/mpeg"/></audio>
+<style>
+#floating-thank-you {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 2rem;
+  border-radius: 14px;
+  border: 2px solid #f90;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 99999;
+}
+#emojiRain div {
+  position: fixed !important;
+  top: 0 !important;
+  animation: fall 2s ease-out forwards;
+}
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotateZ(360deg);
+    opacity: 0;
+  }
+}
+</style></head>
+<body><audio autoplay="autoplay" id="startupChime" preload="auto"><source src="https://www.soundjay.com/button/sounds/button-38.mp3" type="audio/mpeg"/></audio>
 <div id="welcome-screen" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:white; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
 <h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1>
 <p style="font-size:1.1rem;">Sell your car instantly with smart AI</p>
@@ -2337,58 +2364,60 @@ document.querySelectorAll(".submit-button").forEach((submitBtn) => {
 </script>
 </div>
 <script>
-let inactivity = 180;
-function updateInactivityTimer() {
-  const el = document.getElementById("inactivity-timer");
-  if (!el) return;
-  const min = String(Math.floor(inactivity / 60)).padStart(2, '0');
-  const sec = String(inactivity % 60).padStart(2, '0');
-  el.textContent = min + ":" + sec;
-  if (inactivity <= 90) {
-    el.style.background = '#f00';
-    el.style.color = '#fff';
-  }
-  if (inactivity === 0) {
-    document.querySelector('.form-card').style.display = 'none';
-    document.querySelector('main').style.display = 'block';
-    el.style.display = 'none';
-    return;
-  }
-  inactivity--;
-  setTimeout(updateInactivityTimer, 1000);
-}
-document.addEventListener("DOMContentLoaded", updateInactivityTimer);
-</script>
+let inactivityInterval;
 
-<script>
 function handleOfferSubmit() {
-  const offerId = "RC-" + Math.floor(Math.random() * 900000 + 100000); // Short unique 6-digit ID
-  const thankYouBox = document.createElement("div");
-  thankYouBox.innerHTML = "Thank you! Your Offer ID is: <strong>" + offerId + "</strong>";
-  thankYouBox.style.position = "fixed";
-  thankYouBox.style.top = "30%";
-  thankYouBox.style.left = "50%";
-  thankYouBox.style.transform = "translateX(-50%)";
-  thankYouBox.style.background = "#fff";
-  thankYouBox.style.padding = "2rem";
-  thankYouBox.style.border = "2px solid #f90";
-  thankYouBox.style.borderRadius = "12px";
-  thankYouBox.style.fontSize = "1.25rem";
-  thankYouBox.style.fontWeight = "bold";
-  thankYouBox.style.zIndex = "99999";
-  thankYouBox.style.boxShadow = "0 0 20px rgba(0,0,0,0.2)";
-  document.body.appendChild(thankYouBox);
+  // Stop the timer
+  if (inactivityInterval) clearInterval(inactivityInterval);
+  const timerEl = document.getElementById("inactivity-timer");
+  if (timerEl) timerEl.remove();
 
+  // Generate short ID
+  const offerId = "RC-" + Math.floor(Math.random() * 900000 + 100000);
+
+  // Show floating thank you
+  const box = document.createElement("div");
+  box.id = "floating-thank-you";
+  box.innerHTML = "Thank you!<br>Your Offer ID is:<br><strong>" + offerId + "</strong>";
+  document.body.appendChild(box);
+
+  // Play sound
   const sound = document.getElementById("submitSound");
   if (sound) sound.play();
 
-  const msg = new SpeechSynthesisUtterance("Your offer ID is " + offerId);
-  window.speechSynthesis.speak(msg);
+  // Speak ID
+  const msg = new SpeechSynthesisUtterance("Your offer I D is " + offerId);
+  speechSynthesis.speak(msg);
 
-  document.querySelector('.form-card').style.display = 'none';
-  document.querySelector('main').style.display = 'block';
+  // Confetti
+  const emojiRain = document.getElementById("emojiRain");
+  if (emojiRain) {
+    emojiRain.innerHTML = '';
+    emojiRain.style.display = 'block';
+    for (let i = 0; i < 60; i++) {
+      const emoji = document.createElement('div');
+      emoji.textContent = Math.random() > 0.5 ? '💸' : '🎉';
+      emoji.style.left = Math.random() * 100 + 'vw';
+      emoji.style.fontSize = '2rem';
+      emoji.style.zIndex = '9999';
+      emojiRain.appendChild(emoji);
+    }
+    setTimeout(() => {
+      emojiRain.style.display = 'none';
+      emojiRain.innerHTML = '';
+    }, 3000);
+  }
 
-  setTimeout(() => thankYouBox.remove(), 5000);
+  // Hide form
+  const form = document.querySelector(".form-card");
+  if (form) form.style.display = "none";
+
+  // Show homepage
+  const main = document.querySelector("main");
+  if (main) main.style.display = "block";
+
+  // Auto remove thank-you message
+  setTimeout(() => box.remove(), 6000);
 }
 </script>
 </body>
