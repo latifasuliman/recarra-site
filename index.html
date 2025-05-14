@@ -139,6 +139,23 @@
   66%  { box-shadow: 0 0 10px gray; border-color: gray; }
   100% { box-shadow: 0 0 0px red; border-color: red; }
 }
+
+.input-field {
+  width: 100%;
+  height: 3.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+.input-field:focus {
+  border-color: #ff6600;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+}
 </style>
 <style>
 .dot-progress {
@@ -2142,25 +2159,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const splash = document.getElementById("splash-screen");
 
   let count = 0;
-  const maxCars = 25;
-  const carImages = [
-    "https://i.imgur.com/B6iKPKU.png",  // red minivan
-    "https://i.imgur.com/LJFF3Us.png",  // yellow junker
-    "https://i.imgur.com/I9Vbf6u.png",  // blue SUV
-    "https://i.imgur.com/YO5RxTq.png",  // green hatchback
-    "https://i.imgur.com/5OBFsOr.png",  // brown wagon
-    "https://i.imgur.com/0a5GRhG.png",  // black pickup
-    "https://i.imgur.com/JuDzBTf.png",  // gray sedan
-    "https://i.imgur.com/EJQ8APh.png",  // orange compact
-    "https://i.imgur.com/NFGoL8X.png",  // silver truck
-    "https://i.imgur.com/O7gkJeu.png"   // white Recarra car with brand
-  ];
-
-  const crashSounds = [
-    "https://www.soundjay.com/mechanical/sounds/metal-crash-1.mp3",
-    "https://www.soundjay.com/mechanical/sounds/impact-metal-2.mp3",
-    "https://www.soundjay.com/mechanical/sounds/metal-clank-1.mp3"
-  ];
+  const maxCars = 20;
+  const carImages = ['https://cdn-icons-png.flaticon.com/512/744/744465.png', 'https://cdn-icons-png.flaticon.com/512/744/744466.png', 'https://cdn-icons-png.flaticon.com/512/744/744467.png', 'https://cdn-icons-png.flaticon.com/512/744/744469.png', 'https://cdn-icons-png.flaticon.com/512/744/744468.png'];
 
   const dropCar = () => {
     const car = document.createElement("img");
@@ -2178,9 +2178,6 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
       car.style.top = "80%";
       car.style.transform += " scale(1.1)";
-      const crash = new Audio(crashSounds[Math.floor(Math.random() * crashSounds.length)]);
-      crash.volume = 0.4;
-      crash.play();
     }, 50);
 
     setTimeout(() => {
@@ -2198,7 +2195,7 @@ document.addEventListener("DOMContentLoaded", function() {
       dropCar();
       count++;
     }
-  }, 220);
+  }, 250);
 });
 </script></body>
 </html>
