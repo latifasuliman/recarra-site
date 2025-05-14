@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recarra | Sell Your Car Instantly</title>
+<style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      background: #fff;
+      color: #000;
+      text-align: center;
+    }
+    header {
+      padding: 2rem 1rem 1rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin: 0;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .main-button {
+      background: linear-gradient(to right, #ff6a00, #ffcc00);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #000;
+      margin: 1rem auto;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .secondary-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 300px;
+      margin: 2rem auto;
+    }
+    .secondary-buttons button {
+      padding: 0.9rem;
+      border: 2px solid #f00;
+      border-radius: 12px;
+      background: none;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .ceo-message {
+      margin: 2rem auto;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #f9f9f9;
+      max-width: 320px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .ceo-message input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .ceo-message button {
+      background: linear-gradient(to right, #ff6a00, #ffcc00);
+      border: none;
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      color: black;
+    }
+    #drawer {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+      padding: 2rem 1.5rem;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      z-index: 9999;
+    }
+    #drawer input {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    #drawer-close {
+      text-align: right;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      color: #f00;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body><div id="welcome-timer" style="position:fixed; top:10px; right:10px; font-weight:bold; font-size:1rem; padding:6px 12px; background:#ff0; color:black; border-radius:10px; z-index:9999;">03:00</div>
+<header>
+<h1>Recarra</h1>
+<p>Sell Your Car Instantly</p>
+</header>
+<button class="main-button" onclick="openDrawer()">Get My Instant Offer</button>
+<div class="secondary-buttons">
+<button onclick="openDrawer()">Get an Instant Cash Offer</button>
+<button onclick="openDrawer()">Schedule an Inspection</button>
+<button onclick="openDrawer()">Submit Vehicle Details</button>
+<button onclick="openDrawer()">Contact Us</button>
+</div>
+<div class="ceo-message">
+<p>Message CEO directly</p>
+<input placeholder="Name" type="text"/>
+<button>Send</button>
+</div>
+<!-- Drawer Modal Form -->
+<div id="drawer">
+<div id="drawer-close" onclick="closeDrawer()">Close</div>
+<input placeholder="Full Name" type="text"/>
+<input placeholder="Phone Number" type="tel"/>
+<input placeholder="Email Address" type="email"/>
+<button class="main-button" style="width:100%;">Submit Offer</button>
+</div>
+<script>
+function openDrawer() {
+  document.getElementById('drawer').style.display = 'block';
+}
+function closeDrawer() {
+  document.getElementById('drawer').style.display = 'none';
+}
+</script>
+
+<script>
+let timeLeft = 180;
+const timerBox = document.getElementById("welcome-timer");
+
+function updateCountdown() {
+  const min = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+  const sec = String(timeLeft % 60).padStart(2, '0');
+  if (timerBox) {
+    timerBox.textContent = min + ":" + sec;
+    if (timeLeft <= 90) {
+      timerBox.style.background = "#f00";
+      timerBox.style.color = "#fff";
+    } else {
+      timerBox.style.background = "#ff0";
+      timerBox.style.color = "#000";
+    }
+  }
+  if (timeLeft === 0) {
+    window.location.href = "homepage.html";
+    return;
+  }
+  timeLeft--;
+  setTimeout(updateCountdown, 1000);
+}
+document.addEventListener("DOMContentLoaded", updateCountdown);
+</script>
+</body>
+</html>
