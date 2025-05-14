@@ -2308,3 +2308,45 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 </body>
 </html>
+
+<script>
+function startApp() {
+  document.getElementById('splash-screen').style.display = 'none';
+  document.getElementById('welcome-screen').style.display = 'none';
+
+  // Start timer logic after splash is dismissed
+  let countdown = 180;
+  const timerElement = document.getElementById("timer");
+  const chime = document.getElementById("chime");
+  const chatBubble = document.getElementById("chat-bubble");
+  let activityTimer = 0;
+
+  function resetActivity() {
+    activityTimer = 0;
+  }
+
+  document.body.addEventListener("mousemove", resetActivity);
+  document.body.addEventListener("keydown", resetActivity);
+  document.body.addEventListener("touchstart", resetActivity);
+
+  const interval = setInterval(() => {
+    const min = String(Math.floor(countdown / 60)).padStart(2, '0');
+    const sec = String(countdown % 60).padStart(2, '0');
+    if (timerElement) {
+      timerElement.textContent = `${min}:${sec}`;
+      timerElement.className = countdown > 90 ? "green" : "red";
+    }
+
+    activityTimer++;
+    if (activityTimer === 60 && chatBubble && chime) {
+      chatBubble.style.display = "block";
+      chime.play();
+    }
+    if (activityTimer === 180) {
+      window.location.href = "/";
+    }
+
+    if (--countdown < 0) clearInterval(interval);
+  }, 1000);
+}
+</script>
