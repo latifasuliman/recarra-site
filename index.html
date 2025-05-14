@@ -615,17 +615,7 @@ body {
 </div>
 <audio id="submitSuccess" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
 <div id="emojiRain" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; font-size:2rem; text-align:center;"></div>
-<div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: black; z-index: 99999; display: flex; justify-content: center; align-items: center; overflow: hidden;"><div class="stars"></div><div class="stars2"></div><div class="stars3"></div><div class="moon-svg">
-<svg height="80" viewbox="0 0 100 100" width="80">
-<defs>
-<radialgradient cx="50%" cy="50%" id="glow" r="50%">
-<stop offset="0%" stop-color="#fff" stop-opacity="1"></stop>
-<stop offset="100%" stop-color="#ffcc00" stop-opacity="0.3"></stop>
-</radialgradient>
-</defs>
-<circle cx="50" cy="50" fill="url(#glow)" r="40"></circle>
-</svg>
-</div><h1 class="falling-title">Recarra</h1></div>
+<div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #111; z-index: 99999; overflow: hidden;"></div>
 <audio id="submitSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio><div id="formOverlay"></div>
 <section class="hero-header highend">
 <div class="hero-logo-row">
@@ -641,7 +631,7 @@ body {
 <header>
 </header>
 <div style="position: relative; display: inline-block; margin-top: 1rem;">
-<button class="next-button" id="offerToggle">Choose Offer Method</button>
+<button class="submit-button" id="offerToggle" type="button">Submit Offer</button>
 <div id="offerMenu" style="display: none; position: absolute; top: 110%; left: 0; background: #fff; border: 2px solid #eee; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 999;">
 <ul style="list-style: none; margin: 0; padding: 0;">
 <li><button class="dropdown-item" data-target="form0">AI Recarra Instant Offer</button></li>
@@ -2023,6 +2013,184 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => { rain.style.display = "none"; }, 2500);
     }
   });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const submitBtn = document.querySelector(".submit-button");
+
+  submitBtn?.addEventListener("click", () => {
+    const name = document.querySelector('input[placeholder*="Full Name"]');
+    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
+    const email = document.querySelector('input[placeholder*="Email Address"]');
+
+    if (!name?.value || !phone?.value || !email?.value) {
+      [name, phone, email].forEach(field => {
+        if (!field?.value) {
+          field.style.borderColor = "red";
+          field.style.boxShadow = "0 0 6px red";
+        } else {
+          field.style.borderColor = "";
+          field.style.boxShadow = "";
+        }
+      });
+      return;
+    }
+
+    // Show thank you message
+    let thankYou = document.createElement("div");
+    thankYou.innerHTML = "<div class='thank-you glow' style='margin-top:2rem; text-align:center; font-weight:bold; font-size:1.2rem;'>Thank you! Your Offer ID is: RC-" + Math.floor(Math.random()*900000+100000) + "</div>";
+    submitBtn.parentElement.appendChild(thankYou);
+
+    const sound = document.getElementById("submitSound");
+    if (sound) sound.play();
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const submitBtn = document.querySelector(".submit-button");
+  let thankYouBox = document.querySelector(".thank-you");
+
+  if (!thankYouBox) {
+    thankYouBox = document.createElement("div");
+    thankYouBox.className = "thank-you";
+    thankYouBox.style = "margin-top:2rem; text-align:center; font-weight:bold; font-size:1.2rem;";
+    document.body.appendChild(thankYouBox);
+  }
+
+  submitBtn?.addEventListener("click", () => {
+    const name = document.querySelector('input[placeholder*="Full Name"]');
+    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
+    const email = document.querySelector('input[placeholder*="Email Address"]');
+
+    if (!name.value || !phone.value || !email.value) {
+      [name, phone, email].forEach(field => {
+        if (!field.value) {
+          field.style.borderColor = "red";
+          field.style.boxShadow = "0 0 6px red";
+        } else {
+          field.style.borderColor = "";
+          field.style.boxShadow = "";
+        }
+      });
+      return;
+    }
+
+    thankYouBox.innerHTML = "<div class='glow'>Thank you! Your offer request has been received.</div>";
+    thankYouBox.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    const sound = document.getElementById("submitSound");
+    if (sound) sound.play();
+
+    // Add confetti burst
+    const confetti = document.createElement("div");
+    confetti.style = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99999;";
+    confetti.innerHTML = `<canvas id="confetti-canvas" style="width:100%;height:100%;"></canvas>`;
+    document.body.appendChild(confetti);
+
+    setTimeout(() => confetti.remove(), 2500);
+
+    if (typeof confettiEffect === "function") {
+      confettiEffect(); // assume global confetti function exists
+    }
+  });
+});
+</script><script>
+function confettiEffect() {
+  const canvas = document.getElementById('confetti-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let pieces = Array.from({length: 100}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 6 + 4,
+    d: Math.random() * 50,
+    color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+    tilt: Math.random() * 10 - 10
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x, p.y, p.r, p.r);
+    });
+    update();
+  }
+
+  function update() {
+    pieces.forEach(p => {
+      p.y += Math.cos(p.d) + 1 + p.r / 2;
+      p.x += Math.sin(p.d);
+      if (p.y > canvas.height) {
+        p.x = Math.random() * canvas.width;
+        p.y = -10;
+      }
+    });
+  }
+
+  function loop() {
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  loop();
+}
+</script><script>
+document.addEventListener("DOMContentLoaded", function() {
+  const splash = document.getElementById("splash-screen");
+
+  let count = 0;
+  const maxCars = 20;
+  const carImages = [
+    "https://i.imgur.com/B6iKPKU.png",
+    "https://i.imgur.com/LJFF3Us.png",
+    "https://i.imgur.com/I9Vbf6u.png"
+  ];
+  const crashSounds = [
+    "https://www.soundjay.com/mechanical/sounds/metal-crash-1.mp3",
+    "https://www.soundjay.com/mechanical/sounds/impact-metal-2.mp3",
+    "https://www.soundjay.com/mechanical/sounds/metal-clank-1.mp3"
+  ];
+
+  const dropCar = () => {
+    const car = document.createElement("img");
+    car.src = carImages[Math.floor(Math.random() * carImages.length)];
+    car.style.position = "absolute";
+    car.style.left = Math.random() * 80 + 10 + "%";
+    car.style.top = "-100px";
+    car.style.width = "80px";
+    car.style.zIndex = 9999;
+    car.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
+    car.style.transition = "top 2s ease-out, transform 2s ease-out";
+    splash.appendChild(car);
+
+    setTimeout(() => {
+      car.style.top = "80%";
+      car.style.transform += " scale(1.1)";
+      const crash = new Audio(crashSounds[Math.floor(Math.random() * crashSounds.length)]);
+      crash.volume = 0.4;
+      crash.play();
+    }, 50);
+
+    setTimeout(() => {
+      car.remove();
+    }, 3000);
+  };
+
+  const interval = setInterval(() => {
+    if (count >= maxCars) {
+      clearInterval(interval);
+      setTimeout(() => {
+        splash.style.display = "none";
+      }, 1000);
+    } else {
+      dropCar();
+      count++;
+    }
+  }, 250);
 });
 </script></body>
 </html>
