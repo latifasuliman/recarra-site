@@ -433,14 +433,9 @@ body {
 </head>
 <body>
 <div id="welcome-screen" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:white; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-<img src="https://cdn-icons-png.flaticon.com/512/753/753345.png" style="height: 36px; margin-bottom: 1rem;"/><h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1>
-<div id="offer-status-text" style="margin-top: 1rem; font-size: 1.2rem; color: #333; font-weight: bold;">Locating buyers…</div>
-<div style="margin-top: 1rem; width: 90%; background: #eee; border-radius: 20px; overflow: hidden;">
-<div id="progressBar" style="width: 0%; height: 20px; background: linear-gradient(to right, #ff3c3c, #f9d423); transition: width 1s;"></div>
-</div>
-<div id="rotating-tip" style="margin-top: 1rem; font-size: 1rem; color: #555;">We accept cars with no title</div>
-
+<h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1>
 <p style="font-size:1.1rem;">Sell your car instantly with smart AI</p>
+
 <div id="offer-status-text" style="margin-top: 1rem; font-size: 1.2rem; color: #333; font-weight: bold;">
   Finding your best local offer…
 </div>
@@ -450,6 +445,7 @@ body {
 <div id="rotating-tip" style="margin-top: 1rem; font-size: 1rem; color: #555;">
   We accept cars with no title
 </div>
+
 <div id="quick-form-container" style="margin-top:1rem; text-align:center;">
 <!-- Question 1: What do you want to sell -->
 <div class="quick-step" style="margin-top:1rem;">
@@ -485,7 +481,7 @@ body {
 <input placeholder="Email Address" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;" type="email"/>
 </div>
 <!-- Submit Button -->
-<button class="next-button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;">Get Offer Now</button>
+<button class="next-button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;">Submit</button>
 </div>
 </div>
 <audio id="submitSuccess" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
@@ -2289,52 +2285,6 @@ function updateProgress() {
   }
 }
 
-updateProgress();
-</script>
-
-<script>
-const tips = [
-  "We accept cars with no title",
-  "Pickup within 24 hours",
-  "No keys? No problem.",
-  "Get paid before we tow.",
-  "AI matches you with real buyers"
-];
-const statuses = [
-  "Locating buyers…",
-  "Matching vehicle details…",
-  "Finalizing your offer…"
-];
-
-let tipIndex = 0;
-let statusIndex = 0;
-let progress = 0;
-let seconds = 180;
-
-function updateProgress() {
-  progress += 100 / 180;
-  document.getElementById("progressBar").style.width = progress + "%";
-
-  if (seconds % 15 === 0 && tipIndex < tips.length) {
-    document.getElementById("rotating-tip").textContent = tips[tipIndex++];
-  }
-
-  if (seconds % 60 === 0 && statusIndex < statuses.length) {
-    document.getElementById("offer-status-text").textContent = statuses[statusIndex++];
-  }
-
-  if (seconds <= 0) {
-    document.getElementById("welcome-screen").style.display = "none";
-    const form = document.getElementById("form0");
-    if (form) {
-      form.style.display = "block";
-      window.scrollTo({ top: form.offsetTop - 20, behavior: "smooth" });
-    }
-  } else {
-    seconds--;
-    setTimeout(updateProgress, 1000);
-  }
-}
 updateProgress();
 </script>
 </body>
