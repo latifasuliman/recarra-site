@@ -435,7 +435,17 @@ body {
 <div id="welcome-screen" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:white; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
 <h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1>
 <p style="font-size:1.1rem;">Sell your car instantly with smart AI</p>
-<p id="countdown" style="font-size:1.5rem; margin-top:1rem; color:#ff3c3c;">Redirecting in 3:00...</p>
+
+<div id="offer-status-text" style="margin-top: 1rem; font-size: 1.2rem; color: #333; font-weight: bold;">
+  Finding your best local offer…
+</div>
+<div style="margin-top: 1rem; width: 90%; background: #eee; border-radius: 20px; overflow: hidden;">
+<div id="progressBar" style="width: 0%; height: 20px; background: linear-gradient(to right, #ff3c3c, #f9d423); transition: width 1s;"></div>
+</div>
+<div id="rotating-tip" style="margin-top: 1rem; font-size: 1rem; color: #555;">
+  We accept cars with no title
+</div>
+
 <div id="quick-form-container" style="margin-top:1rem; text-align:center;">
 <!-- Question 1: What do you want to sell -->
 <div class="quick-step" style="margin-top:1rem;">
@@ -459,7 +469,6 @@ body {
 </div>
 <!-- Question 3: Upload Photo -->
 <div class="quick-step" style="margin-top:1rem;">
-
 </div>
 <!-- Contact Info -->
 <div class="quick-step" style="margin-top:1rem;">
@@ -2231,5 +2240,52 @@ function updateCountdown() {
   }
 }
 updateCountdown();
-</script></body>
+</script>
+<script>
+const tips = [
+  "We accept cars with no title",
+  "Pickup within 24 hours",
+  "Offers powered by smart AI",
+  "No keys? No problem.",
+  "Get paid before we tow."
+];
+const statuses = [
+  "Finding your best local offer…",
+  "Matching with buyers…",
+  "Locking in your top price…"
+];
+
+let tipIndex = 0;
+let statusIndex = 0;
+let progress = 0;
+let seconds = 180;
+
+function updateProgress() {
+  progress += 100 / 180;
+  document.getElementById("progressBar").style.width = progress + "%";
+
+  if (seconds % 15 === 0 && tipIndex < tips.length) {
+    document.getElementById("rotating-tip").textContent = tips[tipIndex++];
+  }
+
+  if (seconds % 60 === 0 && statusIndex < statuses.length) {
+    document.getElementById("offer-status-text").textContent = statuses[statusIndex++];
+  }
+
+  if (seconds <= 0) {
+    document.getElementById("welcome-screen").style.display = "none";
+    const form = document.getElementById("form0");
+    if (form) {
+      form.style.display = "block";
+      window.scrollTo({ top: form.offsetTop - 20, behavior: "smooth" });
+    }
+  } else {
+    seconds--;
+    setTimeout(updateProgress, 1000);
+  }
+}
+
+updateProgress();
+</script>
+</body>
 </html>
