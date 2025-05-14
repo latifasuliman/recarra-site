@@ -587,52 +587,18 @@ body {
 .stars3 {
   animation: moveStars 300s linear infinite, twinkle 6s ease-in-out infinite;
 }
-</style></head>
-<body>
+</style>
+<style>
+.input-field:focus {
+  outline: none;
+  border-color: #ff3c3c;
+  box-shadow: 0 0 8px rgba(255, 60, 60, 0.6);
+  transition: box-shadow 0.3s ease-in-out;
+}
+</style>
 
-<!-- Splash Screen -->
-<div id="splash" style="position:fixed; top:0; left:0; right:0; bottom:0; background:black; color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:9999;">
-  <h1>Welcome to Recarra</h1>
-  <p>Smart AI Car Offers in Seconds</p>
-  <button onclick="startApp()" style="padding:0.75rem 1.5rem; background:linear-gradient(to right, #ff3c3c, #f9d423); border:none; border-radius:30px; font-weight:bold; cursor:pointer;">Enter</button>
-</div>
-
-<!-- Smart Form -->
-<section id="smart-form" style="display:none; text-align:center; padding:2rem;">
-  <h2>AI Instant Offer</h2>
-  <input id="car-year" placeholder="Year" class="input-field"/>
-  <input id="car-make" placeholder="Make" class="input-field"/>
-  <input id="car-model" placeholder="Model" class="input-field"/>
-  <input id="full-name" placeholder="Full Name" class="input-field"/>
-  <input id="phone" placeholder="Phone" class="input-field"/>
-  <input id="email" placeholder="Email" class="input-field"/>
-  <button id="submitOfferBtn" style="padding:0.6rem 1.5rem; background:linear-gradient(to right,#ff3c3c,#f9d423); border:none; border-radius:30px; font-weight:bold;">Submit Offer</button>
-</section>
-
-<!-- Confirmation Section -->
-<section id="submission-confirmation" style="display:none; text-align:center; background:#fffbe6; padding:2rem;">
-  <h2>Offer Submitted!</h2>
-  <p>Offer ID: <strong id="final-offer-id">RC-000000</strong></p>
-  <p>Estimated Offer: <strong id="offer-value">$0</strong></p>
-  <button onclick="copyOfferId()">Copy Offer ID</button>
-  <button onclick="restartOffer()">Submit Another</button>
-</section>
-
-<!-- Upgrade Offer -->
-<section id="guaranteed-upgrade" style="display:none; background:#e3f2fd; padding:2rem;">
-  <h3>Upgrade to Guaranteed Offer</h3>
-  <input type="file" id="vin-photo" accept="image/*" />
-  <input type="text" id="pickup-zip" placeholder="Pickup ZIP" />
-  <input type="datetime-local" id="pickup-time" />
-  <button onclick="submitGuaranteedOffer()">Submit Upgrade</button>
-</section>
-
-<!-- Chat -->
-<div id="chat-bubble" onclick="startChatFollowUp()" style="display:none; position:fixed; bottom:20px; right:20px; background:#ff3c3c; color:white; padding:1rem; border-radius:30px;">Chat Now</div>
-
-<!-- Toast -->
-<div id="toast" style="display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:#28a745; color:white; padding:1rem; border-radius:20px;">Offer ID copied!</div>
-<audio autoplay="autoplay" id="startupChime" preload="auto"><source src="https://www.soundjay.com/button/sounds/button-38.mp3" type="audio/mpeg"/></audio>
+</head>
+<body><audio autoplay="autoplay" id="startupChime" preload="auto"><source src="https://www.soundjay.com/button/sounds/button-38.mp3" type="audio/mpeg"/></audio>
 <div id="welcome-screen" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:white; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
 <h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1>
 <p style="font-size:1.1rem;">Sell your car instantly with smart AI</p>
@@ -2241,71 +2207,104 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }, 250);
 });
-</script></body>
-</html>
-
+</script><div id="splash">
+  <h1>Welcome to Recarra</h1>
+  <p>Smart AI Car Offers in Seconds</p>
+  <div id="timer" class="green">01:30</div>
 <script>
-function startApp() {
-  document.getElementById('splash').style.display = 'none';
-  document.getElementById('smart-form').style.display = 'block';
-}
-function calculateOffer() {
-  return Math.min(888, 300 + Math.floor(Math.random() * 500));
-}
-function copyOfferId() {
-  const id = document.getElementById("final-offer-id").textContent;
-  navigator.clipboard.writeText(id).then(() => {
-    const toast = document.getElementById("toast");
-    toast.style.display = "block";
-    setTimeout(() => toast.style.display = "none", 2000);
-  });
-}
-function restartOffer() {
-  document.getElementById("submission-confirmation").style.display = "none";
-  document.getElementById("guaranteed-upgrade").style.display = "none";
-  document.getElementById("chat-bubble").style.display = "none";
-  document.getElementById("smart-form").style.display = "block";
-}
-function startChatFollowUp() {
-  const id = window.latestOfferId || "Unknown";
-  alert("Finish offer for ID: " + id);
-  const input = document.createElement("input");
-  input.type = "file";
-  input.accept = "image/*";
-  input.onchange = () => {
-    const file = input.files[0];
-    if (file) alert("Photo: " + file.name);
-  };
-  input.click();
-}
-document.getElementById("submitOfferBtn").addEventListener("click", () => {
-  const offerId = "RC-" + Date.now().toString().slice(-6);
-  const estimatedValue = calculateOffer();
-  document.getElementById("final-offer-id").textContent = offerId;
-  document.getElementById("offer-value").textContent = "$" + estimatedValue;
-  document.getElementById("smart-form").style.display = "none";
-  document.getElementById("submission-confirmation").style.display = "block";
-  document.getElementById("guaranteed-upgrade").style.display = "block";
-  document.getElementById("chat-bubble").style.display = "block";
-  window.latestOfferId = offerId;
+document.addEventListener("DOMContentLoaded", function () {
+  const timerElement = document.getElementById("timer");
+  const chime = document.getElementById("chime");
+  const splash = document.getElementById("splash");
+  const music = document.getElementById("bg-music");
+  let countdown = 180;
+  let activityTimer = 0;
+  let userActive = false;
+  let formStarted = false;
 
-  const data = {
-    offerId,
-    estimatedValue,
-    name: document.getElementById("full-name").value,
-    phone: document.getElementById("phone").value,
-    email: document.getElementById("email").value
+  const resetActivity = () => {
+    userActive = true;
+    activityTimer = 0;
   };
-  fetch("https://your-api.recarra.com/save-offer", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  }).catch(e => console.warn("Backend not connected"));
+
+  document.body.addEventListener("mousemove", resetActivity);
+  document.body.addEventListener("keydown", resetActivity);
+  document.body.addEventListener("touchstart", resetActivity);
+
+  function rainMoney() {
+    for (let i = 0; i < 20; i++) {
+      const span = document.createElement("span");
+      span.className = "money";
+      span.innerText = "$$$";
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.animationDuration = (Math.random() * 2 + 2) + "s";
+      splash.appendChild(span);
+      setTimeout(() => splash.removeChild(span), 4000);
+    }
+  }
+
+  rainMoney(); // Start immediately
+  setInterval(rainMoney, 5000);
+
+  const interval = setInterval(() => {
+    const min = String(Math.floor(countdown / 60)).padStart(2, '0');
+    const sec = String(countdown % 60).padStart(2, '0');
+    timerElement.textContent = `${min}:${sec}`;
+    timerElement.className = countdown > 90 ? "green" : "red";
+
+    if (!formStarted) {
+      activityTimer++;
+      if (activityTimer === 60) {
+        document.getElementById("chat-bubble").style.display = "block";
+        chime.play();
+      }
+      if (activityTimer === 180) {
+        window.location.reload();
+      }
+    }
+
+    if (--countdown < 0) clearInterval(interval);
+  }, 1000);
+
+  function calculateOffer() {
+    return Math.min(888, 300 + Math.floor(Math.random() * 500));
+  }
+
+  function copyOfferId() {
+    const id = document.getElementById("final-offer-id").textContent;
+    navigator.clipboard.writeText(id).then(() => {
+      const toast = document.getElementById("toast");
+      toast.style.display = "block";
+      setTimeout(() => toast.style.display = "none", 2000);
+    });
+  }
+
+  function startApp() {
+    splash.style.display = "none";
+    document.getElementById("smart-form").style.display = "block";
+    formStarted = true;
+  }
+
+  function startChatFollowUp() {
+    const id = window.latestOfferId || "Unknown";
+    alert("Chat follow-up for Offer ID: " + id);
+  }
+
+  window.copyOfferId = copyOfferId;
+  window.startApp = startApp;
+  window.startChatFollowUp = startChatFollowUp;
+
+  document.getElementById("submitOfferBtn").addEventListener("click", () => {
+    const offerId = "RC-" + Date.now().toString().slice(-6);
+    const estimatedValue = calculateOffer();
+    document.getElementById("final-offer-id").textContent = offerId;
+    document.getElementById("offer-value").textContent = "$" + estimatedValue;
+    document.getElementById("smart-form").style.display = "none";
+    document.getElementById("submission-confirmation").style.display = "block";
+    document.getElementById("chat-bubble").style.display = "block";
+    window.latestOfferId = offerId;
+  });
 });
-function submitGuaranteedOffer() {
-  const vin = document.getElementById("vin-photo").files[0];
-  const zip = document.getElementById("pickup-zip").value;
-  const time = document.getElementById("pickup-time").value;
-  alert("Upgrade submitted for Offer: " + window.latestOfferId);
-}
 </script>
+</body>
+</html>
