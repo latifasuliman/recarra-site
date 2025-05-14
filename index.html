@@ -848,19 +848,32 @@ document.querySelectorAll(".form-card").forEach(form => {
 </div>
 <button class="submit-button" type="button">Submit Offer</button>
 <div class="thank-you" style="display:none; text-align:center; margin-top:1rem;"></div>
-<div id="estimated-offer" style="display:none; margin-top:1.5rem; font-size:1.25rem; font-weight:bold; text-align:center; color:#111; background:#fff3cd; border:2px solid #ffc107; padding:1rem; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">Estimated Offer: $0</div></section>
-
+<div id="estimated-offer" style="display:none; margin-top:1.5rem; font-size:1.25rem; font-weight:bold; text-align:center; color:#111; background:#fff3cd; border:2px solid #ffc107; padding:1rem; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">Estimated Offer: $0</div><button id="upgrade-offer-btn" style="display:none; margin-top:1rem; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; font-weight: bold; padding: 0.75rem 2rem; border-radius: 30px; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15);" type="button">Upgrade to Guaranteed Offer</button><div id="guaranteed-offer-fields" style="display:none; margin-top:1.5rem;">
+<div class="input-group">
+<input class="input-field" placeholder="Full Name (required)" type="text"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Mobile Number (SMS-capable)" type="tel"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Email Address" type="email"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Pickup ZIP Code" type="text"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Preferred Pickup Time (optional)" type="datetime-local"/>
+</div>
+</div><div id="vin-plate-upload" style="margin-top:2rem;">
+<h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem;">VIN or License Plate</h3>
+<div class="input-group">
+<input accept="image/*" class="input-field" placeholder="Upload VIN or Plate Image" type="file"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Or enter VIN manually" type="text"/>
+</div>
+</div></section>
 <!-- Additional forms (14 more) will follow this same format -->
-
-
-
-
-
-
-
-
-
-
 </main>
 <footer>
     © 2025 Recarra. All rights reserved.
@@ -1824,6 +1837,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   [yearField, runningField, titleField, damageField].forEach(field => {
     if (field) field.addEventListener("change", getEstimate);
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const estimateBox = document.getElementById("estimated-offer");
+  const upgradeBtn = document.getElementById("upgrade-offer-btn");
+  const upgradeFields = document.getElementById("guaranteed-offer-fields");
+
+  const showBtn = () => {
+    if (estimateBox && estimateBox.style.display === "block") {
+      upgradeBtn.style.display = "block";
+    }
+  };
+
+  setInterval(showBtn, 1000); // check once per second if offer has appeared
+
+  upgradeBtn?.addEventListener("click", () => {
+    upgradeFields.style.display = "block";
+    upgradeBtn.style.display = "none";
   });
 });
 </script></body>
