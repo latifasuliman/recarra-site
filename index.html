@@ -2090,60 +2090,6 @@ function confettiEffect() {
   loop();
 }
 </script><script>
-document.addEventListener("DOMContentLoaded", function() {
-  const splash = document.getElementById("splash-screen");
-
-  let count = 0;
-  const maxCars = 20;
-  const carImages = [
-    "https://i.imgur.com/B6iKPKU.png",
-    "https://i.imgur.com/LJFF3Us.png",
-    "https://i.imgur.com/I9Vbf6u.png"
-  ];
-  const crashSounds = [
-    "https://www.soundjay.com/mechanical/sounds/metal-crash-1.mp3",
-    "https://www.soundjay.com/mechanical/sounds/impact-metal-2.mp3",
-    "https://www.soundjay.com/mechanical/sounds/metal-clank-1.mp3"
-  ];
-
-  const dropCar = () => {
-    const car = document.createElement("img");
-    car.src = carImages[Math.floor(Math.random() * carImages.length)];
-    car.style.position = "absolute";
-    car.style.left = Math.random() * 80 + 10 + "%";
-    car.style.top = "-100px";
-    car.style.width = "80px";
-    car.style.zIndex = 9999;
-    car.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
-    car.style.transition = "top 2s ease-out, transform 2s ease-out";
-    splash.appendChild(car);
-
-    setTimeout(() => {
-      car.style.top = "80%";
-      car.style.transform += " scale(1.1)";
-      const crash = new Audio(crashSounds[Math.floor(Math.random() * crashSounds.length)]);
-      crash.volume = 0.4;
-      crash.play();
-    }, 50);
-
-    setTimeout(() => {
-      car.remove();
-    }, 3000);
-  };
-
-  const interval = setInterval(() => {
-    if (count >= maxCars) {
-      clearInterval(interval);
-      setTimeout(() => {
-        splash.style.display = "none";
-      }, 1000);
-    } else {
-      dropCar();
-      count++;
-    }
-  }, 250);
-});
-</script><script>
 document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.querySelector(".submit-button");
   const thankYouBox = document.querySelector(".thank-you");
@@ -2190,6 +2136,69 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => { rain.style.display = "none"; }, 2500);
     }
   });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function() {
+  const splash = document.getElementById("splash-screen");
+
+  let count = 0;
+  const maxCars = 25;
+  const carImages = [
+    "https://i.imgur.com/B6iKPKU.png",  // red minivan
+    "https://i.imgur.com/LJFF3Us.png",  // yellow junker
+    "https://i.imgur.com/I9Vbf6u.png",  // blue SUV
+    "https://i.imgur.com/YO5RxTq.png",  // green hatchback
+    "https://i.imgur.com/5OBFsOr.png",  // brown wagon
+    "https://i.imgur.com/0a5GRhG.png",  // black pickup
+    "https://i.imgur.com/JuDzBTf.png",  // gray sedan
+    "https://i.imgur.com/EJQ8APh.png",  // orange compact
+    "https://i.imgur.com/NFGoL8X.png",  // silver truck
+    "https://i.imgur.com/O7gkJeu.png"   // white Recarra car with brand
+  ];
+
+  const crashSounds = [
+    "https://www.soundjay.com/mechanical/sounds/metal-crash-1.mp3",
+    "https://www.soundjay.com/mechanical/sounds/impact-metal-2.mp3",
+    "https://www.soundjay.com/mechanical/sounds/metal-clank-1.mp3"
+  ];
+
+  const dropCar = () => {
+    const car = document.createElement("img");
+    car.src = carImages[Math.floor(Math.random() * carImages.length)];
+    car.style.position = "absolute";
+    car.style.left = Math.random() * 80 + 10 + "%";
+    car.style.top = "-100px";
+    car.style.width = Math.floor(Math.random() * 40 + 60) + "px";
+    car.style.zIndex = 9999;
+    car.style.opacity = 0.9;
+    car.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
+    car.style.transition = "top 2s ease-out, transform 2s ease-out";
+    splash.appendChild(car);
+
+    setTimeout(() => {
+      car.style.top = "80%";
+      car.style.transform += " scale(1.1)";
+      const crash = new Audio(crashSounds[Math.floor(Math.random() * crashSounds.length)]);
+      crash.volume = 0.4;
+      crash.play();
+    }, 50);
+
+    setTimeout(() => {
+      car.remove();
+    }, 3500);
+  };
+
+  const interval = setInterval(() => {
+    if (count >= maxCars) {
+      clearInterval(interval);
+      setTimeout(() => {
+        splash.style.display = "none";
+      }, 1000);
+    } else {
+      dropCar();
+      count++;
+    }
+  }, 220);
 });
 </script></body>
 </html>
