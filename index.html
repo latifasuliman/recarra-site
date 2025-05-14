@@ -587,10 +587,17 @@ body {
 .stars3 {
   animation: moveStars 300s linear infinite, twinkle 6s ease-in-out infinite;
 }
-</style></head>
-<body>
-<div id="inactivity-timer" style="position:fixed; top:10px; right:10px; font-weight:bold; font-size:1rem; padding:6px 12px; background:#0f0; color:black; border-radius:10px; z-index:99999;">01:30</div>
-<audio autoplay="autoplay" id="startupChime" preload="auto"><source src="https://www.soundjay.com/button/sounds/button-38.mp3" type="audio/mpeg"/></audio>
+</style>
+<style>
+.input-field:focus {
+  outline: none;
+  border-color: #ff3c3c;
+  box-shadow: 0 0 8px rgba(255, 60, 60, 0.6);
+  transition: box-shadow 0.3s ease-in-out;
+}
+</style>
+</head>
+<body><div id="inactivity-timer" style="position:fixed; top:10px; right:10px; font-weight:bold; font-size:1rem; padding:6px 12px; background:#0f0; color:black; border-radius:10px; z-index:99999;">01:30</div><audio autoplay="autoplay" id="startupChime" preload="auto"><source src="https://www.soundjay.com/button/sounds/button-38.mp3" type="audio/mpeg"/></audio>
 <div id="welcome-screen" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:white; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
 <h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1>
 <p style="font-size:1.1rem;">Sell your car instantly with smart AI</p>
@@ -629,7 +636,7 @@ body {
 <input placeholder="Email Address" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;" type="email"/>
 </div>
 <!-- Submit Button -->
-<button class="submit-button" onclick="handleOfferSubmit()" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;">Submit</button>
+<button class="submit-button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;" type="button">Submit</button>
 </div>
 </div>
 <audio id="submitSuccess" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
@@ -650,7 +657,7 @@ body {
 <header>
 </header>
 <div style="position: relative; display: inline-block; margin-top: 1rem;">
-<button class="submit-button" id="offerToggle" onclick="handleOfferSubmit()" type="button">Submit Offer</button>
+<button class="submit-button" id="offerToggle" type="button">Submit Offer</button>
 <div id="offerMenu" style="display: none; position: absolute; top: 110%; left: 0; background: #fff; border: 2px solid #eee; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 999;">
 <ul style="list-style: none; margin: 0; padding: 0;">
 <li><button class="dropdown-item" data-target="form0">AI Recarra Instant Offer</button></li>
@@ -945,7 +952,7 @@ document.querySelectorAll(".form-card").forEach(form => {
 <button class="next-button quit-button" type="button">Quit</button>
 <button class="next-button start-over-button" type="button">Start Over</button>
 </div>
-<button class="submit-button" onclick="handleOfferSubmit()" type="button">Submit Offer</button>
+<button class="submit-button" type="button">Submit Offer</button>
 <div class="thank-you" style="display:none; text-align:center; margin-top:1rem;"></div>
 <div id="estimated-offer" style="display:none; margin-top:1.5rem; font-size:1.25rem; font-weight:bold; text-align:center; color:#111; background:#fff3cd; border:2px solid #ffc107; padding:1rem; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">Estimated Offer: $0</div><button id="upgrade-offer-btn" style="display:none; margin-top:1rem; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; font-weight: bold; padding: 0.75rem 2rem; border-radius: 30px; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15);" type="button">Upgrade to Guaranteed Offer</button><div id="guaranteed-offer-fields" style="display:none; margin-top:1.5rem;">
 <div class="input-group">
@@ -2199,104 +2206,231 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }, 250);
 });
-</script>
+</script><div id="splash">
+<h1>Welcome to Recarra</h1>
+<p>Smart AI Car Offers in Seconds</p>
+<div class="green" id="timer">01:30</div>
 <script>
-function burstConfetti() {
-  const emojiRain = document.getElementById("emojiRain");
-  if (!emojiRain) return;
+document.addEventListener("DOMContentLoaded", function () {
+  const timerElement = document.getElementById("timer");
+  const chime = document.getElementById("chime");
+  const splash = document.getElementById("splash");
+  const music = document.getElementById("bg-music");
+  let countdown = 180;
+  let activityTimer = 0;
+  let userActive = false;
+  let formStarted = false;
 
-  emojiRain.innerHTML = '';
-  emojiRain.style.display = 'block';
-  for (let i = 0; i < 80; i++) {
-    const emoji = document.createElement('div');
-    emoji.textContent = Math.random() > 0.5 ? '💸' : '🎉';
-    emoji.style.position = 'absolute';
-    emoji.style.left = Math.random() * 100 + 'vw';
-    emoji.style.animation = 'fall 2s ease-out forwards';
-    emoji.style.top = '-50px';
-    emoji.style.fontSize = '2rem';
-    emoji.style.zIndex = '9999';
-    emojiRain.appendChild(emoji);
+  const resetActivity = () => {
+    userActive = true;
+    activityTimer = 0;
+  };
+
+  document.body.addEventListener("mousemove", resetActivity);
+  document.body.addEventListener("keydown", resetActivity);
+  document.body.addEventListener("touchstart", resetActivity);
+
+  function rainMoney() {
+    for (let i = 0; i < 20; i++) {
+      const span = document.createElement("span");
+      span.className = "money";
+      span.innerText = "$$$";
+      span.style.left = Math.random() * 100 + "vw";
+      span.style.animationDuration = (Math.random() * 2 + 2) + "s";
+      splash.appendChild(span);
+      setTimeout(() => splash.removeChild(span), 4000);
+    }
   }
-  setTimeout(() => {
-    emojiRain.style.display = 'none';
-    emojiRain.innerHTML = '';
-  }, 3000);
-}
-</script>
-<style>
-@keyframes fall {
-  to {
-    transform: translateY(100vh) rotateZ(360deg);
-    opacity: 0;
+
+  rainMoney(); // Start immediately
+  setInterval(rainMoney, 5000);
+
+  const interval = setInterval(() => {
+    const min = String(Math.floor(countdown / 60)).padStart(2, '0');
+    const sec = String(countdown % 60).padStart(2, '0');
+    timerElement.textContent = `${min}:${sec}`;
+    timerElement.className = countdown > 90 ? "green" : "red";
+
+    if (!formStarted) {
+      activityTimer++;
+      if (activityTimer === 60) {
+        document.getElementById("chat-bubble").style.display = "block";
+        chime.play();
+      }
+      if (activityTimer === 180) {
+        window.location.reload();
+      }
+    }
+
+    if (--countdown < 0) clearInterval(interval);
+  }, 1000);
+
+  function calculateOffer() {
+    return Math.min(888, 300 + Math.floor(Math.random() * 500));
   }
-}
-</style>
-<script>
-function speakOfferID(id) {
-  if (!window.speechSynthesis) return;
-  const msg = new SpeechSynthesisUtterance("Your offer I D is " + id);
-  msg.lang = "en-US";
-  msg.pitch = 1;
-  msg.rate = 1;
-  speechSynthesis.speak(msg);
-}
+
+  function copyOfferId() {
+    const id = document.getElementById("final-offer-id").textContent;
+    navigator.clipboard.writeText(id).then(() => {
+      const toast = document.getElementById("toast");
+      toast.style.display = "block";
+      setTimeout(() => toast.style.display = "none", 2000);
+    });
+  }
+
+  function startApp() {
+    splash.style.display = "none";
+    document.getElementById("smart-form").style.display = "block";
+    formStarted = true;
+  }
+
+  function startChatFollowUp() {
+    const id = window.latestOfferId || "Unknown";
+    alert("Chat follow-up for Offer ID: " + id);
+  }
+
+  window.copyOfferId = copyOfferId;
+  window.startApp = startApp;
+  window.startChatFollowUp = startChatFollowUp;
+
+  document.getElementById("submitOfferBtn").addEventListener("click", () => {
+    const offerId = "RC-" + Date.now().toString().slice(-6);
+    const estimatedValue = calculateOffer();
+    document.getElementById("final-offer-id").textContent = offerId;
+    document.getElementById("offer-value").textContent = "$" + estimatedValue;
+    document.getElementById("smart-form").style.display = "none";
+    document.getElementById("submission-confirmation").style.display = "block";
+    document.getElementById("chat-bubble").style.display = "block";
+    window.latestOfferId = offerId;
+  });
+});
 </script>
 <script>
-function showChatPopup() {
-  const chat = document.createElement("div");
-  chat.id = "chatPopup";
-  chat.innerHTML = '<div style="position:fixed; bottom:20px; right:20px; background:#fff; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.2); padding:1rem; z-index:99999;"><strong>Need help?</strong><br><button onclick="this.parentElement.remove()">Close</button></div>';
-  document.body.appendChild(chat);
-}
+document.querySelectorAll(".submit-button").forEach((submitBtn) => {
+  submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const form = submitBtn.closest(".form-card");
+    const thankYou = form.querySelector(".thank-you");
+
+    const now = new Date();
+    const id = "RC-" +
+      now.getFullYear().toString().slice(-2) +
+      ("0" + (now.getMonth() + 1)).slice(-2) +
+      ("0" + now.getDate()).slice(-2) +
+      ("0" + now.getHours()).slice(-2) +
+      ("0" + now.getMinutes()).slice(-2) +
+      ("0" + now.getSeconds()).slice(-2);
+
+    form.querySelectorAll(".step-field").forEach(s => s.style.display = 'none');
+    submitBtn.style.display = "none";
+
+    if (thankYou) {
+      thankYou.innerHTML = "Thank you! Your Offer ID is: <strong>" + id + "</strong>";
+      thankYou.style.display = "block";
+    }
+
+    const sound = document.getElementById("submitSound");
+    if (sound) sound.play();
+  });
+});
 </script>
+</div>
+<script>
+let inactivity = 180;
+function updateInactivityTimer() {
+  const el = document.getElementById("inactivity-timer");
+  if (!el) return;
+  const min = String(Math.floor(inactivity / 60)).padStart(2, '0');
+  const sec = String(inactivity % 60).padStart(2, '0');
+  el.textContent = min + ":" + sec;
+  if (inactivity <= 90) {
+    el.style.background = '#f00';
+    el.style.color = '#fff';
+  }
+  if (inactivity === 0) {
+    document.querySelector('.form-card').style.display = 'none';
+    document.querySelector('main').style.display = 'block';
+    el.style.display = 'none';
+    return;
+  }
+  inactivity--;
+  setTimeout(updateInactivityTimer, 1000);
+}
+document.addEventListener("DOMContentLoaded", updateInactivityTimer);
+</script>
+
 <script>
 function handleOfferSubmit() {
-  const offerId = "RC-" + Math.floor(100000 + Math.random() * 900000);
-  const thankYou = document.querySelector(".thank-you");
-  if (thankYou) {
-    thankYou.innerHTML = "Thank you! Your Offer ID is: <strong>" + offerId + "</strong>";
-    thankYou.style.display = "block";
-    thankYou.classList.add("glow");
-  }
-  const submitSound = document.getElementById("submitSound");
-  if (submitSound) submitSound.play();
+  const offerId = "RC-" + Math.floor(Math.random() * 900000 + 100000); // Short unique 6-digit ID
+  const thankYouBox = document.createElement("div");
+  thankYouBox.innerHTML = "Thank you! Your Offer ID is: <strong>" + offerId + "</strong>";
+  thankYouBox.style.position = "fixed";
+  thankYouBox.style.top = "30%";
+  thankYouBox.style.left = "50%";
+  thankYouBox.style.transform = "translateX(-50%)";
+  thankYouBox.style.background = "#fff";
+  thankYouBox.style.padding = "2rem";
+  thankYouBox.style.border = "2px solid #f90";
+  thankYouBox.style.borderRadius = "12px";
+  thankYouBox.style.fontSize = "1.25rem";
+  thankYouBox.style.fontWeight = "bold";
+  thankYouBox.style.zIndex = "99999";
+  thankYouBox.style.boxShadow = "0 0 20px rgba(0,0,0,0.2)";
+  document.body.appendChild(thankYouBox);
 
-  burstConfetti();
-  speakOfferID(offerId);
-  showChatPopup();
+  const sound = document.getElementById("submitSound");
+  if (sound) sound.play();
 
-  setTimeout(() => {
-    window.location.href = "index.html";
-  }, 4000);
+  const msg = new SpeechSynthesisUtterance("Your offer ID is " + offerId);
+  window.speechSynthesis.speak(msg);
+
+  document.querySelector('.form-card').style.display = 'none';
+  document.querySelector('main').style.display = 'block';
+
+  setTimeout(() => thankYouBox.remove(), 5000);
 }
-</script>
-
-<script>
-let timerDuration = 180;
-const timerEl = document.getElementById("inactivity-timer");
-
-function updateTimer() {
-  const min = String(Math.floor(timerDuration / 60)).padStart(2, '0');
-  const sec = String(timerDuration % 60).padStart(2, '0');
-  if (timerEl) timerEl.textContent = min + ":" + sec;
-
-  if (timerDuration <= 90 && timerEl) {
-    timerEl.style.background = '#f00';
-    timerEl.style.color = '#fff';
-  }
-
-  if (timerDuration === 0) {
-    window.location.href = "index.html";
-  } else {
-    timerDuration--;
-    setTimeout(updateTimer, 1000);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  if (timerEl) updateTimer();
-});
 </script>
 </body>
 </html>
+<script>
+function startApp() {
+  document.getElementById('splash-screen').style.display = 'none';
+  document.getElementById('welcome-screen').style.display = 'none';
+
+  // Start timer logic after splash is dismissed
+  let countdown = 180;
+  const timerElement = document.getElementById("timer");
+  const chime = document.getElementById("chime");
+  const chatBubble = document.getElementById("chat-bubble");
+  let activityTimer = 0;
+
+  function resetActivity() {
+    activityTimer = 0;
+  }
+
+  document.body.addEventListener("mousemove", resetActivity);
+  document.body.addEventListener("keydown", resetActivity);
+  document.body.addEventListener("touchstart", resetActivity);
+
+  const interval = setInterval(() => {
+    const min = String(Math.floor(countdown / 60)).padStart(2, '0');
+    const sec = String(countdown % 60).padStart(2, '0');
+    if (timerElement) {
+      timerElement.textContent = `${min}:${sec}`;
+      timerElement.className = countdown > 90 ? "green" : "red";
+    }
+
+    activityTimer++;
+    if (activityTimer === 60 && chatBubble && chime) {
+      chatBubble.style.display = "block";
+      chime.play();
+    }
+    if (activityTimer === 180) {
+      window.location.href = "/";
+    }
+
+    if (--countdown < 0) clearInterval(interval);
+  }, 1000);
+}
+</script>
