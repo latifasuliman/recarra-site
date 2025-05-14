@@ -4,102 +4,99 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recarra | Sell Your Car Instantly</title>
+  <title>Recarra Quick Form</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
       background: #fff;
+      font-family: 'Poppins', sans-serif;
       color: #000;
+      text-align: center;
     }
     header {
-      text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 0.5rem;
     }
     h1 {
       font-size: 2rem;
-      margin-bottom: 0.5rem;
+      font-weight: 700;
     }
-    .cta {
-      background: linear-gradient(to right, #ff6a00, #ffcc00);
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border-radius: 50px;
-      border: none;
-      color: #000;
-      cursor: pointer;
-      margin: 1rem auto;
-      display: block;
-    }
-    .offer-menu {
+    .menu {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      padding: 1rem;
       max-width: 400px;
-      margin: 2rem auto;
-    }
-    .offer-menu button {
-      padding: 0.9rem;
-      border: 2px solid #f00;
-      border-radius: 12px;
-      background: #fff;
-      font-weight: 500;
-      font-size: 1rem;
-      cursor: pointer;
-      color: #f00;
-    }
-    section {
-      padding: 2rem 1rem;
-      max-width: 800px;
       margin: auto;
     }
-    #quickForm {
-      display: none;
+    .menu button {
+      border: 2px solid red;
+      background: #fff;
+      border-radius: 12px;
+      padding: 0.9rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: red;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .menu button:hover {
+      transform: scale(1.02);
+    }
+    .form-card {
       max-width: 400px;
       margin: 2rem auto;
-      text-align: center;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.06);
+      background: #fff;
     }
-    #quickForm input {
+    .input-step {
+      display: none;
+      animation: fadeIn 0.5s ease-in;
+    }
+    .input-step.active {
       display: block;
+    }
+    input, select {
       width: 100%;
-      padding: 0.8rem;
-      margin: 0.5rem 0;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
       border: 1px solid #ccc;
-      border-radius: 8px;
+      outline: none;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    input:focus, select:focus {
+      border: 1px solid #ff6a00;
+      box-shadow: 0 0 8px #ffcc00;
+    }
+    #nextBtn {
+      margin-top: 1.5rem;
+      background: linear-gradient(to right, #ff6a00, #ffcc00);
+      border: none;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      border-radius: 50px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    #nextBtn:hover {
+      transform: scale(1.04);
     }
     #formTimer {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: bold;
       margin-top: 1rem;
       padding: 0.5rem 1rem;
-      background: #ff0;
+      background: yellow;
       border-radius: 10px;
-      display: none;
     }
-    #chatBubble {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ff6a00;
-      color: #fff;
-      padding: 1rem;
-      border-radius: 12px;
-      font-weight: bold;
-      display: none;
-      cursor: pointer;
-      z-index: 1000;
-    }
-    .highlight {
-      color: #ff6a00;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      background: #f5f5f5;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #666;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -108,93 +105,106 @@
 <header>
   <h1>Recarra</h1>
   <p>Sell Your Car Instantly with Smart AI</p>
-  <button class="cta" onclick="startQuickForm()">Start Recarra Quick Form</button>
 </header>
 
-<div class="offer-menu">
-  <button onclick="alert('Open Cash Offer Form')">Get an Instant Cash Offer</button>
-  <button onclick="alert('Open Inspection Form')">Schedule an Inspection</button>
-  <button onclick="alert('Open Full Vehicle Details Form')">Submit Full Vehicle Details</button>
+<div class="menu">
+  <button>Get an Instant Cash Offer</button>
+  <button>Schedule an Inspection</button>
+  <button>Submit Full Vehicle Details</button>
 </div>
 
-<div id="quickForm">
-  <input type="text" placeholder="Your Name" oninput="resetInactivity()" />
-  <input type="tel" placeholder="Phone Number" oninput="resetInactivity()" />
-  <input type="email" placeholder="Email Address" oninput="resetInactivity()" />
-  <div id="formTimer">03:00</div>
+<div class="form-card">
+  <form id="smartForm" onsubmit="event.preventDefault();">
+    <div class="input-step active"><select required><option value="">What are you selling?</option><option>Car</option><option>Truck</option><option>SUV</option><option>Van</option></select></div>
+    <div class="input-step"><select required><option value="">Year</option><option>2025</option>
+<option>2024</option>
+<option>2023</option>
+<option>2022</option>
+<option>2021</option>
+<option>2020</option>
+<option>2019</option>
+<option>2018</option>
+<option>2017</option>
+<option>2016</option>
+<option>2015</option>
+<option>2014</option>
+<option>2013</option>
+<option>2012</option>
+<option>2011</option>
+<option>2010</option>
+<option>2009</option>
+<option>2008</option>
+<option>2007</option>
+<option>2006</option>
+<option>2005</option>
+<option>2004</option>
+<option>2003</option>
+<option>2002</option>
+<option>2001</option>
+<option>2000</option>
+<option>1999</option>
+<option>1998</option>
+<option>1997</option>
+<option>1996</option>
+<option>1995</option>
+<option>1994</option>
+<option>1993</option>
+<option>1992</option>
+<option>1991</option></select></div>
+    <div class="input-step"><input type="text" placeholder="Make" required /></div>
+    <div class="input-step"><input type="text" placeholder="Model" required /></div>
+    <div class="input-step"><input type="text" placeholder="Full Name" required /></div>
+    <div class="input-step"><input type="tel" placeholder="Mobile Number (SMS)" required /></div>
+    <div class="input-step"><input type="email" placeholder="Email Address" required /></div>
+    <div class="input-step"><select required><option value="">Does it start?</option><option>Yes</option><option>No</option></select></div>
+    <div class="input-step"><select required><option value="">Do you have the title?</option><option>Clean Title</option><option>Salvage</option><option>No Title</option></select></div>
+    <div id="formTimer">03:00</div>
+    <button id="nextBtn" onclick="nextStep()">Next</button>
+  </form>
 </div>
-
-<div id="chatBubble" onclick="scrollToMain()">Need help? Chat now</div>
-
-<section id="mainContent">
-  <h2>Why Choose Recarra?</h2>
-  <p><span class="highlight">AI-Powered Offers:</span> Get instant cash offers powered by real-time vehicle data.</p>
-  <p><span class="highlight">Multiple Paths:</span> Choose the method that suits you best: instant, scheduled, or full form.</p>
-  <p><span class="highlight">No Pressure:</span> Our quotes are free and you're in full control of the sale.</p>
-</section>
-
-<section>
-  <h2>How It Works</h2>
-  <ol>
-    <li>Choose an offer path – instant, inspection, or full details.</li>
-    <li>Answer 3–5 quick questions (AI assists you).</li>
-    <li>Receive your offer and get paid within 24–48 hours.</li>
-  </ol>
-</section>
-
-<section>
-  <h2>FAQs</h2>
-  <p><strong>Why do I see multiple forms?</strong><br>Some sellers want fast cash, others prefer in-person offers, and some want top dollar with more detail. Recarra lets you choose.</p>
-  <p><strong>Do I need to know my car’s VIN?</strong><br>No, we can work with year/make/model or a license plate too.</p>
-  <p><strong>How fast will I get paid?</strong><br>Typically within 24–48 hours after accepting your offer.</p>
-</section>
-
-<footer>
-  &copy; 2025 Recarra. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a>
-</footer>
 
 <script>
-let inactivitySeconds = 180;
-let hasInteracted = false;
+  let currentStep = 0;
+  let steps = document.querySelectorAll(".input-step");
+  const timerDisplay = document.getElementById("formTimer");
+  let seconds = 180;
+  let timerStarted = false;
 
-function startQuickForm() {
-  document.getElementById('quickForm').style.display = 'block';
-  document.getElementById('formTimer').style.display = 'inline-block';
-  startInactivityCountdown();
-}
-
-function resetInactivity() {
-  hasInteracted = true;
-}
-
-function startInactivityCountdown() {
-  const el = document.getElementById("formTimer");
-  function update() {
-    const min = String(Math.floor(inactivitySeconds / 60)).padStart(2, '0');
-    const sec = String(inactivitySeconds % 60).padStart(2, '0');
-    el.textContent = `${min}:${sec}`;
-
-    if (inactivitySeconds <= 90) {
-      el.style.background = "#f00";
-      el.style.color = "#fff";
+  function nextStep() {
+    const input = steps[currentStep].querySelector("input, select");
+    if (!input.checkValidity()) {
+      input.reportValidity();
+      return;
     }
-
-    if (inactivitySeconds === 0 && !hasInteracted) {
-      document.getElementById("chatBubble").style.display = "block";
-      scrollToMain();
-      el.style.display = "none";
-    } else if (inactivitySeconds > 0) {
-      inactivitySeconds--;
-      setTimeout(update, 1000);
+    steps[currentStep].classList.remove("active");
+    currentStep++;
+    if (currentStep < steps.length) {
+      steps[currentStep].classList.add("active");
+    } else {
+      document.getElementById("smartForm").innerHTML = "<h3>Thank you! Your Offer ID is <strong>RC-" + Math.floor(Math.random()*100000) + "</strong></h3>";
     }
   }
-  update();
-}
 
-function scrollToMain() {
-  const section = document.getElementById("mainContent");
-  section.scrollIntoView({ behavior: "smooth" });
-}
+  function updateTimer() {
+    const min = String(Math.floor(seconds / 60)).padStart(2, '0');
+    const sec = String(seconds % 60).padStart(2, '0');
+    timerDisplay.textContent = `${min}:${sec}`;
+    if (seconds <= 90) {
+      timerDisplay.style.background = "#f00";
+      timerDisplay.style.color = "#fff";
+    }
+    if (seconds > 0) {
+      seconds--;
+      setTimeout(updateTimer, 1000);
+    }
+  }
+
+  window.onload = () => {
+    if (!timerStarted) {
+      timerStarted = true;
+      updateTimer();
+    }
+  };
 </script>
 
 </body>
