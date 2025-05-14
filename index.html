@@ -637,7 +637,7 @@ body {
 <input placeholder="Email Address" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;" type="email"/>
 </div>
 <!-- Submit Button -->
-<button class="submit-button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;">Submit</button>
+<button class="submit-button" type="button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;">Submit</button>
 </div>
 </div>
 <audio id="submitSuccess" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
@@ -2306,6 +2306,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
+<script>
+document.querySelectorAll(".submit-button").forEach((submitBtn) => {
+  submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const form = submitBtn.closest(".form-card");
+    const thankYou = form.querySelector(".thank-you");
+
+    const now = new Date();
+    const id = "RC-" +
+      now.getFullYear().toString().slice(-2) +
+      ("0" + (now.getMonth() + 1)).slice(-2) +
+      ("0" + now.getDate()).slice(-2) +
+      ("0" + now.getHours()).slice(-2) +
+      ("0" + now.getMinutes()).slice(-2) +
+      ("0" + now.getSeconds()).slice(-2);
+
+    form.querySelectorAll(".step-field").forEach(s => s.style.display = 'none');
+    submitBtn.style.display = "none";
+
+    if (thankYou) {
+      thankYou.innerHTML = "Thank you! Your Offer ID is: <strong>" + id + "</strong>";
+      thankYou.style.display = "block";
+    }
+
+    const sound = document.getElementById("submitSound");
+    if (sound) sound.play();
+  });
+});
+</script>
+
 </body>
 </html>
 
