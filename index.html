@@ -430,12 +430,31 @@ body {
   100% { transform: rotate(360deg); }
 }
 </style>
-</head>
+<style>
+.offer-button {
+  padding: 1rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  border: none;
+  color: black;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.offer-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 60, 60, 0.6);
+}
+</style></head>
 <body>
 <div id="welcome-screen" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:white; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-<h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1>
+<img src="https://cdn-icons-png.flaticon.com/512/753/753345.png" style="height: 36px; margin-bottom: 1rem;"/><h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1>
+<div id="offer-status-text" style="margin-top: 1rem; font-size: 1.2rem; color: #333; font-weight: bold;">Locating buyers…</div>
+<div style="margin-top: 1rem; width: 90%; background: #eee; border-radius: 20px; overflow: hidden;">
+<div id="progressBar" style="width: 0%; height: 20px; background: linear-gradient(to right, #ff3c3c, #f9d423); transition: width 1s;"></div>
+</div>
+<div id="rotating-tip" style="margin-top: 1rem; font-size: 1rem; color: #555;">We accept cars with no title</div>
 <p style="font-size:1.1rem;">Sell your car instantly with smart AI</p>
-
 <div id="offer-status-text" style="margin-top: 1rem; font-size: 1.2rem; color: #333; font-weight: bold;">
   Finding your best local offer…
 </div>
@@ -445,7 +464,6 @@ body {
 <div id="rotating-tip" style="margin-top: 1rem; font-size: 1rem; color: #555;">
   We accept cars with no title
 </div>
-
 <div id="quick-form-container" style="margin-top:1rem; text-align:center;">
 <!-- Question 1: What do you want to sell -->
 <div class="quick-step" style="margin-top:1rem;">
@@ -481,9 +499,21 @@ body {
 <input placeholder="Email Address" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;" type="email"/>
 </div>
 <!-- Submit Button -->
-<button class="next-button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;">Submit</button>
+<button class="next-button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;">Get Offer Now</button>
 </div>
 </div>
+<section id="offer-gallery" style="display: none; padding: 2rem 1rem; text-align: center;">
+<h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Choose Your Offer Method</h2>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+<button class="offer-button" data-form="form0">Instant AI Offer</button>
+<button class="offer-button" data-form="form1">VIN Scan Offer</button>
+<button class="offer-button" data-form="form2">License Plate Photo</button>
+<button class="offer-button" data-form="form3">Voice Chat Offer</button>
+<button class="offer-button" data-form="form4">Live Call Offer</button>
+<button class="offer-button" data-form="form5">Manual Entry Offer</button>
+</div>
+</section>
+
 <audio id="submitSuccess" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
 <div id="emojiRain" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; font-size:2rem; text-align:center;"></div>
 <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: white; z-index: 99999; display: flex; justify-content: center; align-items: center; flex-direction: column;">
@@ -2287,5 +2317,76 @@ function updateProgress() {
 
 updateProgress();
 </script>
-</body>
+<script>
+const tips = [
+  "We accept cars with no title",
+  "Pickup within 24 hours",
+  "No keys? No problem.",
+  "Get paid before we tow.",
+  "AI matches you with real buyers"
+];
+const statuses = [
+  "Locating buyers…",
+  "Matching vehicle details…",
+  "Finalizing your offer…"
+];
+
+let tipIndex = 0;
+let statusIndex = 0;
+let progress = 0;
+let seconds = 180;
+
+function updateProgress() {
+  progress += 100 / 180;
+  document.getElementById("progressBar").style.width = progress + "%";
+
+  if (seconds % 15 === 0 && tipIndex < tips.length) {
+    document.getElementById("rotating-tip").textContent = tips[tipIndex++];
+  }
+
+  if (seconds % 60 === 0 && statusIndex < statuses.length) {
+    document.getElementById("offer-status-text").textContent = statuses[statusIndex++];
+  }
+
+  if (seconds <= 0) {
+    document.getElementById("welcome-screen").style.display = "none";
+    const form = document.getElementById("form0");
+    if (form) {
+      form.style.display = "block";
+      window.scrollTo({ top: form.offsetTop - 20, behavior: "smooth" });
+    }
+  } else {
+    seconds--;
+    setTimeout(updateProgress, 1000);
+  }
+}
+updateProgress();
+</script>
+<script>
+function showOfferGallery() {
+  const gallery = document.getElementById("offer-gallery");
+  if (gallery) gallery.style.display = "block";
+  document.getElementById("welcome-screen").style.display = "none";
+}
+const oldUpdateProgress = updateProgress;
+updateProgress = function() {
+  oldUpdateProgress();
+  if (seconds <= 0) showOfferGallery();
+};
+
+// Offer button behavior to show forms
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".offer-button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const formId = btn.getAttribute("data-form");
+      document.querySelectorAll("section[id^='form']").forEach(f => f.style.display = "none");
+      const targetForm = document.getElementById(formId);
+      if (targetForm) {
+        targetForm.style.display = "block";
+        targetForm.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+});
+</script></body>
 </html>
