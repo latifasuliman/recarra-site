@@ -596,11 +596,9 @@ body {
   transition: box-shadow 0.3s ease-in-out;
 }
 </style>
-
 </head>
 <body>
 <div id="inactivity-timer" style="position:fixed; top:10px; right:10px; font-weight:bold; font-size:1rem; padding:5px 10px; background:#0f0; color:black; border-radius:10px; z-index:9999;">01:30</div>
-
 <script>
   let timerDuration = 180;
   const timerEl = document.getElementById("inactivity-timer");
@@ -664,7 +662,7 @@ body {
 <input placeholder="Email Address" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;" type="email"/>
 </div>
 <!-- Submit Button -->
-<button class="submit-button" type="button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;">Submit</button>
+<button class="submit-button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;" type="button">Submit</button>
 </div>
 </div>
 <audio id="submitSuccess" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
@@ -707,139 +705,7 @@ body {
 </ul>
 </div>
 </div>
-<script>
-      const toggle = document.getElementById("offerToggle");
-      const menu = document.getElementById("offerMenu");
-      toggle.onclick = () => {
-        menu.style.display = menu.style.display === "none" ? "block" : "none";
-      };
 
-      const dropdownItems = document.querySelectorAll(".dropdown-item");
-      const forms = document.querySelectorAll(".form-card");
-      forms.forEach((form, i) => form.id = "form" + i);
-      forms.forEach((form, i) => {
-        if (i !== 0) form.style.display = "none";
-      });
-
-      dropdownItems.forEach(item => {
-        item.onclick = () => {
-          forms.forEach(f => f.style.display = "none");
-          const target = document.getElementById(item.dataset.target);
-          if (target) target.style.display = "block";
-          menu.style.display = "none";
-        };
-      });
-    
-document.querySelectorAll(".restart-offer").forEach(btn => {
-  btn.addEventListener("click", function() {
-    const form = btn.closest(".form-card");
-    const steps = form.querySelectorAll(".step-field");
-    let index = 0;
-    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
-    form.querySelector(".submit-button").style.display = "none";
-    form.querySelector(".next-button-step").style.display = "inline-block";
-    form.querySelector(".back-button").style.display = "none";
-    form.querySelector(".thank-you").style.display = "none";
-  });
-});
-
-document.querySelectorAll(".restart-offer").forEach(btn => {
-  btn.addEventListener("click", function() {
-    const form = btn.closest(".form-card");
-    form.style.display = "none";
-    form.querySelector(".thank-you").style.display = "none";
-    const steps = form.querySelectorAll(".step-field");
-    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
-    form.querySelector(".submit-button").style.display = "none";
-    form.querySelector(".next-button-step").style.display = "inline-block";
-    form.querySelector(".back-button").style.display = "none";
-    
-    // Show offer menu again
-    const menu = document.getElementById("offerMenu");
-    if (menu) menu.style.display = "block";
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-});
-
-// Enhance form selection logic
-document.querySelectorAll(".form-menu-item").forEach(item => {
-  item.addEventListener("click", () => {
-    document.querySelectorAll(".form-card").forEach(f => f.style.display = "none");
-    const target = document.getElementById(item.dataset.target);
-    if (target) {
-      target.style.display = "block";
-      document.getElementById("formOverlay").style.display = "block";
-      window.scrollTo({ top: target.offsetTop - 40, behavior: "smooth" });
-    }
-  });
-});
-
-// Hide overlay and reset on "Submit Another Offer"
-document.querySelectorAll(".restart-offer").forEach(btn => {
-  btn.addEventListener("click", function() {
-    const form = btn.closest(".form-card");
-    form.style.display = "none";
-    form.querySelector(".thank-you").style.display = "none";
-    const steps = form.querySelectorAll(".step-field");
-    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
-    form.querySelector(".submit-button").style.display = "none";
-    form.querySelector(".next-button-step").style.display = "inline-block";
-    form.querySelector(".back-button").style.display = "none";
-    document.getElementById("formOverlay").style.display = "none";
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-});
-
-document.querySelectorAll(".dropdown-item").forEach(item => {
-  item.addEventListener("click", () => {
-    const targetId = item.dataset.target;
-    const target = document.getElementById(targetId);
-    if (!target) return;
-    document.querySelectorAll(".form-card").forEach(f => f.style.display = "none");
-    target.style.display = "block";
-    window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
-    document.getElementById("offerMenu").style.display = "none";
-  });
-});
-
-document.querySelectorAll(".form-card").forEach(form => {
-  const steps = form.querySelectorAll(".step-field");
-  const dots = form.querySelectorAll(".dot");
-  let index = 0;
-  const nextBtn = form.querySelector(".next-button-step");
-  const backBtn = form.querySelector(".back-button");
-  const submitBtn = form.querySelector(".submit-button");
-
-  function updateDots(i) {
-    if (!dots || dots.length === 0) return;
-    dots.forEach((dot, j) => dot.classList.toggle("active", j === i));
-  }
-
-  nextBtn?.addEventListener("click", () => {
-    if (index < steps.length - 1) {
-      index++;
-      steps.forEach((step, j) => step.style.display = j === index ? "block" : "none");
-      nextBtn.style.display = index < steps.length - 1 ? "inline-block" : "none";
-      backBtn.style.display = index > 0 ? "inline-block" : "none";
-      submitBtn.style.display = index === steps.length - 1 ? "inline-block" : "none";
-      updateDots(index);
-    }
-  });
-
-  backBtn?.addEventListener("click", () => {
-    if (index > 0) {
-      index--;
-      steps.forEach((step, j) => step.style.display = j === index ? "block" : "none");
-      nextBtn.style.display = index < steps.length - 1 ? "inline-block" : "none";
-      backBtn.style.display = index > 0 ? "inline-block" : "none";
-      submitBtn.style.display = index === steps.length - 1 ? "inline-block" : "none";
-      updateDots(index);
-    }
-  });
-
-  updateDots(0);
-});
-</script>
 <main>
 <nav>
 </nav><section class="form-card active" id="form0" style="display: block;">
@@ -1439,65 +1305,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-</script><script>
-document.querySelectorAll(".start-over-button").forEach(button => {
-  button.addEventListener("click", () => {
-    const form = button.closest(".form-card");
-    const steps = form.querySelectorAll(".step-field");
-    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
-
-    form.querySelector(".submit-button").style.display = "none";
-    form.querySelector(".next-button-step").style.display = "inline-block";
-    form.querySelector(".back-button").style.display = "none";
-  });
-});
 </script>
-<script>
-document.querySelectorAll('.form-card').forEach(form => {
-  const steps = Array.from(form.querySelectorAll('.step-field'));
-  let index = 0;
 
-  function showStep(i) {
-    steps.forEach((s, j) => s.style.display = j === i ? 'block' : 'none');
-  }
-
-  function nextStep() {
-    if (index < steps.length - 1) {
-      index++;
-      showStep(index);
-      updateNav();
-    }
-  }
-
-  function updateNav() {
-    const backBtn = form.querySelector('.back-button');
-    const nextBtn = form.querySelector('.next-button-step');
-    const submitBtn = form.querySelector('.submit-button');
-    if (backBtn) backBtn.style.display = index > 0 ? 'inline-block' : 'none';
-    if (nextBtn) nextBtn.style.display = 'none'; // hide next
-    if (submitBtn) submitBtn.style.display = index === steps.length - 1 ? 'inline-block' : 'none';
-  }
-
-  steps.forEach((input, i) => {
-    input.addEventListener('blur', () => {
-      if (input.value.trim() !== '') {
-        if (i === index) nextStep();
-      }
-    });
-    input.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' && input.value.trim() !== '') {
-        if (i === index) {
-          e.preventDefault();
-          nextStep();
-        }
-      }
-    });
-  });
-
-  showStep(index);
-  updateNav();
-});
-</script>
 <script>
 function startSpeech(button) {
   const input = button.previousElementSibling;
@@ -1733,121 +1542,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".submit-button").forEach((submitBtn, index) => {
-    submitBtn.addEventListener("click", () => {
-      const form = submitBtn.closest(".form-card");
-      const thankYou = form.querySelector(".thank-you");
-      const now = new Date();
-      const id = "RC-" +
-        now.getFullYear().toString().slice(-2) +
-        ("0" + (now.getMonth() + 1)).slice(-2) +
-        ("0" + now.getDate()).slice(-2) +
-        ("0" + now.getHours()).slice(-2) +
-        ("0" + now.getMinutes()).slice(-2) +
-        ("0" + now.getSeconds()).slice(-2);
 
-      thankYou.innerHTML = "Thank you! Your Offer ID is: <strong>" + id + "</strong>";
-      thankYou.style.display = "block";
-
-      const sound = document.getElementById("submitSound");
-      if (sound) sound.play();
-
-      // Confetti (simple)
-      const confetti = document.createElement("div");
-      confetti.innerHTML = "$$$";
-      confetti.style.position = "fixed";
-      confetti.style.top = "10%";
-      confetti.style.left = "50%";
-      confetti.style.transform = "translateX(-50%)";
-      confetti.style.fontSize = "2rem";
-      confetti.style.animation = "drop 1.5s ease-out forwards";
-      confetti.style.zIndex = "9999";
-      document.body.appendChild(confetti);
-      setTimeout(() => confetti.remove(), 1500);
-    });
-  });
-});
-</script>
 <style>
 @keyframes drop {
   0% { transform: translateY(-100px) translateX(-50%) rotate(0); opacity: 1; }
   100% { transform: translateY(600px) translateX(-50%) rotate(360deg); opacity: 0; }
 }
 </style>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Create and attach copy buttons when Offer ID is shown
-  document.querySelectorAll(".submit-button").forEach((submitBtn, index) => {
-    submitBtn.addEventListener("click", () => {
-      const form = submitBtn.closest(".form-card");
-      const thankYou = form.querySelector(".thank-you");
-      const idMatch = thankYou.innerText.match(/RC-[0-9]+/);
-      if (idMatch) {
-        const offerId = idMatch[0];
 
-        // Remove existing button if any
-        const existingBtn = thankYou.querySelector(".copy-button");
-        if (existingBtn) existingBtn.remove();
 
-        const copyBtn = document.createElement("button");
-        copyBtn.className = "copy-button";
-        copyBtn.innerHTML = "Copy Offer ID";
-        copyBtn.style.marginTop = "0.5rem";
-        copyBtn.style.padding = "0.5rem 1rem";
-        copyBtn.style.borderRadius = "12px";
-        copyBtn.style.border = "none";
-        copyBtn.style.background = "linear-gradient(to right, #ff3c3c, #f9d423)";
-        copyBtn.style.color = "#000";
-        copyBtn.style.fontWeight = "bold";
-        copyBtn.style.cursor = "pointer";
-
-        copyBtn.onclick = () => {
-          navigator.clipboard.writeText(offerId).then(() => {
-            copyBtn.innerText = "Copied!";
-            setTimeout(() => copyBtn.innerText = "Copy Offer ID", 2000);
-          });
-        };
-
-        thankYou.appendChild(copyBtn);
-      }
-    });
-  });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".submit-button").forEach((submitBtn, index) => {
-    submitBtn.addEventListener("click", () => {
-      const form = submitBtn.closest(".form-card");
-      const thankYou = form.querySelector(".thank-you");
-      const match = thankYou.innerText.match(/RC-[0-9]+/);
-      if (match) {
-        const offerId = match[0];
-        let stored = JSON.parse(localStorage.getItem("recarraOffers") || "[]");
-        if (!stored.includes(offerId)) {
-          stored.push(offerId);
-          localStorage.setItem("recarraOffers", JSON.stringify(stored));
-        }
-      }
-    });
-  });
-
-  // Display previously saved Offer IDs (optional future placement)
-  window.showStoredOffers = function(containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    const offers = JSON.parse(localStorage.getItem("recarraOffers") || "[]");
-    container.innerHTML = "<h3>Previous Offer IDs:</h3>";
-    offers.forEach(id => {
-      const p = document.createElement("p");
-      p.textContent = id;
-      container.appendChild(p);
-    });
-  };
-});
-</script>
 <script>
   window.addEventListener("load", function () {
     setTimeout(() => {
@@ -1855,30 +1558,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
   });
 </script>
-<script>
-function showCelebration() {
-  const emojis = ["🎉", "💰", "🚗", "✨", "🏆", "🌟", "🔥"];
-  const container = document.getElementById("emojiRain");
-  container.style.display = "block";
-  container.innerHTML = "";
-  for (let i = 0; i < 80; i++) {
-    const e = document.createElement("div");
-    e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    e.style.position = "absolute";
-    e.style.left = Math.random() * 100 + "vw";
-    e.style.top = Math.random() * -100 + "px";
-    e.style.animation = "drop 2s linear infinite";
-    container.appendChild(e);
-  }
-  setTimeout(() => container.style.display = "none", 3000);
-}
-document.querySelectorAll(".submit-button").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.getElementById("submitSuccess").play();
-    showCelebration();
-  });
-});
-</script>
+
 <style>
 @keyframes drop {
   0% { transform: translateY(0); opacity: 1; }
@@ -1993,113 +1673,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script><script>
-document.addEventListener("DOMContentLoaded", () => {
-  const submitBtn = document.querySelector(".submit-button");
-  const thankYouBox = document.querySelector(".thank-you");
-
-  submitBtn?.addEventListener("click", () => {
-    const name = document.querySelector('input[placeholder*="Full Name"]');
-    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
-    const email = document.querySelector('input[placeholder*="Email Address"]');
-
-    if (!name.value || !phone.value || !email.value) {
-      [name, phone, email].forEach(field => {
-        if (!field.value) {
-          field.style.borderColor = "red";
-          field.style.boxShadow = "0 0 6px red";
-        } else {
-          field.style.borderColor = "";
-          field.style.boxShadow = "";
-        }
-      });
-      return;
-    }
-
-    // Success: Show thank you, play sound, animate
-    const offerAmount = document.getElementById("estimated-offer")?.textContent || "$0";
-    thankYouBox.innerHTML = `<div class='thank-you glow'>Thank you! Your Offer ID is: RC-${Math.floor(Math.random()*900000+100000)}<br>${offerAmount}</div>`;
-    thankYouBox.style.display = "block";
-
-    const audio = document.getElementById("submitSuccess") || document.getElementById("submitSound");
-    audio?.play();
-
-    // Optional: money rain animation
-    const rain = document.getElementById("moneyRain");
-    if (rain) {
-      rain.style.display = "block";
-      setTimeout(() => { rain.style.display = "none"; }, 2500);
-    }
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", () => {
-  const submitBtn = document.querySelector(".submit-button");
-  const thankYouBox = document.querySelector(".thank-you");
-
-  submitBtn?.addEventListener("click", () => {
-    const name = document.querySelector('input[placeholder*="Full Name"]');
-    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
-    const email = document.querySelector('input[placeholder*="Email Address"]');
-
-    if (!name.value || !phone.value || !email.value) {
-      [name, phone, email].forEach(field => {
-        if (!field.value) {
-          field.style.borderColor = "red";
-          field.style.boxShadow = "0 0 6px red";
-        } else {
-          field.style.borderColor = "";
-          field.style.boxShadow = "";
-        }
-      });
-      return;
-    }
-
-    const offerAmount = document.getElementById("estimated-offer")?.textContent || "$0";
-    thankYouBox.innerHTML = `<div class='thank-you glow'>Thank you! Your Offer ID is: RC-${Math.floor(Math.random()*900000+100000)}<br>${offerAmount}</div>`;
-    thankYouBox.style.display = "block";
-
-    const audio = document.getElementById("submitSuccess") || document.getElementById("submitSound");
-    audio?.play();
-
-    const rain = document.getElementById("moneyRain");
-    if (rain) {
-      rain.style.display = "block";
-      setTimeout(() => { rain.style.display = "none"; }, 2500);
-    }
-  });
-});
-</script><script>
-document.addEventListener("DOMContentLoaded", () => {
-  const submitBtn = document.querySelector(".submit-button");
-
-  submitBtn?.addEventListener("click", () => {
-    const name = document.querySelector('input[placeholder*="Full Name"]');
-    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
-    const email = document.querySelector('input[placeholder*="Email Address"]');
-
-    if (!name?.value || !phone?.value || !email?.value) {
-      [name, phone, email].forEach(field => {
-        if (!field?.value) {
-          field.style.borderColor = "red";
-          field.style.boxShadow = "0 0 6px red";
-        } else {
-          field.style.borderColor = "";
-          field.style.boxShadow = "";
-        }
-      });
-      return;
-    }
-
-    // Show thank you message
-    let thankYou = document.createElement("div");
-    thankYou.innerHTML = "<div class='thank-you glow' style='margin-top:2rem; text-align:center; font-weight:bold; font-size:1.2rem;'>Thank you! Your Offer ID is: RC-" + Math.floor(Math.random()*900000+100000) + "</div>";
-    submitBtn.parentElement.appendChild(thankYou);
-
-    const sound = document.getElementById("submitSound");
-    if (sound) sound.play();
-  });
-});
-</script><script>
 function confettiEffect() {
   const canvas = document.getElementById('confetti-canvas');
   if (!canvas) return;
@@ -2144,54 +1717,6 @@ function confettiEffect() {
   loop();
 }
 </script><script>
-document.addEventListener("DOMContentLoaded", () => {
-  const submitBtn = document.querySelector(".submit-button");
-  const thankYouBox = document.querySelector(".thank-you");
-  const formSection = document.getElementById("form0");
-
-  submitBtn?.addEventListener("click", () => {
-    const name = document.querySelector('input[placeholder*="Full Name"]');
-    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
-    const email = document.querySelector('input[placeholder*="Email Address"]');
-
-    if (!name?.value || !phone?.value || !email?.value) {
-      [name, phone, email].forEach(field => {
-        if (!field?.value) {
-          field.style.borderColor = "red";
-          field.style.boxShadow = "0 0 6px red";
-        } else {
-          field.style.borderColor = "";
-          field.style.boxShadow = "";
-        }
-      });
-      return;
-    }
-
-    // Hide the form
-    if (formSection) formSection.style.display = "none";
-
-    // Generate and show thank-you message
-    const offerId = "RC-" + Math.floor(Math.random() * 900000 + 100000);
-    thankYouBox.innerHTML = `<div class='thank-you glow' style='margin-top:2rem; text-align:center; font-weight:bold; font-size:1.2rem;'>
-      Thank you! Your offer request has been received.<br>Your Offer ID is: <strong>${offerId}</strong></div>`;
-    thankYouBox.style.display = "block";
-    thankYouBox.scrollIntoView({ behavior: "smooth", block: "center" });
-
-    // Voice output
-    const msg = new SpeechSynthesisUtterance(`Thank you. Your offer request has been received. We will contact you shortly. Your Offer ID is ${offerId.replace('-', ' ')}`);
-    msg.rate = 0.95;
-    msg.pitch = 1.1;
-    speechSynthesis.speak(msg);
-
-    // Confetti
-    const rain = document.getElementById("moneyRain");
-    if (rain) {
-      rain.style.display = "block";
-      setTimeout(() => { rain.style.display = "none"; }, 2500);
-    }
-  });
-});
-</script><script>
 document.addEventListener("DOMContentLoaded", function() {
   const splash = document.getElementById("splash-screen");
 
@@ -2235,9 +1760,9 @@ document.addEventListener("DOMContentLoaded", function() {
   }, 250);
 });
 </script><div id="splash">
-  <h1>Welcome to Recarra</h1>
-  <p>Smart AI Car Offers in Seconds</p>
-  <div id="timer" class="green">01:30</div>
+<h1>Welcome to Recarra</h1>
+<p>Smart AI Car Offers in Seconds</p>
+<div class="green" id="timer">01:30</div>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const timerElement = document.getElementById("timer");
@@ -2334,40 +1859,35 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+</div>
 <script>
-document.querySelectorAll(".submit-button").forEach((submitBtn) => {
-  submitBtn.addEventListener("click", function(event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".submit-button").forEach((submitBtn, index) => {
+    submitBtn.addEventListener("click", () => {
+      const form = submitBtn.closest(".form-card");
+      const thankYou = form.querySelector(".thank-you");
+      const offerId = "RC-" + Math.floor(100000 + Math.random() * 900000);
 
-    const form = submitBtn.closest(".form-card");
-    const thankYou = form.querySelector(".thank-you");
+      if (thankYou) {
+        thankYou.innerHTML = "Thank you! Your Offer ID is: <strong>" + offerId + "</strong>";
+        thankYou.style.display = "block";
+        thankYou.classList.add("glow");
+      }
 
-    const now = new Date();
-    const id = "RC-" +
-      now.getFullYear().toString().slice(-2) +
-      ("0" + (now.getMonth() + 1)).slice(-2) +
-      ("0" + now.getDate()).slice(-2) +
-      ("0" + now.getHours()).slice(-2) +
-      ("0" + now.getMinutes()).slice(-2) +
-      ("0" + now.getSeconds()).slice(-2);
+      const submitSound = document.getElementById("submitSound");
+      if (submitSound) submitSound.play();
 
-    form.querySelectorAll(".step-field").forEach(s => s.style.display = 'none');
-    submitBtn.style.display = "none";
+      form.style.display = "none";
 
-    if (thankYou) {
-      thankYou.innerHTML = "Thank you! Your Offer ID is: <strong>" + id + "</strong>";
-      thankYou.style.display = "block";
-    }
-
-    const sound = document.getElementById("submitSound");
-    if (sound) sound.play();
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 3000);
+    });
   });
 });
 </script>
-
 </body>
 </html>
-
 <script>
 function startApp() {
   document.getElementById('splash-screen').style.display = 'none';
