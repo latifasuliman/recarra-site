@@ -448,10 +448,6 @@ body {
 </style></head>
 <body>
 <div id="splash-screen" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:white; z-index:999999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-<div id="ai-badge" style="position: absolute; top: 20px; right: 20px; background: linear-gradient(to right, #ff3c3c, #f9d423); padding: 6px 14px; border-radius: 30px; font-size: 0.8rem; font-weight: bold; color: black; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-  Powered by AI
-</div>
-
 <h1 style="font-size:3rem; background: linear-gradient(to right, #ff3c3c, #f9d423); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom:1rem;">
     Recarra
   </h1>
@@ -473,6 +469,7 @@ setTimeout(() => {
   if (splash) splash.style.display = "none";
 }, 8000);
 </script>
+
 <div id="welcome-screen" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:white; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
 <img src="https://recarra.com/assets/recarra-flash-icon.png" style="height: 44px; margin-bottom: 1rem;"/><h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1><p style="font-size: 1rem; color: #666; margin-top: 0.25rem; margin-bottom: 1rem;">The AI-Powered Way to Sell Your Car Instantly</p>
 <div style="margin-top: 1rem; width: 90%; background: #eee; border-radius: 20px; overflow: hidden;">
