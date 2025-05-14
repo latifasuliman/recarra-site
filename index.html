@@ -1,0 +1,2201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recarra | AI Car Offer Platform</title>
+<style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #000;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 1.75rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #ff3c3c, #f9d423);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+    }
+    main {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .form-card {
+      padding: 2rem;
+      border-radius: 20px;
+      background: #fff;
+      border: 2px solid #eee;
+      margin-bottom: 2rem;
+    }
+    .form-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #ff4b4b;
+    }
+    .progress {
+      height: 6px;
+      background: #eee;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+    .progress-bar {
+      width: 12.5%;
+      height: 100%;
+      background: linear-gradient(to right, #ff3c3c, #f9d423);
+    }
+    .input-field {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      margin: 1rem 0;
+      font-size: 1rem;
+      outline: none;
+    }
+    .next-button {
+      display: inline-block;
+      background: linear-gradient(to right, #ff3c3c, #f9d423);
+      color: #000;
+      font-weight: bold;
+      border-radius: 50px;
+      padding: 0.75rem 2rem;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #666;
+      margin-top: 4rem;
+      padding-bottom: 2rem;
+    }
+  
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .form-card {
+    padding: 1rem;
+    margin: 1rem;
+  }
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+  }
+  .input-field {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+  .next-button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+.input-field {
+  font-size: 1.1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 100%;
+  border: 2px solid #ccc;
+  animation: flash-border 3s linear infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes flash-border {
+  0%   { box-shadow: 0 0 0px red; border-color: red; }
+  33%  { box-shadow: 0 0 10px black; border-color: black; }
+  66%  { box-shadow: 0 0 10px gray; border-color: gray; }
+  100% { box-shadow: 0 0 0px red; border-color: red; }
+}
+
+.input-field {
+  width: 100%;
+  height: 3.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+.input-field:focus {
+  border-color: #ff6600;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+}
+</style>
+<style>
+.dot-progress {
+  text-align: center;
+  margin-top: 1rem;
+}
+.dot {
+  height: 14px;
+  width: 14px;
+  margin: 0 6px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+.dot.active {
+  background-color: #ff4b4b;
+}
+</style><style>
+.input-field {
+  width: 90%;
+  height: 3.5rem;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  border: 2px solid #ccc;
+  animation: flash-border 3s linear infinite;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 1rem auto;
+}
+</style><style>
+body {
+  background-color: #f2f2f2;
+}
+</style><style>
+.hero-header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  background: #f2f2f2;
+}
+.brand-title {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+.brand-subtitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+.cta-block {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.icon-flash {
+  font-size: 2.5rem;
+  color: #ff3c3c;
+}
+.hero-button {
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+</style><style>
+#offerMenu {
+  background: #fff;
+  border: 2px solid #eee;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  width: 280px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+#offerMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#offerMenu li {
+  margin: 0.25rem 0;
+}
+
+.dropdown-item {
+  width: 100%;
+  background: linear-gradient(to right, #f9d423, #ff3c3c);
+  color: #000;
+  font-weight: bold;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dropdown-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style><style>
+.brand-description {
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+  margin-top: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style><style>
+.hero-brand {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #111;
+  letter-spacing: -0.5px;
+}
+.hero-header.highend {
+  background: linear-gradient(to right, #f5f5f5, #eaeaea, #f5f5f5);
+  border-bottom: 1px solid #ccc;
+}
+</style><style>
+.form-card {
+  animation: fadeInSlideUp 0.6s ease;
+  z-index: 20;
+  position: relative;
+}
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#formOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 10;
+}
+</style><style>
+.submit-button {
+  display: none;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  color: #000;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 1.5rem auto 0;
+  display: block;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+<style>
+.thank-you.glow {
+  animation: glow 1.5s ease-in-out infinite alternate;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-top: 1rem;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px gold, 0 0 20px orange; }
+  to { text-shadow: 0 0 20px red, 0 0 30px yellow; }
+}
+#moneyRain {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url('https://i.imgur.com/C0FqTgo.png');
+  background-repeat: repeat;
+  background-size: 100px;
+  animation: rain 2.5s linear forwards;
+}
+@keyframes rain {
+  0% { transform: translateY(-100%); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+</style>
+<style>
+.input-group {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+.mic-button {
+  margin-left: 8px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ff3c3c;
+  transition: transform 0.2s;
+}
+.mic-button:hover {
+  transform: scale(1.2);
+}
+</style>
+<style>
+.form-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.dot-progress {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.dot-progress .dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-progress .dot.active {
+  background-color: #ff3c3c;
+}
+.mic-button-highend {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  border: none;
+  border-radius: 50%;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+.mic-button-highend:hover {
+  transform: scale(1.1);
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+</style>
+<style>
+.form-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.form-navigation .next-button {
+  margin: 0.25rem;
+}
+</style>
+<style>
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<!-- Load Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  body, h1, h2, p, select, input, button {
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ai-submit {
+    background: linear-gradient(to right, #ff9900, #ff3c3c);
+    color: black;
+    font-weight: bold;
+    border-radius: 30px;
+    padding: 1rem 2rem;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+</style>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const splash = document.getElementById('splash-screen');
+      if (splash) splash.style.display = 'none';
+    }, 1000);
+
+    const inputs = document.querySelectorAll('.fade-in');
+    inputs.forEach((input, idx) => {
+      const field = input.querySelector('input, select');
+      if (!field) return;
+
+      field.addEventListener('input', () => {
+        const next = inputs[idx + 1];
+        if (next) next.classList.add('visible');
+      });
+    });
+  });
+</script>
+<style>
+.moon {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  color: white;
+  opacity: 0.7;
+}
+.falling-title {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #ff3c3c, #f9d423);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fallFromMoon 1.5s ease-out forwards;
+}
+@keyframes fallFromMoon {
+  0% { top: -100px; opacity: 0; transform: scale(0.2) translateX(-50%); }
+  70% { opacity: 1; }
+  100% { top: 50%; font-size: 4rem; transform: scale(1) translate(-50%, -50%); }
+}
+.loader {
+  margin-top: 4rem;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+}
+</style><style>
+/* Parallax stars background */
+#splash-screen {
+  background: black;
+  overflow: hidden;
+  position: fixed;
+}
+
+.stars, .stars2, .stars3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  background-position: 0 0;
+  animation: moveStars 100s linear infinite;
+  z-index: 0;
+}
+.stars { background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); opacity: 0.4; }
+.stars2 { background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); opacity: 0.3; animation-duration: 200s; }
+.stars3 { background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); opacity: 0.2; animation-duration: 300s; }
+
+@keyframes moveStars {
+  0% { background-position: 0 0; }
+  100% { background-position: -10000px 5000px; }
+}
+
+/* Glowing moon SVG */
+.moon-svg {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  z-index: 1;
+}
+</style><style>
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+.stars {
+  animation: moveStars 100s linear infinite, twinkle 4s ease-in-out infinite;
+}
+.stars2 {
+  animation: moveStars 200s linear infinite, twinkle 5s ease-in-out infinite;
+}
+.stars3 {
+  animation: moveStars 300s linear infinite, twinkle 6s ease-in-out infinite;
+}
+</style></head>
+<body><audio autoplay="autoplay" id="startupChime" preload="auto"><source src="https://www.soundjay.com/button/sounds/button-38.mp3" type="audio/mpeg"/></audio>
+<div id="welcome-screen" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:white; z-index:99999; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+<h1 style="font-size:2.5rem; font-weight:bold; margin-bottom:1rem;">Welcome to Recarra</h1>
+<p style="font-size:1.1rem;">Sell your car instantly with smart AI</p>
+<div id="quick-form-container" style="margin-top:1rem; text-align:center;">
+<!-- Question 1: What do you want to sell -->
+<div class="quick-step" style="margin-top:1rem;">
+<select class="input-field" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;">
+<option value="">What do you want to sell?</option>
+<option value="Car">Car</option>
+<option value="SUV">SUV</option>
+<option value="Truck">Truck</option>
+<option value="Van">Van</option>
+<option value="Motorcycle">Motorcycle</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<!-- Question 2: Year -->
+<div class="quick-step" style="margin-top:1rem;">
+<select class="input-field" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;">
+<option value="">What year is your vehicle?</option>
+<option value="unknown">I’m not sure</option>
+<option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option>
+</select>
+</div>
+<!-- Question 3: Upload Photo -->
+<div class="quick-step" style="margin-top:1rem;">
+</div>
+<!-- Contact Info -->
+<div class="quick-step" style="margin-top:1rem;">
+<input placeholder="Full Name (required)" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;" type="text"/>
+</div>
+<div class="quick-step" style="margin-top:1rem;">
+<input placeholder="Mobile Number (SMS)" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;" type="tel"/>
+</div>
+<div class="quick-step" style="margin-top:1rem;">
+<input placeholder="Email Address" required="" style="width: 90%; padding: 0.8rem; border-radius: 14px; border: 2px solid #ff3c3c; margin-top: 0.75rem; font-size: 1rem;" type="email"/>
+</div>
+<!-- Submit Button -->
+<button class="submit-button" style="margin-top:1.5rem; padding: 0.8rem 2rem; font-size:1rem; border-radius:30px; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; border: none; width: 90%;">Submit</button>
+</div>
+</div>
+<audio id="submitSuccess" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+<div id="emojiRain" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; font-size:2rem; text-align:center;"></div>
+<div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #111; z-index: 99999; overflow: hidden;"></div>
+<audio id="submitSound" preload="auto" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio><div id="formOverlay"></div>
+<section class="hero-header highend">
+<div class="hero-logo-row">
+<div class="hero-icon">⚡</div>
+<div class="hero-brand">Recarra</div>
+</div>
+<h2 class="hero-slogan">The AI-Powered Way to<br/>Sell Your Car Instantly</h2>
+<p class="hero-description">
+    We reinvent car selling with smart AI, instant quotes, and human-free offers—
+    designed for speed, trust, and total ease.
+  </p>
+</section>
+<header>
+</header>
+<div style="position: relative; display: inline-block; margin-top: 1rem;">
+<button class="submit-button" id="offerToggle" type="button">Submit Offer</button>
+<div id="offerMenu" style="display: none; position: absolute; top: 110%; left: 0; background: #fff; border: 2px solid #eee; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); z-index: 999;">
+<ul style="list-style: none; margin: 0; padding: 0;">
+<li><button class="dropdown-item" data-target="form0">AI Recarra Instant Offer</button></li>
+<li><button class="dropdown-item" data-target="form1">License Plate Offer</button></li>
+<li><button class="dropdown-item" data-target="form2">VIN Offer</button></li>
+<li><button class="dropdown-item" data-target="form3">Voice Offer</button></li>
+<li><button class="dropdown-item" data-target="form4">Photo Upload Offer</button></li>
+<li><button class="dropdown-item" data-target="form5">Live Chat Offer</button></li>
+<li><button class="dropdown-item" data-target="form6">Email Offer</button></li>
+<li><button class="dropdown-item" data-target="form7">SMS Text Offer</button></li>
+<li><button class="dropdown-item" data-target="form8">Call Offer</button></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li><button class="dropdown-item" data-target="form13">Scan VIN Offer</button></li>
+<li><button class="dropdown-item" data-target="form14">Manual Entry Offer</button></li>
+<li><button class="dropdown-item" data-target="form15">Full Inspection Offer</button></li>
+</ul>
+</div>
+</div>
+<script>
+      const toggle = document.getElementById("offerToggle");
+      const menu = document.getElementById("offerMenu");
+      toggle.onclick = () => {
+        menu.style.display = menu.style.display === "none" ? "block" : "none";
+      };
+
+      const dropdownItems = document.querySelectorAll(".dropdown-item");
+      const forms = document.querySelectorAll(".form-card");
+      forms.forEach((form, i) => form.id = "form" + i);
+      forms.forEach((form, i) => {
+        if (i !== 0) form.style.display = "none";
+      });
+
+      dropdownItems.forEach(item => {
+        item.onclick = () => {
+          forms.forEach(f => f.style.display = "none");
+          const target = document.getElementById(item.dataset.target);
+          if (target) target.style.display = "block";
+          menu.style.display = "none";
+        };
+      });
+    
+document.querySelectorAll(".restart-offer").forEach(btn => {
+  btn.addEventListener("click", function() {
+    const form = btn.closest(".form-card");
+    const steps = form.querySelectorAll(".step-field");
+    let index = 0;
+    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
+    form.querySelector(".submit-button").style.display = "none";
+    form.querySelector(".next-button-step").style.display = "inline-block";
+    form.querySelector(".back-button").style.display = "none";
+    form.querySelector(".thank-you").style.display = "none";
+  });
+});
+
+document.querySelectorAll(".restart-offer").forEach(btn => {
+  btn.addEventListener("click", function() {
+    const form = btn.closest(".form-card");
+    form.style.display = "none";
+    form.querySelector(".thank-you").style.display = "none";
+    const steps = form.querySelectorAll(".step-field");
+    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
+    form.querySelector(".submit-button").style.display = "none";
+    form.querySelector(".next-button-step").style.display = "inline-block";
+    form.querySelector(".back-button").style.display = "none";
+    
+    // Show offer menu again
+    const menu = document.getElementById("offerMenu");
+    if (menu) menu.style.display = "block";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// Enhance form selection logic
+document.querySelectorAll(".form-menu-item").forEach(item => {
+  item.addEventListener("click", () => {
+    document.querySelectorAll(".form-card").forEach(f => f.style.display = "none");
+    const target = document.getElementById(item.dataset.target);
+    if (target) {
+      target.style.display = "block";
+      document.getElementById("formOverlay").style.display = "block";
+      window.scrollTo({ top: target.offsetTop - 40, behavior: "smooth" });
+    }
+  });
+});
+
+// Hide overlay and reset on "Submit Another Offer"
+document.querySelectorAll(".restart-offer").forEach(btn => {
+  btn.addEventListener("click", function() {
+    const form = btn.closest(".form-card");
+    form.style.display = "none";
+    form.querySelector(".thank-you").style.display = "none";
+    const steps = form.querySelectorAll(".step-field");
+    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
+    form.querySelector(".submit-button").style.display = "none";
+    form.querySelector(".next-button-step").style.display = "inline-block";
+    form.querySelector(".back-button").style.display = "none";
+    document.getElementById("formOverlay").style.display = "none";
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+document.querySelectorAll(".dropdown-item").forEach(item => {
+  item.addEventListener("click", () => {
+    const targetId = item.dataset.target;
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    document.querySelectorAll(".form-card").forEach(f => f.style.display = "none");
+    target.style.display = "block";
+    window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
+    document.getElementById("offerMenu").style.display = "none";
+  });
+});
+
+document.querySelectorAll(".form-card").forEach(form => {
+  const steps = form.querySelectorAll(".step-field");
+  const dots = form.querySelectorAll(".dot");
+  let index = 0;
+  const nextBtn = form.querySelector(".next-button-step");
+  const backBtn = form.querySelector(".back-button");
+  const submitBtn = form.querySelector(".submit-button");
+
+  function updateDots(i) {
+    if (!dots || dots.length === 0) return;
+    dots.forEach((dot, j) => dot.classList.toggle("active", j === i));
+  }
+
+  nextBtn?.addEventListener("click", () => {
+    if (index < steps.length - 1) {
+      index++;
+      steps.forEach((step, j) => step.style.display = j === index ? "block" : "none");
+      nextBtn.style.display = index < steps.length - 1 ? "inline-block" : "none";
+      backBtn.style.display = index > 0 ? "inline-block" : "none";
+      submitBtn.style.display = index === steps.length - 1 ? "inline-block" : "none";
+      updateDots(index);
+    }
+  });
+
+  backBtn?.addEventListener("click", () => {
+    if (index > 0) {
+      index--;
+      steps.forEach((step, j) => step.style.display = j === index ? "block" : "none");
+      nextBtn.style.display = index < steps.length - 1 ? "inline-block" : "none";
+      backBtn.style.display = index > 0 ? "inline-block" : "none";
+      submitBtn.style.display = index === steps.length - 1 ? "inline-block" : "none";
+      updateDots(index);
+    }
+  });
+
+  updateDots(0);
+});
+</script>
+<main>
+<nav>
+</nav><section class="form-card active" id="form0" style="display: block;">
+<h2 class="form-title">AI Recarra Instant Offer</h2>
+<div class="dot-progress">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+<!-- Step 1: Vehicle Year -->
+<div class="step-field" style="display:block;">
+<div class="input-group">
+<select class="input-field" required="">
+<option value="">What year is your vehicle?</option>
+<option value="2025">2025</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option><option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option>
+</select>
+</div>
+</div>
+<!-- Step 2: Do you know the make? -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<label>Do you know your car’s make (brand)?</label>
+<select class="input-field">
+<option value="">Select one</option>
+<option value="yes">Yes, I know the make</option>
+<option value="no">No, I'm not sure</option>
+</select>
+</div>
+</div>
+<!-- Step 3a: Make Dropdown -->
+<div class="step-field make-known" style="display:none;">
+<div class="input-group">
+<select class="input-field">
+<option value="">Select vehicle make</option>
+<option>Toyota</option><option>Honda</option><option>Ford</option><option>Chevrolet</option><option>Nissan</option>
+<option>BMW</option><option>Mercedes</option><option>Hyundai</option><option>Kia</option><option>Volkswagen</option>
+</select>
+</div>
+</div>
+<!-- Step 3b: Unknown Make Text Input -->
+<div class="step-field make-unknown" style="display:none;">
+<div class="input-group">
+<input class="input-field" placeholder="Describe what you remember (e.g. SUV, red van)" type="text"/>
+</div>
+</div>
+<!-- Step 4: Photo Upload (optional) -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<label style="display:block; font-weight:bold;">Upload a photo of your car (optional)</label>
+<input accept="image/*" class="input-field" type="file"/>
+</div>
+</div>
+<!-- Final Step: Contact Info -->
+<div class="step-field" style="display:none;">
+<div class="input-group"><input class="input-field contact-required" placeholder="Enter your full name (required)" required="" type="text"/></div>
+</div>
+<div class="step-field" style="display:none;">
+<div class="input-group"><input class="input-field contact-required" placeholder="Enter your mobile number (SMS-capable)" required="" type="tel"/></div>
+</div>
+<!-- Vehicle Model -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<input class="input-field" placeholder="What is your vehicle model?" type="text"/>
+</div>
+</div>
+<!-- Vehicle Trim -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<input class="input-field" list="trim-options" placeholder="What is your vehicle trim?" type="text"/>
+<datalist id="trim-options">
+<option value="LE"><option value="SE"><option value="XLE"><option value="Sport">
+<option value="Touring"><option value="Platinum"><option value="Base">
+</option></option></option></option></option></option></option></datalist>
+</div>
+</div>
+<!-- Vehicle Color -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<input class="input-field" placeholder="What color is your vehicle?" type="text"/>
+</div>
+</div>
+<!-- Running Condition -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<label>Is the vehicle running?</label>
+<select class="input-field">
+<option value="">Select</option>
+<option value="yes">Yes</option>
+<option value="no">No</option>
+</select>
+</div>
+</div>
+<!-- Title Status -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<label>What is the title status?</label>
+<select class="input-field">
+<option value="">Select</option>
+<option value="clean">Clean Title</option>
+<option value="salvage">Salvage Title</option>
+<option value="lost">Lost Title</option>
+</select>
+</div>
+</div>
+<!-- Damage Condition -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<label>What’s the condition of your vehicle?</label>
+<select class="input-field">
+<option value="">Select</option>
+<option value="none">No major damage</option>
+<option value="minor">Minor dents/scratches</option>
+<option value="major">Major damage</option>
+<option value="totaled">Totaled</option>
+</select>
+</div>
+</div>
+<!-- VIN / License Upload -->
+<div class="step-field" style="display:none;">
+<div class="input-group">
+<label style="font-weight:bold;">Upload your VIN or license plate photo (optional)</label>
+<input accept="image/*" class="input-field" type="file"/>
+</div>
+</div>
+<div class="step-field" style="display:none;">
+<div class="input-group"><input class="input-field contact-required" placeholder="Enter your email address" required="" type="email"/></div>
+</div>
+<div class="form-navigation">
+<button class="next-button back-button" type="button">Back</button>
+<button class="next-button next-button-step" type="button">Next</button>
+<button class="next-button quit-button" type="button">Quit</button>
+<button class="next-button start-over-button" type="button">Start Over</button>
+</div>
+<button class="submit-button" type="button">Submit Offer</button>
+<div class="thank-you" style="display:none; text-align:center; margin-top:1rem;"></div>
+<div id="estimated-offer" style="display:none; margin-top:1.5rem; font-size:1.25rem; font-weight:bold; text-align:center; color:#111; background:#fff3cd; border:2px solid #ffc107; padding:1rem; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1);">Estimated Offer: $0</div><button id="upgrade-offer-btn" style="display:none; margin-top:1rem; background: linear-gradient(to right, #ff3c3c, #f9d423); color: black; font-weight: bold; padding: 0.75rem 2rem; border-radius: 30px; font-size: 1rem; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15);" type="button">Upgrade to Guaranteed Offer</button><div id="guaranteed-offer-fields" style="display:none; margin-top:1.5rem;">
+<div class="input-group">
+<input class="input-field" placeholder="Full Name (required)" type="text"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Mobile Number (SMS-capable)" type="tel"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Email Address" type="email"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Pickup ZIP Code" type="text"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Preferred Pickup Time (optional)" type="datetime-local"/>
+</div>
+</div><div id="vin-plate-upload" style="margin-top:2rem;">
+<h3 style="font-size: 1.2rem; font-weight: bold; margin-bottom: 0.5rem;">VIN or License Plate</h3>
+<div class="input-group">
+<input accept="image/*" class="input-field" placeholder="Upload VIN or Plate Image" type="file"/>
+</div>
+<div class="input-group">
+<input class="input-field" placeholder="Or enter VIN manually" type="text"/>
+</div>
+</div></section>
+<!-- Additional forms (14 more) will follow this same format -->
+</main>
+<footer>
+    © 2025 Recarra. All rights reserved.
+  </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const toggle = document.getElementById("offerToggle");
+  const menu = document.getElementById("offerMenu");
+  toggle.onclick = () => {
+    menu.style.display = menu.style.display === "none" ? "block" : "none";
+  };
+
+  const dropdownItems = document.querySelectorAll(".dropdown-item");
+  const forms = document.querySelectorAll(".form-card");
+  dropdownItems.forEach(item => {
+    item.onclick = () => {
+      forms.forEach(f => f.style.display = "none");
+      const target = document.getElementById(item.dataset.target);
+      if (target) target.style.display = "block";
+      menu.style.display = "none";
+    };
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    const dots = form.querySelectorAll(".dot");
+    const nextBtn = form.querySelector(".next-button");
+    let step = 0;
+    nextBtn.addEventListener("click", () => {
+      if (step < dots.length - 1) {
+        dots[step].classList.remove("active");
+        step++;
+        dots[step].classList.add("active");
+      }
+    });
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".form-card").forEach(form => {
+    form.querySelectorAll("input").forEach(input => {
+      input.addEventListener("blur", () => {
+        const value = input.value.trim();
+        const placeholder = input.placeholder.toLowerCase();
+        if (placeholder.includes("vin") && value.length !== 17) {
+          input.style.borderColor = "red";
+        } else if (placeholder.includes("zip") && !/^\d{5}$/.test(value)) {
+          input.style.borderColor = "red";
+        } else if (placeholder.includes("email") && !/^\S+@\S+\.\S+$/.test(value)) {
+          input.style.borderColor = "red";
+        } else if (placeholder.includes("phone") && !/^\d{10}$/.test(value.replace(/\D/g, ""))) {
+          input.style.borderColor = "red";
+        } else {
+          input.style.borderColor = "#ccc";
+        }
+      });
+    });
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const carData = {};
+  const makes = ["Toyota", "Ford", "Chevrolet", "Honda", "Nissan", "Dodge", "BMW", "Mercedes", "Mazda", "Hyundai"];
+  const models = ["Sedan", "SUV", "Truck", "Coupe", "Hatchback"];
+  const trims = ["Base", "Sport", "Luxury", "Limited", "GT"];
+
+  for (let year = 1950; year <= 2025; year++) {
+    carData[year] = {};
+    makes.forEach(make => {
+      carData[year][make] = {};
+      models.forEach(model => {
+        carData[year][make][model] = trims;
+      });
+    });
+  }
+
+  document.querySelectorAll(".form-card").forEach(form => {
+    const yearField = document.createElement("select");
+    const makeField = document.createElement("select");
+    const modelField = document.createElement("select");
+    const trimField = document.createElement("select");
+    [yearField, makeField, modelField, trimField].forEach(el => {
+      el.className = "input-field step-field";
+      el.style.display = "none";
+    });
+
+    Object.keys(carData).forEach(year => {
+      const opt = document.createElement("option");
+      opt.value = opt.textContent = year;
+      yearField.appendChild(opt);
+    });
+
+    yearField.addEventListener("change", () => {
+      makeField.innerHTML = "";
+      modelField.innerHTML = "";
+      trimField.innerHTML = "";
+      Object.keys(carData[yearField.value]).forEach(make => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = make;
+        makeField.appendChild(opt);
+      });
+      makeField.style.display = "block";
+    });
+
+    makeField.addEventListener("change", () => {
+      modelField.innerHTML = "";
+      trimField.innerHTML = "";
+      Object.keys(carData[yearField.value][makeField.value]).forEach(model => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = model;
+        modelField.appendChild(opt);
+      });
+      modelField.style.display = "block";
+    });
+
+    modelField.addEventListener("change", () => {
+      trimField.innerHTML = "";
+      carData[yearField.value][makeField.value][modelField.value].forEach(trim => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = trim;
+        trimField.appendChild(opt);
+      });
+      trimField.style.display = "block";
+    });
+
+    const targetInput = form.querySelector("input[placeholder*='year, make, and model']");
+    if (targetInput) {
+      targetInput.style.display = "none";
+      targetInput.parentNode.insertBefore(yearField, targetInput);
+      targetInput.parentNode.insertBefore(makeField, targetInput);
+      targetInput.parentNode.insertBefore(modelField, targetInput);
+      targetInput.parentNode.insertBefore(trimField, targetInput);
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const carData = {};
+  const makes = ["Toyota", "Ford", "Chevrolet", "Honda", "Nissan", "Dodge", "BMW", "Mercedes", "Mazda", "Hyundai"];
+  const models = ["Sedan", "SUV", "Truck", "Coupe", "Hatchback"];
+  const trims = ["Base", "Sport", "Luxury", "Limited", "GT"];
+
+  for (let year = 1990; year <= 2025; year++) {
+    carData[year] = {};
+    makes.forEach(make => {
+      carData[year][make] = {};
+      models.forEach(model => {
+        carData[year][make][model] = trims;
+      });
+    });
+  }
+
+  document.querySelectorAll(".form-card").forEach(form => {
+    const yearField = document.createElement("select");
+    const makeField = document.createElement("select");
+    const modelField = document.createElement("select");
+    const trimField = document.createElement("select");
+    [yearField, makeField, modelField, trimField].forEach(el => {
+      el.className = "input-field step-field";
+      el.style.display = "none";
+    });
+
+    Object.keys(carData).forEach(year => {
+      const opt = document.createElement("option");
+      opt.value = opt.textContent = year;
+      yearField.appendChild(opt);
+    });
+
+    yearField.addEventListener("change", () => {
+      makeField.innerHTML = "";
+      modelField.innerHTML = "";
+      trimField.innerHTML = "";
+      Object.keys(carData[yearField.value]).forEach(make => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = make;
+        makeField.appendChild(opt);
+      });
+      makeField.style.display = "block";
+    });
+
+    makeField.addEventListener("change", () => {
+      modelField.innerHTML = "";
+      trimField.innerHTML = "";
+      Object.keys(carData[yearField.value][makeField.value]).forEach(model => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = model;
+        modelField.appendChild(opt);
+      });
+      modelField.style.display = "block";
+    });
+
+    modelField.addEventListener("change", () => {
+      trimField.innerHTML = "";
+      carData[yearField.value][makeField.value][modelField.value].forEach(trim => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = trim;
+        trimField.appendChild(opt);
+      });
+      trimField.style.display = "block";
+    });
+
+    const targetInput = form.querySelector("input[placeholder*='year, make, and model']");
+    if (targetInput) {
+      targetInput.style.display = "none";
+      targetInput.parentNode.insertBefore(yearField, targetInput);
+      targetInput.parentNode.insertBefore(makeField, targetInput);
+      targetInput.parentNode.insertBefore(modelField, targetInput);
+      targetInput.parentNode.insertBefore(trimField, targetInput);
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const carData = {
+    "2020": {
+      "Toyota": {
+        "Camry": ["L", "LE", "SE", "XSE", "XLE"],
+        "Corolla": ["L", "LE", "XLE", "SE", "XSE"],
+        "RAV4": ["LE", "XLE", "Adventure", "TRD Off-Road"]
+      },
+      "Ford": {
+        "Fusion": ["S", "SE", "Titanium", "Energi"],
+        "Escape": ["S", "SE", "SEL", "Titanium"],
+        "Mustang": ["EcoBoost", "GT", "Bullitt", "Shelby GT500"]
+      },
+      "Honda": {
+        "Civic": ["LX", "Sport", "EX", "Touring"],
+        "Accord": ["LX", "Sport", "EX-L", "Touring"],
+        "CR-V": ["LX", "EX", "EX-L", "Touring"]
+      },
+      "Chevrolet": {
+        "Malibu": ["L", "LS", "RS", "Premier"],
+        "Equinox": ["L", "LS", "LT", "Premier"],
+        "Silverado": ["Work Truck", "Custom", "LT", "RST"]
+      },
+      "Nissan": {
+        "Altima": ["S", "SV", "SL", "SR", "Platinum"],
+        "Sentra": ["S", "SV", "SR"],
+        "Rogue": ["S", "SV", "SL", "Platinum"]
+      },
+      "BMW": {
+        "3 Series": ["330i", "330e", "M340i"],
+        "5 Series": ["530i", "540i", "M550i"]
+      },
+      "Mercedes": {
+        "C-Class": ["C300", "C300 4MATIC", "AMG C43"],
+        "E-Class": ["E350", "E450", "AMG E53"]
+      },
+      "Hyundai": {
+        "Elantra": ["SE", "SEL", "N Line", "Limited"],
+        "Sonata": ["SE", "SEL", "Limited", "N Line"]
+      },
+      "Mazda": {
+        "Mazda3": ["2.5 S", "Select", "Preferred", "Premium"],
+        "CX-5": ["Sport", "Touring", "Grand Touring"]
+      },
+      "Dodge": {
+        "Charger": ["SXT", "GT", "R/T", "Scat Pack"],
+        "Durango": ["SXT", "GT", "R/T", "Citadel"]
+      }
+    }
+  };
+
+  document.querySelectorAll(".form-card").forEach(form => {
+    const yearField = document.createElement("select");
+    const makeField = document.createElement("select");
+    const modelField = document.createElement("select");
+    const trimField = document.createElement("select");
+    [yearField, makeField, modelField, trimField].forEach(el => {
+      el.className = "input-field step-field";
+      el.style.display = "none";
+    });
+
+    Object.keys(carData).forEach(year => {
+      const opt = document.createElement("option");
+      opt.value = opt.textContent = year;
+      yearField.appendChild(opt);
+    });
+
+    yearField.addEventListener("change", () => {
+      makeField.innerHTML = "";
+      modelField.innerHTML = "";
+      trimField.innerHTML = "";
+      Object.keys(carData[yearField.value]).forEach(make => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = make;
+        makeField.appendChild(opt);
+      });
+      makeField.style.display = "block";
+    });
+
+    makeField.addEventListener("change", () => {
+      modelField.innerHTML = "";
+      trimField.innerHTML = "";
+      Object.keys(carData[yearField.value][makeField.value]).forEach(model => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = model;
+        modelField.appendChild(opt);
+      });
+      modelField.style.display = "block";
+    });
+
+    modelField.addEventListener("change", () => {
+      trimField.innerHTML = "";
+      carData[yearField.value][makeField.value][modelField.value].forEach(trim => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = trim;
+        trimField.appendChild(opt);
+      });
+      trimField.style.display = "block";
+    });
+
+    const targetInput = form.querySelector("input[placeholder*='year, make, and model']");
+    if (targetInput) {
+      targetInput.style.display = "none";
+      targetInput.parentNode.insertBefore(yearField, targetInput);
+      targetInput.parentNode.insertBefore(makeField, targetInput);
+      targetInput.parentNode.insertBefore(modelField, targetInput);
+      targetInput.parentNode.insertBefore(trimField, targetInput);
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function () {
+  const modernData = {
+    "2020": {
+      "Toyota": {
+        "Camry": ["L", "LE", "SE", "XSE", "XLE"],
+        "Corolla": ["L", "LE", "XLE", "SE", "XSE"],
+        "RAV4": ["LE", "XLE", "Adventure", "TRD Off-Road"]
+      },
+      "Ford": {
+        "Fusion": ["S", "SE", "Titanium", "Energi"],
+        "Escape": ["S", "SE", "SEL", "Titanium"],
+        "Mustang": ["EcoBoost", "GT", "Bullitt", "Shelby GT500"]
+      },
+      "Honda": {
+        "Civic": ["LX", "Sport", "EX", "Touring"],
+        "Accord": ["LX", "Sport", "EX-L", "Touring"],
+        "CR-V": ["LX", "EX", "EX-L", "Touring"]
+      }
+    }
+  };
+
+  const makes = ["Toyota", "Ford", "Chevrolet", "Honda", "Nissan"];
+  const defaultModels = ["Model A", "Model B", "Model C"];
+  const defaultTrims = ["Base", "Sport", "Luxury"];
+
+  const fullCarData = {};
+  for (let year = 1990; year <= 2025; year++) {
+    if (modernData[year]) {
+      fullCarData[year] = modernData[year];
+    } else {
+      fullCarData[year] = {};
+      makes.forEach(make => {
+        fullCarData[year][make] = {};
+        defaultModels.forEach(model => {
+          fullCarData[year][make][model] = defaultTrims;
+        });
+      });
+    }
+  }
+
+  document.querySelectorAll(".form-card").forEach(form => {
+    const yearField = document.createElement("select");
+    const makeField = document.createElement("select");
+    const modelField = document.createElement("select");
+    const trimField = document.createElement("select");
+
+    [yearField, makeField, modelField, trimField].forEach(el => {
+      el.className = "input-field step-field";
+      el.style.display = "none";
+      el.style.border = "2px solid #ccc";
+      el.style.borderRadius = "12px";
+      el.style.margin = "1rem auto";
+      el.style.padding = "0.75rem";
+      el.style.fontSize = "1rem";
+      el.style.width = "90%";
+      el.style.boxShadow = "0 2px 5px rgba(0,0,0,0.1)";
+    });
+
+    Object.keys(fullCarData).forEach(year => {
+      const opt = document.createElement("option");
+      opt.value = opt.textContent = year;
+      yearField.appendChild(opt);
+    });
+
+    yearField.addEventListener("change", () => {
+      makeField.innerHTML = "";
+      modelField.innerHTML = "";
+      trimField.innerHTML = "";
+      Object.keys(fullCarData[yearField.value]).forEach(make => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = make;
+        makeField.appendChild(opt);
+      });
+      makeField.style.display = "block";
+    });
+
+    makeField.addEventListener("change", () => {
+      modelField.innerHTML = "";
+      trimField.innerHTML = "";
+      Object.keys(fullCarData[yearField.value][makeField.value]).forEach(model => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = model;
+        modelField.appendChild(opt);
+      });
+      modelField.style.display = "block";
+    });
+
+    modelField.addEventListener("change", () => {
+      trimField.innerHTML = "";
+      fullCarData[yearField.value][makeField.value][modelField.value].forEach(trim => {
+        const opt = document.createElement("option");
+        opt.value = opt.textContent = trim;
+        trimField.appendChild(opt);
+      });
+      trimField.style.display = "block";
+    });
+
+    const targetInput = form.querySelector("input[placeholder*='year, make, and model']");
+    if (targetInput) {
+      targetInput.style.display = "none";
+      targetInput.parentNode.insertBefore(yearField, targetInput);
+      targetInput.parentNode.insertBefore(makeField, targetInput);
+      targetInput.parentNode.insertBefore(modelField, targetInput);
+      targetInput.parentNode.insertBefore(trimField, targetInput);
+    }
+  });
+});
+</script><script>
+document.querySelectorAll(".start-over-button").forEach(button => {
+  button.addEventListener("click", () => {
+    const form = button.closest(".form-card");
+    const steps = form.querySelectorAll(".step-field");
+    steps.forEach((step, i) => step.style.display = i === 0 ? "block" : "none");
+
+    form.querySelector(".submit-button").style.display = "none";
+    form.querySelector(".next-button-step").style.display = "inline-block";
+    form.querySelector(".back-button").style.display = "none";
+  });
+});
+</script>
+<script>
+document.querySelectorAll('.form-card').forEach(form => {
+  const steps = Array.from(form.querySelectorAll('.step-field'));
+  let index = 0;
+
+  function showStep(i) {
+    steps.forEach((s, j) => s.style.display = j === i ? 'block' : 'none');
+  }
+
+  function nextStep() {
+    if (index < steps.length - 1) {
+      index++;
+      showStep(index);
+      updateNav();
+    }
+  }
+
+  function updateNav() {
+    const backBtn = form.querySelector('.back-button');
+    const nextBtn = form.querySelector('.next-button-step');
+    const submitBtn = form.querySelector('.submit-button');
+    if (backBtn) backBtn.style.display = index > 0 ? 'inline-block' : 'none';
+    if (nextBtn) nextBtn.style.display = 'none'; // hide next
+    if (submitBtn) submitBtn.style.display = index === steps.length - 1 ? 'inline-block' : 'none';
+  }
+
+  steps.forEach((input, i) => {
+    input.addEventListener('blur', () => {
+      if (input.value.trim() !== '') {
+        if (i === index) nextStep();
+      }
+    });
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && input.value.trim() !== '') {
+        if (i === index) {
+          e.preventDefault();
+          nextStep();
+        }
+      }
+    });
+  });
+
+  showStep(index);
+  updateNav();
+});
+</script>
+<script>
+function startSpeech(button) {
+  const input = button.previousElementSibling;
+  if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+    alert("Speech recognition not supported in this browser.");
+    return;
+  }
+
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+  recognition.lang = "en-US";
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    input.value = transcript;
+    input.dispatchEvent(new Event("blur")); // trigger auto-next
+  };
+
+  recognition.start();
+}
+</script>
+<script>
+document.querySelectorAll(".form-card").forEach((form, formIndex) => {
+    const steps = form.querySelectorAll(".step-field");
+    const nextBtn = form.querySelector(".next-button-step");
+    const backBtn = form.querySelector(".back-button");
+    const submitBtn = form.querySelector(".submit-button");
+    const quitBtn = form.querySelector(".quit-button");
+    const startOverBtn = form.querySelector(".start-over-button");
+    const thankYou = form.querySelector(".thank-you");
+
+    let index = 0;
+
+    function updateStepDisplay() {
+        steps.forEach((step, i) => {
+            step.style.display = i === index ? "block" : "none";
+        });
+        nextBtn.style.display = index < steps.length - 1 ? "inline-block" : "none";
+        backBtn.style.display = index > 0 ? "inline-block" : "none";
+        submitBtn.style.display = index === steps.length - 1 ? "inline-block" : "none";
+    }
+
+    updateStepDisplay();
+
+    if (nextBtn) {
+        nextBtn.onclick = () => {
+            const currentInput = steps[index].querySelector("input, select, textarea");
+            if (currentInput && currentInput.required && !currentInput.value.trim()) {
+                alert("Please complete this step.");
+                return;
+            }
+            index++;
+            updateStepDisplay();
+        };
+    }
+
+    if (backBtn) {
+        backBtn.onclick = () => {
+            if (index > 0) index--;
+            updateStepDisplay();
+        };
+    }
+
+    if (submitBtn) {
+        submitBtn.onclick = () => {
+            // Generate fake Offer ID
+            const offerId = "RC-" + Math.floor(100000 + Math.random() * 900000);
+            if (thankYou) {
+                thankYou.textContent = "Thank you! Your Offer ID is: " + offerId;
+                thankYou.style.display = "block";
+            }
+            // Collect data and simulate POST
+            const inputs = form.querySelectorAll("input, select, textarea");
+            const data = {};
+            inputs.forEach(input => {
+                if (input.name || input.placeholder) {
+                    data[input.name || input.placeholder] = input.value;
+                }
+            });
+            console.log("Form " + formIndex + " submitted:", data);
+            alert("Your offer was submitted. Thank you!");
+        };
+    }
+
+    if (quitBtn) {
+        quitBtn.onclick = () => {
+            if (confirm("Are you sure you want to quit this offer?")) {
+                form.style.display = "none";
+                document.getElementById("offerMenu").style.display = "block";
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+        };
+    }
+
+    if (startOverBtn) {
+        startOverBtn.onclick = () => {
+            if (confirm("Start over and clear all answers?")) {
+                steps.forEach((step, i) => {
+                    step.style.display = i === 0 ? "block" : "none";
+                    const input = step.querySelector("input, select, textarea");
+                    if (input) input.value = "";
+                });
+                index = 0;
+                thankYou.style.display = "none";
+                updateStepDisplay();
+                window.scrollTo({ top: form.offsetTop - 40, behavior: "smooth" });
+            }
+        };
+    }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const makes = ["Toyota", "Honda", "Ford", "Chevrolet", "Nissan", "BMW", "Mercedes", "Hyundai", "Kia", "Volkswagen"];
+  const models = ["Accord", "Civic", "Camry", "Corolla", "F-150", "Altima", "Model 3", "Elantra", "CX-5", "Golf"];
+
+  function addAutocomplete(inputElement, dataList) {
+    inputElement.addEventListener("input", function() {
+      const value = this.value.toLowerCase();
+      const filtered = dataList.filter(item => item.toLowerCase().startsWith(value));
+      const suggestionBoxId = this.id + "-suggestions";
+      let suggestionBox = document.getElementById(suggestionBoxId);
+
+      if (!suggestionBox) {
+        suggestionBox = document.createElement("div");
+        suggestionBox.id = suggestionBoxId;
+        suggestionBox.className = "autocomplete-suggestions";
+        this.parentNode.appendChild(suggestionBox);
+      }
+
+      suggestionBox.innerHTML = "";
+      suggestionBox.style.border = "1px solid #ccc";
+      suggestionBox.style.position = "absolute";
+      suggestionBox.style.background = "#fff";
+      suggestionBox.style.zIndex = "1000";
+      suggestionBox.style.width = this.offsetWidth + "px";
+
+      filtered.forEach(item => {
+        const option = document.createElement("div");
+        option.textContent = item;
+        option.style.padding = "0.5rem";
+        option.style.cursor = "pointer";
+        option.addEventListener("click", () => {
+          inputElement.value = item;
+          suggestionBox.innerHTML = "";
+        });
+        suggestionBox.appendChild(option);
+      });
+
+      if (filtered.length === 0) {
+        suggestionBox.innerHTML = "";
+      }
+    });
+
+    inputElement.addEventListener("blur", function() {
+      setTimeout(() => {
+        const suggestionBox = document.getElementById(this.id + "-suggestions");
+        if (suggestionBox) suggestionBox.innerHTML = "";
+      }, 200);
+    });
+  }
+
+  document.querySelectorAll("input[placeholder='What is your vehicle make?']").forEach((input, index) => {
+    input.id = "make-field-" + index;
+    addAutocomplete(input, makes);
+  });
+
+  document.querySelectorAll("input[placeholder='What is your vehicle model?']").forEach((input, index) => {
+    input.id = "model-field-" + index;
+    addAutocomplete(input, models);
+  });
+});
+</script>
+<style>
+.autocomplete-suggestions {
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const carData = {
+    "2023": {
+      "Toyota": ["Camry", "Corolla", "RAV4"],
+      "Honda": ["Accord", "Civic", "CR-V"],
+      "Ford": ["F-150", "Escape", "Explorer"]
+    },
+    "2022": {
+      "Toyota": ["Yaris", "Highlander"],
+      "Honda": ["Pilot", "Insight"],
+      "Chevrolet": ["Silverado", "Malibu"]
+    },
+    "2021": {
+      "Nissan": ["Altima", "Sentra"],
+      "Hyundai": ["Elantra", "Tucson"]
+    }
+  };
+
+  function populateSelect(selectElem, options) {
+    selectElem.innerHTML = "";
+    options.forEach(opt => {
+      const o = document.createElement("option");
+      o.value = opt;
+      o.textContent = opt;
+      selectElem.appendChild(o);
+    });
+  }
+
+  document.querySelectorAll(".form-card").forEach((form, formIndex) => {
+    const yearField = form.querySelector("select[placeholder='What is your vehicle year?']");
+    const makeField = form.querySelector("select[placeholder='What is your vehicle make?']");
+    const modelField = form.querySelector("select[placeholder='What is your vehicle model?']");
+
+    if (yearField && makeField && modelField) {
+      yearField.addEventListener("change", () => {
+        const selectedYear = yearField.value;
+        const makes = carData[selectedYear] ? Object.keys(carData[selectedYear]) : [];
+        populateSelect(makeField, makes);
+        populateSelect(modelField, []);
+      });
+
+      makeField.addEventListener("change", () => {
+        const selectedYear = yearField.value;
+        const selectedMake = makeField.value;
+        const models = carData[selectedYear] && carData[selectedYear][selectedMake] ? carData[selectedYear][selectedMake] : [];
+        populateSelect(modelField, models);
+      });
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".submit-button").forEach((submitBtn, index) => {
+    submitBtn.addEventListener("click", () => {
+      const form = submitBtn.closest(".form-card");
+      const thankYou = form.querySelector(".thank-you");
+      const now = new Date();
+      const id = "RC-" +
+        now.getFullYear().toString().slice(-2) +
+        ("0" + (now.getMonth() + 1)).slice(-2) +
+        ("0" + now.getDate()).slice(-2) +
+        ("0" + now.getHours()).slice(-2) +
+        ("0" + now.getMinutes()).slice(-2) +
+        ("0" + now.getSeconds()).slice(-2);
+
+      thankYou.innerHTML = "Thank you! Your Offer ID is: <strong>" + id + "</strong>";
+      thankYou.style.display = "block";
+
+      const sound = document.getElementById("submitSound");
+      if (sound) sound.play();
+
+      // Confetti (simple)
+      const confetti = document.createElement("div");
+      confetti.innerHTML = "$$$";
+      confetti.style.position = "fixed";
+      confetti.style.top = "10%";
+      confetti.style.left = "50%";
+      confetti.style.transform = "translateX(-50%)";
+      confetti.style.fontSize = "2rem";
+      confetti.style.animation = "drop 1.5s ease-out forwards";
+      confetti.style.zIndex = "9999";
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 1500);
+    });
+  });
+});
+</script>
+<style>
+@keyframes drop {
+  0% { transform: translateY(-100px) translateX(-50%) rotate(0); opacity: 1; }
+  100% { transform: translateY(600px) translateX(-50%) rotate(360deg); opacity: 0; }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Create and attach copy buttons when Offer ID is shown
+  document.querySelectorAll(".submit-button").forEach((submitBtn, index) => {
+    submitBtn.addEventListener("click", () => {
+      const form = submitBtn.closest(".form-card");
+      const thankYou = form.querySelector(".thank-you");
+      const idMatch = thankYou.innerText.match(/RC-[0-9]+/);
+      if (idMatch) {
+        const offerId = idMatch[0];
+
+        // Remove existing button if any
+        const existingBtn = thankYou.querySelector(".copy-button");
+        if (existingBtn) existingBtn.remove();
+
+        const copyBtn = document.createElement("button");
+        copyBtn.className = "copy-button";
+        copyBtn.innerHTML = "Copy Offer ID";
+        copyBtn.style.marginTop = "0.5rem";
+        copyBtn.style.padding = "0.5rem 1rem";
+        copyBtn.style.borderRadius = "12px";
+        copyBtn.style.border = "none";
+        copyBtn.style.background = "linear-gradient(to right, #ff3c3c, #f9d423)";
+        copyBtn.style.color = "#000";
+        copyBtn.style.fontWeight = "bold";
+        copyBtn.style.cursor = "pointer";
+
+        copyBtn.onclick = () => {
+          navigator.clipboard.writeText(offerId).then(() => {
+            copyBtn.innerText = "Copied!";
+            setTimeout(() => copyBtn.innerText = "Copy Offer ID", 2000);
+          });
+        };
+
+        thankYou.appendChild(copyBtn);
+      }
+    });
+  });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".submit-button").forEach((submitBtn, index) => {
+    submitBtn.addEventListener("click", () => {
+      const form = submitBtn.closest(".form-card");
+      const thankYou = form.querySelector(".thank-you");
+      const match = thankYou.innerText.match(/RC-[0-9]+/);
+      if (match) {
+        const offerId = match[0];
+        let stored = JSON.parse(localStorage.getItem("recarraOffers") || "[]");
+        if (!stored.includes(offerId)) {
+          stored.push(offerId);
+          localStorage.setItem("recarraOffers", JSON.stringify(stored));
+        }
+      }
+    });
+  });
+
+  // Display previously saved Offer IDs (optional future placement)
+  window.showStoredOffers = function(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const offers = JSON.parse(localStorage.getItem("recarraOffers") || "[]");
+    container.innerHTML = "<h3>Previous Offer IDs:</h3>";
+    offers.forEach(id => {
+      const p = document.createElement("p");
+      p.textContent = id;
+      container.appendChild(p);
+    });
+  };
+});
+</script>
+<script>
+  window.addEventListener("load", function () {
+    setTimeout(() => {
+      document.getElementById("splash-screen").style.display = "none";
+    }, 2000);
+  });
+</script>
+<script>
+function showCelebration() {
+  const emojis = ["🎉", "💰", "🚗", "✨", "🏆", "🌟", "🔥"];
+  const container = document.getElementById("emojiRain");
+  container.style.display = "block";
+  container.innerHTML = "";
+  for (let i = 0; i < 80; i++) {
+    const e = document.createElement("div");
+    e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    e.style.position = "absolute";
+    e.style.left = Math.random() * 100 + "vw";
+    e.style.top = Math.random() * -100 + "px";
+    e.style.animation = "drop 2s linear infinite";
+    container.appendChild(e);
+  }
+  setTimeout(() => container.style.display = "none", 3000);
+}
+document.querySelectorAll(".submit-button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.getElementById("submitSuccess").play();
+    showCelebration();
+  });
+});
+</script>
+<style>
+@keyframes drop {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+</style>
+<script>
+let secondsLeft = 180;
+const countdownEl = document.getElementById("countdown");
+const skipBtn = document.getElementById("skipBtn");
+let userStarted = false;
+
+function updateCountdown() {
+  if (secondsLeft <= 0) {
+    if (!userStarted) {
+      document.getElementById("welcome-screen").style.display = "none";
+      document.getElementById("form0").style.display = "block";
+      window.scrollTo({ top: document.getElementById("form0").offsetTop - 20, behavior: "smooth" });
+    }
+  } else {
+    countdownEl.textContent = `Redirecting in ${secondsLeft} seconds...`;
+    secondsLeft--;
+    setTimeout(updateCountdown, 1000);
+  }
+}
+
+skipBtn.addEventListener("click", function () {
+  userStarted = true;
+  document.getElementById("welcome-screen").style.display = "none";
+  document.getElementById("form0").style.display = "block";
+  window.scrollTo({ top: document.getElementById("form0").offsetTop - 20, behavior: "smooth" });
+});
+
+updateCountdown();
+</script>
+<script>
+let seconds = 180;
+function updateCountdown() {
+  const countdown = document.getElementById("countdown");
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  countdown.textContent = `Redirecting in ${mins}:${secs.toString().padStart(2, '0')}...`;
+  if (seconds <= 0) {
+    document.getElementById("welcome-screen").style.display = "none";
+    const form = document.getElementById("form0");
+    if (form) {
+      form.style.display = "block";
+      window.scrollTo({ top: form.offsetTop - 20, behavior: "smooth" });
+    }
+  } else {
+    seconds--;
+    setTimeout(updateCountdown, 1000);
+  }
+}
+updateCountdown();
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const yearField = document.querySelector("#form0 select");
+  const runningField = [...document.querySelectorAll("#form0 select")].find(sel => sel.innerText.includes("running"));
+  const titleField = [...document.querySelectorAll("#form0 select")].find(sel => sel.innerText.includes("title"));
+  const damageField = [...document.querySelectorAll("#form0 select")].find(sel => sel.innerText.includes("condition"));
+  const output = document.getElementById("estimated-offer");
+
+  function getEstimate() {
+    let base = 0;
+    const year = yearField?.value || "";
+    const running = runningField?.value || "";
+    const title = titleField?.value || "";
+    const damage = damageField?.value || "";
+
+    const y = parseInt(year);
+    if (y >= 2020) base = 888;
+    else if (y >= 2015) base = 700;
+    else if (y >= 2010) base = 500;
+    else if (y >= 2000) base = 300;
+    else if (y >= 1990) base = 150;
+    else base = 75;
+
+    if (running === "no") base -= 100;
+    if (title === "salvage" || title === "lost") base -= 50;
+    if (damage === "major" || damage === "totaled") base -= 75;
+
+    if (base > 888) base = 888;
+    if (base < 50) base = 50;
+
+    const max = base + 100 > 888 ? 888 : base + 100;
+    output.textContent = `Estimated Offer: $${base} – $${max}`;
+    output.style.display = "block";
+  }
+
+  [yearField, runningField, titleField, damageField].forEach(field => {
+    if (field) field.addEventListener("change", getEstimate);
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const estimateBox = document.getElementById("estimated-offer");
+  const upgradeBtn = document.getElementById("upgrade-offer-btn");
+  const upgradeFields = document.getElementById("guaranteed-offer-fields");
+
+  const showBtn = () => {
+    if (estimateBox && estimateBox.style.display === "block") {
+      upgradeBtn.style.display = "block";
+    }
+  };
+
+  setInterval(showBtn, 1000); // check once per second if offer has appeared
+
+  upgradeBtn?.addEventListener("click", () => {
+    upgradeFields.style.display = "block";
+    upgradeBtn.style.display = "none";
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const submitBtn = document.querySelector(".submit-button");
+  const thankYouBox = document.querySelector(".thank-you");
+
+  submitBtn?.addEventListener("click", () => {
+    const name = document.querySelector('input[placeholder*="Full Name"]');
+    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
+    const email = document.querySelector('input[placeholder*="Email Address"]');
+
+    if (!name.value || !phone.value || !email.value) {
+      [name, phone, email].forEach(field => {
+        if (!field.value) {
+          field.style.borderColor = "red";
+          field.style.boxShadow = "0 0 6px red";
+        } else {
+          field.style.borderColor = "";
+          field.style.boxShadow = "";
+        }
+      });
+      return;
+    }
+
+    // Success: Show thank you, play sound, animate
+    const offerAmount = document.getElementById("estimated-offer")?.textContent || "$0";
+    thankYouBox.innerHTML = `<div class='thank-you glow'>Thank you! Your Offer ID is: RC-${Math.floor(Math.random()*900000+100000)}<br>${offerAmount}</div>`;
+    thankYouBox.style.display = "block";
+
+    const audio = document.getElementById("submitSuccess") || document.getElementById("submitSound");
+    audio?.play();
+
+    // Optional: money rain animation
+    const rain = document.getElementById("moneyRain");
+    if (rain) {
+      rain.style.display = "block";
+      setTimeout(() => { rain.style.display = "none"; }, 2500);
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const submitBtn = document.querySelector(".submit-button");
+  const thankYouBox = document.querySelector(".thank-you");
+
+  submitBtn?.addEventListener("click", () => {
+    const name = document.querySelector('input[placeholder*="Full Name"]');
+    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
+    const email = document.querySelector('input[placeholder*="Email Address"]');
+
+    if (!name.value || !phone.value || !email.value) {
+      [name, phone, email].forEach(field => {
+        if (!field.value) {
+          field.style.borderColor = "red";
+          field.style.boxShadow = "0 0 6px red";
+        } else {
+          field.style.borderColor = "";
+          field.style.boxShadow = "";
+        }
+      });
+      return;
+    }
+
+    const offerAmount = document.getElementById("estimated-offer")?.textContent || "$0";
+    thankYouBox.innerHTML = `<div class='thank-you glow'>Thank you! Your Offer ID is: RC-${Math.floor(Math.random()*900000+100000)}<br>${offerAmount}</div>`;
+    thankYouBox.style.display = "block";
+
+    const audio = document.getElementById("submitSuccess") || document.getElementById("submitSound");
+    audio?.play();
+
+    const rain = document.getElementById("moneyRain");
+    if (rain) {
+      rain.style.display = "block";
+      setTimeout(() => { rain.style.display = "none"; }, 2500);
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const submitBtn = document.querySelector(".submit-button");
+
+  submitBtn?.addEventListener("click", () => {
+    const name = document.querySelector('input[placeholder*="Full Name"]');
+    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
+    const email = document.querySelector('input[placeholder*="Email Address"]');
+
+    if (!name?.value || !phone?.value || !email?.value) {
+      [name, phone, email].forEach(field => {
+        if (!field?.value) {
+          field.style.borderColor = "red";
+          field.style.boxShadow = "0 0 6px red";
+        } else {
+          field.style.borderColor = "";
+          field.style.boxShadow = "";
+        }
+      });
+      return;
+    }
+
+    // Show thank you message
+    let thankYou = document.createElement("div");
+    thankYou.innerHTML = "<div class='thank-you glow' style='margin-top:2rem; text-align:center; font-weight:bold; font-size:1.2rem;'>Thank you! Your Offer ID is: RC-" + Math.floor(Math.random()*900000+100000) + "</div>";
+    submitBtn.parentElement.appendChild(thankYou);
+
+    const sound = document.getElementById("submitSound");
+    if (sound) sound.play();
+  });
+});
+</script><script>
+function confettiEffect() {
+  const canvas = document.getElementById('confetti-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let pieces = Array.from({length: 100}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 6 + 4,
+    d: Math.random() * 50,
+    color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+    tilt: Math.random() * 10 - 10
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.beginPath();
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x, p.y, p.r, p.r);
+    });
+    update();
+  }
+
+  function update() {
+    pieces.forEach(p => {
+      p.y += Math.cos(p.d) + 1 + p.r / 2;
+      p.x += Math.sin(p.d);
+      if (p.y > canvas.height) {
+        p.x = Math.random() * canvas.width;
+        p.y = -10;
+      }
+    });
+  }
+
+  function loop() {
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  loop();
+}
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const submitBtn = document.querySelector(".submit-button");
+  const thankYouBox = document.querySelector(".thank-you");
+  const formSection = document.getElementById("form0");
+
+  submitBtn?.addEventListener("click", () => {
+    const name = document.querySelector('input[placeholder*="Full Name"]');
+    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
+    const email = document.querySelector('input[placeholder*="Email Address"]');
+
+    if (!name?.value || !phone?.value || !email?.value) {
+      [name, phone, email].forEach(field => {
+        if (!field?.value) {
+          field.style.borderColor = "red";
+          field.style.boxShadow = "0 0 6px red";
+        } else {
+          field.style.borderColor = "";
+          field.style.boxShadow = "";
+        }
+      });
+      return;
+    }
+
+    // Hide the form
+    if (formSection) formSection.style.display = "none";
+
+    // Generate and show thank-you message
+    const offerId = "RC-" + Math.floor(Math.random() * 900000 + 100000);
+    thankYouBox.innerHTML = `<div class='thank-you glow' style='margin-top:2rem; text-align:center; font-weight:bold; font-size:1.2rem;'>
+      Thank you! Your offer request has been received.<br>Your Offer ID is: <strong>${offerId}</strong></div>`;
+    thankYouBox.style.display = "block";
+    thankYouBox.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // Voice output
+    const msg = new SpeechSynthesisUtterance(`Thank you. Your offer request has been received. We will contact you shortly. Your Offer ID is ${offerId.replace('-', ' ')}`);
+    msg.rate = 0.95;
+    msg.pitch = 1.1;
+    speechSynthesis.speak(msg);
+
+    // Confetti
+    const rain = document.getElementById("moneyRain");
+    if (rain) {
+      rain.style.display = "block";
+      setTimeout(() => { rain.style.display = "none"; }, 2500);
+    }
+  });
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", function() {
+  const splash = document.getElementById("splash-screen");
+
+  let count = 0;
+  const maxCars = 20;
+  const carImages = ['https://cdn-icons-png.flaticon.com/512/744/744465.png', 'https://cdn-icons-png.flaticon.com/512/744/744466.png', 'https://cdn-icons-png.flaticon.com/512/744/744467.png', 'https://cdn-icons-png.flaticon.com/512/744/744469.png', 'https://cdn-icons-png.flaticon.com/512/744/744468.png'];
+
+  const dropCar = () => {
+    const car = document.createElement("img");
+    car.src = carImages[Math.floor(Math.random() * carImages.length)];
+    car.style.position = "absolute";
+    car.style.left = Math.random() * 80 + 10 + "%";
+    car.style.top = "-100px";
+    car.style.width = Math.floor(Math.random() * 40 + 60) + "px";
+    car.style.zIndex = 9999;
+    car.style.opacity = 0.9;
+    car.style.transform = `rotate(${Math.random() * 40 - 20}deg)`;
+    car.style.transition = "top 2s ease-out, transform 2s ease-out";
+    splash.appendChild(car);
+
+    setTimeout(() => {
+      car.style.top = "80%";
+      car.style.transform += " scale(1.1)";
+    }, 50);
+
+    setTimeout(() => {
+      car.remove();
+    }, 3500);
+  };
+
+  const interval = setInterval(() => {
+    if (count >= maxCars) {
+      clearInterval(interval);
+      setTimeout(() => {
+        splash.style.display = "none";
+      }, 1000);
+    } else {
+      dropCar();
+      count++;
+    }
+  }, 250);
+});
+</script></body>
+</html>
