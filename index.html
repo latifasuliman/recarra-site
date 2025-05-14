@@ -2046,55 +2046,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script><script>
-document.addEventListener("DOMContentLoaded", () => {
-  const submitBtn = document.querySelector(".submit-button");
-  let thankYouBox = document.querySelector(".thank-you");
-
-  if (!thankYouBox) {
-    thankYouBox = document.createElement("div");
-    thankYouBox.className = "thank-you";
-    thankYouBox.style = "margin-top:2rem; text-align:center; font-weight:bold; font-size:1.2rem;";
-    document.body.appendChild(thankYouBox);
-  }
-
-  submitBtn?.addEventListener("click", () => {
-    const name = document.querySelector('input[placeholder*="Full Name"]');
-    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
-    const email = document.querySelector('input[placeholder*="Email Address"]');
-
-    if (!name.value || !phone.value || !email.value) {
-      [name, phone, email].forEach(field => {
-        if (!field.value) {
-          field.style.borderColor = "red";
-          field.style.boxShadow = "0 0 6px red";
-        } else {
-          field.style.borderColor = "";
-          field.style.boxShadow = "";
-        }
-      });
-      return;
-    }
-
-    thankYouBox.innerHTML = "<div class='glow'>Thank you! Your offer request has been received.</div>";
-    thankYouBox.scrollIntoView({ behavior: "smooth", block: "center" });
-
-    const sound = document.getElementById("submitSound");
-    if (sound) sound.play();
-
-    // Add confetti burst
-    const confetti = document.createElement("div");
-    confetti.style = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 99999;";
-    confetti.innerHTML = `<canvas id="confetti-canvas" style="width:100%;height:100%;"></canvas>`;
-    document.body.appendChild(confetti);
-
-    setTimeout(() => confetti.remove(), 2500);
-
-    if (typeof confettiEffect === "function") {
-      confettiEffect(); // assume global confetti function exists
-    }
-  });
-});
-</script><script>
 function confettiEffect() {
   const canvas = document.getElementById('confetti-canvas');
   if (!canvas) return;
@@ -2191,6 +2142,54 @@ document.addEventListener("DOMContentLoaded", function() {
       count++;
     }
   }, 250);
+});
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const submitBtn = document.querySelector(".submit-button");
+  const thankYouBox = document.querySelector(".thank-you");
+  const formSection = document.getElementById("form0");
+
+  submitBtn?.addEventListener("click", () => {
+    const name = document.querySelector('input[placeholder*="Full Name"]');
+    const phone = document.querySelector('input[placeholder*="Mobile Number"]');
+    const email = document.querySelector('input[placeholder*="Email Address"]');
+
+    if (!name?.value || !phone?.value || !email?.value) {
+      [name, phone, email].forEach(field => {
+        if (!field?.value) {
+          field.style.borderColor = "red";
+          field.style.boxShadow = "0 0 6px red";
+        } else {
+          field.style.borderColor = "";
+          field.style.boxShadow = "";
+        }
+      });
+      return;
+    }
+
+    // Hide the form
+    if (formSection) formSection.style.display = "none";
+
+    // Generate and show thank-you message
+    const offerId = "RC-" + Math.floor(Math.random() * 900000 + 100000);
+    thankYouBox.innerHTML = `<div class='thank-you glow' style='margin-top:2rem; text-align:center; font-weight:bold; font-size:1.2rem;'>
+      Thank you! Your offer request has been received.<br>Your Offer ID is: <strong>${offerId}</strong></div>`;
+    thankYouBox.style.display = "block";
+    thankYouBox.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // Voice output
+    const msg = new SpeechSynthesisUtterance(`Thank you. Your offer request has been received. We will contact you shortly. Your Offer ID is ${offerId.replace('-', ' ')}`);
+    msg.rate = 0.95;
+    msg.pitch = 1.1;
+    speechSynthesis.speak(msg);
+
+    // Confetti
+    const rain = document.getElementById("moneyRain");
+    if (rain) {
+      rain.style.display = "block";
+      setTimeout(() => { rain.style.display = "none"; }, 2500);
+    }
+  });
 });
 </script></body>
 </html>
