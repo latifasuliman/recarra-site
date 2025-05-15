@@ -157,32 +157,22 @@
     </style>
 </head>
 <body>
-<div class="sticky-header">
-<h1>Recarra</h1>
-<span style="font-size:0.9rem; color:#444;">Trusted Car Offers</span>
-</div>
+
 <header>
 <div class="bonus-box">
-  <strong>Bonus Alert:</strong> Every 8th customer who submits a Recarra form (including Recarra Quick) will receive DOUBLE the offer amount!
+<strong>Bonus Alert:</strong> Every 8th customer who submits a Recarra form (including Recarra Quick) will receive DOUBLE the offer amount!
 </div>
 <h1>Recarra</h1>
 <p>Sell Your Car Instantly with Smart AI</p>
-</header>
-
-<input placeholder="License Plate Number" style="width:58%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;" type="text"/>
-<select style="width:30%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;">
+</header><form id="offerForm" onsubmit="event.preventDefault(); showThankYou();"><div class="sticky-header">
+<h1>Recarra</h1>
+<span style="font-size:0.9rem; color:#444;">Trusted Car Offers</span>
+</div><input placeholder="License Plate Number" style="width:58%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;" type="text"/><select style="width:30%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;">
 <option>State</option><option>TX</option><option>CA</option><option>FL</option><option>NY</option>
-</select>
-<input id="estimatorInput" oninput="estimateOffer(this.value)" placeholder="Type your car: e.g. 2015 Honda Accord" style="width:90%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;" type="text"/>
-<div id="offerEstimate" style="font-weight:bold; margin-top:0.3rem;"></div>
-
-</form></div>
- 
-    <select required="">
+</select><select required="">
 <option value="">What are you selling?</option>
 <option>Car</option><option>Truck</option><option>SUV</option><option>Van</option>
-</select>
-<select required=""><option value="">Year</option><option>2025</option>
+</select><select required=""><option value="">Year</option><option>2025</option>
 <option>2024</option>
 <option>2023</option>
 <option>2022</option>
@@ -216,54 +206,113 @@
 <option>1994</option>
 <option>1993</option>
 <option>1992</option>
-<option>1991</option></select>
-<input placeholder="Make" required="" type="text"/>
-<input placeholder="Model" required="" type="text"/>
-<select required=""><option value="">Does it start?</option><option>Yes</option><option>No</option></select>
-<select required=""><option value="">Do you have the title?</option><option>Clean</option><option>Salvage</option><option>No Title</option></select>
-<input placeholder="Mileage (approx.)" type="number"/>
-<div class="bonus-box">
+<option>1991</option></select><input placeholder="Make" required="" type="text"/><input placeholder="Model" required="" type="text"/><select required=""><option value="">Does it start?</option><option>Yes</option><option>No</option></select><select required=""><option value="">Do you have the title?</option><option>Clean</option><option>Salvage</option><option>No Title</option></select><input placeholder="Mileage (approx.)" type="number"/><div class="bonus-box">
 <strong>Pick-Up Today Bonus: +$100</strong><br/>
       Is your vehicle available for same-day pickup?
-    </div>
-<select><option value="">Ready for Pickup?</option><option>Yes</option><option>No</option><option>Maybe</option></select>
-<div class="bonus-box">
+    </div><select><option value="">Ready for Pickup?</option><option>Yes</option><option>No</option><option>Maybe</option></select><div class="bonus-box">
 <strong>Upload Vehicle Photos</strong><br/>
       Required for most accurate instant valuation
-    </div>
-<label>Front View</label>
-<input accept="image/*" required="" type="file"/>
-<label>Passenger Side</label>
-<input accept="image/*" required="" type="file"/>
-<label>Driver Side</label>
-<input accept="image/*" required="" type="file"/>
-<label>Trunk Side</label>
-<input accept="image/*" required="" type="file"/>
-<label>Front Seats</label>
-<input accept="image/*" required="" type="file"/>
-<label>Passenger Seats</label>
-<input accept="image/*" required="" type="file"/>
-<label>Dashboard (lit-up)</label>
-<input accept="image/*" required="" type="file"/>
-<label>Engine Compartment</label>
-<input accept="image/*" required="" type="file"/>
-<select><option value="">Tire Condition?</option><option>Good</option><option>Worn</option><option>Flat</option></select>
-<select><option value="">Any Leaks?</option><option>No</option><option>Oil</option><option>Coolant</option><option>Other</option></select>
-<select><option value="">Battery Condition?</option><option>Good</option><option>Dead</option><option>Unknown</option></select>
-<select><option value="">Do you have all keys?</option><option>Yes</option><option>No</option><option>Only Valet</option></select>
-<input placeholder="Full Name" required="" type="text"/>
-<input placeholder="Mobile Number (SMS)" required="" type="tel"/>
-<input placeholder="Email Address" required="" type="email"/>
-<div class="bonus-box">
+    </div><label>Front View</label><input accept="image/*" required="" type="file"/><label>Passenger Side</label><input accept="image/*" required="" type="file"/><label>Driver Side</label><input accept="image/*" required="" type="file"/><label>Trunk Side</label><input accept="image/*" required="" type="file"/><label>Front Seats</label><input accept="image/*" required="" type="file"/><label>Passenger Seats</label><input accept="image/*" required="" type="file"/><label>Dashboard (lit-up)</label><input accept="image/*" required="" type="file"/><label>Engine Compartment</label><input accept="image/*" required="" type="file"/><select><option value="">Tire Condition?</option><option>Good</option><option>Worn</option><option>Flat</option></select><select><option value="">Any Leaks?</option><option>No</option><option>Oil</option><option>Coolant</option><option>Other</option></select><select><option value="">Battery Condition?</option><option>Good</option><option>Dead</option><option>Unknown</option></select><select><option value="">Do you have all keys?</option><option>Yes</option><option>No</option><option>Only Valet</option></select><input placeholder="Full Name" required="" type="text"/><input placeholder="Mobile Number (SMS)" required="" type="tel"/><input placeholder="Email Address" required="" type="email"/><div class="bonus-box">
 <strong>Recarra VIP Referral Program</strong><br/>
       Earn $100 for each friend who submits using your VIP code.<br/>
       They also receive a $100 bonus!
-    </div>
-<input placeholder="VIP Referral Code (Optional)" type="text"/>
-
-<div id="liveFeed" style="margin-top: 2rem; font-weight: bold; font-size: 0.95rem; text-align: center; background: #fffbe6; padding: 1rem; border-top: 2px dashed #ffcc00;">
+    </div><input placeholder="VIP Referral Code (Optional)" type="text"/>
+<button class="submit-btn" type="submit">Submit My Offer</button><div id="liveFeed" style="margin-top: 2rem; font-weight: bold; font-size: 0.95rem; text-align: center; background: #fffbe6; padding: 1rem; border-top: 2px dashed #ffcc00;">
   Recent Offers: Toyota Camry $645
-</div>
+</div><div style="margin-top: 2rem; font-weight: bold; font-size: 0.95rem; text-align: center; background: #fffbe6; padding: 1rem; border-top: 2px dashed #ffcc00;">
+</div><div class="thank-you" id="thankYouMessage"></div><div class="leaderboard">
+<div>🔥 Top Referrers Today</div>
+<ul style="list-style:none; padding-left:0; margin-top:0.8rem;">
+<li>1. Jane D. – $600</li>
+<li>2. Omar R. – $400</li>
+<li>3. Lisa T. – $300</li>
+</ul>
+</div><div class="overlay" id="status">
+<button class="overlay-close" onclick="hideOverlay('status')">✖</button>
+<h2>Check Your Offer Status</h2>
+<p>Enter your Offer ID below to see updates.</p>
+<input id="offerInput" placeholder="Enter Offer ID..." style="padding:0.8rem; width:80%; max-width:400px; margin:1rem auto; border-radius:8px;" type="text"/>
+<div id="statusResult" style="margin-top:1rem; font-weight:bold;"></div><br/><button onclick="checkOfferStatus()" style="padding:0.7rem 1.2rem;background:#ffcc00;border:none;border-radius:8px;font-weight:bold;">Check Status</button></div><div class="overlay" id="guarantee">
+<button class="overlay-close" onclick="hideOverlay('guarantee')">✖</button>
+<h2>Our Guarantee</h2>
+<p>We honor our offers. The price you accept is the price we pay — no last-minute surprises.</p>
+</div><div class="overlay" id="followup">
+<button class="overlay-close" onclick="hideOverlay('followup')">✖</button>
+<h2>After You Accept</h2>
+<p>We’ll schedule a pickup, verify your car’s condition, and pay you instantly via your preferred method.</p>
+</div><div class="overlay" id="reviews">
+<button class="overlay-close" onclick="hideOverlay('reviews')">✖</button>
+<h2>Driver Reviews</h2>
+<p>★★★★★ “Easiest car sale ever!”<br/>★★★★☆ “Got more than I expected.”<br/>★★★★★ “Recarra delivers what they promise.”</p>
+</div><div class="overlay" id="pickup">
+<button class="overlay-close" onclick="hideOverlay('pickup')">✖</button>
+<h2>Pickup Process</h2>
+<p>Once you accept your offer, we’ll send a driver to your location for free pickup within hours.</p>
+</div><div id="chatbotPopup" style="position:fixed;bottom:20px;left:20px;z-index:998;display:none;">
+<button style="padding:0.8rem 1.2rem;background:#ffcc00;color:black;border-radius:30px;border:none;font-weight:bold;box-shadow:0 0 6px rgba(0,0,0,0.2);">
+    Need help filling the form?
+  </button>
+</div><div id="chatbotPopup" style="position:fixed;bottom:20px;left:20px;z-index:998;">
+<button onclick="toggleChatbot()" style="padding:0.8rem 1.2rem;background:#ffcc00;color:black;border-radius:30px;border:none;font-weight:bold;box-shadow:0 0 6px rgba(0,0,0,0.2);">
+    Need help filling the form?
+  </button>
+</div><div id="chatbox" style="display:none;position:fixed;bottom:80px;left:20px;z-index:999;background:white;border:1px solid #ccc;padding:1rem;border-radius:12px;width:250px;box-shadow:0 0 10px rgba(0,0,0,0.15);">
+<strong>Recarra Assistant</strong><br/><br/>
+  Want help choosing the best form?<br/>
+<button onclick="alert('Redirecting to Quick Offer...')" style="margin-top:10px;padding:0.4rem 1rem;background:#ff6a00;border:none;color:white;border-radius:8px;">Quick Offer</button>
+</div><div class="floating-menu">
+<a href="index.html" title="Quick Offer">⚡</a>
+<a href="#offerForm" title="Instant Cash">💰</a>
+<a href="tel:3462740071" title="Call Now">📞</a>
+<a href="#" title="Text Us">✉️</a>
+<a href="#" title="WhatsApp">🟢</a>
+<button onclick="alert('Chat assistant coming soon!')" title="Live Help">💬</button>
+</div><div class="overlay" id="whyOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:999;overflow-y:auto;padding:2rem;">
+<button onclick="hideOverlay('whyOverlay')" style="position:absolute;top:10px;right:20px;font-size:20px;">✖</button>
+<h2>Why Recarra</h2>
+<p>Your price is your price — no tricks, no renegotiations.</p>
+</div></form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
   const offers = [
     "Toyota Camry $645",
@@ -281,17 +330,9 @@
     index++;
   }, 5000);
 </script>
-<div style="margin-top: 2rem; font-weight: bold; font-size: 0.95rem; text-align: center; background: #fffbe6; padding: 1rem; border-top: 2px dashed #ffcc00;">
-</div>
-<div class="thank-you" id="thankYouMessage"></div>
-<div class="leaderboard">
-<div>🔥 Top Referrers Today</div>
-<ul style="list-style:none; padding-left:0; margin-top:0.8rem;">
-<li>1. Jane D. – $600</li>
-<li>2. Omar R. – $400</li>
-<li>3. Lisa T. – $300</li>
-</ul>
-</div>
+
+
+
 <audio id="successSound" preload="auto" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
 <script>
   function showThankYou() {
@@ -304,37 +345,12 @@
     document.getElementById("successSound").play();
   }
 </script>
-<div class="overlay" id="status">
-<button class="overlay-close" onclick="hideOverlay('status')">✖</button>
-<h2>Check Your Offer Status</h2>
-<p>Enter your Offer ID below to see updates.</p>
-<input id="offerInput" placeholder="Enter Offer ID..." style="padding:0.8rem; width:80%; max-width:400px; margin:1rem auto; border-radius:8px;" type="text"/>
-<div id="statusResult" style="margin-top:1rem; font-weight:bold;"></div><br/><button onclick="checkOfferStatus()" style="padding:0.7rem 1.2rem;background:#ffcc00;border:none;border-radius:8px;font-weight:bold;">Check Status</button></div>
-<div class="overlay" id="guarantee">
-<button class="overlay-close" onclick="hideOverlay('guarantee')">✖</button>
-<h2>Our Guarantee</h2>
-<p>We honor our offers. The price you accept is the price we pay — no last-minute surprises.</p>
-</div>
-<div class="overlay" id="followup">
-<button class="overlay-close" onclick="hideOverlay('followup')">✖</button>
-<h2>After You Accept</h2>
-<p>We’ll schedule a pickup, verify your car’s condition, and pay you instantly via your preferred method.</p>
-</div>
-<div class="overlay" id="reviews">
-<button class="overlay-close" onclick="hideOverlay('reviews')">✖</button>
-<h2>Driver Reviews</h2>
-<p>★★★★★ “Easiest car sale ever!”<br/>★★★★☆ “Got more than I expected.”<br/>★★★★★ “Recarra delivers what they promise.”</p>
-</div>
-<div class="overlay" id="pickup">
-<button class="overlay-close" onclick="hideOverlay('pickup')">✖</button>
-<h2>Pickup Process</h2>
-<p>Once you accept your offer, we’ll send a driver to your location for free pickup within hours.</p>
-</div>
-<div id="chatbotPopup" style="position:fixed;bottom:20px;left:20px;z-index:998;display:none;">
-<button style="padding:0.8rem 1.2rem;background:#ffcc00;color:black;border-radius:30px;border:none;font-weight:bold;box-shadow:0 0 6px rgba(0,0,0,0.2);">
-    Need help filling the form?
-  </button>
-</div>
+
+
+
+
+
+
 <script>
 setTimeout(() => {
   document.getElementById("chatbotPopup").style.display = "block";
@@ -356,16 +372,8 @@ setTimeout(() => {
     }
   }
 </script>
-<div id="chatbotPopup" style="position:fixed;bottom:20px;left:20px;z-index:998;">
-<button onclick="toggleChatbot()" style="padding:0.8rem 1.2rem;background:#ffcc00;color:black;border-radius:30px;border:none;font-weight:bold;box-shadow:0 0 6px rgba(0,0,0,0.2);">
-    Need help filling the form?
-  </button>
-</div>
-<div id="chatbox" style="display:none;position:fixed;bottom:80px;left:20px;z-index:999;background:white;border:1px solid #ccc;padding:1rem;border-radius:12px;width:250px;box-shadow:0 0 10px rgba(0,0,0,0.15);">
-<strong>Recarra Assistant</strong><br/><br/>
-  Want help choosing the best form?<br/>
-<button onclick="alert('Redirecting to Quick Offer...')" style="margin-top:10px;padding:0.4rem 1rem;background:#ff6a00;border:none;color:white;border-radius:8px;">Quick Offer</button>
-</div>
+
+
 <script>
   function toggleChatbot() {
     const box = document.getElementById("chatbox");
@@ -409,14 +417,6 @@ setTimeout(() => {
   }
 </script>
 
-<div class="floating-menu">
-<a href="index.html" title="Quick Offer">⚡</a>
-<a href="#offerForm" title="Instant Cash">💰</a>
-<a href="tel:3462740071" title="Call Now">📞</a>
-<a href="#" title="Text Us">✉️</a>
-<a href="#" title="WhatsApp">🟢</a>
-<button onclick="alert('Chat assistant coming soon!')" title="Live Help">💬</button>
-</div>
 <script>
   function showOverlay(id) {
     document.querySelectorAll('.overlay').forEach(o => o.style.display = 'none');
@@ -426,10 +426,6 @@ setTimeout(() => {
     document.getElementById(id).style.display = 'none';
   }
 </script>
-<div class="overlay" id="whyOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:white;z-index:999;overflow-y:auto;padding:2rem;">
-<button onclick="hideOverlay('whyOverlay')" style="position:absolute;top:10px;right:20px;font-size:20px;">✖</button>
-<h2>Why Recarra</h2>
-<p>Your price is your price — no tricks, no renegotiations.</p>
-</div>
+
 </body>
 </html>
