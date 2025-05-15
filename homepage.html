@@ -4,99 +4,82 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recarra Quick Form</title>
+  <title>AI Recarra Instant Offer</title>
   <style>
     body {
       margin: 0;
-      background: #fff;
       font-family: 'Poppins', sans-serif;
-      color: #000;
+      background: #fff;
       text-align: center;
+      color: #000;
     }
     header {
-      padding: 2rem 1rem 0.5rem;
+      padding: 2rem 1rem 1rem;
     }
     h1 {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(to right, red, orange);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem;
-      max-width: 400px;
-      margin: auto;
-    }
-    .menu button {
-      border: 2px solid red;
+    .form-container {
       background: #fff;
-      border-radius: 12px;
-      padding: 0.9rem;
-      font-weight: 600;
-      font-size: 1rem;
-      color: red;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-    .menu button:hover {
-      transform: scale(1.02);
-    }
-    .form-card {
-      max-width: 400px;
-      margin: 2rem auto;
-      padding: 2rem;
       border-radius: 16px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.06);
-      background: #fff;
+      padding: 2rem;
+      max-width: 420px;
+      margin: 1rem auto;
+      box-shadow: 0 0 25px rgba(0,0,0,0.1);
     }
-    .input-step {
-      display: none;
-      animation: fadeIn 0.5s ease-in;
-    }
-    .input-step.active {
-      display: block;
+    .form-container h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
     input, select {
-      width: 100%;
-      padding: 1rem;
-      margin-top: 1rem;
+      width: 90%;
+      padding: 0.85rem;
       font-size: 1rem;
+      margin-top: 1rem;
+      border: 2px solid #ffa500;
       border-radius: 10px;
-      border: 1px solid #ccc;
-      outline: none;
-      transition: border 0.3s, box-shadow 0.3s;
+      transition: all 0.3s ease;
     }
     input:focus, select:focus {
-      border: 1px solid #ff6a00;
+      border-color: #ff9900;
       box-shadow: 0 0 8px #ffcc00;
+      outline: none;
     }
-    #nextBtn {
+    .submit-btn {
       margin-top: 1.5rem;
-      background: linear-gradient(to right, #ff6a00, #ffcc00);
-      border: none;
-      padding: 0.9rem 2rem;
-      font-size: 1rem;
-      border-radius: 50px;
-      font-weight: bold;
+      background: linear-gradient(to right, #ffa500, #ffcc00);
       color: #000;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-    #nextBtn:hover {
-      transform: scale(1.04);
-    }
-    #formTimer {
-      font-size: 1.2rem;
       font-weight: bold;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background: yellow;
-      border-radius: 10px;
+      font-size: 1.1rem;
+      padding: 0.85rem;
+      width: 90%;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .bonus-box {
+      background: #fff3cd;
+      color: #856404;
+      border: 2px dashed #ffc107;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      font-weight: 600;
+    }
+    .thank-you {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      display: none;
+    }
+    label {
+      display: block;
+      margin-top: 1.2rem;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -107,16 +90,14 @@
   <p>Sell Your Car Instantly with Smart AI</p>
 </header>
 
-<div class="menu">
-  <button>Get an Instant Cash Offer</button>
-  <button>Schedule an Inspection</button>
-  <button>Submit Full Vehicle Details</button>
-</div>
-
-<div class="form-card">
-  <form id="smartForm" onsubmit="event.preventDefault();">
-    <div class="input-step active"><select required><option value="">What are you selling?</option><option>Car</option><option>Truck</option><option>SUV</option><option>Van</option></select></div>
-    <div class="input-step"><select required><option value="">Year</option><option>2025</option>
+<div class="form-container">
+  <h2>AI Instant Cash Offer</h2>
+  <form id="offerForm" onsubmit="event.preventDefault(); showThankYou();">
+    <select required>
+      <option value="">What are you selling?</option>
+      <option>Car</option><option>Truck</option><option>SUV</option><option>Van</option>
+    </select>
+    <select required><option value="">Year</option><option>2025</option>
 <option>2024</option>
 <option>2023</option>
 <option>2022</option>
@@ -150,61 +131,83 @@
 <option>1994</option>
 <option>1993</option>
 <option>1992</option>
-<option>1991</option></select></div>
-    <div class="input-step"><input type="text" placeholder="Make" required /></div>
-    <div class="input-step"><input type="text" placeholder="Model" required /></div>
-    <div class="input-step"><input type="text" placeholder="Full Name" required /></div>
-    <div class="input-step"><input type="tel" placeholder="Mobile Number (SMS)" required /></div>
-    <div class="input-step"><input type="email" placeholder="Email Address" required /></div>
-    <div class="input-step"><select required><option value="">Does it start?</option><option>Yes</option><option>No</option></select></div>
-    <div class="input-step"><select required><option value="">Do you have the title?</option><option>Clean Title</option><option>Salvage</option><option>No Title</option></select></div>
-    <div id="formTimer">03:00</div>
-    <button id="nextBtn" onclick="nextStep()">Next</button>
+<option>1991</option></select>
+    <input type="text" placeholder="Make" required />
+    <input type="text" placeholder="Model" required />
+
+    <select required><option value="">Does it start?</option><option>Yes</option><option>No</option></select>
+    <select required><option value="">Do you have the title?</option><option>Clean</option><option>Salvage</option><option>No Title</option></select>
+
+    <input type="number" placeholder="Mileage (approx.)" />
+
+    <div class="bonus-box">
+      <strong>Pick-Up Today Bonus: +$100</strong><br/>
+      Is your vehicle available for same-day pickup?
+    </div>
+    <select><option value="">Ready for Pickup?</option><option>Yes</option><option>No</option><option>Maybe</option></select>
+
+    <div class="bonus-box">
+      <strong>Upload Vehicle Photos</strong><br/>
+      Required for most accurate instant valuation
+    </div>
+
+    <label>Front View</label>
+    <input type="file" accept="image/*" required />
+
+    <label>Passenger Side</label>
+    <input type="file" accept="image/*" required />
+
+    <label>Driver Side</label>
+    <input type="file" accept="image/*" required />
+
+    <label>Trunk Side</label>
+    <input type="file" accept="image/*" required />
+
+    <label>Front Seats</label>
+    <input type="file" accept="image/*" required />
+
+    <label>Passenger Seats</label>
+    <input type="file" accept="image/*" required />
+
+    <label>Dashboard (lit-up)</label>
+    <input type="file" accept="image/*" required />
+
+    <label>Engine Compartment</label>
+    <input type="file" accept="image/*" required />
+
+    <select><option value="">Tire Condition?</option><option>Good</option><option>Worn</option><option>Flat</option></select>
+    <select><option value="">Any Leaks?</option><option>No</option><option>Oil</option><option>Coolant</option><option>Other</option></select>
+    <select><option value="">Battery Condition?</option><option>Good</option><option>Dead</option><option>Unknown</option></select>
+    <select><option value="">Do you have all keys?</option><option>Yes</option><option>No</option><option>Only Valet</option></select>
+
+    <input type="text" placeholder="Full Name" required />
+    <input type="tel" placeholder="Mobile Number (SMS)" required />
+    <input type="email" placeholder="Email Address" required />
+
+    <div class="bonus-box">
+      <strong>Recarra VIP Referral Program</strong><br/>
+      Earn $100 for each friend who submits using your VIP code.<br/>
+      They also receive a $100 bonus!
+    </div>
+    <input type="text" placeholder="VIP Referral Code (Optional)" />
+
+    <button type="submit" class="submit-btn">Submit Offer</button>
   </form>
+  <div class="thank-you" id="thankYouMessage"></div>
 </div>
 
+<audio id="successSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" preload="auto"></audio>
+
 <script>
-  let currentStep = 0;
-  let steps = document.querySelectorAll(".input-step");
-  const timerDisplay = document.getElementById("formTimer");
-  let seconds = 180;
-  let timerStarted = false;
+  function showThankYou() {
+    const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
+    document.getElementById("offerForm").style.display = "none";
+    document.getElementById("thankYouMessage").style.display = "block";
+    document.getElementById("thankYouMessage").innerHTML =
+      `Thank you! Your offer has been submitted.<br><strong>Offer ID: ${id}</strong><br>You may receive a bonus!`;
 
-  function nextStep() {
-    const input = steps[currentStep].querySelector("input, select");
-    if (!input.checkValidity()) {
-      input.reportValidity();
-      return;
-    }
-    steps[currentStep].classList.remove("active");
-    currentStep++;
-    if (currentStep < steps.length) {
-      steps[currentStep].classList.add("active");
-    } else {
-      document.getElementById("smartForm").innerHTML = "<h3>Thank you! Your Offer ID is <strong>RC-" + Math.floor(Math.random()*100000) + "</strong></h3>";
-    }
+    document.getElementById("successSound").play();
   }
-
-  function updateTimer() {
-    const min = String(Math.floor(seconds / 60)).padStart(2, '0');
-    const sec = String(seconds % 60).padStart(2, '0');
-    timerDisplay.textContent = `${min}:${sec}`;
-    if (seconds <= 90) {
-      timerDisplay.style.background = "#f00";
-      timerDisplay.style.color = "#fff";
-    }
-    if (seconds > 0) {
-      seconds--;
-      setTimeout(updateTimer, 1000);
-    }
-  }
-
-  window.onload = () => {
-    if (!timerStarted) {
-      timerStarted = true;
-      updateTimer();
-    }
-  };
 </script>
 
 </body>
