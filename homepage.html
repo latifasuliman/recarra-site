@@ -168,17 +168,14 @@
 <h1>Recarra</h1>
 <p>Sell Your Car Instantly with Smart AI</p>
 </header>
-<div class="form-container">
-<h2>AI Instant Cash Offer</h2>
-<form id="offerForm" onsubmit="event.preventDefault(); showThankYou();">
-<input oninput="simulateVINDecode(this.value)" placeholder="Enter VIN (optional)" style="width:90%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;" type="text"/>
-<div id="vinDecoded" style="font-size: 0.9rem; margin-top: 0.5rem; color: #333;"></div>
+
 <input placeholder="License Plate Number" style="width:58%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;" type="text"/>
 <select style="width:30%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;">
 <option>State</option><option>TX</option><option>CA</option><option>FL</option><option>NY</option>
 </select>
 <input id="estimatorInput" oninput="estimateOffer(this.value)" placeholder="Type your car: e.g. 2015 Honda Accord" style="width:90%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;" type="text"/>
 <div id="offerEstimate" style="font-weight:bold; margin-top:0.3rem;"></div>
+
 </form></div>
  
     <select required="">
@@ -263,7 +260,7 @@
       They also receive a $100 bonus!
     </div>
 <input placeholder="VIP Referral Code (Optional)" type="text"/>
-<button class="submit-btn" type="submit">Submit Offer</button>
+
 <div id="liveFeed" style="margin-top: 2rem; font-weight: bold; font-size: 0.95rem; text-align: center; background: #fffbe6; padding: 1rem; border-top: 2px dashed #ffcc00;">
   Recent Offers: Toyota Camry $645
 </div>
@@ -411,19 +408,7 @@ setTimeout(() => {
     output.innerText = matched;
   }
 </script>
-<div class="floating-badge" id="trustBadge">
-  ✅ Price You Accept = Price You Get
-</div>
-<script>
-  window.addEventListener('scroll', function() {
-    const badge = document.getElementById("trustBadge");
-    if (window.scrollY > 300) {
-      badge.style.display = "block";
-    } else {
-      badge.style.display = "none";
-    }
-  });
-</script>
+
 <div class="floating-menu">
 <a href="index.html" title="Quick Offer">⚡</a>
 <a href="#offerForm" title="Instant Cash">💰</a>
