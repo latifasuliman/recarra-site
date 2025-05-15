@@ -247,7 +247,7 @@
 <option>1994</option>
 <option>1993</option>
 <option>1992</option>
-<option>1991</option></select><input placeholder="Make" required="" type="text"/><input placeholder="Model" required="" type="text"/><select required=""><option value="">Does it start?</option><option>Yes</option><option>No</option></select><select required=""><option value="">Do you have the title?</option><option>Clean</option><option>Salvage</option><option>No Title</option></select><input placeholder="Mileage (approx.)" type="number"/><div class="bonus-box">
+<option>1991</option></select><input placeholder="Make" required="" type="text"/><input oninput="estimateOffer(this.value)" placeholder="Model" required="" type="text"/><div id="offerEstimate" style="margin-top: 1rem; font-weight: bold; color: #d35400; font-size: 1.1rem;"></div><select required=""><option value="">Does it start?</option><option>Yes</option><option>No</option></select><select required=""><option value="">Do you have the title?</option><option>Clean</option><option>Salvage</option><option>No Title</option></select><input placeholder="Mileage (approx.)" type="number"/><div class="bonus-box">
 <strong>Pick-Up Today Bonus: +$100</strong><br/>
       Is your vehicle available for same-day pickup?
     </div><select><option value="">Ready for Pickup?</option><option>Yes</option><option>No</option><option>Maybe</option></select><div class="bonus-box">
@@ -414,7 +414,6 @@ setTimeout(() => {
     document.getElementById(id).style.display = 'none';
   }
 </script>
-
 <footer class="recarra-footer">
 <div class="footer-links">
 <a href="index.html">Find a store near you</a>
