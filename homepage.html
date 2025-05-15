@@ -210,5 +210,44 @@
   }
 </script>
 
+
+<style>
+  .floating-ui {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .floating-ui a, .floating-ui button {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #ff6a00, #ffcc00);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+  .floating-ui button:hover,
+  .floating-ui a:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="floating-ui">
+  <button title="Live Chat / Help" onclick="alert('Live chat coming soon!')">💬</button>
+  <a href="tel:3462740071" title="Call Us">📞</a>
+  <a href="#" title="WhatsApp (coming soon)">🟢</a>
+  <a href="#" title="Text (coming soon)">✉️</a>
+</div>
+
 </body>
 </html>
