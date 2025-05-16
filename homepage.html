@@ -223,8 +223,8 @@
      America’s Most Trusted Car Offers
     </span>
 </div>
-<input placeholder="ABC1234" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/>
-<select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+<div class="form-step" style="display:block;"><input placeholder="ABC1234" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
+<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option>
      State
     </option>
@@ -240,8 +240,8 @@
 <option>
      NY
     </option>
-</select>
-<select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select></div>
+<div class="form-step" style="display:none;"><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      What are you selling?
     </option>
@@ -257,8 +257,8 @@
 <option>
      Van
     </option>
-</select>
-<select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select></div>
+<div class="form-step" style="display:none;"><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Year
     </option>
@@ -367,12 +367,12 @@
 <option>
      1991
     </option>
-</select>
-<input placeholder="Make" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/>
-<input oninput="estimateOffer(this.value)" placeholder="Model" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/>
+</select></div>
+<div class="form-step" style="display:none;"><input placeholder="Make" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
+<div class="form-step" style="display:none;"><input oninput="estimateOffer(this.value)" placeholder="Model" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
 <div id="offerEstimate" style="margin-top: 1rem; font-weight: bold; color: #d35400; font-size: 1.1rem;">
 </div>
-<select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+<div class="form-step" style="display:none;"><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Does it start?
     </option>
@@ -382,8 +382,8 @@
 <option>
      No
     </option>
-</select>
-<select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select></div>
+<div class="form-step" style="display:none;"><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Do you have the title?
     </option>
@@ -396,16 +396,16 @@
 <option>
      No Title
     </option>
-</select>
-<input placeholder="120000" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="number"/>
-<div class="bonus-box">
+</select></div>
+<div class="form-step" style="display:none;"><input placeholder="120000" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="number"/></div>
+<div class="form-step" style="display:none;"><div class="bonus-box">
 <strong>
      Pick-Up Today Bonus: +$100
     </strong>
 <br/>
     Is your vehicle available for same-day pickup?
-   </div>
-<select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+   </div></div>
+<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Ready for Pickup?
     </option>
@@ -418,47 +418,47 @@
 <option>
      Maybe
     </option>
-</select>
-<div class="bonus-box">
+</select></div>
+<div class="form-step" style="display:none;"><div class="bonus-box">
 <strong>
      Upload Vehicle Photos
     </strong>
 <br/>
     Required for most accurate instant valuation
-   </div>
-<label>
+   </div></div>
+<div class="form-step" style="display:none;"><label>
     Front View
-   </label>
-<input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/>
-<label>
+   </label></div>
+<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
+<div class="form-step" style="display:none;"><label>
     Passenger Side
-   </label>
-<input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/>
-<label>
+   </label></div>
+<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
+<div class="form-step" style="display:none;"><label>
     Driver Side
-   </label>
-<input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/>
-<label>
+   </label></div>
+<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
+<div class="form-step" style="display:none;"><label>
     Trunk Side
-   </label>
-<input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/>
-<label>
+   </label></div>
+<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
+<div class="form-step" style="display:none;"><label>
     Front Seats
-   </label>
-<input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/>
-<label>
+   </label></div>
+<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
+<div class="form-step" style="display:none;"><label>
     Passenger Seats
-   </label>
-<input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/>
-<label>
+   </label></div>
+<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
+<div class="form-step" style="display:none;"><label>
     Dashboard (lit-up)
-   </label>
-<input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/>
-<label>
+   </label></div>
+<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
+<div class="form-step" style="display:none;"><label>
     Engine Compartment
-   </label>
-<input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/>
-<select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+   </label></div>
+<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
+<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Tire Condition?
     </option>
@@ -471,8 +471,8 @@
 <option>
      Flat
     </option>
-</select>
-<select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select></div>
+<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Any Leaks?
     </option>
@@ -488,8 +488,8 @@
 <option>
      Other
     </option>
-</select>
-<select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select></div>
+<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Battery Condition?
     </option>
@@ -502,8 +502,8 @@
 <option>
      Unknown
     </option>
-</select>
-<select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select></div>
+<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Do you have all keys?
     </option>
@@ -516,11 +516,11 @@
 <option>
      Only Valet
     </option>
-</select>
-<input placeholder="John Smith" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/>
-<input placeholder="555-123-4567" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="tel"/>
-<input placeholder="john@example.com" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="email"/>
-<div class="bonus-box">
+</select></div>
+<div class="form-step" style="display:none;"><input placeholder="John Smith" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
+<div class="form-step" style="display:none;"><input placeholder="555-123-4567" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="tel"/></div>
+<div class="form-step" style="display:none;"><input placeholder="john@example.com" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="email"/></div>
+<div class="form-step" style="display:none;"><div class="bonus-box">
 <strong>
      Recarra VIP Referral Program
     </strong>
@@ -528,8 +528,8 @@
     Earn $100 for each friend who submits using your VIP code.
     <br/>
     They also receive a $100 bonus!
-   </div>
-<input placeholder="VIP123" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/>
+   </div></div>
+<div class="form-step" style="display:none;"><input placeholder="VIP123" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
 <div style="margin: 1rem auto; max-width: 420px; text-align: left;">
 <input id="finalSaleCheckbox" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="checkbox"/>
 <label for="finalSaleCheckbox" style="font-size: 0.95rem;">
@@ -678,7 +678,45 @@
      Your price is your price — no tricks, no renegotiations.
     </p>
 </div>
-</form>
+<script>
+let currentStep = 0;
+showStep(currentStep);
+
+function showStep(n) {
+  let steps = document.getElementsByClassName("form-step");
+  steps[n].style.display = "block";
+  document.getElementById("prevBtn").style.display = n > 0 ? "inline" : "none";
+  document.getElementById("nextBtn").innerHTML = (n == steps.length - 1) ? "Submit" : "Next";
+  steps[n].scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function nextPrev(n) {
+  let steps = document.getElementsByClassName("form-step");
+  if (n === 1 && !validateStep(steps[currentStep])) return false;
+  steps[currentStep].style.display = "none";
+  currentStep += n;
+  if (currentStep >= steps.length) {
+    validateAndSubmit();
+    return false;
+  }
+  showStep(currentStep);
+}
+
+function validateStep(step) {
+  const inputs = step.querySelectorAll("input, select");
+  for (const el of inputs) {
+    if (el.hasAttribute("required") && !el.value.trim()) {
+      el.style.border = "2px solid red";
+      el.focus();
+      return false;
+    } else {
+      el.style.border = "2px solid #ffa500";
+    }
+  }
+  return true;
+}
+</script>
+<button id="skipBtn" onclick="skipOptional()" style="margin-top:1.5rem;padding:0.6rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;">Skip Optional</button></form>
 <script>
    const offers = [
     "Toyota Camry $645",
@@ -1151,5 +1189,76 @@ document.getElementById('thankYouMessage').style.display = 'block';
   100% { border-color: green; }
 }
 </style>
+<script>
+let currentStepIndex = 0;
+
+function getSteps() {
+  return Array.from(document.getElementsByClassName("form-step"));
+}
+
+function showStep(n) {
+  const steps = getSteps();
+  steps.forEach((step, i) => step.style.display = i === n ? "block" : "none");
+  steps[n].scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function nextStep() {
+  const steps = getSteps();
+  if (currentStepIndex < steps.length - 1) {
+    currentStepIndex++;
+    showStep(currentStepIndex);
+  } else {
+    validateAndSubmit();
+  }
+}
+
+function isOptional(step) {
+  const optionalHints = ["VIP", "referral", "photo", "Upload", "Skip"];
+  return optionalHints.some(hint => step.innerText.toLowerCase().includes(hint.toLowerCase()));
+}
+
+function skipOptional() {
+  const steps = getSteps();
+  for (let i = currentStepIndex + 1; i < steps.length; i++) {
+    if (!isOptional(steps[i])) {
+      currentStepIndex = i;
+      showStep(currentStepIndex);
+      return;
+    }
+  }
+}
+
+function validateAndAdvance(index) {
+  const steps = getSteps();
+  const current = steps[index];
+  const input = current.querySelector("input, select, textarea");
+  if (input && input.hasAttribute("required") && !input.value.trim()) {
+    input.style.border = "2px solid red";
+    return;
+  } else if (input) {
+    input.style.border = "2px solid #ffa500";
+  }
+  nextStep();
+}
+
+// Auto attach listeners to inputs
+window.onload = function() {
+  const steps = getSteps();
+  steps.forEach((step, i) => {
+    const el = step.querySelector("input, select");
+    if (el) {
+      el.addEventListener("change", () => validateAndAdvance(i));
+      el.addEventListener("blur", () => validateAndAdvance(i));
+    }
+  });
+
+  // Add skip button
+  const skipBtn = document.createElement("button");
+  skipBtn.innerText = "Skip Optional";
+  skipBtn.style = "margin-top:1.5rem;padding:0.6rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;";
+  skipBtn.onclick = skipOptional;
+  document.getElementById("offerForm").appendChild(skipBtn);
+};
+</script>
 </body>
 </html>
