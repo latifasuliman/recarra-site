@@ -41,14 +41,45 @@
     a.button:hover {
       background: #003366;
     }
-  </style>
+  
+.glow-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: #001F3F;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #001F3F;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s;
+}
+.glow-button:hover {
+  transform: scale(1.05);
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #001F3F; }
+  50% { box-shadow: 0 0 20px #003366; }
+  100% { box-shadow: 0 0 10px #001F3F; }
+}
+
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #0074D9;
+  box-shadow: 0 0 10px #0074D9;
+  transition: box-shadow 0.3s ease;
+}
+
+</style>
 </head>
 <body>
   <div id="splash" style="text-align:center; padding-top:50px;">
     <h1 style="font-size:3rem; color:#001F3F; font-weight:900;">Welcome to Recarra</h1>
     <p style="font-size:1.25rem; margin-bottom:1rem;">America’s Most Trusted Car Buyer</p>
     <p style="font-size:1rem; color:#666; margin-bottom:2rem;">Instant Offers • No Inspections • Same-Day Payment</p>
-    <a class="button" href="homepage.html">Get Started</a>
+    <a class="glow-button" href="homepage.html">Get Started</a>
     <p id="countdown" style="margin-top:2rem; font-size:0.9rem; color:#888;">Redirecting in <span id="timer">10</span> seconds...</p>
   </div>
   <script>
