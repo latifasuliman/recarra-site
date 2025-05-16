@@ -198,7 +198,7 @@
 }
 </style>
 </head>
-<body>
+<body><div id="offerPopup" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;background:white;padding:2rem;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,0.3);display:none;text-align:center;width:90%;max-width:400px;font-weight:bold;">Thank you! Your offer has been submitted. Please wait...</div>
 <header>
 <div class="bonus-box">
 <strong>Bonus Alert:</strong> Every 8th customer who submits a Recarra form (including Recarra Quick) will receive DOUBLE the offer amount!
@@ -207,7 +207,7 @@
 <p>Sell Your Car Instantly with Smart AI</p>
 </header><form id="offerForm" onsubmit="event.preventDefault(); showThankYou();"><div class="sticky-header">
 <h1>Recarra</h1>
-<span style="font-size:0.9rem; color:#444;">Trusted Car Offers</span>
+<span style="font-size:0.9rem;color:#444;margin-left:1rem;">Trusted Car Offers</span>
 </div><input placeholder="License Plate Number" style="width:58%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;" type="text"/><select style="width:30%; padding:0.8rem; border:2px solid #aaa; border-radius:10px; margin-top:1rem;">
 <option>State</option><option>TX</option><option>CA</option><option>FL</option><option>NY</option>
 </select><select required="">
@@ -332,15 +332,22 @@
 </script>
 <audio id="successSound" preload="auto" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
 <script>
-  function showThankYou() {
-    const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
-    document.getElementById("offerForm").style.display = "none";
-    document.getElementById("thankYouMessage").style.display = "block";
-    document.getElementById("thankYouMessage").innerHTML =
-      `Thank you! Your offer has been submitted.<br><strong>Offer ID: ${id}</strong><br>You may receive a bonus!`;
+function showThankYou() {
+  const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
+  const popup = document.getElementById("offerPopup");
+  popup.innerHTML = `<h2>Offer Submitted!</h2><p>Your offer ID is <strong>${id}</strong>.</p><p>We’re calculating your bonus now...</p>`;
+  popup.style.display = "block";
+  document.getElementById("successSound").play();
 
-    document.getElementById("successSound").play();
-  }
+  setTimeout(() => {
+    popup.innerHTML += `<p><strong>Final Offer: $888</strong></p><p>+ $100 Pick-Up Bonus</p><p>+ $100 VIP Referral</p>`;
+  }, 2500);
+
+  setTimeout(() => {
+    document.getElementById("offerForm").style.display = "none";
+    popup.innerHTML += `<br><br><p>You’ll receive payment after pickup!</p>`;
+  }, 5000);
+}
 </script>
 <script>
 setTimeout(() => {
