@@ -44,8 +44,31 @@
   </style>
 </head>
 <body>
-  <h1>Welcome to Recarra</h1>
-  <p>Sell your car fast. No tricks. Instant offers. Trusted buyers.</p>
-  <a class="button" href="homepage.html">Get Started</a>
+  <div id="splash" style="text-align:center; padding-top:50px;">
+    <h1 style="font-size:3rem; color:#001F3F; font-weight:900;">Welcome to Recarra</h1>
+    <p style="font-size:1.25rem; margin-bottom:1rem;">America’s Most Trusted Car Buyer</p>
+    <p style="font-size:1rem; color:#666; margin-bottom:2rem;">Instant Offers • No Inspections • Same-Day Payment</p>
+    <a class="button" href="homepage.html">Get Started</a>
+    <p id="countdown" style="margin-top:2rem; font-size:0.9rem; color:#888;">Redirecting in <span id="timer">10</span> seconds...</p>
+  </div>
+  <script>
+    let seconds = 10;
+    const timer = document.getElementById('timer');
+    const countdown = setInterval(() => {
+      seconds--;
+      if (seconds <= 0) {
+        clearInterval(countdown);
+        window.location.href = "homepage.html";
+      }
+      timer.textContent = seconds;
+    }, 1000);
+  </script>
+  
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+<script>
+  window.onload = () => {
+    confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } });
+  };
+</script>
 </body>
 </html>
