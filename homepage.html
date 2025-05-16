@@ -310,12 +310,12 @@ function openChat() {
 function updateProgress(step) {
   const progress = document.getElementById("progress");
   if (progress) {
-    const percent = Math.round((step - 1) / 6 * 100);
+    const percent = Math.round((step - 1) / 14 * 100);
     progress.style.width = percent + "%";
   }
 }
 function nextStep(n) {
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 14; i++) {
     const stepDiv = document.getElementById("step" + i);
     stepDiv.classList.remove("active");
     stepDiv.style.display = "none";
@@ -398,6 +398,26 @@ document.querySelectorAll('.menu-items a').forEach(link => {
       menu.style.display = 'none';
     }
   });
+});
+</script><script>
+document.getElementById("photos").addEventListener("change", function(event) {
+  const preview = document.getElementById("photoPreview");
+  preview.innerHTML = ""; // Clear previous previews
+  const files = event.target.files;
+  for (let i = 0; i < Math.min(files.length, 5); i++) {
+    const file = files[i];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      img.style.width = "100px";
+      img.style.height = "auto";
+      img.style.borderRadius = "8px";
+      img.style.boxShadow = "0 0 5px rgba(0,0,0,0.2)";
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  }
 });
 </script></body>
 </html>
