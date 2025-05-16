@@ -198,7 +198,20 @@
   color: #ddd;
 }
   </style>
-</head>
+<style>
+.form-step {
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+}
+.form-step.active {
+  opacity: 1;
+  pointer-events: auto;
+  max-height: 500px;
+}
+</style></head>
 <body>
 <div id="offerPopup" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;background:white;padding:2rem;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,0.3);display:none;text-align:center;width:90%;max-width:400px;font-weight:bold;;position:relative"><button onclick="document.getElementById('offerPopup').style.display='none';" style="position:absolute;top:10px;right:15px;font-size:18px;border:none;background:none;color:#333;cursor:pointer;">✖</button>
    Thank you! Your offer has been submitted. Please wait...
@@ -223,8 +236,8 @@
      America’s Most Trusted Car Offers
     </span>
 </div>
-<div class="form-step" style="display:block;"><input placeholder="ABC1234" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
-<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+<div class="form-step active" style=""><label>Vehicle Identification Number (VIN)</label><input maxlength="17" oninput="this.value = this.value.toUpperCase(); simulateVINDecode(this.value);" placeholder="ABC12345678901234" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;; text-transform:uppercase;" type="text"/><small style="display:block;margin-top:0.5rem;color:#555;font-size:0.9rem;">Enter your 17-digit VIN to automatically decode your vehicle.</small><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option>
      State
     </option>
@@ -240,8 +253,8 @@
 <option>
      NY
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      What are you selling?
     </option>
@@ -257,8 +270,8 @@
 <option>
      Van
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Year
     </option>
@@ -367,12 +380,12 @@
 <option>
      1991
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><input placeholder="Make" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
-<div class="form-step" style="display:none;"><input oninput="estimateOffer(this.value)" placeholder="Model" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Make</label><input placeholder="Make" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Model</label><input oninput="estimateOffer(this.value)" placeholder="Model" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
 <div id="offerEstimate" style="margin-top: 1rem; font-weight: bold; color: #d35400; font-size: 1.1rem;">
 </div>
-<div class="form-step" style="display:none;"><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+<div class="form-step" style=""><label>Your answer</label><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Does it start?
     </option>
@@ -382,8 +395,8 @@
 <option>
      No
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><select required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Do you have the title?
     </option>
@@ -396,16 +409,16 @@
 <option>
      No Title
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><input placeholder="120000" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="number"/></div>
-<div class="form-step" style="display:none;"><div class="bonus-box">
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>120000</label><input placeholder="120000" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="number"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><div class="bonus-box">
 <strong>
      Pick-Up Today Bonus: +$100
     </strong>
 <br/>
     Is your vehicle available for same-day pickup?
-   </div></div>
-<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+   </div><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Ready for Pickup?
     </option>
@@ -418,47 +431,47 @@
 <option>
      Maybe
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><div class="bonus-box">
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><div class="bonus-box">
 <strong>
      Upload Vehicle Photos
     </strong>
 <br/>
     Required for most accurate instant valuation
-   </div></div>
-<div class="form-step" style="display:none;"><label>
+   </div><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>
     Front View
-   </label></div>
-<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
-<div class="form-step" style="display:none;"><label>
+   </label><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>
     Passenger Side
-   </label></div>
-<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
-<div class="form-step" style="display:none;"><label>
+   </label><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>
     Driver Side
-   </label></div>
-<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
-<div class="form-step" style="display:none;"><label>
+   </label><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>
     Trunk Side
-   </label></div>
-<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
-<div class="form-step" style="display:none;"><label>
+   </label><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>
     Front Seats
-   </label></div>
-<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
-<div class="form-step" style="display:none;"><label>
+   </label><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>
     Passenger Seats
-   </label></div>
-<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
-<div class="form-step" style="display:none;"><label>
+   </label><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>
     Dashboard (lit-up)
-   </label></div>
-<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
-<div class="form-step" style="display:none;"><label>
+   </label><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>
     Engine Compartment
-   </label></div>
-<div class="form-step" style="display:none;"><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/></div>
-<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+   </label><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><input accept="image/*" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="file"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Tire Condition?
     </option>
@@ -471,8 +484,8 @@
 <option>
      Flat
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Any Leaks?
     </option>
@@ -488,8 +501,8 @@
 <option>
      Other
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Battery Condition?
     </option>
@@ -502,8 +515,8 @@
 <option>
      Unknown
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Your answer</label><select style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;">
 <option value="">
      Do you have all keys?
     </option>
@@ -516,11 +529,11 @@
 <option>
      Only Valet
     </option>
-</select></div>
-<div class="form-step" style="display:none;"><input placeholder="John Smith" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
-<div class="form-step" style="display:none;"><input placeholder="555-123-4567" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="tel"/></div>
-<div class="form-step" style="display:none;"><input placeholder="john@example.com" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="email"/></div>
-<div class="form-step" style="display:none;"><div class="bonus-box">
+</select><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>John smith</label><input placeholder="John Smith" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>555-123-4567</label><input placeholder="555-123-4567" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="tel"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>John@example.com</label><input placeholder="john@example.com" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="email"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><div class="bonus-box">
 <strong>
      Recarra VIP Referral Program
     </strong>
@@ -528,8 +541,8 @@
     Earn $100 for each friend who submits using your VIP code.
     <br/>
     They also receive a $100 bonus!
-   </div></div>
-<div class="form-step" style="display:none;"><input placeholder="VIP123" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/></div>
+   </div><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
+<div class="form-step" style=""><label>Vip123</label><input placeholder="VIP123" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="text"/><button onclick="skipOptional()" style="margin-top:1.2rem;padding:0.5rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;display:block;margin-left:auto;margin-right:auto;">Skip Optional</button></div>
 <div style="margin: 1rem auto; max-width: 420px; text-align: left;">
 <input id="finalSaleCheckbox" required="" style="width: 90%; padding: 0.65rem; font-size: 0.95rem; margin-top: 1rem; border: 2px solid #ffa500; border-radius: 10px; transition: all 0.3s ease;" type="checkbox"/>
 <label for="finalSaleCheckbox" style="font-size: 0.95rem;">
@@ -687,7 +700,7 @@ function showStep(n) {
   steps[n].style.display = "block";
   document.getElementById("prevBtn").style.display = n > 0 ? "inline" : "none";
   document.getElementById("nextBtn").innerHTML = (n == steps.length - 1) ? "Submit" : "Next";
-  steps[n].scrollIntoView({ behavior: "smooth", block: "center" });
+  
 }
 
 function nextPrev(n) {
@@ -716,7 +729,7 @@ function validateStep(step) {
   return true;
 }
 </script>
-<button id="skipBtn" onclick="skipOptional()" style="margin-top:1.5rem;padding:0.6rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;">Skip Optional</button></form>
+</form>
 <script>
    const offers = [
     "Toyota Camry $645",
@@ -1198,8 +1211,8 @@ function getSteps() {
 
 function showStep(n) {
   const steps = getSteps();
-  steps.forEach((step, i) => step.style.display = i === n ? "block" : "none");
-  steps[n].scrollIntoView({ behavior: "smooth", block: "center" });
+  steps.forEach((step, i) => step.classList.toggle("active", i === n));
+  
 }
 
 function nextStep() {

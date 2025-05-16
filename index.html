@@ -95,6 +95,24 @@ input:invalid, select:invalid {
   0% { border: 2px solid red; }
   100% { border: 2px solid #ff6a00; }
 }
+</style><style>
+.quick-step {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+.quick-step.active {
+  opacity: 1;
+  pointer-events: auto;
+  max-height: 300px;
+}
+.form-wrapper {
+  max-height: 80vh;
+  overflow-y: auto;
+  margin-bottom: 2rem;
+}
 </style></head>
 <body>
 <!-- Emoji fall animation -->
@@ -118,28 +136,28 @@ input:invalid, select:invalid {
 <button class="skip-btn" onclick="redirectNow()">Skip</button>
 <div class="quick-cash">
 <h3>Recarra Quick Cash</h3>
-<p>We will fill up the form for you by phone 💵</p>
-<div class="quick-step" style="display:block;"><input placeholder="Full Name" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/></div>
-<div class="quick-step" style="display:none;"><input placeholder="Mobile Number" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="tel"/></div>
-<div class="quick-step" style="display:none;"><input placeholder="Email Address" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="email"/></div>
-<div class="quick-step" style="display:none;"><input placeholder="Year (e.g., 2012)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/></div>
-<div class="quick-step" style="display:none;"><input placeholder="Make (e.g., Toyota)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/></div>
-<div class="quick-step" style="display:none;"><input placeholder="Model (e.g., Camry)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/></div>
-<div class="quick-step" style="display:none;"><select required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;">
+<p>We will fill up the form for you by phone 💵</p><div class="form-wrapper"><div class="quick-step active"><input placeholder="Full Name" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Enter your legal full name — first and last. This helps us verify the offer.</small></div><div class="quick-step"><input placeholder="Mobile Number" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="tel"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Mobile number we can reach you at — we’ll text you confirmation.</small></div><div class="quick-step"><input placeholder="Email Address" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="email"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Email address for sending your official offer.</small></div><div class="quick-step"><input placeholder="Year (e.g., 2012)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Enter the 4-digit year of your vehicle — e.g., 2015.</small></div><div class="quick-step"><input placeholder="Make (e.g., Toyota)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Type the brand name of your car — e.g., Toyota, Ford.</small></div><div class="quick-step"><input placeholder="Model (e.g., Camry)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Type the model — e.g., Camry, F-150, Accord.</small></div><div class="quick-step"><select required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;">
 <option value="">Select Trim</option>
 <option>Base</option>
 <option>Sport</option>
 <option>Limited</option>
 <option>N/A</option>
-</select></div>
-<div class="quick-step" style="display:none;"><input placeholder="Vehicle Color (e.g., White)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/></div>
-<div class="quick-step" style="display:none;"><select required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;">
+</select><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Choose the trim level if known — or select N/A.</small></div><div class="quick-step"><input placeholder="Vehicle Color (e.g., White)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">What color is the vehicle? Use common names like White, Black, etc.</small></div><div class="quick-step"><select required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;">
 <option value="">Is the car drivable?</option>
 <option>Yes</option>
 <option>No</option>
-</select></div>
-<div class="quick-step" style="display:none;"><input placeholder="Mileage Estimate (e.g., 120,000)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/></div>
-<div class="quick-step" style="display:none;"><input accept="image/*" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="file"/></div>
+</select><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Is your vehicle still drivable? Choose Yes or No.</small></div><div class="quick-step"><input placeholder="Mileage Estimate (e.g., 120,000)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Estimate total mileage driven — numbers only (e.g., 120000).</small></div><div class="quick-step"><input accept="image/*" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="file"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Upload a clear front photo of the vehicle if possible. Optional.</small></div></div>
+
+
+
+
+
+
+
+
+
+
+
 <div id="sliderContainer" style="width: 80%; margin-top: 3rem; margin-bottom: 3rem; 3rem auto 2rem; height: 80px; background: linear-gradient(to right, #ffa500, #ffcc00); border: none; border-radius: 50px; position: relative; box-shadow: 0 0 25px rgba(255,165,0,0.5); overflow: hidden; display: flex; align-items: center; justify-content: start; padding-left: 70px; transition: all 0.4s ease;">
 <div id="slideButton" style="position: absolute; left: 0; top: 0; height: 100%; width: 70px; background: white; color: #000; border: 2px solid #ffa500; border-radius: 50%; text-align: center; line-height: 70px; font-weight: bold; font-size: 30px; transition: left 0.3s ease;">➤</div>
 <span style="color:#000; font-size:18px; font-weight:bold; margin-left:85px;">Slide to Confirm Offer →</span>
@@ -335,8 +353,7 @@ function getQuickSteps() {
 
 function showQuickStep(n) {
   const steps = getQuickSteps();
-  steps.forEach((step, i) => step.style.display = i === n ? "block" : "none");
-  steps[n].scrollIntoView({ behavior: "smooth", block: "center" });
+  steps.forEach((step, i) => step.classList.toggle("active", i === n));
 }
 
 function quickNextStep() {
