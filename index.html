@@ -85,7 +85,15 @@
       margin-top: 1rem;
     }
   </style>
-</head>
+<style>
+input:invalid, select:invalid {
+  animation: flash-border 1s infinite alternate;
+}
+@keyframes flash-border {
+  0% { border: 2px solid red; }
+  100% { border: 2px solid #ff6a00; }
+}
+</style></head>
 <body>
 <!-- Emoji fall animation -->
 <div class="emoji-fall emoji1">🚗</div>
@@ -106,26 +114,26 @@
 <div class="quick-cash">
 <h3>Recarra Quick Cash</h3>
 <p>We will fill up the form for you by phone 💵</p>
-<input placeholder="Full Name" type="text"/>
-<input placeholder="Mobile Number" type="tel"/>
+<input placeholder="Full Name" style="width: 100%; padding: 12px; margin: 10px 0; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/>
+<input placeholder="Mobile Number" style="width: 100%; padding: 12px; margin: 10px 0; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="tel"/>
 <br/>
 <div style="margin: 1rem auto; max-width: 420px; text-align: left;">
-<input id="finalSaleCheckbox" required="" style="margin-right:10px;" type="checkbox"/>
+<input id="finalSaleCheckbox" required="" style="width: 100%; padding: 12px; margin: 10px 0; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="checkbox"/>
 <label for="finalSaleCheckbox" style="font-size: 0.95rem; display: inline-block; vertical-align: middle; width: calc(100% - 30px);">
     I understand that once I accept the offer and receive payment, the sale is final and cannot be reversed. I agree to transfer ownership of the vehicle to Recarra.
   </label>
 </div>
 <div style="margin-bottom: 1rem;">
-<input placeholder="Year (e.g., 2012)" required="" style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;" type="text"/>
+<input placeholder="Year (e.g., 2012)" required="" style="width: 100%; padding: 12px; margin: 10px 0; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/>
 </div>
 <div style="margin-bottom: 1rem;">
-<input placeholder="Make (e.g., Toyota)" required="" style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;" type="text"/>
+<input placeholder="Make (e.g., Toyota)" required="" style="width: 100%; padding: 12px; margin: 10px 0; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/>
 </div>
 <div style="margin-bottom: 1rem;">
-<input placeholder="Model (e.g., Camry)" required="" style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;" type="text"/>
+<input placeholder="Model (e.g., Camry)" required="" style="width: 100%; padding: 12px; margin: 10px 0; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/>
 </div>
 <div style="margin-bottom: 1rem;">
-<select required="" style="width:100%; padding:10px; border-radius:8px; border:1px solid #ccc;">
+<select required="" style="width: 100%; padding: 12px; margin: 10px 0; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;">
 <option value="">Select Trim</option>
 <option>Base</option>
 <option>Sport</option>
@@ -133,7 +141,7 @@
 <option>N/A</option>
 </select>
 </div>
-<div id="sliderContainer" style="width:75%;margin:1.5rem auto 1.5rem;height:80px;background:black;border:4px solid red;border-radius:40px;position:relative;box-shadow:0 0 20px rgba(255,0,0,0.4);overflow:hidden;display:flex;align-items:center;justify-content:center;padding-left:80px;"><div id="slideButton" style="position:absolute;left:0;top:0;height:100%;width:80px;background:white;color:green;border:3px solid green;border-radius:50%;text-align:center;line-height:80px;font-weight:bold;font-size:36px;transition:left 0.3s ease;">➜</div><span style="color:white;font-size:20px;font-weight:bold;margin-left:90px;">Slide to Submit</span></div><div style="height: 3rem;"></div></div>
+<input accept="image/*" style="width: 100%; padding: 12px; margin: 10px 0; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="file"/><div id="sliderContainer" style="width:75%;margin:1.5rem auto 1.5rem;height:80px;background:black;border:4px solid red;border-radius:40px;position:relative;box-shadow:0 0 20px rgba(255,0,0,0.4);overflow:hidden;display:flex;align-items:center;justify-content:center;padding-left:80px;"><div id="slideButton" style="position:absolute;left:0;top:0;height:100%;width:80px;background:white;color:green;border:3px solid green;border-radius:50%;text-align:center;line-height:80px;font-weight:bold;font-size:36px;transition:left 0.3s ease;">➜</div><span style="color:white;font-size:20px;font-weight:bold;margin-left:90px;">Slide to Submit</span></div><div style="height: 3rem;"></div></div>
 </div>
 <audio id="chime" preload="auto" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
 <script>
@@ -213,8 +221,6 @@
 <div class="floating-ui">
 <button onclick="alert('Live chat coming soon!')" title="Live Chat / Help">💬</button>
 <a href="tel:3462740071" title="Call Us">📞</a>
-
-
 </div>
 <script>
 document.getElementById("sliderContainer").addEventListener("mousedown", startSlide);
