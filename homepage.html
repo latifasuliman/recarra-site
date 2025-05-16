@@ -103,23 +103,6 @@ input:focus, select:focus {
   50% { opacity: 0.2; }
   100% { opacity: 1; }
 }
-
-@keyframes bubblePulse {
-  0% { box-shadow: 0 0 0px #001F3F; transform: scale(1); }
-  50% { box-shadow: 0 0 10px #003366; transform: scale(1.05); }
-  100% { box-shadow: 0 0 0px #001F3F; transform: scale(1); }
-}
-
-@keyframes colorCycle {
-  0% { background: red; }
-  14% { background: #e91e63; }   /* Pink */
-  28% { background: #9c27b0; }   /* Purple */
-  42% { background: #3f51b5; }   /* Indigo */
-  56% { background: #03a9f4; }   /* Light Blue */
-  70% { background: #4caf50; }   /* Green */
-  84% { background: #ff9800; }   /* Orange */
-  100% { background: red; }
-}
 </style>
 <style>
 .recarra-header {
@@ -211,8 +194,11 @@ input:focus, select:focus {
 <li><a href="#thankYou">Thank You</a></li>
 <li><a href="mailto:offers@recarra.com">Contact</a></li>
 </ul>
-</header>
-<main>
+</header><div aria-live="polite" id="recarra8888Banner" style="width:100%;padding:1rem;text-align:center;font-size:1.2rem;
+font-weight:bold;color:white;transition:background 1s ease;">
+  Loading Recarra bonus message...
+</div>
+<main style="margin-top: 100px;">
 <section id="intro" style="text-align:center; padding: 4rem 1rem;">
 <h1 style="font-size:2.25rem; color:#001F3F; font-weight:900;">Turn Your Car Into Cash Today</h1>
 <p style="font-size:1.1rem; color:#333; max-width:400px; margin:1rem auto;">
@@ -224,23 +210,20 @@ input:focus, select:focus {
 </section>
 <div id="formSection" style="display:none;">
 <h2>Get Your Instant Offer</h2>
-<div id="progressBar" style="height:6px;width:100%;background:#ddd;margin-bottom:1rem;">
-<div id="progress" style="height:100%;width:0%;background:#001F3F;transition:width 0.3s;"></div>
-</div>
 <form onsubmit="event.preventDefault(); showThankYou();">
 <div class="step-transition active" id="step1" style="">
 <label for="year">Vehicle Year</label>
-<input id="year" name="year" placeholder="e.g. 2015" required="" speech="true" type="number" x-webkit-speech="true"/>
+<input id="year" name="year" placeholder="e.g. 2015" required="" type="number"/>
 <button class="glow-button" onclick="nextStep(2)" type="button">Next</button>
 </div>
 <div class="step-transition" id="step2" style="display:none;">
 <label for="make">Vehicle Make</label>
-<input id="make" name="make" placeholder="e.g. Toyota" required="" speech="true" type="text" x-webkit-speech="true"/>
+<input id="make" name="make" placeholder="e.g. Toyota" required="" type="text"/>
 <button class="glow-button" onclick="nextStep(3)" type="button">Next</button>
 </div>
 <div class="step-transition" id="step3" style="display:none;">
 <label for="model">Vehicle Model</label>
-<input id="model" name="model" placeholder="e.g. Camry" required="" speech="true" type="text" x-webkit-speech="true"/>
+<input id="model" name="model" placeholder="e.g. Camry" required="" type="text"/>
 <button class="glow-button" onclick="nextStep(4)" type="button">Next</button>
 </div>
 <div class="step-transition" id="step4" style="display:none;">
@@ -256,14 +239,14 @@ input:focus, select:focus {
 </div>
 <div class="step-transition" id="step5" style="display:none;">
 <label for="name">Your Name</label>
-<input id="name" name="name" placeholder="Full Name" required="" speech="true" type="text" x-webkit-speech="true"/>
+<input id="name" name="name" placeholder="Full Name" required="" type="text"/>
 <button class="glow-button" onclick="nextStep(6)" type="button">Next</button>
 </div>
 <div class="step-transition" id="step6" style="display:none;">
 <label for="phone">Phone Number</label>
-<input id="phone" name="phone" placeholder="e.g. 555-123-4567" required="" speech="true" type="tel" x-webkit-speech="true"/>
+<input id="phone" name="phone" placeholder="e.g. 555-123-4567" required="" type="tel"/>
 <label for="vip">VIP Code (optional)</label>
-<input id="vip" name="vip" placeholder="Enter code if you have one" speech="true" type="text" x-webkit-speech="true"/>
+<input id="vip" name="vip" placeholder="Enter code if you have one" type="text"/>
 <button class="glow-button" type="submit">$ Submit Offer</button>
 </div>
 </form>
@@ -272,20 +255,39 @@ input:focus, select:focus {
 <p>Your request has been received. Offer ID: <strong>#RC888X</strong></p>
 </div>
 </div>
-<div id="floatingBanner" style="position:fixed; bottom:60px; right:90px; right:20px; background:#FFD700; color:#000; padding:0.75rem 1rem; border-radius:12px; font-weight:bold; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:999;"><span style="margin-right: 0.5rem; animation: blink 1s infinite;">💰</span> +$100 Pick-Up Today Bonus!</div>
+<div id="floatingBanner" style="position:fixed; bottom:20px; right:20px; background:#FFD700; color:#000; padding:0.75rem 1rem; border-radius:12px; font-weight:bold; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:999;"><span style="margin-right: 0.5rem; animation: blink 1s infinite;">💰</span> +$100 Pick-Up Today Bonus!</div>
 </main>
-<section id="referralLeaderboard" style="text-align:center; padding:3rem 1rem; background:#f8f8f8; margin-top:3rem;">
-<h2 style="color:#001F3F; font-size:1.75rem;">Top Referrers</h2>
-<p style="font-size:1rem; color:#555;">Earn $100 for each successful referral! See who's leading:</p>
-<ul id="leaderList" style="list-style:none; padding:0; max-width:400px; margin:2rem auto 0;">
-<li style="background:#001F3F; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">1. Jason M — 18 Referrals</li>
-<li style="background:#003366; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">2. Emily R — 16 Referrals</li>
-<li style="background:#004080; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">3. Brian K — 13 Referrals</li>
-<li style="background:#0059b3; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">4. Sarah W — 10 Referrals</li>
-<li style="background:#0073e6; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">5. David T — 7 Referrals</li>
-</ul>
-</section>
-<footer class="recarra-footer" style="margin-bottom: 100px;">
+<script>
+function nextStep(n) {
+  for (let i = 1; i <= 6; i++) {
+    const step = document.getElementById("step" + i);
+    step.classList.remove("active");
+    step.style.display = "none";
+  }
+  const current = document.getElementById("step" + n);
+  if (current) {
+    current.style.display = "block";
+    setTimeout(() => current.classList.add("active"), 10);
+  }
+}
+
+function showThankYou() {
+  document.querySelector("form").style.display = "none";
+  document.getElementById("thankYou").style.display = "block";
+  if (window.confetti) {
+    confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+  }
+}
+</script><script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
+</script><footer class="recarra-footer">
 <div>
 <a href="#formSection">Get Offer</a> |
     <a href="#thankYou">Track Offer</a> |
@@ -301,123 +303,77 @@ function startForm() {
   document.getElementById("formSection").style.display = "block";
   document.getElementById("formSection").scrollIntoView({ behavior: 'smooth' });
 }
-</script>
-<script>
-function openChat() {
-  alert('Live Chat is coming soon! For now, email us at offers@recarra.com');
-}
 </script><script>
-function updateProgress(step) {
-  const progress = document.getElementById("progress");
-  if (progress) {
-    const percent = Math.round((step - 1) / 14 * 100);
-    progress.style.width = percent + "%";
-  }
-}
-function nextStep(n) {
-  for (let i = 1; i <= 14; i++) {
-    const stepDiv = document.getElementById("step" + i);
-    stepDiv.classList.remove("active");
-    stepDiv.style.display = "none";
-  }
-  const current = document.getElementById("step" + n);
-  if (current) {
-    current.style.display = "block";
-    setTimeout(() => current.classList.add("active"), 10);
-  }
-  updateProgress(n);
-}
-</script>
-<div id="chatBubble" style="position:fixed;bottom:90px;right:20px;z-index:999;">
-<div id="chatLauncher" onclick="toggleChatWindow()" style="width:60px;height:60px;border-radius:50%;background:red;color:white;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:bold;box-shadow:0 0 12px rgba(0,0,0,0.4);animation:colorCycle 8s infinite, bubblePulse 2s infinite;cursor:pointer;text-transform:uppercase;">AIA</div>
-<div id="chatWindow" style="display:none;width:300px;max-height:400px;background:white;border-radius:12px;box-shadow:0 0 15px rgba(0,0,0,0.2);position:absolute;bottom:70px;right:0;overflow:hidden;flex-direction:column;">
-<div style="background:#001F3F;color:white;padding:0.75rem;text-align:center;font-weight:bold;display:flex;justify-content:space-between;">
-<span>Recarra Assistant</span>
-<span onclick="toggleChatWindow()" style="cursor:pointer;">✖</span>
+const messages = [
+  "Earn up to $8888 instantly — no hassle, no inspection. (EN)",
+  "¡Obtén hasta $8888 en minutos por tu auto viejo! (ES)",
+  "احصل على ما يصل إلى ٨٨٨٨ دولار فورًا مع ريكارا. (AR)",
+  "Recevez jusqu'à 8888 $ sans tracas – avec Recarra. (FR)",
+  "8888 रुपये का मूल्य तुरंत, बिना किसी कागज़ात के। (HI)",
+  "Recarra gives you $8888 for junk cars — even if not running. (EN)",
+  "Vendez votre voiture en panne pour 8888 $ – rapide et sécurisé. (FR)",
+  "8888 dólares por tu auto chatarra — solo con Recarra. (ES)"
+];
+
+const safeColors = [
+  "#003366", "#004080", "#0059b3", "#006666", "#004d4d", "#00334d", "#334455", "#002233"
+];
+
+let index = 0;
+setInterval(() => {
+  const banner = document.getElementById("recarra8888Banner");
+  banner.textContent = messages[index % messages.length];
+  banner.style.background = safeColors[index % safeColors.length];
+  index++;
+}, 8000);
+</script><div id="chatBubble" style="position:fixed;bottom:100px;right:20px;z-index:999;">
+<div id="chatLauncher" onclick="toggleChatWindow()" style="width:60px;height:60px;border-radius:50%;background:#003366;color:white;
+      display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:bold;box-shadow:0 0 12px rgba(0,0,0,0.4);
+      animation:colorCycle 8s infinite, bubblePulse 2s infinite;cursor:pointer;text-transform:uppercase;">
+        AIA
+      </div>
+<div id="chatWindow" style="display:none;width:300px;max-height:400px;background:white;border-radius:12px;
+      box-shadow:0 0 15px rgba(0,0,0,0.2);position:absolute;bottom:70px;right:0;overflow:hidden;flex-direction:column;">
+<div style="background:#003366;color:white;padding:0.75rem;text-align:center;font-weight:bold;display:flex;justify-content:space-between;">
+<span>Recarra Assistant</span><span onclick="toggleChatWindow()" style="cursor:pointer;">✖</span>
 </div>
 <div id="chatLog" style="flex:1;padding:0.75rem;font-size:0.9rem;overflow-y:auto;height:220px;">
 <div><strong>Bot:</strong> Welcome! How can I assist you today?</div>
 </div>
 <div style="display:flex;border-top:1px solid #ccc;">
 <input id="chatInput" onkeydown="if(event.key==='Enter')sendChat()" placeholder="Type here..." style="flex:1;padding:0.5rem;border:none;font-size:0.9rem;"/>
-<button onclick="sendChat()" style="padding:0.5rem 1rem;background:#001F3F;color:white;border:none;">Send</button>
+<button onclick="sendChat()" style="padding:0.5rem 1rem;background:#003366;color:white;border:none;">Send</button>
 </div>
 </div>
 </div>
 <script>
-function toggleChatWindow() {
-  const chatWin = document.getElementById("chatWindow");
-  chatWin.style.display = chatWin.style.display === "none" ? "flex" : "none";
-}
-function sendChat() {
-  const input = document.getElementById("chatInput");
-  const log = document.getElementById("chatLog");
-  const msg = input.value.trim();
-  if (!msg) return;
-  const userLine = document.createElement("div");
-  userLine.innerHTML = "<strong>You:</strong> " + msg;
-  log.appendChild(userLine);
-
-  setTimeout(() => {
-    const botLine = document.createElement("div");
-    botLine.innerHTML = "<strong>Bot:</strong> " + generateBotReply(msg);
-    log.appendChild(botLine);
-    log.scrollTop = log.scrollHeight;
-  }, 600);
-  input.value = "";
-  log.scrollTop = log.scrollHeight;
-}
-function generateBotReply(msg) {
-  const lower = msg.toLowerCase();
-  if (lower.includes("offer")) return "You can get an offer instantly by filling the form above.";
-  if (lower.includes("vip")) return "VIP codes give you bonus cash! Enter one at the end of the form.";
-  if (lower.includes("contact")) return "You can reach us at offers@recarra.com or call our hotline.";
-  return "I'm here to help! Try asking about offers, VIP, or how to contact us.";
-}
-</script><script>
-let currentIndex = 0;
-setInterval(() => {
-  const items = document.querySelectorAll('#leaderList li');
-  if (items.length === 0) return;
-  items.forEach((item, i) => {
-    item.style.opacity = i === currentIndex ? '1' : '0.4';
-    item.style.transform = i === currentIndex ? 'scale(1.05)' : 'scale(1)';
-    item.style.transition = 'all 0.6s ease';
-  });
-  currentIndex = (currentIndex + 1) % items.length;
-}, 3000);
-</script><script>
-function toggleMenu() {
-  const menu = document.getElementById("menu");
-  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
-}
-document.querySelectorAll('.menu-items a').forEach(link => {
-  link.addEventListener('click', () => {
-    const menu = document.getElementById("menu");
-    if (window.innerWidth < 768) {
-      menu.style.display = 'none';
+    function toggleChatWindow() {
+      const chatWin = document.getElementById("chatWindow");
+      chatWin.style.display = chatWin.style.display === "none" ? "flex" : "none";
     }
-  });
-});
-</script><script>
-document.getElementById("photos").addEventListener("change", function(event) {
-  const preview = document.getElementById("photoPreview");
-  preview.innerHTML = ""; // Clear previous previews
-  const files = event.target.files;
-  for (let i = 0; i < Math.min(files.length, 5); i++) {
-    const file = files[i];
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const img = document.createElement("img");
-      img.src = e.target.result;
-      img.style.width = "100px";
-      img.style.height = "auto";
-      img.style.borderRadius = "8px";
-      img.style.boxShadow = "0 0 5px rgba(0,0,0,0.2)";
-      preview.appendChild(img);
-    };
-    reader.readAsDataURL(file);
-  }
-});
-</script></body>
+    function sendChat() {
+      const input = document.getElementById("chatInput");
+      const log = document.getElementById("chatLog");
+      const msg = input.value.trim();
+      if (!msg) return;
+      const userLine = document.createElement("div");
+      userLine.innerHTML = "<strong>You:</strong> " + msg;
+      log.appendChild(userLine);
+      setTimeout(() => {
+        const botLine = document.createElement("div");
+        botLine.innerHTML = "<strong>Bot:</strong> " + generateBotReply(msg);
+        log.appendChild(botLine);
+        log.scrollTop = log.scrollHeight;
+      }, 600);
+      input.value = "";
+      log.scrollTop = log.scrollHeight;
+    }
+    function generateBotReply(msg) {
+      const lower = msg.toLowerCase();
+      if (lower.includes("offer")) return "You can get an offer instantly by filling the form above.";
+      if (lower.includes("vip")) return "VIP codes give you bonus cash! Enter one at the end of the form.";
+      if (lower.includes("contact")) return "You can reach us at offers@recarra.com or call our hotline.";
+      return "I'm here to help! Try asking about offers, VIP, or how to contact us.";
+    }
+    </script></body>
 </html>
