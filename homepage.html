@@ -200,9 +200,9 @@
   </style>
 </head>
 <body>
-<div id="offerPopup" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;background:white;padding:2rem;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,0.3);display:none;text-align:center;width:90%;max-width:400px;font-weight:bold;">
+<div id="offerPopup" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;background:white;padding:2rem;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,0.3);display:none;text-align:center;width:90%;max-width:400px;font-weight:bold;;position:relative"><button onclick="document.getElementById('offerPopup').style.display='none';" style="position:absolute;top:10px;right:15px;font-size:18px;border:none;background:none;color:#333;cursor:pointer;">✖</button>
    Thank you! Your offer has been submitted. Please wait...
-  </div>
+  <p style="color: #c00; font-weight: bold;">Reminder: This sale is final. No cancellations or reversals after payment.</p></div>
 <header>
 <div class="bonus-box">
 <strong>
@@ -530,6 +530,13 @@
     They also receive a $100 bonus!
    </div>
 <input placeholder="VIP123" type="text"/>
+
+<div style="margin: 1rem auto; max-width: 420px; text-align: left;">
+<input id="finalSaleCheckbox" required="" style="margin-right:10px;" type="checkbox"/>
+<label for="finalSaleCheckbox" style="font-size: 0.95rem;">
+    I understand that once I accept the offer and receive payment, the sale is final and cannot be reversed. I agree to transfer ownership of the vehicle to Recarra.
+  </label>
+</div>
 <div id="sliderContainer" style="width:75%;margin:2rem auto 1.5rem;height:80px;background:black;border:4px solid red;border-radius:40px;position:relative;box-shadow:0 0 20px rgba(255,0,0,0.4);overflow:hidden;display:flex;align-items:center;justify-content:start;padding-left:80px;"><div id="slideButton" style="position:absolute;left:0;top:0;height:100%;width:80px;background:white;color:green;border:3px solid green;border-radius:50%;text-align:center;line-height:80px;font-weight:bold;font-size:36px;transition:left 0.3s ease;">➜</div><div style="flex:1;text-align:center;color:white;font-weight:bold;font-size:20px;padding-left:20px;">Slide to Submit</div></div><div style="width:90%;margin:0 auto 2rem;text-align:center;font-size:0.95rem;color:#444;padding:0.5rem 1rem;background:#f9f9f9;border-radius:10px;border:1px solid #ccc;">By sliding this button, you authorize Recarra to generate an AI-powered offer based on the information you submitted.</div><div id="liveFeed" style="margin-top: 2rem; font-weight: bold; font-size: 0.95rem; text-align: center; background: #fffbe6; padding: 1rem; border-top: 2px dashed #ffcc00;">
     Recent Offers: Toyota Camry $645
    </div>
@@ -940,7 +947,7 @@ function validateAndSubmit() {
   formWrapper.style.animation = "flashGreen 1s 3";
 
   popup.innerHTML = `<h2>Offer Submitted!`;
-  const audio = new SpeechSynthesisUtterance('Your offer request has been submitted. Your offer amount should appear here anytime now.'); speechSynthesis.speak(audio);</h2><p>Your offer ID is <strong>${id}</strong>.</p>
+  const audio = new SpeechSynthesisUtterance('Your offer has been submitted. Your offer ID is ' + id + '. Final offer is 888 dollars. If available for same-day pickup, you receive a 100 dollar bonus. If this is a referral, you get another 100 dollars. Once paid, this sale is final and cannot be reversed.'); speechSynthesis.speak(audio);</h2><p>Your offer ID is <strong>${id}</strong>.</p>
                      <p><strong>Final Offer: $888</strong></p>
                      <p>+ $100 Pick-Up Bonus</p><p>+ $100 VIP Referral</p>
                      <br><p>You’ll receive payment after pickup!</p>`;
