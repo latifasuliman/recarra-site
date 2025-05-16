@@ -12,7 +12,8 @@
       font-family: 'Poppins', sans-serif;
       background: #fff;
       color: #000;
-      overflow: hidden;
+      overflow-y: auto;
+  scroll-behavior: smooth;
       text-align: center;
     }
     .splash {
@@ -139,9 +140,9 @@ input:invalid, select:invalid {
 </select></div>
 <div class="quick-step" style="display:none;"><input placeholder="Mileage Estimate (e.g., 120,000)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/></div>
 <div class="quick-step" style="display:none;"><input accept="image/*" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="file"/></div>
-<div id="sliderContainer" style="width: 75%; margin: 2rem auto 1.5rem; height: 80px; background: black; border: 4px solid red; border-radius: 40px; position: relative; box-shadow: 0 0 20px rgba(255,0,0,0.4); overflow: hidden; display: flex; align-items: center; justify-content: start; padding-left: 80px;">
-<div id="slideButton" style="position: absolute; left: 0; top: 0; height: 100%; width: 80px; background: white; color: green; border: 3px solid green; border-radius: 50%; text-align: center; line-height: 80px; font-weight: bold; font-size: 36px; transition: left 0.3s ease;">➜</div>
-<span style="color:white;font-size:20px;font-weight:bold;margin-left:90px;">Slide to Submit →</span>
+<div id="sliderContainer" style="width: 80%; margin-top: 3rem; margin-bottom: 3rem; 3rem auto 2rem; height: 80px; background: linear-gradient(to right, #ffa500, #ffcc00); border: none; border-radius: 50px; position: relative; box-shadow: 0 0 25px rgba(255,165,0,0.5); overflow: hidden; display: flex; align-items: center; justify-content: start; padding-left: 70px; transition: all 0.4s ease;">
+<div id="slideButton" style="position: absolute; left: 0; top: 0; height: 100%; width: 70px; background: white; color: #000; border: 2px solid #ffa500; border-radius: 50%; text-align: center; line-height: 70px; font-weight: bold; font-size: 30px; transition: left 0.3s ease;">➤</div>
+<span style="color:#000; font-size:18px; font-weight:bold; margin-left:85px;">Slide to Confirm Offer →</span>
 </div>
 <button id="quickSkipBtn" onclick="quickSkipOptional()" style="margin-top:1.5rem;padding:0.6rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;">Skip Optional</button></div>
 </div>
@@ -372,7 +373,6 @@ window.onload = function() {
   });
 };
 </script>
-
 <script>
 function isQuickOptional(step) {
   const optionalHints = ["photo", "referral", "Upload", "VIP"];
