@@ -274,16 +274,7 @@ input:focus, select:focus {
 </div>
 <div id="floatingBanner" style="position:fixed; bottom:60px; right:90px; right:20px; background:#FFD700; color:#000; padding:0.75rem 1rem; border-radius:12px; font-weight:bold; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:999;"><span style="margin-right: 0.5rem; animation: blink 1s infinite;">💰</span> +$100 Pick-Up Today Bonus!</div>
 </main>
-<script>
-function toggleMenu() {
-  const menu = document.getElementById("menu");
-  if (menu.style.display === "flex") {
-    menu.style.display = "none";
-  } else {
-    menu.style.display = "flex";
-  }
-}
-</script><section id="referralLeaderboard" style="text-align:center; padding:3rem 1rem; background:#f8f8f8; margin-top:3rem;">
+<section id="referralLeaderboard" style="text-align:center; padding:3rem 1rem; background:#f8f8f8; margin-top:3rem;">
 <h2 style="color:#001F3F; font-size:1.75rem;">Top Referrers</h2>
 <p style="font-size:1rem; color:#555;">Earn $100 for each successful referral! See who's leading:</p>
 <ul id="leaderList" style="list-style:none; padding:0; max-width:400px; margin:2rem auto 0;">
@@ -395,5 +386,18 @@ setInterval(() => {
   });
   currentIndex = (currentIndex + 1) % items.length;
 }, 3000);
+</script><script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+document.querySelectorAll('.menu-items a').forEach(link => {
+  link.addEventListener('click', () => {
+    const menu = document.getElementById("menu");
+    if (window.innerWidth < 768) {
+      menu.style.display = 'none';
+    }
+  });
+});
 </script></body>
 </html>
