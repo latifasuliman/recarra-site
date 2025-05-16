@@ -21,7 +21,7 @@
     }
     .emoji-fall {
       position: absolute;
-      font-size: 2rem;
+      font-size: 2rem; pointer-events: none; user-select: none;
       opacity: 0.8;
       animation: fall 6s linear infinite;
     }
@@ -39,7 +39,7 @@
 
     .timer {
       margin-top: 1rem;
-      font-size: 2rem;
+      font-size: 2rem; pointer-events: none; user-select: none;
       font-weight: bold;
       padding: 0.5rem 1rem;
       background: yellow;
@@ -146,7 +146,7 @@ input:invalid, select:invalid {
 
   <div id="sliderContainer" style="width: 75%; margin: 2rem auto 1.5rem; height: 80px; background: black; border: 4px solid red; border-radius: 40px; position: relative; box-shadow: 0 0 20px rgba(255,0,0,0.4); overflow: hidden; display: flex; align-items: center; justify-content: start; padding-left: 80px;">
     <div id="slideButton" style="position: absolute; left: 0; top: 0; height: 100%; width: 80px; background: white; color: green; border: 3px solid green; border-radius: 50%; text-align: center; line-height: 80px; font-weight: bold; font-size: 36px; transition: left 0.3s ease;">➜</div>
-    <span style="color:white;font-size:20px;font-weight:bold;margin-left:90px;">Slide to Submit</span>
+    <span style="color:white;font-size:20px;font-weight:bold;margin-left:90px;">Slide to Submit →</span>
   </div>
 </div>
 </div>
@@ -241,7 +241,21 @@ function endSlide(e) {
   if (!isSliding) return;
   const slideBtn = document.getElementById("slideButton");
   slideBtn.style.left = "calc(100% - 80px)";
-  setTimeout(() => validateQuickCash(), 300);
+  
+    setTimeout(() => {
+      const name = document.querySelector('.quick-cash input[placeholder="Full Name"]').value.trim();
+      const phone = document.querySelector('.quick-cash input[placeholder="Mobile Number"]').value.trim();
+      const email = document.querySelector('.quick-cash input[placeholder="Email Address"]').value.trim();
+      if (!name || !phone || !email) {
+        alert("Please fill in your name, phone, and email.");
+        return;
+      }
+      const msg = `Thank you, ${name}. Your offer request has been received. We’ll contact you at ${phone}.`;
+      speechSynthesis.speak(new SpeechSynthesisUtterance(msg));
+      alert(msg);
+      setTimeout(() => window.location.href = "homepage.html", 1000);
+    }, 300);
+    
   isSliding = false;
 }
 

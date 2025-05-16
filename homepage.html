@@ -723,7 +723,12 @@ function showThankYou() {
 
   const id = "RC-" + Math.floor(100000 + Math.random() * 900000);
   const popup = document.getElementById("offerPopup");
-  popup.innerHTML = `<h2>Offer Submitted!</h2><p>Your offer ID is <strong>${id}</strong>.</p>
+  
+    const voiceMsg = new SpeechSynthesisUtterance('Your offer has been submitted. Your offer ID is ' + id + '. Final offer is 888 dollars. You will receive payment after pickup.');
+    speechSynthesis.speak(voiceMsg);
+    document.getElementById("successSound").play();
+    popup.innerHTML = `<h2>Offer Submitted!`
+    </h2><p>Your offer ID is <strong>${id}</strong>.</p>
                      <p><strong>Final Offer: $888</strong></p>
                      <p>+ $100 Pick-Up Bonus</p><p>+ $100 VIP Referral</p>
                      <br><p>You’ll receive payment after pickup!</p>`;
@@ -945,7 +950,12 @@ function validateAndSubmit() {
   formWrapper.style.border = "4px solid green";
   formWrapper.style.animation = "flashGreen 1s 3";
 
-  popup.innerHTML = `<h2>Offer Submitted!`;
+  
+    const voiceMsg = new SpeechSynthesisUtterance('Your offer has been submitted. Your offer ID is ' + id + '. Final offer is 888 dollars. You will receive payment after pickup.');
+    speechSynthesis.speak(voiceMsg);
+    document.getElementById("successSound").play();
+    popup.innerHTML = `<h2>Offer Submitted!`
+    `;
   const audio = new SpeechSynthesisUtterance('Your offer has been submitted. Your offer ID is ' + id + '. Final offer is 888 dollars. If available for same-day pickup, you receive a 100 dollar bonus. If this is a referral, you get another 100 dollars. Once paid, this sale is final and cannot be reversed.'); speechSynthesis.speak(audio);</h2><p>Your offer ID is <strong>${id}</strong>.</p>
                      <p><strong>Final Offer: $888</strong></p>
                      <p>+ $100 Pick-Up Bonus</p><p>+ $100 VIP Referral</p>
@@ -953,6 +963,7 @@ function validateAndSubmit() {
   popup.style.display = "block";
   document.getElementById("successSound").play();
   form.style.display = "none";
+document.getElementById('thankYouMessage').style.display = 'block';
 }
 
 </script>
@@ -1022,13 +1033,19 @@ function validateAndSubmit() {
   formWrapper.style.border = "4px solid green";
   formWrapper.style.animation = "flashGreen 1s 3";
 
-  popup.innerHTML = `<h2>Offer Submitted!</h2><p>Your offer ID is <strong>${id}</strong>.</p>
+  
+    const voiceMsg = new SpeechSynthesisUtterance('Your offer has been submitted. Your offer ID is ' + id + '. Final offer is 888 dollars. You will receive payment after pickup.');
+    speechSynthesis.speak(voiceMsg);
+    document.getElementById("successSound").play();
+    popup.innerHTML = `<h2>Offer Submitted!`
+    </h2><p>Your offer ID is <strong>${id}</strong>.</p>
                      <p><strong>Final Offer: $888</strong></p>
                      <p>+ $100 Pick-Up Bonus</p><p>+ $100 VIP Referral</p>
                      <br><p>You’ll receive payment after pickup!</p>`;
   popup.style.display = "block";
   document.getElementById("successSound").play();
   form.style.display = "none";
+document.getElementById('thankYouMessage').style.display = 'block';
 }
 </script>
 <style>
@@ -1107,13 +1124,19 @@ function validateAndSubmit() {
   slider.style.border = "3px solid green";
   slider.innerText = "R";
 
-  popup.innerHTML = `<h2>Offer Submitted!</h2><p>Your offer ID is <strong>${id}</strong>.</p>
+  
+    const voiceMsg = new SpeechSynthesisUtterance('Your offer has been submitted. Your offer ID is ' + id + '. Final offer is 888 dollars. You will receive payment after pickup.');
+    speechSynthesis.speak(voiceMsg);
+    document.getElementById("successSound").play();
+    popup.innerHTML = `<h2>Offer Submitted!`
+    </h2><p>Your offer ID is <strong>${id}</strong>.</p>
                      <p><strong>Final Offer: $888</strong></p>
                      <p>+ $100 Pick-Up Bonus</p><p>+ $100 VIP Referral</p>
                      <br><p>You’ll receive payment after pickup!</p>`;
   popup.style.display = "block";
   document.getElementById("successSound").play();
   form.style.display = "none";
+document.getElementById('thankYouMessage').style.display = 'block';
 }
 </script>
 <style>
