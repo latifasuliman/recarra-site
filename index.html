@@ -227,5 +227,34 @@ function validateQuickCash() {
   alert(msg);
   setTimeout(() => window.location.href = "homepage.html", 1000);
 }
+</script><script>window.onload = function() { updateTimer(); };</script><script>
+let seconds = 180;
+const counter = document.getElementById("counter");
+
+function updateTimer() {
+  if (!counter) return;
+  const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+  const s = String(seconds % 60).padStart(2, '0');
+  counter.textContent = `${m}:${s}`;
+
+  if (seconds <= 90) {
+    counter.style.background = "red";
+    counter.style.color = "#fff";
+  }
+
+  if (seconds === 0) {
+    document.getElementById("chime").play();
+    setTimeout(() => window.location.href = "homepage.html", 1000);
+  } else {
+    seconds--;
+    setTimeout(updateTimer, 1000);
+  }
+}
+
+function redirectNow() {
+  window.location.href = "homepage.html";
+}
+
+document.addEventListener("DOMContentLoaded", updateTimer);
 </script></body>
 </html>
