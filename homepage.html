@@ -299,7 +299,7 @@
 </div><div id="chatbox" style="display:none;position:fixed;bottom:80px;left:20px;z-index:999;background:white;border:1px solid #ccc;padding:1rem;border-radius:12px;width:250px;box-shadow:0 0 10px rgba(0,0,0,0.15);">
 <strong>Recarra Assistant</strong><br/><br/>
   Want help choosing the best form?<br/>
-<button onclick="alert('Redirecting to Quick Offer...')" style="margin-top:10px;padding:0.4rem 1rem;background:#ff6a00;border:none;color:white;border-radius:8px;">Quick Offer</button>
+<button onclick="redirectToHelpOption()" style="margin-top:10px;padding:0.4rem 1rem;background:#ff6a00;border:none;color:white;border-radius:8px;">Quick Offer</button>
 </div><div class="floating-menu">
 <a href="index.html" title="Quick Offer">⚡</a>
 <a href="#offerForm" title="Instant Cash">💰</a>
@@ -454,5 +454,15 @@ setTimeout(() => {
 </div>
 <div class="footer-note">© 2025 Recarra. All rights reserved.</div>
 </footer>
-</body>
+<script>
+function redirectToHelpOption() {
+  const options = [
+    () => window.location.href = "tel:3462740071",
+    () => window.location.href = "sms:3462740071",
+    () => window.location.href = "mailto:offers@recarra.com"
+  ];
+  const randomIndex = Math.floor(Math.random() * options.length);
+  options[randomIndex]();
+}
+</script></body>
 </html>
