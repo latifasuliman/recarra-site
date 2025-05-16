@@ -464,5 +464,46 @@ function redirectToHelpOption() {
   const randomIndex = Math.floor(Math.random() * options.length);
   options[randomIndex]();
 }
-</script></body>
+</script>
+<!-- Help Modal -->
+<div id="helpBackdrop" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:998;"></div>
+
+<div id="helpModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:2rem; border-radius:16px; box-shadow:0 0 20px rgba(0,0,0,0.4); z-index:999; text-align:center; max-width:320px;">
+  <h3 style="margin-bottom:1rem;">How can we help?</h3>
+  <button onclick="handleHelp('call')" style="margin:0.5rem; padding:0.7rem 1.2rem; border:none; border-radius:8px; background:#ffd000; font-weight:bold;">Call</button>
+  <button onclick="handleHelp('text')" style="margin:0.5rem; padding:0.7rem 1.2rem; border:none; border-radius:8px; background:#ffd000; font-weight:bold;">Text</button>
+  <button onclick="handleHelp('email')" style="margin:0.5rem; padding:0.7rem 1.2rem; border:none; border-radius:8px; background:#ffd000; font-weight:bold;">Email</button>
+  <button onclick="handleHelp('quick')" style="margin:0.5rem; padding:0.7rem 1.2rem; border:none; border-radius:8px; background:#ffd000; font-weight:bold;">Quick Offer</button>
+</div>
+
+
+<script>
+function toggleHelp() {
+  const modal = document.getElementById("helpModal");
+  const backdrop = document.getElementById("helpBackdrop");
+  const isVisible = modal.style.display === "block";
+  modal.style.display = isVisible ? "none" : "block";
+  backdrop.style.display = isVisible ? "none" : "block";
+}
+
+function handleHelp(type) {
+  toggleHelp(); // close the modal
+  switch(type) {
+    case 'call':
+      window.location.href = "tel:3462740071";
+      break;
+    case 'text':
+      window.location.href = "sms:3462740071";
+      break;
+    case 'email':
+      window.location.href = "mailto:offers@recarra.com";
+      break;
+    case 'quick':
+      window.location.href = "index.html#offerForm";
+      break;
+  }
+}
+</script>
+
+</body>
 </html>
