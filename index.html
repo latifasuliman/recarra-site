@@ -1,451 +1,51 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Welcome to Recarra</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Recarra</title>
+  <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #fff;
-      color: #000;
-      overflow-y: auto;
-  scroll-behavior: smooth;
+      padding: 0;
+      background: #ffffff;
+      color: #000000;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
     }
-    .splash {
-      position: relative;
-      padding-top: 3rem;
+    h1 {
+      font-size: 2.5rem;
+      color: #001F3F;
+      margin-bottom: 1rem;
     }
-    .emoji-fall {
-      position: absolute;
-      font-size: 2rem; pointer-events: none; user-select: none;
-      opacity: 0.8;
-      animation: fall 6s linear infinite;
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
-    .emoji1 { left: 5%; animation-delay: 0s; }
-    .emoji2 { left: 20%; animation-delay: 1s; }
-    .emoji3 { left: 35%; animation-delay: 2s; }
-    .emoji4 { left: 50%; animation-delay: 3s; }
-    .emoji5 { left: 65%; animation-delay: 4s; }
-    .emoji6 { left: 80%; animation-delay: 5s; }
-
-    @keyframes fall {
-      0% { top: -50px; }
-      100% { top: 110vh; }
-    }
-
-    .timer {
-      margin-top: 1rem;
-      font-size: 2rem; pointer-events: none; user-select: none;
+    a.button {
+      background: #001F3F;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
       font-weight: bold;
-      padding: 0.5rem 1rem;
-      background: yellow;
-      border-radius: 10px;
-      display: inline-block;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: background 0.3s ease;
     }
-
-    .skip-btn, .submit-btn {
-  animation: glow 1.8s infinite alternate;
-      margin-top: 1.5rem;
-      background: linear-gradient(to right, #ff6a00, #ffcc00);
-      border: none;
-      border-radius: 40px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      padding: 0.9rem 2rem;
-      color: #000;
-      cursor: pointer;
+    a.button:hover {
+      background: #003366;
     }
-
-    .quick-cash {
-      margin: 2rem auto;
-      max-width: 360px;
-      width: 90%;
-      padding: 1rem;
-      border: 2px dashed #ffa500;
-      border-radius: 15px;
-    }
-
-    .quick-cash input {
-      width: 90%;
-      padding: 0.9rem;
-      margin: 0.5rem 0;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .quick-cash h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .submit-btn {
-      margin-top: 1rem;
-    }
-  
-        .nav-button {
-            background: #C80000;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            width: 100%;
-            max-width: 400px;
-            margin: 1.5rem auto;
-            display: block;
-            box-shadow: 0 0 10px rgba(200, 0, 0, 0.5);
-            transition: all 0.3s ease;
-        }
-        .nav-button:hover {
-            background: #FF0000;
-        }
-        .step-indicator {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #C80000;
-            margin: 1rem 0;
-            text-align: center;
-        }
-        </style>
-<style>
-input:invalid, select:invalid {
-  animation: flash-border 1s infinite alternate;
-}
-@keyframes flash-border {
-  0% { border: 2px solid red; }
-  100% { border: 2px solid #ff6a00; }
-}
-</style><style>
-.quick-step {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease, max-height 0.4s ease;
-  max-height: 0;
-  overflow: hidden;
-}
-.quick-step.active {
-  opacity: 1;
-  pointer-events: auto;
-  max-height: 300px;
-}
-.form-wrapper {
-  max-height: 80vh;
-  overflow-y: auto;
-  margin-bottom: 2rem;
-}
-</style></head>
+  </style>
+</head>
 <body>
-<!-- Emoji fall animation -->
-<div class="emoji-fall emoji1">🚗</div>
-<div class="emoji-fall emoji2">💰</div>
-<div class="emoji-fall emoji3">🚙</div>
-<div class="emoji-fall emoji4">💵</div>
-<div class="emoji-fall emoji5">🚗</div>
-<div class="emoji-fall emoji6">💰</div>
-<div class="splash">
-<div class="bonus-box" style="margin: 1rem auto; max-width: 360px; padding: 1rem; background: #fff3cd; border: 2px dashed #ffc107; border-radius: 15px; font-weight: bold;">
-<strong>Bonus Alert:</strong> Every 8th customer who submits a Recarra form (Quick or Full) receives DOUBLE the payout!
-  </div>
-<h1>Welcome to Recarra</h1>
-<p>Your smart car offer starts in just a moment...</p>
-<div class="timer-container" style="position:relative;width:300px;height:30px;margin:1rem auto;background:#eee;border-radius:10px;overflow:hidden;">
-<div id="progressBar" style="position:absolute;top:0;left:0;height:100%;width:100%;background:linear-gradient(to right,#ff6a00,#ffcc00);transition:width 1s linear;"></div>
-<div id="counter" style="position:relative;z-index:2;font-weight:bold;">03:00</div>
-</div>
-<br/>
-<button class="skip-btn" onclick="redirectNow()">Skip</button>
-<div class="quick-cash">
-<h3>Recarra Quick Cash</h3>
-<p>We will fill up the form for you by phone 💵</p><div class="form-wrapper"><div class="quick-step active"><input placeholder="Full Name" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Enter your legal full name — first and last. This helps us verify the offer.</small></div><div class="quick-step"><input placeholder="Mobile Number" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="tel"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Mobile number we can reach you at — we’ll text you confirmation.</small></div><div class="quick-step"><input placeholder="Email Address" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="email"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Email address for sending your official offer.</small></div><div class="quick-step"><input placeholder="Year (e.g., 2012)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Enter the 4-digit year of your vehicle — e.g., 2015.</small></div><div class="quick-step"><input placeholder="Make (e.g., Toyota)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Type the brand name of your car — e.g., Toyota, Ford.</small></div><div class="quick-step"><input placeholder="Model (e.g., Camry)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Type the model — e.g., Camry, F-150, Accord.</small></div><div class="quick-step"><select required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;">
-<option value="">Select Trim</option>
-<option>Base</option>
-<option>Sport</option>
-<option>Limited</option>
-<option>N/A</option>
-</select><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Choose the trim level if known — or select N/A.</small></div><div class="quick-step"><input placeholder="Vehicle Color (e.g., White)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">What color is the vehicle? Use common names like White, Black, etc.</small></div><div class="quick-step"><select required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;">
-<option value="">Is the car drivable?</option>
-<option>Yes</option>
-<option>No</option>
-</select><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Is your vehicle still drivable? Choose Yes or No.</small></div><div class="quick-step"><input placeholder="Mileage Estimate (e.g., 120,000)" required="" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="text"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Estimate total mileage driven — numbers only (e.g., 120000).</small></div><div class="quick-step"><input accept="image/*" style="max-width: 300px; width: 100%; height: 60px; padding: 12px; margin: 10px auto; font-size: 1rem; border-radius: 10px; border: 1px solid #ccc; display: block; text-align: center;" type="file"/><small style="color:#555;font-size:0.9rem;display:block;margin-top:4px;">Upload a clear front photo of the vehicle if possible. Optional.</small></div></div>
-<div id="sliderContainer" style="width: 80%; margin-top: 3rem; margin-bottom: 3rem; 3rem auto 2rem; height: 80px; background: linear-gradient(to right, #ffa500, #ffcc00); border: none; border-radius: 50px; position: relative; box-shadow: 0 0 25px rgba(255,165,0,0.5); overflow: hidden; display: flex; align-items: center; justify-content: start; padding-left: 70px; transition: all 0.4s ease;">
-<div id="slideButton" style="position: absolute; left: 0; top: 0; height: 100%; width: 70px; background: white; color: #000; border: 2px solid #ffa500; border-radius: 50%; text-align: center; line-height: 70px; font-weight: bold; font-size: 30px; transition: left 0.3s ease;">➤</div>
-<span style="color:#000; font-size:18px; font-weight:bold; margin-left:85px;">Slide to Confirm Offer →</span>
-</div>
-<button id="quickSkipBtn" onclick="quickSkipOptional()" style="margin-top:1.5rem;padding:0.6rem 1rem;font-weight:bold;border-radius:10px;border:none;background:#ccc;">Skip Optional</button></div>
-</div>
-<audio id="chime" preload="auto" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
-<script>
-  let seconds = 180;
-  const counter = document.getElementById("counter");
-
-  function updateTimer() {
-    const m = String(Math.floor(seconds / 60)).padStart(2, '0');
-    const s = String(seconds % 60).padStart(2, '0');
-    counter.textContent = `${m}:${s}`;
-
-    if (seconds <= 90) {
-      counter.style.background = "red";
-      counter.style.color = "#fff";
-    }
-
-    if (seconds === 0) {
-      document.getElementById("chime").play();
-      setTimeout(() => window.location.href = "homepage.html", 1000);
-    } else {
-      seconds--;
-      setTimeout(updateTimer, 1000);
-    }
-  }
-
-  function redirectNow() {
-  launchConfetti();
-    window.location.href = "homepage.html";
-  }
-
-  function submitQuickCash() {
-  const name = document.querySelector('.quick-cash input[placeholder="Full Name"]').value.trim();
-  const phone = document.querySelector('.quick-cash input[placeholder="Mobile Number"]').value.trim();
-
-  if (!name && !phone) { alert('Please enter your full name and mobile number.'); return; } else if (!name || !phone) { alert('One field is missing. Please complete both.'); return; }
-    alert("Please enter both your name and phone number.");
-    return;
-  }
-
-  alert(`Thank you, ${name}! We’ll call you shortly at ${phone}.`);
-  setTimeout(() => {
-    window.location.href = "homepage.html";
-  }, 1000);
-}
-
-  updateTimer();
-</script>
-<style>
-  .floating-ui {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .floating-ui a, .floating-ui button {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: linear-gradient(to right, #ff6a00, #ffcc00);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    text-decoration: none;
-    color: black;
-    border: none;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    cursor: pointer;
-  }
-  .floating-ui button:hover,
-  .floating-ui a:hover {
-    transform: scale(1.05);
-  }
-</style>
-<div class="floating-ui">
-<button onclick="alert('Live chat coming soon!')" title="Live Chat / Help">💬</button>
-<a href="tel:3462740071" title="Call Us">📞</a>
-</div>
-<script>
-document.getElementById("sliderContainer").addEventListener("mousedown", startSlide);
-document.getElementById("sliderContainer").addEventListener("touchstart", startSlide);
-document.addEventListener("mouseup", endSlide);
-document.addEventListener("touchend", endSlide);
-
-let isSliding = false;
-function startSlide(e) { isSliding = true; }
-function endSlide(e) {
-  if (!isSliding) return;
-  const slideBtn = document.getElementById("slideButton");
-  slideBtn.style.left = "calc(100% - 80px)";
-  
-    setTimeout(() => {
-      const name = document.querySelector('.quick-cash input[placeholder="Full Name"]').value.trim();
-      const phone = document.querySelector('.quick-cash input[placeholder="Mobile Number"]').value.trim();
-      const email = document.querySelector('.quick-cash input[placeholder="Email Address"]').value.trim();
-      if (!name || !phone || !email) {
-        alert("Please fill in your name, phone, and email.");
-        return;
-      }
-      const msg = `Thank you, ${name}. Your offer request has been received. We’ll contact you at ${phone}.`;
-      speechSynthesis.speak(new SpeechSynthesisUtterance(msg));
-      alert(msg);
-      setTimeout(() => window.location.href = "homepage.html", 1000);
-    }, 300);
-    
-  isSliding = false;
-}
-
-function validateQuickCash() {
-  const name = document.querySelector('.quick-cash input[placeholder="Full Name"]').value.trim();
-  const phone = document.querySelector('.quick-cash input[placeholder="Mobile Number"]').value.trim();
-
-  if (!name && !phone) {
-    alert("Please enter your full name and mobile number.");
-    return;
-  } else if (!name || !phone) {
-    alert("One field is missing. Please complete both.");
-    return;
-  }
-
-  const msg = `Thank you, ${name}. Your offer request has been submitted. Your offer amount should appear here anytime now.`;
-  const voice = new SpeechSynthesisUtterance(msg);
-  speechSynthesis.speak(voice);
-
-  alert(msg);
-  setTimeout(() => window.location.href = "homepage.html", 1000);
-}
-</script><script>window.onload = function() { updateTimer(); };</script><script>
-let seconds = 180;
-const counter = document.getElementById("counter");
-
-function updateTimer() {
-  if (!counter) return;
-  const m = String(Math.floor(seconds / 60)).padStart(2, '0');
-  const s = String(seconds % 60).padStart(2, '0');
-  counter.textContent = `${m}:${s}`;
-
-  if (seconds <= 90) {
-    counter.style.background = "red";
-    counter.style.color = "#fff";
-  }
-
-  if (seconds === 0) {
-    document.getElementById("chime").play();
-    setTimeout(() => window.location.href = "homepage.html", 1000);
-  } else {
-    seconds--;
-    setTimeout(updateTimer, 1000);
-  }
-}
-
-function redirectNow() {
-  launchConfetti();
-  window.location.href = "homepage.html";
-}
-
-document.addEventListener("DOMContentLoaded", updateTimer);
-</script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script>
-  function launchConfetti() {
-    confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-  }
-</script>
-<div class="floating-ui" style="position:fixed;bottom:20px;right:20px;z-index:1000;">
-<button onclick="toggleHelp()" style="width:52px;height:52px;border-radius:50%;background:#ffcc00;border:none;font-size:1.5rem;">?</button>
-<div id="helpMenu" style="display:none;position:absolute;bottom:60px;right:0;background:#fff;border:1px solid #ccc;border-radius:8px;padding:10px;box-shadow:0 2px 10px rgba(0,0,0,0.2);">
-<a href="tel:3462740071" style="display:block;margin:5px 0;text-decoration:none;color:black;">Call</a>
-<a href="sms:3462740071" style="display:block;margin:5px 0;text-decoration:none;color:black;">Text</a>
-<a href="mailto:help@recarra.com" style="display:block;margin:5px 0;text-decoration:none;color:black;">Email</a>
-</div>
-</div>
-<script>
-function toggleHelp() {
-  var menu = document.getElementById("helpMenu");
-  menu.style.display = (menu.style.display === "none") ? "block" : "none";
-}
-</script>
-<script>
-let quickStepIndex = 0;
-
-function getQuickSteps() {
-  return Array.from(document.getElementsByClassName("quick-step"));
-}
-
-function showQuickStep(n) {
-  const steps = getQuickSteps();
-  steps.forEach((step, i) => step.classList.toggle("active", i === n));
-}
-
-function quickNextStep() {
-  const steps = getQuickSteps();
-  if (quickStepIndex < steps.length - 1) {
-    quickStepIndex++;
-    showQuickStep(quickStepIndex);
-  } else {
-    document.getElementById("sliderContainer").scrollIntoView({ behavior: "smooth", block: "center" });
-  }
-}
-
-function validateQuickAndAdvance(index) {
-  const steps = getQuickSteps();
-  const current = steps[index];
-  const input = current.querySelector("input, select");
-  if (input && input.hasAttribute("required") && !input.value.trim()) {
-    input.style.border = "2px solid red";
-    return;
-  } else if (input) {
-    input.style.border = "1px solid #ccc";
-  }
-  quickNextStep();
-}
-
-window.onload = function() {
-  const steps = getQuickSteps();
-  steps.forEach((step, i) => {
-    const el = step.querySelector("input, select");
-    if (el) {
-      el.addEventListener("change", () => validateQuickAndAdvance(i));
-      el.addEventListener("blur", () => validateQuickAndAdvance(i));
-    }
-  });
-};
-</script>
-<script>
-function isQuickOptional(step) {
-  const optionalHints = ["photo", "referral", "Upload", "VIP"];
-  return optionalHints.some(hint => step.innerText.toLowerCase().includes(hint.toLowerCase()));
-}
-
-function quickSkipOptional() {
-  const steps = getQuickSteps();
-  for (let i = quickStepIndex + 1; i < steps.length; i++) {
-    if (!isQuickOptional(steps[i])) {
-      quickStepIndex = i;
-      showQuickStep(quickStepIndex);
-      return;
-    }
-  }
-}
-</script>
-<script>
-        let currentStep = 0;
-        const steps = document.querySelectorAll('.form-step');
-        const stepIndicator = document.getElementById('stepIndicator');
-
-        function showStep(n) {
-            steps.forEach((step, i) => {
-                step.style.display = i === n ? 'block' : 'none';
-            });
-            currentStep = n;
-            if (stepIndicator) {
-                stepIndicator.innerText = `Step ${n + 1} of ${steps.length}`;
-            }
-        }
-
-        window.onload = () => {
-            showStep(0);
-        };
-        </script></body>
+  <h1>Welcome to Recarra</h1>
+  <p>Sell your car fast. No tricks. Instant offers. Trusted buyers.</p>
+  <a class="button" href="homepage.html">Get Started</a>
+</body>
 </html>
-<style>
-@keyframes glow {
-  0% { box-shadow: 0 0 5px #ff6a00; }
-  100% { box-shadow: 0 0 20px #ffcc00; }
-}
-</style>
