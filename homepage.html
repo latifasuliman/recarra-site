@@ -939,7 +939,8 @@ function validateAndSubmit() {
   formWrapper.style.border = "4px solid green";
   formWrapper.style.animation = "flashGreen 1s 3";
 
-  popup.innerHTML = `<h2>Offer Submitted!</h2><p>Your offer ID is <strong>${id}</strong>.</p>
+  popup.innerHTML = `<h2>Offer Submitted!`;
+  const audio = new SpeechSynthesisUtterance('Your offer request has been submitted. Your offer amount should appear here anytime now.'); speechSynthesis.speak(audio);</h2><p>Your offer ID is <strong>${id}</strong>.</p>
                      <p><strong>Final Offer: $888</strong></p>
                      <p>+ $100 Pick-Up Bonus</p><p>+ $100 VIP Referral</p>
                      <br><p>You’ll receive payment after pickup!</p>`;

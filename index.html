@@ -109,8 +109,8 @@
 <input placeholder="Full Name" type="text"/>
 <input placeholder="Mobile Number" type="tel"/>
 <br/>
-<button class="submit-btn" onclick="submitQuickCash()">Submit</button>
-</div>
+
+<div id="sliderContainer" style="width:75%;margin:1.5rem auto 1.5rem;height:80px;background:black;border:4px solid red;border-radius:40px;position:relative;box-shadow:0 0 20px rgba(255,0,0,0.4);overflow:hidden;display:flex;align-items:center;justify-content:center;padding-left:80px;"><div id="slideButton" style="position:absolute;left:0;top:0;height:100%;width:80px;background:white;color:green;border:3px solid green;border-radius:50%;text-align:center;line-height:80px;font-weight:bold;font-size:36px;transition:left 0.3s ease;">➜</div><span style="color:white;font-size:20px;font-weight:bold;margin-left:90px;">Slide to Submit</span></div></div>
 </div>
 <audio id="chime" preload="auto" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
 <script>
@@ -144,7 +144,7 @@
   const name = document.querySelector('.quick-cash input[placeholder="Full Name"]').value.trim();
   const phone = document.querySelector('.quick-cash input[placeholder="Mobile Number"]').value.trim();
 
-  if (!name || !phone) {
+  if (!name && !phone) { alert('Please enter your full name and mobile number.'); return; } else if (!name || !phone) { alert('One field is missing. Please complete both.'); return; }
     alert("Please enter both your name and phone number.");
     return;
   }
@@ -193,5 +193,40 @@
 <a href="#" title="WhatsApp (coming soon)">🟢</a>
 <a href="#" title="Text (coming soon)">✉️</a>
 </div>
-</body>
+<script>
+document.getElementById("sliderContainer").addEventListener("mousedown", startSlide);
+document.getElementById("sliderContainer").addEventListener("touchstart", startSlide);
+document.addEventListener("mouseup", endSlide);
+document.addEventListener("touchend", endSlide);
+
+let isSliding = false;
+function startSlide(e) { isSliding = true; }
+function endSlide(e) {
+  if (!isSliding) return;
+  const slideBtn = document.getElementById("slideButton");
+  slideBtn.style.left = "calc(100% - 80px)";
+  setTimeout(() => validateQuickCash(), 300);
+  isSliding = false;
+}
+
+function validateQuickCash() {
+  const name = document.querySelector('.quick-cash input[placeholder="Full Name"]').value.trim();
+  const phone = document.querySelector('.quick-cash input[placeholder="Mobile Number"]').value.trim();
+
+  if (!name && !phone) {
+    alert("Please enter your full name and mobile number.");
+    return;
+  } else if (!name || !phone) {
+    alert("One field is missing. Please complete both.");
+    return;
+  }
+
+  const msg = `Thank you, ${name}. Your offer request has been submitted. Your offer amount should appear here anytime now.`;
+  const voice = new SpeechSynthesisUtterance(msg);
+  speechSynthesis.speak(voice);
+
+  alert(msg);
+  setTimeout(() => window.location.href = "homepage.html", 1000);
+}
+</script></body>
 </html>
