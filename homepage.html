@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recarra | Instant Offer</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recarra | Instant Offer</title>
+<style>
     body {
       background: #ffffff;
       color: #000000;
@@ -98,106 +97,303 @@ input:focus, select:focus {
   opacity: 1;
 }
 
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+@keyframes bubblePulse {
+  0% { box-shadow: 0 0 0px #001F3F; transform: scale(1); }
+  50% { box-shadow: 0 0 10px #003366; transform: scale(1.05); }
+  100% { box-shadow: 0 0 0px #001F3F; transform: scale(1); }
+}
+
+@keyframes colorCycle {
+  0% { background: red; }
+  14% { background: #e91e63; }   /* Pink */
+  28% { background: #9c27b0; }   /* Purple */
+  42% { background: #3f51b5; }   /* Indigo */
+  56% { background: #03a9f4; }   /* Light Blue */
+  70% { background: #4caf50; }   /* Green */
+  84% { background: #ff9800; }   /* Orange */
+  100% { background: red; }
+}
 </style>
-</head>
+<style>
+.recarra-header {
+  position: sticky;
+  top: 0;
+  background: #001F3F;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  z-index: 999;
+}
+.recarra-header .logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: linear-gradient(to right, red, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.menu-toggle {
+  display: block;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.menu-items {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 64px;
+  right: 1rem;
+  background: #001F3F;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.menu-items li {
+  list-style: none;
+}
+.menu-items li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+.menu-items li a:hover {
+  background: #003366;
+  color: #ffcc00;
+}
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+  .menu-items {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+  }
+  .menu-items li a {
+    padding: 0 1rem;
+  }
+}
+.recarra-footer {
+  background: #001F3F;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1rem;
+  margin-top: 4rem;
+}
+.recarra-footer a {
+  color: #ffcc00;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+.recarra-footer a:hover {
+  text-decoration: underline;
+}
+</style></head>
 <body>
-  <header>Recarra</header>
-  <main>
+<header class="recarra-header">
+<div class="logo">Recarra</div>
+<nav class="menu-toggle" onclick="toggleMenu()">☰</nav>
+<ul class="menu-items" id="menu">
+<li><a href="#intro">Home</a></li>
+<li><a href="#formSection">Get Offer</a></li>
+<li><a href="#thankYou">Thank You</a></li>
+<li><a href="mailto:offers@recarra.com">Contact</a></li>
+</ul>
+</header>
+<main>
 <section id="intro" style="text-align:center; padding: 4rem 1rem;">
-  <h1 style="font-size:2.25rem; color:#001F3F; font-weight:900;">Turn Your Car Into Cash Today</h1>
-  <p style="font-size:1.1rem; color:#333; max-width:400px; margin:1rem auto;">
+<h1 style="font-size:2.25rem; color:#001F3F; font-weight:900;">Turn Your Car Into Cash Today</h1>
+<p style="font-size:1.1rem; color:#333; max-width:400px; margin:1rem auto;">
     Recarra offers instant car deals. Get same-day payment. No inspections. No hassle.
   </p>
-  <button onclick="startForm()" class="glow-button">
+<button class="glow-button" onclick="startForm()">
     Get Cash Now
   </button>
 </section>
 <div id="formSection" style="display:none;">
-    <h2>Get Your Instant Offer</h2>
-    <form onsubmit="event.preventDefault(); showThankYou();">
-    <div id="step1" class="step-transition active">
-      <label for="year">Vehicle Year</label>
-      <input type="number" id="year" name="year" placeholder="e.g. 2015" required />
-      <button type="button" class="glow-button" onclick="nextStep(2)">Next</button>
-    </div>
-    <div id="step2" class="step-transition" style="display:none;">
-      <label for="make">Vehicle Make</label>
-      <input type="text" id="make" name="make" placeholder="e.g. Toyota" required />
-      <button type="button" class="glow-button" onclick="nextStep(3)">Next</button>
-    </div>
-    <div id="step3" class="step-transition" style="display:none;">
-      <label for="model">Vehicle Model</label>
-      <input type="text" id="model" name="model" placeholder="e.g. Camry" required />
-      <button type="button" class="glow-button" onclick="nextStep(4)">Next</button>
-    </div>
-    <div id="step4" class="step-transition" style="display:none;">
-      <label for="condition">Condition</label>
-      <select id="condition" name="condition" required>
-        <option value="">Select condition</option>
-        <option>Good</option>
-        <option>Fair</option>
-        <option>Poor</option>
-        <option>Not Running</option>
-      </select>
-      <button type="button" class="glow-button" onclick="nextStep(5)">Next</button>
-    </div>
-    <div id="step5" class="step-transition" style="display:none;">
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Full Name" required />
-      <button type="button" class="glow-button" onclick="nextStep(6)">Next</button>
-    </div>
-    
-<div id="step6" class="step-transition" style="display:none;">
-  <label for="phone">Phone Number</label>
-  <input type="tel" id="phone" name="phone" placeholder="e.g. 555-123-4567" required />
-  <label for="vip">VIP Code (optional)</label>
-  <input type="text" id="vip" name="vip" placeholder="Enter code if you have one" />
-  <button type="submit" class="glow-button">$ Submit Offer</button>
+<h2>Get Your Instant Offer</h2>
+<div id="progressBar" style="height:6px;width:100%;background:#ddd;margin-bottom:1rem;">
+<div id="progress" style="height:100%;width:0%;background:#001F3F;transition:width 0.3s;"></div>
+</div>
+<form onsubmit="event.preventDefault(); showThankYou();">
+<div class="step-transition active" id="step1" style="">
+<label for="year">Vehicle Year</label>
+<input id="year" name="year" placeholder="e.g. 2015" required="" speech="true" type="number" x-webkit-speech="true"/>
+<button class="glow-button" onclick="nextStep(2)" type="button">Next</button>
+</div>
+<div class="step-transition" id="step2" style="display:none;">
+<label for="make">Vehicle Make</label>
+<input id="make" name="make" placeholder="e.g. Toyota" required="" speech="true" type="text" x-webkit-speech="true"/>
+<button class="glow-button" onclick="nextStep(3)" type="button">Next</button>
+</div>
+<div class="step-transition" id="step3" style="display:none;">
+<label for="model">Vehicle Model</label>
+<input id="model" name="model" placeholder="e.g. Camry" required="" speech="true" type="text" x-webkit-speech="true"/>
+<button class="glow-button" onclick="nextStep(4)" type="button">Next</button>
+</div>
+<div class="step-transition" id="step4" style="display:none;">
+<label for="condition">Condition</label>
+<select id="condition" name="condition" required="">
+<option value="">Select condition</option>
+<option>Good</option>
+<option>Fair</option>
+<option>Poor</option>
+<option>Not Running</option>
+</select>
+<button class="glow-button" onclick="nextStep(5)" type="button">Next</button>
+</div>
+<div class="step-transition" id="step5" style="display:none;">
+<label for="name">Your Name</label>
+<input id="name" name="name" placeholder="Full Name" required="" speech="true" type="text" x-webkit-speech="true"/>
+<button class="glow-button" onclick="nextStep(6)" type="button">Next</button>
+</div>
+<div class="step-transition" id="step6" style="display:none;">
+<label for="phone">Phone Number</label>
+<input id="phone" name="phone" placeholder="e.g. 555-123-4567" required="" speech="true" type="tel" x-webkit-speech="true"/>
+<label for="vip">VIP Code (optional)</label>
+<input id="vip" name="vip" placeholder="Enter code if you have one" speech="true" type="text" x-webkit-speech="true"/>
+<button class="glow-button" type="submit">$ Submit Offer</button>
 </div>
 </form>
 <div id="thankYou" style="display:none; text-align:center; margin-top:2rem;">
-  <h2 style="color:#001F3F;">Thank You!</h2>
-  <p>Your request has been received. Offer ID: <strong>#RC888X</strong></p>
+<h2 style="color:#001F3F;">Thank You!</h2>
+<p>Your request has been received. Offer ID: <strong>#RC888X</strong></p>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js">
+</div>
+<div id="floatingBanner" style="position:fixed; bottom:60px; right:90px; right:20px; background:#FFD700; color:#000; padding:0.75rem 1rem; border-radius:12px; font-weight:bold; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:999;"><span style="margin-right: 0.5rem; animation: blink 1s infinite;">💰</span> +$100 Pick-Up Today Bonus!</div>
+</main>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
+</script><section id="referralLeaderboard" style="text-align:center; padding:3rem 1rem; background:#f8f8f8; margin-top:3rem;">
+<h2 style="color:#001F3F; font-size:1.75rem;">Top Referrers</h2>
+<p style="font-size:1rem; color:#555;">Earn $100 for each successful referral! See who's leading:</p>
+<ul id="leaderList" style="list-style:none; padding:0; max-width:400px; margin:2rem auto 0;">
+<li style="background:#001F3F; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">1. Jason M — 18 Referrals</li>
+<li style="background:#003366; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">2. Emily R — 16 Referrals</li>
+<li style="background:#004080; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">3. Brian K — 13 Referrals</li>
+<li style="background:#0059b3; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">4. Sarah W — 10 Referrals</li>
+<li style="background:#0073e6; color:white; padding:0.75rem; margin:0.5rem 0; border-radius:8px;">5. David T — 7 Referrals</li>
+</ul>
+</section>
+<footer class="recarra-footer" style="margin-bottom: 100px;">
+<div>
+<a href="#formSection">Get Offer</a> |
+    <a href="#thankYou">Track Offer</a> |
+    <a href="mailto:offers@recarra.com">Email Us</a>
+</div>
+<div style="margin-top: 1rem; font-size: 0.85rem;">
+    © 2025 Recarra. Trusted Offers. Fast Payouts. No Surprises.
+  </div>
+</footer>
+<script>
 function startForm() {
   document.getElementById("intro").style.display = "none";
   document.getElementById("formSection").style.display = "block";
+  document.getElementById("formSection").scrollIntoView({ behavior: 'smooth' });
 }
 </script>
 <script>
-  
+function openChat() {
+  alert('Live Chat is coming soon! For now, email us at offers@recarra.com');
+}
+</script><script>
+function updateProgress(step) {
+  const progress = document.getElementById("progress");
+  if (progress) {
+    const percent = Math.round((step - 1) / 6 * 100);
+    progress.style.width = percent + "%";
+  }
+}
 function nextStep(n) {
   for (let i = 1; i <= 6; i++) {
-    const step = document.getElementById("step" + i);
-    step.classList.remove("active");
-    step.style.display = "none";
+    const stepDiv = document.getElementById("step" + i);
+    stepDiv.classList.remove("active");
+    stepDiv.style.display = "none";
   }
   const current = document.getElementById("step" + n);
-  current.style.display = "block";
-  setTimeout(() => current.classList.add("active"), 10);
-}
-
-    for (let i = 1; i <= 6; i++) {
-      document.getElementById("step" + i).style.display = i === n ? "block" : "none";
-    }
+  if (current) {
+    current.style.display = "block";
+    setTimeout(() => current.classList.add("active"), 10);
   }
-
-  function showThankYou() {
-    document.querySelector("form").style.display = "none";
-    document.getElementById("thankYou").style.display = "block";
-    confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
-  }
-
-function startForm() {
-  document.getElementById("intro").style.display = "none";
-  document.getElementById("formSection").style.display = "block";
+  updateProgress(n);
 }
 </script>
+<div id="chatBubble" style="position:fixed;bottom:90px;right:20px;z-index:999;">
+<div id="chatLauncher" onclick="toggleChatWindow()" style="width:60px;height:60px;border-radius:50%;background:red;color:white;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:bold;box-shadow:0 0 12px rgba(0,0,0,0.4);animation:colorCycle 8s infinite, bubblePulse 2s infinite;cursor:pointer;text-transform:uppercase;">AIA</div>
+<div id="chatWindow" style="display:none;width:300px;max-height:400px;background:white;border-radius:12px;box-shadow:0 0 15px rgba(0,0,0,0.2);position:absolute;bottom:70px;right:0;overflow:hidden;flex-direction:column;">
+<div style="background:#001F3F;color:white;padding:0.75rem;text-align:center;font-weight:bold;display:flex;justify-content:space-between;">
+<span>Recarra Assistant</span>
+<span onclick="toggleChatWindow()" style="cursor:pointer;">✖</span>
 </div>
-<div id="floatingBanner" style="position:fixed; bottom:20px; right:20px; background:#FFD700; color:#000; padding:0.75rem 1rem; border-radius:12px; font-weight:bold; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:999;">
-  +$100 Pick-Up Today Bonus!
+<div id="chatLog" style="flex:1;padding:0.75rem;font-size:0.9rem;overflow-y:auto;height:220px;">
+<div><strong>Bot:</strong> Welcome! How can I assist you today?</div>
 </div>
-</main>
-</body>
+<div style="display:flex;border-top:1px solid #ccc;">
+<input id="chatInput" onkeydown="if(event.key==='Enter')sendChat()" placeholder="Type here..." style="flex:1;padding:0.5rem;border:none;font-size:0.9rem;"/>
+<button onclick="sendChat()" style="padding:0.5rem 1rem;background:#001F3F;color:white;border:none;">Send</button>
+</div>
+</div>
+</div>
+<script>
+function toggleChatWindow() {
+  const chatWin = document.getElementById("chatWindow");
+  chatWin.style.display = chatWin.style.display === "none" ? "flex" : "none";
+}
+function sendChat() {
+  const input = document.getElementById("chatInput");
+  const log = document.getElementById("chatLog");
+  const msg = input.value.trim();
+  if (!msg) return;
+  const userLine = document.createElement("div");
+  userLine.innerHTML = "<strong>You:</strong> " + msg;
+  log.appendChild(userLine);
+
+  setTimeout(() => {
+    const botLine = document.createElement("div");
+    botLine.innerHTML = "<strong>Bot:</strong> " + generateBotReply(msg);
+    log.appendChild(botLine);
+    log.scrollTop = log.scrollHeight;
+  }, 600);
+  input.value = "";
+  log.scrollTop = log.scrollHeight;
+}
+function generateBotReply(msg) {
+  const lower = msg.toLowerCase();
+  if (lower.includes("offer")) return "You can get an offer instantly by filling the form above.";
+  if (lower.includes("vip")) return "VIP codes give you bonus cash! Enter one at the end of the form.";
+  if (lower.includes("contact")) return "You can reach us at offers@recarra.com or call our hotline.";
+  return "I'm here to help! Try asking about offers, VIP, or how to contact us.";
+}
+</script><script>
+let currentIndex = 0;
+setInterval(() => {
+  const items = document.querySelectorAll('#leaderList li');
+  if (items.length === 0) return;
+  items.forEach((item, i) => {
+    item.style.opacity = i === currentIndex ? '1' : '0.4';
+    item.style.transform = i === currentIndex ? 'scale(1.05)' : 'scale(1)';
+    item.style.transition = 'all 0.6s ease';
+  });
+  currentIndex = (currentIndex + 1) % items.length;
+}, 3000);
+</script></body>
 </html>
