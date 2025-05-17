@@ -3,13 +3,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <title>Welcome to Recarra</title>
   <meta name="theme-color" content="#001F3F"/>
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #ffffff, #f0f4f9);
       color: #001F3F;
@@ -62,7 +65,6 @@
 <body>
 
   <div class="logo-text blue" id="logoText">Recarra</div>
-
   <h1>Welcome to Recarra</h1>
   <p>Sell your car in 60 seconds — Get paid today</p>
   <p class="timer" id="timerText">Redirecting in 8…</p>
@@ -70,24 +72,19 @@
   <a href="index.html" class="button">Tap to Continue</a>
 
   <script>
-    // 5 min timer
+    // Timer for redirect
     let seconds = 8;
     const timerEl = document.getElementById("timerText");
-    function formatTime(sec) {
-      const m = Math.floor(sec / 60);
-      const s = sec % 60;
-      return m + ":" + (s < 10 ? "0" : "") + s;
-    }
     const interval = setInterval(() => {
       seconds--;
-      timerEl.textContent = "Redirecting in " + formatTime(seconds) + "…";
+      timerEl.textContent = "Redirecting in " + seconds + "…";
       if (seconds <= 0) {
         clearInterval(interval);
         window.location.href = "index.html";
       }
     }, 1000);
 
-    // Color rotation every 8 seconds
+    // Logo color cycling
     const colors = ["blue", "green", "orange", "red", "purple", "pink", "teal"];
     let index = 0;
     const logo = document.getElementById("logoText");
