@@ -1,276 +1,111 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Recarra | Complete Offer Flow</title>
-  <style>body{margin:0;padding:0;background:#fff;color:#000;font-family:Arial,sans-serif;}</style>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#001F3F"/>
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js').then(function(registration) {
-    console.log('ServiceWorker registered:', registration);
-  }).catch(function(error) {
-    console.log('ServiceWorker registration failed:', error);
-  });
-}
-</script>
+  <title>Welcome to Recarra</title>
+  <meta name="theme-color" content="#001F3F"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom right, #f8f9fa, #ffffff);
+      color: #001F3F;
+      text-align: center;
+    }
+    .container {
+      max-width: 500px;
+      margin: 4rem auto;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+    input {
+      width: 80%;
+      max-width: 300px;
+      padding: 0.75rem;
+      margin: 1rem auto;
+      display: block;
+      border: 2px solid #001F3F;
+      border-radius: 10px;
+      font-size: 1rem;
+      text-align: center;
+    }
+    button {
+      background: #001F3F;
+      color: white;
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      margin: 1rem 0;
+      cursor: pointer;
+    }
+    .countdown {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    a {
+      display: block;
+      margin-top: 1rem;
+      color: #0074D9;
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Splash Section -->
-<section id="splashSection" style="padding:2rem;text-align:center;">
-  <div id="smartEntryOptions" style="text-align:center; margin-bottom:2rem;">
-<p><strong>Speed things up</strong><br/>Use your VIN or License Plate to autofill your car info:</p>
-<button onclick="scanPlate()" style="width: 80%; max-width: 300px; margin: 0 auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan License Plate</button>
-<input id="smartPlate" oninput="suggestPlate(this.value)" placeholder="Enter License Plate" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
-<button onclick="scanVIN()" style="width: 80%; max-width: 300px; margin: 1rem auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan VIN</button>
-<input id="smartVIN" oninput="suggestVIN(this.value)" placeholder="Enter VIN" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
-<div id="smartSuggestions" style="font-size: 0.9rem; color: #001F3F;"></div>
-<p><a href="#" onclick="redirectWithRef()" style="color:#003366;">Skip and fill manually</a></p>
-<script>
-function redirectWithRef() {
-  const params = new URLSearchParams(window.location.search);
-  const ref = params.get("ref");
-  const dest = ref ? `homepage.html?ref=${ref}` : "homepage.html";
-  window.location.href = dest;
-}
-</script>
+<div class="container">
+  <h1>Welcome to Recarra</h1>
+  <p>America’s Most Trusted Car Offer Platform</p>
+  <p>We buy junk, damaged, and working cars instantly — and pay you on the spot.</p>
+  <div class="countdown" id="timer">Redirecting in 20 seconds...</div>
+
+  <button onclick="goToScan()">Get Started Now</button>
 </div>
 
-  <button onclick="document.getElementById('splashSection').style.display='none';document.getElementById('formSection').style.display='block';" style="margin-top:2rem;padding:1rem 2rem;font-weight:bold;background:#001F3F;color:white;border:none;border-radius:10px;">Continue to Full Form</button>
-</section>
-
-<!-- Smart Offer Form -->
-<section id="formSection" style="display:none;padding:2rem;text-align:center;">
-  <form id="quickRecarraForm" style=";margin-bottom:20rem">
-<!-- Step 1: Vehicle Identity -->
-<h3 style="text-align:center;">
-    Step 1: Vehicle Identity
-   </h3>
-<input id="plate" name="plate" placeholder="License Plate" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/><button style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #001F3F; background: #0074D9; color: white;" type="button">Scan Plate</button>
-<input id="vin" name="vin" placeholder="VIN" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/><button style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #001F3F; background: #0074D9; color: white;" type="button">Scan VIN</button>
-<!-- Step 2: Car Details -->
-<h3 style="text-align:center;">
-    Step 2: Car Details
-   </h3>
-<input id="year" name="year" placeholder="Year" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
-<input id="make" name="make" placeholder="Make" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
-<input id="model" name="model" placeholder="Model" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
-<input id="trim" name="trim" placeholder="Trim (Optional)" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
-<!-- Step 3: Vehicle Condition -->
-<h3 style="text-align:center;">
-    Step 3: Condition
-   </h3>
-<select id="condition" name="condition" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;">
-<option value="">
-     Select Condition
-    </option>
-<option value="Good">
-     Good
-    </option>
-<option value="Fair">
-     Fair
-    </option>
-<option value="Poor">
-     Poor
-    </option>
-<option value="Not Running">
-     Not Running
-    </option>
-</select>
-<textarea name="notes" placeholder="Optional Notes..." style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"></textarea>
-<!-- Step 4: Photo Uploads -->
-<h3 style="text-align:center;">
-    Step 4: Upload Photos
-   </h3>
-<strong style="display:block;text-align:center;margin-bottom:0.5rem;">
-    Exterior
-   </strong>
-<label>
-    Front View
-   </label>
-<input accept="image/*" name="photo_front" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<label>
-    Left Side
-   </label>
-<input accept="image/*" name="photo_left" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<label>
-    Right Side
-   </label>
-<input accept="image/*" name="photo_right" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<label>
-    Rear View
-   </label>
-<input accept="image/*" name="photo_rear" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<strong style="display:block;text-align:center;margin-top:1.5rem;">
-    Interior
-   </strong>
-<label>
-    Dashboard (Mileage)
-   </label>
-<input accept="image/*" name="photo_dashboard" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<label>
-    Keys
-   </label>
-<input accept="image/*" name="photo_keys" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<strong style="display:block;text-align:center;margin-top:1.5rem;">
-    Engine &amp; Mechanics
-   </strong>
-<label>
-    Engine Compartment
-    <span style="color:red;">
-     (Required)
-    </span>
-</label>
-<input accept="image/*" name="photo_engine" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<label>
-    Battery
-   </label>
-<input accept="image/*" name="photo_battery" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<label>
-    Tires
-   </label>
-<input accept="image/*" name="photo_tires" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<label>
-    Leaks
-   </label>
-<input accept="image/*" name="photo_leaks" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<strong style="display:block;text-align:center;margin-top:1.5rem;">
-    Other
-   </strong>
-<label>
-    Damage Photos
-   </label>
-<input accept="image/*" multiple="" name="photo_damage[]" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
-<br/>
-<!-- Step 5: Contact Info -->
-<h3 style="text-align:center;">
-    Step 5: Contact Info
-   </h3>
-<input id="name" name="name" placeholder="Full Name" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
-<input id="phone" name="phone" placeholder="Phone Number" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
-<input id="email" name="email" placeholder="Email Address" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
-
-<!-- Step 6: Pickup and Payment -->
-<h3 style="text-align:center;">Will this be a same-day pickup?</h3>
-<div style="text-align:center; margin-bottom: 1rem;">
-  <label style="margin-right: 1rem;">
-    <input type="radio" id="pickup_choice_yes" name="pickup_choice" value="yes" required />
-    Yes
-  </label>
-  <label>
-    <input type="radio" id="pickup_choice_no" name="pickup_choice" value="no" />
-    No
-  </label>
+<div id="scanSection" class="container" style="display:none;">
+  <h2>Let’s Identify Your Vehicle</h2>
+  <input id="plate" placeholder="Enter License Plate" />
+  <input id="vin" placeholder="Or Enter VIN Number" />
+  <button onclick="redirectToForm()">Continue</button>
+  <a href="homepage.html">Skip and fill manually</a>
 </div>
-
-<h3 style="text-align:center;">How would you like to receive your payment?</h3>
-<div style="text-align:center; margin-bottom: 1rem;">
-  <label style="display:block; margin: 0.5rem 0;">
-    <input type="radio" name="payout_method_choice" value="debit_card" required />
-    Instant Debit Card (Visa/Mastercard)
-  </label>
-  <label style="display:block; margin: 0.5rem 0;">
-    <input type="radio" name="payout_method_choice" value="cash" />
-    Cash on Pickup
-  </label>
-</div>
-
-<!-- Submit Button -->
-<div style="text-align:center;">
-<button class="glow-button" style="width:80%; max-width:300px; margin-top:2rem;;margin-bottom:6rem" type="submit">
-     Get My Offer
-    </button>
-</div>
-<input id="referral_code" name="referral_code" type="hidden" value=""/>
-
-<input id="pickup_bonus" name="pickup_bonus" type="hidden" value="no"/>
-
-<input id="payout_method" name="payout_method" type="hidden" value="cash"/>
-</form>
-  <button onclick="showThankYou()" style="margin-top:2rem;padding:1rem 2rem;background:#0074D9;color:white;border:none;border-radius:10px;font-weight:bold;">Submit Offer</button>
-</section>
-
-<!-- Thank You -->
-<section id="thankYouSection" style="display:none;text-align:center;padding:2rem;">
-  
-  <p style="font-size:1rem;">Want to make another offer?</p>
-  <a href="#splashSection" onclick="scrollToTop()" style="display:inline-block;padding:0.75rem 1.5rem;background:#001F3F;color:white;font-weight:bold;border-radius:10px;text-decoration:none;">Return to Recarra</a>
-</section>
-
-<!-- Referral Generator -->
-<section id="referralSection" style="display:none;text-align:center;padding:2rem;background:#f9f9f9;">
-  
-  <h2>Invite Friends — Earn $100 Each Time!</h2>
-  <p>Click below to generate your unique referral code:</p>
-  <button onclick="generateReferralCode()">Generate My Code</button>
-  <div id="referralOutput" class="output"></div>
-  <div class="share-buttons" style="display:none;" id="shareBtns">
-    <button onclick="copyLink()">Copy Link</button>
-    <button onclick="shareWhatsApp()">WhatsApp</button>
-    <button onclick="shareEmail()">Email</button>
-  </div>
-
-  <script>
-    let generatedLink = "";
-
-    function generateReferralCode() {
-      const rand = Math.random().toString(36).substr(2, 6).toUpperCase();
-      const code = "REF" + rand;
-      generatedLink = window.location.origin + "/?ref=" + code;
-      document.getElementById("referralOutput").innerHTML = "Your Link:<br><a href='" + generatedLink + "' target='_blank'>" + generatedLink + "</a>";
-      document.getElementById("shareBtns").style.display = "block";
-    }
-
-    function copyLink() {
-      navigator.clipboard.writeText(generatedLink);
-      alert("Referral link copied to clipboard!");
-    }
-
-    function shareWhatsApp() {
-      window.open("https://wa.me/?text=" + encodeURIComponent("Get an instant car offer! Here's my referral link: " + generatedLink));
-    }
-
-    function shareEmail() {
-      window.location.href = "mailto:?subject=Your Car Offer Awaits&body=Use this link to get $100 bonus on your car offer: " + generatedLink;
-    }
-  </script>
-
-<hr style="margin: 2rem 0;"/>
-<p style="font-size:1rem;">Done sharing?</p>
-<a href="index.html" style="display:inline-block;padding:0.75rem 1.5rem;background:#001F3F;color:white;font-weight:bold;
-border-radius:10px;text-decoration:none;">Return to Recarra</a>
-
-
-</section>
 
 <script>
-function showThankYou() {
-  document.getElementById('formSection').style.display = 'none';
-  document.getElementById('thankYouSection').style.display = 'block';
-  document.getElementById('referralSection').style.display = 'block';
-  confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } });
+let seconds = 20;
+const timerDisplay = document.getElementById("timer");
+const interval = setInterval(() => {
+  seconds--;
+  timerDisplay.textContent = "Redirecting in " + seconds + " seconds...";
+  if (seconds <= 0) {
+    clearInterval(interval);
+    goToScan();
+  }
+}, 1000);
+
+function goToScan() {
+  document.querySelector(".container").style.display = "none";
+  document.getElementById("scanSection").style.display = "block";
 }
 
-function scrollToTop() {
-  document.getElementById('splashSection').style.display = 'block';
-  document.getElementById('thankYouSection').style.display = 'none';
-  document.getElementById('referralSection').style.display = 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+function redirectToForm() {
+  const plate = document.getElementById("plate").value;
+  const vin = document.getElementById("vin").value;
+  let query = "";
+  if (plate) query += "plate=" + encodeURIComponent(plate);
+  if (vin) query += (query ? "&" : "") + "vin=" + encodeURIComponent(vin);
+  window.location.href = "homepage.html" + (query ? "?" + query : "");
 }
 </script>
 
