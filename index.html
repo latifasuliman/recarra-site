@@ -187,63 +187,44 @@ input:focus, select:focus {
 </style></head>
 <body style=";padding-bottom:10rem">
 <style>
-    #smartFaqBanner {
+    #faqRotator {
       width: 100%;
-      overflow: hidden;
-      background: #001F3F;
-      white-space: nowrap;
-      font-size: 1rem;
-      font-weight: bold;
       text-align: center;
-      padding: 0.75rem 1rem;
-    }
-    #smartFaqBanner span {
-      display: inline-block;
-      animation: scrollLeft 64s linear infinite;
-    }
-    @keyframes scrollLeft {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
+      font-size: 1.05rem;
+      font-weight: bold;
+      padding: 1rem;
+      color: white;
+      transition: background 1s, color 1s;
     }
     </style>
-<div id="smartFaqBanner">
-<span>
-        Q: How does Recarra work? A: Submit your info, get inspected, and get paid instantly. |
-        Q: What kinds of cars do you buy? A: Running or not, we take them all. |
-        Q: Is pickup free? A: Yes, and we pay $100 bonus for same-day pickup. |
-        Q: How do I get paid? A: Visa Direct, Zelle, or cash. |
-        Recarra — Trusted. Fast. No games. Get up to $8888 today.
-      </span>
-</div>
+<div id="faqRotator">How does Recarra work? Submit your car info, get your offer, and get paid your way.</div>
+<script>
+    const faqMessages = [
+      "How does Recarra work? Submit your car info, get your offer, and get paid your way.",
+      "What types of vehicles do we buy? Any car — damaged, old, or not running.",
+      "How fast is pickup? Same-day service available with $100 bonus.",
+      "How do you get paid? We offer cash, Zelle, or instant card deposit.",
+      "What paperwork is needed? We help with titles and take care of everything.",
+      "No title? No problem — Recarra buys cars with or without paperwork.",
+      "Who do we serve? Sellers across all 50 states — fast, easy, trusted.",
+      "What’s the bonus? Earn $100 extra for same-day pickup or referrals."
+    ];
+    const colorCycle = ["#001F3F", "#0074D9", "#3D9970", "#FF851B", "#B10DC9", "#FF4136", "#39CCCC", "#85144b"];
+    let i = 0;
+    setInterval(() => {
+      const rotator = document.getElementById("faqRotator");
+      if (rotator) {
+        rotator.textContent = faqMessages[i % faqMessages.length];
+        rotator.style.background = colorCycle[i % colorCycle.length];
+        i++;
+      }
+    }, 8000);
+    </script>
+<div id="chatLauncher" onclick="toggleChatWindow()" style="position: fixed; top: 12px; left: 12px; background: #001F3F; color: white; padding: 0.4rem 0.8rem; border-radius: 50px; font-weight: bold; font-size: 0.9rem; z-index: 9999;">AiA</div>
 
-<style>
-    #smartBanner {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      font-size: 1rem;
-      font-weight: bold;
-      text-align: center;
-      padding: 0.75rem 1rem;
-      animation: changeColor 8s infinite linear;
-    }
-    @keyframes scrollRightToLeft {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    @keyframes changeColor {
-      0%   { background-color: #ff4d4d; color: #ffffff; }
-      25%  { background-color: #ffcc00; color: #001F3F; }
-      50%  { background-color: #2980b9; color: #ffffff; }
-      75%  { background-color: #16a085; color: #ffffff; }
-      100% { background-color: #ff4d4d; color: #ffffff; }
-    }
-    </style>
-<div id="smartBanner">
-<div id="scrollingText" style="display:inline-block; animation: scrollRightToLeft 16s linear infinite;">
-        Get up to $8888 cash — No inspections, no waiting! | Free pickup in every state | $100 bonus for same-day pickup | No title? No problem! | Recarra pays instantly via card or Zelle | No lowball offers — ever. | Trusted by thousands nationwide.
-      </div>
-</div>
+
+
+
 <header class="recarra-header">
 <div class="logo">Recarra</div>
 <nav class="menu-toggle" onclick="toggleMenu()">☰</nav>
@@ -254,22 +235,8 @@ input:focus, select:focus {
 <li><a href="mailto:offers@recarra.com">Contact</a></li>
 </ul>
 </header>
-<div id="faqBanner" style="width:100%; overflow:hidden; background:#001F3F; padding:0.75rem 0; white-space:nowrap;">
-<div id="faqContent" style="display:inline-block; animation:scrollLeft 64s linear infinite; font-size:1rem;">
-<span style="color:red; font-weight:bold;">Q: How does Recarra work?</span>
-<span style="color:lightgreen;"> A: You submit your car info, we inspect it, and pay same day.</span>   
-    <span style="color:red; font-weight:bold;">Q: How fast do I get paid?</span>
-<span style="color:lightgreen;"> A: You get paid instantly via Zelle, direct deposit, or cash.</span>   
-    <span style="color:red; font-weight:bold;">Q: What types of vehicles do you buy?</span>
-<span style="color:lightgreen;"> A: All cars — running, broken, junk, or wrecked.</span>   
-    <span style="color:red; font-weight:bold;">Q: Do I need the title?</span>
-<span style="color:lightgreen;"> A: Not always. We help with paperwork or alternatives.</span>   
-    <span style="color:red; font-weight:bold;">Q: Is pickup really free?</span>
-<span style="color:lightgreen;"> A: Yes! Free towing and $100 bonus for same-day pickup.</span>   
-    <span style="color:red; font-weight:bold;">Q: What makes Recarra better?</span>
-<span style="color:lightgreen;"> A: No low offers, no games. Real people. Real payments.</span>   
-  </div>
-</div>
+
+
 <style>
 @keyframes scrollLeft {
   0% { transform: translateX(100%); }
@@ -471,33 +438,7 @@ function startForm() {
   document.getElementById("formSection").style.display = "block";
   document.getElementById("formSection").scrollIntoView({ behavior: 'smooth' });
 }
-</script><script>
-const messages = [
-  "Earn up to $8888 instantly — no hassle, no inspection. (EN)",
-  "¡Obtén hasta $8888 en minutos por tu auto viejo! (ES)",
-  "احصل على ما يصل إلى ٨٨٨٨ دولار فورًا مع ريكارا. (AR)",
-  "Recevez jusqu'à 8888 $ sans tracas – avec Recarra. (FR)",
-  "8888 रुपये का मूल्य तुरंत, बिना किसी कागज़ात के। (HI)",
-  "Recarra gives you $8888 for junk cars — even if not running. (EN)",
-  "Vendez votre voiture en panne pour 8888 $ – rapide et sécurisé. (FR)",
-  "8888 dólares por tu auto chatarra — solo con Recarra. (ES)"
-];
-
-const safeColors = [
-  "#003366", "#004080", "#0059b3", "#006666", "#004d4d", "#00334d", "#334455", "#002233"
-];
-
-let index = 0;
-setInterval(() => {
-  const banner = document.getElementById("recarra8888Banner");
-  banner.textContent = messages[index % messages.length];
-  banner.style.background = safeColors[index % safeColors.length];
-  index++;
-}, 8000);
 </script><div id="chatBubble" style="position:fixed;bottom:100px;right:20px;z-index:999;">
-<div id="chatLauncher" onclick="toggleChatWindow()" style="position: fixed; top: 20px; left: 160px; z-index: 999; background: #fff; padding: 5px 10px; border-radius: 8px; font-weight: bold; box-shadow: 0 0 6px rgba(0,0,0,0.1);">
-        AIA
-      </div>
 <div id="chatWindow" style="display:none;width:300px;max-height:400px;background:white;border-radius:12px;
       box-shadow:0 0 15px rgba(0,0,0,0.2);position:absolute;bottom:70px;right:0;overflow:hidden;flex-direction:column;">
 <div style="background:#003366;color:white;padding:0.75rem;text-align:center;font-weight:bold;display:flex;justify-content:space-between;">
@@ -554,7 +495,7 @@ function scanVIN() {
 </script>
 <div id="trustRibbon" style="position:fixed;bottom:0;width:100%;background:#001F3F;color:white;text-align:center;
 font-size:0.9rem;padding:0.75rem 1rem;z-index:9999;box-shadow:0 -2px 6px rgba(0,0,0,0.2);">
-  Trusted Buyer | Instant Cash | No Lowball Offers | $8888 Max Offer
+  Trusted Buyer | Instant Cash | No Lowball Offers | $100 Max Offer
 </div>
 <style>
 .circular-badge {

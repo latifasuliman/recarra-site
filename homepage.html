@@ -413,7 +413,42 @@ input:invalid, select:invalid, textarea:invalid {
   </label>
 </div>
 <input id="payout_method" name="payout_method" type="hidden" value="cash"/>
-</form></section></div><html><body style=";padding-bottom:80rem"><div id="chatBubble" style="position:fixed;bottom:100px;right:20px;z-index:999; display:none;">
+</form></section></div><html><body style=";padding-bottom:80rem">
+<style>
+    #faqRotator {
+      width: 100%;
+      text-align: center;
+      font-size: 1.05rem;
+      font-weight: bold;
+      padding: 1rem;
+      color: white;
+      transition: background 1s, color 1s;
+    }
+    </style>
+<div id="faqRotator">How does Recarra work? Submit your car info, get your offer, and get paid your way.</div>
+<script>
+    const faqMessages = [
+      "How does Recarra work? Submit your car info, get your offer, and get paid your way.",
+      "What types of vehicles do we buy? Any car — damaged, old, or not running.",
+      "How fast is pickup? Same-day service available with $100 bonus.",
+      "How do you get paid? We offer cash, Zelle, or instant card deposit.",
+      "What paperwork is needed? We help with titles and take care of everything.",
+      "No title? No problem — Recarra buys cars with or without paperwork.",
+      "Who do we serve? Sellers across all 50 states — fast, easy, trusted.",
+      "What’s the bonus? Earn $100 extra for same-day pickup or referrals."
+    ];
+    const colorCycle = ["#001F3F", "#0074D9", "#3D9970", "#FF851B", "#B10DC9", "#FF4136", "#39CCCC", "#85144b"];
+    let i = 0;
+    setInterval(() => {
+      const rotator = document.getElementById("faqRotator");
+      if (rotator) {
+        rotator.textContent = faqMessages[i % faqMessages.length];
+        rotator.style.background = colorCycle[i % colorCycle.length];
+        i++;
+      }
+    }, 8000);
+    </script>
+<div id="chatBubble" style="position:fixed;bottom:100px;right:20px;z-index:999; display:none;">
 <div id="chatLauncher" onclick="toggleChatWindow()" style="width:60px;height:60px;border-radius:50%;background:#003366;color:white;
         display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:bold;box-shadow:0 0 12px rgba(0,0,0,0.4);
         animation:colorCycle 8s infinite, bubblePulse 2s infinite;cursor:pointer;text-transform:uppercase;">
