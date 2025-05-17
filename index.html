@@ -186,6 +186,64 @@ input:focus, select:focus {
 }
 </style></head>
 <body style=";padding-bottom:10rem">
+<style>
+    #smartFaqBanner {
+      width: 100%;
+      overflow: hidden;
+      background: #001F3F;
+      white-space: nowrap;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.75rem 1rem;
+    }
+    #smartFaqBanner span {
+      display: inline-block;
+      animation: scrollLeft 64s linear infinite;
+    }
+    @keyframes scrollLeft {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    </style>
+<div id="smartFaqBanner">
+<span>
+        Q: How does Recarra work? A: Submit your info, get inspected, and get paid instantly. |
+        Q: What kinds of cars do you buy? A: Running or not, we take them all. |
+        Q: Is pickup free? A: Yes, and we pay $100 bonus for same-day pickup. |
+        Q: How do I get paid? A: Visa Direct, Zelle, or cash. |
+        Recarra — Trusted. Fast. No games. Get up to $8888 today.
+      </span>
+</div>
+
+<style>
+    #smartBanner {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.75rem 1rem;
+      animation: changeColor 8s infinite linear;
+    }
+    @keyframes scrollRightToLeft {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    @keyframes changeColor {
+      0%   { background-color: #ff4d4d; color: #ffffff; }
+      25%  { background-color: #ffcc00; color: #001F3F; }
+      50%  { background-color: #2980b9; color: #ffffff; }
+      75%  { background-color: #16a085; color: #ffffff; }
+      100% { background-color: #ff4d4d; color: #ffffff; }
+    }
+    </style>
+<div id="smartBanner">
+<div id="scrollingText" style="display:inline-block; animation: scrollRightToLeft 16s linear infinite;">
+        Get up to $8888 cash — No inspections, no waiting! | Free pickup in every state | $100 bonus for same-day pickup | No title? No problem! | Recarra pays instantly via card or Zelle | No lowball offers — ever. | Trusted by thousands nationwide.
+      </div>
+</div>
 <header class="recarra-header">
 <div class="logo">Recarra</div>
 <nav class="menu-toggle" onclick="toggleMenu()">☰</nav>
@@ -541,7 +599,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
 <div id="timerDisplay" style="position:fixed;top:20px;right:20px;background:#001F3F;color:white;padding:6px 12px;
 border-radius:6px;font-size:0.85rem;font-weight:bold;z-index:9999;">14:48</div>
 <script>

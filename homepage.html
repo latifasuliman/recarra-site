@@ -261,7 +261,7 @@ input:invalid, select:invalid, textarea:invalid {
 <h3 style="color:#001F3F;">Boost Your Offer</h3>
 <button onclick="applyPowerBoost('keys')" style="margin:0.5rem;padding:0.75rem 1.5rem;font-weight:bold;border:none;border-radius:8px;background:#FF851B;color:white;" type="button">+ Add Keys Photo → +$50</button>
 <button onclick="applyPowerBoost('pickup')" style="margin:0.5rem;padding:0.75rem 1.5rem;font-weight:bold;border:none;border-radius:8px;background:#2ECC40;color:white;" type="button">+ Same-Day Pickup → +$100</button>
-</div><form id="quickRecarraForm">
+</div><form id="quickRecarraForm" style=";margin-bottom:20rem">
 <!-- Step 1: Vehicle Identity -->
 <h3 style="text-align:center;">
     Step 1: Vehicle Identity
@@ -386,7 +386,6 @@ input:invalid, select:invalid, textarea:invalid {
     </button>
 </div>
 <input id="referral_code" name="referral_code" type="hidden" value=""/>
-
 <div style="margin: 1rem 0;">
 <label style="display:block; font-weight:bold; margin-bottom:6px;">
         Will this be a same-day pickup?
@@ -399,7 +398,22 @@ input:invalid, select:invalid, textarea:invalid {
       </label>
 </div>
 <input id="pickup_bonus" name="pickup_bonus" type="hidden" value="no"/>
-</form></section></div><html><body style=";padding-bottom:26rem"><div id="chatBubble" style="position:fixed;bottom:100px;right:20px;z-index:999; display:none;">
+<div style="margin-top:1.5rem;">
+<label style="display:block; font-weight:bold; margin-bottom:6px;">
+    How would you like to receive your payment?
+  </label>
+<label style="margin-bottom:0.5rem;display:block;">
+<input id="method_card" name="payout_method_choice" type="radio" value="push_card"/> Instant Debit Card (Visa/Mastercard)
+  </label>
+<label style="margin-bottom:0.5rem;display:block;">
+<input id="method_zelle" name="payout_method_choice" type="radio" value="zelle"/> Zelle (Bank-linked Email/Phone)
+  </label>
+<label style="margin-bottom:0.5rem;display:block;">
+<input checked="" id="method_cash" name="payout_method_choice" type="radio" value="cash"/> Cash on Pickup
+  </label>
+</div>
+<input id="payout_method" name="payout_method" type="hidden" value="cash"/>
+</form></section></div><html><body style=";padding-bottom:80rem"><div id="chatBubble" style="position:fixed;bottom:100px;right:20px;z-index:999; display:none;">
 <div id="chatLauncher" onclick="toggleChatWindow()" style="width:60px;height:60px;border-radius:50%;background:#003366;color:white;
         display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:bold;box-shadow:0 0 12px rgba(0,0,0,0.4);
         animation:colorCycle 8s infinite, bubblePulse 2s infinite;cursor:pointer;text-transform:uppercase;">
@@ -715,7 +729,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const yesRadio = document.getElementById("pickup_choice_yes");
@@ -733,6 +746,18 @@ document.addEventListener("DOMContentLoaded", function () {
       hiddenPickup.value = "no";
     });
   }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const methodRadios = document.querySelectorAll('input[name="payout_method_choice"]');
+  const hiddenInput = document.getElementById("payout_method");
+
+  methodRadios.forEach(radio => {
+    radio.addEventListener("change", () => {
+      hiddenInput.value = radio.value;
+    });
+  });
 });
 </script>
 </body></html>
