@@ -1,23 +1,19 @@
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open('recarra-cache').then(cache => {
+
+self.addEventListener('install', function(e) {
+  e.waitUntil(
+    caches.open('recarra-cache').then(function(cache) {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/icons/icon-192.png',
-        '/icons/icon-512.png',
-        '/splash/splash-light.png',
-        '/splash/splash-dark.png'
+        './Recarra_Complete_Master.html',
+        './manifest.json'
       ]);
     })
   );
-  self.skipWaiting();
 });
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
+self.addEventListener('fetch', function(e) {
+  e.respondWith(
+    caches.match(e.request).then(function(response) {
+      return response || fetch(e.request);
     })
   );
 });
