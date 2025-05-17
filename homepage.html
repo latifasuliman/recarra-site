@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -185,34 +186,6 @@ input:focus, select:focus {
 }
 </style></head>
 <body>
-
-<div id="faqBanner" style="width:100%; text-align:center; padding:1rem 0; background:#001F3F; color:white;">
-  <div id="faqQA" style="font-size:1.1rem; font-weight:bold;"></div>
-</div>
-<script>
-  const qaPairs = [
-    ["Q: How does Recarra work?", "A: Submit your car info — we inspect & pay instantly."],
-    ["Q: Do I need the title to sell my car?", "A: Not always. We help with paperwork or alternatives."],
-    ["Q: Is pick-up really free?", "A: Yes — 100% free towing and same-day pickup."],
-    ["Q: How fast do I get paid?", "A: Instantly via Zelle, direct deposit, or cash."],
-    ["Q: What types of cars do you buy?", "A: All vehicles — even junk, damaged, or non-running."],
-    ["Q: Why is Recarra better than others?", "A: No lowball offers. Real people. Trusted deals."]
-  ];
-  let qaIndex = 0;
-  let showingQuestion = true;
-  const faqDiv = document.getElementById("faqQA");
-
-  function updateFAQ() {
-    const [q, a] = qaPairs[qaIndex];
-    faqDiv.innerText = showingQuestion ? q : a;
-    faqDiv.style.color = showingQuestion ? "red" : "lightgreen";
-    showingQuestion = !showingQuestion;
-    if (!showingQuestion) qaIndex = (qaIndex + 1) % qaPairs.length;
-  }
-  updateFAQ();
-  setInterval(updateFAQ, 8000);
-</script>
-
 <header class="recarra-header">
 <div class="logo">Recarra</div>
 <nav class="menu-toggle" onclick="toggleMenu()">☰</nav>
@@ -223,94 +196,169 @@ input:focus, select:focus {
 <li><a href="mailto:offers@recarra.com">Contact</a></li>
 </ul>
 </header>
-
 <div id="faqBanner" style="width:100%; overflow:hidden; background:#001F3F; padding:0.75rem 0; white-space:nowrap;">
-  <div id="faqContent" style="display:inline-block; animation:scrollLeft 64s linear infinite; font-size:1rem;">
-    <span style="color:red; font-weight:bold;">Q: How does Recarra work?</span>
-    <span style="color:lightgreen;"> A: You submit your car info, we inspect it, and pay same day.</span>&nbsp;&nbsp;&nbsp;
+<div id="faqContent" style="display:inline-block; animation:scrollLeft 64s linear infinite; font-size:1rem;">
+<span style="color:red; font-weight:bold;">Q: How does Recarra work?</span>
+<span style="color:lightgreen;"> A: You submit your car info, we inspect it, and pay same day.</span>   
     <span style="color:red; font-weight:bold;">Q: How fast do I get paid?</span>
-    <span style="color:lightgreen;"> A: You get paid instantly via Zelle, direct deposit, or cash.</span>&nbsp;&nbsp;&nbsp;
+<span style="color:lightgreen;"> A: You get paid instantly via Zelle, direct deposit, or cash.</span>   
     <span style="color:red; font-weight:bold;">Q: What types of vehicles do you buy?</span>
-    <span style="color:lightgreen;"> A: All cars — running, broken, junk, or wrecked.</span>&nbsp;&nbsp;&nbsp;
+<span style="color:lightgreen;"> A: All cars — running, broken, junk, or wrecked.</span>   
     <span style="color:red; font-weight:bold;">Q: Do I need the title?</span>
-    <span style="color:lightgreen;"> A: Not always. We help with paperwork or alternatives.</span>&nbsp;&nbsp;&nbsp;
+<span style="color:lightgreen;"> A: Not always. We help with paperwork or alternatives.</span>   
     <span style="color:red; font-weight:bold;">Q: Is pickup really free?</span>
-    <span style="color:lightgreen;"> A: Yes! Free towing and $100 bonus for same-day pickup.</span>&nbsp;&nbsp;&nbsp;
+<span style="color:lightgreen;"> A: Yes! Free towing and $100 bonus for same-day pickup.</span>   
     <span style="color:red; font-weight:bold;">Q: What makes Recarra better?</span>
-    <span style="color:lightgreen;"> A: No low offers, no games. Real people. Real payments.</span>&nbsp;&nbsp;&nbsp;
+<span style="color:lightgreen;"> A: No low offers, no games. Real people. Real payments.</span>   
   </div>
 </div>
-
 <style>
 @keyframes scrollLeft {
   0% { transform: translateX(100%); }
   100% { transform: translateX(-100%); }
 }
 </style>
-
 <main style="margin-top: 100px;">
 <section id="intro" style="text-align:center; padding: 4rem 1rem;">
 <h1 style="font-size:2.25rem; color:#001F3F; font-weight:900;">Turn Your Car Into Cash Today</h1>
 <p style="font-size:1.1rem; color:#333; max-width:400px; margin:1rem auto;">
     Recarra offers instant car deals. Get same-day payment. No inspections. No hassle.
   </p>
-<button class="glow-button" onclick="startForm()">
-    Get Cash Now
-  </button>
 </section>
-
 <div id="smartEntryOptions" style="text-align:center; margin-bottom:2rem;">
-  <p><strong>Speed things up</strong><br/>Use your VIN or License Plate to autofill your car info:</p>
-  <button onclick="scanPlate()" style="width: 80%; max-width: 300px; margin: 0 auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan License Plate</button>
-  <input id="smartPlate" placeholder="Enter License Plate" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;" oninput="suggestPlate(this.value)">
-
-  <button onclick="scanVIN()" style="width: 80%; max-width: 300px; margin: 1rem auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan VIN</button>
-  <input id="smartVIN" placeholder="Enter VIN" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;" oninput="suggestVIN(this.value)">
-
-  <div id="smartSuggestions" style="font-size: 0.9rem; color: #001F3F;"></div>
-  <p><a href="#" onclick="skipSmartEntry()" style="color:#003366;">Skip and fill manually</a></p>
+<p><strong>Speed things up</strong><br/>Use your VIN or License Plate to autofill your car info:</p>
+<button onclick="scanPlate()" style="width: 80%; max-width: 300px; margin: 0 auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan License Plate</button>
+<input id="smartPlate" oninput="suggestPlate(this.value)" placeholder="Enter License Plate" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
+<button onclick="scanVIN()" style="width: 80%; max-width: 300px; margin: 1rem auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan VIN</button>
+<input id="smartVIN" oninput="suggestVIN(this.value)" placeholder="Enter VIN" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
+<div id="smartSuggestions" style="font-size: 0.9rem; color: #001F3F;"></div>
+<p><a href="#" onclick="skipSmartEntry()" style="color:#003366;">Skip and fill manually</a></p>
 </div>
-
 <div id="formSection" style="display:none;">
 <h2>Get Your Instant Offer</h2>
-<form onsubmit="event.preventDefault(); showThankYou();">
-<div class="step-transition active" id="step1" style="">
-<label for="year">Vehicle Year</label>
-<input id="year" name="year" placeholder="e.g. 2015" required="" type="number"/>
-<button class="glow-button" onclick="nextStep(2)" type="button">Next</button>
-</div>
-<div class="step-transition" id="step2" style="display:none;">
-<label for="make">Vehicle Make</label>
-<input id="make" name="make" placeholder="e.g. Toyota" required="" type="text"/>
-<button class="glow-button" onclick="nextStep(3)" type="button">Next</button>
-</div>
-<div class="step-transition" id="step3" style="display:none;">
-<label for="model">Vehicle Model</label>
-<input id="model" name="model" placeholder="e.g. Camry" required="" type="text"/>
-<button class="glow-button" onclick="nextStep(4)" type="button">Next</button>
-</div>
-<div class="step-transition" id="step4" style="display:none;">
-<label for="condition">Condition</label>
-<select id="condition" name="condition" required="">
-<option value="">Select condition</option>
-<option>Good</option>
-<option>Fair</option>
-<option>Poor</option>
-<option>Not Running</option>
+<form id="quickRecarraForm">
+<!-- Step 1: Vehicle Identity -->
+<h3 style="text-align:center;">
+    Step 1: Vehicle Identity
+   </h3>
+<input id="plate" name="plate" placeholder="License Plate" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/><button style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #001F3F; background: #0074D9; color: white;" type="button">Scan Plate</button>
+<input id="vin" name="vin" placeholder="VIN" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/><button style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #001F3F; background: #0074D9; color: white;" type="button">Scan VIN</button>
+<!-- Step 2: Car Details -->
+<h3 style="text-align:center;">
+    Step 2: Car Details
+   </h3>
+<input id="year" name="year" placeholder="Year" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="make" name="make" placeholder="Make" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="model" name="model" placeholder="Model" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="trim" name="trim" placeholder="Trim (Optional)" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<!-- Step 3: Vehicle Condition -->
+<h3 style="text-align:center;">
+    Step 3: Condition
+   </h3>
+<select id="condition" name="condition" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;">
+<option value="">
+     Select Condition
+    </option>
+<option value="Good">
+     Good
+    </option>
+<option value="Fair">
+     Fair
+    </option>
+<option value="Poor">
+     Poor
+    </option>
+<option value="Not Running">
+     Not Running
+    </option>
 </select>
-<button class="glow-button" onclick="nextStep(5)" type="button">Next</button>
-</div>
-<div class="step-transition" id="step5" style="display:none;">
-<label for="name">Your Name</label>
-<input id="name" name="name" placeholder="Full Name" required="" type="text"/>
-<button class="glow-button" onclick="nextStep(6)" type="button">Next</button>
-</div>
-<div class="step-transition" id="step6" style="display:none;">
-<label for="phone">Phone Number</label>
-<input id="phone" name="phone" placeholder="e.g. 555-123-4567" required="" type="tel"/>
-<label for="vip">VIP Code (optional)</label>
-<input id="vip" name="vip" placeholder="Enter code if you have one" type="text"/>
-<button class="glow-button" type="submit">$ Submit Offer</button>
+<textarea name="notes" placeholder="Optional Notes..." style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"></textarea>
+<!-- Step 4: Photo Uploads -->
+<h3 style="text-align:center;">
+    Step 4: Upload Photos
+   </h3>
+<strong style="display:block;text-align:center;margin-bottom:0.5rem;">
+    Exterior
+   </strong>
+<label>
+    Front View
+   </label>
+<input accept="image/*" name="photo_front" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Left Side
+   </label>
+<input accept="image/*" name="photo_left" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Right Side
+   </label>
+<input accept="image/*" name="photo_right" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Rear View
+   </label>
+<input accept="image/*" name="photo_rear" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<strong style="display:block;text-align:center;margin-top:1.5rem;">
+    Interior
+   </strong>
+<label>
+    Dashboard (Mileage)
+   </label>
+<input accept="image/*" name="photo_dashboard" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Keys
+   </label>
+<input accept="image/*" name="photo_keys" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<strong style="display:block;text-align:center;margin-top:1.5rem;">
+    Engine &amp; Mechanics
+   </strong>
+<label>
+    Engine Compartment
+    <span style="color:red;">
+     (Required)
+    </span>
+</label>
+<input accept="image/*" name="photo_engine" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Battery
+   </label>
+<input accept="image/*" name="photo_battery" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Tires
+   </label>
+<input accept="image/*" name="photo_tires" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Leaks
+   </label>
+<input accept="image/*" name="photo_leaks" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<strong style="display:block;text-align:center;margin-top:1.5rem;">
+    Other
+   </strong>
+<label>
+    Damage Photos
+   </label>
+<input accept="image/*" multiple="" name="photo_damage[]" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<!-- Step 5: Contact Info -->
+<h3 style="text-align:center;">
+    Step 5: Contact Info
+   </h3>
+<input id="name" name="name" placeholder="Full Name" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="phone" name="phone" placeholder="Phone Number" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="email" name="email" placeholder="Email Address" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<!-- Submit Button -->
+<div style="text-align:center;">
+<button class="glow-button" style="width:80%; max-width:300px; margin-top:2rem;" type="submit">
+     Get My Offer
+    </button>
 </div>
 </form>
 <div id="thankYou" style="display:none; text-align:center; margin-top:2rem;">
@@ -318,7 +366,6 @@ input:focus, select:focus {
 <p>Your request has been received. Offer ID: <strong>#RC888X</strong></p>
 </div>
 </div>
-
 </main>
 <script>
 function nextStep(n) {
@@ -439,7 +486,26 @@ setInterval(() => {
       return "I'm here to help! Try asking about offers, VIP, or how to contact us.";
     }
     </script>
+
+
 <script>
+function autofillVehicle(data) {
+  document.getElementById("year").value = data.year;
+  document.getElementById("make").value = data.make;
+  document.getElementById("model").value = data.model;
+
+  // Skip vehicle info steps and go directly to photo uploads or condition
+  const sections = document.querySelectorAll(".step-transition");
+  sections.forEach(section => section.style.display = "none");
+
+  // Show the next logical section (e.g., Step 4: Condition)
+  const nextStep = document.getElementById("condition")?.closest(".step-transition");
+  if (nextStep) {
+    nextStep.style.display = "block";
+    setTimeout(() => nextStep.classList.add("active"), 10);
+  }
+}
+
 function scanPlate() {
   document.getElementById("smartSuggestions").innerText = "Scanning plate... Auto-filled 2018 Nissan Altima.";
   autofillVehicle({ year: "2018", make: "Nissan", model: "Altima" });
@@ -460,20 +526,6 @@ function suggestVIN(value) {
     autofillVehicle({ year: "2020", make: "Honda", model: "Accord" });
   }
 }
-function autofillVehicle(data) {
-  document.getElementById("year").value = data.year;
-  document.getElementById("make").value = data.make;
-  document.getElementById("model").value = data.model;
-  nextStep(2);
-  setTimeout(() => nextStep(3), 300);
-  setTimeout(() => nextStep(4), 600);
-}
-function skipSmartEntry() {
-  document.getElementById("smartEntryOptions").style.display = "none";
-  document.getElementById("formSection").style.display = "block";
-  document.getElementById("formSection").scrollIntoView({ behavior: 'smooth' });
-}
 </script>
-
 </body>
 </html>
