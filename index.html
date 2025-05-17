@@ -186,40 +186,9 @@ input:focus, select:focus {
 }
 </style></head>
 <body style=";padding-bottom:10rem">
-<style>
-    #faqRotator {
-      width: 100%;
-      text-align: center;
-      font-size: 1.05rem;
-      font-weight: bold;
-      padding: 1rem;
-      color: white;
-      transition: background 1s, color 1s;
-    }
-    </style>
-<div id="faqRotator">How does Recarra work? Submit your car info, get your offer, and get paid your way.</div>
-<script>
-    const faqMessages = [
-      "How does Recarra work? Submit your car info, get your offer, and get paid your way.",
-      "What types of vehicles do we buy? Any car — damaged, old, or not running.",
-      "How fast is pickup? Same-day service available with $100 bonus.",
-      "How do you get paid? We offer cash, Zelle, or instant card deposit.",
-      "What paperwork is needed? We help with titles and take care of everything.",
-      "No title? No problem — Recarra buys cars with or without paperwork.",
-      "Who do we serve? Sellers across all 50 states — fast, easy, trusted.",
-      "What’s the bonus? Earn $100 extra for same-day pickup or referrals."
-    ];
-    const colorCycle = ["#001F3F", "#0074D9", "#3D9970", "#FF851B", "#B10DC9", "#FF4136", "#39CCCC", "#85144b"];
-    let i = 0;
-    setInterval(() => {
-      const rotator = document.getElementById("faqRotator");
-      if (rotator) {
-        rotator.textContent = faqMessages[i % faqMessages.length];
-        rotator.style.background = colorCycle[i % colorCycle.length];
-        i++;
-      }
-    }, 8000);
-    </script>
+
+
+
 <div id="chatLauncher" onclick="toggleChatWindow()" style="position: fixed; top: 12px; left: 12px; background: #001F3F; color: white; padding: 0.4rem 0.8rem; border-radius: 50px; font-weight: bold; font-size: 0.9rem; z-index: 9999;">AiA</div>
 
 
