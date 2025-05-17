@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recarra | Instant Offer</title>
+<style>
+    body {
+      background: #ffffff;
+      color: #000000;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #001F3F;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    main {
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+    }
+    input, select {
+      padding: 0.75rem;
+      border: 2px solid #001F3F;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: #001F3F;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 1rem;
+      margin-top: 2rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #003366;
+    }
+  
+.glow-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: #001F3F;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #001F3F;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s;
+}
+.glow-button:hover {
+  transform: scale(1.05);
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #001F3F; }
+  50% { box-shadow: 0 0 20px #003366; }
+  100% { box-shadow: 0 0 10px #001F3F; }
+}
+
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #0074D9;
+  box-shadow: 0 0 10px #0074D9;
+  transition: box-shadow 0.3s ease;
+}
+
+
+.step-transition {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.step-transition.active {
+  opacity: 1;
+}
+
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+</style>
+<style>
+.recarra-header {
+  position: sticky;
+  top: 0;
+  background: #001F3F;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  z-index: 999;
+}
+.recarra-header .logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: linear-gradient(to right, red, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.menu-toggle {
+  display: block;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.menu-items {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 64px;
+  right: 1rem;
+  background: #001F3F;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.menu-items li {
+  list-style: none;
+}
+.menu-items li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+.menu-items li a:hover {
+  background: #003366;
+  color: #ffcc00;
+}
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+  .menu-items {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+  }
+  .menu-items li a {
+    padding: 0 1rem;
+  }
+}
+.recarra-footer {
+  background: #001F3F;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 1rem;
+  margin-top: 4rem;
+}
+.recarra-footer a {
+  color: #ffcc00;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+.recarra-footer a:hover {
+  text-decoration: underline;
+}
+</style></head>
+<body style=";padding-bottom:10rem">
+
+
+
+<div id="chatLauncher" onclick="toggleChatWindow()" style="position: fixed; top: 12px; left: 12px; background: #001F3F; color: white; padding: 0.4rem 0.8rem; border-radius: 50px; font-weight: bold; font-size: 0.9rem; z-index: 9999;">AiA</div>
+
+
+
+
+<header class="recarra-header">
+<div class="logo">Recarra</div>
+<nav class="menu-toggle" onclick="toggleMenu()">☰</nav>
+<ul class="menu-items" id="menu">
+<li><a href="#intro">Home</a></li>
+<li><a href="#formSection">Get Offer</a></li>
+<li><a href="#thankYou">Thank You</a></li>
+<li><a href="mailto:offers@recarra.com">Contact</a></li>
+</ul>
+</header>
+
+
+<style>
+@keyframes scrollLeft {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+<main style="margin-top: 100px;">
+<section id="intro" style="text-align:center; padding: 4rem 1rem;">
+<h1 style="font-size:2.25rem; color:#001F3F; font-weight:900;">Turn Your Car Into Cash Today</h1>
+<p style="font-size:1.1rem; color:#333; max-width:400px; margin:1rem auto;">
+    Recarra offers instant car deals. Get same-day payment. No inspections. No hassle.
+  </p>
+</section>
+<div id="smartEntryOptions" style="text-align:center; margin-bottom:2rem;">
+<p><strong>Speed things up</strong><br/>Use your VIN or License Plate to autofill your car info:</p>
+<button onclick="scanPlate()" style="width: 80%; max-width: 300px; margin: 0 auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan License Plate</button>
+<input id="smartPlate" oninput="suggestPlate(this.value)" placeholder="Enter License Plate" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
+<button onclick="scanVIN()" style="width: 80%; max-width: 300px; margin: 1rem auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan VIN</button>
+<input id="smartVIN" oninput="suggestVIN(this.value)" placeholder="Enter VIN" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
+<div id="smartSuggestions" style="font-size: 0.9rem; color: #001F3F;"></div>
+<p><a href="#" onclick="redirectWithRef()" style="color:#003366;">Skip and fill manually</a></p>
+<script>
+function redirectWithRef() {
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get("ref");
+  const dest = ref ? `homepage.html?ref=${ref}` : "homepage.html";
+  window.location.href = dest;
+}
+</script>
+</div>
+<div id="formSection" style="display:none;">
+<h2>Get Your Instant Offer</h2>
+<form id="quickRecarraForm">
+<!-- Step 1: Vehicle Identity -->
+<h3 style="text-align:center;">
+    Step 1: Vehicle Identity
+   </h3>
+<input id="plate" name="plate" placeholder="License Plate" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/><button style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #001F3F; background: #0074D9; color: white;" type="button">Scan Plate</button>
+<input id="vin" name="vin" placeholder="VIN" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/><button style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #001F3F; background: #0074D9; color: white;" type="button">Scan VIN</button>
+<!-- Step 2: Car Details -->
+<h3 style="text-align:center;">
+    Step 2: Car Details
+   </h3>
+<input id="year" name="year" placeholder="Year" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="make" name="make" placeholder="Make" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="model" name="model" placeholder="Model" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="trim" name="trim" placeholder="Trim (Optional)" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<!-- Step 3: Vehicle Condition -->
+<h3 style="text-align:center;">
+    Step 3: Condition
+   </h3>
+<select id="condition" name="condition" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;">
+<option value="">
+     Select Condition
+    </option>
+<option value="Good">
+     Good
+    </option>
+<option value="Fair">
+     Fair
+    </option>
+<option value="Poor">
+     Poor
+    </option>
+<option value="Not Running">
+     Not Running
+    </option>
+</select>
+<textarea name="notes" placeholder="Optional Notes..." style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"></textarea>
+<!-- Step 4: Photo Uploads -->
+<h3 style="text-align:center;">
+    Step 4: Upload Photos
+   </h3>
+<strong style="display:block;text-align:center;margin-bottom:0.5rem;">
+    Exterior
+   </strong>
+<label>
+    Front View
+   </label>
+<input accept="image/*" name="photo_front" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Left Side
+   </label>
+<input accept="image/*" name="photo_left" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Right Side
+   </label>
+<input accept="image/*" name="photo_right" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Rear View
+   </label>
+<input accept="image/*" name="photo_rear" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<strong style="display:block;text-align:center;margin-top:1.5rem;">
+    Interior
+   </strong>
+<label>
+    Dashboard (Mileage)
+   </label>
+<input accept="image/*" name="photo_dashboard" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Keys
+   </label>
+<input accept="image/*" name="photo_keys" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<strong style="display:block;text-align:center;margin-top:1.5rem;">
+    Engine &amp; Mechanics
+   </strong>
+<label>
+    Engine Compartment
+    <span style="color:red;">
+     (Required)
+    </span>
+</label>
+<input accept="image/*" name="photo_engine" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Battery
+   </label>
+<input accept="image/*" name="photo_battery" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Tires
+   </label>
+<input accept="image/*" name="photo_tires" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Leaks
+   </label>
+<input accept="image/*" name="photo_leaks" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<strong style="display:block;text-align:center;margin-top:1.5rem;">
+    Other
+   </strong>
+<label>
+    Damage Photos
+   </label>
+<input accept="image/*" multiple="" name="photo_damage[]" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<!-- Step 5: Contact Info -->
+<h3 style="text-align:center;">
+    Step 5: Contact Info
+   </h3>
+<input id="name" name="name" placeholder="Full Name" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="phone" name="phone" placeholder="Phone Number" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="email" name="email" placeholder="Email Address" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<!-- Submit Button -->
+<div style="text-align:center;">
+<button class="glow-button" style="width:80%; max-width:300px; margin-top:2rem;" type="submit">
+     Get My Offer
+    </button>
+</div>
+</form>
+<div id="thankYou" style="display:none; text-align:center; margin-top:2rem;">
+<h2 style="color:#001F3F;">Thank You!</h2>
+<p>Your request has been received. Offer ID: <strong>#RC888X</strong></p>
+</div>
+</div>
+</main>
+<script>
+function nextStep(n) {
+  for (let i = 1; i <= 6; i++) {
+    const step = document.getElementById("step" + i);
+    step.classList.remove("active");
+    step.style.display = "none";
+  }
+  const current = document.getElementById("step" + n);
+  if (current) {
+    current.style.display = "block";
+    setTimeout(() => current.classList.add("active"), 10);
+  }
+}
+
+function showThankYou() {
+  document.querySelector("form").style.display = "none";
+  document.getElementById("thankYou").style.display = "block";
+  if (window.confetti) {
+    confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
+  }
+}
+</script><script>
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+}
+</script><footer class="recarra-footer">
+<div>
+<a href="#formSection">Get Offer</a> |
+    <a href="#thankYou">Track Offer</a> |
+    <a href="mailto:offers@recarra.com">Email Us</a>
+</div>
+<div style="margin-top: 1rem; font-size: 0.85rem;">
+    © 2025 Recarra. Trusted Offers. Fast Payouts. No Surprises.
+  </div>
+</footer>
+<script>
+function startForm() {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("formSection").style.display = "block";
+  document.getElementById("formSection").scrollIntoView({ behavior: 'smooth' });
+}
+</script><div id="chatBubble" style="position:fixed;bottom:100px;right:20px;z-index:999;">
+<div id="chatWindow" style="display:none;width:300px;max-height:400px;background:white;border-radius:12px;
+      box-shadow:0 0 15px rgba(0,0,0,0.2);position:absolute;bottom:70px;right:0;overflow:hidden;flex-direction:column;">
+<div style="background:#003366;color:white;padding:0.75rem;text-align:center;font-weight:bold;display:flex;justify-content:space-between;">
+<span>Recarra Assistant</span><span onclick="toggleChatWindow()" style="cursor:pointer;">✖</span>
+</div>
+<div id="chatLog" style="flex:1;padding:0.75rem;font-size:0.9rem;overflow-y:auto;height:220px;">
+<div><strong>Bot:</strong> Welcome! How can I assist you today?</div>
+</div>
+<div style="display:flex;border-top:1px solid #ccc;">
+<input id="chatInput" onkeydown="if(event.key==='Enter')sendChat()" placeholder="Type here..." style="flex:1;padding:0.5rem;border:none;font-size:0.9rem;"/>
+<button onclick="sendChat()" style="padding:0.5rem 1rem;background:#003366;color:white;border:none;">Send</button>
+</div>
+</div>
+</div>
+<script>
+    function toggleChatWindow() {
+      const chatWin = document.getElementById("chatWindow");
+      chatWin.style.display = chatWin.style.display === "none" ? "flex" : "none";
+    }
+    function sendChat() {
+      const input = document.getElementById("chatInput");
+      const log = document.getElementById("chatLog");
+      const msg = input.value.trim();
+      if (!msg) return;
+      const userLine = document.createElement("div");
+      userLine.innerHTML = "<strong>You:</strong> " + msg;
+      log.appendChild(userLine);
+      setTimeout(() => {
+        const botLine = document.createElement("div");
+        botLine.innerHTML = "<strong>Bot:</strong> " + generateBotReply(msg);
+        log.appendChild(botLine);
+        log.scrollTop = log.scrollHeight;
+      }, 600);
+      input.value = "";
+      log.scrollTop = log.scrollHeight;
+    }
+    function generateBotReply(msg) {
+      const lower = msg.toLowerCase();
+      if (lower.includes("offer")) return "You can get an offer instantly by filling the form above.";
+      if (lower.includes("vip")) return "VIP codes give you bonus cash! Enter one at the end of the form.";
+      if (lower.includes("contact")) return "You can reach us at offers@recarra.com or call our hotline.";
+      return "I'm here to help! Try asking about offers, VIP, or how to contact us.";
+    }
+    </script>
+<script>
+function scanPlate() {
+  const year = "2018", make = "Nissan", model = "Altima";
+  window.location.href = `homepage.html?year=${year}&make=${make}&model=${model}`;
+}
+function scanVIN() {
+  const year = "2021", make = "Chevrolet", model = "Malibu";
+  window.location.href = `homepage.html?year=${year}&make=${make}&model=${model}`;
+}
+</script>
+<div id="trustRibbon" style="position:fixed;bottom:0;width:100%;background:#001F3F;color:white;text-align:center;
+font-size:0.9rem;padding:0.75rem 1rem;z-index:9999;box-shadow:0 -2px 6px rgba(0,0,0,0.2);">
+  Trusted Buyer | Instant Cash | No Lowball Offers | $100 Max Offer
+</div>
+<style>
+.circular-badge {
+  position: fixed;
+  width: 58px;
+  height: 58px;
+  line-height: 58px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  right: 20px;
+  z-index: 9999;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  animation: colorChange 8s infinite;
+  cursor: pointer;
+}
+#refBubble { bottom: 130px; background-color: red; }
+#pickupBubble { bottom: 60px; background-color: red; }
+
+@keyframes colorChange {
+  0%   { background-color: red; }
+  25%  { background-color: #e67e22; }
+  50%  { background-color: #2980b9; }
+  75%  { background-color: #16a085; }
+  100% { background-color: red; }
+}
+</style>
+<div class="circular-badge" id="refBubble" onclick="window.location.href='refer.html'">R$100</div>
+<div class="circular-badge" id="pickupBubble" onclick="window.location.href='tel:3462740071'">P$100</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("quickRecarraForm");
+  if (form) {
+    form.addEventListener("submit", function () {
+      const ref = document.getElementById("refBubble");
+      const pickup = document.getElementById("pickupBubble");
+      if (ref) ref.style.display = "none";
+      if (pickup) pickup.style.display = "none";
+    });
+  }
+});
+</script>
+<div id="timerDisplay" style="position:fixed;top:20px;right:20px;background:#001F3F;color:white;padding:6px 12px;
+border-radius:6px;font-size:0.85rem;font-weight:bold;z-index:9999;">14:48</div>
+<script>
+let secondsLeft = 888;
+const display = document.getElementById("timerDisplay");
+
+function updateTimer() {
+  const minutes = Math.floor(secondsLeft / 60);
+  const seconds = secondsLeft % 60;
+  display.textContent = minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
+  if (secondsLeft <= 0) {
+    window.location.href = "homepage.html";
+  } else {
+    secondsLeft--;
+    setTimeout(updateTimer, 1000);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", updateTimer);
+</script>
+</body>
+</html>
