@@ -3,6 +3,35 @@
 <head>
 
 <style>
+  @media (min-width: 768px) {
+    body {
+      font-size: 1.15rem;
+    }
+    .form-section, form {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .progress-bar-container {
+      max-width: 900px;
+      margin: 1rem auto;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .photo-block label {
+      font-size: 1.05rem;
+    }
+    .photo-block input[type="file"] {
+      padding: 0.5rem;
+    }
+  }
+</style>
+
+
+<style>
   .photo-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
