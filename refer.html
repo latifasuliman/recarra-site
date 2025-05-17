@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Earn $100 - Recarra Referral</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 2rem; background: #f4f4f4; color: #001F3F; }
+    input, button { padding: 0.75rem 1rem; font-size: 1rem; margin: 0.5rem; border-radius: 6px; border: 1px solid #ccc; }
+    button { background: #001F3F; color: white; font-weight: bold; cursor: pointer; }
+    .output { margin-top: 1rem; font-size: 1.1rem; font-weight: bold; }
+    .share-buttons button { margin: 0.25rem; background: #28a745; }
+  </style>
+</head>
+<body>
+  <h2>Invite Friends — Earn $100 Each Time!</h2>
+  <p>Enter your name or custom referral code below:</p>
+  <input type="text" id="refCode" placeholder="e.g. ahmed" />
+  <button onclick="generateLink()">Generate My Link</button>
+  <div id="referralOutput" class="output"></div>
+  <div class="share-buttons" style="display:none;" id="shareBtns">
+    <button onclick="copyLink()">Copy Link</button>
+    <button onclick="shareWhatsApp()">WhatsApp</button>
+    <button onclick="shareEmail()">Email</button>
+  </div>
+
+  <script>
+    let generatedLink = "";
+
+    function generateLink() {
+      const code = document.getElementById("refCode").value.trim();
+      if (!code) return alert("Please enter a referral code.");
+      generatedLink = "https://recarra.com/?ref=" + encodeURIComponent(code);
+      document.getElementById("referralOutput").innerHTML = "Your Link:<br><a href='" + generatedLink + "' target='_blank'>" + generatedLink + "</a>";
+      document.getElementById("shareBtns").style.display = "block";
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText(generatedLink);
+      alert("Referral link copied to clipboard!");
+    }
+
+    function shareWhatsApp() {
+      window.open("https://wa.me/?text=" + encodeURIComponent("Get an instant car offer! Here's my referral link: " + generatedLink));
+    }
+
+    function shareEmail() {
+      window.location.href = "mailto:?subject=Your Car Offer Awaits&body=Use this link to get $100 bonus on your car offer: " + generatedLink;
+    }
+  </script>
+</body>
+</html>
