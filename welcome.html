@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to Recarra</title>
+  <meta name="theme-color" content="#001F3F"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffffff, #f0f4f9);
+      color: #001F3F;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .logo-text {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      transition: color 1s ease;
+    }
+    .blue { color: #0074D9; }
+    .green { color: #2ECC40; }
+    .orange { color: #FF851B; }
+    .red { color: #FF4136; }
+    .purple { color: #B10DC9; }
+    .pink { color: #F012BE; }
+    .teal { color: #39CCCC; }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .timer {
+      font-size: 1rem;
+      color: #0074D9;
+      margin-bottom: 2rem;
+    }
+    .button {
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background: #001F3F;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-text blue" id="logoText">Recarra</div>
+
+  <h1>Welcome to Recarra</h1>
+  <p>Sell your car in 60 seconds — Get paid today</p>
+  <p class="timer" id="timerText">Redirecting in 8…</p>
+
+  <a href="index.html" class="button">Tap to Continue</a>
+
+  <script>
+    // 5 min timer
+    let seconds = 8;
+    const timerEl = document.getElementById("timerText");
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return m + ":" + (s < 10 ? "0" : "") + s;
+    }
+    const interval = setInterval(() => {
+      seconds--;
+      timerEl.textContent = "Redirecting in " + formatTime(seconds) + "…";
+      if (seconds <= 0) {
+        clearInterval(interval);
+        window.location.href = "index.html";
+      }
+    }, 1000);
+
+    // Color rotation every 8 seconds
+    const colors = ["blue", "green", "orange", "red", "purple", "pink", "teal"];
+    let index = 0;
+    const logo = document.getElementById("logoText");
+    setInterval(() => {
+      logo.className = "logo-text " + colors[index % colors.length];
+      index++;
+    }, 8000);
+  </script>
+
+</body>
+</html>

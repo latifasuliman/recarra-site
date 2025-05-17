@@ -154,6 +154,47 @@ input:focus, select:focus {
     margin-bottom: 1rem;
   }
  </style>
+
+
+<script>
+  function validatePhotos() {
+    const required = ["photo_front", "photo_back", "photo_right", "photo_left", "photo_engine", "photo_dashboard"];
+    let missing = [];
+    for (let id of required) {
+      const field = document.getElementById(id);
+      if (!field || !field.files.length) {
+        missing.push(id.replace("photo_", "").replace("_", " "));
+      }
+    }
+    const reasonBox = document.getElementById("photoReasonContainer");
+    if (missing.length) {
+      reasonBox.style.display = "block";
+      const reason = document.getElementById("photoReason").value.trim();
+      if (!reason) {
+        alert("Missing photo(s): " + missing.join(", ") + ". Please provide a reason.");
+        return false;
+      }
+    } else {
+      reasonBox.style.display = "none";
+    }
+    return true;
+  }
+</script>
+
+<script>
+  function validatePhotos() {
+    const required = ["photo_front", "photo_back", "photo_right", "photo_left", "photo_engine", "photo_dashboard"];
+    for (let id of required) {
+      const field = document.getElementById(id);
+      if (!field || !field.files.length) {
+        alert("Please upload a required photo for: " + id.replace("photo_", "").replace("_", " "));
+        return false;
+      }
+    }
+    return true;
+  }
+</script>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const colors = ['#FF4136', '#2ECC40', '#0074D9', '#FFDC00', '#B10DC9', '#FF851B', '#7FDBFF', '#39CCCC'];
@@ -338,7 +379,7 @@ input:invalid, select:invalid, textarea:invalid {
    </strong>
 <label>
     Front View
-   </label>
+   </label><br><img id="dashboard_preview" src="" style="margin-top:10px;max-width:100%;display:block;"><br><img id="engine_preview" src="" style="margin-top:10px;max-width:100%;display:block;"><br><img id="left_preview" src="" style="margin-top:10px;max-width:100%;display:block;"><br><img id="right_preview" src="" style="margin-top:10px;max-width:100%;display:block;"><br><img id="front_preview" src="" style="margin-top:10px;max-width:100%;display:block;">
 <input accept="image/*" name="photo_front" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
 <br/>
 <label>
