@@ -3,6 +3,42 @@
 <head>
 
 <style>
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .photo-block {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    transition: border-color 0.3s ease;
+  }
+  .photo-block.required.missing {
+    border-color: #FF4136;
+  }
+  .photo-block.filled {
+    border-color: #2ECC40;
+  }
+  .photo-block label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  .photo-block input[type="file"] {
+    width: 100%;
+  }
+  .photo-block img {
+    margin-top: 0.5rem;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+</style>
+
+
+<style>
   @media (min-width: 768px) {
     body {
       font-size: 1.15rem;
@@ -866,4 +902,51 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
+<script>
+  function validatePhotos() {
+    const requiredPhotos = ["photo_front", "photo_back", "photo_right", "photo_left", "photo_engine", "photo_dashboard"];
+    let missing = [];
+    for (let id of requiredPhotos) {
+      const input = document.getElementById(id);
+      const block = input.closest('.photo-block');
+      if (!input.files.length) {
+        block.classList.add("missing");
+        block.classList.remove("filled");
+        missing.push(id.replace("photo_", "").replace("_", " "));
+      } else {
+        block.classList.remove("missing");
+        block.classList.add("filled");
+      }
+    }
+    const reasonContainer = document.getElementById("photoReasonContainer");
+    if (missing.length) {
+      reasonContainer.style.display = "block";
+      const reason = document.getElementById("photoReason").value.trim();
+      if (!reason) {
+        alert("Missing photo(s): " + missing.join(", ") + ". Please provide a reason.");
+        return false;
+      }
+    } else {
+      reasonContainer.style.display = "none";
+    }
+    return true;
+  }
+
+  function setupPhotoPreview(inputId, previewId) {
+    const input = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
+    input.addEventListener('change', function () {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          input.closest('.photo-block').classList.add("filled");
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    });
+  }
+</script>
+
 </body></html>
