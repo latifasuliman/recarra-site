@@ -185,6 +185,34 @@ input:focus, select:focus {
 }
 </style></head>
 <body>
+
+<div id="faqBanner" style="width:100%; text-align:center; padding:1rem 0; background:#001F3F; color:white;">
+  <div id="faqQA" style="font-size:1.1rem; font-weight:bold;"></div>
+</div>
+<script>
+  const qaPairs = [
+    ["Q: How does Recarra work?", "A: Submit your car info — we inspect & pay instantly."],
+    ["Q: Do I need the title to sell my car?", "A: Not always. We help with paperwork or alternatives."],
+    ["Q: Is pick-up really free?", "A: Yes — 100% free towing and same-day pickup."],
+    ["Q: How fast do I get paid?", "A: Instantly via Zelle, direct deposit, or cash."],
+    ["Q: What types of cars do you buy?", "A: All vehicles — even junk, damaged, or non-running."],
+    ["Q: Why is Recarra better than others?", "A: No lowball offers. Real people. Trusted deals."]
+  ];
+  let qaIndex = 0;
+  let showingQuestion = true;
+  const faqDiv = document.getElementById("faqQA");
+
+  function updateFAQ() {
+    const [q, a] = qaPairs[qaIndex];
+    faqDiv.innerText = showingQuestion ? q : a;
+    faqDiv.style.color = showingQuestion ? "red" : "lightgreen";
+    showingQuestion = !showingQuestion;
+    if (!showingQuestion) qaIndex = (qaIndex + 1) % qaPairs.length;
+  }
+  updateFAQ();
+  setInterval(updateFAQ, 8000);
+</script>
+
 <header class="recarra-header">
 <div class="logo">Recarra</div>
 <nav class="menu-toggle" onclick="toggleMenu()">☰</nav>
@@ -194,10 +222,32 @@ input:focus, select:focus {
 <li><a href="#thankYou">Thank You</a></li>
 <li><a href="mailto:offers@recarra.com">Contact</a></li>
 </ul>
-</header><div aria-live="polite" id="recarra8888Banner" style="width:100%;padding:1rem;text-align:center;font-size:1.2rem;
-font-weight:bold;color:white;transition:background 1s ease;">
-  Loading Recarra bonus message...
+</header>
+
+<div id="faqBanner" style="width:100%; overflow:hidden; background:#001F3F; padding:0.75rem 0; white-space:nowrap;">
+  <div id="faqContent" style="display:inline-block; animation:scrollLeft 64s linear infinite; font-size:1rem;">
+    <span style="color:red; font-weight:bold;">Q: How does Recarra work?</span>
+    <span style="color:lightgreen;"> A: You submit your car info, we inspect it, and pay same day.</span>&nbsp;&nbsp;&nbsp;
+    <span style="color:red; font-weight:bold;">Q: How fast do I get paid?</span>
+    <span style="color:lightgreen;"> A: You get paid instantly via Zelle, direct deposit, or cash.</span>&nbsp;&nbsp;&nbsp;
+    <span style="color:red; font-weight:bold;">Q: What types of vehicles do you buy?</span>
+    <span style="color:lightgreen;"> A: All cars — running, broken, junk, or wrecked.</span>&nbsp;&nbsp;&nbsp;
+    <span style="color:red; font-weight:bold;">Q: Do I need the title?</span>
+    <span style="color:lightgreen;"> A: Not always. We help with paperwork or alternatives.</span>&nbsp;&nbsp;&nbsp;
+    <span style="color:red; font-weight:bold;">Q: Is pickup really free?</span>
+    <span style="color:lightgreen;"> A: Yes! Free towing and $100 bonus for same-day pickup.</span>&nbsp;&nbsp;&nbsp;
+    <span style="color:red; font-weight:bold;">Q: What makes Recarra better?</span>
+    <span style="color:lightgreen;"> A: No low offers, no games. Real people. Real payments.</span>&nbsp;&nbsp;&nbsp;
+  </div>
 </div>
+
+<style>
+@keyframes scrollLeft {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+
 <main style="margin-top: 100px;">
 <section id="intro" style="text-align:center; padding: 4rem 1rem;">
 <h1 style="font-size:2.25rem; color:#001F3F; font-weight:900;">Turn Your Car Into Cash Today</h1>
@@ -268,7 +318,7 @@ font-weight:bold;color:white;transition:background 1s ease;">
 <p>Your request has been received. Offer ID: <strong>#RC888X</strong></p>
 </div>
 </div>
-<div id="floatingBanner" style="position:fixed; bottom:20px; right:20px; background:#FFD700; color:#000; padding:0.75rem 1rem; border-radius:12px; font-weight:bold; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index:999;"><span style="margin-right: 0.5rem; animation: blink 1s infinite;">💰</span> +$100 Pick-Up Today Bonus!</div>
+
 </main>
 <script>
 function nextStep(n) {

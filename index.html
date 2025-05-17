@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome to Recarra</title>
-  <style>
-    body {
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+  Welcome to Recarra
+ </title>
+<style>
+  body {
       margin: 0;
       padding: 0;
       background: #ffffff;
@@ -71,9 +72,7 @@ input:focus, select:focus {
   box-shadow: 0 0 10px #0074D9;
   transition: box-shadow 0.3s ease;
 }
-
-</style>
-
+ </style>
 <style>
   #quickForm {
     background: rgba(255, 255, 255, 0.95);
@@ -154,21 +153,22 @@ input:focus, select:focus {
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     margin-bottom: 1rem;
   }
-</style>
-
-</head>
-<body>
-  <a class="glow-button" href="homepage.html" style="position:absolute;top:20px;right:20px;font-size:0.9rem;padding:0.5rem 1rem;">Skip</a>
-  <div id="splash" style="text-align:center; padding-top:50px;">
-    <h1 style="font-size:3rem; color:#001F3F; font-weight:900;">Welcome to Recarra</h1>
-    <p style="font-size:1.25rem; margin-bottom:1rem;">America’s Most Trusted Car Buyer</p>
-    <p style="font-size:1rem; color:#666; margin-bottom:2rem;">Instant Offers • Fast Inspection • Same-Day Payment</p>
-    <a class="glow-button" href="homepage.html">Get Started</a>
-    <p id="countdown" style="margin-top:2rem; font-size:0.9rem; color:#888;">Redirecting in <span id="timer">10</span> seconds...</p>
-  </div>
-
-  <script>
-    let seconds = 480;
+ </style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const colors = ['#FF4136', '#2ECC40', '#0074D9', '#FFDC00', '#B10DC9', '#FF851B', '#7FDBFF', '#39CCCC'];
+  let i = 0;
+  setInterval(() => {
+    const title = document.getElementById('recarraTitle');
+    if (title) {
+      title.style.color = colors[i % colors.length];
+      i++;
+    }
+  }, 8000);
+});
+</script></head>
+<script>
+ let seconds = 480;
     const timer = document.getElementById('timer');
     const countdown = setInterval(() => {
       seconds--;
@@ -181,151 +181,166 @@ input:focus, select:focus {
         timer.style.color = "red";
       }
     }, 1000);
-  </script>
-
-  
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js">
+</script>
 <script>
-  window.onload = () => {
+ window.onload = () => {
     confetti({ particleCount: 200, spread: 70, origin: { y: 0.6 } });
   };
 </script>
-
-<div style="display:flex; justify-content:center; align-items:center; height:auto; min-height:100vh; padding:2rem;"><section id="quickForm" style="padding: 2rem; max-width: 480px; margin: auto; background: #fff; border-radius: 16px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
-  <h2 style="color:#001F3F; font-size:1.5rem; font-weight:900; text-align:center; margin-bottom:1rem;">Sell Your Car Instantly</h2>
-  <p style="text-align:center; margin-bottom:2rem; color:#333;">Recarra offers fast inspections, same-day pickup, and real cash via instant transfer or direct deposit.</p>
-  
-<div class="bonus-badge">+$100 Bonus for Same-Day Pickup</div>
-<div id="offerPreview">Estimated Offer: $500–$900</div>
-<div id="countdownBar"><div id="countdownFill"></div></div>
-<div class="trust-badge">Licensed Buyer | Secure Payments | Fast Inspections</div>
-<div class="testimonial">“Recarra made it so easy. I got my money the same day!” — Sarah D.</div>
-
-
-<div id="smartEntryOptions" style="text-align:center; margin-bottom:2rem;">
-  <p><strong>Speed things up</strong><br/>Use your VIN or License Plate to autofill your car info:</p>
-  <button onclick="scanPlate()" style="width: 80%; max-width: 300px; margin: 0 auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan License Plate</button>
-  <input id="smartPlate" placeholder="Enter License Plate" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;" oninput="suggestPlate(this.value)">
-
-  <button onclick="scanVIN()" style="width: 80%; max-width: 300px; margin: 1rem auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan VIN</button>
-  <input id="smartVIN" placeholder="Enter VIN" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;" oninput="suggestVIN(this.value)">
-
-  <div id="smartSuggestions" style="font-size: 0.9rem; color: #001F3F;"></div>
-  <p><a href="#" onclick="skipSmartEntry()" style="color:#003366;">Skip and fill manually</a></p>
+<div style="display:flex; justify-content:center; align-items:center; height:auto; min-height:100vh; padding:2rem;">
+<section id="quickForm" style="padding: 2rem; max-width: 480px; margin: auto; background: #fff; border-radius: 16px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+<h1 id="recarraTitle" style="font-size:clamp(2rem, 6vw, 4rem); font-weight:900; margin-bottom:1rem;">Recarra</h1>
+<h2 style="color:#001F3F; font-size:1.5rem; font-weight:900; text-align:center; margin-bottom:1rem;">
+   Sell Your Car Instantly
+  </h2>
+<p style="text-align:center; margin-bottom:2rem; color:#333;">
+   Recarra offers fast inspections, same-day pickup, and real cash via instant transfer or direct deposit.
+  </p>
+<div class="bonus-badge">
+   +$100 Bonus for Same-Day Pickup
+  </div>
+<div id="offerPreview">
+   Estimated Offer: $500–$900
+  </div>
+<div style="text-align:center; margin-top:1rem;">
+<a class="glow-button" href="homepage.html" style="font-size:0.9rem; padding:0.5rem 1rem;">
+    Skip
+   </a>
 </div>
-
+<div id="countdownBar">
+<div id="countdownFill">
+</div>
+</div>
+<div class="trust-badge">
+   Licensed Buyer | Secure Payments | Fast Inspections
+  </div>
+<div class="testimonial">
+   “Recarra made it so easy. I got my money the same day!” — Sarah D.
+  </div>
 <form id="quickRecarraForm">
-    <label for="plate" style="font-weight:bold;">License Plate</label>
-    <input type="text" id="plate" name="plate" placeholder="ABC1234" required style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
-
-    <label for="vin" style="font-weight:bold;">VIN (Vehicle Identification Number)</label>
-    <input type="text" id="vin" name="vin" placeholder="Enter VIN" required style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
-
-    <label for="phone" style="font-weight:bold;">Phone Number</label>
-    <input type="tel" id="phone" name="phone" placeholder="e.g. 555-123-4567" required style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
-
-    <label for="email" style="font-weight:bold;">Email Address</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
-
-    <label for="condition" style="font-weight:bold;">Condition</label>
-    <select id="condition" name="condition" required style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1.5rem; font-size: 1rem; display: block; text-align: center;">
-      <option value="">Select</option>
-      <option value="good">Good</option>
-      <option value="fair">Fair</option>
-      <option value="poor">Poor</option>
-      <option value="not-running">Not Running</option>
-    </select>
-
-    <label for="photo" style="font-weight:bold;">Upload Photo</label>
-    <input type="file" id="photo" name="photo" accept="image/*" style="margin-bottom:1.5rem;"/>
-
-    <button type="submit" class="glow-button" style="width: 80%; max-width: 300px; padding: 1rem; font-size: 1rem; display: block; margin: 2rem auto 0; text-align: center;">Get My Offer</button>
-  </form>
-</section></div>
-
-<script>
-  let step = 1;
-  const totalSteps = 5;
-  const form = document.getElementById("quickRecarraForm");
-  const fields = form.querySelectorAll("input, select");
-  const stepText = document.createElement("div");
-  stepText.className = "step-indicator";
-  form.prepend(stepText);
-
-  function updateStepDisplay() {
-    stepText.textContent = "Step " + step + " of " + totalSteps;
-  }
-
-  updateStepDisplay();
-
-  let currentFieldIndex = 0;
-  fields.forEach((field, index) => {
-    if (index !== 0) field.style.display = "none";
-    field.addEventListener("input", () => {
-      if (field.checkValidity() && index === currentFieldIndex && index < fields.length - 1) {
-        fields[currentFieldIndex + 1].style.display = "block";
-        currentFieldIndex++;
-        step++;
-        updateStepDisplay();
-      }
-      if (field.id === "plate" || field.id === "vin") {
-        document.getElementById("offerPreview").textContent = "Estimated Offer: $" + (500 + Math.floor(Math.random() * 400));
-      }
-    });
-  });
-
-  // Timer countdown bar
-  let countdownSeconds = 180;
-  const countdownFill = document.getElementById("countdownFill");
-  setInterval(() => {
-    countdownSeconds--;
-    const widthPercent = (countdownSeconds / 180) * 100;
-    countdownFill.style.width = widthPercent + "%";
-    if (countdownSeconds <= 0) clearInterval();
-  }, 1000);
-
-  // Confetti and chime on submit
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    if (window.confetti) {
-      confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
-    }
-    const chime = new Audio("https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg");
-    chime.play();
-    alert("Thank you! Your request has been submitted.");
-  });
-</script>
-
-
-<script>
-function scanPlate() {
-  document.getElementById("smartSuggestions").innerText = "Scanning plate... Auto-filled 2018 Nissan Altima.";
-  autofillVehicle({ year: "2018", make: "Nissan", model: "Altima" });
-}
-function scanVIN() {
-  document.getElementById("smartSuggestions").innerText = "Scanning VIN... Auto-filled 2021 Chevrolet Malibu.";
-  autofillVehicle({ year: "2021", make: "Chevrolet", model: "Malibu" });
-}
-function suggestPlate(value) {
-  if (value.length >= 3) {
-    document.getElementById("smartSuggestions").innerText = "Texas Plate matched: 2017 Toyota Camry LE";
-    autofillVehicle({ year: "2017", make: "Toyota", model: "Camry" });
-  }
-}
-function suggestVIN(value) {
-  if (value.length >= 8) {
-    document.getElementById("smartSuggestions").innerText = "VIN decoded: 2020 Honda Accord Sport";
-    autofillVehicle({ year: "2020", make: "Honda", model: "Accord" });
-  }
-}
-function autofillVehicle(data) {
-  document.getElementById("plate").value = data.year + " " + data.make + " " + data.model;
-  document.getElementById("vin").value = "Auto-filled";
-}
-function skipSmartEntry() {
-  document.getElementById("smartEntryOptions").style.display = "none";
-}
-</script>
-
-</body>
-</html>
+<!-- Step 1: Vehicle Identity -->
+<h3 style="text-align:center;">
+    Step 1: Vehicle Identity
+   </h3>
+<input id="plate" name="plate" placeholder="License Plate" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/><button style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #001F3F; background: #0074D9; color: white;" type="button">Scan Plate</button>
+<input id="vin" name="vin" placeholder="VIN" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/><button style="margin-left: 10px; padding: 6px 12px; border-radius: 8px; border: 1px solid #001F3F; background: #0074D9; color: white;" type="button">Scan VIN</button>
+<!-- Step 2: Car Details -->
+<h3 style="text-align:center;">
+    Step 2: Car Details
+   </h3>
+<input id="year" name="year" placeholder="Year" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="make" name="make" placeholder="Make" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="model" name="model" placeholder="Model" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="trim" name="trim" placeholder="Trim (Optional)" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<!-- Step 3: Vehicle Condition -->
+<h3 style="text-align:center;">
+    Step 3: Condition
+   </h3>
+<select id="condition" name="condition" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;">
+<option value="">
+     Select Condition
+    </option>
+<option value="Good">
+     Good
+    </option>
+<option value="Fair">
+     Fair
+    </option>
+<option value="Poor">
+     Poor
+    </option>
+<option value="Not Running">
+     Not Running
+    </option>
+</select>
+<textarea name="notes" placeholder="Optional Notes..." style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"></textarea>
+<!-- Step 4: Photo Uploads -->
+<h3 style="text-align:center;">
+    Step 4: Upload Photos
+   </h3>
+<strong style="display:block;text-align:center;margin-bottom:0.5rem;">
+    Exterior
+   </strong>
+<label>
+    Front View
+   </label>
+<input accept="image/*" name="photo_front" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Left Side
+   </label>
+<input accept="image/*" name="photo_left" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Right Side
+   </label>
+<input accept="image/*" name="photo_right" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Rear View
+   </label>
+<input accept="image/*" name="photo_rear" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<strong style="display:block;text-align:center;margin-top:1.5rem;">
+    Interior
+   </strong>
+<label>
+    Dashboard (Mileage)
+   </label>
+<input accept="image/*" name="photo_dashboard" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Keys
+   </label>
+<input accept="image/*" name="photo_keys" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<strong style="display:block;text-align:center;margin-top:1.5rem;">
+    Engine &amp; Mechanics
+   </strong>
+<label>
+    Engine Compartment
+    <span style="color:red;">
+     (Required)
+    </span>
+</label>
+<input accept="image/*" name="photo_engine" required="" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Battery
+   </label>
+<input accept="image/*" name="photo_battery" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Tires
+   </label>
+<input accept="image/*" name="photo_tires" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<label>
+    Leaks
+   </label>
+<input accept="image/*" name="photo_leaks" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<strong style="display:block;text-align:center;margin-top:1.5rem;">
+    Other
+   </strong>
+<label>
+    Damage Photos
+   </label>
+<input accept="image/*" multiple="" name="photo_damage[]" style="margin-bottom:1rem; border: 2px solid #001F3F; padding: 6px; border-radius: 10px; background: #fff;" type="file"/>
+<br/>
+<!-- Step 5: Contact Info -->
+<h3 style="text-align:center;">
+    Step 5: Contact Info
+   </h3>
+<input id="name" name="name" placeholder="Full Name" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="phone" name="phone" placeholder="Phone Number" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<input id="email" name="email" placeholder="Email Address" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto;"/>
+<!-- Submit Button -->
+<div style="text-align:center;">
+<button class="glow-button" style="width:80%; max-width:300px; margin-top:2rem;" type="submit">
+     Get My Offer
+    </button>
+</div>
+</form></section></div>
