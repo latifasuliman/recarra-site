@@ -455,7 +455,30 @@ label {
 input[type="file"] {
   display: none;
 }
-</style></head>
+</style>
+<style>
+  .photo-block {
+    background: #fefefe;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid #001F3F; /* Dark Blue */
+  }
+  .photo-block label {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .photo-block input[type="file"] {
+    width: 100%;
+    padding: 0.6rem;
+    border: 2px solid #001F3F;
+    border-radius: 8px;
+    background: #fff;
+  }
+</style>
+</head>
 <script>
  let seconds = 480;
     const timer = document.getElementById('timer');
@@ -479,8 +502,8 @@ input[type="file"] {
   };
 </script>
 <div style="display:flex; justify-content:center; align-items:center; height:auto; min-height:100vh; padding:2rem; ">
-<section id="quickForm" style="padding: 2rem; max-width: 480px; margin: auto; background: #ffffff; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1px solid #ddd; font-family: 'Poppins', sans-serif;"><div style="height: 1px; background:#ccc; width:100%; margin-bottom:1.5rem; "></div>
-<div style="border-radius: 16px; padding: 1rem 1.5rem; margin-bottom: 1.5rem; background: linear-gradient(to right, #ffffff, #f0f8ff); box-shadow: 0 0 20px rgba(0,0,0,0.1); "><h1 id="recarraTitle" style="font-size:clamp(2rem, 6vw, 4rem); font-weight:900; margin-bottom:1rem; transition: all 1s ease-in-out; animation: fadeColorFont 8s infinite; ">Recarra</h1></div>
+<section id="quickForm" style="padding: 2rem; max-width: 480px; margin: auto; background: #ffffff; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1px solid #ddd; font-family: 'Poppins', sans-serif;"><div style="display: flex; flex-direction: column; align-items: flex-start; padding: 0 2rem; gap: 0.5rem; margin: 1rem auto;"></div>
+<div style="display: flex; flex-direction: column; align-items: flex-start; padding: 0 2rem; gap: 0.5rem; margin: 1rem auto;"><h1 id="recarraTitle" style="font-size:clamp(2rem, 6vw, 4rem); font-weight:900; margin-bottom:1rem; transition: all 1s ease-in-out; animation: fadeColorFont 8s infinite; ">Recarra</h1></div>
 <h2 style="font-size:1.5rem; font-weight:900; text-align:center; margin-bottom:1rem; ">
    Sell Your Car Instantly
   </h2>
@@ -554,81 +577,8 @@ input[type="file"] {
 </select>
 <textarea name="notes" placeholder="Optional Notes..." style="width: 80%; max-width: 300px; display: block; margin: 1rem auto; "></textarea>
 <!-- Step 4: Photo Uploads -->
-<h3 style="text-align:center; ">
-    Step 4: Upload Photos
-   </h3>
-<strong style="display:block; text-align:center; margin-bottom:0.5rem; ">
-    Exterior
-   </strong>
-<label>
-    Front View
-   </label><br/><img id="dashboard_preview" src="" style="margin-top:10px; max-width:100%; display:block; "/><br/><img id="engine_preview" src="" style="margin-top:10px; max-width:100%; display:block; "/><br/><img id="left_preview" src="" style="margin-top:10px; max-width:100%; display:block; "/><br/><img id="right_preview" src="" style="margin-top:10px; max-width:100%; display:block; "/><br/><img id="front_preview" src="" style="margin-top:10px; max-width:100%; display:block; "/>
-<input accept="image/*" name="photo_front" required="" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<label>
-    Left Side
-   </label>
-<input accept="image/*" name="photo_left" required="" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<label>
-    Right Side
-   </label>
-<input accept="image/*" name="photo_right" required="" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<label>
-    Rear View
-   </label>
-<input accept="image/*" name="photo_rear" required="" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<strong style="display:block; text-align:center; margin-top:1.5rem; ">
-    Interior
-   </strong>
-<label>
-    Dashboard (Mileage)
-   </label>
-<input accept="image/*" name="photo_dashboard" required="" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<label>
-    Keys
-   </label>
-<input accept="image/*" name="photo_keys" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<strong style="display:block; text-align:center; margin-top:1.5rem; ">
-    Engine &amp; Mechanics
-   </strong>
-<label>
-    Engine Compartment
-    <span style="color:red; ">
-     (Required)
-    </span>
-</label>
-<input accept="image/*" name="photo_engine" required="" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<label>
-    Battery
-   </label>
-<input accept="image/*" name="photo_battery" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<label>
-    Tires
-   </label>
-<input accept="image/*" name="photo_tires" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<label>
-    Leaks
-   </label>
-<input accept="image/*" name="photo_leaks" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
-<strong style="display:block; text-align:center; margin-top:1.5rem; ">
-    Other
-   </strong>
-<label>
-    Damage Photos
-   </label>
-<input accept="image/*" multiple="" name="photo_damage[]" style="margin-bottom:1rem; padding: 6px; border-radius: 10px; background: #fff; " type="file"/>
-<br/>
 <!-- Step 5: Contact Info -->
-<h3 style="text-align:center; ">
+<h2>Step 4: Upload Vehicle Photos</h2><div class="dropzone" onclick="document.getElementById('upload_damage').click();" style="border: 2px dashed black; border-radius: 12px; padding: 1.5rem; background: #fff; margin: 1.2rem auto; max-width: 320px; transition: border-color 0.3s ease; cursor: pointer;"><label for="upload_damage" style="color:red; font-weight:bold; text-align:center; display:block;">Damage Photos</label><span>Drag &amp; Drop or Click to Upload (Optional)</span><input accept="image/*" id="upload_damage" multiple="" name="photo_damage[]" onchange="previewImage(event, 'preview_damage')" type="file"/><img class="preview" id="preview_damage"/></div><div class="dropzone" onclick="document.getElementById('upload_engine').click();" style="border: 2px dashed black; border-radius: 12px; padding: 1.5rem; background: #fff; margin: 1.2rem auto; max-width: 320px; transition: border-color 0.3s ease; cursor: pointer;"><label for="upload_engine" style="color:red; font-weight:bold; text-align:center; display:block;">Engine Compartment *</label><span>Drag &amp; Drop or Click to Upload</span><input accept="image/*" id="upload_engine" name="photo_engine" onchange="previewImage(event, 'preview_engine')" required="" type="file"/><img class="preview" id="preview_engine"/></div><div class="dropzone" onclick="document.getElementById('upload_dashboard').click();" style="border: 2px dashed black; border-radius: 12px; padding: 1.5rem; background: #fff; margin: 1.2rem auto; max-width: 320px; transition: border-color 0.3s ease; cursor: pointer;"><label for="upload_dashboard" style="color:red; font-weight:bold; text-align:center; display:block;">Dashboard (Mileage) *</label><span>Drag &amp; Drop or Click to Upload</span><input accept="image/*" id="upload_dashboard" name="photo_dashboard" onchange="previewImage(event, 'preview_dashboard')" required="" type="file"/><img class="preview" id="preview_dashboard"/></div><div class="dropzone" onclick="document.getElementById('upload_rear').click();" style="border: 2px dashed black; border-radius: 12px; padding: 1.5rem; background: #fff; margin: 1.2rem auto; max-width: 320px; transition: border-color 0.3s ease; cursor: pointer;"><label for="upload_rear" style="color:red; font-weight:bold; text-align:center; display:block;">Rear View *</label><span>Drag &amp; Drop or Click to Upload</span><input accept="image/*" id="upload_rear" name="photo_rear" onchange="previewImage(event, 'preview_rear')" required="" type="file"/><img class="preview" id="preview_rear"/></div><div class="dropzone" onclick="document.getElementById('upload_right').click();" style="border: 2px dashed black; border-radius: 12px; padding: 1.5rem; background: #fff; margin: 1.2rem auto; max-width: 320px; transition: border-color 0.3s ease; cursor: pointer;"><label for="upload_right" style="color:red; font-weight:bold; text-align:center; display:block;">Right Side *</label><span>Drag &amp; Drop or Click to Upload</span><input accept="image/*" id="upload_right" name="photo_right" onchange="previewImage(event, 'preview_right')" required="" type="file"/><img class="preview" id="preview_right"/></div><div class="dropzone" onclick="document.getElementById('upload_left').click();" style="border: 2px dashed black; border-radius: 12px; padding: 1.5rem; background: #fff; margin: 1.2rem auto; max-width: 320px; transition: border-color 0.3s ease; cursor: pointer;"><label for="upload_left" style="color:red; font-weight:bold; text-align:center; display:block;">Left Side *</label><span>Drag &amp; Drop or Click to Upload</span><input accept="image/*" id="upload_left" name="photo_left" onchange="previewImage(event, 'preview_left')" required="" type="file"/><img class="preview" id="preview_left"/></div><div class="dropzone" onclick="document.getElementById('upload_front').click();" style="border: 2px dashed black; border-radius: 12px; padding: 1.5rem; background: #fff; margin: 1.2rem auto; max-width: 320px; transition: border-color 0.3s ease; cursor: pointer;"><label for="upload_front" style="color:red; font-weight:bold; text-align:center; display:block;">Front View *</label><span>Drag &amp; Drop or Click to Upload</span><input accept="image/*" id="upload_front" name="photo_front" onchange="previewImage(event, 'preview_front')" required="" type="file"/><img class="preview" id="preview_front"/></div><h3 style="text-align:center; ">
     Step 5: Contact Info
    </h3>
 <input id="name" name="name" placeholder="Full Name" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto; "/>
@@ -636,23 +586,23 @@ input[type="file"] {
 <input id="email" name="email" placeholder="Email Address" required="" style="width: 80%; max-width: 300px; display: block; margin: 1rem auto; "/>
 <!-- Step 6: Pickup and Payment -->
 <h3 style="text-align:center; ">Will this be a same-day pickup?</h3>
-<div style="text-align:center; margin-bottom: 1rem; ">
-<label style="margin-right: 1rem; ">
+<div style="display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem; margin: 2rem auto; max-width: 320px; background: #f9f9f9; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+<label style="display: flex; align-items: center; gap: 0.8rem; font-weight: 600; font-size: 1rem; background: white; border: 1px solid #ccc; border-radius: 10px; padding: 0.75rem 1rem; width: 100%; cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s;">
 <input id="pickup_choice_yes" name="pickup_choice" required="" type="radio" value="yes"/>
     Yes
   </label>
-<label>
+<label style="display: flex; align-items: center; gap: 0.8rem; font-weight: 600; font-size: 1rem; background: white; border: 1px solid #ccc; border-radius: 10px; padding: 0.75rem 1rem; width: 100%; cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s;">
 <input id="pickup_choice_no" name="pickup_choice" type="radio" value="no"/>
     No
   </label>
 </div>
 <h3 style="text-align:center; ">How would you like to receive your payment?</h3>
-<div style="text-align:center; margin-bottom: 1rem; ">
-<label style="display:block; margin: 0.5rem 0; ">
+<div style="display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem; margin: 2rem auto; max-width: 320px; background: #f9f9f9; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+<label style="display: flex; align-items: center; gap: 0.8rem; font-weight: 600; font-size: 1rem; background: white; border: 1px solid #ccc; border-radius: 10px; padding: 0.75rem 1rem; width: 100%; cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s;">
 <input name="payout_method_choice" required="" type="radio" value="debit_card"/>
     Instant Debit Card (Visa/Mastercard)
   </label>
-<label style="display:block; margin: 0.5rem 0; ">
+<label style="display: flex; align-items: center; gap: 0.8rem; font-weight: 600; font-size: 1rem; background: white; border: 1px solid #ccc; border-radius: 10px; padding: 0.75rem 1rem; width: 100%; cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s;">
 <input name="payout_method_choice" type="radio" value="cash"/>
     Cash on Pickup
   </label>
@@ -705,7 +655,7 @@ input[type="file"] {
 <div id="chatLauncher" onclick="toggleChatWindow()" style="width:60px; height:60px; border-radius:50%; background:#003366; color:white; display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:bold; box-shadow:0 0 12px rgba(0,0,0,0.4); animation:colorCycle 8s infinite, bubblePulse 2s infinite; cursor:pointer; text-transform:uppercase; ">
         Help
   </div>
-<div id="chatWindow" style="display:none; width:300px; max-height:400px; background:white; border-radius:12px; box-shadow:0 0 15px rgba(0,0,0,0.2); position:absolute; bottom:70px; right:0; overflow:hidden; flex-direction:column; ">
+<div id="chatWindow" style="display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem; margin: 2rem auto; max-width: 320px; background: #f9f9f9; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
 <div style="background:#003366; color:white; padding:0.75rem; text-align:center; font-weight:bold; display:flex; justify-content:space-between; ">
 <span>Need Help?</span><span onclick="toggleChatWindow()" style="cursor:pointer; ">✖</span>
 </div>
@@ -757,7 +707,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-<div id="trustRibbon" style="position:fixed; bottom:0; width:100%; color:white; text-align:center; font-size:0.9rem; padding:0.75rem 1rem; z-index:9999; box-shadow:0 -2px 6px rgba(0,0,0,0.2); ">
+<div id="trustRibbon" style="display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem; margin: 2rem auto; max-width: 320px; background: #f9f9f9; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
   Trusted Buyer | Instant Cash | No Lowball Offers | $8888 Max Offer
 </div>
 <script>
@@ -1089,4 +1039,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 </script>
-</body></html>
+<script>
+  const fields = [
+    "front", "left", "right", "back", "dashboard", "keys",
+    "engine", "battery", "tires", "leaks"
+  ];
+  fields.forEach(id => {
+    const input = document.getElementById(`photo_${id}`);
+    const preview = document.getElementById(`photo_${id}_preview`);
+    if (input && preview) {
+      input.addEventListener('change', () => {
+        const file = input.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = e => preview.src = e.target.result;
+          reader.readAsDataURL(file);
+        }
+      });
+    }
+  });
+</script>
+<script>
+  function previewImage(event, previewId) {
+    const reader = new FileReader();
+    reader.onload = function () {
+      const output = document.getElementById(previewId);
+      output.src = reader.result;
+      output.style.display = 'block';
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+</script></body></html>

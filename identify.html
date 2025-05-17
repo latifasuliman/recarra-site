@@ -226,15 +226,7 @@ input:focus, select:focus {
 <button onclick="scanVIN()" style="width: 80%; max-width: 300px; margin: 1rem auto 1rem; padding: 0.75rem; border-radius: 10px; background: #001F3F; color: white; font-weight: bold; border: none;">Scan VIN</button>
 <input id="smartVIN" oninput="suggestVIN(this.value)" placeholder="Enter VIN" style="width: 80%; max-width: 300px; padding: 0.75rem; border: 2px solid #001F3F; border-radius: 10px; margin: 0 auto 1rem; font-size: 1rem; display: block; text-align: center;"/>
 <div id="smartSuggestions" style="font-size: 0.9rem; color: #001F3F;"></div>
-<p><a href="#" onclick="redirectWithRef()" style="color:#003366;">Skip and fill manually</a></p>
-<script>
-function redirectWithRef() {
-  const params = new URLSearchParams(window.location.search);
-  const ref = params.get("ref");
-  const dest = ref ? `homepage.html?ref=${ref}` : "homepage.html";
-  window.location.href = dest;
-}
-</script>
+<p><a href="homepage.html" style="color:#003366;">Skip and fill manually</a></p>
 </div>
 <div id="formSection" style="display:none;">
 <h2>Get Your Instant Offer</h2>
@@ -424,7 +416,7 @@ function startForm() {
 <div id="chatLog" style="flex:1;padding:0.75rem;font-size:0.9rem;overflow-y:auto;height:220px;">
 <div><strong>Bot:</strong> Welcome! How can I assist you today?</div>
 </div>
-<div style="display:flex;border-top:1px solid #ccc;">
+<div style="display:flex;/* border-top removed */1px solid #ccc;">
 <input id="chatInput" onkeydown="if(event.key==='Enter')sendChat()" placeholder="Type here..." style="flex:1;padding:0.5rem;border:none;font-size:0.9rem;"/>
 <button onclick="sendChat()" style="padding:0.5rem 1rem;background:#003366;color:white;border:none;">Send</button>
 </div>
