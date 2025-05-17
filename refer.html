@@ -15,9 +15,8 @@
 </head>
 <body>
   <h2>Invite Friends — Earn $100 Each Time!</h2>
-  <p>Enter your name or custom referral code below:</p>
-  <input type="text" id="refCode" placeholder="e.g. ahmed" />
-  <button onclick="generateLink()">Generate My Link</button>
+  <p>Click below to generate your unique referral code:</p>
+  <button onclick="generateReferralCode()">Generate My Code</button>
   <div id="referralOutput" class="output"></div>
   <div class="share-buttons" style="display:none;" id="shareBtns">
     <button onclick="copyLink()">Copy Link</button>
@@ -28,10 +27,10 @@
   <script>
     let generatedLink = "";
 
-    function generateLink() {
-      const code = document.getElementById("refCode").value.trim();
-      if (!code) return alert("Please enter a referral code.");
-      generatedLink = "https://recarra.com/?ref=" + encodeURIComponent(code);
+    function generateReferralCode() {
+      const rand = Math.random().toString(36).substr(2, 6).toUpperCase();
+      const code = "REF" + rand;
+      generatedLink = window.location.origin + "/?ref=" + code;
       document.getElementById("referralOutput").innerHTML = "Your Link:<br><a href='" + generatedLink + "' target='_blank'>" + generatedLink + "</a>";
       document.getElementById("shareBtns").style.display = "block";
     }
