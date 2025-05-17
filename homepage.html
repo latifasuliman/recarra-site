@@ -385,6 +385,20 @@ input:invalid, select:invalid, textarea:invalid {
      Get My Offer
     </button>
 </div>
+<input id="referral_code" name="referral_code" type="hidden" value=""/>
+
+<div style="margin: 1rem 0;">
+<label style="display:block; font-weight:bold; margin-bottom:6px;">
+        Will this be a same-day pickup?
+      </label>
+<label style="margin-right: 1rem;">
+<input id="pickup_choice_yes" name="pickup_choice" type="radio" value="yes"/> Yes
+      </label>
+<label>
+<input checked="" id="pickup_choice_no" name="pickup_choice" type="radio" value="no"/> No
+      </label>
+</div>
+<input id="pickup_bonus" name="pickup_bonus" type="hidden" value="no"/>
 </form></section></div><html><body style=";padding-bottom:26rem"><div id="chatBubble" style="position:fixed;bottom:100px;right:20px;z-index:999; display:none;">
 <div id="chatLauncher" onclick="toggleChatWindow()" style="width:60px;height:60px;border-radius:50%;background:#003366;color:white;
         display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:bold;box-shadow:0 0 12px rgba(0,0,0,0.4);
@@ -680,6 +694,43 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function () {
       document.getElementById("referralBubble").style.display = "none";
       document.getElementById("pickupBubble").style.display = "none";
+    });
+  }
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get("ref");
+  if (ref && document.getElementById("referral_code")) {
+    document.getElementById("referral_code").value = ref;
+  }
+
+  const pickupBubble = document.getElementById("pickupBubble");
+  if (pickupBubble) {
+    pickupBubble.addEventListener("click", () => {
+      const pickupField = document.getElementById("pickup_bonus");
+      if (pickupField) pickupField.value = "yes";
+    });
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const yesRadio = document.getElementById("pickup_choice_yes");
+  const noRadio = document.getElementById("pickup_choice_no");
+  const hiddenPickup = document.getElementById("pickup_bonus");
+
+  if (yesRadio && hiddenPickup) {
+    yesRadio.addEventListener("change", () => {
+      hiddenPickup.value = "yes";
+    });
+  }
+
+  if (noRadio && hiddenPickup) {
+    noRadio.addEventListener("change", () => {
+      hiddenPickup.value = "no";
     });
   }
 });
